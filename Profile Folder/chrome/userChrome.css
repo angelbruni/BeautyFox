@@ -1,0 +1,1452 @@
+:root {
+  --chrome-content-separator-color: #6f6f6f !important;
+  --urlbar-min-height: 24px !important;
+  --tab-block-margin: 0 !important;
+  --tab-border-radius: 0 !important;
+  --toolbarbutton-hover-background: transparent !important;
+  --toolbarbutton-active-background: transparent !important;
+  --toolbarbutton-disabled-opacity: 1 !important;
+  --toolbar-field-background-color: rgba(254,254,254,.65) !important;
+  --urlbar-box-hover-bgcolor: transparent !important;
+  --urlbar-box-active-bgcolor: transparent !important;
+  --urlbar-height: 24.00px !important;
+  --focus-outline-color: transparent !important;
+  --browser-outer-border-color: rgba(253, 253, 253, .65);
+  --browser-inner-border-color: rgba(24, 24, 24, .57);
+  --tooltip_background: linear-gradient(0deg, rgb(228, 229, 240) 0%, rgb(255, 255, 255) 100%);
+  --tootlip_text-colour: rgb(87, 87, 87);
+  --tooltip_border-colour: rgb(118, 118, 118);
+  --pop-up_shadow: 2px 2px 2px 0px rgba(0, 0, 0, .5);
+  --hide_unifiedExtensions: 0;
+  --option_tabsOnNavRow: 0;
+}
+
+* {
+  font-size: 9pt !important;
+}
+
+toolbar:not([nowindowdrag=true], [customizing=true]) {
+  -moz-window-dragging: no-drag !important;
+}
+
+#main-window[sizemode=maximized] #nav-bar {
+  padding-top: 26px !important;
+}
+#main-window[sizemode=maximized] #PersonalToolbar, #main-window[sizemode=maximized] #toolbar-menubar, #main-window[sizemode=fullscreen] #PersonalToolbar, #main-window[sizemode=fullscreen] #toolbar-menubar {
+  border-left: none !important;
+  border-right: none !important;
+  padding-inline: 0 !important;
+  padding: 0 !important;
+}
+#main-window[sizemode=maximized] #PersonalToolbar::before, #main-window[sizemode=maximized] #toolbar-menubar::before, #main-window[sizemode=fullscreen] #PersonalToolbar::before, #main-window[sizemode=fullscreen] #toolbar-menubar::before {
+  width: 100% !important;
+  left: 0 !important;
+}
+#main-window[sizemode=maximized] #toolbar-menubar, #main-window[sizemode=fullscreen] #toolbar-menubar {
+  padding: 0px 3px 1px 3px !important;
+}
+#main-window[sizemode=maximized] #browser, #main-window[sizemode=fullscreen] #browser {
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  padding: 0 !important;
+}
+#nav-bar-customization-target {
+  align-items: end !important;
+}
+
+#navigator-toolbox {
+  border-bottom: none !important;
+  position: relative;
+}
+#navigator-toolbox::after {
+  position: absolute;
+  content: "";
+  width: calc(100% - 4px);
+  left: 2px;
+  bottom: 0;
+  height: 1px;
+  border-bottom: 1px solid var(--chrome-content-separator-color);
+}
+
+:root:is([privatebrowsingmode=temporary]) #urlbar-input-container::before {
+  content: "InPrivate";
+  text-align: center;
+  color: white;
+  background: linear-gradient(0deg, rgb(0, 66, 110) 0%, rgb(0, 122, 187));
+  min-height: 22px;
+  height: 100%;
+  width: 58px;
+  padding-top: 2px;
+}
+
+#titlebar {
+  order: 2;
+  flex-direction: column-reverse;
+  justify-content: start;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
+}
+
+#toolbar-menubar[autohide=true][inactive=true]:not([customizing=true]) {
+  height: 0 !important;
+}
+
+#toolbar-menubar {
+  border-top: 1px solid var(--browser-outer-border-color);
+  border-left: 1px solid var(--browser-outer-border-color);
+  border-right: 1px solid var(--browser-outer-border-color);
+  min-height: 2px !important;
+  background-color: transparent;
+  padding: 0px 3px 1px 3px;
+  height: 22px !important;
+  position: relative;
+  border-radius: 3px 3px 0 0;
+}
+#toolbar-menubar::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: calc(100% - 2px);
+  height: calc(100% - 1px);
+  background-color: var(--toolbar-bgcolor);
+  z-index: -1;
+}
+#toolbar-menubar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100% - 2px);
+  height: calc(100% - 1px);
+  border-top: 1px solid var(--browser-inner-border-color) !important;
+  border-left: 1px solid var(--browser-inner-border-color) !important;
+  border-right: 1px solid var(--browser-inner-border-color) !important;
+  pointer-events: none;
+  border-radius: 2px 2px 0 0;
+}
+#toolbar-menubar[inactive=true] {
+  max-height: 2px !important;
+}
+#toolbar-menubar[inactive=true] #menubar-items {
+  height: 0 !important;
+  overflow: hidden;
+}
+
+#menubar-items {
+  margin-top: 0 !important;
+}
+
+#main-menubar {
+  height: 100%;
+}
+#main-menubar menu {
+  padding: 0 2px;
+}
+#main-menubar menu[_moz-menuactive=true] {
+  color: white !important;
+}
+
+.titlebar-spacer {
+  display: none;
+}
+
+#nav-bar {
+  order: 1;
+  background-color: transparent !important;
+  padding-top: 18px !important;
+  -moz-window-dragging: drag !important;
+}
+
+#urlbar-container {
+  padding-right: 0px;
+  margin-inline-start: 1px !important;
+  margin-inline-end: 1px !important;
+  --urlbar-container-height: 24px !important;
+}
+#urlbar-container:hover {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+#stop-reload-button {
+  z-index: 3;
+}
+#stop-reload-button #reload-button {
+  list-style-image: none !important;
+  -webkit-mask: url(images/refresh-mask.svg);
+          mask: url(images/refresh-mask.svg);
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s steps(5);
+}
+#stop-reload-button #reload-button:hover {
+  background-color: rgb(0, 161, 220);
+}
+#stop-reload-button #reload-button:active {
+  background-color: rgb(3, 132, 206);
+  transition: none;
+}
+#stop-reload-button #stop-button {
+  list-style-image: none !important;
+  -webkit-mask: url(images/stop-mask.svg);
+          mask: url(images/stop-mask.svg);
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  background-color: #75787B;
+  transition: background-color 0.3s steps(5);
+}
+#stop-reload-button #stop-button:hover {
+  background-color: #E73C3C !important;
+}
+#stop-reload-button #stop-button:active {
+  background-color: #E10C0C !important;
+  transition: none;
+}
+
+#urlbar {
+  --urlbar-height: 24.00px !important;
+  top: 0 !important;
+  max-height: var(--urlbar-height) !important;
+}
+
+#urlbar[breakout][breakout-extend] {
+  left: 0 !important;
+  width: 100% !important;
+}
+
+#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+  height: var(--urlbar-height) !important;
+}
+
+#urlbar-input-container {
+  padding: 0 22px 0 0 !important;
+  border-radius: 0 !important;
+}
+
+.urlbar-input-box {
+  padding: 0 15px 0 0;
+  position: relative;
+}
+.urlbar-input-box::after {
+  content: "";
+  right: 0;
+  top: 1px;
+  transform: translateX(15px);
+  width: 15px;
+  height: 22px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-mask: url(images/dropdown-mask.svg);
+          mask: url(images/dropdown-mask.svg);
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+}
+
+#favimginurlbar {
+  width: 16px;
+  height: 16px;
+  margin-left: 3px;
+  margin-right: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#PersonalToolbar {
+  order: 3;
+  height: 29px;
+  padding-inline: 2px !important;
+  border-left: 1px solid var(--browser-outer-border-color);
+  border-right: 1px solid var(--browser-outer-border-color);
+  position: relative;
+  padding: 0 1px;
+  background-color: transparent !important;
+}
+#PersonalToolbar::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 0px;
+  width: calc(100% - 2px);
+  height: calc(100% - 0px);
+  background-color: var(--toolbar-bgcolor);
+  z-index: -1;
+}
+#PersonalToolbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100% - 2px);
+  height: calc(100% - 1px);
+  border-left: 1px solid var(--browser-inner-border-color) !important;
+  border-right: 1px solid var(--browser-inner-border-color) !important;
+  pointer-events: none;
+}
+
+#PlacesToolbarItems .bookmark-item {
+  margin: 2px 0 3px 0 !important;
+  padding: 3px !important;
+  max-width: 175px !important;
+  border: 1px solid transparent;
+  position: relative;
+}
+#PlacesToolbarItems .bookmark-item::before, #PlacesToolbarItems .bookmark-item::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 3px);
+  left: 0;
+  top: 1px;
+  opacity: 0;
+  border-radius: 3px;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+#PlacesToolbarItems .bookmark-item::before {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: linear-gradient(180deg, rgba(250, 250, 250, 0.47) 0%, rgba(197, 197, 197, 0.19) 50%, rgba(109, 109, 109, 0.16) 49%, rgba(240, 240, 240, 0.07));
+  outline: 1px solid rgba(255, 255, 255, 0.47);
+  outline-offset: -2px;
+  opacity: 0;
+}
+#PlacesToolbarItems .bookmark-item::after {
+  border: 1px solid rgba(0, 0, 0, 0.65);
+  box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.33);
+  opacity: 0;
+}
+#PlacesToolbarItems .bookmark-item:hover::before {
+  opacity: 1;
+}
+#PlacesToolbarItems .bookmark-item:active, #PlacesToolbarItems .bookmark-item[open=true] {
+  padding-top: 4px !important;
+  padding-left: 4px !important;
+  padding-right: 2px !important;
+  padding-bottom: 2px !important;
+}
+#PlacesToolbarItems .bookmark-item:active::before, #PlacesToolbarItems .bookmark-item[open=true]::before {
+  opacity: 0;
+}
+#PlacesToolbarItems .bookmark-item:active::after, #PlacesToolbarItems .bookmark-item[open=true]::after {
+  opacity: 1;
+}
+#PlacesToolbarItems .bookmark-item[type=menu] {
+  padding-right: 0 !important;
+}
+#PlacesToolbarItems .bookmark-item[type=menu] .toolbarbutton-icon {
+  list-style-image: url("images/folder.png");
+}
+#PlacesToolbarItems .bookmark-item[type=menu] .toolbarbutton-text::after {
+  content: "";
+  width: 17px;
+  height: 16px;
+  background-color: black;
+  -webkit-mask-image: url(images/dropdown-mask.svg);
+          mask-image: url(images/dropdown-mask.svg);
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+}
+
+#downloads-indicator-anchor {
+  display: none;
+}
+
+toolbarbutton {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+toolbarbutton#home-button, toolbarbutton#bookmarks-menu-button, toolbarbutton#PanelUI-menu-button, toolbarbutton#unified-extensions-button, toolbarbutton#downloads-button {
+  list-style-image: none !important;
+  background-color: white;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  position: relative;
+  transition: background-color 0.3s steps(5);
+}
+toolbarbutton#home-button:active, toolbarbutton#home-button[open=true], toolbarbutton#bookmarks-menu-button:active, toolbarbutton#bookmarks-menu-button[open=true], toolbarbutton#PanelUI-menu-button:active, toolbarbutton#PanelUI-menu-button[open=true], toolbarbutton#unified-extensions-button:active, toolbarbutton#unified-extensions-button[open=true], toolbarbutton#downloads-button:active, toolbarbutton#downloads-button[open=true] {
+  transition: none;
+}
+toolbarbutton#home-button::before, toolbarbutton#bookmarks-menu-button::before, toolbarbutton#PanelUI-menu-button::before, toolbarbutton#unified-extensions-button::before, toolbarbutton#downloads-button::before {
+  content: "";
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0;
+  width: 0;
+  height: 100%;
+  width: 100%;
+}
+toolbarbutton#home-button {
+  -webkit-mask-image: url(images/home-mask.svg);
+          mask-image: url(images/home-mask.svg);
+}
+toolbarbutton#home-button:hover {
+  background-color: rgb(0, 161, 220);
+}
+toolbarbutton#home-button:active {
+  background-color: rgb(3, 132, 206);
+}
+toolbarbutton#home-button::before {
+  background-image: url(images/home.svg);
+}
+toolbarbutton#bookmarks-menu-button {
+  -webkit-mask-image: url(images/favorites-mask.svg);
+          mask-image: url(images/favorites-mask.svg);
+}
+toolbarbutton#bookmarks-menu-button:hover {
+  background-color: rgb(255, 204, 0);
+}
+toolbarbutton#bookmarks-menu-button:active, toolbarbutton#bookmarks-menu-button[open=true] {
+  background-color: rgb(252, 180, 5);
+}
+toolbarbutton#bookmarks-menu-button::before {
+  background-image: url(images/favorites.svg);
+}
+toolbarbutton#unified-extensions-button {
+  -webkit-mask-image: url(images/extensions-mask.svg);
+          mask-image: url(images/extensions-mask.svg);
+}
+toolbarbutton#unified-extensions-button:hover {
+  background-color: hsl(115, 94%, 53%);
+}
+toolbarbutton#unified-extensions-button:active, toolbarbutton#unified-extensions-button[open=true] {
+  background-color: hsl(115, 69%, 49%);
+}
+toolbarbutton#unified-extensions-button::before {
+  background-image: url(images/extensions.svg);
+}
+toolbarbutton#downloads-button {
+  -webkit-mask-image: url(images/downloads-mask.svg);
+          mask-image: url(images/downloads-mask.svg);
+}
+toolbarbutton#downloads-button:hover {
+  background-color: rgb(0, 161, 220);
+}
+toolbarbutton#downloads-button:active, toolbarbutton#downloads-button[open=true] {
+  background-color: rgb(3, 132, 206);
+}
+toolbarbutton#downloads-button::before {
+  background-image: url(images/downloads.svg);
+}
+toolbarbutton#PanelUI-menu-button {
+  -webkit-mask-image: url(images/settings-mask.svg);
+          mask-image: url(images/settings-mask.svg);
+}
+toolbarbutton#PanelUI-menu-button:hover {
+  background-color: rgb(0, 161, 220);
+}
+toolbarbutton#PanelUI-menu-button:active, toolbarbutton#PanelUI-menu-button[open=true] {
+  background-color: rgb(3, 132, 206);
+}
+toolbarbutton#PanelUI-menu-button::before {
+  background-image: url(images/settings.svg);
+}
+
+#statuspanel {
+  left: 5px !important;
+  bottom: 5px !important;
+}
+#statuspanel #statuspanel-label {
+  border-radius: 4px;
+  background: var(--tooltip_background) !important;
+  padding: 0 5px 2px 5px;
+  font-size: 9pt;
+  text-align: left;
+  font-weight: normal;
+  color: var(--tootlip_text-colour) !important;
+  border: 1px solid var(--tooltip_border-colour) !important;
+  box-shadow: var(--pop-up_shadow) !important;
+  will-change: opacity;
+  transition: opacity 0.2s;
+}
+
+#urlbar-background {
+  border-top: 1px solid rgba(0, 0, 0, 0.5) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.5) !important;
+  border-radius: 0 !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.5) !important;
+}
+
+.identity-box-button {
+  padding-inline: 0 !important;
+}
+
+#identity-box {
+  order: 20;
+  flex-direction: row-reverse;
+  margin-inline-end: 0 !important;
+  padding-left: 2px !important;
+}
+#identity-box #identity-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-mask-position: center !important;
+          mask-position: center !important;
+  -webkit-mask-repeat: no-repeat !important;
+          mask-repeat: no-repeat !important;
+  width: 10px !important;
+}
+#identity-box.verifiedDomain #identity-icon {
+  list-style-image: none !important;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-mask: url(images/lock-mask.svg);
+          mask: url(images/lock-mask.svg);
+  transition: background-color 0.3s steps(5);
+}
+#identity-box.verifiedDomain:hover #identity-icon {
+  background-color: rgb(255, 204, 0);
+}
+#identity-box.verifiedDomain:active #identity-icon {
+  background-color: rgb(252, 180, 5);
+}
+
+#urlbar[open] > #urlbar-background {
+  box-shadow: none !important;
+}
+
+#urlbar[focused=true] > #urlbar-background {
+  box-shadow: none !important;
+}
+
+#searchbar {
+  padding: 0 0 0 7px;
+  border: 1px solid rgba(96, 96, 96, 0.78) !important;
+  background-color: var(--toolbar-field-background-color) !important;
+  border-radius: 0 !important;
+}
+#searchbar:hover {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+#searchbar:focus-within {
+  box-shadow: none !important;
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.search-go-container {
+  display: none;
+}
+
+#search-container {
+  margin-inline-start: 6px !important;
+  margin-inline-end: 9px !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  height: 24px;
+}
+
+.searchbar-search-button {
+  order: 2;
+  background-image: url(images/search.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 22px !important;
+}
+.searchbar-search-button .searchbar-search-icon {
+  list-style-image: none !important;
+  fill-opacity: unset !important;
+}
+
+.searchbar-textbox {
+  order: 1;
+}
+
+.searchbar-textbox::-moz-placeholder {
+  display: none !important;
+}
+
+.searchbar-textbox::placeholder {
+  display: none !important;
+}
+
+#favimginurlbar[style='list-style-image: url("chrome://branding/content/icon32.png");'],
+#favimginurlbar[style='list-style-image: url("chrome://global/skin/icons/info.svg");'],
+#favimginurlbar[style='list-style-image: url("chrome://global/skin/icons/settings.svg");'],
+#favimginurlbar[style='list-style-image: url("chrome://browser/skin/privatebrowsing/favicon.svg");'] {
+  list-style-image: url(images/iexplore_16.png) !important;
+}
+
+#nav-bar {
+  padding-right: 7px;
+}
+#nav-bar #stop-reload-button {
+  align-items: center;
+  width: 22px;
+}
+#nav-bar .toolbarbutton-icon, #nav-bar .toolbarbutton-badge-stack {
+  padding: 0 !important;
+  height: 16px !important;
+  width: 17px !important;
+}
+#nav-bar #reload-button, #nav-bar #stop-button {
+  height: 24px;
+  width: 22px;
+  overflow: hidden;
+  margin-bottom: 0 !important;
+}
+#nav-bar #reload-button .toolbarbutton-icon, #nav-bar #stop-button .toolbarbutton-icon {
+  height: 16px !important;
+  width: 16px !important;
+}
+#nav-bar toolbarbutton {
+  height: 24px !important;
+  width: 24px !important;
+  margin-bottom: 2px !important;
+}
+#nav-bar .toolbarbutton-icon {
+  height: 16px !important;
+  width: 17px !important;
+}
+#nav-bar toolbaritem {
+  padding-block: 0 !important;
+  margin-bottom: 2px;
+}
+#nav-bar toolbaritem#urlbar-container, #nav-bar toolbaritem#stop-reload-button {
+  margin-bottom: 3px !important;
+}
+#nav-bar #PanelUI-button {
+  align-items: end;
+}
+#nav-bar #PanelUI-menu-button {
+  padding: 0 !important;
+  height: 24px;
+  margin-bottom: 0 !important;
+}
+
+.titlebar-buttonbox {
+  width: 100%;
+  height: 21px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  justify-content: end;
+}
+
+.titlebar-buttonbox-container {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+}
+
+.titlebar-color {
+  height: 27px !important;
+}
+
+#browser {
+  border-left: 1px solid var(--browser-outer-border-color);
+  border-right: 1px solid var(--browser-outer-border-color);
+  border-bottom: 1px solid var(--browser-outer-border-color);
+  position: relative;
+  padding: 0 1px 1px 1px;
+  border-radius: 0px 0px 3px 3px;
+}
+#browser::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100% - 2px);
+  height: calc(100% - 1px);
+  border-left: 1px solid var(--browser-inner-border-color) !important;
+  border-right: 1px solid var(--browser-inner-border-color) !important;
+  border-bottom: 1px solid var(--browser-inner-border-color) !important;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 0px 0px 2px 2px;
+}
+
+#urlbar-container + #stop-reload-button {
+  background: transparent !important;
+  border: 0 !important;
+  margin-left: 0;
+  margin-right: -22px;
+  transform: translateX(-23px);
+}
+
+#tracking-protection-icon-container {
+  display: none !important;
+}
+
+#star-button-box {
+  display: none !important;
+}
+
+#alltabs-button {
+  display: none !important;
+}
+
+#picture-in-picture-button {
+  display: none !important;
+}
+
+#identity-box[pageproxystate=invalid] {
+  display: none !important;
+}
+
+#identity-box.notSecure {
+  display: none !important;
+}
+
+#identity-box.mixedDisplayContent {
+  display: none !important;
+}
+
+#identity-box.chromeUI #identity-icon-box {
+  display: none !important;
+}
+
+.searchbar-search-icon-overlay {
+  display: none !important;
+}
+
+#identity-permission-box {
+  display: none !important;
+}
+
+#urlbar-zoom-button {
+  display: none !important;
+}
+
+#reader-mode-button {
+  display: none !important;
+}
+
+#private-browsing-indicator-with-label {
+  display: none !important;
+}
+
+@supports -moz-bool-pref("BeautyFox.hide.unifiedExtensions") {
+  :root {
+    --hide_unifiedExtensions: 1 !important;
+  }
+  #unified-extensions-button {
+    display: none !important;
+  }
+}
+@supports -moz-bool-pref("BeautyFox.apppearance.IE10") {
+  :root {
+    --appearance_IE10: 1 !important;
+  }
+}
+:root {
+  --panel-border-color: #b4b4b4 !important;
+}
+
+.urlbarView {
+  transform: translateY(-1px);
+  margin-inline: 0 !important;
+  box-shadow: var(--pop-up_shadow) !important;
+  background-color: white;
+  padding: 0 !important;
+  width: calc(100% - 2 * (5px + var(--urlbar-container-padding)) - 23px) !important;
+  min-width: 400px !important;
+  border: 1px solid var(--panel-border-color) !important;
+}
+
+.urlbarView-action {
+  display: none !important;
+}
+
+.urlbarView-row, .autocomplete-richlistitem {
+  border: none !important;
+  min-height: 20px !important;
+  border-radius: 0 !important;
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+  padding: 0 25px !important;
+}
+.urlbarView-row:hover, .autocomplete-richlistitem:hover {
+  background-color: rgb(240, 240, 240) !important;
+}
+
+.urlbarView-row-inner {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-inline: 0 !important;
+  padding-block: 0 !important;
+}
+
+.urlbarView-favicon {
+  display: none !important;
+}
+
+.urlbarView-type-icon {
+  display: none !important;
+}
+
+.urlbarView-title-separator {
+  display: none !important;
+}
+
+.urlbarView-url {
+  color: #6d6d6d !important;
+}
+
+.search-one-offs {
+  padding-block: 0 !important;
+  padding-left: 12px !important;
+  padding-right: 6px !important;
+  border-top: 1px solid #d6d6d6 !important;
+  background: rgb(252, 252, 252);
+  background: linear-gradient(0deg, rgb(252, 252, 252) 0%, rgb(252, 252, 252) 76%, rgb(232, 232, 232) 100%);
+  position: relative;
+  min-height: 22px !important;
+}
+
+.search-panel-header {
+  display: none !important;
+}
+
+#urlbar-engine-one-off-item-bookmarks {
+  display: none !important;
+}
+
+#urlbar-engine-one-off-item-tabs {
+  display: none !important;
+}
+
+#urlbar-engine-one-off-item-history {
+  display: none !important;
+}
+
+.searchbar-separator {
+  display: none !important;
+}
+
+.ac-type-icon {
+  display: none !important;
+}
+
+.searchbar-engine-one-off-item:not(.searchbar-engine-one-off-add-engine) {
+  height: 22px !important;
+  min-width: 22px !important;
+  margin-top: 4px !important;
+  margin-bottom: 3px !important;
+}
+.searchbar-engine-one-off-item:not(.searchbar-engine-one-off-add-engine):hover {
+  background-color: rgb(172, 220, 247) !important;
+  border: 1px solid rgb(60, 127, 177) !important;
+}
+.searchbar-engine-one-off-item:not(.searchbar-engine-one-off-add-engine):active {
+  background-color: rgb(179, 204, 232) !important;
+  border: 1px solid rgb(60, 127, 177) !important;
+}
+
+#urlbar-engine-one-off-item-engine-0 {
+  background-color: rgb(215, 243, 255) !important;
+  border: 1px solid rgb(39, 159, 211) !important;
+  border-radius: 3px !important;
+}
+#urlbar-engine-one-off-item-engine-0:hover {
+  background-color: rgb(172, 220, 247) !important;
+  border: 1px solid rgb(60, 127, 177) !important;
+}
+#urlbar-engine-one-off-item-engine-0:active {
+  background-color: rgb(179, 204, 232) !important;
+  border: 1px solid rgb(60, 127, 177) !important;
+}
+
+.searchbar-engine-one-off-add-engine {
+  position: absolute;
+  right: 0;
+  align-items: center;
+  margin-inline: 0 6px !important;
+  border: 1px solid transparent;
+  padding: 4px !important;
+}
+.searchbar-engine-one-off-add-engine::after {
+  content: "Add";
+}
+.searchbar-engine-one-off-add-engine::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: -7px;
+  width: 1px;
+  height: calc(100% - 7px);
+  border-left: 1px solid #6d6d6d;
+}
+.searchbar-engine-one-off-add-engine .box-inherit {
+  display: none !important;
+}
+
+#urlbar-anon-search-settings {
+  display: none !important;
+}
+
+#searchbar-anon-search-settings {
+  display: none !important;
+}
+
+:root {
+  --navButtons-colour: #0284c3;
+  --navButtons-disabled-colour: #00000000;
+}
+
+#main-window #nav-bar::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 18px;
+  background-image: url(images/TRAVEL_BACKGROUND_MINIE.png);
+  width: 67px;
+  height: 35px;
+}
+#main-window #nav-bar #back-button, #main-window #nav-bar #forward-button {
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  outline: 1px solid rgba(247, 247, 247, 0.2);
+  outline-offset: -2px;
+  background-color: var(--navButtons-colour) !important;
+  list-style-image: none !important;
+  overflow: hidden;
+  position: relative;
+}
+#main-window #nav-bar #back-button::before, #main-window #nav-bar #forward-button::before {
+  content: "";
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 50%;
+  filter: blur(4px);
+  opacity: 0.45;
+}
+#main-window #nav-bar #back-button::after, #main-window #nav-bar #forward-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 254, 254, 0.15) 49%, rgba(255, 255, 255, 0.01) 50%);
+}
+#main-window #nav-bar #back-button:hover, #main-window #nav-bar #forward-button:hover {
+  outline: 1px solid rgba(250, 255, 250, 0.2);
+}
+#main-window #nav-bar #back-button:hover::before, #main-window #nav-bar #forward-button:hover::before {
+  opacity: 0.5;
+}
+#main-window #nav-bar #back-button:hover::after, #main-window #nav-bar #forward-button:hover::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.47) 0%, rgba(255, 254, 254, 0.18) 49%, rgba(255, 255, 255, 0.01) 50%);
+}
+#main-window #nav-bar #back-button:active::before, #main-window #nav-bar #forward-button:active::before {
+  opacity: 0.45;
+}
+#main-window #nav-bar #back-button:active::after, #main-window #nav-bar #forward-button:active::after {
+  background: linear-gradient(180deg, rgba(217, 217, 217, 0.49) 0%, rgba(176, 176, 176, 0.31) 49%, rgba(11, 11, 11, 0.13) 50%);
+}
+#main-window #nav-bar #back-button[disabled=true], #main-window #nav-bar #forward-button[disabled=true] {
+  opacity: 1 !important;
+  background-color: var(--navButtons-disabled-colour) !important;
+}
+#main-window #nav-bar #back-button[disabled=true]::before, #main-window #nav-bar #forward-button[disabled=true]::before {
+  opacity: 0.1;
+}
+#main-window #nav-bar #back-button[disabled=true]::after, #main-window #nav-bar #forward-button[disabled=true]::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.09) 49%, rgba(0, 0, 0, 0.11) 50%);
+}
+#main-window #nav-bar #back-button[disabled=true] .toolbarbutton-icon, #main-window #nav-bar #forward-button[disabled=true] .toolbarbutton-icon {
+  opacity: 0.7;
+}
+#main-window #nav-bar #back-button .toolbarbutton-icon, #main-window #nav-bar #forward-button .toolbarbutton-icon {
+  background-position: center;
+  z-index: 1;
+}
+#main-window #nav-bar #back-button {
+  height: 38px !important;
+  width: 38px !important;
+  min-width: 38px !important;
+  margin-left: 3px !important;
+  margin-right: 1px !important;
+  margin-bottom: -4px !important;
+  padding-inline-start: 0 !important;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%) !important;
+          clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%) !important;
+}
+#main-window #nav-bar #back-button[disabled=true] .toolbarbutton-icon {
+  background-image: url(images/back_disabled.png);
+}
+#main-window #nav-bar #back-button .toolbarbutton-icon {
+  height: 24px !important;
+  width: 24px !important;
+  background-image: url(images/back.png);
+}
+#main-window #nav-bar #forward-button {
+  margin-left: 2px !important;
+  margin-right: 2px !important;
+  height: 26px !important;
+  width: 26px !important;
+  min-width: 26px !important;
+  margin-bottom: 2px !important;
+}
+#main-window #nav-bar #forward-button[disabled=true] .toolbarbutton-icon {
+  background-image: url(images/forward_disabled.png);
+}
+#main-window #nav-bar #forward-button .toolbarbutton-icon {
+  height: 16px !important;
+  width: 16px !important;
+  background-image: url(images/forward.png);
+}
+#main-window #nav-bar #userContext-label {
+  display: none !important;
+}
+#main-window #nav-bar #userContext-icons {
+  position: fixed !important;
+  left: 0;
+  height: 22px !important;
+  width: 22px !important;
+  outline: 1px solid rgb(175, 175, 175);
+  outline-offset: -1px;
+  border-radius: 2px !important;
+  background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(242, 242, 242) 100%);
+  margin-inline-start: 4px !important;
+  margin-inline-end: 0 !important;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.2);
+}
+#main-window #nav-bar #userContext-indicator {
+  margin-block-start: 0 !important;
+}
+#main-window[sizemode=maximized] #nav-bar::before {
+  top: 26px;
+}
+
+@supports -moz-bool-pref("BeautyFox.apppearance.IE10") {
+  :root {
+    --navButtons-colour: hsl(200, 98%, 39%);
+  }
+  #main-window #nav-bar::before {
+    content: unset;
+  }
+  #main-window #nav-bar #back-button, #main-window #nav-bar #forward-button {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: var(--navButtons-colour) !important;
+    outline: none !important;
+  }
+  #main-window #nav-bar #back-button::before, #main-window #nav-bar #forward-button::before {
+    background: transparent !important;
+  }
+  #main-window #nav-bar #back-button[disabled=true], #main-window #nav-bar #forward-button[disabled=true] {
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+  #main-window #nav-bar #back-button[disabled=true]::after, #main-window #nav-bar #forward-button[disabled=true]::after {
+    background: transparent !important;
+  }
+  #main-window #nav-bar #back-button::after, #main-window #nav-bar #forward-button::after {
+    background: transparent;
+    transition: background-color 0.2s steps(4);
+  }
+  #main-window #nav-bar #back-button:hover::after, #main-window #nav-bar #forward-button:hover::after {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  #main-window #nav-bar #back-button:active::after, #main-window #nav-bar #forward-button:active::after {
+    background: rgba(51, 51, 51, 0.2);
+    transition: background-color 0.05s;
+  }
+  #main-window #nav-bar #back-button[disabled=true], #main-window #nav-bar #forward-button[disabled=true] {
+    background-color: transparent;
+  }
+  #main-window #nav-bar #back-button[disabled=true] .toolbarbutton-icon, #main-window #nav-bar #forward-button[disabled=true] .toolbarbutton-icon {
+    opacity: 0.7;
+  }
+  #main-window #nav-bar #back-button .toolbarbutton-icon, #main-window #nav-bar #forward-button .toolbarbutton-icon {
+    background-position: center;
+  }
+  #main-window #nav-bar #back-button[disabled=true] .toolbarbutton-icon {
+    background-image: url(images/back_disabled.png);
+  }
+  #main-window #nav-bar #back-button .toolbarbutton-icon {
+    background-image: url(images/back.png);
+  }
+  #main-window #nav-bar #forward-button[disabled=true] .toolbarbutton-icon {
+    background-image: url(images/forward_disabled.png);
+  }
+  #main-window #nav-bar #forward-button .toolbarbutton-icon {
+    background-image: url(images/forward.png);
+  }
+}
+:root {
+  --tab-background-colour: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgba(254, 254, 254, 0.62) 100%);
+  --tab-background-colour_hover: linear-gradient(180deg, rgba(254,254,254, 0.78) 0%, rgba(213,213,213, 0.7) 100%);
+  --tab-border-colour: rgba(96, 96, 96, .78);
+  --tab-inset-border-colour: linear-gradient(180deg, rgba(254, 254, 254, 0.78) 0%, rgba(143, 143, 143, 0.55) 100%);
+}
+
+#TabsToolbar {
+  margin: 0 2px;
+  max-height: 23px;
+  background-image: url(images/shine.png) !important; /* Remove white shine in Windows Vista - 7 */
+  background-size: 100% 23px;
+  background-position: bottom;
+  -moz-window-dragging: drag !important;
+}
+
+#TabsToolbar-customization-target {
+  height: 23px;
+}
+
+#tabbrowser-tabs {
+  --tab-min-height: 23px !important;
+}
+
+#scrollbutton-up, #scrollbutton-down {
+  border-bottom: none !important;
+  width: 20px !important;
+  border: 1px solid var(--tab-border-colour) !important;
+  border-bottom: 0px !important;
+}
+#scrollbutton-up:hover, #scrollbutton-down:hover {
+  background-color: var(--tab-background-colour_hover) !important;
+}
+#scrollbutton-up .toolbarbutton-icon, #scrollbutton-down .toolbarbutton-icon {
+  list-style-image: url("images/left.svg") !important;
+}
+
+.tabbrowser-tab {
+  padding: 0 !important;
+}
+.tabbrowser-tab:hover .tab-background {
+  background: transparent !important;
+}
+.tabbrowser-tab:hover .tab-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 2px);
+  height: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-image-slice: 1;
+  border-image-source: var(--tab-inset-border-colour);
+  border-bottom: none !important;
+  background: var(--tab-background-colour_hover);
+}
+.tabbrowser-tab:hover .tab-close-button {
+  display: block;
+}
+.tabbrowser-tab[selected=true] .tab-background {
+  background: transparent !important;
+}
+.tabbrowser-tab[selected=true] .tab-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 2px);
+  height: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-image-slice: 1;
+  border-image-source: var(--tab-inset-border-colour);
+  border-bottom: none !important;
+  background: var(--tab-background-colour);
+}
+.tabbrowser-tab[selected=true] .tab-close-button {
+  display: block;
+}
+.tabbrowser-tab:not([pinned]) {
+  max-width: 200px !important;
+  min-width: 45px !important;
+}
+.tabbrowser-tab:first-child .tab-background {
+  border-left: 1px solid var(--tab-border-colour) !important;
+}
+.tabbrowser-tab .tab-close-button {
+  height: 16px !important;
+  width: 16px !important;
+  padding: 0 !important;
+  list-style-image: none !important;
+  -webkit-mask: url(images/close-mask.svg);
+          mask: url(images/close-mask.svg);
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  display: none;
+  background-color: #A7A5A5;
+}
+.tabbrowser-tab .tab-close-button:hover {
+  background-color: #E73C3C !important;
+}
+.tabbrowser-tab .tab-close-button:active {
+  background-color: #E10C0C !important;
+}
+
+.tab-background {
+  box-shadow: none !important;
+  border: 1px solid var(--tab-border-colour) !important;
+  border-left: 0 !important;
+  border-bottom: 0px !important;
+  background: var(--tab-inset-border-colour);
+  position: relative;
+}
+
+.tab-context-line {
+  position: absolute !important;
+  top: 3px;
+  left: -2px;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: var(--identity-icon-color);
+  opacity: 0.3;
+}
+
+.tab-content {
+  padding: 0 7px 0 5px !important;
+}
+
+.tab-icon-stack {
+  margin-inline-end: 4px !important;
+}
+
+.tab-throbber, .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay, .tab-icon-overlay {
+  margin-inline-end: 0 !important;
+}
+
+.tab-icon-image {
+  display: block !important;
+}
+.tab-icon-image:not(.tab-icon-image[src*=data]) {
+  content: url(images/iexplore_16.png) !important;
+}
+
+#tabs-newtab-button,
+#TabsToolbar #new-tab-button {
+  width: 27px;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid var(--tab-border-colour) !important;
+  border-left: 0 !important;
+  border-bottom: 0px !important;
+  background: var(--tab-inset-border-colour);
+}
+#tabs-newtab-button:hover .toolbarbutton-icon,
+#TabsToolbar #new-tab-button:hover .toolbarbutton-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(images/newtab.png);
+}
+#tabs-newtab-button .toolbarbutton-icon,
+#TabsToolbar #new-tab-button .toolbarbutton-icon {
+  padding: 0 !important;
+  height: 16px !important;
+  width: 16px !important;
+  list-style-image: none !important;
+}
+
+.tab-label-container[textoverflow][labeldirection=ltr]:not([pinned]) {
+  -webkit-mask-image: none !important;
+          mask-image: none !important;
+}
+
+.tab-text {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.tab-icon-sound-label {
+  display: none;
+}
+
+.tab-throbber {
+  background-image: url(images/throbber.png) !important;
+  width: 16px !important;
+  height: 16px !important;
+  opacity: 1 !important;
+}
+
+@supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+  :root {
+    --option_tabsOnNavRow: 1 !important;
+  }
+  :root:is([privatebrowsingmode=temporary]) #urlbar-container {
+    width: calc(58px + 28.5%) !important;
+  }
+  #urlbar-container {
+    flex: unset !important;
+    width: 28.5% !important;
+    min-width: 209px !important;
+  }
+  #TabsToolbar-customization-target {
+    height: 27px;
+  }
+  toolbarbutton#tabs-newtab-button {
+    margin-bottom: 0 !important;
+    height: 27px !important;
+    width: 29px !important;
+  }
+  #search-container {
+    display: none !important;
+  }
+}
+@supports -moz-bool-pref("BeautyFox.apppearance.IE10") {
+  :root {
+    --tab-background-colour: rgba(255, 255, 255, .35);
+    --tab-background-colour_hover: rgba(255, 255, 255, .7);
+    --tab-border-colour: rgba(0, 0, 0, .5);
+  }
+  #scrollbutton-up, #scrollbutton-down {
+    background-color: var(--tab-background-colour) !important;
+    border: 1px solid var(--tab-border-colour) !important;
+    border-bottom: 0px !important;
+  }
+  #scrollbutton-up:hover, #scrollbutton-down:hover {
+    background-color: var(--tab-background-colour_hover) !important;
+  }
+  .tabbrowser-tab {
+    padding: 0 !important;
+  }
+  .tabbrowser-tab[selected=true] .tab-background {
+    background: white !important;
+  }
+  .tabbrowser-tab[selected=true] .tab-background::before {
+    content: unset !important;
+  }
+  .tabbrowser-tab[selected=true] .tab-close-button {
+    display: block;
+  }
+  .tabbrowser-tab:first-child .tab-background {
+    border-left: 1px solid var(--tab-border-colour) !important;
+  }
+  .tabbrowser-tab:hover {
+    background-color: var(--tab-background-colour_hover) !important;
+  }
+  .tabbrowser-tab .tab-close-button {
+    background-color: #A7A5A5;
+  }
+  .tabbrowser-tab .tab-close-button:hover {
+    background-color: #E73C3C !important;
+  }
+  .tabbrowser-tab .tab-close-button:active {
+    background-color: #E10C0C !important;
+  }
+  .tab-background {
+    background: var(--tab-background-colour) !important;
+    border: 1px solid var(--tab-border-colour) !important;
+    border-left: 0 !important;
+    border-bottom: 0px !important;
+  }
+  .tab-background:hover {
+    background: var(--tab-background-colour_hover) !important;
+  }
+  #tabs-newtab-button,
+  #TabsToolbar #new-tab-button {
+    background: var(--tab-background-colour);
+    border: 1px solid var(--tab-border-colour);
+    border-left: 0 !important;
+    border-bottom: 0px !important;
+  }
+}
+:root {
+  --toolbar-bgcolor: #e6effa !important;
+}
+
+@supports -moz-bool-pref("BeautyFox.apppearance.IE10") {
+  :root {
+    --toolbar-bgcolor: #f7f7f7 !important;
+  }
+}
+@-moz-document url(chrome://browser/content/aboutDialog.xhtml) {
+  :root {
+    --IEABOUT-image: url(images/IELOGO-9.PNG);
+  }
+  #aboutDialog {
+    font-family: Tahoma !important;
+  }
+  #aboutDialogContainer {
+    background-color: white !important;
+  }
+  #aboutDialogPane {
+    width: 326px;
+    height: 254px;
+    padding: 21px;
+    padding-top: 13px;
+    padding-bottom: 29px;
+    position: relative;
+  }
+  #aboutDialogLogo {
+    background-image: var(--IEABOUT-image);
+    background-size: cover;
+    width: 314px;
+    height: 76px;
+    margin-bottom: 23px;
+  }
+  p.aboutDialogInfo {
+    color: rgb(97, 97, 97) !important;
+    font-size: 8pt !important;
+    line-height: 13px !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  p.aboutDialogInfo#aboutDialogInfoWarning {
+    margin-top: 13px !important;
+    margin-bottom: 12px !important;
+  }
+  a {
+    font-size: 8pt !important;
+    color: rgb(0, 102, 204) !important;
+  }
+  a:visited {
+    color: rgb(128, 0, 128) !important;
+  }
+  #aboutDialogInfoOKButton {
+    position: absolute;
+    width: 67px;
+    height: 20px;
+    right: 22px;
+    bottom: 23px;
+  }
+  @supports -moz-bool-pref("BeautyFox.apppearance.IE10") {
+    :root {
+      --IEABOUT-image: url(images/IELOGO-10.PNG);
+    }
+    #aboutDialogPane {
+      width: 317px;
+      height: 216px;
+    }
+    #aboutDialogInfoCipherStrength, #aboutDialogInfoWarning {
+      display: none;
+    }
+    #aboutDialogInfoProductID {
+      margin-bottom: 18px !important;
+    }
+    a {
+      font-size: 8pt !important;
+      color: rgb(0, 102, 204) !important;
+      text-decoration: none !important;
+    }
+    a:visited {
+      color: rgb(128, 0, 128) !important;
+    }
+    a:hover {
+      text-decoration: underline !important;
+    }
+    #aboutDialogInfoOKButton {
+      position: absolute;
+      width: 68px;
+      height: 24px;
+      right: 36px;
+      bottom: 16px;
+    }
+  }
+}
+/* BeautyFox by AngelBruni - FF115 ESR */

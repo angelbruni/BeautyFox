@@ -1,0 +1,103 @@
+@-moz-document url(chrome://browser/content/aboutDialog.xhtml) {
+	:root {
+		--IEABOUT-image: url(images/IELOGO-9.PNG);
+	}
+
+	#aboutDialog {
+		font-family: Tahoma !important;
+	}
+	
+	#aboutDialogContainer {
+		background-color: white !important;
+	}
+
+	#aboutDialogPane {
+		width: 326px;
+		height: 254px;
+		padding: 21px;
+		padding-top: 13px;
+		padding-bottom: 29px;
+		position: relative;
+	}
+
+	#aboutDialogLogo {
+		background-image: var(--IEABOUT-image);
+		background-size: cover;
+		width: 314px;
+		height: 76px;
+		margin-bottom: 23px;
+	}
+
+	p.aboutDialogInfo {
+		color: rgb(97, 97, 97) !important;
+		font-size: 8pt !important;
+		line-height: 13px !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		margin-right: 0 !important;
+		margin-bottom: 0 !important;
+
+		&#aboutDialogInfoWarning {
+			margin-top: 13px !important;
+			margin-bottom: 12px !important;
+		}
+	}
+
+	a {
+		font-size: 8pt !important;
+		color: rgb(0, 102, 204) !important;
+
+		&:visited {
+			color: rgb(128, 0, 128) !important;
+		}
+	}
+
+	#aboutDialogInfoOKButton {
+		position: absolute;
+		width: 67px;
+		height: 20px;
+		right: 22px;
+		bottom: 23px;
+	}
+
+	@supports -moz-bool-pref("BeautyFox.apppearance.IE10") {
+		:root {
+			--IEABOUT-image: url(images/IELOGO-10.PNG);
+		}
+
+		#aboutDialogPane {
+			width: 317px;
+			height: 216px;
+		}
+
+		#aboutDialogInfoCipherStrength, #aboutDialogInfoWarning {
+			display: none;
+		}
+
+		#aboutDialogInfoProductID {
+			margin-bottom: 18px !important;
+		}
+
+		a {
+			font-size: 8pt !important;
+			color: rgb(0, 102, 204) !important;
+			text-decoration: none !important;
+	
+			&:visited {
+				color: rgb(128, 0, 128) !important;
+			}
+
+			&:hover {
+				text-decoration: underline !important;
+			}
+		}
+
+		#aboutDialogInfoOKButton {
+			position: absolute;
+			width: 68px;
+			height: 24px;
+			right: 36px;
+			bottom: 16px;
+		}
+	}
+}
