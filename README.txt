@@ -5,9 +5,12 @@ Tested on: Windows 7, Windows 8.1/10 with the default theme and Aero themes with
 
 MAKE SURE THAT YOUR PROFILE HAS NOT BEEN MODIFIED BY OTHER THEMES IN THE PAST, AND IF SO, DELETE THE MODIFIED FILES OR CREATE A NEW PROFILE!
 
-Changelog b2.1
-- Added aboutDialog for IE9 and IE10 appearances;
-- Added container support.
+Changelog b2.2
+- Added option to change appearance to Internet Explorer 9 Pre-Release in about:config - BeautyFox.appearance.IE9PreRelease;
+- Fixed appearance options typo, REMOVE BeautyFox.apppearance.IE10 if in use and add BeautyFox.appearance.IE10 instead;
+- Changed aboutDialog code, REMOVE STARTUP CACHE;
+- Changed InPrivate HTML, REPLACE OMNI.JA.
+
 
 
 Instructions
@@ -39,7 +42,10 @@ Instructions
 1.1.	about:config
 1.1.1.	Boolean	- BeautyFox.hide.unifiedExtensions		Hide extensions button;
 1.1.2.	Boolean	- BeautyFox.option.tabsOnNavRow;		Move tabs to navigation row;
-1.1.3.	Boolean	- BeautyFox.apppearance.IE10.			Use IE10 appearance.
+
+	!!! FOR THE THEME TO WORK PROPERLY, ONLY ENABLE ONE OF THESE AT A TIME !!!
+1.1.3.	Boolean	- BeautyFox.appearance.IE9PreRelease		Use Internet Explorer 9 Pre-Release appearance
+1.1.4.	Boolean	- BeautyFox.appearance.IE10.			Use Internet Explorer 10 appearance.
 
 
 2.1.	Settings

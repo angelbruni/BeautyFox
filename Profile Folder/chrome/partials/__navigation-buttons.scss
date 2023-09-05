@@ -170,7 +170,30 @@
     }
 }
 
-@supports -moz-bool-pref("BeautyFox.apppearance.IE10") {
+@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+    #main-window {
+        #nav-bar {
+            &::before {
+                left: 9px;
+            }
+            
+            #back-button {
+                margin-left: 9px !important;
+            }
+
+            #forward-button {
+                margin-right: 7px !important;
+            }
+
+            #userContext-icons {
+                margin-inline-start: 10px !important;
+            }
+    
+        }
+    }
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     :root {
         --navButtons-colour: hsl(200, 98%, 39%);
     }
@@ -219,7 +242,7 @@
                 }
             
                 &[disabled="true"] {
-                    background-color: transparent;
+                    background-color: var(--navButtons-disabled-colour) !important;
                     
                     .toolbarbutton-icon {
                         opacity: .7;

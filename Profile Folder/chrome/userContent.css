@@ -6,7 +6,7 @@
     background-repeat: no-repeat;
     background-color: #FEFEFE !important;
   }
-  @supports -moz-bool-pref("BeautyFox.apppearance.IE10") {
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     body {
       background-image: none;
     }
@@ -39,10 +39,9 @@
     display: none;
   }
   .top-sites-list {
-    width: 870px;
     margin: 0 !important;
     display: grid;
-    gap: 24px 12px;
+    gap: 24px 24px;
     grid-template-columns: repeat(5, 1fr);
     position: relative;
   }
@@ -83,8 +82,8 @@
     outline: 1px solid rgb(217, 217, 217);
     outline-offset: -1px;
     border-radius: 0 !important;
-    width: 32px;
-    height: 32px;
+    width: 32px !important;
+    height: 32px !important;
     margin-top: 8px;
     margin-left: 8px;
   }
@@ -96,7 +95,7 @@
   }
   .top-site-outer .title {
     position: absolute !important;
-    top: 57px;
+    top: 41px;
     left: 8px;
     text-align: left !important;
     max-width: 134px !important;
@@ -108,7 +107,31 @@
     height: 16px !important;
     transition: none !important;
   }
-  @supports -moz-bool-pref("BeautyFox.apppearance.IE10") {
+  @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+    .top-sites-list::after {
+      content: "";
+      position: absolute;
+      top: -103px;
+      right: 80px;
+      height: 97px;
+      width: 209px;
+      background-image: url(images/820.png);
+      background-size: cover;
+      opacity: 0.5;
+    }
+    .top-site-outer .tile {
+      border-radius: 4px !important;
+    }
+    .top-site-outer .tile .icon-wrapper:not(.letter-fallback) {
+      border-radius: 2px !important;
+      position: relative !important;
+      background: linear-gradient(180deg, white 0%, rgb(242, 242, 242) 100%);
+    }
+    .top-site-icon {
+      z-index: 2;
+    }
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     :root {
       --popular-site-label: "Frequent";
     }
@@ -134,6 +157,51 @@
       left: 0;
       font-size: 21pt;
       color: rgb(80, 80, 80);
+    }
+  }
+}
+@-moz-document url(about:privatebrowsing) {
+  #inPrivateImage {
+    background-image: url(images/inprivate-9.png);
+    width: 400px;
+    height: 24px;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+    body {
+      background-image: linear-gradient(180deg, #e8eff9 0%, #fefeff 100%);
+      background-size: 100% 409px;
+    }
+    #inPrivateImage {
+      background-image: url(images/inprivate-9PreRelease.png);
+      width: 287px;
+      height: 39px;
+      margin-bottom: 29px;
+    }
+    .title {
+      position: relative !important;
+      left: 4px;
+      color: #d8e2f4 !important;
+      font-size: 445% !important;
+      padding: 0 !important;
+      padding-bottom: 0.2em !important;
+    }
+    .tasks {
+      color: #549c00 !important;
+      font-size: 130% !important;
+      margin-bottom: 3px;
+      padding-top: 3px !important;
+    }
+    .tasksection {
+      min-width: 500px !important;
+    }
+    .mainContent, .footer {
+      padding-left: 35px !important;
+    }
+    #contentLine1 {
+      padding-top: 15px;
+    }
+    hr {
+      margin-bottom: 1em !important;
     }
   }
 }

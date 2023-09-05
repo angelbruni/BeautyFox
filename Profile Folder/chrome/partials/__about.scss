@@ -37,9 +37,27 @@
 		margin-right: 0 !important;
 		margin-bottom: 0 !important;
 
-		&#aboutDialogInfoWarning {
+		&#aboutDialogWarning {
 			margin-top: 13px !important;
 			margin-bottom: 12px !important;
+		}
+	}
+
+	#aboutDialogInfoPane {
+		display: flex;
+		flex-direction: column;
+
+		#aboutDialogInfoVersion {
+			order: 1;
+		}
+		#aboutDialogInfoUpdateVersion {
+			order: 2;
+		}
+		#aboutDialogInfoCipherStrength {
+			order: 3;
+		}
+		#aboutDialogInfoProductID {
+			order: 4;
 		}
 	}
 
@@ -52,7 +70,7 @@
 		}
 	}
 
-	#aboutDialogInfoOKButton {
+	#aboutDialogOKButton {
 		position: absolute;
 		width: 67px;
 		height: 20px;
@@ -60,7 +78,28 @@
 		bottom: 23px;
 	}
 
-	@supports -moz-bool-pref("BeautyFox.apppearance.IE10") {
+	@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+		:root {
+			--IEABOUT-image: url(images/IELOGO-9PreRelease.PNG);
+		}
+
+		#aboutDialogInfoPane {
+			#aboutDialogInfoVersion {
+				order: 1;
+			}
+			#aboutDialogInfoUpdateVersion {
+				order: 4;
+			}
+			#aboutDialogInfoCipherStrength {
+				order: 2;
+			}
+			#aboutDialogInfoProductID {
+				order: 3;
+			}
+		}
+	}
+
+	@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
 		:root {
 			--IEABOUT-image: url(images/IELOGO-10.PNG);
 		}
@@ -70,7 +109,7 @@
 			height: 216px;
 		}
 
-		#aboutDialogInfoCipherStrength, #aboutDialogInfoWarning {
+		#aboutDialogInfoCipherStrength, #aboutDialogWarning {
 			display: none;
 		}
 
@@ -92,7 +131,7 @@
 			}
 		}
 
-		#aboutDialogInfoOKButton {
+		#aboutDialogOKButton {
 			position: absolute;
 			width: 68px;
 			height: 24px;

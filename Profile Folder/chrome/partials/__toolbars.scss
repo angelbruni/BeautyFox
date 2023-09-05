@@ -2,7 +2,7 @@
     --toolbar-bgcolor: #e6effa !important;
 }
 
-@supports -moz-bool-pref("BeautyFox.apppearance.IE10") {
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     :root {
         --toolbar-bgcolor: #f7f7f7 !important;
     }
