@@ -5,12 +5,15 @@ Tested on: Windows 7, Windows 8.1/10 with the default theme and Aero themes with
 
 MAKE SURE THAT YOUR PROFILE HAS NOT BEEN MODIFIED BY OTHER THEMES IN THE PAST, AND IF SO, DELETE THE MODIFIED FILES OR CREATE A NEW PROFILE!
 
-Changelog b2.2
-- Added option to change appearance to Internet Explorer 9 Pre-Release in about:config - BeautyFox.appearance.IE9PreRelease;
-- Fixed appearance options typo, REMOVE BeautyFox.apppearance.IE10 if in use and add BeautyFox.appearance.IE10 instead;
-- Changed aboutDialog code, REMOVE STARTUP CACHE;
-- Changed InPrivate HTML, REPLACE OMNI.JA.
-
+Changelog b2.3
+- Changed a bunch of values to use values from variables instead for convenience;
+- Fixed an issue where a white bar would show up in the middle of the navigation pane if BeautyFox.option.tabsOnNavRow was false with the Internet Explorer 9 Pre-Release appearance;
+- Fixed the lock and refresh icons being way too close on any appearance other than Internet Explorer 9 Pre-Release appearance;
+- Fixed the New Tab button in the Internet Explorer 9 Pre-Release appearance expanding at 100% width when there are way too many tabs, causing  managing tabs in general to be impossible;
+- Adjusted the favourites and settings icon in the navigation bar to look better and closer to the original Internet Explorer **9+** icon;
+- Changed the navigation bar icon style code to make fade-in with gradient possible for the Internet Explorer 9 appearance;
+- The icons in navigation bar now have a gradient in the Internet Explorer 9 appearance when hovering over them;
+- Added basic support for Multi-User Account Containers, Ublock Origin and Stylus icons in the navigation bar.
 
 
 Instructions

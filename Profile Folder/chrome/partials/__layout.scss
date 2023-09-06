@@ -6,6 +6,23 @@
     --toolbarbutton-active-background: transparent !important;
     --toolbarbutton-disabled-opacity: 1 !important;
     --toolbar-field-background-color: rgba(254,254,254,.65) !important;
+    --titlebar-height-calc: calc(var(--titlebar-height) - 2px);
+    --titlebar-height: 21px;
+
+    --urlbar-inprivatebadge-width: 58px;
+    &:is([privatebrowsingmode="temporary"]) {
+        #urlbar-input-container {
+            &::before {
+                content: '';
+                height: 100%;
+                width: var(--urlbar-inprivatebadge-width);
+                background: url(images/InPrivateBadge9.svg);
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+            }
+        }
+    }
+    
     --urlbar-box-hover-bgcolor: transparent !important;
     --urlbar-box-active-bgcolor: transparent !important;
     --urlbar-height: 24.00px !important;
@@ -27,7 +44,17 @@
     --option_tabsOnNavRow: 0;
 
     --toolbaritems-margin-bottom: 3px;
+
+    --toolbarbutton-default-colour: rgb(0, 161, 220);
+    --toolbarbutton-default-colour_hover: rgb(27, 172, 250);
+    --toolbarbutton-yellow-colour: rgb(248, 233, 158);
+    --toolbarbutton-yellow-colour_hover: rgb(246, 222, 123);
+    --toolbarbutton-green-colour: rgb(171, 254, 181);
+    --toolbarbutton-green-colour_hover: rgb(67, 202, 83);
+    --toolbarbutton-red-colour: rgb(254, 171, 171);
+    --toolbarbutton-red-colour_hover: rgb(243, 116, 116);
 }
+
 * {
     font-size: 9pt !important;
 }
@@ -89,21 +116,6 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         bottom: 0;
         height: 1px;
         border-bottom: 1px solid var(--chrome-content-separator-color);
-    }
-}
-
-:root {
-    &:is([privatebrowsingmode="temporary"]) {
-        #urlbar-input-container {
-            &::before {
-                content: '';
-                height: 100%;
-                width: 58px;
-                background: url(images/InPrivateBadge9.svg);
-                background-position: center !important;
-                background-repeat: no-repeat !important;
-            }
-        }
     }
 }
 
@@ -194,7 +206,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 #nav-bar {
     order: 1;
     background-color: transparent !important;
-    padding-top: 18px !important;
+    padding-top: var(--titlebar-height-calc) !important;
     -moz-window-dragging: drag !important;
 }
 
@@ -415,111 +427,246 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     display: none;
 }
 
-toolbarbutton {
+
+toolbar .toolbaritem-combined-buttons {
+    margin-inline: 0 !important;
+}
+
+.toolbaritem-combined-buttons {
+    padding: 0 calc(var(--toolbarbutton-outer-padding) + 2px) !important;
+}
+
+toolbarbutton, toolbaritem {
     background-position: center;
     background-repeat: no-repeat;
 
-    &#home-button, &#bookmarks-menu-button, &#PanelUI-menu-button, &#unified-extensions-button, &#downloads-button {
+    &#home-button, &#bookmarks-menu-button, &#PanelUI-menu-button, &#unified-extensions-button, &#downloads-button, &#_testpilot-containers-BAP, &#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP, &#ublock0_raymondhill_net-BAP {
         list-style-image: none !important;
-        background-color: white;
-        mask-repeat: no-repeat;
-        mask-position: center;
         position: relative;
-        transition: background-color .3s steps(5);
+
+        &::before, &::after {
+            /* ::before - Icon Hover/Active Colour */
+            /* ::after - Icon Gradient Hover/Active */
+            content: '';
+            mask-repeat: no-repeat;
+            mask-position: center;
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            transition: opacity .3s steps(5), background-color .3s steps(5);
+        }
+
+        &::after {
+            opacity: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        &::before {
+            background-color: white;
+            z-index: -1;
+        }
+
+        &:hover, &:active {
+            &::before, &::after {
+                opacity: 1;
+            }
+        }
 
         &:active, &[open="true"] {
-            transition: none;
-        }
-        
-        &::before {
-            content: '';
-            position: absolute;
-            background-position: center;
-            background-repeat: no-repeat;
-            left: 0;
-            width: 0;
-            height: 100%;
-            width: 100%;
+            &::before {
+                transition: none;
+            }
         }
     }
 
     &#home-button {
-        mask-image: url(images/home-mask.svg);
+        background-image: url(images/home.svg);  
+
+        &::before, &::after {
+            mask-image: url(images/home-mask.svg);
+        }
 
         &:hover {
-            background-color: rgb(0, 161, 220);
+            &::before {
+                background-color: var(--toolbarbutton-default-colour);
+            }
         }
 
         &:active {
-            background-color: rgb(3, 132, 206)
-        }
-
-        &::before {
-            background-image: url(images/home.svg);   
+            &::before {
+                background-color: var(--toolbarbutton-default-colour_hover);
+            }
         }
     }
 
     &#bookmarks-menu-button {
-        mask-image: url(images/favorites-mask.svg);
+        background-image: url(images/favorites.svg); 
+        
+        &::before, &::after {
+            mask-image: url(images/favorites-mask.svg);
+        }
+
+        &::after {
+            background: linear-gradient(0deg, rgba(255, 208, 0, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
+        }
 
         &:hover {
-            background-color: rgb(255, 204, 0);
+            &::before {
+                background-color: var(--toolbarbutton-yellow-colour);
+            }
         }
 
         &:active, &[open="true"] {
-            background-color: rgb(252, 180, 5)
-        }
-
-        &::before {
-            background-image: url(images/favorites.svg);   
+            &::before {
+                background-color: var(--toolbarbutton-yellow-colour_hover);
+            }
         }
     }
 
     &#unified-extensions-button {
-        mask-image: url(images/extensions-mask.svg);
+        background-image: url(images/extensions.svg);
+
+        &::before, &::after {
+            mask-image: url(images/extensions-mask.svg);
+        }
+
+        &::after {
+            background: linear-gradient(0deg, rgba(85, 235, 65, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
+        }
 
         &:hover {
-            background-color: hsl(115, 94%, 53%);
+            &::before {
+                background-color: var(--toolbarbutton-green-colour);
+            }
         }
 
         &:active, &[open="true"] {
-            background-color: hsl(115, 69%, 49%)
-        }
-
-        &::before {
-            background-image: url(images/extensions.svg);   
+            &::before {
+                background-color: var(--toolbarbutton-green-colour_hover);
+            }
         }
     }
 
     &#downloads-button {
-        mask-image: url(images/downloads-mask.svg);
+        background-image: url(images/downloads.svg);
+        
+        &::before, &::after {
+            mask-image: url(images/downloads-mask.svg);
+        }
 
         &:hover {
-            background-color: rgb(0, 161, 220);
+            &::before {
+                background-color: var(--toolbarbutton-default-colour);
+            }
         }
 
         &:active, &[open="true"] {
-            background-color: rgb(3, 132, 206)
-        }
-
-        &::before {
-            background-image: url(images/downloads.svg);   
+            &::before {
+                background-color: var(--toolbarbutton-default-colour_hover);
+            }
         }
     }
 
     &#PanelUI-menu-button {
-        mask-image: url(images/settings-mask.svg);
+        background-image: url(images/settings.svg);  
+        
+        &::before, &::after {
+            mask-image: url(images/settings-mask.svg);
+        }
 
         &:hover {
-            background-color: rgb(0, 161, 220);
+            &::before {
+                background-color: var(--toolbarbutton-default-colour);
+            }
         }
 
         &:active, &[open="true"] {
-            background-color: rgb(3, 132, 206)
+            &::before {
+                background-color: var(--toolbarbutton-default-colour_hover);
+            }
+        }
+    }
+
+    /* Extensions support */
+    &#_testpilot-containers-BAP {
+        background-image: url(images/containers.svg);  
+
+        &::before, &::after {
+            mask-image: url(images/containers-mask.svg);
         }
 
-        &::before {
-            background-image: url(images/settings.svg);   
+        &:hover {
+            &::before {
+                background-color: var(--toolbarbutton-default-colour);
+            }
+        }
+
+        &:active {
+            &::before {
+                background-color: var(--toolbarbutton-default-colour_hover);
+            }
+        }
+    }
+
+    &#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP {
+        background-image: url(images/stylus.svg);  
+
+        &::before, &::after {
+            mask-image: url(images/stylus-mask.svg);
+        }
+
+        &:hover {
+            &::before {
+                background-color: var(--toolbarbutton-default-colour) !important;
+            }
+        }
+
+        &:active {
+            &::before {
+                background-color: var(--toolbarbutton-default-colour_hover) !important;
+            }
+        }
+
+        &[style*='--webextension-menupanel-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEv0lEQVRYR7VXDUxVZRh+7g/E/09LhCAIZKAm8aeuIDdMF9aSSV0ySobgaG7UdJqzzVwrSptWsLU12HTodg0tCgYjbAa4GIleoUtCQBAUWAJBoMjl5/6cvvfQvbuHc++5XG59293O+e77Pe/zvuf7nvf9ZBCOOPb605K5/+xV6eVZa9DNHmKA/WZQmRV6Mnu+xn5uNOfu5wv9/RlALneJAGc0ws3HG/rp+zyOTKEwsLkN7LGXf7egy2TXwXGb6f3Jk8ewoSDHJcfmxcb5BSgecMfVwrfQd6man/YKXt2lGxklElYEAI4mthQXYW1O1rKdU5am+gcRGBsNpaeH5DrN+8XQlpRRVk0wmRQiAgSQN6yVBBm/1Y1fKqower0N07/fxvzUXYG9X2Q4QlI2ITJjB0LTUiBX8H4so/yRBBhm5yy+rfcAR989d0BjkwBFeu3YCfRe+GrZ2cnWNsIn7GGB/bnIjeb9wPsWEvD3Q+6vN0QOiHFd5l6M3ZTOjvXCwHUxUDXXiLDOR23Cwr1pOxmwQ6DlaBF+Pnth2ZGTYfyBAmw+fth1AnOTU1DHpoAzmQRg3qEhSDy0Hw/FP0ZHC3oWFW3GMY0Wg3VXsKOiDMFP0MkWDqcz0F9Zi6b9RwQoMqYNWa318I+KsJkV+mQyhRwKd3fXCXR8egY33v1IFP0rHU1OfRKzsdMZ6Cw7z3b/SZGz9M9LEf5MmtMknCYw0tqG2udfFTmSu7khJjsTj7++z+6nsMVOkgBp9t7f2gTrTEzLq7e9iInOHrvRRu16lieyKoFXV8lRHp4IVpAEx5CXYBqrEuOw68qXIoC/tJ18Foxz85LgwUwB6WSEpaXatWt87TAGqustp4qEiKNdnVFfwes5ZcHWIBIN+QcwPfSHoyAR/VIGtnz8ns3awHEcZv4cwcWkbeCMJl4JOToyqpY6BERHSoKTgrUe/xB9X9TApNdL2oY9/RTSmRYsrQXGhQVM9vShajsreExbeAI8kkyG8PStSFd/5jDC2fG/0XVGje7yCsxNTNq1Tz31DtbnZwv+r925B7SxWelfdGv1L2drE0qxoQ06WPMtbp4owb3BIZFpQMwaZP1QJ5g/92jyYqPzr+9lFSNHKSHl+0aVz0p0u8g0p68VHoEBlnmndcCRc/P/ww3NuLy7QGS+u+07+EWE/f8Ebl9tQb1qn4gA9RfUZ5jHijJQl5mLoI2JiN2jEkRjBqVNSdGPd3QJCPiGh+Ll9gbBnNMECFy9NsUC4hUcxHc5D66P4efmJ+9iuLEZhhmdKPrko28g6UihawQGai4zATq43K1gsaPe8IWmKpGwOZ2BlXRD/kzQnqs8K+oHiZ00ARtNaW/F19AUfYLZsXGHWXDz9eGFJ+nNQrstumRTyq5OyBv60aYjasep3Zro7IaOkdHdGYUPa8u82X4IjF0Dv8gIBCXF2a0lZlDJtpyMtpaeRrRqp8NoV2Kg+aAE2uJSOxcTuVzLikM8AaeeZhqeJ9TwlTikNSaDAXKlEt8ffBu96koexjNkdc/sndF19GwtxXQvpMspfxulTpcfrEi5NKjoMAjOYFyEWbyWJbCnW0sJ0DuROMWcprJqpXTJ8ZLFLCC90sujXT89Q3rNO6fxD+POBDvinLWaAAAAAElFTkSuQmCC");'] {
+            &::before {
+                background-color: rgb(159, 225, 255);
+            }
+        }
+    }
+
+    &#ublock0_raymondhill_net-BAP {
+        background-image: url(images/ublockorigin.svg);  
+
+        &::before, &::after {
+            mask-image: url(images/ublockorigin-mask.svg);
+        }
+
+        &:hover {
+            &::before {
+                background-color: var(--toolbarbutton-red-colour) !important;
+            }
+        }
+
+        &::after {
+            background: linear-gradient(0deg, rgba(223, 101, 101, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
+        }
+
+        &:active {
+            &::before {
+                background-color: var(--toolbarbutton-red-colour_hover) !important;
+            }
+        }
+
+        &[style*='--webextension-menupanel-image: url("moz-extension://c34c6dd4-2c0d-4707-8ce0-3786dbccc341/img/icon_32.png");'] {
+            &::before {
+                background-color: rgb(255, 159, 159);
+            }
+        }
+    }
+
+    &#_testpilot-containers-BAP, &#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP, &#ublock0_raymondhill_net-BAP {
+        .toolbarbutton-icon {
+            display: none;
         }
     }
 }
@@ -561,7 +708,8 @@ toolbarbutton {
     order: 20;
     flex-direction: row-reverse;
     margin-inline-end: 0 !important;
-    padding-left: 2px !important;
+    padding-left: 3px !important;
+    padding-right: 4px !important;
 
     #identity-icon {
         background-position: center;
@@ -582,14 +730,14 @@ toolbarbutton {
 
         &:hover {
             #identity-icon {
-                background-color: rgb(255, 204, 0);
+                background-color: var(--toolbarbutton-yellow-colour);
             }
             
         }
 
         &:active {
             #identity-icon {
-                background-color: rgb(252, 180, 5)
+                background-color: var(--toolbarbutton-yellow-colour_hover)
             }
             
         }
@@ -692,7 +840,7 @@ toolbarbutton {
         }
     }
     
-    toolbarbutton {
+    toolbarbutton, .toolbaritem-combined-buttons {
         height: 24px !important;
         width: 24px !important;
         margin-bottom: var(--toolbaritems-margin-bottom) !important;
@@ -706,6 +854,10 @@ toolbarbutton {
     toolbaritem {
         padding-block: 0 !important;
         margin-bottom: var(--toolbaritems-margin-bottom);
+
+        > toolbarbutton {
+            margin-bottom: 0 !important;
+        }
     }
 
     toolbaritem#urlbar-container {
@@ -839,6 +991,8 @@ toolbarbutton {
         --toolbaritems-margin-bottom: 4px;
         --urlbar-dropdown-button_width: 19px;
         --reload-button-width: 22px;
+
+        --urlbar-inprivatebadge-width: 75px;
         
         &:is([privatebrowsingmode="temporary"]) {
             #urlbar-input-container {
@@ -869,7 +1023,7 @@ toolbarbutton {
             content: '';
             position: absolute;
             border-radius: 2px 2px 0 0;
-            top: 0;
+            top: var(--tab-height);
             left: 1px;
             width: calc(100% - 2px);
             height: 2px;
@@ -884,6 +1038,7 @@ toolbarbutton {
     }
 
     #identity-box {
+        padding-left: 2px !important;
         padding-right: 11px !important;
     }
 
@@ -913,10 +1068,33 @@ toolbarbutton {
             background-color: rgb(145, 150, 162);
         }
     }
+
+    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+        #titlebar {
+            &::before {
+                top: 0 !important;
+            }
+        }
+    }
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     :root {
         --appearance_IE10: 1 !important;
+
+        --toolbarbutton-default-colour: rgb(0, 161, 220);
+        --toolbarbutton-default-colour_hover: rgb(3, 132, 206);
+        --toolbarbutton-yellow-colour: rgb(255, 204, 0);
+        --toolbarbutton-yellow-colour_hover: rgb(252, 180, 5);
+        --toolbarbutton-green-colour: rgb(41, 248, 22);
+        --toolbarbutton-green-colour_hover: rgb(53, 211, 39);
+    }
+
+    toolbarbutton {
+        &#home-button, &#bookmarks-menu-button, &#PanelUI-menu-button, &#unified-extensions-button, &#downloads-button {
+            &::after {
+                content: unset !important;
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@
             content: '';
             position: absolute;
             left: 3px;
-            top: 18px;
+            top: var(--titlebar-height-calc);
             background-image: url(images/TRAVEL_BACKGROUND_MINIE.png);
             width: 67px;
             height: 35px;
