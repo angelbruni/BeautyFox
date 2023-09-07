@@ -1,5 +1,6 @@
 :root {
     --panel-border-color: #b4b4b4 !important;
+    --urlbarView-subtract: 23px;
 }
 
 .urlbarView {
@@ -8,8 +9,8 @@
     box-shadow: var(--pop-up_shadow) !important;
     background-color: white;
     padding: 0 !important;
-    width: calc(100% - 2 * (5px + var(--urlbar-container-padding)) - 23px) !important;
-    min-width: 400px !important;
+    width: calc(100% - 2 * (5px + var(--urlbar-container-padding)) - var(--urlbarView-subtract)) !important;
+    min-width: var(--urlbarView-min-width) !important;
     border: 1px solid var(--panel-border-color) !important;
 }
 
@@ -93,6 +94,7 @@
     min-width: 22px !important;
     margin-top: 4px !important;
     margin-bottom: 3px !important;
+    margin-right: 3px !important;
 
     &:hover {
         background-color: rgb(172,220,247) !important;
@@ -154,4 +156,10 @@
 
 #searchbar-anon-search-settings {
     display: none !important;
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+    :root {
+        --urlbarView-subtract: 34px;
+    }
 }
