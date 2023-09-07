@@ -7,7 +7,7 @@ var moveTabs = {
             if (getComputedStyle(document.documentElement).getPropertyValue('--option_tabsOnNavRow') == 1) {
                 setTimeout(() => {
                     refreshBtn.parentNode.insertBefore(Tabs, refreshBtn.nextSibling);
-                }, 100);
+                }, 50);
             }
         } catch(e) {}
     }

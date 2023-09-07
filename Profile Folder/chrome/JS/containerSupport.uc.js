@@ -5,10 +5,10 @@ const navBar = document.getElementById("nav-bar");
 const userContextIcons = document.getElementById("userContext-icons");
 
 // Options for the observer (which mutations to observe)
-const config = { attributes: true, childList: false, subtree: false };
+const userContextIconsObserverConfig = { attributes: true, childList: false, subtree: false };
 
 // Callback function to execute when mutations are observed
-const callback = (mutationList, observer) => {
+const userContextIconsObserverCallback = (mutationList, observer) => {
   for (const mutation of mutationList) {
     if (mutation.type === "attributes") {
         var desiredColour = getComputedStyle(userContextIcons).getPropertyValue('--identity-icon-color');
@@ -19,14 +19,12 @@ const callback = (mutationList, observer) => {
         else {
             navBar.setAttribute("style", "--navButtons-colour:" + desiredColour + "!important;" + "--navButtons-disabled-colour:" + desiredColour + "!important;" + "margin-left: 28px !important")
         }
-    } else {
-
     }
   }
 };
 
 // Create an observer instance linked to the callback function
-const observer = new MutationObserver(callback);
+const userContextIconsObserver = new MutationObserver(userContextIconsObserverCallback);
 
 // Start observing the target node for configured mutations
-observer.observe(userContextIcons, config);
+userContextIconsObserver.observe(userContextIcons, userContextIconsObserverConfig);

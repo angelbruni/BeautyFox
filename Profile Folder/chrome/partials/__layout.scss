@@ -74,8 +74,6 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         #PersonalToolbar, #toolbar-menubar {
             border-left: none !important;
             border-right: none !important;
-            padding-inline: 0 !important;
-            padding: 0 !important;
 
             &::before {
                 width: 100% !important;
@@ -234,6 +232,16 @@ toolbarpaletteitem#wrapper-urlbar-container {
     }
 }
 
+#urlbar-go-button, .search-go-button {
+    list-style-image: none !important;
+    background-image: url(images/go-mask.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 17px !important;
+    height: 22px !important;
+    opacity: 0.5;
+}
+
 #stop-reload-button {
     z-index: 3;
     
@@ -277,6 +285,10 @@ toolbarpaletteitem#wrapper-urlbar-container {
                 background-color: rgb(3, 132, 206);
             }
         }
+
+        &.reload-button-display-none {
+            display: none !important;
+        }
     }
 
     #stop-button {
@@ -295,6 +307,10 @@ toolbarpaletteitem#wrapper-urlbar-container {
                 background-color: #E10C0C;
             }
         }
+    }
+
+    + toolbarbutton {
+        margin-left: 8px !important;
     }
 }
 
@@ -318,6 +334,10 @@ toolbarpaletteitem#wrapper-urlbar-container {
     padding: 0 0 0 0 !important;
     padding-right: var(--stop-reload-button_width) !important;
     border-radius: 0 !important;
+}
+
+#urlbar-input-container.urlbar-remove-padding-right {
+    padding-right: 0 !important;
 }
 
 .urlbar-input-box {
@@ -349,7 +369,7 @@ toolbarpaletteitem#wrapper-urlbar-container {
 
 #PersonalToolbar {
     order: 3;
-    height: 29px;
+    height: 30px;
     padding-inline: 2px !important;
     border-left: 1px solid var(--browser-outer-border-color);
     border-right: 1px solid var(--browser-outer-border-color);
@@ -381,80 +401,109 @@ toolbarpaletteitem#wrapper-urlbar-container {
     }
 }
 
-#PlacesToolbarItems {
-    .bookmark-item {
-        margin: 2px 0 3px 0 !important;
-        padding: 3px !important;
-        max-width: 175px !important;
-        border: 1px solid transparent;
-        position: relative;
-    
-        &::before, &::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: calc(100% - 3px);
-            left: 0;
-            top: 1px;
-            opacity: 0;
-            border-radius: 3px;
-            transition: opacity .5s;
-            pointer-events: none;
-        }
-    
+#star-button-box {
+    height: 24px !important;
+    width: 24px !important;
+
+    #star-button {
+        margin-top: 1px;
+        list-style-image: url(images/addtotoolbar.png) !important;
+    }
+}
+
+.bookmark-item, #star-button-box {
+    margin: 2px 0 3px 0 !important;
+    padding: 3px !important;
+    max-width: 175px !important;
+    border: 1px solid transparent;
+    position: relative;
+
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 1px);
+        left: 0;
+        top: 0;
+        opacity: 0;
+        border-radius: 3px;
+        transition: opacity .5s;
+        pointer-events: none;
+    }
+
+    &::before {
+        border: 1px solid rgba(0, 0, 0 , .3);
+        background: linear-gradient(180deg, rgba(250, 250, 250, .47) 0%, rgba(197, 197, 197, .19) 50%, rgba(109, 109, 109, .16) 49%, rgba(240, 240, 240, .07));
+        outline: 1px solid rgba(255, 255, 255, .47);
+        outline-offset: -2px;
+        opacity: 0;
+    }
+
+    &::after {
+        border: 1px solid rgba(0, 0, 0 , .65);
+        box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,.33);
+        opacity: 0;
+    }
+
+
+    &:hover {
         &::before {
-            border: 1px solid rgba(0, 0, 0 , .3);
-            background: linear-gradient(180deg, rgba(250, 250, 250, .47) 0%, rgba(197, 197, 197, .19) 50%, rgba(109, 109, 109, .16) 49%, rgba(240, 240, 240, .07));
-            outline: 1px solid rgba(255, 255, 255, .47);
-            outline-offset: -2px;
+            opacity: 1;
+        }
+    }
+
+    &:active, &[open="true"] {
+        padding-top: 4px !important;
+        padding-left: 4px !important;
+        padding-right: 2px !important;
+        padding-bottom: 2px !important;
+
+        &::before {
             opacity: 0;
         }
 
         &::after {
-            border: 1px solid rgba(0, 0, 0 , .65);
-            box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,.33);
-            opacity: 0;
+            opacity: 1;
         }
-    
-    
-        &:hover {
-            &::before {
-                opacity: 1;
-            }
-        }
-    
-        &:active, &[open="true"] {
-            padding-top: 4px !important;
-            padding-left: 4px !important;
-            padding-right: 2px !important;
-            padding-bottom: 2px !important;
+    }
 
+    &[image*="page-icon:about"] {
+        .toolbarbutton-icon {
+            display: none;
+        }
+
+        .toolbarbutton-text {
             &::before {
-                opacity: 0;
+                content: '';
+                height: 16px;
+                width: 16px;
+                background-image: url("images/iexplore_16.png");
+                background-position: center;
+                background-repeat: no-repeat;
+                margin-inline-end: 4px;
             }
-    
             &::after {
-                opacity: 1;
+                content: -moz-label-content;
             }
         }
+    }
 
-        &[type="menu"] {
-            padding-right: 0 !important;
+    &[type="menu"] {
+        padding-right: 0 !important;
 
-            .toolbarbutton-icon {
-                list-style-image: url("images/folder.png");
-            }
+        .toolbarbutton-icon {
+            list-style-image: url("images/folder.png");
+        }
 
-            .toolbarbutton-text {
-                &::after {
-                    content: '';
-                    width: 17px;
-                    height: 16px;
-                    background-color: black;
-                    mask-image: url(images/dropdown-mask.svg);
-                    mask-position: center;
-                    mask-repeat: no-repeat;
-                }
+        .toolbarbutton-text {
+            &::after {
+                content: '';
+                width: 17px;
+                height: 16px;
+                background-color: black;
+                mask-image: url(images/dropdown-mask.svg);
+                mask-position: center;
+                mask-repeat: no-repeat;
             }
         }
     }
@@ -591,6 +640,9 @@ toolbarpaletteitem#wrapper-urlbar-container {
 .searchbar-textbox {
     order: 1;
     
+    &::placeholder {
+        opacity: 1 !important;
+    }
 }
 
 .searchbar-textbox::placeholder {
@@ -971,10 +1023,10 @@ toolbarpaletteitem#wrapper-urlbar-container {
     transform: translateX(-21px);
 }
 
-#tracking-protection-icon-container {
+#personal-toolbar-empty {
     display: none !important;
 }
-#star-button-box {
+#tracking-protection-icon-container {
     display: none !important;
 }
 #alltabs-button {
@@ -1079,6 +1131,10 @@ toolbarpaletteitem#wrapper-urlbar-container {
 
     #urlbar-input-container {
         padding-right: 46px !important;
+        
+        &.urlbar-remove-padding-right {
+            padding-right: 22px !important;
+        }
     }
 
     #wrapper-urlbar-container + #wrapper-stop-reload-button > #stop-reload-button,
