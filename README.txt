@@ -9,7 +9,12 @@ Changelog b2.4
 - Made the navigation buttons icon style only work if they are inside the navigation bar;
 - Made the stop icon always show up in the Internet Explorer 9 Pre-Release appearance;
 - Fixed the customise UI;
-- Changed the customise UI to resemble pages like about:newtab.
+- Changed the customise UI to resemble pages like about:newtab;
+- Renamed "favicon_in_urlbar.uc.js" to "faviconUrlBar.uc.js";
+- Changed Search placeholder text to include ellipses;
+- Moved the Add Bookmark button from Urlbar to bookmarks bar;
+- Changed the Go button icon;
+- Reload button is now hidden when typing in Urlbar, with the Go button going in its place.
 
 
 Instructions
