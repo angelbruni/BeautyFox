@@ -55,6 +55,10 @@
 
     --toolbar-field-background-color: rgba(254,254,254,.65) !important;
     --toolbar-field-background-color_hover: rgba(255,255,255,.8);
+
+    --appearance_IE9PreRelease: 0;
+    --appearance_IE10: 0;
+    --appearance_IE11: 0;
 }
 
 * {
@@ -95,9 +99,12 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         }
     }
 
+    &[sizemode="fullscreen"], &:not([tabsintitlebar="true"]) {
+        --titlebar-height: 2px;
+    }
+
     &[sizemode="fullscreen"] {
         background: black !important;
-        --titlebar-height: 2px;
     }
 }
 
@@ -406,8 +413,15 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     }
 }
 
-#tab-notification-deck {
+.notificationbox-stack {
     order: 4;
+}
+
+#tab-notification-deck {
+    order: 5;
+}
+
+#tab-notification-deck, .notificationbox-stack {
     background-color: transparent !important;
     border-left: 1px solid var(--browser-outer-border-color);
     border-right: 1px solid var(--browser-outer-border-color);
@@ -1345,5 +1359,11 @@ findbar {
                 content: unset !important;
             }
         }
+    }
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    :root {
+        --appearance_IE11: 1 !important;
     }
 }

@@ -33,6 +33,9 @@
   --toolbarbutton-red-colour_hover: rgb(243, 116, 116);
   --toolbar-field-background-color: rgba(254,254,254,.65) !important;
   --toolbar-field-background-color_hover: rgba(255,255,255,.8);
+  --appearance_IE9PreRelease: 0;
+  --appearance_IE10: 0;
+  --appearance_IE11: 0;
 }
 :root:is([privatebrowsingmode=temporary]) #urlbar-input-container::before {
   content: "";
@@ -71,9 +74,11 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   border-bottom: none !important;
   padding: 0 !important;
 }
+#main-window[sizemode=fullscreen], #main-window:not([tabsintitlebar=true]) {
+  --titlebar-height: 2px;
+}
 #main-window[sizemode=fullscreen] {
   background: black !important;
-  --titlebar-height: 2px;
 }
 
 #nav-bar-customization-target {
@@ -344,8 +349,15 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   pointer-events: none;
 }
 
-#tab-notification-deck {
+.notificationbox-stack {
   order: 4;
+}
+
+#tab-notification-deck {
+  order: 5;
+}
+
+#tab-notification-deck, .notificationbox-stack {
   background-color: transparent !important;
   border-left: 1px solid var(--browser-outer-border-color);
   border-right: 1px solid var(--browser-outer-border-color);
@@ -353,7 +365,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   margin-top: -1px;
   position: relative;
 }
-#tab-notification-deck::before {
+#tab-notification-deck::before, .notificationbox-stack::before {
   content: "";
   position: absolute;
   left: 1px;
@@ -363,7 +375,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   background-color: var(--toolbar-bgcolor);
   z-index: -1;
 }
-#tab-notification-deck::after {
+#tab-notification-deck::after, .notificationbox-stack::after {
   content: "";
   position: absolute;
   left: 0;
@@ -374,7 +386,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   border-right: 1px solid var(--browser-inner-border-color) !important;
   pointer-events: none;
 }
-#tab-notification-deck notification {
+#tab-notification-deck notification, .notificationbox-stack notification {
   background: transparent !important;
 }
 
@@ -1097,6 +1109,11 @@ findbar {
   }
   toolbarbutton#home-button::after, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#PanelUI-menu-button::after, toolbarbutton#unified-extensions-button::after, toolbarbutton#downloads-button::after {
     content: unset !important;
+  }
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+  :root {
+    --appearance_IE11: 1 !important;
   }
 }
 :root {
@@ -1962,6 +1979,11 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       height: 24px;
       right: 36px;
       bottom: 16px;
+    }
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    :root {
+      --IEABOUT-image: url(images/IELOGO-11.PNG);
     }
   }
 }

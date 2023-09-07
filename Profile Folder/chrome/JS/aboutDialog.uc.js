@@ -101,12 +101,17 @@ setAttributes(aboutDialogOKButton, aboutDialogOKButtonAttrs);
 
 
 // IE9 and 10 strings
-if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1) {
+if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 0) {
 	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '10.0.9200.17457';
 	aboutDialogInfoUpdateVersion.innerHTML = 'Update Version:' + ' ' + '10.0.30 <a id="aboutDialogInfoKB" href="#">(KB3078071)</a>';
 	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '00150-20000-00003-AA459';
 	aboutDialogMicrosoft.innerHTML = '© 2012 Microsoft Corporation. All rights reserved.';
 	aboutDialogOKButton.innerHTML = 'Close';
+} else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1) {
+	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '11.0.9600.17843';
+	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + '11.0.20 <a id="aboutDialogInfoKB" href="#">(KB3058515)</a>';
+	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '00150-20000-00003-AA459';
+	aboutDialogMicrosoft.innerHTML = '© 2013 Microsoft Corporation. All rights reserved.';
 } else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE9PreRelease') == 1) {
 	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '9.0.7930.16406   64-bit Edition';
 	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + 'beta <a id="aboutDialogInfoKB" href="#"></a>';
@@ -139,16 +144,24 @@ aboutDialogPane.appendChild(aboutDialogMicrosoft);
 aboutDialogPane.appendChild(aboutDialogOKButton);
 
 // Add Event Listeners
-// Copyright Link
+// KB Link
 var aboutDialogInfoKB = document.getElementById("aboutDialogInfoKB");
 aboutDialogInfoKB.addEventListener("click", (event) => {
-	_ucUtils.loadURI(window,{
-		url: "http://go.microsoft.com/fwlink/?LinkID=617908",
-		where: "window"
-	});
+	if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1) {
+		_ucUtils.loadURI(window,{
+			url: "http://go.microsoft.com/fwlink/?LinkID=395097",
+			where: "window"
+		});
+	}
+	else {
+		_ucUtils.loadURI(window,{
+			url: "http://go.microsoft.com/fwlink/?LinkID=617908",
+			where: "window"
+		});
+	}
 });
 
-// KB Link
+// Copyright Link
 aboutDialogMicrosoft.addEventListener("click", (event) => {
 	_ucUtils.loadURI(window,{
 		url: "http://go.microsoft.com/fwlink/?LinkId=54758",

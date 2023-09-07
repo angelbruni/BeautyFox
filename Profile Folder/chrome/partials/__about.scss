@@ -139,4 +139,10 @@
 			bottom: 16px;
 		}
 	}
+
+	@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+		:root {
+			--IEABOUT-image: url(images/IELOGO-11.PNG);
+		}
+	}
 }
