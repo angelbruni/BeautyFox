@@ -8,10 +8,17 @@
     --tab-height: 23px;
 }
 
+#customization-container {
+    background-image: linear-gradient(180deg, #02a1e2 0%, #FFFFFF 100%) !important;
+    background-size: 100% 84px;
+    background-repeat: no-repeat;
+    background-color: #FEFEFE !important;
+}
+
 #TabsToolbar {
     margin: 0 2px;
     max-height: var(--tab-height);
-    background-image: url(images/shine.png) !important; /* Remove white shine in Windows Vista - 7 */
+    background-image: url(images/shine.png) !important;
     background-size: 100% var(--tab-height);
     background-position: bottom;
     -moz-window-dragging: drag !important;
@@ -31,8 +38,32 @@
     border: 1px solid var(--tab-border-colour) !important;
     border-bottom: 0px !important;
 
+    padding: 0 !important;
+    border-radius: var(--tab-border-radius) !important;
+
+    position: relative;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: calc(100% - 2px);
+        height: calc(100% - 1px);
+        border-width: 1px;
+        border-style: solid;
+        border-image-slice: 1;
+        border-image-source: var(--tab-inset-border-colour);
+        border-bottom: none !important;
+        background: var(--tab-background-colour);
+    }
+
     &:hover {
-        background-color: var(--tab-background-colour_hover) !important;
+        &::before {
+            border-image-slice: 1;
+            border-image-source: var(--tab-inset-border-colour);
+            background: var(--tab-background-colour_hover);
+        }
     }
 
     .toolbarbutton-icon {
@@ -229,6 +260,14 @@ toolbarbutton#tabs-newtab-button,
     opacity: 1 !important;
 }
 
+#main-window {
+    &[sizemode="fullscreen"] {
+        #TabsToolbar {
+            background-image: none !important;
+        }
+    }
+}
+
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
     :root {
         --option_tabsOnNavRow: 1 !important;
@@ -266,6 +305,10 @@ toolbarbutton#tabs-newtab-button,
         --tab-inset-border-colour: rgba(254, 254, 254, 0.4);
     }
 
+    #TabsToolbar {
+        background-image: none !important;
+    }
+
     .tabbrowser-tab {
         .tab-background {
             &::before {
@@ -283,6 +326,14 @@ toolbarbutton#tabs-newtab-button,
             .tab-close-button {
                 display: block;
             }
+        }
+    }
+
+    #scrollbutton-up, #scrollbutton-down {
+        &::before {
+            left: 1px !important;
+            border-width: 0 !important;
+            outline: 1px solid var(--tab-inset-border-colour);
         }
     }
     
@@ -317,14 +368,15 @@ toolbarbutton#tabs-newtab-button,
         --tab-border-colour: rgba(0, 0, 0, .5);
     }
 
+    #customization-container {
+        background-image: none !important;
+        background-color: rgb(232, 238, 245) !important;
+    }
+
     #scrollbutton-up, #scrollbutton-down {
-        background-color: var(--tab-background-colour) !important;
+        background-color: transparent !important;
         border: 1px solid var(--tab-border-colour) !important;
         border-bottom: 0px !important;
-    
-        &:hover {
-            background-color: var(--tab-background-colour_hover) !important;
-        }
     }
 
     .tabbrowser-tab {
@@ -392,6 +444,14 @@ toolbarbutton#tabs-newtab-button,
     
         &:hover {
             background: var(--tab-background-colour_hover) !important;
+        }
+    }
+
+    #scrollbutton-up, #scrollbutton-down {
+        &::before {
+            border: unset !important;
+            width: 100%;
+            height: 100%;
         }
     }
 
