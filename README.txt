@@ -1,27 +1,16 @@
-!!! THE VERY FIRST AND VERY EARLY RELEASE OF THE BEAUTYFOX (IE9+) THEME FOR FIREFOX 115 ESR ONLY !!!
+!!! BEAUTYFOX (IE9+) THEME FOR FIREFOX 115 ESR ONLY !!!
 Tested on: Windows 7, Windows 8.1/10 with the default theme and Aero themes with Glass8 enabled and Windows 11.
 
 !!! IT DOES NOT WORK PROPERLY WITH WINDOWBLINDS !!!
 
 MAKE SURE THAT YOUR PROFILE HAS NOT BEEN MODIFIED BY OTHER THEMES IN THE PAST, AND IF SO, DELETE THE MODIFIED FILES OR CREATE A NEW PROFILE!
 
-Changelog b2.4
-- Made the navigation buttons icon style only work if they are inside the navigation bar;
-- Made the stop icon always show up in the Internet Explorer 9 Pre-Release appearance;
-- Fixed the customise UI;
-- Made the window frame have a black background instead of glass if in fullscreen;
-- Changed the customise UI to resemble pages like about:newtab;
-- Renamed "favicon_in_urlbar.uc.js" to "faviconUrlBar.uc.js";
-- Changed Search placeholder text to include ellipses;
-- Moved the Add Bookmark button from Urlbar to bookmarks bar;
-- Changed the Go button icon;
-- Reload button is now hidden when typing in Urlbar, with the Go button going in its place;
-- Fixed urlbar background not changing colour if the reload/stop icon is hovered;
-- Added search icon to dropdown in urlbar;
-- Added certificate error icon;
-- Added certificate error background colour to textfields in the navigation bar;
-- Changed tab close button colour in Internet Explorer 9 Pre-Release and Release appearances;
-- Initial work on findbar look.
+Changelog b2.6
+- Navigation row icons in the right side are now "99.99%" accurate;
+- Tab pane now has a margin-right if BeautyFox.option.tabsOnNavRow is true;
+- Added user variables file (uservars.css) for manually adjusting titlebar height according to operating system user settings.
+
+CLEAR STARTUP CACHE
 
 
 Instructions
