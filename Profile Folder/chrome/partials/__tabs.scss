@@ -6,6 +6,8 @@
     --tab-inset-border-colour: linear-gradient(180deg, rgba(254, 254, 254, 0.78) 0%, rgba(143, 143, 143, 0.55) 100%);
     --tab-border-radius: 0 !important;
     --tab-height: 23px;
+
+    --newtab-button-width: 27px;
 }
 
 #customization-container {
@@ -191,8 +193,6 @@
 }
 
 .tab-icon-image {
-    display: block !important;
-
     &:not(&[src*="data"]) {
         content: url(images/iexplore_16.png) !important;
     }
@@ -200,7 +200,7 @@
 
 toolbarbutton#tabs-newtab-button,
 #TabsToolbar #new-tab-button {
-    width: 27px;
+    width: var(--newtab-button-width) !important;
     margin: 0 !important;
     padding: 0 !important;
     border: 1px solid var(--tab-border-colour) !important;
@@ -224,8 +224,6 @@ toolbarbutton#tabs-newtab-button,
 
     &:hover {
         .toolbarbutton-icon {
-            background-position: center;
-            background-repeat: no-repeat;
             background-image: url(images/newtab.png);
         }
     }
@@ -236,6 +234,8 @@ toolbarbutton#tabs-newtab-button,
         width: 16px !important;
         list-style-image: none !important;
         z-index: 1;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 }
 
@@ -272,6 +272,7 @@ toolbarbutton#tabs-newtab-button,
     :root {
         --option_tabsOnNavRow: 1 !important;
         --tab-height: 27px;
+        --newtab-button-width: 29px;
 
         &:is([privatebrowsingmode="temporary"]) {
             #urlbar-container {
@@ -286,13 +287,12 @@ toolbarbutton#tabs-newtab-button,
         min-width: 209px !important;
     }
 
-    toolbarbutton#tabs-newtab-button {
-        margin-bottom: 0 !important;
-        width: 29px !important;
-    }
-
     #search-container {
         display: none !important;
+    }
+
+    #TabsToolbar-customization-target {
+        margin-right: 9px !important;
     }
 }
 
@@ -461,5 +461,36 @@ toolbarbutton#tabs-newtab-button,
         border: 1px solid var(--tab-border-colour);
         border-left: 0 !important;
         border-bottom: 0px !important;
+    }
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+            :root {
+                --newtab-button-width: 22px;
+            }
+
+            #TabsToolbar {
+                margin-bottom: -1px !important;
+            }
+
+            toolbarbutton#tabs-newtab-button,
+            #TabsToolbar #new-tab-button {
+                &:hover {
+                    &::before {
+                        background: var(--tab-background-colour_hover);
+                    }
+                }
+                
+                .toolbarbutton-icon {
+                    background-image: url(images/newtab.png);
+                }
+            }
+
+            @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+                :root {
+                    --newtab-button-width: 26px;
+                }
+            }
+        }
     }
 }

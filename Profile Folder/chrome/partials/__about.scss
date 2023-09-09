@@ -1,10 +1,12 @@
 @-moz-document url(chrome://browser/content/aboutDialog.xhtml) {
 	:root {
 		--IEABOUT-image: url(images/IELOGO-9.PNG);
+		--font-size: 8pt;
+		--font-family: Tahoma;
 	}
 
 	#aboutDialog {
-		font-family: Tahoma !important;
+		font-family: var(--font-family) !important;
 	}
 	
 	#aboutDialogContainer {
@@ -30,7 +32,7 @@
 
 	p.aboutDialogInfo {
 		color: rgb(97, 97, 97) !important;
-		font-size: 8pt !important;
+		font-size: var(--font-size) !important;
 		line-height: 13px !important;
 		margin-left: 0 !important;
 		margin-top: 0 !important;
@@ -62,7 +64,7 @@
 	}
 
 	a {
-		font-size: 8pt !important;
+		font-size: var(--font-size) !important;
 		color: rgb(0, 102, 204) !important;
 
 		&:visited {
@@ -118,7 +120,7 @@
 		}
 
 		a {
-			font-size: 8pt !important;
+			font-size: var(--font-size) !important;
 			color: rgb(0, 102, 204) !important;
 			text-decoration: none !important;
 	
@@ -138,11 +140,32 @@
 			right: 36px;
 			bottom: 16px;
 		}
-	}
 
-	@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-		:root {
-			--IEABOUT-image: url(images/IELOGO-11.PNG);
+		@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+			:root {
+				--IEABOUT-image: url(images/IELOGO-11.PNG);
+				--font-size: 9pt;
+				--font-family: Segoe UI;
+			}
+
+			#aboutDialogPane {
+				width: 295px;
+				height: 184px;
+				padding: 31px;
+				padding-left: 32px;
+				padding-right: 32px;
+				padding-top: 20px;
+				padding-bottom: 54px;
+			}
+
+			#aboutDialogLogo {
+				margin-bottom: 10px;
+				margin-left: -2px;
+			}
+
+			p.aboutDialogInfo {
+				margin-bottom: 2px !important;
+			}
 		}
 	}
 }

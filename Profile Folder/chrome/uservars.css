@@ -1,0 +1,11 @@
+/* BeautyFox user variables */
+:root {
+	/** OS titlebar height 
+	 *  Default:
+	 *  	Windows:
+	 *  	- Windows Vista: 19px
+	 *  	- Windows 7: 21px
+	 *  	- Windows 8 - 11: 22px
+	 */
+	--titlebar-height: 21px;  
+}

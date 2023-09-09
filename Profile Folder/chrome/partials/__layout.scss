@@ -5,8 +5,7 @@
     --toolbarbutton-hover-background: transparent !important;
     --toolbarbutton-active-background: transparent !important;
     --toolbarbutton-disabled-opacity: 1 !important;
-    --titlebar-height-calc: calc(var(--titlebar-height) - 2px);
-    --titlebar-height: 21px;
+    --titlebar-height-calc: calc(var(--titlebar-height) - 1px);
 
     --urlbar-inprivatebadge-width: 58px;
     &:is([privatebrowsingmode="temporary"]) {
@@ -26,6 +25,8 @@
     --urlbar-box-active-bgcolor: transparent !important;
     --urlbar-height: 24.00px !important;
     --urlbar-dropdown-button_width: 32px;
+    --urlbar-fake-dropdown-mask: url(images/search-dropdown-mask.svg);
+    --urlbar-fake-dropdown-mask-position: left;
     --stop-reload-button_width: 17px;
 
     --focus-outline-color: transparent !important;
@@ -71,6 +72,8 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
 #main-window {
     &[sizemode="maximized"] {
+        --titlebar-height-calc: calc(var(--titlebar-height) - 2px);
+
         #nav-bar {
             padding-top: 26px !important;
         }
@@ -364,8 +367,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         width: var(--urlbar-dropdown-button_width);
         height: 22px;
         background: linear-gradient(90deg, rgba(0,0,0,.5) 49%, rgba(0,0,0,.5) 50%);
-        mask: url(images/search-dropdown-mask.svg);
-        mask-position: left;
+        mask: var(--urlbar-fake-dropdown-mask);
+        mask-position: var(--urlbar-fake-dropdown-mask-position);
         mask-repeat: no-repeat;
     }
 }
@@ -460,6 +463,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 #star-button-box {
     height: 24px !important;
     width: 24px !important;
+    display: block !important;
 
     #star-button {
         margin-top: 1px;
@@ -1360,10 +1364,10 @@ findbar {
             }
         }
     }
-}
 
-@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-    :root {
-        --appearance_IE11: 1 !important;
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+        :root {
+            --appearance_IE11: 1 !important;
+        }
     }
 }

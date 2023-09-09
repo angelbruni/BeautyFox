@@ -112,6 +112,7 @@ if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE
 	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + '11.0.20 <a id="aboutDialogInfoKB" href="#">(KB3058515)</a>';
 	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '00150-20000-00003-AA459';
 	aboutDialogMicrosoft.innerHTML = '© 2013 Microsoft Corporation. All rights reserved.';
+	aboutDialogOKButton.innerHTML = 'Close';
 } else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE9PreRelease') == 1) {
 	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '9.0.7930.16406   64-bit Edition';
 	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + 'beta <a id="aboutDialogInfoKB" href="#"></a>';

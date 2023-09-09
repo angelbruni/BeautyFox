@@ -87,6 +87,12 @@
     margin-top: 8px;
     margin-left: 8px;
   }
+  .top-site-outer .tile .icon-wrapper.letter-fallback::before {
+    font-size: 16pt !important;
+    font-weight: normal !important;
+    top: -2px !important;
+    transform: rotate(0deg) !important;
+  }
   .top-site-outer .tile .icon-wrapper .top-site-icon {
     border-radius: 0 !important;
   }

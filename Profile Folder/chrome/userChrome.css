@@ -1,3 +1,4 @@
+@import url(uservars.css);
 :root {
   --chrome-content-separator-color: #6f6f6f !important;
   --urlbar-min-height: 24px !important;
@@ -5,13 +6,14 @@
   --toolbarbutton-hover-background: transparent !important;
   --toolbarbutton-active-background: transparent !important;
   --toolbarbutton-disabled-opacity: 1 !important;
-  --titlebar-height-calc: calc(var(--titlebar-height) - 2px);
-  --titlebar-height: 21px;
+  --titlebar-height-calc: calc(var(--titlebar-height) - 1px);
   --urlbar-inprivatebadge-width: 58px;
   --urlbar-box-hover-bgcolor: transparent !important;
   --urlbar-box-active-bgcolor: transparent !important;
   --urlbar-height: 24.00px !important;
   --urlbar-dropdown-button_width: 32px;
+  --urlbar-fake-dropdown-mask: url(images/search-dropdown-mask.svg);
+  --urlbar-fake-dropdown-mask-position: left;
   --stop-reload-button_width: 17px;
   --focus-outline-color: transparent !important;
   --browser-outer-border-color: rgba(253, 253, 253, .65);
@@ -54,6 +56,9 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   -moz-window-dragging: no-drag !important;
 }
 
+#main-window[sizemode=maximized] {
+  --titlebar-height-calc: calc(var(--titlebar-height) - 2px);
+}
 #main-window[sizemode=maximized] #nav-bar {
   padding-top: 26px !important;
 }
@@ -300,10 +305,10 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   width: var(--urlbar-dropdown-button_width);
   height: 22px;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 49%, rgba(0, 0, 0, 0.5) 50%);
-  -webkit-mask: url(images/search-dropdown-mask.svg);
-          mask: url(images/search-dropdown-mask.svg);
-  -webkit-mask-position: left;
-          mask-position: left;
+  -webkit-mask: var(--urlbar-fake-dropdown-mask);
+          mask: var(--urlbar-fake-dropdown-mask);
+  -webkit-mask-position: var(--urlbar-fake-dropdown-mask-position);
+          mask-position: var(--urlbar-fake-dropdown-mask-position);
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
 }
@@ -393,6 +398,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #star-button-box {
   height: 24px !important;
   width: 24px !important;
+  display: block !important;
 }
 #star-button-box #star-button {
   margin-top: 1px;
@@ -1110,10 +1116,10 @@ findbar {
   toolbarbutton#home-button::after, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#PanelUI-menu-button::after, toolbarbutton#unified-extensions-button::after, toolbarbutton#downloads-button::after {
     content: unset !important;
   }
-}
-@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-  :root {
-    --appearance_IE11: 1 !important;
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    :root {
+      --appearance_IE11: 1 !important;
+    }
   }
 }
 :root {
@@ -1486,6 +1492,7 @@ findbar {
   --tab-inset-border-colour: linear-gradient(180deg, rgba(254, 254, 254, 0.78) 0%, rgba(143, 143, 143, 0.55) 100%);
   --tab-border-radius: 0 !important;
   --tab-height: 23px;
+  --newtab-button-width: 27px;
 }
 
 #customization-container {
@@ -1644,16 +1651,13 @@ findbar {
   margin-inline-end: 0 !important;
 }
 
-.tab-icon-image {
-  display: block !important;
-}
 .tab-icon-image:not(.tab-icon-image[src*=data]) {
   content: url(images/iexplore_16.png) !important;
 }
 
 toolbarbutton#tabs-newtab-button,
 #TabsToolbar #new-tab-button {
-  width: 27px;
+  width: var(--newtab-button-width) !important;
   margin: 0 !important;
   padding: 0 !important;
   border: 1px solid var(--tab-border-colour) !important;
@@ -1677,8 +1681,6 @@ toolbarbutton#tabs-newtab-button::before,
 }
 toolbarbutton#tabs-newtab-button:hover .toolbarbutton-icon,
 #TabsToolbar #new-tab-button:hover .toolbarbutton-icon {
-  background-position: center;
-  background-repeat: no-repeat;
   background-image: url(images/newtab.png);
 }
 toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
@@ -1688,6 +1690,8 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   width: 16px !important;
   list-style-image: none !important;
   z-index: 1;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .tab-label-container[textoverflow][labeldirection=ltr]:not([pinned]) {
@@ -1720,6 +1724,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   :root {
     --option_tabsOnNavRow: 1 !important;
     --tab-height: 27px;
+    --newtab-button-width: 29px;
   }
   :root:is([privatebrowsingmode=temporary]) #urlbar-container {
     width: calc(58px + 28.5%) !important;
@@ -1729,12 +1734,11 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     width: 28.5% !important;
     min-width: 209px !important;
   }
-  toolbarbutton#tabs-newtab-button {
-    margin-bottom: 0 !important;
-    width: 29px !important;
-  }
   #search-container {
     display: none !important;
+  }
+  #TabsToolbar-customization-target {
+    margin-right: 9px !important;
   }
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
@@ -1853,6 +1857,29 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     border-left: 0 !important;
     border-bottom: 0px !important;
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+      :root {
+        --newtab-button-width: 22px;
+      }
+      #TabsToolbar {
+        margin-bottom: -1px !important;
+      }
+      toolbarbutton#tabs-newtab-button:hover::before,
+      #TabsToolbar #new-tab-button:hover::before {
+        background: var(--tab-background-colour_hover);
+      }
+      toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
+      #TabsToolbar #new-tab-button .toolbarbutton-icon {
+        background-image: url(images/newtab.png);
+      }
+      @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+        :root {
+          --newtab-button-width: 26px;
+        }
+      }
+    }
+  }
 }
 :root {
   --toolbar-bgcolor: #e6effa !important;
@@ -1866,9 +1893,11 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 @-moz-document url(chrome://browser/content/aboutDialog.xhtml) {
   :root {
     --IEABOUT-image: url(images/IELOGO-9.PNG);
+    --font-size: 8pt;
+    --font-family: Tahoma;
   }
   #aboutDialog {
-    font-family: Tahoma !important;
+    font-family: var(--font-family) !important;
   }
   #aboutDialogContainer {
     background-color: white !important;
@@ -1890,7 +1919,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   }
   p.aboutDialogInfo {
     color: rgb(97, 97, 97) !important;
-    font-size: 8pt !important;
+    font-size: var(--font-size) !important;
     line-height: 13px !important;
     margin-left: 0 !important;
     margin-top: 0 !important;
@@ -1918,7 +1947,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     order: 4;
   }
   a {
-    font-size: 8pt !important;
+    font-size: var(--font-size) !important;
     color: rgb(0, 102, 204) !important;
   }
   a:visited {
@@ -1963,7 +1992,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       margin-bottom: 18px !important;
     }
     a {
-      font-size: 8pt !important;
+      font-size: var(--font-size) !important;
       color: rgb(0, 102, 204) !important;
       text-decoration: none !important;
     }
@@ -1980,11 +2009,28 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       right: 36px;
       bottom: 16px;
     }
-  }
-  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-    :root {
-      --IEABOUT-image: url(images/IELOGO-11.PNG);
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+      :root {
+        --IEABOUT-image: url(images/IELOGO-11.PNG);
+        --font-size: 9pt;
+        --font-family: Segoe UI;
+      }
+      #aboutDialogPane {
+        width: 295px;
+        height: 184px;
+        padding: 31px;
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-top: 20px;
+        padding-bottom: 54px;
+      }
+      #aboutDialogLogo {
+        margin-bottom: 10px;
+        margin-left: -2px;
+      }
+      p.aboutDialogInfo {
+        margin-bottom: 2px !important;
+      }
     }
   }
 }
-/* BeautyFox by AngelBruni - FF115 ESR */
