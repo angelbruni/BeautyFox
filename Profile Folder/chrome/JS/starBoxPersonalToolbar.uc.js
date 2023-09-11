@@ -1,8 +1,11 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+function addClonedStarBox() {
+    const personalToolbar = document.getElementById('PersonalToolbar');
+    const starBtn = document.getElementById('star-button-box');
+    
     setTimeout(() => {
-        var personalToolbarEmpty = document.getElementById('personal-toolbar-empty');
-        var starBtn = document.getElementById('star-button-box');
-
-        personalToolbarEmpty.parentNode.insertBefore(starBtn, personalToolbarEmpty.nextSibling);
-    }, 10);
-});
+        const clonedStarBtn = starBtn.cloneNode(true);
+        clonedStarBtn.classList.add("star-button-box_cloned");
+        personalToolbar.insertBefore(clonedStarBtn, personalToolbar.firstChild);
+        starBtn.remove();
+    }, 100);
+}

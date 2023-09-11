@@ -79,6 +79,12 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         }
     }
 
+    &:not([sizemode="maximized"]) {
+        .titlebar-buttonbox {
+            top: -3px !important;
+        }
+    }
+
     &[sizemode="maximized"], &[sizemode="fullscreen"] {
         #PersonalToolbar, #toolbar-menubar {
             border-left: none !important;
@@ -463,7 +469,11 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 #star-button-box {
     height: 24px !important;
     width: 24px !important;
-    display: block !important;
+    display: none !important;
+
+    &.star-button-box_cloned {
+        display: block !important;
+    }
 
     #star-button {
         margin-top: 1px;
@@ -893,6 +903,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             
             &::before, &::after {
                 mask-image: url(images/favorites-mask.svg);
+                height: 15.5px !important;
             }
     
             &::after {
@@ -1197,6 +1208,26 @@ findbar {
 #private-browsing-indicator-with-label {
     display: none !important;
 }
+
+/* Fake titlebar accent colour for Windows 10+ on default theme with Firefox 117+ */
+@supports -moz-bool-pref("BeautyFox.fix.fakeTitlebarAccentColor") {
+    #titlebar, #nav-bar {
+        background-color: AccentColor !important;
+
+        &:not(:-moz-lwtheme):-moz-window-inactive {
+            background-color: white !important;
+        }
+    }
+    .titlebar-button > .toolbarbutton-icon {
+        color: AccentColorText !important;
+    
+        &:not(:-moz-lwtheme):-moz-window-inactive {
+            color: black !important;
+        }
+    }
+}
+
+
 
 @supports -moz-bool-pref("BeautyFox.hide.unifiedExtensions") {
     :root {

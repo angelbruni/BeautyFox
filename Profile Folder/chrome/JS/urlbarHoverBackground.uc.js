@@ -1,5 +1,8 @@
-refreshBtn.setAttribute('onmouseenter', 'urlbarBackgroundEnter()');
-refreshBtn.setAttribute('onmouseleave', 'urlbarBackgroundLeave()');
+function urlbarContainerBackgroundOnMouseAttrs() {
+    var refreshBtn = document.getElementById('stop-reload-button');
+    refreshBtn.setAttribute('onmouseenter', 'urlbarBackgroundEnter()');
+    refreshBtn.setAttribute('onmouseleave', 'urlbarBackgroundLeave()');
+}
 
 const urlbarContainer = document.getElementById('urlbar-container');
 

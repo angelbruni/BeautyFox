@@ -1,16 +1,8 @@
-var refreshBtn = document.getElementById('stop-reload-button');
-var Tabs = document.getElementById('TabsToolbar');
-
-var moveTabs = {
-    init: function() {
-        try {
-            if (getComputedStyle(document.documentElement).getPropertyValue('--option_tabsOnNavRow') == 1) {
-                setTimeout(() => {
-                    refreshBtn.parentNode.insertBefore(Tabs, refreshBtn.nextSibling);
-                }, 50);
-            }
-        } catch(e) {}
+function moveTabs() {
+    var refreshBtn = document.getElementById('stop-reload-button');
+    var Tabs = document.getElementById('TabsToolbar');
+    
+    if (getComputedStyle(document.documentElement).getPropertyValue('--option_tabsOnNavRow') == 1) {
+        refreshBtn.parentNode.insertBefore(Tabs, refreshBtn.nextSibling);
     }
-};
-
-document.addEventListener("DOMContentLoaded", moveTabs.init(), false);
+}

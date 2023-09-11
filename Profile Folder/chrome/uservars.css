@@ -1,11 +1,19 @@
-/* BeautyFox user variables */
+/** 
+ *	BeautyFox user variables 
+ *
+ *	Comment the variable that you don't want to change
+ *  Uncomment the variable that you want to change
+ */
+
 :root {
-	/** OS titlebar height 
-	 *  Default:
+	/** 
+	 *	OS titlebar height 
+	 *
+	 * 	Default:
 	 *  	Windows:
 	 *  	- Windows Vista: 19px
 	 *  	- Windows 7: 21px
 	 *  	- Windows 8 - 11: 22px
 	 */
-	--titlebar-height: 21px;  
+	--titlebar-height: 19px;
 }
