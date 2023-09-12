@@ -15,6 +15,8 @@ Changelog b2.8
 - Added a winver clone for the aboutDialog when BeautyFox.appearance.IE11Win10 is true in about:config;
 - Added multiple variables for modifying the information in the winver clone (--winver-logo-image, --winver-os-company, --winver-os-name, --winver-os-build-version, --winver-os-build-string, --winver-os-copyright-year, --winver-os-version, --winver-os-edition, --winver-os-username);
 
+CLEAR STARTUP CACHE
+
 
 Instructions
 
