@@ -1394,6 +1394,14 @@ findbar {
                 content: unset !important;
             }
         }
+
+        &#bookmarks-menu-button {
+            background-image: url(images/favorites-ie10.svg) !important; 
+            
+            &::before, &::after {
+                mask-image: url(images/favorites-ie10-mask.svg) !important;
+            }
+        }
     }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE11") {

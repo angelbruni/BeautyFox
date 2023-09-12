@@ -1138,6 +1138,13 @@ findbar {
   toolbarbutton#home-button::after, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#PanelUI-menu-button::after, toolbarbutton#unified-extensions-button::after, toolbarbutton#downloads-button::after {
     content: unset !important;
   }
+  toolbarbutton#bookmarks-menu-button {
+    background-image: url(images/favorites-ie10.svg) !important;
+  }
+  toolbarbutton#bookmarks-menu-button::before, toolbarbutton#bookmarks-menu-button::after {
+    -webkit-mask-image: url(images/favorites-ie10-mask.svg) !important;
+            mask-image: url(images/favorites-ie10-mask.svg) !important;
+  }
   @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
     :root {
       --appearance_IE11: 1 !important;
