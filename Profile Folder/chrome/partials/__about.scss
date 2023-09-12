@@ -136,7 +136,6 @@
 			@supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
 				:root {
 					--logo-image: var(--winver-logo-image);
-					--winver-logo-image: url(images/winverLogo10.PNG);
 					--font-size: 8pt;
 					--font-family: Tahoma;
 				}

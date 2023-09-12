@@ -5,15 +5,8 @@ Tested on: Windows 7, Windows 8.1/10 with the default theme and Aero themes with
 
 MAKE SURE THAT YOUR PROFILE HAS NOT BEEN MODIFIED BY OTHER THEMES IN THE PAST, AND IF SO, DELETE THE MODIFIED FILES OR CREATE A NEW PROFILE!
 
-Changelog b2.8
-- Removed a console.log() I forgot;
-- Styled some error pages according to the appearance set in about:config;
-- Fixed download icon progress mask;
-- Fixed navigation row icon mask being in the wrong place with high screen scaling;
-- Fixed pop-up window;
-- Added BeautyFox.option.hideSettingsInPopUp option in about:config for hiding the settings button in pop-up windows;
-- Added a winver clone for the aboutDialog when BeautyFox.appearance.IE11Win10 is true in about:config;
-- Added multiple variables for modifying the information in the winver clone (--winver-logo-image, --winver-os-company, --winver-os-name, --winver-os-build-version, --winver-os-build-string, --winver-os-copyright-year, --winver-os-version, --winver-os-edition, --winver-os-username);
+Changelog b2.8.1
+- Fixed Windows 10 logo being forced in fake winver.
 
 CLEAR STARTUP CACHE
 
