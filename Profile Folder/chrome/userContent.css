@@ -211,3 +211,39 @@
     }
   }
 }
+@-moz-document url-prefix(about:neterror) {
+  body {
+    background-color: white !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+  }
+  .neterror {
+    padding: 0 !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    h1.title-text {
+      color: #54b0f7 !important;
+      font-size: 36px !important;
+    }
+    .container {
+      margin-top: 80px;
+      margin-left: 120px;
+      margin-right: 120px;
+    }
+    #errorShortDesc, #errorShortDesc2, span[data-l10n-id=neterror-dns-not-found-hint-header] {
+      display: none;
+    }
+    .button-container {
+      justify-content: start !important;
+    }
+    .button-container > button {
+      margin-top: 0 !important;
+      min-height: 22px !important;
+      border-radius: 0 !important;
+      border: 1px solid rgb(112, 112, 112) !important;
+      color: black !important;
+      font-size: 9pt !important;
+      background: linear-gradient(0deg, rgb(213, 213, 213) 0%, rgb(235, 235, 235) 100%);
+    }
+  }
+}
