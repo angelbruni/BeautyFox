@@ -8,7 +8,7 @@ MAKE SURE THAT YOUR PROFILE HAS NOT BEEN MODIFIED BY OTHER THEMES IN THE PAST, A
 Changelog b2.7.1
 - Added option for tinted titlebar on Firefox 117+ and Windows 10+ BeautyFox.fix.fakeTitlebarAccentColor;
 - Added a scriptLoader for loading scripts after Firefox has finished loading;
-- Changed how the bookmarks button is move: it's now duplicated in the right place and the original one is removed;
+- Changed how the bookmarks button is moved: it's now duplicated in the right place and the original one is removed;
 - Added Internet Explorer 10's bookmarks button icon which gets used when BeautyFox.appearance.IE10 is true in about:config;
 - Changed lock icon latch to look thicker to be more accurate;
 - Changed lock hover and active colour;
