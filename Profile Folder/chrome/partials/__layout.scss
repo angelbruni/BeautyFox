@@ -53,6 +53,7 @@
     --toolbarbutton-green-colour_hover: rgb(67, 202, 83);
     --toolbarbutton-red-colour: rgb(254, 171, 171);
     --toolbarbutton-red-colour_hover: rgb(243, 116, 116);
+    --toolbarbutton-icon-fill-attention: var(--toolbarbutton-green-colour_hover) !important;
 
     --toolbar-field-background-color: rgba(254,254,254,.65) !important;
     --toolbar-field-background-color_hover: rgba(255,255,255,.8);
@@ -60,6 +61,7 @@
     --appearance_IE9PreRelease: 0;
     --appearance_IE10: 0;
     --appearance_IE11: 0;
+    --appearance_IE11Win10: 0;
 }
 
 * {
@@ -860,6 +862,9 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                 height: 16px;
                 width: 16px;
                 transition: opacity .3s steps(5), background-color .3s steps(5);
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
             }
     
             &::after {
@@ -970,6 +975,17 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             &:active, &[open="true"] {
                 &::before {
                     background-color: var(--toolbarbutton-blue-colour_hover);
+                }
+            }
+
+            > .toolbarbutton-badge-stack {
+                mask-image: url(images/downloads-mask.svg);
+                mask-position: center;
+                mask-repeat: no-repeat;
+
+                #downloads-indicator-progress-inner {
+                    border-radius: 0 !important;
+                    background: linear-gradient(var(--toolbarbutton-icon-fill-attention) var(--download-progress-pcent), transparent var(--download-progress-pcent)) !important;
                 }
             }
         }
@@ -1166,6 +1182,32 @@ findbar {
 
     &:focus {
         box-shadow: none !important;
+    }
+}
+
+*|*:root[chromehidden~="toolbar"] {
+    #nav-bar {
+        &::before {
+            content: unset !important;
+        }
+    }
+
+    #urlbar-container {
+        width: 100% !important;
+
+        #urlbar-input-container {
+            padding-right: 0 !important;
+        }
+    }
+
+    @supports -moz-bool-pref("BeautyFox.option.hideSettingsInPopUp") {
+        #nav-bar {
+            padding-right: 0 !important;
+        }
+        
+        #PanelUI-button {
+            display: none !important;
+        }
     }
 }
 
@@ -1415,6 +1457,12 @@ findbar {
     @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
         :root {
             --appearance_IE11: 1 !important;
+        }
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+            :root {
+                --appearance_IE11Win10: 1 !important;
+            }
         }
     }
 }

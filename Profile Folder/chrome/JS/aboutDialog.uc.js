@@ -62,7 +62,6 @@ const aboutDialogInfoCipherStrengthAttrs = {
 	"class": "aboutDialogInfo",
     "id": "aboutDialogInfoCipherStrength"
 };
-aboutDialogInfoCipherStrength.innerHTML = 'Cipher Strength:' + ' ' + '256-bit';
 setAttributes(aboutDialogInfoCipherStrength, aboutDialogInfoCipherStrengthAttrs);
 
 //About Dialog Information - Product ID
@@ -79,11 +78,10 @@ const aboutDialogWarningAttrs = {
 	"class": "aboutDialogInfo",
     "id": "aboutDialogWarning"
 };
-aboutDialogWarning.innerHTML = 'Warning:' + ' ' + 'This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law.';
 setAttributes(aboutDialogWarning, aboutDialogWarningAttrs);
 
 //About Dialog Information - Microsoft
-const aboutDialogMicrosoft = document.createElement("a");
+const aboutDialogMicrosoft = document.createElement("p");
 const aboutDialogMicrosoftAttrs = {
 	"class": "aboutDialogInfo",
     "id": "aboutDialogMicrosoft",
@@ -91,43 +89,50 @@ const aboutDialogMicrosoftAttrs = {
 setAttributes(aboutDialogMicrosoft, aboutDialogMicrosoftAttrs);
 
 // Close Button
-const aboutDialogOKButton = document.createElement("button")
+const aboutDialogOKButton = document.createElement("button");
 const aboutDialogOKButtonAttrs = {
 	"class": "aboutDialogInfo",
     "id": "aboutDialogOKButton",
 };
-aboutDialogOKButton.innerHTML = 'OK';
 setAttributes(aboutDialogOKButton, aboutDialogOKButtonAttrs);
 
-
-// IE9 and 10 strings
-if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 0) {
-	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '10.0.9200.17457';
-	aboutDialogInfoUpdateVersion.innerHTML = 'Update Version:' + ' ' + '10.0.30 <a id="aboutDialogInfoUpdateVersion" href="#">(KB3078071)</a>';
-	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '00150-20000-00003-AA459';
-	aboutDialogMicrosoft.innerHTML = '© 2012 Microsoft Corporation. All rights reserved.';
-	aboutDialogOKButton.innerHTML = 'Close';
-} else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1) {
-	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '11.0.9600.17843';
-	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + '11.0.20 <a id="aboutDialogInfoUpdateVersion" href="#">(KB3058515)</a>';
-	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '00150-20000-00003-AA459';
-	aboutDialogMicrosoft.innerHTML = '© 2013 Microsoft Corporation. All rights reserved.';
-	aboutDialogOKButton.innerHTML = 'Close';
-} else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE9PreRelease') == 1) {
-	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '9.0.7930.16406   64-bit Edition';
-	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + 'beta <a id="aboutDialogInfoUpdateVersion" href="#"></a>';
-	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '03201-292-0000007-85504';
-	aboutDialogMicrosoft.innerHTML = '© 2010 Microsoft Corporation';
-	aboutDialogOKButton.innerHTML = 'OK';
-} else {
-	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '9.0.8112.16421   64-bit Edition';
-	aboutDialogInfoUpdateVersion.innerHTML = 'Update Version:' + ' ' + '9.0.41 (<a id="aboutDialogInfoUpdateVersion" href="#">KB3078071</a>)';
-	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '03553-292-0000007-85504';
-	aboutDialogMicrosoft.innerHTML = '© 2011 Microsoft Corporation';
-	aboutDialogOKButton.innerHTML = 'OK';
+const winverSeparator = document.createElement("div");
+const winverSeparatorAttrs = {
+	"class": "winverSeparator"
 }
+setAttributes(winverSeparator, winverSeparatorAttrs);
 
+// Winver OS Name
+const winverOSName = document.createElement("p");
+const winverOSNameAttrs = {
+	"class": "aboutDialogInfo",
+	"id": "winverOSName",
+}
+setAttributes(winverOSName, winverOSNameAttrs);
 
+// Winver Copyright
+const winverCopyright = document.createElement("p");
+const winverCopyrightAttrs = {
+	"class": "aboutDialogInfo",
+	"id": "winverCopyright",
+}
+setAttributes(winverCopyright, winverCopyrightAttrs);
+
+// Winver License
+const winverLicense = document.createElement("p");
+const winverLicenseAttrs = {
+	"class": "aboutDialogInfo",
+	"id": "winverLicense",
+}
+setAttributes(winverLicense, winverLicenseAttrs);
+
+// Winver User
+const winverUser = document.createElement("p");
+const winverUserAttrs = {
+	"class": "aboutDialogInfo",
+	"id": "winverUser",
+}
+setAttributes(winverUser, winverUserAttrs);
 
 // Clear HTML
 aboutDialogContainer.innerHTML = '';
@@ -136,13 +141,124 @@ aboutDialogContainer.innerHTML = '';
 aboutDialogContainer.appendChild(aboutDialogPane);
 aboutDialogPane.appendChild(aboutDialogLogo);
 aboutDialogPane.appendChild(aboutDialogInfoPane);
-aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);
-aboutDialogInfoPane.appendChild(aboutDialogInfoUpdateVersion);
-aboutDialogInfoPane.appendChild(aboutDialogInfoCipherStrength);
-aboutDialogInfoPane.appendChild(aboutDialogInfoProductID);
-aboutDialogPane.appendChild(aboutDialogWarning);
-aboutDialogPane.appendChild(aboutDialogMicrosoft);
-aboutDialogPane.appendChild(aboutDialogOKButton);
+
+
+// IE9 and 10 strings
+if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11Win10') == 1) {
+	var OSCompany = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-company');
+	var OSName = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-name');
+	var OSBuildVersion = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-build-version');
+	var OSBuildString = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-build-string');
+	var OSCopyrightYear = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-copyright-year');
+	var OSVersion = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-version');
+	var OSEdition = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-edition');
+	var OSUsername = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-username');
+
+	aboutDialogInfoPane.appendChild(winverSeparator);
+
+	winverOSName.innerHTML = OSCompany + ' ' + OSName;
+	aboutDialogInfoPane.appendChild(winverOSName);
+
+	aboutDialogInfoVersion.innerHTML = 'Version' + ' ' + OSBuildVersion + ' (OS Build ' + OSBuildString + ')';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);
+
+	aboutDialogMicrosoft.innerHTML = '© ' + OSCopyrightYear + ' ' + OSCompany + ' Corporation. All rights reserved.';
+	aboutDialogInfoPane.appendChild(aboutDialogMicrosoft);
+
+	winverCopyright.innerHTML = 'The ' + OSName + ' ' + OSVersion + ' ' + OSEdition + ' operating system and its user interface are protected by trademark and other pending or existing intellectual property rights in the United States and other countries/regions.';
+	aboutDialogInfoPane.appendChild(winverCopyright);
+
+	winverLicense.innerHTML = 'This product is licensed under the ' + '<a href="#">' + OSCompany + ' Software License<br />Terms</a>' + ' to:';
+	aboutDialogInfoPane.appendChild(winverLicense);
+
+	winverUser.innerHTML = OSUsername;
+	aboutDialogInfoPane.appendChild(winverUser);
+
+	aboutDialogOKButton.innerHTML = 'OK';
+	aboutDialogInfoPane.appendChild(aboutDialogOKButton);
+
+} else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1) {
+
+	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '11.0.9600.17843';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);
+
+	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + '11.0.20 <a id="aboutDialogInfoUpdateVersion" href="#">(KB3058515)</a>';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoUpdateVersion);
+
+	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '00150-20000-00003-AA459';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoProductID);
+
+	aboutDialogMicrosoft.innerHTML = '<a href="#">© 2013 Microsoft Corporation. All rights reserved.</a>';
+	aboutDialogInfoPane.appendChild(aboutDialogMicrosoft);
+
+	aboutDialogOKButton.innerHTML = 'Close';
+	aboutDialogInfoPane.appendChild(aboutDialogOKButton);
+
+}  else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 0) {
+
+	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '10.0.9200.17457';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);
+
+	aboutDialogInfoUpdateVersion.innerHTML = 'Update Version:' + ' ' + '10.0.30 <a id="aboutDialogInfoUpdateVersion" href="#">(KB3078071)</a>';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoUpdateVersion);
+
+	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '00150-20000-00003-AA459';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoProductID);
+
+	aboutDialogMicrosoft.innerHTML = '<a href="#">© 2012 Microsoft Corporation. All rights reserved.</a>';
+	aboutDialogInfoPane.appendChild(aboutDialogMicrosoft);
+
+	aboutDialogOKButton.innerHTML = 'Close';
+	aboutDialogInfoPane.appendChild(aboutDialogOKButton);
+
+} else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE9PreRelease') == 1) {
+
+	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '9.0.7930.16406   64-bit Edition';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);
+
+	aboutDialogInfoCipherStrength.innerHTML = 'Cipher Strength:' + ' ' + '256-bit';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoCipherStrength);
+
+	aboutDialogMicrosoft.innerHTML = '<a href="#">© 2010 Microsoft Corporation</a>';
+	aboutDialogInfoPane.appendChild(aboutDialogMicrosoft);
+
+	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + 'beta <a id="aboutDialogInfoUpdateVersion" href="#"></a>';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoUpdateVersion);
+
+	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '03201-292-0000007-85504';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoProductID);
+
+	aboutDialogWarning.innerHTML = 'Warning:' + ' ' + 'This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law.';
+	aboutDialogInfoPane.appendChild(aboutDialogWarning);
+
+	aboutDialogOKButton.innerHTML = 'OK';
+	aboutDialogInfoPane.appendChild(aboutDialogOKButton);
+
+} else {
+
+	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '9.0.8112.16421   64-bit Edition';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);
+
+	aboutDialogInfoUpdateVersion.innerHTML = 'Update Version:' + ' ' + '9.0.41 (<a id="aboutDialogInfoUpdateVersion" href="#">KB3078071</a>)';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoUpdateVersion);
+
+	aboutDialogInfoCipherStrength.innerHTML = 'Cipher Strength:' + ' ' + '256-bit';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoCipherStrength);
+
+	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '03553-292-0000007-85504';
+	aboutDialogInfoPane.appendChild(aboutDialogInfoProductID);
+
+	aboutDialogWarning.innerHTML = 'Warning:' + ' ' + 'This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law.';
+	aboutDialogInfoPane.appendChild(aboutDialogWarning);
+
+	aboutDialogMicrosoft.innerHTML = '<a href="#">© 2011 Microsoft Corporation</a>';
+	aboutDialogInfoPane.appendChild(aboutDialogMicrosoft);
+
+	aboutDialogOKButton.innerHTML = 'OK';
+	aboutDialogInfoPane.appendChild(aboutDialogOKButton);
+
+}
+
 
 // Add Event Listeners
 // KB Link

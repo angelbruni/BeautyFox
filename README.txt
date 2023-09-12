@@ -6,7 +6,14 @@ Tested on: Windows 7, Windows 8.1/10 with the default theme and Aero themes with
 MAKE SURE THAT YOUR PROFILE HAS NOT BEEN MODIFIED BY OTHER THEMES IN THE PAST, AND IF SO, DELETE THE MODIFIED FILES OR CREATE A NEW PROFILE!
 
 Changelog b2.8
-- Removed a console.log() I forgot.
+- Removed a console.log() I forgot;
+- Styled some error pages according to the appearance set in about:config;
+- Fixed download icon progress mask;
+- Fixed navigation row icon mask being in the wrong place with high screen scaling;
+- Fixed pop-up window;
+- Added BeautyFox.option.hideSettingsInPopUp option in about:config for hiding the settings button in pop-up windows;
+- Added a winver clone for the aboutDialog when BeautyFox.appearance.IE11Win10 is true in about:config;
+- Added multiple variables for modifying the information in the winver clone (--winver-logo-image, --winver-os-company, --winver-os-name, --winver-os-build-version, --winver-os-build-string, --winver-os-copyright-year, --winver-os-version, --winver-os-edition, --winver-os-username);
 
 
 Instructions
@@ -35,13 +42,15 @@ Instructions
 
 	Optional
 
-1.1.	about:config
-1.1.1.	Boolean	- BeautyFox.hide.unifiedExtensions		Hide extensions button;
-1.1.2.	Boolean	- BeautyFox.option.tabsOnNavRow;		Move tabs to navigation row;
-
-	!!! FOR THE THEME TO WORK PROPERLY, ONLY ENABLE ONE OF THESE AT A TIME !!!
-1.1.3.	Boolean	- BeautyFox.appearance.IE9PreRelease		Use Internet Explorer 9 Pre-Release appearance
-1.1.4.	Boolean	- BeautyFox.appearance.IE10.			Use Internet Explorer 10 appearance.
+1.	about:config
+	- Boolean - BeautyFox.hide.unifiedExtensions		Hide the extensions button;
+	- Boolean - BeautyFox.option.tabsOnNavRow		Move tabs to navigation row;
+	- Boolean - BeautyFox.option.hideSettingsInPopUp	Hide the settings button in pop-up windows;
+	- Boolean - BeautyFox.fix.fakeTitlebarAccentColor	Accent color in titlebar for Firefox 117+ and Windows 10+;
+	- Boolean - BeautyFox.appearance.IE9PreRelease		Use Internet Explorer 9 Pre-Release appearance;
+	- Boolean - BeautyFox.appearance.IE10			Use Internet Explorer 10 appearance (disable Internet Explorer 9 Pre-Release appearance first);
+	- Boolean - BeautyFox.appearance.IE11			Use Internet Explorer 11 appearance (enable Internet Explorer 10 appearance first);
+	- Boolean - BeautyFox.appearance.IE11Win10		Use Internet Explorer 11 appearance from Windows 10+ (enable Internet Explorer 10 and 11 appearance first).
 
 
 2.1.	Settings

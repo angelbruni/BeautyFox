@@ -33,11 +33,13 @@
   --toolbarbutton-green-colour_hover: rgb(67, 202, 83);
   --toolbarbutton-red-colour: rgb(254, 171, 171);
   --toolbarbutton-red-colour_hover: rgb(243, 116, 116);
+  --toolbarbutton-icon-fill-attention: var(--toolbarbutton-green-colour_hover) !important;
   --toolbar-field-background-color: rgba(254,254,254,.65) !important;
   --toolbar-field-background-color_hover: rgba(255,255,255,.8);
   --appearance_IE9PreRelease: 0;
   --appearance_IE10: 0;
   --appearance_IE11: 0;
+  --appearance_IE11Win10: 0;
 }
 :root:is([privatebrowsingmode=temporary]) #urlbar-input-container::before {
   content: "";
@@ -728,6 +730,9 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   height: 16px;
   width: 16px;
   transition: opacity 0.3s steps(5), background-color 0.3s steps(5);
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 #nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::after, #nav-bar toolbarbutton#_testpilot-containers-BAP::after, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::after, #nav-bar toolbaritem#home-button::after, #nav-bar toolbaritem#bookmarks-menu-button::after, #nav-bar toolbaritem#PanelUI-menu-button::after, #nav-bar toolbaritem#unified-extensions-button::after, #nav-bar toolbaritem#downloads-button::after, #nav-bar toolbaritem#_testpilot-containers-BAP::after, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after {
   opacity: 0;
@@ -801,6 +806,18 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button[open=true]::before, #nav-bar toolbaritem#downloads-button:active::before, #nav-bar toolbaritem#downloads-button[open=true]::before {
   background-color: var(--toolbarbutton-blue-colour_hover);
+}
+#nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack, #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack {
+  -webkit-mask-image: url(images/downloads-mask.svg);
+          mask-image: url(images/downloads-mask.svg);
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+}
+#nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner, #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner {
+  border-radius: 0 !important;
+  background: linear-gradient(var(--toolbarbutton-icon-fill-attention) var(--download-progress-pcent), transparent var(--download-progress-pcent)) !important;
 }
 #nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbaritem#PanelUI-menu-button {
   background-image: url(images/settings.svg);
@@ -950,6 +967,24 @@ findbar {
 }
 .findbar-textbox:focus {
   box-shadow: none !important;
+}
+
+*|*:root[chromehidden~=toolbar] #nav-bar::before {
+  content: unset !important;
+}
+*|*:root[chromehidden~=toolbar] #urlbar-container {
+  width: 100% !important;
+}
+*|*:root[chromehidden~=toolbar] #urlbar-container #urlbar-input-container {
+  padding-right: 0 !important;
+}
+@supports -moz-bool-pref("BeautyFox.option.hideSettingsInPopUp") {
+  *|*:root[chromehidden~=toolbar] #nav-bar {
+    padding-right: 0 !important;
+  }
+  *|*:root[chromehidden~=toolbar] #PanelUI-button {
+    display: none !important;
+  }
 }
 
 .findbar-closebutton {
@@ -1156,6 +1191,11 @@ findbar {
   @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
     :root {
       --appearance_IE11: 1 !important;
+    }
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+      :root {
+        --appearance_IE11Win10: 1 !important;
+      }
     }
   }
 }
@@ -1935,7 +1975,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 }
 @-moz-document url(chrome://browser/content/aboutDialog.xhtml) {
   :root {
-    --IEABOUT-image: url(images/IELOGO-9.PNG);
+    --logo-image: url(images/IELOGO-9.PNG);
     --font-size: 8pt;
     --font-family: Tahoma;
   }
@@ -1954,7 +1994,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     position: relative;
   }
   #aboutDialogLogo {
-    background-image: var(--IEABOUT-image);
+    background-image: var(--logo-image);
     background-size: cover;
     width: 314px;
     height: 76px;
@@ -1973,22 +2013,6 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     margin-top: 13px !important;
     margin-bottom: 12px !important;
   }
-  #aboutDialogInfoPane {
-    display: flex;
-    flex-direction: column;
-  }
-  #aboutDialogInfoPane #aboutDialogInfoVersion {
-    order: 1;
-  }
-  #aboutDialogInfoPane #aboutDialogInfoUpdateVersion {
-    order: 2;
-  }
-  #aboutDialogInfoPane #aboutDialogInfoCipherStrength {
-    order: 3;
-  }
-  #aboutDialogInfoPane #aboutDialogInfoProductID {
-    order: 4;
-  }
   a {
     font-size: var(--font-size) !important;
     color: rgb(0, 102, 204) !important;
@@ -1997,7 +2021,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     color: rgb(128, 0, 128) !important;
   }
   #aboutDialogOKButton {
-    position: absolute;
+    position: fixed;
     width: 67px;
     height: 20px;
     right: 22px;
@@ -2005,24 +2029,12 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   }
   @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
     :root {
-      --IEABOUT-image: url(images/IELOGO-9PreRelease.PNG);
-    }
-    #aboutDialogInfoPane #aboutDialogInfoVersion {
-      order: 1;
-    }
-    #aboutDialogInfoPane #aboutDialogInfoUpdateVersion {
-      order: 4;
-    }
-    #aboutDialogInfoPane #aboutDialogInfoCipherStrength {
-      order: 2;
-    }
-    #aboutDialogInfoPane #aboutDialogInfoProductID {
-      order: 3;
+      --logo-image: url(images/IELOGO-9PreRelease.PNG);
     }
   }
   @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     :root {
-      --IEABOUT-image: url(images/IELOGO-10.PNG);
+      --logo-image: url(images/IELOGO-10.PNG);
     }
     #aboutDialogPane {
       width: 317px;
@@ -2046,7 +2058,6 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       text-decoration: underline !important;
     }
     #aboutDialogOKButton {
-      position: absolute;
       width: 68px;
       height: 24px;
       right: 36px;
@@ -2054,7 +2065,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     }
     @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
       :root {
-        --IEABOUT-image: url(images/IELOGO-11.PNG);
+        --logo-image: url(images/IELOGO-11.PNG);
         --font-size: 9pt;
         --font-family: Segoe UI;
       }
@@ -2073,6 +2084,79 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       }
       p.aboutDialogInfo {
         margin-bottom: 2px !important;
+      }
+      @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+        :root {
+          --logo-image: var(--winver-logo-image);
+          --winver-logo-image: url(images/winverLogo10.PNG);
+          --font-size: 8pt;
+          --font-family: Tahoma;
+        }
+        #aboutDialogPane {
+          width: 360px;
+          height: 337px;
+          padding-left: 53px;
+          padding-right: 45px;
+          padding-top: 0;
+        }
+        #aboutDialogContainer {
+          background-color: rgb(240, 240, 240) !important;
+        }
+        #aboutDialogInfoPane {
+          position: relative;
+        }
+        #aboutDialogInfoPane::before {
+          content: "";
+          position: absolute;
+          top: 17px;
+          left: -42px;
+          height: 32px;
+          width: 32px;
+          background-image: url(images/iexplore_32.png);
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        .winverSeparator {
+          margin-top: 11px;
+          margin-bottom: 15px;
+          border-top: 1px solid rgb(160, 160, 160);
+          border-bottom: 1px solid white;
+          border-right: 1px solid white;
+          margin-left: -38px;
+          margin-right: -28px;
+        }
+        #aboutDialogLogo {
+          background-image: var(--logo-image);
+          background-size: cover;
+          width: 458px;
+          height: 72px;
+          margin-left: -53px;
+          margin-right: -45px;
+          margin-bottom: 0;
+        }
+        p.aboutDialogInfo {
+          color: black !important;
+          margin-bottom: 3px !important;
+        }
+        #aboutDialogMicrosoft {
+          margin-bottom: 20px !important;
+        }
+        #winverCopyright {
+          margin-bottom: 57px !important;
+        }
+        a {
+          text-decoration: underline !important;
+        }
+        #winverUser {
+          margin-top: 4px !important;
+          margin-left: 15px !important;
+        }
+        #aboutDialogOKButton {
+          width: 73px;
+          height: 21px;
+          right: 9px;
+          bottom: 11px;
+        }
       }
     }
   }

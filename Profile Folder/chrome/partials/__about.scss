@@ -1,6 +1,6 @@
 @-moz-document url(chrome://browser/content/aboutDialog.xhtml) {
 	:root {
-		--IEABOUT-image: url(images/IELOGO-9.PNG);
+		--logo-image: url(images/IELOGO-9.PNG);
 		--font-size: 8pt;
 		--font-family: Tahoma;
 	}
@@ -23,7 +23,7 @@
 	}
 
 	#aboutDialogLogo {
-		background-image: var(--IEABOUT-image);
+		background-image: var(--logo-image);
 		background-size: cover;
 		width: 314px;
 		height: 76px;
@@ -45,24 +45,6 @@
 		}
 	}
 
-	#aboutDialogInfoPane {
-		display: flex;
-		flex-direction: column;
-
-		#aboutDialogInfoVersion {
-			order: 1;
-		}
-		#aboutDialogInfoUpdateVersion {
-			order: 2;
-		}
-		#aboutDialogInfoCipherStrength {
-			order: 3;
-		}
-		#aboutDialogInfoProductID {
-			order: 4;
-		}
-	}
-
 	a {
 		font-size: var(--font-size) !important;
 		color: rgb(0, 102, 204) !important;
@@ -73,7 +55,7 @@
 	}
 
 	#aboutDialogOKButton {
-		position: absolute;
+		position: fixed;
 		width: 67px;
 		height: 20px;
 		right: 22px;
@@ -82,28 +64,13 @@
 
 	@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
 		:root {
-			--IEABOUT-image: url(images/IELOGO-9PreRelease.PNG);
-		}
-
-		#aboutDialogInfoPane {
-			#aboutDialogInfoVersion {
-				order: 1;
-			}
-			#aboutDialogInfoUpdateVersion {
-				order: 4;
-			}
-			#aboutDialogInfoCipherStrength {
-				order: 2;
-			}
-			#aboutDialogInfoProductID {
-				order: 3;
-			}
+			--logo-image: url(images/IELOGO-9PreRelease.PNG);
 		}
 	}
 
 	@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
 		:root {
-			--IEABOUT-image: url(images/IELOGO-10.PNG);
+			--logo-image: url(images/IELOGO-10.PNG);
 		}
 
 		#aboutDialogPane {
@@ -134,7 +101,6 @@
 		}
 
 		#aboutDialogOKButton {
-			position: absolute;
 			width: 68px;
 			height: 24px;
 			right: 36px;
@@ -143,7 +109,7 @@
 
 		@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
 			:root {
-				--IEABOUT-image: url(images/IELOGO-11.PNG);
+				--logo-image: url(images/IELOGO-11.PNG);
 				--font-size: 9pt;
 				--font-family: Segoe UI;
 			}
@@ -165,6 +131,92 @@
 
 			p.aboutDialogInfo {
 				margin-bottom: 2px !important;
+			}
+
+			@supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+				:root {
+					--logo-image: var(--winver-logo-image);
+					--winver-logo-image: url(images/winverLogo10.PNG);
+					--font-size: 8pt;
+					--font-family: Tahoma;
+				}
+
+				#aboutDialogPane {
+					width: 360px;
+					height: 337px;
+					padding-left: 53px;
+					padding-right: 45px;
+					padding-top: 0;
+				}
+
+				#aboutDialogContainer {
+					background-color: rgb(240, 240, 240) !important;
+				}
+
+				#aboutDialogInfoPane {
+					position: relative;
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 17px;
+						left: -42px;
+						height: 32px;
+						width: 32px;
+						background-image: url(images/iexplore_32.png);
+						background-position: center;
+						background-repeat: no-repeat;
+					}
+				}
+
+				.winverSeparator {
+					margin-top: 11px;
+					margin-bottom: 15px;
+					border-top: 1px solid rgb(160, 160, 160);
+					border-bottom: 1px solid white;
+					border-right: 1px solid white;
+					margin-left: -38px;
+					margin-right: -28px;
+				}
+
+				#aboutDialogLogo {
+					background-image: var(--logo-image);
+					background-size: cover;
+					width: 458px;
+					height: 72px;
+					margin-left: -53px;
+					margin-right: -45px;
+					margin-bottom: 0;
+				}
+
+				p.aboutDialogInfo {
+					color: black !important;
+					margin-bottom: 3px !important;
+				}
+
+				#aboutDialogMicrosoft {
+					margin-bottom: 20px !important;
+				}
+
+				#winverCopyright {
+					margin-bottom: 57px !important;
+				}
+
+				a {
+					text-decoration: underline !important;
+				}
+
+				#winverUser {
+					margin-top: 4px !important;
+					margin-left: 15px !important;
+				}
+
+				#aboutDialogOKButton {
+					width: 73px;
+					height: 21px;
+					right: 9px;
+					bottom: 11px;
+				}
 			}
 		}
 	}
