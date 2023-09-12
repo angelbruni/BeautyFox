@@ -5,10 +5,18 @@ Tested on: Windows 7, Windows 8.1/10 with the default theme and Aero themes with
 
 MAKE SURE THAT YOUR PROFILE HAS NOT BEEN MODIFIED BY OTHER THEMES IN THE PAST, AND IF SO, DELETE THE MODIFIED FILES OR CREATE A NEW PROFILE!
 
-Changelog b2.6
-- Navigation row icons in the right side are now "99.99%" accurate;
-- Tab pane now has a margin-right if BeautyFox.option.tabsOnNavRow is true;
-- Added user variables file (uservars.css) for manually adjusting titlebar height according to operating system user settings.
+Changelog b2.7.1
+- Added option for tinted titlebar on Firefox 117+ and Windows 10+ BeautyFox.fix.fakeTitlebarAccentColor;
+- Added a scriptLoader for loading scripts after Firefox has finished loading;
+- Changed how the bookmarks button is move: it's now duplicated in the right place and the original one is removed;
+- Added Internet Explorer 10's bookmarks button icon which gets used when BeautyFox.appearance.IE10 is true in about:config;
+- Changed lock icon latch to look thicker to be more accurate;
+- Changed lock hover and active colour;
+- Changed a all necessary scripts to be executed by scriptLoader instead of using setTimeout or any other hacky methods - this fixes the ellipses sometimes not being added to the search placeholder label and improves the code to move tabs to navigation row;
+- Changed spacing between search, dropdown, lock and refresh icons to be more accurate;
+- Fixed hovering over refresh and stop buttons changing the toolbar field background in the wrong way, causing hovering applying a brighter colour than when just hovering over a toolbar field;
+- Fixed tabs not showing the Internet Explorer 9+ favicon if the website has no favicon;
+- Fixed new tab button width when BeautyFox.option.tabsOnNavRow is true in about:config in Internet Explorer 9 Pre-Release appearance.
 
 CLEAR STARTUP CACHE
 
