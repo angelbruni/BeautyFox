@@ -148,6 +148,17 @@
         }
     }
 
+    &:not([busy="true"]) {
+        .tab-icon-image {
+            &:not(&[src*="data"]) {
+                content: url(images/iexplore_16.png) !important;
+            }
+            &:-moz-broken {
+                display: block !important;
+            }
+        }
+    }
+
     .tab-close-button {
         height: 16px !important;
         width: 16px !important;
@@ -190,15 +201,6 @@
 
 .tab-throbber, .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay, .tab-icon-overlay {
     margin-inline-end: 0 !important;
-}
-
-.tab-icon-image {
-    &:not(&[src*="data"]) {
-        content: url(images/iexplore_16.png) !important;
-    }
-    &:-moz-broken {
-        display: block !important;
-    }
 }
 
 toolbarbutton#tabs-newtab-button,

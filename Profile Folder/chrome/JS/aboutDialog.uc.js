@@ -4,8 +4,8 @@
 
 (function () {
 
-var aboutDialog = document.getElementById("aboutDialog");
-var aboutDialogContainer = document.getElementById("aboutDialogContainer");
+const aboutDialog = document.getElementById("aboutDialog");
+const aboutDialogContainer = document.getElementById("aboutDialogContainer");
 
 function setAttributes(element, attributes) {
         Object.keys(attributes).forEach(attr => {
@@ -103,25 +103,25 @@ setAttributes(aboutDialogOKButton, aboutDialogOKButtonAttrs);
 // IE9 and 10 strings
 if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 0) {
 	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '10.0.9200.17457';
-	aboutDialogInfoUpdateVersion.innerHTML = 'Update Version:' + ' ' + '10.0.30 <a id="aboutDialogInfoKB" href="#">(KB3078071)</a>';
+	aboutDialogInfoUpdateVersion.innerHTML = 'Update Version:' + ' ' + '10.0.30 <a id="aboutDialogInfoUpdateVersion" href="#">(KB3078071)</a>';
 	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '00150-20000-00003-AA459';
 	aboutDialogMicrosoft.innerHTML = '© 2012 Microsoft Corporation. All rights reserved.';
 	aboutDialogOKButton.innerHTML = 'Close';
 } else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1) {
 	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '11.0.9600.17843';
-	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + '11.0.20 <a id="aboutDialogInfoKB" href="#">(KB3058515)</a>';
+	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + '11.0.20 <a id="aboutDialogInfoUpdateVersion" href="#">(KB3058515)</a>';
 	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '00150-20000-00003-AA459';
 	aboutDialogMicrosoft.innerHTML = '© 2013 Microsoft Corporation. All rights reserved.';
 	aboutDialogOKButton.innerHTML = 'Close';
 } else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE9PreRelease') == 1) {
 	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '9.0.7930.16406   64-bit Edition';
-	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + 'beta <a id="aboutDialogInfoKB" href="#"></a>';
+	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + 'beta <a id="aboutDialogInfoUpdateVersion" href="#"></a>';
 	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '03201-292-0000007-85504';
 	aboutDialogMicrosoft.innerHTML = '© 2010 Microsoft Corporation';
 	aboutDialogOKButton.innerHTML = 'OK';
 } else {
 	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '9.0.8112.16421   64-bit Edition';
-	aboutDialogInfoUpdateVersion.innerHTML = 'Update Version:' + ' ' + '9.0.41 (<a id="aboutDialogInfoKB" href="#">KB3078071</a>)';
+	aboutDialogInfoUpdateVersion.innerHTML = 'Update Version:' + ' ' + '9.0.41 (<a id="aboutDialogInfoUpdateVersion" href="#">KB3078071</a>)';
 	aboutDialogInfoProductID.innerHTML = 'Product ID:' + ' ' + '03553-292-0000007-85504';
 	aboutDialogMicrosoft.innerHTML = '© 2011 Microsoft Corporation';
 	aboutDialogOKButton.innerHTML = 'OK';
@@ -146,8 +146,7 @@ aboutDialogPane.appendChild(aboutDialogOKButton);
 
 // Add Event Listeners
 // KB Link
-var aboutDialogInfoKB = document.getElementById("aboutDialogInfoKB");
-aboutDialogInfoKB.addEventListener("click", (event) => {
+aboutDialogInfoUpdateVersion.addEventListener("click", (event) => {
 	if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1) {
 		_ucUtils.loadURI(window,{
 			url: "http://go.microsoft.com/fwlink/?LinkID=395097",
@@ -174,6 +173,8 @@ aboutDialogMicrosoft.addEventListener("click", (event) => {
 aboutDialogOKButton.addEventListener("click", (event) => {
     window.close()
 });
+
+console.log("aaaaaaaaaaaaaaa")
 
 
 })();
