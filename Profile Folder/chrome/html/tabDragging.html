@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tab Rearrange</title>
+    <style>
+        /* Add CSS styles for the container */
+        #tabbrowser-arrowscrollbox {
+            display: flex;
+            flex: 1;
+            align-items: center; /* Vertically center tabs */
+            justify-content: flex-start; /* Start tabs from the left side */
+        }
+
+        /* Add CSS styles for the draggable tabs */
+        .tabbrowser-tab {
+            cursor: grab;
+            padding: 0 10px; /* Adjust the padding as needed (horizontal padding only) */
+        }
+    </style>
+</head>
+<body>
+    <div id="tabbrowser-arrowscrollbox">
+        <!-- Add your tabs here with class "tabbrowser-tab" -->
+        <div class="tabbrowser-tab">Tab 1</div>
+        <div class="tabbrowser-tab">Tab 2</div>
+        <div class="tabbrowser-tab">Tab 3</div>
+    </div>
+
+    <script>
+let draggedTab = null;
+let isDragging = false;
+let initialIndex = null;
+const threshold = 0.25; // Adjust this value to change the threshold
+
+document.addEventListener('mousedown', (e) => {
+    if (e.target.classList.contains('tabbrowser-tab')) {
+        draggedTab = e.target;
+        isDragging = true;
+        draggedTab.style.cursor = 'grabbing';
+        e.preventDefault(); // Prevent text selection while dragging
+        initialIndex = Array.from(draggedTab.parentNode.children).indexOf(draggedTab);
+    }
+});
+
+document.addEventListener('mousemove', (e) => {
+    if (isDragging && draggedTab) {
+        const parentContainer = draggedTab.parentNode;
+        const targetTab = findTargetTab(e.clientX, e.clientY, parentContainer);
+        const newIndex = calculateNewIndex(targetTab, parentContainer, e.clientX);
+        moveTabToIndex(draggedTab, newIndex, parentContainer);
+    }
+});
+
+document.addEventListener('mouseup', (e) => {
+    if (isDragging && draggedTab) {
+        isDragging = false;
+        draggedTab.style.cursor = 'grab';
+    }
+});
+
+document.addEventListener('dragend', () => {
+    isDragging = false;
+});
+
+function findTargetTab(clientX, clientY, parentContainer) {
+    const tabs = Array.from(parentContainer.children);
+    return tabs.find((tab) => {
+        const rect = tab.getBoundingClientRect();
+        return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+    });
+}
+
+function calculateNewIndex(targetTab, parentContainer, clientX) {
+    const tabs = Array.from(parentContainer.children);
+    const currentIndex = tabs.indexOf(draggedTab);
+
+    if (targetTab) {
+        const targetIndex = tabs.indexOf(targetTab);
+        const tabWidth = targetTab.offsetWidth;
+        const offsetX = clientX - parentContainer.getBoundingClientRect().left;
+
+        // Determine if the cursor is closer to the left or right half of the target tab
+        const isCloserToLeftHalf = offsetX - targetTab.getBoundingClientRect().left < tabWidth * (1 - threshold);
+        const isCloserToRightHalf = offsetX - targetTab.getBoundingClientRect().left > tabWidth * threshold;
+
+        if (isCloserToLeftHalf) {
+            return targetIndex;
+        } else if (isCloserToRightHalf) {
+            return targetIndex + 1;
+        } else {
+            return currentIndex;
+        }
+    }
+
+    return currentIndex;
+}
+
+function moveTabToIndex(tab, newIndex, parentContainer) {
+    const tabs = Array.from(parentContainer.children);
+    const currentIndex = tabs.indexOf(tab);
+
+    if (newIndex !== currentIndex) {
+        if (newIndex === tabs.length) {
+            // If moving to the last position, simply append the tab to the end
+            parentContainer.appendChild(tab);
+        } else {
+            parentContainer.insertBefore(tab, tabs[newIndex]);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

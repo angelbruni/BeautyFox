@@ -21,7 +21,7 @@ function changeUrlbarFakeDropdownStyling() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", (event) => {
+function changeFakeDropdownAccordingly() {
     changeUrlbarFakeDropdownStyling();
 
     // Target
@@ -44,4 +44,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // Start observing the target node for configured mutations
     navBarCustomizationTargetObserver.observe(navBarCustomizationTarget, navBarCustomizationTargetObserverConfig);
-});
+}

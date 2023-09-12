@@ -196,6 +196,9 @@
     &:not(&[src*="data"]) {
         content: url(images/iexplore_16.png) !important;
     }
+    &:-moz-broken {
+        display: block !important;
+    }
 }
 
 toolbarbutton#tabs-newtab-button,
@@ -294,6 +297,10 @@ toolbarbutton#tabs-newtab-button,
     #TabsToolbar-customization-target {
         margin-right: 9px !important;
     }
+
+    .tabbrowser-tab {
+        transform: translateX(0) !important; /* Unfortunately, drag reordering doesn't work when tabs are moved to the navigation bar. Disabling the dragging effect. */
+    }
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
@@ -357,6 +364,7 @@ toolbarbutton#tabs-newtab-button,
     @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
         :root {
             --tab-height: 29px;
+            --newtab-button-width: 27px;
         }
     }
 }

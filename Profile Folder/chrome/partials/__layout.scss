@@ -26,7 +26,7 @@
     --urlbar-height: 24.00px !important;
     --urlbar-dropdown-button_width: 32px;
     --urlbar-fake-dropdown-mask: url(images/search-dropdown-mask.svg);
-    --urlbar-fake-dropdown-mask-position: left;
+    --urlbar-fake-dropdown-mask-position: center;
     --stop-reload-button_width: 17px;
 
     --focus-outline-color: transparent !important;
@@ -249,7 +249,13 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         }
     }
 
-
+    &.toolbar-hover-fix {
+        #urlbar-background {
+            &::before {
+                background-color: var(--toolbar-field-background-color_hover) !important;
+            }
+        }
+    }
 }
 
 #urlbar-go-button, .search-go-button {
@@ -734,10 +740,11 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
 .searchbar-search-button {
     order: 2;
-    background-image: url(images/search.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 22px !important;
+    mask-image: url(images/search-dropdown-mask.svg);
+    mask-position: center;
+    mask-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 32px !important;
 
     .searchbar-search-icon {
         list-style-image: none !important;
@@ -912,13 +919,13 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     
             &:hover {
                 &::before {
-                    background-color: var(--toolbarbutton-yellow-colour);
+                    background-color: rgb(244, 180, 21);
                 }
             }
     
             &:active, &[open="true"] {
                 &::before {
-                    background-color: var(--toolbarbutton-yellow-colour_hover);
+                    background-color: rgb(234, 129, 2);
                 }
             }
         }
@@ -1126,8 +1133,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 }
 
 #identity-icon-box {
-    padding-left: 3px !important;
-    padding-right: 3px !important;
+    padding-left: 2px !important;
+    padding-right: 1px !important;
     border-radius: 0 !important;
     background: transparent !important;
 }
@@ -1257,6 +1264,7 @@ findbar {
         --stop-reload-button_width: 23px;
 
         --urlbar-inprivatebadge-width: 75px;
+        --urlbar-fake-dropdown-mask-position: left;
         
         &:is([privatebrowsingmode="temporary"]) {
             #urlbar-input-container {

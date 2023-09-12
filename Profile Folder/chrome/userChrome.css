@@ -13,7 +13,7 @@
   --urlbar-height: 24.00px !important;
   --urlbar-dropdown-button_width: 32px;
   --urlbar-fake-dropdown-mask: url(images/search-dropdown-mask.svg);
-  --urlbar-fake-dropdown-mask-position: left;
+  --urlbar-fake-dropdown-mask-position: center;
   --stop-reload-button_width: 17px;
   --focus-outline-color: transparent !important;
   --browser-outer-border-color: rgba(253, 253, 253, .65);
@@ -206,6 +206,9 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   --urlbar-container-height: 24px !important;
 }
 #urlbar-container:hover #urlbar-background::before {
+  background-color: var(--toolbar-field-background-color_hover) !important;
+}
+#urlbar-container.toolbar-hover-fix #urlbar-background::before {
   background-color: var(--toolbar-field-background-color_hover) !important;
 }
 
@@ -615,10 +618,14 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 
 .searchbar-search-button {
   order: 2;
-  background-image: url(images/search.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 22px !important;
+  -webkit-mask-image: url(images/search-dropdown-mask.svg);
+          mask-image: url(images/search-dropdown-mask.svg);
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 32px !important;
 }
 .searchbar-search-button .searchbar-search-icon {
   list-style-image: none !important;
@@ -761,10 +768,10 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   background: linear-gradient(0deg, rgba(255, 208, 0, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
 }
 #nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbaritem#bookmarks-menu-button:hover::before {
-  background-color: var(--toolbarbutton-yellow-colour);
+  background-color: rgb(244, 180, 21);
 }
 #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button[open=true]::before, #nav-bar toolbaritem#bookmarks-menu-button:active::before, #nav-bar toolbaritem#bookmarks-menu-button[open=true]::before {
-  background-color: var(--toolbarbutton-yellow-colour_hover);
+  background-color: rgb(234, 129, 2);
 }
 #nav-bar toolbarbutton#unified-extensions-button, #nav-bar toolbaritem#unified-extensions-button {
   background-image: url(images/extensions.svg);
@@ -911,8 +918,8 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 
 #identity-icon-box {
-  padding-left: 3px !important;
-  padding-right: 3px !important;
+  padding-left: 2px !important;
+  padding-right: 1px !important;
   border-radius: 0 !important;
   background: transparent !important;
 }
@@ -1039,6 +1046,7 @@ findbar {
     --urlbar-dropdown-button_width: 35px;
     --stop-reload-button_width: 23px;
     --urlbar-inprivatebadge-width: 75px;
+    --urlbar-fake-dropdown-mask-position: left;
   }
   :root:is([privatebrowsingmode=temporary]) #urlbar-input-container::before {
     content: "";
@@ -1683,6 +1691,9 @@ findbar {
 .tab-icon-image:not(.tab-icon-image[src*=data]) {
   content: url(images/iexplore_16.png) !important;
 }
+.tab-icon-image:-moz-broken {
+  display: block !important;
+}
 
 toolbarbutton#tabs-newtab-button,
 #TabsToolbar #new-tab-button {
@@ -1769,6 +1780,9 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   #TabsToolbar-customization-target {
     margin-right: 9px !important;
   }
+  .tabbrowser-tab {
+    transform: translateX(0) !important; /* Unfortunately, drag reordering doesn't work when tabs are moved to the navigation bar. Disabling the dragging effect. */
+  }
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
   :root {
@@ -1811,6 +1825,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
     :root {
       --tab-height: 29px;
+      --newtab-button-width: 27px;
     }
   }
 }

@@ -7,9 +7,9 @@ function urlbarContainerBackgroundOnMouseAttrs() {
 const urlbarContainer = document.getElementById('urlbar-container');
 
 function urlbarBackgroundEnter() {
-    urlbarContainer.setAttribute('style', '--urlbar-container-height: 24.00px; background-color: rgba(255, 255, 255, 0.8) !important')
+    urlbarContainer.classList.add('toolbar-hover-fix');
 }
 
 function urlbarBackgroundLeave() {
-    urlbarContainer.setAttribute('style', '--urlbar-container-height: 24.00px;')
+    urlbarContainer.classList.remove('toolbar-hover-fix');
 }
