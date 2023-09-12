@@ -174,7 +174,4 @@ aboutDialogOKButton.addEventListener("click", (event) => {
     window.close()
 });
 
-console.log("aaaaaaaaaaaaaaa")
-
-
 })();

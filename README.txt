@@ -5,9 +5,8 @@ Tested on: Windows 7, Windows 8.1/10 with the default theme and Aero themes with
 
 MAKE SURE THAT YOUR PROFILE HAS NOT BEEN MODIFIED BY OTHER THEMES IN THE PAST, AND IF SO, DELETE THE MODIFIED FILES OR CREATE A NEW PROFILE!
 
-Changelog b2.7.2-hotfix
-- Fixed aboutDialog;
-- Fixed Internet Explorer 9+ icon showing up when tabs have the busy="true" attribute - this fixes the Internet Explorer 9+ icon showing up when a new tab is loading.
+Changelog b2.8
+- Removed a console.log() I forgot.
 
 
 Instructions
