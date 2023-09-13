@@ -5,8 +5,9 @@ Tested on: Windows 7, Windows 8.1/10 with the default theme and Aero themes with
 
 MAKE SURE THAT YOUR PROFILE HAS NOT BEEN MODIFIED BY OTHER THEMES IN THE PAST, AND IF SO, DELETE THE MODIFIED FILES OR CREATE A NEW PROFILE!
 
-Changelog b2.8.1
-- Fixed Windows 10 logo being forced in fake winver.
+Changelog b2.8.2
+- Fixed aboutDialog using styled buttons;
+- Fixed search icon being too close to the end of the searchbox.
 
 CLEAR STARTUP CACHE
 

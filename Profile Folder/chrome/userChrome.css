@@ -628,6 +628,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
           mask-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.5);
   width: 32px !important;
+  margin-right: 6px !important;
 }
 .searchbar-search-button .searchbar-search-icon {
   list-style-image: none !important;
@@ -1973,7 +1974,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     --toolbar-bgcolor: #f7f7f7 !important;
   }
 }
-@-moz-document url(chrome://browser/content/aboutDialog.xhtml) {
+@-moz-document url("chrome://browser/content/aboutDialog.xhtml") {
   :root {
     --logo-image: url(images/IELOGO-9.PNG);
     --font-size: 8pt;
@@ -1984,6 +1985,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   }
   #aboutDialogContainer {
     background-color: white !important;
+    color-scheme: unset !important;
   }
   #aboutDialogPane {
     width: 326px;
@@ -2155,6 +2157,8 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
           height: 21px;
           right: 9px;
           bottom: 11px;
+          font-size: 8pt !important;
+          padding: 0 !important;
         }
       }
     }

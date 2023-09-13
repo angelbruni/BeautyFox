@@ -1,4 +1,4 @@
-@-moz-document url(chrome://browser/content/aboutDialog.xhtml) {
+@-moz-document url("chrome://browser/content/aboutDialog.xhtml") {
 	:root {
 		--logo-image: url(images/IELOGO-9.PNG);
 		--font-size: 8pt;
@@ -11,6 +11,7 @@
 	
 	#aboutDialogContainer {
 		background-color: white !important;
+		color-scheme: unset !important;
 	}
 
 	#aboutDialogPane {
@@ -215,6 +216,8 @@
 					height: 21px;
 					right: 9px;
 					bottom: 11px;
+					font-size: 8pt !important;
+					padding: 0 !important;
 				}
 			}
 		}
