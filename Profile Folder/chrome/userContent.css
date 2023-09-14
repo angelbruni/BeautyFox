@@ -25,7 +25,7 @@
   html[lang*=pt-PT] {
     --popular-site-label: "Teus sítios mais populares";
   }
-  html[lang=ja-JP] {
+  html[lang=ja] {
     --popular-site-label: "よく使うサイト";
   }
   .icon-settings {
@@ -147,7 +147,7 @@
     html[lang*=pt] {
       --popular-site-label: "Com mais frequência";
     }
-    html[lang=ja-JP] {
+    html[lang=ja] {
       --popular-site-label: "よくアクセスするサイト";
     }
     body {

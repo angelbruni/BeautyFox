@@ -13,7 +13,6 @@ function setAttributes(element, attributes) {
     });
 }
 
-
 // About Dialog title
 aboutDialog.setAttribute("title", "About Internet Explorer");
 
@@ -142,9 +141,17 @@ aboutDialogContainer.appendChild(aboutDialogPane);
 aboutDialogPane.appendChild(aboutDialogLogo);
 aboutDialogPane.appendChild(aboutDialogInfoPane);
 
+var IsIE9PreReleaseAppearance = getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE9PreRelease') == 1;
 
-// IE9 and 10 strings
-if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11Win10') == 1) {
+var IsIE10Appearance = getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1;
+var IsNotIE11Appearance = getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 0;
+
+var IsIE11Appearance = getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1;
+
+var IsIE11Win10Appearance = getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11Win10') == 1;
+
+// Strings
+if (IsIE10Appearance && IsIE11Appearance && IsIE11Win10Appearance) {
 	var OSCompany = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-company');
 	var OSName = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-name');
 	var OSBuildVersion = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-build-version');
@@ -177,7 +184,7 @@ if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE
 	aboutDialogOKButton.innerHTML = 'OK';
 	aboutDialogInfoPane.appendChild(aboutDialogOKButton);
 
-} else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1) {
+} else if (IsIE10Appearance && IsIE11Appearance) {
 
 	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '11.0.9600.17843';
 	aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);
@@ -194,7 +201,7 @@ if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE
 	aboutDialogOKButton.innerHTML = 'Close';
 	aboutDialogInfoPane.appendChild(aboutDialogOKButton);
 
-}  else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 0) {
+}  else if (IsIE10Appearance && IsNotIE11Appearance) {
 
 	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '10.0.9200.17457';
 	aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);
@@ -211,7 +218,7 @@ if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE
 	aboutDialogOKButton.innerHTML = 'Close';
 	aboutDialogInfoPane.appendChild(aboutDialogOKButton);
 
-} else if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE9PreRelease') == 1) {
+} else if (IsIE9PreReleaseAppearance) {
 
 	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '9.0.7930.16406   64-bit Edition';
 	aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);
@@ -235,7 +242,7 @@ if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE
 	aboutDialogInfoPane.appendChild(aboutDialogOKButton);
 
 } else {
-
+	// IE9 Strings
 	aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '9.0.8112.16421   64-bit Edition';
 	aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);
 
@@ -263,7 +270,7 @@ if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE
 // Add Event Listeners
 // KB Link
 aboutDialogInfoUpdateVersion.addEventListener("click", (event) => {
-	if (getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE10') == 1 && getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1) {
+	if (IsIE10Appearance && IsIE11Appearance) {
 		_ucUtils.loadURI(window,{
 			url: "http://go.microsoft.com/fwlink/?LinkID=395097",
 			where: "window"
