@@ -98,15 +98,15 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
 #navigator-toolbox {
   border-bottom: none !important;
   position: relative;
-  /*&::after {
-      position: absolute;
-      content: '';
-      width: calc(100% - 4px);
-      left: 2px;
-      bottom: 0;
-      height: 1px;
-      border-bottom: 1px solid var(--chrome-content-separator-color);
-  }*/
+}
+#navigator-toolbox::after {
+  position: absolute;
+  content: "";
+  width: calc(100% - 4px);
+  left: 2px;
+  bottom: 0;
+  height: 1px;
+  border-bottom: 1px solid var(--chrome-content-separator-color);
 }
 
 #titlebar {
@@ -412,18 +412,20 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   display: block !important;
 }
 #star-button-box #star-button {
+  height: auto !important;
+  width: auto !important;
   margin-top: 1px;
   list-style-image: url(images/addtotoolbar.png) !important;
 }
 
-.bookmark-item, #star-button-box {
+#PersonalToolbar .bookmark-item, #PersonalToolbar #star-button-box {
   margin: 2px 0 3px 0 !important;
   padding: 3px !important;
   max-width: 175px !important;
   border: 1px solid transparent;
   position: relative;
 }
-.bookmark-item::before, .bookmark-item::after, #star-button-box::before, #star-button-box::after {
+#PersonalToolbar .bookmark-item::before, #PersonalToolbar .bookmark-item::after, #PersonalToolbar #star-button-box::before, #PersonalToolbar #star-button-box::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -435,37 +437,37 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   transition: opacity 0.5s;
   pointer-events: none;
 }
-.bookmark-item::before, #star-button-box::before {
+#PersonalToolbar .bookmark-item::before, #PersonalToolbar #star-button-box::before {
   border: 1px solid rgba(0, 0, 0, 0.3);
   background: linear-gradient(180deg, rgba(250, 250, 250, 0.47) 0%, rgba(197, 197, 197, 0.19) 50%, rgba(109, 109, 109, 0.16) 49%, rgba(240, 240, 240, 0.07));
   outline: 1px solid rgba(255, 255, 255, 0.47);
   outline-offset: -2px;
   opacity: 0;
 }
-.bookmark-item::after, #star-button-box::after {
+#PersonalToolbar .bookmark-item::after, #PersonalToolbar #star-button-box::after {
   border: 1px solid rgba(0, 0, 0, 0.65);
   box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.33);
   opacity: 0;
 }
-.bookmark-item:hover::before, #star-button-box:hover::before {
+#PersonalToolbar .bookmark-item:hover::before, #PersonalToolbar #star-button-box:hover::before {
   opacity: 1;
 }
-.bookmark-item:active, .bookmark-item[open=true], #star-button-box:active, #star-button-box[open=true] {
+#PersonalToolbar .bookmark-item:active, #PersonalToolbar .bookmark-item[open=true], #PersonalToolbar #star-button-box:active, #PersonalToolbar #star-button-box[open=true] {
   padding-top: 4px !important;
   padding-left: 4px !important;
   padding-right: 2px !important;
   padding-bottom: 2px !important;
 }
-.bookmark-item:active::before, .bookmark-item[open=true]::before, #star-button-box:active::before, #star-button-box[open=true]::before {
+#PersonalToolbar .bookmark-item:active::before, #PersonalToolbar .bookmark-item[open=true]::before, #PersonalToolbar #star-button-box:active::before, #PersonalToolbar #star-button-box[open=true]::before {
   opacity: 0;
 }
-.bookmark-item:active::after, .bookmark-item[open=true]::after, #star-button-box:active::after, #star-button-box[open=true]::after {
+#PersonalToolbar .bookmark-item:active::after, #PersonalToolbar .bookmark-item[open=true]::after, #PersonalToolbar #star-button-box:active::after, #PersonalToolbar #star-button-box[open=true]::after {
   opacity: 1;
 }
-.bookmark-item[image*="page-icon:about"] .toolbarbutton-icon, #star-button-box[image*="page-icon:about"] .toolbarbutton-icon {
+#PersonalToolbar .bookmark-item[image*="page-icon:about"] .toolbarbutton-icon, #PersonalToolbar #star-button-box[image*="page-icon:about"] .toolbarbutton-icon {
   display: none;
 }
-.bookmark-item[image*="page-icon:about"] .toolbarbutton-text::before, #star-button-box[image*="page-icon:about"] .toolbarbutton-text::before {
+#PersonalToolbar .bookmark-item[image*="page-icon:about"] .toolbarbutton-text::before, #PersonalToolbar #star-button-box[image*="page-icon:about"] .toolbarbutton-text::before {
   content: "";
   height: 16px;
   width: 16px;
@@ -474,16 +476,16 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   background-repeat: no-repeat;
   margin-inline-end: 4px;
 }
-.bookmark-item[image*="page-icon:about"] .toolbarbutton-text::after, #star-button-box[image*="page-icon:about"] .toolbarbutton-text::after {
+#PersonalToolbar .bookmark-item[image*="page-icon:about"] .toolbarbutton-text::after, #PersonalToolbar #star-button-box[image*="page-icon:about"] .toolbarbutton-text::after {
   content: -moz-label-content;
 }
-.bookmark-item[type=menu], #star-button-box[type=menu] {
+#PersonalToolbar .bookmark-item[type=menu], #PersonalToolbar #star-button-box[type=menu] {
   padding-right: 0 !important;
 }
-.bookmark-item[type=menu] .toolbarbutton-icon, #star-button-box[type=menu] .toolbarbutton-icon {
+#PersonalToolbar .bookmark-item[type=menu] .toolbarbutton-icon, #PersonalToolbar #star-button-box[type=menu] .toolbarbutton-icon {
   list-style-image: url("images/folder.png");
 }
-.bookmark-item[type=menu] .toolbarbutton-text::after, #star-button-box[type=menu] .toolbarbutton-text::after {
+#PersonalToolbar .bookmark-item[type=menu] .toolbarbutton-text::after, #PersonalToolbar #star-button-box[type=menu] .toolbarbutton-text::after {
   content: "";
   width: 17px;
   height: 16px;
@@ -733,7 +735,6 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   top: 0;
   left: 0;
   transition: opacity 0.3s steps(5), background-color 0.3s steps(5);
-  transform: translateX(-50%) translateY(-50%);
 }
 #nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::after, #nav-bar toolbarbutton#_testpilot-containers-BAP::after, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::after, #nav-bar toolbaritem#home-button::after, #nav-bar toolbaritem#bookmarks-menu-button::after, #nav-bar toolbaritem#PanelUI-menu-button::after, #nav-bar toolbaritem#unified-extensions-button::after, #nav-bar toolbaritem#downloads-button::after, #nav-bar toolbaritem#_testpilot-containers-BAP::after, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after {
   opacity: 0;
@@ -769,7 +770,6 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbaritem#bookmarks-menu-button::before, #nav-bar toolbaritem#bookmarks-menu-button::after {
   -webkit-mask-image: url(images/favorites-mask.svg);
           mask-image: url(images/favorites-mask.svg);
-  height: 15.5px !important;
 }
 #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbaritem#bookmarks-menu-button::after {
   background: linear-gradient(0deg, rgba(255, 208, 0, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
@@ -810,16 +810,22 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   background-color: var(--toolbarbutton-blue-colour_hover);
 }
 #nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack, #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack {
-  -webkit-mask-image: url(images/downloads-mask.svg);
-          mask-image: url(images/downloads-mask.svg);
-  -webkit-mask-position: center;
-          mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
+  opacity: 0 !important;
 }
-#nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner, #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner {
-  border-radius: 0 !important;
-  background: linear-gradient(var(--toolbarbutton-icon-fill-attention) var(--download-progress-pcent), transparent var(--download-progress-pcent)) !important;
+@supports -moz-bool-pref("BeautyFox.option.showDownloadProgress") {
+  #nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack, #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack {
+    opacity: 1 !important;
+    -webkit-mask-image: url(images/downloads-mask.svg);
+            mask-image: url(images/downloads-mask.svg);
+    -webkit-mask-position: center;
+            mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+  }
+  #nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner, #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner {
+    border-radius: 0 !important;
+    background: linear-gradient(var(--toolbarbutton-icon-fill-attention) var(--download-progress-pcent), transparent var(--download-progress-pcent)) !important;
+  }
 }
 #nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbaritem#PanelUI-menu-button {
   background-image: url(images/settings.svg);
@@ -1190,10 +1196,6 @@ findbar {
     -webkit-mask-image: url(images/favorites-ie10-mask.svg) !important;
             mask-image: url(images/favorites-ie10-mask.svg) !important;
   }
-  #browser {
-    margin: -1px !important;
-    margin-top: 0 !important;
-  }
   @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
     :root {
       --appearance_IE11: 1 !important;
@@ -1202,11 +1204,19 @@ findbar {
       :root {
         --appearance_IE11Win10: 1 !important;
       }
+      #browser {
+        margin: -1px !important;
+        margin-top: 0 !important;
+      }
       #browser, #customization-container {
         border: none !important;
       }
       #browser::before, #browser::after, #customization-container::before, #customization-container::after {
         border: none !important;
+      }
+      #browser::before, #customization-container::before {
+        left: 0 !important;
+        width: 100% !important;
       }
     }
   }
@@ -1685,7 +1695,7 @@ findbar {
   background: var(--tab-background-colour_hover);
 }
 .tabbrowser-tab:hover .tab-close-button {
-  display: block;
+  display: block !important;
 }
 .tabbrowser-tab[selected=true] .tab-background {
   background: transparent !important;
@@ -1826,11 +1836,11 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     --newtab-button-width: 29px;
   }
   :root:is([privatebrowsingmode=temporary]) #urlbar-container {
-    width: calc(58px + 28.5%) !important;
+    width: calc(58px + 28.83%) !important;
   }
   #urlbar-container {
     flex: unset !important;
-    width: 28.5% !important;
+    width: 28.83% !important;
     min-width: 209px !important;
   }
   #search-container {
@@ -2189,4 +2199,23 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       }
     }
   }
+}
+#contentAreaContextMenu #context-navigation {
+  background-color: transparent !important;
+  flex-direction: column !important;
+}
+#contentAreaContextMenu #context-navigation > menuitem {
+  justify-content: unset !important;
+}
+#contentAreaContextMenu #context-navigation > menuitem::after {
+  content: attr(aria-label);
+  margin-inline-start: 2px !important;
+  padding-inline-end: 2px;
+  padding-inline-start: 30px !important;
+}
+#contentAreaContextMenu #context-navigation > menuitem .menu-iconic-left {
+  display: none !important;
+}
+#contentAreaContextMenu #context-sep-navigation {
+  margin-left: 0 !important;
 }

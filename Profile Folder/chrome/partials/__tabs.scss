@@ -90,6 +90,7 @@
         background: transparent !important;
         position: relative;
         overflow: hidden;
+        //margin-right: -1px !important;
     
         &::before {
             content: '';
@@ -119,7 +120,7 @@
         }
 
         .tab-close-button {
-            display: block;
+            display: block !important;
         }
     }
 
@@ -284,14 +285,14 @@ toolbarbutton#tabs-newtab-button,
 
         &:is([privatebrowsingmode="temporary"]) {
             #urlbar-container {
-                width: calc(58px + 28.5%) !important;
+                width: calc(58px + 28.83%) !important;
             }
         }
     }
 
     #urlbar-container {
         flex: unset !important;
-        width: 28.5% !important;
+        width: 28.83% !important;
         min-width: 209px !important;
     }
 
