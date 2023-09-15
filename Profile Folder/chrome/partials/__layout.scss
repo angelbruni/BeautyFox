@@ -127,7 +127,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     border-bottom: none !important;
     position: relative;
 
-    &::after {
+    /*&::after {
         position: absolute;
         content: '';
         width: calc(100% - 4px);
@@ -135,7 +135,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         bottom: 0;
         height: 1px;
         border-bottom: 1px solid var(--chrome-content-separator-color);
-    }
+    }*/
 }
 
 #titlebar {
@@ -860,11 +860,11 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                 mask-repeat: no-repeat;
                 mask-position: center;
                 position: absolute;
-                height: 16px;
-                width: 16px;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
                 transition: opacity .3s steps(5), background-color .3s steps(5);
-                top: 50%;
-                left: 50%;
                 transform: translateX(-50%) translateY(-50%);
             }
     
@@ -912,7 +912,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         }
     
         &#bookmarks-menu-button {
-            background-image: url(images/favorites.svg); 
+            background-image: url(images/favorites.svg);
+            width: 23px !important;
             
             &::before, &::after {
                 mask-image: url(images/favorites-mask.svg);
@@ -1455,6 +1456,11 @@ findbar {
         }
     }
 
+    #browser {
+        margin: -1px !important;
+        margin-top: 0 !important;
+    }
+
     @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
         :root {
             --appearance_IE11: 1 !important;
@@ -1463,6 +1469,14 @@ findbar {
         @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
             :root {
                 --appearance_IE11Win10: 1 !important;
+            }
+
+            #browser, #customization-container {
+                border: none !important;
+
+                &::before, &::after {
+                    border: none !important;
+                }
             }
         }
     }

@@ -24,6 +24,10 @@
     background-size: 100% var(--tab-height);
     background-position: bottom;
     -moz-window-dragging: drag !important;
+
+    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+        background-image: none !important;
+    }
 }
 
 #TabsToolbar-customization-target {
@@ -272,7 +276,6 @@ toolbarbutton#tabs-newtab-button,
         }
     }
 }
-
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
     :root {
         --option_tabsOnNavRow: 1 !important;
@@ -312,10 +315,6 @@ toolbarbutton#tabs-newtab-button,
         --tab-background-colour_hover: rgba(255, 255, 255, .5);
         --tab-background-colour_active: linear-gradient(0deg, rgb(255, 255, 255) 0%, var(--tab-inset-border-colour) 100%);
         --tab-inset-border-colour: rgba(254, 254, 254, 0.4);
-    }
-
-    #TabsToolbar {
-        background-image: none !important;
     }
 
     .tabbrowser-tab {
@@ -373,9 +372,9 @@ toolbarbutton#tabs-newtab-button,
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     :root {
-        --tab-background-colour: rgba(255, 255, 255, .35);
-        --tab-background-colour_hover: rgba(255, 255, 255, .7);
-        --tab-border-colour: rgba(0, 0, 0, .5);
+        --tab-background-colour: rgba(200, 200, 200, 0.5);
+        --tab-background-colour_hover: rgba(242, 242, 242, 0.9);
+        --tab-border-colour: rgba(0, 0, 0, .3);
     }
 
     #customization-container {
@@ -479,8 +478,23 @@ toolbarbutton#tabs-newtab-button,
                 --newtab-button-width: 22px;
             }
 
-            #TabsToolbar {
-                margin-bottom: -1px !important;
+            #toolbar-menubar, #PersonalToolbar {
+                border: none !important;
+
+                &::before, &::after {
+                    border: none !important;
+                }
+            }
+
+            #toolbar-menubar {
+                &::before {
+                    height: 100% !important;
+                }
+
+                &[inactive="true"] {
+                    opacity: 0 !important;
+                    margin-top: -1px;
+                }
             }
 
             toolbarbutton#tabs-newtab-button,

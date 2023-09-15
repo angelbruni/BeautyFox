@@ -255,6 +255,8 @@
             }
             
             #back-button {
+                margin-left: 1px !important;
+                
                 &[disabled="true"] {
                     .toolbarbutton-icon {
                         background-image: url(images/back_disabled.png);

@@ -31,7 +31,7 @@
             --popular-site-label: 'Teus sítios mais populares'; 
         }
 
-        &[lang="ja-JP"] {
+        &[lang="ja"] {
             --popular-site-label: 'よく使うサイト'; 
         }
     }
@@ -185,7 +185,7 @@
             &[lang*="pt"] {
                 --popular-site-label: 'Com mais frequência';
             }
-            &[lang="ja-JP"] {
+            &[lang="ja"] {
                 --popular-site-label: 'よくアクセスするサイト';
             }
         }

@@ -98,15 +98,15 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
 #navigator-toolbox {
   border-bottom: none !important;
   position: relative;
-}
-#navigator-toolbox::after {
-  position: absolute;
-  content: "";
-  width: calc(100% - 4px);
-  left: 2px;
-  bottom: 0;
-  height: 1px;
-  border-bottom: 1px solid var(--chrome-content-separator-color);
+  /*&::after {
+      position: absolute;
+      content: '';
+      width: calc(100% - 4px);
+      left: 2px;
+      bottom: 0;
+      height: 1px;
+      border-bottom: 1px solid var(--chrome-content-separator-color);
+  }*/
 }
 
 #titlebar {
@@ -728,11 +728,11 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   -webkit-mask-position: center;
           mask-position: center;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
   transition: opacity 0.3s steps(5), background-color 0.3s steps(5);
-  top: 50%;
-  left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
 #nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::after, #nav-bar toolbarbutton#_testpilot-containers-BAP::after, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::after, #nav-bar toolbaritem#home-button::after, #nav-bar toolbaritem#bookmarks-menu-button::after, #nav-bar toolbaritem#PanelUI-menu-button::after, #nav-bar toolbaritem#unified-extensions-button::after, #nav-bar toolbaritem#downloads-button::after, #nav-bar toolbaritem#_testpilot-containers-BAP::after, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after {
@@ -764,6 +764,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 #nav-bar toolbarbutton#bookmarks-menu-button, #nav-bar toolbaritem#bookmarks-menu-button {
   background-image: url(images/favorites.svg);
+  width: 23px !important;
 }
 #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbaritem#bookmarks-menu-button::before, #nav-bar toolbaritem#bookmarks-menu-button::after {
   -webkit-mask-image: url(images/favorites-mask.svg);
@@ -1189,6 +1190,10 @@ findbar {
     -webkit-mask-image: url(images/favorites-ie10-mask.svg) !important;
             mask-image: url(images/favorites-ie10-mask.svg) !important;
   }
+  #browser {
+    margin: -1px !important;
+    margin-top: 0 !important;
+  }
   @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
     :root {
       --appearance_IE11: 1 !important;
@@ -1196,6 +1201,12 @@ findbar {
     @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
       :root {
         --appearance_IE11Win10: 1 !important;
+      }
+      #browser, #customization-container {
+        border: none !important;
+      }
+      #browser::before, #browser::after, #customization-container::before, #customization-container::after {
+        border: none !important;
       }
     }
   }
@@ -1549,6 +1560,9 @@ findbar {
   #main-window #nav-bar #back-button .toolbarbutton-icon, #main-window #nav-bar #forward-button .toolbarbutton-icon {
     background-position: center;
   }
+  #main-window #nav-bar #back-button {
+    margin-left: 1px !important;
+  }
   #main-window #nav-bar #back-button[disabled=true] .toolbarbutton-icon {
     background-image: url(images/back_disabled.png);
   }
@@ -1587,6 +1601,11 @@ findbar {
   background-size: 100% var(--tab-height);
   background-position: bottom;
   -moz-window-dragging: drag !important;
+}
+@supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+  #TabsToolbar {
+    background-image: none !important;
+  }
 }
 
 #TabsToolbar-customization-target {
@@ -1832,9 +1851,6 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     --tab-background-colour_active: linear-gradient(0deg, rgb(255, 255, 255) 0%, var(--tab-inset-border-colour) 100%);
     --tab-inset-border-colour: rgba(254, 254, 254, 0.4);
   }
-  #TabsToolbar {
-    background-image: none !important;
-  }
   .tabbrowser-tab .tab-background::before {
     left: 1px !important;
     border-width: 0 !important;
@@ -1871,9 +1887,9 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
   :root {
-    --tab-background-colour: rgba(255, 255, 255, .35);
-    --tab-background-colour_hover: rgba(255, 255, 255, .7);
-    --tab-border-colour: rgba(0, 0, 0, .5);
+    --tab-background-colour: rgba(200, 200, 200, 0.5);
+    --tab-background-colour_hover: rgba(242, 242, 242, 0.9);
+    --tab-border-colour: rgba(0, 0, 0, .3);
   }
   #customization-container {
     background-image: none !important;
@@ -1946,8 +1962,18 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       :root {
         --newtab-button-width: 22px;
       }
-      #TabsToolbar {
-        margin-bottom: -1px !important;
+      #toolbar-menubar, #PersonalToolbar {
+        border: none !important;
+      }
+      #toolbar-menubar::before, #toolbar-menubar::after, #PersonalToolbar::before, #PersonalToolbar::after {
+        border: none !important;
+      }
+      #toolbar-menubar::before {
+        height: 100% !important;
+      }
+      #toolbar-menubar[inactive=true] {
+        opacity: 0 !important;
+        margin-top: -1px;
       }
       toolbarbutton#tabs-newtab-button:hover::before,
       #TabsToolbar #new-tab-button:hover::before {
