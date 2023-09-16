@@ -1,4 +1,42 @@
+@charset "UTF-8";
 @import url(uservars.css);
+:root {
+  --label-view-downloads: View Downloads - ;
+  --label-view-n-track-your-downloads: "View and track your downloads";
+  --label-about-before: About ;
+  --label-about-after: ;
+}
+
+window[lang=pt-BR] {
+  --label-view-downloads: Exibir Downloads - ;
+  --label-view-n-track-your-downloads: "Exibir e acompanhar seus downloads";
+  --label-about-before: Sobre o ;
+  --label-about-after: ;
+}
+window[lang=pt-PT] {
+  --label-view-downloads: Exibir Transferências - ;
+  --label-view-n-track-your-downloads: "Ver e controlar tranferências";
+  --label-about-before: Acerca do ;
+  --label-about-after: ;
+}
+window[lang*=es] {
+  --label-view-downloads: Ver descargas: ;
+  --label-view-n-track-your-downloads: "Ver y seguir sus descargas";
+  --label-about-before: Acerca de ;
+  --label-about-after: ;
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  window[lang*=es] {
+    --label-view-n-track-your-downloads: "Ver y seguir tus descargas";
+  }
+}
+window[lang=ja] {
+  --label-view-downloads: ダウンロードの表紙 - ;
+  --label-view-n-track-your-downloads: "ダウンロードの表紙と追跡";
+  --label-about-before: ;
+  --label-about-after: のバージョン情報;
+}
+
 :root {
   --chrome-content-separator-color: #6f6f6f !important;
   --urlbar-min-height: 24px !important;
@@ -1511,7 +1549,11 @@ findbar {
   margin-block-start: 0 !important;
 }
 #main-window[sizemode=maximized] #nav-bar::before {
+  left: 1px;
   top: 26px;
+}
+#main-window[sizemode=maximized] #nav-bar #back-button {
+  margin-left: 1px !important;
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
@@ -1526,6 +1568,12 @@ findbar {
   }
   #main-window #nav-bar #userContext-icons {
     margin-inline-start: 10px !important;
+  }
+  #main-window[sizemode=maximized] #nav-bar::before {
+    left: 7px;
+  }
+  #main-window[sizemode=maximized] #nav-bar #back-button {
+    margin-left: 7px !important;
   }
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -1570,9 +1618,6 @@ findbar {
   #main-window #nav-bar #back-button .toolbarbutton-icon, #main-window #nav-bar #forward-button .toolbarbutton-icon {
     background-position: center;
   }
-  #main-window #nav-bar #back-button {
-    margin-left: 1px !important;
-  }
   #main-window #nav-bar #back-button[disabled=true] .toolbarbutton-icon {
     background-image: url(images/back_disabled.png);
   }
@@ -1584,6 +1629,13 @@ findbar {
   }
   #main-window #nav-bar #forward-button .toolbarbutton-icon {
     background-image: url(images/forward.png);
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+      #main-window #back-button {
+        margin-left: 1px !important;
+      }
+    }
   }
 }
 :root {
@@ -2218,4 +2270,325 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 }
 #contentAreaContextMenu #context-sep-navigation {
   margin-left: 0 !important;
+}
+
+:root {
+  --arrowpanel-menuitem-padding: 0 !important;
+  --panel-subview-body-padding: 0 !important;
+  --arrowpanel-menuitem-margin: 0 !important;
+  --arrowpanel-menuitem-border-radius: 0 !important;
+}
+
+panel {
+  --panel-shadow: var(--pop-up_shadow) !important;
+}
+
+:is(menupopup, panel)[type=arrow] {
+  --panel-border-radius: 0 !important;
+}
+
+.cui-widget-panel {
+  --arrowpanel-padding: 0 !important;
+}
+.cui-widget-panel .panel-viewcontainer {
+  padding: 3px !important;
+}
+
+#appMenu-fxa-status2, #appMenu-fxa-separator {
+  display: none !important;
+}
+
+#sidebar-box {
+  background-color: var(--toolbar-bgcolor) !important;
+  margin-top: -1px !important;
+}
+#sidebar-box[style*="order: 3"] {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  border: 1px solid rgb(139, 145, 159) !important;
+  height: calc(100% - 100px) !important;
+}
+#sidebar-box #sidebar-header {
+  border-bottom: none !important;
+  padding-top: 9px !important;
+  padding-bottom: 11px !important;
+  padding-right: 11px !important;
+}
+#sidebar-box #sidebar-header #sidebar-switcher-target {
+  height: 23px !important;
+  padding: 0 !important;
+  border: 1px solid white !important;
+  outline: 1px solid rgb(176, 178, 182) !important;
+  background: linear-gradient(0deg, rgb(225, 234, 244) 0%, rgb(238, 245, 255) 100%) !important;
+}
+#sidebar-box #sidebar-header #sidebar-switcher-target:hover {
+  background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
+}
+#sidebar-box #sidebar-header #sidebar-switcher-target:active, #sidebar-box #sidebar-header #sidebar-switcher-target[open=true] {
+  background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  #sidebar-box #sidebar-header #sidebar-switcher-target {
+    outline: none !important;
+    border: 1px solid rgb(172, 172, 172) !important;
+    border-radius: 0 !important;
+    background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
+  }
+  #sidebar-box #sidebar-header #sidebar-switcher-target:hover {
+    border: 1px solid rgb(126, 180, 234) !important;
+    background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
+  }
+  #sidebar-box #sidebar-header #sidebar-switcher-target:hover #sidebar-title::after {
+    border-right: 1px solid rgb(126, 180, 234) !important;
+  }
+  #sidebar-box #sidebar-header #sidebar-switcher-target:active, #sidebar-box #sidebar-header #sidebar-switcher-target[open=true] {
+    border: 1px solid rgb(86, 157, 229) !important;
+    background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
+  }
+  #sidebar-box #sidebar-header #sidebar-switcher-target:active #sidebar-title::after, #sidebar-box #sidebar-header #sidebar-switcher-target[open=true] #sidebar-title::after {
+    border-right: 1px solid rgb(86, 157, 229) !important;
+  }
+  #sidebar-box #sidebar-header #sidebar-switcher-target #sidebar-title::after {
+    border-left: 0 !important;
+    border-right: 1px solid rgb(172, 172, 172) !important;
+  }
+}
+#sidebar-box #sidebar-header #sidebar-switcher-target #sidebar-icon {
+  display: none !important;
+}
+#sidebar-box #sidebar-header #sidebar-switcher-target #sidebar-title {
+  padding: 0 !important;
+  padding-left: 10px !important;
+  padding-right: 15px !important;
+  height: 100% !important;
+  align-items: center !important;
+  position: relative !important;
+}
+#sidebar-box #sidebar-header #sidebar-switcher-target #sidebar-title::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: 0px;
+  height: calc(100% + 2px);
+  border-left: 1px solid rgb(176, 178, 182);
+  border-right: 1px solid white;
+}
+#sidebar-box #sidebar-header #sidebar-switcher-target #sidebar-switcher-arrow {
+  height: 100% !important;
+  width: 16px !important;
+  margin-top: -2px !important;
+  margin-bottom: -2px !important;
+  margin-right: -1px !important;
+  list-style-image: none !important;
+  -webkit-mask: url(images/dropdown-mask.svg) !important;
+          mask: url(images/dropdown-mask.svg) !important;
+  -webkit-mask-position: calc(50% - 1px) !important;
+          mask-position: calc(50% - 1px) !important;
+  -webkit-mask-size: 9px 5px !important;
+          mask-size: 9px 5px !important;
+  -webkit-mask-repeat: no-repeat !important;
+          mask-repeat: no-repeat !important;
+  background-color: black !important;
+}
+#sidebar-box #sidebar-header #sidebar-close {
+  list-style-image: none !important;
+  height: 8px !important;
+  width: 8px !important;
+  padding: 5px !important;
+  -webkit-mask: url(images/close-mask.svg) !important;
+          mask: url(images/close-mask.svg) !important;
+  -webkit-mask-position: center !important;
+          mask-position: center !important;
+  -webkit-mask-repeat: no-repeat !important;
+          mask-repeat: no-repeat !important;
+  background-color: rgb(152, 155, 163) !important;
+  transform: translateY(-3px) !important;
+  transition: background-color 0.15s linear;
+}
+#sidebar-box #sidebar-header #sidebar-close:hover {
+  background-color: rgb(226, 58, 60) !important;
+}
+#sidebar-box #sidebar-header #sidebar-close:active {
+  background-color: rgb(225, 12, 12) !important;
+  transition: none !important;
+}
+#sidebar-box #sidebar {
+  margin-left: 8px !important;
+  margin-right: 6px !important;
+  margin-bottom: 14px !important;
+  background-color: white !important;
+  border: 1px solid rgb(180, 180, 180) !important;
+}
+
+#sidebar-search-container {
+  padding: 6px 4px !important;
+}
+
+.textbox-search-sign {
+  display: none !important;
+}
+
+#sidebar-splitter {
+  border-color: rgb(139, 145, 159) !important;
+}
+
+#places {
+  color-scheme: unset !important;
+}
+#places #placesToolbox #placesToolbar {
+  padding: 16px 10px !important;
+  padding-bottom: 17px !important;
+  justify-content: end;
+  background-color: white !important;
+  border-bottom: 1px solid rgb(214, 229, 245) !important;
+  position: relative !important;
+}
+#places #placesToolbox #placesToolbar::before {
+  content: var(--label-view-n-track-your-downloads);
+  position: absolute;
+  left: 15px;
+  color: rgb(0, 51, 153);
+  font-size: 12pt;
+}
+#places #placesToolbox #placesToolbar > *:not(#clearDownloadsButton, search-textbox) {
+  display: none !important;
+}
+#places #placesToolbox #placesToolbar #clearDownloadsButton {
+  position: fixed !important;
+  bottom: 7px !important;
+  right: 11px !important;
+  padding: 0 10px !important;
+  width: auto !important;
+  height: 25px !important;
+  border: 1px solid white !important;
+  outline: 1px solid rgb(176, 178, 182) !important;
+  background: linear-gradient(0deg, rgb(231, 231, 231) 0%, rgb(244, 244, 244) 100%) !important;
+  justify-content: center !important;
+  border-radius: 5px !important;
+}
+#places #placesToolbox #placesToolbar #clearDownloadsButton:hover {
+  background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
+}
+#places #placesToolbox #placesToolbar #clearDownloadsButton:active, #places #placesToolbox #placesToolbar #clearDownloadsButton[open=true] {
+  background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  #places #placesToolbox #placesToolbar #clearDownloadsButton {
+    outline: none !important;
+    border: 1px solid rgb(172, 172, 172) !important;
+    border-radius: 0 !important;
+    background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
+  }
+  #places #placesToolbox #placesToolbar #clearDownloadsButton:hover {
+    border: 1px solid rgb(126, 180, 234) !important;
+    background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
+  }
+  #places #placesToolbox #placesToolbar #clearDownloadsButton:active, #places #placesToolbox #placesToolbar #clearDownloadsButton[open=true] {
+    border: 1px solid rgb(86, 157, 229) !important;
+    background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
+  }
+}
+#places #placesToolbox #placesToolbar search-textbox {
+  -webkit-appearance: textfield !important;
+     -moz-appearance: textfield !important;
+          appearance: textfield !important;
+  max-width: 252px !important;
+  min-height: 22px !important;
+  position: relative !important;
+  /* Doesn't work yet.
+  input {
+      &::placeholder {
+          font-style: italic !important;
+      }
+  }*/
+}
+#places #placesToolbox #placesToolbar search-textbox::after {
+  content: "";
+  height: 20px;
+  width: 24px;
+  background-image: url(images/search7.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 0;
+}
+#places #placesToolbox #placesToolbar search-textbox[focused] {
+  box-shadow: none !important;
+  background-color: inherit !important;
+  border-color: transparent;
+  outline: none !important;
+}
+#places #placesView #placesList {
+  min-width: 0 !important;
+  width: 0 !important;
+  max-width: 0 !important;
+}
+#places #contentView {
+  background-color: rgb(240, 240, 240) !important;
+}
+#places #contentView #placesViewsBox {
+  border-bottom: 1px solid rgb(233, 233, 233) !important;
+  margin-bottom: 39px !important;
+}
+#places #contentView #placesViewsBox richlistbox {
+  border: none !important;
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox {
+  padding: 25px 9px !important;
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem {
+  min-height: 77px !important;
+  align-items: center !important;
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem:not([selected=true]) {
+  border-bottom: 1px rgb(220, 220, 220) solid !important;
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea {
+  padding: 14px 29px !important;
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadTypeIcon {
+  display: none !important;
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadTarget {
+  font-size: 12pt !important;
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadButton {
+  height: 25px !important;
+  width: 85px !important;
+  padding: 0 !important;
+  margin-right: 33px !important;
+  border: 1px solid white !important;
+  outline: 1px solid rgb(176, 178, 182) !important;
+  background: linear-gradient(0deg, rgb(231, 231, 231) 0%, rgb(244, 244, 244) 100%) !important;
+  justify-content: center !important;
+  border-radius: 5px !important;
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadButton:hover {
+  background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadButton:active, #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadButton[open=true] {
+  background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadButton::before {
+  content: attr(tooltiptext);
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadButton .button-box {
+  display: none !important;
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadButton {
+    outline: none !important;
+    border: 1px solid rgb(172, 172, 172) !important;
+    border-radius: 0 !important;
+    background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
+  }
+  #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadButton:hover {
+    border: 1px solid rgb(126, 180, 234) !important;
+    background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
+  }
+  #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadButton:active, #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadButton[open=true] {
+    border: 1px solid rgb(86, 157, 229) !important;
+    background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
+  }
 }

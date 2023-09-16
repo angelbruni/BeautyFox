@@ -1,3 +1,5 @@
+@import 'partials/__localisation.scss';
+
 @import 'partials/__layout.scss';
 @import 'partials/__urlsearch-results.scss';
 
@@ -6,6 +8,9 @@
 @import 'partials/__toolbars.scss';
 @import 'partials/__about.scss';
 
-@import 'partials/_context-menu.scss';
+@import 'partials/__context-menu.scss';
+@import 'partials/__app-menu.scss';
+@import 'partials/__sidebar.scss';
+@import 'partials/__library-window.scss';
 
 @import url(uservars.css);

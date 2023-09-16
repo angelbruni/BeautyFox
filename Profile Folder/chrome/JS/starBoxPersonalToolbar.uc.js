@@ -7,5 +7,5 @@ function addClonedStarBox() {
         clonedStarBtn.classList.add("star-button-box_cloned");
         personalToolbar.insertBefore(clonedStarBtn, personalToolbar.firstChild);
         starBtn.remove();
-    }, 100);
+    }, 200);
 }

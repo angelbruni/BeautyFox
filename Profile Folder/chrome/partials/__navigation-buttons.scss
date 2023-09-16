@@ -164,7 +164,12 @@
     &[sizemode="maximized"] {
         #nav-bar {
             &::before {
+                left: 1px;
                 top: 26px;
+            }
+
+            #back-button {
+                margin-left: 1px !important;
             }
         }
     }
@@ -189,6 +194,18 @@
                 margin-inline-start: 10px !important;
             }
     
+        }
+
+        &[sizemode="maximized"] {
+            #nav-bar {
+                &::before {
+                    left: 7px;
+                }
+    
+                #back-button {
+                    margin-left: 7px !important;
+                }
+            }
         }
     }
 }
@@ -255,8 +272,6 @@
             }
             
             #back-button {
-                margin-left: 1px !important;
-                
                 &[disabled="true"] {
                     .toolbarbutton-icon {
                         background-image: url(images/back_disabled.png);
@@ -280,5 +295,15 @@
                 }
             }
         }
-    }    
+    }
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+            #main-window {
+                #back-button {
+                    margin-left: 1px !important;
+                }
+            }
+        }
+    }
 }

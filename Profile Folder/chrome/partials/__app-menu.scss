@@ -1,0 +1,26 @@
+:root {
+    --arrowpanel-menuitem-padding: 0 !important;
+    --panel-subview-body-padding: 0 !important;
+    --arrowpanel-menuitem-margin: 0 !important;
+    --arrowpanel-menuitem-border-radius: 0 !important;
+}
+
+panel {
+    --panel-shadow: var(--pop-up_shadow) !important;
+}
+
+:is(menupopup, panel)[type="arrow"] {
+    --panel-border-radius: 0 !important;
+}
+
+.cui-widget-panel {
+    --arrowpanel-padding: 0 !important;
+
+    .panel-viewcontainer {
+        padding: 3px !important;
+    }
+}
+
+#appMenu-fxa-status2, #appMenu-fxa-separator {
+    display: none !important;
+}

@@ -13,8 +13,11 @@ function setAttributes(element, attributes) {
     });
 }
 
+var labelAboutBefore = getComputedStyle(document.documentElement).getPropertyValue('--label-about-before');
+var labelAboutAfter = getComputedStyle(document.documentElement).getPropertyValue('--label-about-after');
+
 // About Dialog title
-aboutDialog.setAttribute("title", "About Internet Explorer");
+aboutDialog.setAttribute("title", labelAboutBefore + "Internet Explorer " + labelAboutAfter);
 
 // Window size
 const aboutDialogPane = document.createElement("div");
@@ -226,9 +229,6 @@ if (IsIE10Appearance && IsIE11Appearance && IsIE11Win10Appearance) {
 	aboutDialogInfoCipherStrength.innerHTML = 'Cipher Strength:' + ' ' + '256-bit';
 	aboutDialogInfoPane.appendChild(aboutDialogInfoCipherStrength);
 
-	aboutDialogMicrosoft.innerHTML = '<a href="#">© 2010 Microsoft Corporation</a>';
-	aboutDialogInfoPane.appendChild(aboutDialogMicrosoft);
-
 	aboutDialogInfoUpdateVersion.innerHTML = 'Update Versions:' + ' ' + 'beta <a id="aboutDialogInfoUpdateVersion" href="#"></a>';
 	aboutDialogInfoPane.appendChild(aboutDialogInfoUpdateVersion);
 
@@ -237,6 +237,9 @@ if (IsIE10Appearance && IsIE11Appearance && IsIE11Win10Appearance) {
 
 	aboutDialogWarning.innerHTML = 'Warning:' + ' ' + 'This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law.';
 	aboutDialogInfoPane.appendChild(aboutDialogWarning);
+
+	aboutDialogMicrosoft.innerHTML = '<a href="#">© 2010 Microsoft Corporation</a>';
+	aboutDialogInfoPane.appendChild(aboutDialogMicrosoft);
 
 	aboutDialogOKButton.innerHTML = 'OK';
 	aboutDialogInfoPane.appendChild(aboutDialogOKButton);
