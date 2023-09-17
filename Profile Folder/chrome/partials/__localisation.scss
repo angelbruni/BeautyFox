@@ -1,6 +1,6 @@
 :root {
     --label-view-downloads: View Downloads - ;
-    --label-view-n-track-your-downloads: 'View and track your downloads';
+    --label-view-n-track-your-downloads: View and track your downloads;
 
     --label-about-before: About ;
     --label-about-after: ;
@@ -9,7 +9,7 @@
 window {
     &[lang="pt-BR"] {
         --label-view-downloads: Exibir Downloads - ;
-        --label-view-n-track-your-downloads: 'Exibir e acompanhar seus downloads';
+        --label-view-n-track-your-downloads: Exibir e acompanhar seus downloads;
 
         --label-about-before: Sobre o ;
         --label-about-after: ;
@@ -17,7 +17,7 @@ window {
 
     &[lang="pt-PT"] {
         --label-view-downloads: Exibir Transferências - ;
-        --label-view-n-track-your-downloads: 'Ver e controlar tranferências';
+        --label-view-n-track-your-downloads: Ver e controlar tranferências;
 
         --label-about-before: Acerca do ;
         --label-about-after: ;
@@ -25,19 +25,19 @@ window {
 
     &[lang*="es"] {
         --label-view-downloads: Ver descargas: ;
-        --label-view-n-track-your-downloads: 'Ver y seguir sus descargas';
+        --label-view-n-track-your-downloads: Ver y seguir sus descargas;
 
         --label-about-before: Acerca de ;
         --label-about-after: ;
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-            --label-view-n-track-your-downloads: 'Ver y seguir tus descargas';
+            --label-view-n-track-your-downloads: Ver y seguir tus descargas;
         }
     }
 
     &[lang="ja"] {
         --label-view-downloads: ダウンロードの表紙 - ;
-        --label-view-n-track-your-downloads: 'ダウンロードの表紙と追跡';
+        --label-view-n-track-your-downloads: ダウンロードの表紙と追跡;
 
         --label-about-before: ;
         --label-about-after: のバージョン情報;

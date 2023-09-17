@@ -2,37 +2,37 @@
 @import url(uservars.css);
 :root {
   --label-view-downloads: View Downloads - ;
-  --label-view-n-track-your-downloads: "View and track your downloads";
+  --label-view-n-track-your-downloads: View and track your downloads;
   --label-about-before: About ;
   --label-about-after: ;
 }
 
 window[lang=pt-BR] {
   --label-view-downloads: Exibir Downloads - ;
-  --label-view-n-track-your-downloads: "Exibir e acompanhar seus downloads";
+  --label-view-n-track-your-downloads: Exibir e acompanhar seus downloads;
   --label-about-before: Sobre o ;
   --label-about-after: ;
 }
 window[lang=pt-PT] {
   --label-view-downloads: Exibir Transferências - ;
-  --label-view-n-track-your-downloads: "Ver e controlar tranferências";
+  --label-view-n-track-your-downloads: Ver e controlar tranferências;
   --label-about-before: Acerca do ;
   --label-about-after: ;
 }
 window[lang*=es] {
   --label-view-downloads: Ver descargas: ;
-  --label-view-n-track-your-downloads: "Ver y seguir sus descargas";
+  --label-view-n-track-your-downloads: Ver y seguir sus descargas;
   --label-about-before: Acerca de ;
   --label-about-after: ;
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
   window[lang*=es] {
-    --label-view-n-track-your-downloads: "Ver y seguir tus descargas";
+    --label-view-n-track-your-downloads: Ver y seguir tus descargas;
   }
 }
 window[lang=ja] {
   --label-view-downloads: ダウンロードの表紙 - ;
-  --label-view-n-track-your-downloads: "ダウンロードの表紙と追跡";
+  --label-view-n-track-your-downloads: ダウンロードの表紙と追跡;
   --label-about-before: ;
   --label-about-after: のバージョン情報;
 }
@@ -97,10 +97,7 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
 }
 
 #main-window[sizemode=maximized] {
-  --titlebar-height-calc: calc(var(--titlebar-height) - 2px);
-}
-#main-window[sizemode=maximized] #nav-bar {
-  padding-top: 26px !important;
+  --titlebar-height-calc: calc(var(--titlebar-height) + 8px);
 }
 #main-window:not([sizemode=maximized]) .titlebar-buttonbox {
   top: -3px !important;
@@ -1511,6 +1508,7 @@ findbar {
 #main-window #nav-bar #back-button .toolbarbutton-icon {
   height: 24px !important;
   width: 24px !important;
+  margin-left: 1px !important;
   background-image: url(images/back.png);
 }
 #main-window #nav-bar #forward-button {
@@ -1550,7 +1548,6 @@ findbar {
 }
 #main-window[sizemode=maximized] #nav-bar::before {
   left: 1px;
-  top: 26px;
 }
 #main-window[sizemode=maximized] #nav-bar #back-button {
   margin-left: 1px !important;
@@ -2298,6 +2295,21 @@ panel {
   display: none !important;
 }
 
+.subviewbutton:not(.subviewbutton-iconic, #appMenu-zoomReset-button2) {
+  min-height: 22px !important;
+  padding-inline-start: 30px !important;
+  padding-inline-end: 6px !important;
+}
+
+.panel-footer {
+  color-scheme: unset !important;
+}
+.panel-footer button {
+  -webkit-appearance: auto !important;
+     -moz-appearance: auto !important;
+          appearance: auto !important;
+}
+
 #sidebar-box {
   background-color: var(--toolbar-bgcolor) !important;
   margin-top: -1px !important;
@@ -2445,7 +2457,7 @@ panel {
   position: relative !important;
 }
 #places #placesToolbox #placesToolbar::before {
-  content: var(--label-view-n-track-your-downloads);
+  content: attr(data-before);
   position: absolute;
   left: 15px;
   color: rgb(0, 51, 153);
@@ -2495,23 +2507,24 @@ panel {
           appearance: textfield !important;
   max-width: 252px !important;
   min-height: 22px !important;
+  height: 22px !important;
   position: relative !important;
+  /*&::after {
+      content: '';
+      height: 20px;
+      width: 24px;
+      background-image: url(images/search7.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 0;
+  }*/
   /* Doesn't work yet.
   input {
       &::placeholder {
           font-style: italic !important;
       }
   }*/
-}
-#places #placesToolbox #placesToolbar search-textbox::after {
-  content: "";
-  height: 20px;
-  width: 24px;
-  background-image: url(images/search7.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  right: 0;
 }
 #places #placesToolbox #placesToolbar search-textbox[focused] {
   box-shadow: none !important;
@@ -2546,16 +2559,26 @@ panel {
 }
 #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea {
   padding: 14px 29px !important;
+  width: calc(100% - 200px);
 }
 #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadTypeIcon {
   display: none !important;
 }
-#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadTarget {
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadContainer {
+  /* Doesn't work ??
+  .downloadProgress {
+      &::before {
+          content: attr(value) "%";
+      }
+  }*/
+}
+#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadContainer .downloadTarget {
   font-size: 12pt !important;
+  width: 50% !important;
 }
 #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadButton {
   height: 25px !important;
-  width: 85px !important;
+  min-width: 85px !important;
   padding: 0 !important;
   margin-right: 33px !important;
   border: 1px solid white !important;
@@ -2591,4 +2614,24 @@ panel {
     border: 1px solid rgb(86, 157, 229) !important;
     background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
   }
+}
+
+.textbox-search-icons {
+  display: grid !important;
+  height: 18px !important;
+  width: 18px !important;
+}
+.textbox-search-icons .textbox-search-icon {
+  list-style-image: url(images/search7.svg) !important;
+  height: 16px !important;
+  width: 16px !important;
+}
+.textbox-search-icons .textbox-search-clear {
+  list-style-image: url(images/clear.svg) !important;
+  height: 18px !important;
+  width: 18px !important;
+  margin-top: -1px !important;
+}
+.textbox-search-icons .textbox-search-clear:hover {
+  list-style-image: url(images/clear-hover.svg) !important;
 }

@@ -11,7 +11,7 @@
             position: relative !important;
 
             &::before {
-                content: var(--label-view-n-track-your-downloads);
+                content: attr(data-before);
                 position: absolute;
                 left: 15px;
                 color: rgb(0, 51, 153);
@@ -66,9 +66,10 @@
                 appearance: textfield !important;
                 max-width: 252px !important;
                 min-height: 22px !important;
+                height: 22px !important;
                 position: relative !important;
 
-                &::after {
+                /*&::after {
                     content: '';
                     height: 20px;
                     width: 24px;
@@ -77,7 +78,7 @@
                     background-repeat: no-repeat;
                     position: absolute;
                     right: 0;
-                }
+                }*/
 
                 &[focused] {
                     box-shadow: none !important;
@@ -127,19 +128,30 @@
 
                         .downloadMainArea {
                             padding: 14px 29px !important;
+                            width: calc(100% - 200px);
 
                             .downloadTypeIcon {
                                 display: none !important;
                             }
 
-                            .downloadTarget {
-                                font-size: 12pt !important;
+                            .downloadContainer {
+                                .downloadTarget {
+                                    font-size: 12pt !important;
+                                    width: 50% !important;
+                                }
+
+                                /* Doesn't work ??
+                                .downloadProgress {
+                                    &::before {
+                                        content: attr(value) "%";
+                                    }
+                                }*/
                             }
                         }
 
                         .downloadButton {
                             height: 25px !important;
-                            width: 85px !important;
+                            min-width: 85px !important;
                             padding: 0 !important;
                             margin-right: 33px !important;
                             border: 1px solid white !important;
@@ -184,6 +196,29 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.textbox-search-icons {
+    display: grid !important;
+    height: 18px !important;
+    width: 18px !important;
+
+    .textbox-search-icon {
+        list-style-image: url(images/search7.svg) !important;
+        height: 16px !important;
+        width: 16px !important;
+    }
+
+    .textbox-search-clear {
+        list-style-image: url(images/clear.svg) !important;
+        height: 18px !important;
+        width: 18px !important;
+        margin-top: -1px !important;
+
+        &:hover {
+            list-style-image: url(images/clear-hover.svg) !important;
         }
     }
 }

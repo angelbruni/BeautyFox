@@ -113,6 +113,7 @@
             .toolbarbutton-icon {
                 height: 24px !important;
                 width: 24px !important;
+                margin-left: 1px !important;
                 background-image: url(images/back.png);
             }
         }
@@ -165,7 +166,6 @@
         #nav-bar {
             &::before {
                 left: 1px;
-                top: 26px;
             }
 
             #back-button {

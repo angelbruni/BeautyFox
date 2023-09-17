@@ -74,11 +74,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
 #main-window {
     &[sizemode="maximized"] {
-        --titlebar-height-calc: calc(var(--titlebar-height) - 2px);
-
-        #nav-bar {
-            padding-top: 26px !important;
-        }
+        --titlebar-height-calc: calc(var(--titlebar-height) + 8px);
     }
 
     &:not([sizemode="maximized"]) {
