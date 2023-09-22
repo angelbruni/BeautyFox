@@ -197,7 +197,7 @@
 }
 
 .tab-content {
-    padding: 0 7px 0 5px !important;
+    padding: 0 7px 0 6px !important;
 }
 
 .tab-icon-stack {
@@ -293,11 +293,15 @@ toolbarbutton#tabs-newtab-button,
     #urlbar-container {
         flex: unset !important;
         width: 28.83% !important;
-        min-width: 209px !important;
+        min-width: 198px !important;
     }
 
     #search-container {
         display: none !important;
+    }
+
+    #TabsToolbar {
+        margin: 0 2px;
     }
 
     #TabsToolbar-customization-target {

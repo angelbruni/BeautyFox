@@ -5,7 +5,7 @@
     --toolbarbutton-hover-background: transparent !important;
     --toolbarbutton-active-background: transparent !important;
     --toolbarbutton-disabled-opacity: 1 !important;
-    --titlebar-height-calc: calc(var(--titlebar-height) - 1px);
+    --titlebar-height-calc: calc(var(--titlebar-height) - 2px);
 
     --urlbar-inprivatebadge-width: 58px;
     &:is([privatebrowsingmode="temporary"]) {
@@ -68,6 +68,10 @@
     font-size: 9pt !important;
 }
 
+.panel-footer > button {
+    font-weight: normal !important;
+}
+
 toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     -moz-window-dragging: no-drag !important;
 }
@@ -84,6 +88,10 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     }
 
     &[sizemode="maximized"], &[sizemode="fullscreen"] {
+        #nav-bar {
+            padding-right: 3px;
+        }
+
         #PersonalToolbar, #toolbar-menubar {
             border-left: none !important;
             border-right: none !important;
@@ -777,7 +785,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 }
 
 #nav-bar {
-    padding-right: 7px;
+    padding-right: 5px;
 
     #stop-reload-button {
         align-items: center;
@@ -807,6 +815,10 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         height: 24px !important;
         width: 24px !important;
         margin-bottom: var(--toolbaritems-margin-bottom) !important;
+    }
+
+    .toolbarbutton-1 {
+        margin-right: 1px !important;
     }
     
     .toolbarbutton-icon {
@@ -1307,6 +1319,8 @@ findbar {
     :root {
         --appearance_IE9PreRelease: 1 !important;
 
+        --titlebar-height-calc: calc(var(--titlebar-height));
+
         --toolbaritems-margin-bottom: 4px;
         --urlbar-dropdown-button_width: 35px;
         --stop-reload-button_width: 23px;
@@ -1318,11 +1332,16 @@ findbar {
             #urlbar-input-container {
                 &::before {
                     content: '';
-                    width: 75px;
                     background: url(images/InPrivateBadge9PreRelease.svg);
                     margin-left: 2px;
                 }
             }
+        }
+    }
+
+    #main-window {
+        &[sizemode="maximized"] {
+            --titlebar-height-calc: calc(var(--titlebar-height) + 8px);
         }
     }
 
@@ -1353,7 +1372,7 @@ findbar {
     }
 
     #urlbar-input-container {
-        padding-right: 46px !important;
+        padding-right: calc(var(--stop-reload-button_width) * 2) !important;
         
         &.urlbar-remove-padding-right {
             padding-right: 22px !important;
@@ -1428,6 +1447,10 @@ findbar {
             &::before {
                 top: 0 !important;
             }
+        }
+        
+        #TabsToolbar {
+            margin-left: 3px !important;
         }
     }
 }
