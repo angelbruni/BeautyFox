@@ -1,5 +1,5 @@
 function executeFunctions() {
-    console.info("Found 8 scripts. Attempting to execute.");
+    console.info("Found 9 scripts. Attempting to execute.");
 
     addContainerSupport();
     console.log("addContainerSupport() function from containerSupport executed.");
@@ -17,6 +17,8 @@ function executeFunctions() {
     console.log("changeFakeDropdownAccordingly() function from searchBoxDetector executed.");
     addEllipsesSearch();
     console.log("addEllipsesSearch() function from addEllipsesSearchPlaceholder executed.");
+    movePopUps();
+    console.log("movePopUps() function from moveNotificationPopUps executed.");
 
     console.info("Functions were executed.");
 }

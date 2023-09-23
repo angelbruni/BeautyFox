@@ -1,7 +1,9 @@
 function addEllipsesSearch() {
-    const searchPlaceholderClass = document.querySelector('.searchbar-textbox');
-    const searchPlaceholderText = searchPlaceholderClass.getAttribute('placeholder');
-    const SearchPlacegolderTextEllipses = searchPlaceholderText + '...';
+    if (document.querySelector('.searchbar-textbox')) {
+        const searchPlaceholderClass = document.querySelector('.searchbar-textbox')
+        const searchPlaceholderText = searchPlaceholderClass.getAttribute('placeholder');
+        const SearchPlacegolderTextEllipses = searchPlaceholderText + '...';
 
-    searchPlaceholderClass.setAttribute('placeholder', SearchPlacegolderTextEllipses.toString());
+        searchPlaceholderClass.setAttribute('placeholder', SearchPlacegolderTextEllipses.toString());
+    } 
 }
