@@ -18,6 +18,11 @@
 	--titlebar-height: 21px;
 
 	/** 
+	 *	Custom Navigation Buttons Colour 
+	 */
+	--navButtons-customColour: red;
+
+	/** 
 	 *	Winver OS Logo 
 	 *	
 	 *	Width: 458px

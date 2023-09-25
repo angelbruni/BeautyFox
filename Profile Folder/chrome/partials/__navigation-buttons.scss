@@ -185,6 +185,7 @@
             #back-button {
                 margin-left: 9px !important;
                 margin-bottom: -3px !important;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 95%) !important;
             }
 
             #forward-button {
@@ -212,9 +213,15 @@
     }
 }
 
+@supports -moz-bool-pref("BeautyFox.option.customColouredNavButtons") {
+    :root {
+        --navButtons-colour: var(--navButtons-customColour);
+    }
+}
+
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     :root {
-        --navButtons-colour: hsl(200, 98%, 39%);
+        --navButtons-colour: #0284c5;
     }
 
     
