@@ -180,6 +180,7 @@
         #nav-bar {
             &::before {
                 left: 9px;
+                top: calc(var(--titlebar-height-calc) + 1px);
             }
             
             #back-button {

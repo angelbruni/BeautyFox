@@ -1,6 +1,8 @@
 :root {
     --chrome-content-separator-color: #6f6f6f !important;
     --urlbar-min-height: 24px !important;
+    --urlbar-width: 28.83%;
+    --urlbar-min-width: 198px;
     --tab-block-margin: 0 !important;
     --toolbarbutton-hover-background: transparent !important;
     --toolbarbutton-active-background: transparent !important;
@@ -40,7 +42,7 @@
 
     --pop-up_shadow: 2px 2px 2px 0px rgba(0, 0, 0, .5);
 
-    --hide_unifiedExtensions: 0;
+    --option_hideUnifiedExtensions: 0;
     --option_tabsOnNavRow: 0;
 
     --toolbaritems-margin-bottom: 3px;
@@ -96,17 +98,34 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
                 width: 100% !important;
                 left: 0 !important;
             }
+
+            &::after {
+                border-left: none !important;
+                border-right: none !important;
+            }
         }
 
         #toolbar-menubar {
             padding: 0px 3px 1px 3px !important;
         }
 
-        #browser {
+        #browser, #customization-container {
             border-left: none !important;
             border-right: none !important;
             border-bottom: none !important;
+            border-radius: 0 !important;
             padding: 0 !important;
+
+            &::before {
+                content: unset !important;
+            }
+        }
+
+        #navigator-toolbox {
+            &::after {
+                width: 100% !important;
+                left: 0 !important;
+            }
         }
     }
 
@@ -130,8 +149,8 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     &::after {
         position: absolute;
         content: '';
-        width: calc(100% - 4px);
-        left: 2px;
+        width: calc(100% - 2px);
+        left: 1px;
         bottom: 0;
         height: 1px;
         border-bottom: 1px solid var(--chrome-content-separator-color);
@@ -1292,9 +1311,9 @@ findbar {
 
 
 
-@supports -moz-bool-pref("BeautyFox.hide.unifiedExtensions") {
+@supports -moz-bool-pref("BeautyFox.option.hideUnifiedExtensions") {
     :root {
-        --hide_unifiedExtensions: 1 !important;
+        --option_hideUnifiedExtensions: 1 !important;
     }
 
     #unified-extensions-button {
@@ -1302,6 +1321,12 @@ findbar {
     }
 }
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+    #urlbar-container {
+        flex: unset !important;
+        width: var(--urlbar-width) !important;
+        min-width: var(--urlbar-min-width) !important;
+    }
+
     toolbarpaletteitem#wrapper-urlbar-container {
         flex: unset !important;
     }
@@ -1318,8 +1343,9 @@ findbar {
         --titlebar-height-calc: calc(var(--titlebar-height));
 
         --toolbaritems-margin-bottom: 4px;
+        --urlbar-width: 28.25%;
         --urlbar-dropdown-button_width: 35px;
-        --stop-reload-button_width: 23px;
+        --stop-reload-button_width: 22px;
 
         --urlbar-inprivatebadge-width: 75px;
         --urlbar-fake-dropdown-mask-position: left;
@@ -1443,10 +1469,6 @@ findbar {
             &::before {
                 top: 0 !important;
             }
-        }
-        
-        #TabsToolbar {
-            margin-left: 3px !important;
         }
     }
 }
