@@ -278,7 +278,7 @@ toolbarbutton#tabs-newtab-button,
 #main-window {
     &[sizemode="maximized"], &[sizemode="fullscreen"] {
         #TabsToolbar {
-            margin: 0 !important;
+            margin: 0;
         }
     }
 
@@ -306,7 +306,7 @@ toolbarbutton#tabs-newtab-button,
     }
 
     #TabsToolbar {
-        margin: 0 2px;
+        margin: 0 2px !important;
     }
 
     #TabsToolbar-customization-target {
