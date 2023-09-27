@@ -5,9 +5,35 @@ Tested on: Windows 7, Windows 8.1/10 with the default theme and Aero themes with
 
 MAKE SURE THAT YOUR PROFILE HAS NOT BEEN MODIFIED BY OTHER THEMES IN THE PAST, AND IF SO, DELETE THE MODIFIED FILES OR CREATE A NEW PROFILE!
 
-Changelog b2.8.2
-- Fixed aboutDialog using styled buttons;
-- Fixed search icon being too close to the end of the searchbox.
+Changelog b3.0
+- Fixed the toolbar button background position;
+- Internet Explorer 11 Windows 10+ appearance does not show fake borders;
+- TabsToolbar shine is always disabled if BeautyFox.option.tabsOnNavRow is enabled;
+- Fixed Internet Explorer 10+ appearances favourites icon;
+- Changed context menu navigation items from column-icons to row-text to replicate native context menu items;
+- Fixed bookmarks bar bookmark button icon looking stretched in height;
+- Fixed bookmark items being styled in menus;
+- Fixed tabs close button not showing on hover if tabs are too small;
+- Added "About" string localisation;
+- Added Downloads window + localisation;
+- Initial work on settings menu;
+- Changed the sidebars (bookmarks and history) look;
+- Fixed the titlebar height when maximised;
+- Initial work on appMenuNotificationPopup;
+- Fixed addEllipsesSearchPlaceholder script breaking scriptsLoader;
+- Fixed backwards button masking in IE9Pre-Release;
+- Added custom navigation colours BeautyFox.option.customColouredNavButtons as an option in about:config, the custom colour is selected from uservars.css --navButtons-customColour variable;
+- Fixed native buttons having white colours sometimes;
+- Fixed bookmarks bar border-bottom not filling the entire width;
+- Fixed menu bar, bookmarks bar and customize page having the fake border even when maxmised/fullscreened;
+- Renamed BeautyFox.hide.unifiedExtensions to BeautyFox.option.hideUnifiedExtensions;
+- Fixed new tab button not having outlined in IE9 appearance;
+- Fixed new tab button not having hover background-colour in IE9 Pre-Release appearance;
+- Made the close button not show if there's only one tab opened in IE9 Pre-Release appearance;
+- Removed tabs row margin when maximised;
+- Fixed bookmarks bar bookmark button not having the same height as the bookmarks;
+
+
 
 CLEAR STARTUP CACHE
 

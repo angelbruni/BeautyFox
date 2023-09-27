@@ -608,6 +608,10 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             }
         }
     }
+
+    #star-button-box {
+        height: calc(100% - 5px) !important;
+    }
 }
 
 
