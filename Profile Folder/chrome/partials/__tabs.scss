@@ -503,10 +503,15 @@ toolbarbutton#tabs-newtab-button,
 
     #tabs-newtab-button,
     #TabsToolbar #new-tab-button {
-        background: var(--tab-background-colour);
         border: 1px solid var(--tab-border-colour);
         border-left: 0 !important;
         border-bottom: 0px !important;
+
+        &::before {
+            border: unset !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
     }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
