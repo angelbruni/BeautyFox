@@ -1,19 +1,19 @@
-@import 'partials/__localisation.scss';
+@import 'partials/chrome/__localisation.scss';
 
-@import 'partials/__layout.scss';
-@import 'partials/__urlsearch-results.scss';
+@import 'partials/chrome/__base.scss';
+@import 'partials/chrome/__urlsearch-results.scss';
 
-@import 'partials/__navigation-buttons.scss';
-@import 'partials/__tabs.scss';
-@import 'partials/__toolbars.scss';
-@import 'partials/__about.scss';
+@import 'partials/chrome/__navigation-buttons.scss';
+@import 'partials/chrome/__tabs.scss';
+@import 'partials/chrome/__toolbars.scss';
+@import 'partials/chrome/__about.scss';
 
-@import 'partials/__context-menu.scss';
-@import 'partials/__app-menu.scss';
-@import 'partials/__flyouts.scss';
-//@import 'partials/__popup-notifications.scss';
-@import 'partials/__sidebar.scss';
-@import 'partials/__library-window.scss';
-@import 'partials/__devtools.scss';
+@import 'partials/chrome/__context-menu.scss';
+@import 'partials/chrome/__app-menu.scss';
+@import 'partials/chrome/__flyouts.scss';
+//@import 'partials/chrome/__popup-notifications.scss';
+@import 'partials/chrome/__sidebar.scss';
+@import 'partials/chrome/__library-window.scss';
+@import 'partials/chrome/__devtools.scss';
 
 @import url(uservars.css);

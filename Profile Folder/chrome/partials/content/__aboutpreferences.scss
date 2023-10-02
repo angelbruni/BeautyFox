@@ -1,0 +1,13 @@
+@-moz-document url(about:preferences) {
+    .category-icon {
+        list-style-image: none !important;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #category-general {
+        .category-icon {
+            
+        }
+    }
+}

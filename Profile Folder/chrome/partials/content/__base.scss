@@ -1,0 +1,14 @@
+@-moz-document url(about:privatebrowsing), url(about:newtab), url(about:home) {
+    body {
+        background-image: linear-gradient(180deg, #02a1e2 0%, #FFFFFF 100%);
+        background-size: 100% 84px;
+        background-repeat: no-repeat;
+        background-color: #FEFEFE !important;
+    }
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+        body {
+            background-image: none;
+        }
+    }
+}

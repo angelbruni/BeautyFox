@@ -1,0 +1,25 @@
+#contentAreaContextMenu {
+    #context-navigation {
+        background-color: transparent !important;
+        flex-direction: column !important;
+
+        > menuitem {
+            justify-content: unset !important;
+            
+            &::after {
+                content: attr(aria-label);
+                margin-inline-start: 2px !important;
+                padding-inline-end: 2px;
+                padding-inline-start: 30px !important;
+            }
+
+            .menu-iconic-left {
+                display: none !important;
+            }
+        }
+    }
+    
+    #context-sep-navigation {
+        margin-left: 0 !important;
+    }
+}

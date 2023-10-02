@@ -1,0 +1,198 @@
+@-moz-document url(about:newtab), url(about:home) {
+    :root {
+        --popular-site-label: 'Your most popular sites';
+    }
+
+    html {
+        &[lang*="es"] {
+            --popular-site-label: 'Sus sitios más populares';
+        }
+
+        &[lang="pt-BR"] {
+            --popular-site-label: 'Seus sites mais populares'; 
+        }
+
+        &[lang*="pt-PT"] {
+            --popular-site-label: 'Teus sítios mais populares'; 
+        }
+
+        &[lang="ja"] {
+            --popular-site-label: 'よく使うサイト'; 
+        }
+    }
+
+    .icon-settings {
+        background-image: none !important;
+    }
+
+    main {
+        width: auto !important;
+        margin-top: 63px !important;
+    }
+
+    .non-collapsible-section {
+        display: none;
+    }
+
+    .top-sites-list {
+        margin: 0 !important;
+        display: grid;
+        gap: 24px 24px;
+        grid-template-columns: repeat(5, 1fr);
+        position: relative;
+
+        &::before {
+            content: var(--popular-site-label);
+            position: absolute;
+            top: -51px;
+            left: 0;
+            font-size: 15pt;
+            color: #2a2a2a;
+        }
+    }
+
+    .top-site-outer {
+        width: 150px !important;
+        padding: 0 !important;
+        position: relative;
+
+        &:nth-child(11), &:nth-child(12), &:nth-child(13), &:nth-child(14), &:nth-child(15), &:nth-child(16) {
+            display: none !important;
+        }
+
+        &.placeholder {
+            .tile {
+                background-color: rgb(247, 247, 247) !important;
+
+                .icon-wrapper {
+                    display: none !important;
+                }
+            }
+        }
+
+        .tile {
+            width: 150px !important;
+            height: 150px !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            border: 1px solid rgb(217, 217, 217) !important;
+            background-color: white !important;
+            margin: 0 !important;
+            justify-content: unset !important;
+            align-items: unset !important;
+            
+            .icon-wrapper {
+                outline: 1px solid rgb(217, 217, 217);
+                outline-offset: -1px;
+                border-radius: 0 !important;
+                width: 32px !important;
+                height: 32px !important;
+                margin-top: 8px;
+                margin-left: 8px;
+
+                &.letter-fallback::before {
+                    font-size: 16pt !important;
+                    font-weight: normal !important;
+                    //font-family: 'Segoe UI';
+                    top: -2px !important;
+                    transform: rotate(0deg) !important;
+                }
+
+                .top-site-icon {
+                    border-radius: 0 !important;
+                }
+            }
+
+            .search-topsite {
+                display: none !important;
+            }
+        }
+    
+        .title {
+            position: absolute !important;
+            top: 41px;
+            left: 8px;
+            text-align: left !important;
+            max-width: 134px !important;
+        }
+
+        .context-menu-button {
+            top: 12px !important;
+            right: 10px !important;
+            width: 16px !important;
+            height: 16px !important;
+            transition: none !important;
+        }
+    }
+    
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        .top-sites-list {
+            &::after {
+                content: '';
+                position: absolute;
+                top: -103px;
+                right: 80px;
+                height: 97px;
+                width: 209px;
+                background-image: url(images/820.png);
+                background-size: cover;
+                opacity: 0.5;
+            }
+        }
+
+        .top-site-outer {
+            .tile {
+                border-radius: 4px !important;
+    
+                .icon-wrapper:not(.letter-fallback) {
+                    border-radius: 2px !important;
+                    position: relative !important;
+
+                    background: linear-gradient(180deg, white 0%, rgb(242, 242, 242) 100%);
+                }
+            }
+        }
+
+        .top-site-icon {
+            z-index: 2;
+        }
+    }
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+        :root {
+            --popular-site-label: 'Frequent';
+        }
+
+        html {
+            &[lang*="es"] {
+                --popular-site-label: 'Con más frecuencia';
+            }
+            &[lang*="pt"] {
+                --popular-site-label: 'Com mais frequência';
+            }
+            &[lang="ja"] {
+                --popular-site-label: 'よくアクセスするサイト';
+            }
+        }
+        
+
+        body {
+            background-color: rgb(232, 238, 245) !important;
+        }
+
+        main {
+            width: auto !important;
+            margin-top: 61px !important;
+        }
+
+        .top-sites-list {
+            &::before {
+                content: var(--popular-site-label);
+                top: -62px;
+                left: 0;
+                font-size: 21pt;
+                color: rgb(80, 80, 80);
+            }
+        }
+    }
+}

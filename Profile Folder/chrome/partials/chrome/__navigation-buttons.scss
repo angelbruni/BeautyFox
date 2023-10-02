@@ -1,0 +1,319 @@
+:root {
+    --navButtons-colour: #0284c3;
+    --navButtons-disabled-colour: #00000000;
+}
+
+#main-window {
+    #nav-bar {
+        &::before {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: var(--titlebar-height-calc);
+            background-image: url(images/TRAVEL_BACKGROUND_MINIE.png);
+            width: 67px;
+            height: 35px;
+        }
+    
+        #back-button, #forward-button {
+            border: 1px solid rgba(0, 0, 0, .35);
+            border-radius: 50%;
+            outline: 1px solid rgba(247, 247, 247, 0.20);
+            outline-offset: -2px;
+            background-color: var(--navButtons-colour) !important;
+            list-style-image: none !important;
+            overflow: hidden;
+            position: relative;
+    
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: white;
+                border-radius: 50%;
+                top: 65%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 70%;
+                height: 50%;
+                filter: blur(4px);
+                opacity: 0.45;
+            }
+            
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 254, 254, 0.15) 49%, rgba(255, 255, 255, 0.01) 50%);
+            }
+        
+            &:hover {
+                outline: 1px solid rgba(250,5047, 250, 0.20);
+    
+                &::before {
+                    opacity: 0.5;
+                }
+    
+                &::after {
+                    background: linear-gradient(180deg, rgba(255, 255, 255, 0.47) 0%, rgba(255, 254, 254, 0.18) 49%, rgba(255, 255, 255, 0.01) 50%);
+                }
+            }  
+        
+            &:active {
+                &::before {
+                    opacity: 0.45;
+                }
+    
+                &::after {
+                    background: linear-gradient(180deg, rgba(217, 217, 217, 0.49) 0%, rgba(176, 176, 176, 0.31) 49%, rgba(11, 11, 11, 0.13) 50%);
+                }
+            }
+        
+            &[disabled="true"] {
+                opacity: 1 !important;
+                background-color: var(--navButtons-disabled-colour) !important;
+    
+                &::before {
+                    opacity: 0.1;
+                }
+    
+                &::after {
+                    background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.09) 49%, rgba(0, 0, 0, 0.11) 50%);
+                }
+                
+                .toolbarbutton-icon {
+                    opacity: .7;
+                }
+            }
+        
+            .toolbarbutton-icon {
+                background-position: center;
+                z-index: 1;
+            }
+        }
+        
+        #back-button {
+            height: 38px !important;
+            width: 38px !important;
+            min-width: 38px !important;
+            margin-left: 3px !important;
+            margin-right: 1px !important;
+            margin-bottom: -4px !important;
+            padding-inline-start: 0 !important;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%) !important;
+        
+            &[disabled="true"] {
+                .toolbarbutton-icon {
+                    background-image: url(images/back_disabled.png);
+                }
+            }
+        
+            .toolbarbutton-icon {
+                height: 24px !important;
+                width: 24px !important;
+                margin-left: 1px !important;
+                background-image: url(images/back.png);
+            }
+        }
+        
+        #forward-button {
+            margin-left: 2px !important;
+            margin-right: 2px !important;
+            height: 26px !important;
+            width: 26px !important;
+            min-width: 26px !important;
+            margin-bottom: 2px !important;
+        
+            &[disabled="true"] {
+                .toolbarbutton-icon {
+                    background-image: url(images/forward_disabled.png);
+                }
+            }
+        
+            .toolbarbutton-icon {
+                height: 16px !important;
+                width: 16px !important;
+                background-image: url(images/forward.png);
+            }
+        }
+
+        #userContext-label {
+            display: none !important;
+        }
+
+        #userContext-icons {
+            position: fixed !important;
+            left: 0;
+            height: 22px !important;
+            width: 22px !important;
+            outline: 1px solid rgb(175, 175, 175);
+            outline-offset: -1px;
+            border-radius: 2px !important;
+            background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(242, 242, 242) 100%);
+            margin-inline-start: 4px !important;
+            margin-inline-end: 0 !important;
+            box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.2);
+        }
+
+        #userContext-indicator {
+            margin-block-start: 0 !important;
+        }
+    }
+
+    &[sizemode="maximized"] {
+        #nav-bar {
+            &::before {
+                left: 1px;
+            }
+
+            #back-button {
+                margin-left: 1px !important;
+            }
+        }
+    }
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+    #main-window {
+        #nav-bar {
+            &::before {
+                left: 9px;
+                top: calc(var(--titlebar-height-calc) + 1px);
+            }
+            
+            #back-button {
+                margin-left: 9px !important;
+                margin-bottom: -3px !important;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 95%) !important;
+            }
+
+            #forward-button {
+                margin-right: 7px !important;
+                margin-bottom: 3px !important;
+            }
+
+            #userContext-icons {
+                margin-inline-start: 10px !important;
+            }
+    
+        }
+
+        &[sizemode="maximized"] {
+            #nav-bar {
+                &::before {
+                    left: 7px;
+                }
+    
+                #back-button {
+                    margin-left: 7px !important;
+                }
+            }
+        }
+    }
+}
+
+@supports -moz-bool-pref("BeautyFox.option.customColouredNavButtons") {
+    :root {
+        --navButtons-colour: var(--navButtons-customColour);
+    }
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    :root {
+        --navButtons-colour: #0284c5;
+    }
+
+    
+    #main-window {
+        #nav-bar {
+            &::before {
+                content: unset;
+            }
+
+            #back-button, #forward-button {
+                border: 1px solid rgba(0, 0, 0, .3);
+                background: var(--navButtons-colour) !important;
+                outline: none !important;
+
+                &::before {
+                    background: transparent !important;
+                }
+            
+                &[disabled="true"] {
+                    background: transparent !important;
+                    opacity: 1 !important;
+
+                    &::after {
+                        background: transparent !important;
+                    }
+                }
+                
+                &::after {
+                    background: transparent;
+                    transition: background-color .2s steps(4);
+                }
+            
+                &:hover {
+                    &::after {
+                        background: rgba(255,255,255,.2);
+                    }
+                }  
+            
+                &:active {
+                    &::after {
+                        background: rgba(51,51,51,.2);
+                        transition: background-color .05s;
+                    }
+                }
+            
+                &[disabled="true"] {
+                    background-color: var(--navButtons-disabled-colour) !important;
+                    
+                    .toolbarbutton-icon {
+                        opacity: .7;
+                    }
+                }
+            
+                .toolbarbutton-icon {
+                    background-position: center;
+                }
+            }
+            
+            #back-button {
+                &[disabled="true"] {
+                    .toolbarbutton-icon {
+                        background-image: url(images/back_disabled.png);
+                    }
+                }
+            
+                .toolbarbutton-icon {
+                    background-image: url(images/back.png);
+                }
+            }
+            
+            #forward-button {      
+                &[disabled="true"] {
+                    .toolbarbutton-icon {
+                        background-image: url(images/forward_disabled.png);
+                    }
+                }
+            
+                .toolbarbutton-icon {
+                    background-image: url(images/forward.png);
+                }
+            }
+        }
+    }
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+            #main-window {
+                #back-button {
+                    margin-left: 1px !important;
+                }
+            }
+        }
+    }
+}

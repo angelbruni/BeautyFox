@@ -1,0 +1,151 @@
+#sidebar-box {
+    background-color: var(--toolbar-bgcolor) !important;
+    margin-top: -1px !important;
+
+    &[style*="order: 3"] {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        border: 1px solid rgb(139, 145, 159) !important;
+        height: calc(100% - 100px) !important;
+    }
+
+    #sidebar-header {
+        border-bottom: none !important;
+        padding-top: 9px !important;
+        padding-bottom: 11px !important;
+        padding-right: 11px !important;
+
+        #sidebar-switcher-target {
+            height: 23px !important;
+            padding: 0 !important;
+            border: 1px solid white !important;
+            outline: 1px solid rgb(176, 178, 182) !important;
+            background: linear-gradient(0deg, rgb(225, 234, 244) 0%, rgb(238, 245, 255) 100%) !important;
+
+            &:hover {
+                background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
+            }
+
+            &:active, &[open="true"] {
+                background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
+            }
+
+            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                outline: none !important;
+                border: 1px solid rgb(172, 172, 172) !important;
+                border-radius: 0 !important;
+                background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
+
+                &:hover {
+                    border: 1px solid rgb(126, 180, 234) !important;
+                    background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
+
+                    #sidebar-title {
+                        &::after {
+                            border-right: 1px solid rgb(126, 180, 234) !important;
+                        }
+                    }
+                }
+
+                &:active, &[open="true"] {
+                    border: 1px solid rgb(86, 157, 229) !important;
+                    background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
+
+                    #sidebar-title {
+                        &::after {
+                            border-right: 1px solid rgb(86, 157, 229) !important;
+                        }
+                    }
+                }
+
+                #sidebar-title {
+                    &::after {
+                        border-left: 0 !important;
+                        border-right: 1px solid rgb(172, 172, 172) !important;
+                    }
+                }
+            }
+
+            #sidebar-icon {
+                display: none !important;
+            }
+
+            #sidebar-title {
+                padding: 0 !important;
+                padding-left: 10px !important;
+                padding-right: 15px !important;
+                height: 100% !important;
+                align-items: center !important;
+                position: relative !important;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: -1px;
+                    right: 0px;
+                    height: calc(100% + 2px);
+                    border-left: 1px solid rgb(176, 178, 182);
+                    border-right: 1px solid white;
+                }
+            }
+
+            #sidebar-switcher-arrow {
+                height: 100% !important;
+                width: 16px !important;
+                margin-top: -2px !important;
+                margin-bottom: -2px !important;
+                margin-right: -1px !important;
+                list-style-image: none !important;
+                mask: url(images/dropdown-mask.svg) !important;
+                mask-position: calc(50% - 1px) !important;
+                mask-size: 9px 5px !important;
+                mask-repeat: no-repeat !important;
+                background-color: black !important;
+            }
+        }
+
+        #sidebar-close {
+            list-style-image: none !important;
+            height: 8px !important;
+            width: 8px !important;
+            padding: 5px !important;
+            mask: url(images/close-mask.svg) !important;
+            mask-position: center !important;
+            mask-repeat: no-repeat !important;
+            background-color: rgb(152, 155, 163) !important;
+            transform: translateY(-3px) !important;
+            transition: background-color .15s linear;
+
+            &:hover {
+                background-color: rgb(226, 58, 60) !important;
+            }
+
+            &:active {
+                background-color: rgb(225, 12, 12) !important;
+                transition: none !important;
+            }
+        }
+    }
+
+    #sidebar {
+        margin-left: 8px !important;
+        margin-right: 6px !important;
+        margin-bottom: 14px !important;
+        background-color: white !important;
+        border: 1px solid rgb(180, 180, 180) !important;
+    }
+}
+
+#sidebar-search-container {
+    padding: 6px 4px !important;
+}
+
+.textbox-search-sign {
+    display: none !important;
+}
+
+#sidebar-splitter {
+    border-color: rgb(139, 145, 159) !important;
+    margin-top: -1px !important;
+}
