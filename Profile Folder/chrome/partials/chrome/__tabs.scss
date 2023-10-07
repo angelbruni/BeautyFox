@@ -7,7 +7,7 @@
     --tab-border-radius: 0 !important;
     --tab-height: 23px;
 
-    --newtab-button-width: 27px;
+    --newtab-button-width: 29px;
 }
 
 #customization-container {
@@ -292,7 +292,6 @@ toolbarbutton#tabs-newtab-button,
     :root {
         --option_tabsOnNavRow: 1 !important;
         --tab-height: 27px;
-        --newtab-button-width: 29px;
 
         &:is([privatebrowsingmode="temporary"]) {
             #urlbar-container {

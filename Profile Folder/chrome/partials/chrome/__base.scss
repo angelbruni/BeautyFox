@@ -531,6 +531,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             border-radius: 3px;
             transition: opacity .5s;
             pointer-events: none;
+            z-index: -1;
         }
     
         &::before {
