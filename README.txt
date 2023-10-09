@@ -55,6 +55,8 @@ Instructions
 2.1.	Settings
 2.1.1.	General > Tabs > Show tab previews in Windows taskbar.
 
+3.	Customisation options, open chrome/uservars.css.
+
 
 
 Done!
