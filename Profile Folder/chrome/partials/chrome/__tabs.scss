@@ -324,6 +324,7 @@ toolbarbutton#tabs-newtab-button,
         --tab-background-colour_hover: rgba(255, 255, 255, .5);
         --tab-background-colour_active: linear-gradient(0deg, rgb(255, 255, 255) 0%, var(--tab-inset-border-colour) 100%);
         --tab-inset-border-colour: rgba(254, 254, 254, 0.4);
+        --newtab-button-width: 27px;
     }
 
     .tabbrowser-tab {
@@ -397,7 +398,6 @@ toolbarbutton#tabs-newtab-button,
     @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
         :root {
             --tab-height: 29px;
-            --newtab-button-width: 27px;
         }
 
         #TabsToolbar {

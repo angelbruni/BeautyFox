@@ -556,10 +556,9 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         }
     
         &:active, &[open="true"] {
-            padding-top: 4px !important;
-            padding-left: 4px !important;
-            padding-right: 2px !important;
-            padding-bottom: 2px !important;
+            .toolbarbutton-icon, .toolbarbutton-text {
+                transform: translate(1px, 1px) !important;
+            }
     
             &::before {
                 opacity: 0;

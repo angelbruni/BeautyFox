@@ -31,8 +31,10 @@ panel {
     display: none !important;
 }
 
-.subviewbutton:not(.subviewbutton-iconic, #appMenu-zoomReset-button2) {
-    min-height: 22px !important;
-    padding-inline-start: 30px !important;
-    padding-inline-end: 6px !important;
+#appMenu-protonMainView {
+    .subviewbutton:not(.subviewbutton-iconic, #appMenu-zoomReset-button2) {
+        min-height: 22px !important;
+        padding-inline-start: 30px !important;
+        padding-inline-end: 6px !important;
+    }
 }

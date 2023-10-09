@@ -1,13 +1,22 @@
 @-moz-document url(about:preferences) {
-    .category-icon {
-        list-style-image: none !important;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
     #category-general {
         .category-icon {
-            
+            list-style-image: url(images/settings-general.png) !important;
+        }
+    }
+    #category-home {
+        .category-icon {
+            list-style-image: url(images/settings-home.png) !important;
+        }
+    }
+    #category-search {
+        .category-icon {
+            list-style-image: url(images/settings-search.png) !important;
+        }
+    }
+    #category-privacy {
+        .category-icon {
+            list-style-image: url(images/settings-privacy.png) !important;
         }
     }
 }
