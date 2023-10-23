@@ -918,7 +918,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         background-position: center;
         background-repeat: no-repeat;
     
-        &#home-button, &#bookmarks-menu-button, &#PanelUI-menu-button, &#unified-extensions-button, &#downloads-button, &#_testpilot-containers-BAP, &#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP, &#ublock0_raymondhill_net-BAP {
+        &#home-button, &#bookmarks-menu-button, &#bookmarks-sidebar-menu-button, &#PanelUI-menu-button, &#unified-extensions-button, &#downloads-button, &#_testpilot-containers-BAP, &#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP, &#ublock0_raymondhill_net-BAP {
             list-style-image: none !important;
             position: relative;
     
@@ -979,7 +979,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             }
         }
     
-        &#bookmarks-menu-button {
+        &#bookmarks-menu-button, &#bookmarks-sidebar-menu-button {
             background-image: url(images/favorites.svg);
             width: 23px !important;
             
@@ -1551,13 +1551,13 @@ findbar {
     }
 
     toolbarbutton {
-        &#home-button, &#bookmarks-menu-button, &#PanelUI-menu-button, &#unified-extensions-button, &#downloads-button {
+        &#home-button, &#bookmarks-menu-button, &#bookmarks-sidebar-menu-button, &#PanelUI-menu-button, &#unified-extensions-button, &#downloads-button {
             &::after {
                 content: unset !important;
             }
         }
 
-        &#bookmarks-menu-button {
+        &#bookmarks-menu-button, &#bookmarks-sidebar-menu-button {
             background-image: url(images/favorites-ie10.svg) !important; 
             
             &::before, &::after {

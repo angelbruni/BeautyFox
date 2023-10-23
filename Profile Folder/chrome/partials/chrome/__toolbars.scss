@@ -7,3 +7,63 @@
         --toolbar-bgcolor: #f7f7f7 !important;
     }
 }
+
+#statusbarContainer {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    
+    background-color: #f1edec;
+    border: 1px solid rgba(255, 255, 255, .5);
+    margin-top: 1px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        width: calc(100% + 2px);
+        pointer-events: none;
+        border-top: 1px solid #aaabab;
+    }
+
+    > *:not(:first-child) {
+        border-left: 1px solid #d7d7d7;
+    }
+
+    > div {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    p {
+        margin: 0;
+        height: fit-content;
+    }
+
+    #statusbarTextContainer {
+        margin-right: auto;
+    }
+
+    #statusbarInternetProtectionModeContainer {
+        padding: 0 7px;
+    }
+
+    #statusbar {
+        min-width: 80px !important;
+        min-height: 23px !important;
+        background-color: transparent !important;
+        display: flex !important;
+        justify-content: end !important;
+    
+        .toolbarbutton-badge-stack {
+            padding: 0 !important;
+        }
+    }
+
+    #statusbarZoomContainer {
+        padding-left: 10px;
+        margin-right: 22px;
+    }
+}

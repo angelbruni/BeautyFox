@@ -17,9 +17,10 @@ function executeFunctions() {
     console.log("changeFakeDropdownAccordingly() function from searchBoxDetector executed.");
     addEllipsesSearch();
     console.log("addEllipsesSearch() function from addEllipsesSearchPlaceholder executed.");
-    movePopUps();
-    console.log("movePopUps() function from moveNotificationPopUps executed.");
-
+    createfavouritesSidebarButton();
+    console.log("createfavouritesSidebarButton() function from moveNotificationPopUps executed.");
+    console.log("createCommandBar() function from moveNotificationPopUps executed.");
+    
     console.info("Functions were executed.");
 }
 
