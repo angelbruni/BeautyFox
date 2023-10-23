@@ -19,6 +19,7 @@ function executeFunctions() {
     console.log("addEllipsesSearch() function from addEllipsesSearchPlaceholder executed.");
     createfavouritesSidebarButton();
     console.log("createfavouritesSidebarButton() function from moveNotificationPopUps executed.");
+    createCommandBar();
     console.log("createCommandBar() function from moveNotificationPopUps executed.");
     
     console.info("Functions were executed.");

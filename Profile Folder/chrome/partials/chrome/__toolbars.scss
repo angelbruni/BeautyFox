@@ -11,20 +11,48 @@
 #statusbarContainer {
     position: relative;
     display: flex;
-    justify-content: end;
+    justify-content: end; 
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: 1px solid var(--browser-outer-border-color);
+    border-left: 1px solid var(--browser-outer-border-color);
+    border-right: 1px solid var(--browser-outer-border-color);
+    border-radius: 0px 0px 3px 3px;
+    max-height: 0px;
+    opacity: 0;
     
-    background-color: #f1edec;
-    border: 1px solid rgba(255, 255, 255, .5);
-    margin-top: 1px;
-
-    &::after {
+    &::before {
         content: '';
         position: absolute;
-        left: -1px;
+        left: 0;
         top: -1px;
-        width: calc(100% + 2px);
-        pointer-events: none;
-        border-top: 1px solid #aaabab;
+        width: calc(100% - 2px);
+        height: 100%;
+        border-bottom: 1px solid var(--browser-inner-border-color) !important;
+        border-left: 1px solid var(--browser-inner-border-color) !important;
+        border-right: 1px solid var(--browser-inner-border-color) !important;
+        z-index: -1;
+    }
+
+    #statusbarBackground {
+        position: absolute;
+        left: 1px;
+        top: 0;
+        width: calc(100% - 4px);
+        height: calc(100% - 3px);
+        background-color: #f1edec;
+        border: 1px solid rgba(255, 255, 255, .5);
+        z-index: -1;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            width: calc(100% + 2px);
+            pointer-events: none;
+            border-top: 1px solid #aaabab;
+        }
     }
 
     > *:not(:first-child) {
@@ -47,15 +75,27 @@
     }
 
     #statusbarInternetProtectionModeContainer {
-        padding: 0 7px;
+        border-left: 1px solid #d7d7d7;
+        padding-left: 4px;
+        width: 100%;
+        max-width: 270px;
+        display: none;
+
+        &::before {
+            content: url('images/statusGlobe.png');
+            margin-right: 5px;
+            margin-bottom: -2px;
+        }
     }
 
-    #statusbar {
-        min-width: 80px !important;
-        min-height: 23px !important;
+    #addonsBar {
+        margin-right: 108px !important;
+        min-width: 31px !important;
+        min-height: 22px !important;
         background-color: transparent !important;
         display: flex !important;
         justify-content: end !important;
+        padding-left: 10px !important;
     
         .toolbarbutton-badge-stack {
             padding: 0 !important;
@@ -65,5 +105,141 @@
     #statusbarZoomContainer {
         padding-left: 10px;
         margin-right: 22px;
+    }
+
+    .toolbarbutton-badge {
+        margin: 0 !important;
+        margin-inline-end: 0 !important;
+        font-family: normal !important;
+        padding: 0 !important;
+    }
+}
+
+#main-window {
+    &[sizemode="maximized"], &[sizemode="fullscreen"] { 
+        #statusbarContainer {
+            padding-top: 1px;
+            border-bottom: 0;
+            border-left: 0;
+            border-right: 0;
+            border-radius: 0px;
+            
+            &::before {
+                content: unset;
+            }
+
+            #statusbarBackground {
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    } 
+}
+
+
+@supports -moz-bool-pref("BeautyFox.option.showStatusBar") {
+    #statusbarContainer {
+        max-height: unset;
+        opacity: 1;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+
+    #statuspanel {
+        position: fixed !important;
+        padding-top: 0 !important;
+        bottom: 4px !important;
+        left: 3px !important;
+        transition: none !important;
+        max-width: calc(100% - 300px) !important;
+
+        > #statuspanel-label {
+            background: transparent !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: 0 !important;
+            color: black !important;
+            box-shadow: none !important;
+            height: fit-content !important;
+            width: fit-content !important;
+        }
+    }
+
+    #urlbar-zoom-button {
+        display: block !important;
+        position: fixed !important;
+        right: 46px !important;
+        bottom: 2px !important;
+        z-index: 1 !important;
+        padding: 0 !important;
+        padding-left: 26px !important;
+        margin: 0 !important;
+        background-color: transparent !important;
+        pointer-events: none !important;
+        overflow: visible !important;
+        border-left: 1px solid #d7d7d7 !important;
+        border-radius: 0 !important;
+        
+        &::before {
+            content: url("images/statusZoom.png");
+            position: absolute !important;
+            bottom: 1px;
+            left: 11px;
+        }
+
+        &[hidden="true"] {
+            > .toolbarbutton-text {
+                &::before {
+                    content: '100%' !important;
+                }
+            }
+        }
+
+        > .toolbarbutton-text {
+            margin-top: 3px !important;
+            width: 28px !important;
+        }
+    }
+
+    #nav-bar toolbarbutton#urlbar-zoom-button {
+        margin-bottom: 0 !important;
+        height: 22px !important;
+        width: fit-content !important;
+    }
+
+    #browser, #customization-container {
+        border-bottom: 0 !important;
+        border-radius: 0 !important;
+        padding-bottom: 0 !important;
+
+        &::before {
+            border-radius: 0 !important;
+            border-bottom: 0 !important;
+        }
+    }
+}
+
+/* Command Bar related code */
+toolbaritem {
+    &#commandBarContainer {
+        > toolbarbutton {
+            &::before {
+                content: attr(label);
+            }
+            
+            &#cBHomeButton {
+                list-style-image: url("chrome://browser/skin/home.svg");
+            }
+
+            &#cBPrintButton {
+                list-style-image: url("chrome://global/skin/icons/print.svg");
+            }
+
+            &#cBHelpButton {
+                list-style-image: url("chrome://global/skin/icons/help.svg");
+            }
+        }
     }
 }

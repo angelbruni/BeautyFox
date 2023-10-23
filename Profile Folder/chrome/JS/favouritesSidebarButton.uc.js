@@ -8,15 +8,15 @@ function createfavouritesSidebarButton() {
             removable: true,
             label: button_label,
             tooltiptext: button_label,
-        onClick: function() {
-            openBookmarksSidebar();
-        },
-        onCreated: function(button) {
-            return button;
-        },
-    });
-    
-    } catch (e) {
+            onClick: function() {
+                openBookmarksSidebar();
+            },
+            onCreated: function(button) {
+                return button;
+            },
+        });
+    }
+    catch (e) {
         Components.utils.reportError(e);
     }
     

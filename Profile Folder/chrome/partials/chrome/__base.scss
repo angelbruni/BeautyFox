@@ -1229,6 +1229,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     position: relative;
     padding: 0 1px 1px 1px;
     border-radius: 0px 0px 3px 3px;
+    z-index: 1;
 
     &::before {
         content: '';
