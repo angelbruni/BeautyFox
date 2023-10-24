@@ -21,22 +21,6 @@ function createCommandBar() {
                 for (var p in props) {
                     toolbaritem.setAttribute(p, props[p]);
                 }
-                
-                var homeButton = aDocument.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'toolbarbutton');
-                homeButton.id = 'cBHomeButton';
-                homeButton.setAttribute('onclick', 'BrowserHome(event);');
-                toolbaritem.appendChild(homeButton);
-
-                var printButton = aDocument.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'toolbarbutton');
-                printButton.id = 'cBPrintButton';
-                printButton.setAttribute('onclick', 'PrintUtils.togglePrintPreview(gBrowser.selectedBrowser.browsingContext);');
-                toolbaritem.appendChild(printButton);
-
-                var pageMenu = aDocument.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'toolbarbutton');
-                pageMenu.id = 'cBPageMenu';
-                pageMenu.setAttribute('label', 'Page');
-                pageMenu.setAttribute('type', 'menu');
-                toolbaritem.appendChild(pageMenu);
 
                 var safetyMenu = aDocument.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'toolbarbutton');
                 safetyMenu.id = 'cBSafetyMenu';
@@ -55,6 +39,75 @@ function createCommandBar() {
                 
                 return toolbaritem;
             }
+        });
+    }
+    catch (e) {
+        Components.utils.reportError(e);
+    }
+}
+
+function createCBHomeButton() {
+    try {
+        var cbHomeButtonLabel = "Home";
+
+        CustomizableUI.createWidget({
+            id: 'cBHomeButton',
+            defaultArea: CustomizableUI.AREA_BOOKMARKS,
+            removable: true,
+            label: cbHomeButtonLabel,
+            tooltiptext: cbHomeButtonLabel,
+            onClick: function() {
+                BrowserHome(event);
+            },
+            onCreated: function(button) {
+                return button;
+            },
+        });
+    }
+    catch (e) {
+        Components.utils.reportError(e);
+    }
+}
+
+function createCBPrintButton() {
+    try {
+        var cbPrintButtonLabel = "Print";
+
+        CustomizableUI.createWidget({
+            id: 'cBPrintButton',
+            defaultArea: CustomizableUI.AREA_BOOKMARKS,
+            removable: true,
+            label: cbPrintButtonLabel,
+            tooltiptext: cbPrintButtonLabel,
+            onClick: function() {
+                PrintUtils.togglePrintPreview(gBrowser.selectedBrowser.browsingContext);
+            },
+            onCreated: function(button) {
+                return button;
+            },
+        });
+    }
+    catch (e) {
+        Components.utils.reportError(e);
+    }
+}
+
+function createCBPageButton() {
+    try {
+        var cbPageButtonLabel = "Page";
+
+        CustomizableUI.createWidget({
+            id: 'cBPageButton',
+            defaultArea: CustomizableUI.AREA_BOOKMARKS,
+            removable: true,
+            label: cbPageButtonLabel,
+            tooltiptext: cbPageButtonLabel,
+            onClick: function() {
+                console.log('what')
+            },
+            onCreated: function(button) {
+                return button;
+            },
         });
     }
     catch (e) {

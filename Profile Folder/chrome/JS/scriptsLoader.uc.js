@@ -1,5 +1,5 @@
 function executeFunctions() {
-    console.info("Found 9 scripts. Attempting to execute.");
+    console.info("Found 12 functions. Attempting to execute.");
 
     addContainerSupport();
     console.log("addContainerSupport() function from containerSupport executed.");
@@ -21,7 +21,11 @@ function executeFunctions() {
     console.log("createfavouritesSidebarButton() function from moveNotificationPopUps executed.");
     createCommandBar();
     console.log("createCommandBar() function from moveNotificationPopUps executed.");
-    
+    createCBHomeButton();
+    console.log("createCBHomeButton() function from moveNotificationPopUps executed.");
+    createCBPrintButton();
+    console.log("createCBPrintButton() function from moveNotificationPopUps executed.");
+    createCBPageButton();
     console.info("Functions were executed.");
 }
 

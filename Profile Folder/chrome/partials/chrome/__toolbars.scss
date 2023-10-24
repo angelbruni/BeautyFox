@@ -221,25 +221,20 @@
     }
 }
 
-/* Command Bar related code */
-toolbaritem {
-    &#commandBarContainer {
-        > toolbarbutton {
-            &::before {
-                content: attr(label);
-            }
-            
-            &#cBHomeButton {
-                list-style-image: url("chrome://browser/skin/home.svg");
-            }
+#cBHomeButton {
+    list-style-image: url("chrome://browser/skin/home.svg");
+}
 
-            &#cBPrintButton {
-                list-style-image: url("chrome://global/skin/icons/print.svg");
-            }
+#cBPrintButton {
+    list-style-image: url("chrome://global/skin/icons/print.svg");
+}
 
-            &#cBHelpButton {
-                list-style-image: url("chrome://global/skin/icons/help.svg");
-            }
-        }
+#cBHelpButton {
+    list-style-image: url("chrome://global/skin/icons/help.svg");
+}
+
+#cBPageButton {
+    &::before {
+        content: attr(label);
     }
 }

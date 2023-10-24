@@ -2363,18 +2363,20 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     border-bottom: 0 !important;
   }
 }
-/* Command Bar related code */
-toolbaritem#commandBarContainer > toolbarbutton::before {
-  content: attr(label);
-}
-toolbaritem#commandBarContainer > toolbarbutton#cBHomeButton {
+#cBHomeButton {
   list-style-image: url("chrome://browser/skin/home.svg");
 }
-toolbaritem#commandBarContainer > toolbarbutton#cBPrintButton {
+
+#cBPrintButton {
   list-style-image: url("chrome://global/skin/icons/print.svg");
 }
-toolbaritem#commandBarContainer > toolbarbutton#cBHelpButton {
+
+#cBHelpButton {
   list-style-image: url("chrome://global/skin/icons/help.svg");
+}
+
+#cBPageButton::before {
+  content: attr(label);
 }
 
 @-moz-document url("chrome://browser/content/aboutDialog.xhtml") {
@@ -3032,4 +3034,4 @@ panel {
 
 #toolbox-toolbar-mount::selection {
   background-color: var(--toolbar-bgcolor) !important;
-}
+}/*# sourceMappingURL=userChrome.css.map */
