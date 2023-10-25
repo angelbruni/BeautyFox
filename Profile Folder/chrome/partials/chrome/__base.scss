@@ -918,7 +918,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         background-position: center;
         background-repeat: no-repeat;
     
-        &#home-button, &#bookmarks-menu-button, &#bookmarks-sidebar-menu-button, &#PanelUI-menu-button, &#unified-extensions-button, &#downloads-button, &#_testpilot-containers-BAP, &#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP, &#ublock0_raymondhill_net-BAP {
+        &#home-button, &#bookmarks-menu-button, &#bookmarks-sidebar-menu-button, &#PanelUI-menu-button, &#appMenuButton, &#unified-extensions-button, &#downloads-button, &#_testpilot-containers-BAP, &#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP, &#ublock0_raymondhill_net-BAP {
             list-style-image: none !important;
             position: relative;
     
@@ -1066,7 +1066,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             }
         }
     
-        &#PanelUI-menu-button {
+        &#PanelUI-menu-button, &#appMenuButton {
             background-image: url(images/settings.svg);  
             
             &::before, &::after {
@@ -1194,6 +1194,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     
     #PanelUI-button {
         align-items: end;
+        max-width: 0 !important;
+        opacity: 0 !important;
     }
 
     #PanelUI-menu-button {
@@ -1552,7 +1554,7 @@ findbar {
     }
 
     toolbarbutton {
-        &#home-button, &#bookmarks-menu-button, &#bookmarks-sidebar-menu-button, &#PanelUI-menu-button, &#unified-extensions-button, &#downloads-button {
+        &#home-button, &#bookmarks-menu-button, &#bookmarks-sidebar-menu-button, &#PanelUI-menu-button, &#appMenuButton, &#unified-extensions-button, &#downloads-button {
             &::after {
                 content: unset !important;
             }

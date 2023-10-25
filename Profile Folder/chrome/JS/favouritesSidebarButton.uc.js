@@ -9,7 +9,7 @@ function createfavouritesSidebarButton() {
             label: button_label,
             tooltiptext: button_label,
             onClick: function() {
-                openBookmarksSidebar();
+                SidebarUI.toggle('viewBookmarksSidebar');
             },
             onCreated: function(button) {
                 return button;
@@ -18,11 +18,5 @@ function createfavouritesSidebarButton() {
     }
     catch (e) {
         Components.utils.reportError(e);
-    }
-    
-    function openBookmarksSidebar() {
-        if (window.SidebarUI) {
-             window.SidebarUI.toggle("viewBookmarksSidebar");
-        }
     }
 }

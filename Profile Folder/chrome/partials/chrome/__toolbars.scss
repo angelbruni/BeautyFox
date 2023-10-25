@@ -238,3 +238,306 @@
         content: attr(label);
     }
 }
+
+#cBPagesMenuButton {
+    .toolbarbutton-text {
+        display: block;
+    }
+
+    > #cBPagesMenuPopUp {
+        > #cBPages_newWindow {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/newWindow.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+
+        > #cBPages_googleTranslate {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/bingTranslator.ico') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+
+        > #cBPages_saveAs {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/saveAs.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+
+        > #cBPages_sendLinkbyEMail {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/sendLinkbyEMail.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+
+        > #cBPages_zoom {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/zoom.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+
+        > #cBPages_viewSource {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/viewSource.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+#cBSafetyMenuButton {
+    .toolbarbutton-text {
+        display: block;
+    }
+
+    > #cBSafetyMenuPopUp {
+        > #cBSafety_deleteBrowsingHistory {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/deleteBrowsingHistory.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+
+        > #cBSafety_inPrivateBrowsing {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/inPrivateBrowsing.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+        > #cBSafety_smartScreenFilter {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/smartScreenFilter.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+#cBToolsMenuButton {
+    .toolbarbutton-text {
+        display: block;
+    }
+
+    > #cBToolsMenuPopUp {
+        > #cBTools_reopenLastBrowsingSession {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/reopenLastBrowsingSession.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+
+        > #cBTools_manageAddOns {
+            > .menu-iconic-left {
+                position: relative;
+    
+                &::before {
+                    content: '';
+                    background-image: url('images/manageAddOns.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+    
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+    
+        > #cBTools_workOffline {
+            > .menu-iconic-left {
+                position: relative;
+    
+                &::before {
+                    content: '';
+                    background-image: url('images/workOffline.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+    
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+    
+        > #cBTools_fullScreen {
+            > .menu-iconic-left {
+                position: relative;
+    
+                &::before {
+                    content: '';
+                    background-image: url('images/fullScreen.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+    
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+    
+        > #cBTools_internetOptions {
+            > .menu-iconic-left {
+                position: relative;
+    
+                &::before {
+                    content: '';
+                    background-image: url('images/internetOptions.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+    
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+    }
+}

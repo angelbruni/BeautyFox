@@ -809,11 +809,11 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   background-repeat: no-repeat;
   /* Extensions support */
 }
-#nav-bar toolbarbutton#home-button, #nav-bar toolbarbutton#bookmarks-menu-button, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button, #nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbarbutton#unified-extensions-button, #nav-bar toolbarbutton#downloads-button, #nav-bar toolbarbutton#_testpilot-containers-BAP, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP, #nav-bar toolbaritem#home-button, #nav-bar toolbaritem#bookmarks-menu-button, #nav-bar toolbaritem#bookmarks-sidebar-menu-button, #nav-bar toolbaritem#PanelUI-menu-button, #nav-bar toolbaritem#unified-extensions-button, #nav-bar toolbaritem#downloads-button, #nav-bar toolbaritem#_testpilot-containers-BAP, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP {
+#nav-bar toolbarbutton#home-button, #nav-bar toolbarbutton#bookmarks-menu-button, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button, #nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbarbutton#appMenuButton, #nav-bar toolbarbutton#unified-extensions-button, #nav-bar toolbarbutton#downloads-button, #nav-bar toolbarbutton#_testpilot-containers-BAP, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP, #nav-bar toolbaritem#home-button, #nav-bar toolbaritem#bookmarks-menu-button, #nav-bar toolbaritem#bookmarks-sidebar-menu-button, #nav-bar toolbaritem#PanelUI-menu-button, #nav-bar toolbaritem#appMenuButton, #nav-bar toolbaritem#unified-extensions-button, #nav-bar toolbaritem#downloads-button, #nav-bar toolbaritem#_testpilot-containers-BAP, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP {
   list-style-image: none !important;
   position: relative;
 }
-#nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::after, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::before, #nav-bar toolbarbutton#downloads-button::after, #nav-bar toolbarbutton#_testpilot-containers-BAP::before, #nav-bar toolbarbutton#_testpilot-containers-BAP::after, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::after, #nav-bar toolbaritem#home-button::before, #nav-bar toolbaritem#home-button::after, #nav-bar toolbaritem#bookmarks-menu-button::before, #nav-bar toolbaritem#bookmarks-menu-button::after, #nav-bar toolbaritem#bookmarks-sidebar-menu-button::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button::after, #nav-bar toolbaritem#PanelUI-menu-button::before, #nav-bar toolbaritem#PanelUI-menu-button::after, #nav-bar toolbaritem#unified-extensions-button::before, #nav-bar toolbaritem#unified-extensions-button::after, #nav-bar toolbaritem#downloads-button::before, #nav-bar toolbaritem#downloads-button::after, #nav-bar toolbaritem#_testpilot-containers-BAP::before, #nav-bar toolbaritem#_testpilot-containers-BAP::after, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after {
+#nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::after, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#appMenuButton::before, #nav-bar toolbarbutton#appMenuButton::after, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::before, #nav-bar toolbarbutton#downloads-button::after, #nav-bar toolbarbutton#_testpilot-containers-BAP::before, #nav-bar toolbarbutton#_testpilot-containers-BAP::after, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::after, #nav-bar toolbaritem#home-button::before, #nav-bar toolbaritem#home-button::after, #nav-bar toolbaritem#bookmarks-menu-button::before, #nav-bar toolbaritem#bookmarks-menu-button::after, #nav-bar toolbaritem#bookmarks-sidebar-menu-button::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button::after, #nav-bar toolbaritem#PanelUI-menu-button::before, #nav-bar toolbaritem#PanelUI-menu-button::after, #nav-bar toolbaritem#appMenuButton::before, #nav-bar toolbaritem#appMenuButton::after, #nav-bar toolbaritem#unified-extensions-button::before, #nav-bar toolbaritem#unified-extensions-button::after, #nav-bar toolbaritem#downloads-button::before, #nav-bar toolbaritem#downloads-button::after, #nav-bar toolbaritem#_testpilot-containers-BAP::before, #nav-bar toolbaritem#_testpilot-containers-BAP::after, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after {
   /* ::before - Icon Hover/Active Colour */
   /* ::after - Icon Gradient Hover/Active */
   content: "";
@@ -828,18 +828,18 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   left: 0;
   transition: opacity 0.3s steps(5), background-color 0.3s steps(5);
 }
-#nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::after, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::after, #nav-bar toolbarbutton#_testpilot-containers-BAP::after, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::after, #nav-bar toolbaritem#home-button::after, #nav-bar toolbaritem#bookmarks-menu-button::after, #nav-bar toolbaritem#bookmarks-sidebar-menu-button::after, #nav-bar toolbaritem#PanelUI-menu-button::after, #nav-bar toolbaritem#unified-extensions-button::after, #nav-bar toolbaritem#downloads-button::after, #nav-bar toolbaritem#_testpilot-containers-BAP::after, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after {
+#nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::after, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#appMenuButton::after, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::after, #nav-bar toolbarbutton#_testpilot-containers-BAP::after, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::after, #nav-bar toolbaritem#home-button::after, #nav-bar toolbaritem#bookmarks-menu-button::after, #nav-bar toolbaritem#bookmarks-sidebar-menu-button::after, #nav-bar toolbaritem#PanelUI-menu-button::after, #nav-bar toolbaritem#appMenuButton::after, #nav-bar toolbaritem#unified-extensions-button::after, #nav-bar toolbaritem#downloads-button::after, #nav-bar toolbaritem#_testpilot-containers-BAP::after, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after {
   opacity: 0;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
 }
-#nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#downloads-button::before, #nav-bar toolbarbutton#_testpilot-containers-BAP::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::before, #nav-bar toolbaritem#home-button::before, #nav-bar toolbaritem#bookmarks-menu-button::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button::before, #nav-bar toolbaritem#PanelUI-menu-button::before, #nav-bar toolbaritem#unified-extensions-button::before, #nav-bar toolbaritem#downloads-button::before, #nav-bar toolbaritem#_testpilot-containers-BAP::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::before {
+#nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#appMenuButton::before, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#downloads-button::before, #nav-bar toolbarbutton#_testpilot-containers-BAP::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::before, #nav-bar toolbaritem#home-button::before, #nav-bar toolbaritem#bookmarks-menu-button::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button::before, #nav-bar toolbaritem#PanelUI-menu-button::before, #nav-bar toolbaritem#appMenuButton::before, #nav-bar toolbaritem#unified-extensions-button::before, #nav-bar toolbaritem#downloads-button::before, #nav-bar toolbaritem#_testpilot-containers-BAP::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::before {
   background-color: white;
   z-index: -1;
 }
-#nav-bar toolbarbutton#home-button:hover::before, #nav-bar toolbarbutton#home-button:hover::after, #nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button:active::after, #nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-menu-button:hover::after, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:hover::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::after, #nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#PanelUI-menu-button:hover::after, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::after, #nav-bar toolbarbutton#unified-extensions-button:hover::before, #nav-bar toolbarbutton#unified-extensions-button:hover::after, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button:active::after, #nav-bar toolbarbutton#downloads-button:hover::before, #nav-bar toolbarbutton#downloads-button:hover::after, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button:active::after, #nav-bar toolbarbutton#_testpilot-containers-BAP:hover::before, #nav-bar toolbarbutton#_testpilot-containers-BAP:hover::after, #nav-bar toolbarbutton#_testpilot-containers-BAP:active::before, #nav-bar toolbarbutton#_testpilot-containers-BAP:active::after, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::after, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::after, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:hover::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:hover::after, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:active::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:active::after, #nav-bar toolbaritem#home-button:hover::before, #nav-bar toolbaritem#home-button:hover::after, #nav-bar toolbaritem#home-button:active::before, #nav-bar toolbaritem#home-button:active::after, #nav-bar toolbaritem#bookmarks-menu-button:hover::before, #nav-bar toolbaritem#bookmarks-menu-button:hover::after, #nav-bar toolbaritem#bookmarks-menu-button:active::before, #nav-bar toolbaritem#bookmarks-menu-button:active::after, #nav-bar toolbaritem#bookmarks-sidebar-menu-button:hover::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button:hover::after, #nav-bar toolbaritem#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button:active::after, #nav-bar toolbaritem#PanelUI-menu-button:hover::before, #nav-bar toolbaritem#PanelUI-menu-button:hover::after, #nav-bar toolbaritem#PanelUI-menu-button:active::before, #nav-bar toolbaritem#PanelUI-menu-button:active::after, #nav-bar toolbaritem#unified-extensions-button:hover::before, #nav-bar toolbaritem#unified-extensions-button:hover::after, #nav-bar toolbaritem#unified-extensions-button:active::before, #nav-bar toolbaritem#unified-extensions-button:active::after, #nav-bar toolbaritem#downloads-button:hover::before, #nav-bar toolbaritem#downloads-button:hover::after, #nav-bar toolbaritem#downloads-button:active::before, #nav-bar toolbaritem#downloads-button:active::after, #nav-bar toolbaritem#_testpilot-containers-BAP:hover::before, #nav-bar toolbaritem#_testpilot-containers-BAP:hover::after, #nav-bar toolbaritem#_testpilot-containers-BAP:active::before, #nav-bar toolbaritem#_testpilot-containers-BAP:active::after, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::after, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::after, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:hover::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:hover::after, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::after {
+#nav-bar toolbarbutton#home-button:hover::before, #nav-bar toolbarbutton#home-button:hover::after, #nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button:active::after, #nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-menu-button:hover::after, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:hover::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::after, #nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#PanelUI-menu-button:hover::after, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::after, #nav-bar toolbarbutton#appMenuButton:hover::before, #nav-bar toolbarbutton#appMenuButton:hover::after, #nav-bar toolbarbutton#appMenuButton:active::before, #nav-bar toolbarbutton#appMenuButton:active::after, #nav-bar toolbarbutton#unified-extensions-button:hover::before, #nav-bar toolbarbutton#unified-extensions-button:hover::after, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button:active::after, #nav-bar toolbarbutton#downloads-button:hover::before, #nav-bar toolbarbutton#downloads-button:hover::after, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button:active::after, #nav-bar toolbarbutton#_testpilot-containers-BAP:hover::before, #nav-bar toolbarbutton#_testpilot-containers-BAP:hover::after, #nav-bar toolbarbutton#_testpilot-containers-BAP:active::before, #nav-bar toolbarbutton#_testpilot-containers-BAP:active::after, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::after, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::after, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:hover::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:hover::after, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:active::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:active::after, #nav-bar toolbaritem#home-button:hover::before, #nav-bar toolbaritem#home-button:hover::after, #nav-bar toolbaritem#home-button:active::before, #nav-bar toolbaritem#home-button:active::after, #nav-bar toolbaritem#bookmarks-menu-button:hover::before, #nav-bar toolbaritem#bookmarks-menu-button:hover::after, #nav-bar toolbaritem#bookmarks-menu-button:active::before, #nav-bar toolbaritem#bookmarks-menu-button:active::after, #nav-bar toolbaritem#bookmarks-sidebar-menu-button:hover::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button:hover::after, #nav-bar toolbaritem#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button:active::after, #nav-bar toolbaritem#PanelUI-menu-button:hover::before, #nav-bar toolbaritem#PanelUI-menu-button:hover::after, #nav-bar toolbaritem#PanelUI-menu-button:active::before, #nav-bar toolbaritem#PanelUI-menu-button:active::after, #nav-bar toolbaritem#appMenuButton:hover::before, #nav-bar toolbaritem#appMenuButton:hover::after, #nav-bar toolbaritem#appMenuButton:active::before, #nav-bar toolbaritem#appMenuButton:active::after, #nav-bar toolbaritem#unified-extensions-button:hover::before, #nav-bar toolbaritem#unified-extensions-button:hover::after, #nav-bar toolbaritem#unified-extensions-button:active::before, #nav-bar toolbaritem#unified-extensions-button:active::after, #nav-bar toolbaritem#downloads-button:hover::before, #nav-bar toolbaritem#downloads-button:hover::after, #nav-bar toolbaritem#downloads-button:active::before, #nav-bar toolbaritem#downloads-button:active::after, #nav-bar toolbaritem#_testpilot-containers-BAP:hover::before, #nav-bar toolbaritem#_testpilot-containers-BAP:hover::after, #nav-bar toolbaritem#_testpilot-containers-BAP:active::before, #nav-bar toolbaritem#_testpilot-containers-BAP:active::after, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::after, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::after, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:hover::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:hover::after, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::after {
   opacity: 1;
 }
-#nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button[open=true]::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button[open=true]::before, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button[open=true]::before, #nav-bar toolbarbutton#_testpilot-containers-BAP:active::before, #nav-bar toolbarbutton#_testpilot-containers-BAP[open=true]::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[open=true]::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:active::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP[open=true]::before, #nav-bar toolbaritem#home-button:active::before, #nav-bar toolbaritem#home-button[open=true]::before, #nav-bar toolbaritem#bookmarks-menu-button:active::before, #nav-bar toolbaritem#bookmarks-menu-button[open=true]::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button[open=true]::before, #nav-bar toolbaritem#PanelUI-menu-button:active::before, #nav-bar toolbaritem#PanelUI-menu-button[open=true]::before, #nav-bar toolbaritem#unified-extensions-button:active::before, #nav-bar toolbaritem#unified-extensions-button[open=true]::before, #nav-bar toolbaritem#downloads-button:active::before, #nav-bar toolbaritem#downloads-button[open=true]::before, #nav-bar toolbaritem#_testpilot-containers-BAP:active::before, #nav-bar toolbaritem#_testpilot-containers-BAP[open=true]::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[open=true]::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP[open=true]::before {
+#nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button[open=true]::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbarbutton#appMenuButton:active::before, #nav-bar toolbarbutton#appMenuButton[open=true]::before, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button[open=true]::before, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button[open=true]::before, #nav-bar toolbarbutton#_testpilot-containers-BAP:active::before, #nav-bar toolbarbutton#_testpilot-containers-BAP[open=true]::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[open=true]::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:active::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP[open=true]::before, #nav-bar toolbaritem#home-button:active::before, #nav-bar toolbaritem#home-button[open=true]::before, #nav-bar toolbaritem#bookmarks-menu-button:active::before, #nav-bar toolbaritem#bookmarks-menu-button[open=true]::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbaritem#bookmarks-sidebar-menu-button[open=true]::before, #nav-bar toolbaritem#PanelUI-menu-button:active::before, #nav-bar toolbaritem#PanelUI-menu-button[open=true]::before, #nav-bar toolbaritem#appMenuButton:active::before, #nav-bar toolbaritem#appMenuButton[open=true]::before, #nav-bar toolbaritem#unified-extensions-button:active::before, #nav-bar toolbaritem#unified-extensions-button[open=true]::before, #nav-bar toolbaritem#downloads-button:active::before, #nav-bar toolbaritem#downloads-button[open=true]::before, #nav-bar toolbaritem#_testpilot-containers-BAP:active::before, #nav-bar toolbaritem#_testpilot-containers-BAP[open=true]::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before, #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[open=true]::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::before, #nav-bar toolbaritem#ublock0_raymondhill_net-BAP[open=true]::before {
   transition: none;
 }
 #nav-bar toolbarbutton#home-button, #nav-bar toolbaritem#home-button {
@@ -919,20 +919,20 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
     background: linear-gradient(var(--toolbarbutton-icon-fill-attention) var(--download-progress-pcent), transparent var(--download-progress-pcent)) !important;
   }
 }
-#nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbaritem#PanelUI-menu-button {
+#nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbarbutton#appMenuButton, #nav-bar toolbaritem#PanelUI-menu-button, #nav-bar toolbaritem#appMenuButton {
   background-image: url(images/settings.svg);
 }
-#nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbaritem#PanelUI-menu-button::before, #nav-bar toolbaritem#PanelUI-menu-button::after {
+#nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#appMenuButton::before, #nav-bar toolbarbutton#appMenuButton::after, #nav-bar toolbaritem#PanelUI-menu-button::before, #nav-bar toolbaritem#PanelUI-menu-button::after, #nav-bar toolbaritem#appMenuButton::before, #nav-bar toolbaritem#appMenuButton::after {
   -webkit-mask-image: url(images/settings-mask.svg);
           mask-image: url(images/settings-mask.svg);
 }
-#nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbaritem#PanelUI-menu-button:hover::before {
+#nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#appMenuButton:hover::before, #nav-bar toolbaritem#PanelUI-menu-button:hover::before, #nav-bar toolbaritem#appMenuButton:hover::before {
   background-color: var(--toolbarbutton-blue-colour);
 }
-#nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbaritem#PanelUI-menu-button:active::before, #nav-bar toolbaritem#PanelUI-menu-button[open=true]::before {
+#nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbarbutton#appMenuButton:active::before, #nav-bar toolbarbutton#appMenuButton[open=true]::before, #nav-bar toolbaritem#PanelUI-menu-button:active::before, #nav-bar toolbaritem#PanelUI-menu-button[open=true]::before, #nav-bar toolbaritem#appMenuButton:active::before, #nav-bar toolbaritem#appMenuButton[open=true]::before {
   background-color: var(--toolbarbutton-blue-colour_hover);
 }
-#nav-bar toolbarbutton#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge, #nav-bar toolbaritem#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge {
+#nav-bar toolbarbutton#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge, #nav-bar toolbarbutton#appMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge, #nav-bar toolbaritem#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge, #nav-bar toolbaritem#appMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge {
   background-color: white !important;
   border-radius: 50% !important;
   border: 2px solid orange !important;
@@ -1002,6 +1002,8 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 #nav-bar #PanelUI-button {
   align-items: end;
+  max-width: 0 !important;
+  opacity: 0 !important;
 }
 #nav-bar #PanelUI-menu-button {
   padding: 0 !important;
@@ -1305,7 +1307,7 @@ findbar {
     --toolbarbutton-green-colour: rgb(41, 248, 22);
     --toolbarbutton-green-colour_hover: rgb(53, 211, 39);
   }
-  toolbarbutton#home-button::after, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#bookmarks-sidebar-menu-button::after, toolbarbutton#PanelUI-menu-button::after, toolbarbutton#unified-extensions-button::after, toolbarbutton#downloads-button::after {
+  toolbarbutton#home-button::after, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#bookmarks-sidebar-menu-button::after, toolbarbutton#PanelUI-menu-button::after, toolbarbutton#appMenuButton::after, toolbarbutton#unified-extensions-button::after, toolbarbutton#downloads-button::after {
     content: unset !important;
   }
   toolbarbutton#bookmarks-menu-button, toolbarbutton#bookmarks-sidebar-menu-button {
@@ -2379,6 +2381,228 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   content: attr(label);
 }
 
+#cBPagesMenuButton .toolbarbutton-text {
+  display: block;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_newWindow > .menu-iconic-left {
+  position: relative;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_newWindow > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/newWindow.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_newWindow > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_googleTranslate > .menu-iconic-left {
+  position: relative;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_googleTranslate > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/bingTranslator.ico") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_googleTranslate > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_saveAs > .menu-iconic-left {
+  position: relative;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_saveAs > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/saveAs.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_saveAs > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_sendLinkbyEMail > .menu-iconic-left {
+  position: relative;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_sendLinkbyEMail > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/sendLinkbyEMail.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_sendLinkbyEMail > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_zoom > .menu-iconic-left {
+  position: relative;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_zoom > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/zoom.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_zoom > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_viewSource > .menu-iconic-left {
+  position: relative;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_viewSource > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/viewSource.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBPagesMenuButton > #cBPagesMenuPopUp > #cBPages_viewSource > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+
+#cBSafetyMenuButton .toolbarbutton-text {
+  display: block;
+}
+#cBSafetyMenuButton > #cBSafetyMenuPopUp > #cBSafety_deleteBrowsingHistory > .menu-iconic-left {
+  position: relative;
+}
+#cBSafetyMenuButton > #cBSafetyMenuPopUp > #cBSafety_deleteBrowsingHistory > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/deleteBrowsingHistory.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBSafetyMenuButton > #cBSafetyMenuPopUp > #cBSafety_deleteBrowsingHistory > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBSafetyMenuButton > #cBSafetyMenuPopUp > #cBSafety_inPrivateBrowsing > .menu-iconic-left {
+  position: relative;
+}
+#cBSafetyMenuButton > #cBSafetyMenuPopUp > #cBSafety_inPrivateBrowsing > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/inPrivateBrowsing.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBSafetyMenuButton > #cBSafetyMenuPopUp > #cBSafety_inPrivateBrowsing > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBSafetyMenuButton > #cBSafetyMenuPopUp > #cBSafety_smartScreenFilter > .menu-iconic-left {
+  position: relative;
+}
+#cBSafetyMenuButton > #cBSafetyMenuPopUp > #cBSafety_smartScreenFilter > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/smartScreenFilter.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBSafetyMenuButton > #cBSafetyMenuPopUp > #cBSafety_smartScreenFilter > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+
+#cBToolsMenuButton .toolbarbutton-text {
+  display: block;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_reopenLastBrowsingSession > .menu-iconic-left {
+  position: relative;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_reopenLastBrowsingSession > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/reopenLastBrowsingSession.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_reopenLastBrowsingSession > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_manageAddOns > .menu-iconic-left {
+  position: relative;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_manageAddOns > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/manageAddOns.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_manageAddOns > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_workOffline > .menu-iconic-left {
+  position: relative;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_workOffline > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/workOffline.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_workOffline > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_fullScreen > .menu-iconic-left {
+  position: relative;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_fullScreen > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/fullScreen.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_fullScreen > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_internetOptions > .menu-iconic-left {
+  position: relative;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_internetOptions > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/internetOptions.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBToolsMenuButton > #cBToolsMenuPopUp > #cBTools_internetOptions > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+
 @-moz-document url("chrome://browser/content/aboutDialog.xhtml") {
   :root {
     --logo-image: url(images/IELOGO-9.PNG);
@@ -2640,10 +2864,9 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) :is(.menu-text, .menu
   list-style-image: none !important;
 }
 
-.menu-right {
-  transform: translateX(24px) !important;
-}
-
+/*.menu-right {
+    transform: translateX(24px) !important;
+}*/
 .menu-accel-container {
   -webkit-appearance: auto !important;
      -moz-appearance: auto !important;

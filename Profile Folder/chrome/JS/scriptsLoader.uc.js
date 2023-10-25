@@ -25,11 +25,9 @@ function executeFunctions() {
     console.log("createCBHomeButton() function from moveNotificationPopUps executed.");
     createCBPrintButton();
     console.log("createCBPrintButton() function from moveNotificationPopUps executed.");
-    createCBPageButton();
     console.info("Functions were executed.");
 }
 
 window.addEventListener("load", function() {
     executeFunctions();
 })
-
