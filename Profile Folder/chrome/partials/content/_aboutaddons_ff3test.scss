@@ -1,0 +1,75 @@
+@-moz-document url-prefix(about:addons) {
+    :root {
+        --section-width: auto !important;
+        --main-margin-start: 0 !important;
+
+    }
+
+    * {
+        font-size: 9pt !important;
+    }
+
+    #full {
+        display: block !important;
+    }
+
+    #sidebar {
+        height: auto !important;
+
+        > categories-box {
+            margin-top: 0 !important;
+            flex-direction: row !important;
+
+            .category {
+                margin-inline-start: 0 !important;
+                background-position: center top 4px !important;
+                padding-inline-start: 0 !important;
+                padding-inline: 0 !important;
+                padding: 4px !important;
+                width: 0 !important;
+                min-width: 118px !important;
+                min-height: 0 !important;
+                text-align: center !important;
+                height: 55px !important;
+                align-items: end !important;
+                justify-content: center !important;
+
+                span {
+                    padding: 0 !important;
+                }
+            }
+        }
+
+        > .spacer, sidebar-footer {
+            display: none !important;
+        }
+    }
+
+    #content {
+        padding: 12px 10px !important;
+        border-top: 1px solid rgb(142, 141, 144) !important;
+        background-color: rgb(240,239,242) !important;
+    }
+
+    .main-search {
+        display: block !important;
+        padding: 0 !important;
+        margin-bottom: 2px !important;
+        background-color: rgb(240,239,242) !important;
+
+        .search-label {
+            display: none !important;
+        }
+    }
+
+    .main-heading {
+        display: none !important;
+    }
+
+    discovery-pane {
+        header,
+        taar-notice {
+            display: none !important;
+        }
+    }
+}

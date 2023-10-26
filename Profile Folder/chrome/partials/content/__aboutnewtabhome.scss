@@ -1,4 +1,5 @@
-@-moz-document url(about:newtab), url(about:home) {
+@-moz-document url(about:newtab),
+               url(about:home) {
     :root {
         --popular-site-label: 'Your most popular sites';
     }
@@ -56,7 +57,12 @@
         padding: 0 !important;
         position: relative;
 
-        &:nth-child(11), &:nth-child(12), &:nth-child(13), &:nth-child(14), &:nth-child(15), &:nth-child(16) {
+        &:nth-child(11),
+        &:nth-child(12),
+        &:nth-child(13),
+        &:nth-child(14),
+        &:nth-child(15),
+        &:nth-child(16) {
             display: none !important;
         }
 

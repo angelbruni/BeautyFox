@@ -38,7 +38,8 @@
     --tab-min-height: var(--tab-height) !important;
 }
 
-#scrollbutton-up, #scrollbutton-down {
+#scrollbutton-up,
+#scrollbutton-down {
     border-bottom: none !important;
     width: 20px !important;
     border: 1px solid var(--tab-border-colour) !important;
@@ -204,7 +205,11 @@
     margin-inline-end: 4px !important;
 }
 
-.tab-throbber, .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay, .tab-icon-overlay {
+.tab-throbber,
+.tab-icon-pending,
+.tab-icon-image,
+.tab-sharing-icon-overlay,
+.tab-icon-overlay {
     margin-inline-end: 0 !important;
 }
 
@@ -276,7 +281,8 @@ toolbarbutton#tabs-newtab-button,
 }
 
 #main-window {
-    &[sizemode="maximized"], &[sizemode="fullscreen"] {
+    &[sizemode="maximized"],
+    &[sizemode="fullscreen"] {
         #TabsToolbar {
             margin: 0;
         }
@@ -356,7 +362,7 @@ toolbarbutton#tabs-newtab-button,
     #tabs-newtab-button,
     #TabsToolbar #new-tab-button {
         &::before {
-            border: none !important;
+            border: 0 !important;
         }
 
         &:hover {
@@ -370,7 +376,8 @@ toolbarbutton#tabs-newtab-button,
         padding: 0 7px 0 7px !important;
     }
 
-    #scrollbutton-up, #scrollbutton-down {
+    #scrollbutton-up,
+    #scrollbutton-down {
         &::before {
             left: 1px !important;
             border-width: 0 !important;
@@ -492,7 +499,8 @@ toolbarbutton#tabs-newtab-button,
         }
     }
 
-    #scrollbutton-up, #scrollbutton-down {
+    #scrollbutton-up,
+    #scrollbutton-down {
         &::before {
             border: unset !important;
             width: 100%;
@@ -520,10 +528,10 @@ toolbarbutton#tabs-newtab-button,
             }
 
             #toolbar-menubar, #PersonalToolbar {
-                border: none !important;
+                border: 0 !important;
 
                 &::before, &::after {
-                    border: none !important;
+                    border: 0 !important;
                 }
             }
 

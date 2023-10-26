@@ -1,5 +1,7 @@
 @charset "UTF-8";
-@-moz-document url(about:privatebrowsing), url(about:newtab), url(about:home) {
+@-moz-document url(about:privatebrowsing),
+               url(about:newtab),
+               url(about:home) {
   body {
     background-image: linear-gradient(180deg, #02a1e2 0%, #FFFFFF 100%);
     background-size: 100% 84px;
@@ -12,7 +14,8 @@
     }
   }
 }
-@-moz-document url(about:newtab), url(about:home) {
+@-moz-document url(about:newtab),
+               url(about:home) {
   :root {
     --popular-site-label: "Your most popular sites";
   }
@@ -458,7 +461,7 @@
   }
   a {
     min-height: 19px !important;
-    border: none !important;
+    border: 0 !important;
     color: rgb(19, 112, 171) !important;
     font-size: 0.9em !important;
     background: transparent !important;
@@ -469,7 +472,7 @@
     text-decoration: none !important;
   }
   a:hover {
-    border: none !important;
+    border: 0 !important;
     background: transparent !important;
     color: rgb(7, 74, 229) !important;
     text-decoration: underline !important;
@@ -488,7 +491,7 @@
   }
   .button-container > button {
     min-height: 19px !important;
-    border: none !important;
+    border: 0 !important;
     color: rgb(19, 112, 171) !important;
     font-size: 0.9em !important;
     background: transparent !important;
@@ -500,14 +503,14 @@
     position: relative !important;
   }
   .button-container > button:hover {
-    border: none !important;
+    border: 0 !important;
     background: transparent !important;
     color: rgb(7, 74, 229) !important;
     text-decoration: underline !important;
     cursor: pointer;
   }
   .button-container > button:active {
-    border: none !important;
+    border: 0 !important;
     background: transparent !important;
     padding: 0 !important;
     padding-left: 21px !important;
@@ -547,7 +550,7 @@
     margin: 0 !important;
     margin-left: 32px !important;
     background-color: transparent !important;
-    border: none !important;
+    border: 0 !important;
     display: block !important;
     position: relative !important;
     font-size: 0.9em !important;

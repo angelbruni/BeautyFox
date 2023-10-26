@@ -52,18 +52,20 @@
         }
     }
 
-    h1.title-text {
-        color: #4465a2 !important;
-        font-size: 0.7em !important;
-        font-weight: normal !important;
-        padding-top: 7px !important;
-        padding-bottom: 23px !important;
-        margin-bottom: 0 !important;
+    h1 {
+        &.title-text {
+            color: #4465a2 !important;
+            font-size: 0.7em !important;
+            font-weight: normal !important;
+            padding-top: 7px !important;
+            padding-bottom: 23px !important;
+            margin-bottom: 0 !important;
+        }
     }
 
     a {
         min-height: 19px !important;
-        border: none !important;
+        border: 0 !important;
         color: rgb(19,112,171) !important;
         font-size: 0.9em !important;
         background: transparent !important;
@@ -74,7 +76,7 @@
         text-decoration: none !important;
 
         &:hover {
-            border: none !important;
+            border: 0 !important;
             background: transparent !important;
             color: rgb(7,74,229) !important;
             text-decoration: underline !important;
@@ -95,7 +97,7 @@
 
         > button {
             min-height: 19px !important;
-            border: none !important;
+            border: 0 !important;
             color: rgb(19,112,171) !important;
             font-size: 0.9em !important;
             background: transparent !important;
@@ -107,7 +109,7 @@
             position: relative !important;
 
             &:hover {
-                border: none !important;
+                border: 0 !important;
                 background: transparent !important;
                 color: rgb(7,74,229) !important;
                 text-decoration: underline !important;
@@ -115,7 +117,7 @@
             }
 
             &:active {
-                border: none !important;
+                border: 0 !important;
                 background: transparent !important;
                 padding: 0 !important;
                 padding-left: 21px !important;
@@ -167,7 +169,7 @@
         margin: 0 !important;
         margin-left: 32px !important;
         background-color: transparent !important;
-        border: none !important;
+        border: 0 !important;
         display: block !important;
         position: relative !important;
         font-size: 0.9em !important;
@@ -228,12 +230,14 @@
             }
         }
 
-        h1.title-text {
-            color: #a90000 !important;
-            font-size: 36px !important;
-            font-weight: 300 !important;
-            padding-bottom: 0 !important;
-            padding-top: 0 !important;
+        h1 {
+            &.title-text {
+                color: #a90000 !important;
+                font-size: 36px !important;
+                font-weight: 300 !important;
+                padding-bottom: 0 !important;
+                padding-top: 0 !important;
+            }
         }
 
         #errorShortDesc {

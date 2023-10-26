@@ -41,7 +41,7 @@ function createCBHomeButton() {
             removable: true,
             label: cbHomeButtonLabel,
             tooltiptext: cbHomeButtonLabel,
-            onClick: function() {
+            onCommand: function() {
                 BrowserHome(event);
             },
             onCreated: function(button) {
@@ -64,8 +64,34 @@ function createCBPrintButton() {
             removable: true,
             label: cbPrintButtonLabel,
             tooltiptext: cbPrintButtonLabel,
-            onClick: function() {
+            onCommand: function() {
                 PrintUtils.togglePrintPreview(gBrowser.selectedBrowser.browsingContext);
+            },
+            onCreated: function(button) {
+                return button;
+            },
+        });
+    }
+    catch (e) {
+        Components.utils.reportError(e);
+    }
+}
+
+function createCBReadMailButton() {
+    try {
+        var cbReadMailButtonLabel = "Read mail";
+
+        CustomizableUI.createWidget({
+            id: 'cBReadMailButton',
+            defaultArea: CustomizableUI.AREA_BOOKMARKS,
+            removable: true,
+            label: cbReadMailButtonLabel,
+            tooltiptext: cbReadMailButtonLabel,
+            onCommand: function() {
+                _ucUtils.loadURI(window,{
+                    url: 'mailto:',
+                    where: "tab"
+                });;
             },
             onCreated: function(button) {
                 return button;

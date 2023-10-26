@@ -16,13 +16,13 @@ var cBHelpMenu = {
             type: 'app',
             id: 'cBHelp_whatsNewInBeautyFox',
             name: "What's new in BeautyFox Beta 3.2",
-            path: '\\chrome\\whats-new.html',
+            path: '\\chrome\\temppages\\whats-new.html',
         },
         {
             type: 'app',
             id: 'cBHelp_onlineSupport',
             name: 'Online support',
-            path: '\\chrome\\discord-invite.html',
+            path: '\\chrome\\temppages\\discord-invite.html',
         },
         {
             type: 'separator',

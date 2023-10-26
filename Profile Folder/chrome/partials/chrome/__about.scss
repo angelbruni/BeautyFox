@@ -61,6 +61,9 @@
 		height: 20px;
 		right: 22px;
 		bottom: 23px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {

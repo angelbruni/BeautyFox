@@ -1,37 +1,36 @@
 function openBeautyFoxWizardWindow() {
     var features = "chrome,centerscreen,resizeable=no,dependent";
 
-    window.openDialog('chrome://userchrome/content/windows/firstStartup.xhtml', "First startup", features); 
+    window.openDialog('chrome://userchrome/content/windows/firstStartup/firstStartup.xhtml', "First startup", features); 
 }
 
 function executeFunctions() {
     console.info("Found 12 functions. Attempting to execute.");
 
     addContainerSupport();
-    console.log("addContainerSupport() function from containerSupport executed.");
+    console.log("addContainerSupport() function executed.");
     moveTabs();
-    console.log("moveTabs() function from tabsOnNavRow executed.");
+    console.log("moveTabs() function executed.");
     urlbarContainerBackgroundOnMouseAttrs();
-    console.log("urlbarContainerBackgroundOnMouseAttrs() function from urlbarHoverBackground executed.");
+    console.log("urlbarContainerBackgroundOnMouseAttrs() function executed.");
     insecureToolbarFieldBackground();
-    console.log("insecureToolbarFieldBackground() function from insecureToolbarFieldBackground executed.");
+    console.log("insecureToolbarFieldBackground() function executed.");
     removeReloadWhenTyping();
-    console.log("removeReloadWhenTyping() function from removeReloadBtnTyping executed.");
-    addClonedStarBox();
-    console.log("addClonedStarBox() function from starBoxPersonalToolbar executed.");
+    console.log("removeReloadWhenTyping() function executed.");
     changeFakeDropdownAccordingly();
-    console.log("changeFakeDropdownAccordingly() function from searchBoxDetector executed.");
+    console.log("changeFakeDropdownAccordingly() function executed.");
     addEllipsesSearch();
-    console.log("addEllipsesSearch() function from addEllipsesSearchPlaceholder executed.");
+    console.log("addEllipsesSearch() function executed.");
     createfavouritesSidebarButton();
-    console.log("createfavouritesSidebarButton() function from moveNotificationPopUps executed.");
+    console.log("createfavouritesSidebarButton() function executed.");
     createCommandBar();
-    console.log("createCommandBar() function from moveNotificationPopUps executed.");
+    console.log("createCommandBar() function executed.");
     createCBHomeButton();
-    console.log("createCBHomeButton() function from moveNotificationPopUps executed.");
+    console.log("createCBHomeButton() function executed.");
     createCBPrintButton();
-    console.log("createCBPrintButton() function from moveNotificationPopUps executed.");
-    openBeautyFoxWizardWindow();
+    console.log("createCBPrintButton() function executed.");
+    createCBReadMailButton()
+    console.log("createCBReadMailButton() function executed.");
     console.info("Functions were executed.");
 }
 

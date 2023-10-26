@@ -1,10 +1,10 @@
-var cBPagesMenu = {
-    id: 'cBPagesMenu',
-    name: 'Pages',
+var cBPageMenu = {
+    id: 'cBPageMenu',
+    name: 'Page',
     items: [
         {
             type: 'app',
-            id: 'cBPages_newWindow',
+            id: 'cBPage_newWindow',
             name: 'New Window',
             image: 'chrome://browser/skin/window.svg',
             command: 'OpenBrowserWindow();',
@@ -41,7 +41,7 @@ var cBPagesMenu = {
         //},
         {
             type: 'app',
-            id: 'cBPages_googleTranslate',
+            id: 'cBPage_googleTranslate',
             name: 'Translate with Google',
             command: 'translatePage()',
         },
@@ -55,7 +55,7 @@ var cBPagesMenu = {
         //},
         {
             type: 'app',
-            id: 'cBPages_allAccelerators',
+            id: 'cBPage_allAccelerators',
             name: 'All Accelerators',
             command: 'BrowserOpenAddonsMgr();',
         },
@@ -64,7 +64,7 @@ var cBPagesMenu = {
         },
         {
             type: 'app',
-            id: 'cBPages_saveAs',
+            id: 'cBPage_saveAs',
             name: 'Save as...',
             image: 'chrome://browser/skin/save.svg',
             command: 'saveBrowser(gBrowser.selectedBrowser);',
@@ -75,7 +75,7 @@ var cBPagesMenu = {
         //},
         {
             type: 'app',
-            id: 'cBPages_sendLinkbyEMail',
+            id: 'cBPage_sendLinkbyEMail',
             name: 'Send link by e-mail...',
             image: 'chrome://browser/skin/mail.svg',
             command: 'MailIntegration.sendLinkForBrowser(gBrowser.selectedBrowser);',
@@ -100,19 +100,19 @@ var cBPagesMenu = {
         },
         {
             type: 'subdir',
-            id: 'cBPages_zoom',
+            id: 'cBPage_zoom',
             name: 'Zoom',
             image: 'chrome://global/skin/icons/search-glass.svg',
             items: [
                 {
                     type: 'app',
-                    id: 'cBPages_zoomIn',
+                    id: 'cBPage_zoomIn',
                     name: 'Zoom in',
                     command: 'FullZoom.enlarge()',
                 },
                 {
                     type: 'app',
-                    id: 'cBPages_zoomOut',
+                    id: 'cBPage_zoomOut',
                     name: 'Zoom out',
                     command: 'FullZoom.reduce()',
                 },
@@ -121,43 +121,43 @@ var cBPagesMenu = {
                 },
                 {
                     type: 'app',
-                    id: 'cBPages_setZoom400',
+                    id: 'cBPage_setZoom400',
                     name: '400%',
                     command: 'FullZoom.setZoom(4)',
                 },
                 {
                     type: 'app',
-                    id: 'cBPages_setZoom200',
+                    id: 'cBPage_setZoom200',
                     name: '200%',
                     command: 'FullZoom.setZoom(2)',
                 },
                 {
                     type: 'app',
-                    id: 'cBPages_setZoom150',
+                    id: 'cBPage_setZoom150',
                     name: '150%',
                     command: 'FullZoom.setZoom(1.5)',
                 },
                 {
                     type: 'app',
-                    id: 'cBPages_setZoom125',
+                    id: 'cBPage_setZoom125',
                     name: '125%',
                     command: 'FullZoom.setZoom(1.25)',
                 },
                 {
                     type: 'app',
-                    id: 'cBPages_setZoom100',
+                    id: 'cBPage_setZoom100',
                     name: '100%',
                     command: 'FullZoom.setZoom(1)',
                 },
                 {
                     type: 'app',
-                    id: 'cBPages_setZoom075',
+                    id: 'cBPage_setZoom075',
                     name: '75%',
                     command: 'FullZoom.setZoom(.75)',
                 },
                 {
                     type: 'app',
-                    id: 'cBPages_setZoom050',
+                    id: 'cBPage_setZoom050',
                     name: '50%',
                     command: 'FullZoom.reduce(.5)',
                 },
@@ -178,18 +178,18 @@ var cBPagesMenu = {
         //},
         {
             type: 'subdir',
-            id: 'cBPages_style',
+            id: 'cBPage_style',
             name: 'Style',
             items: [
                 {
                     type: 'app',
-                    id: 'cBPages_noStyle',
+                    id: 'cBPage_noStyle',
                     name: 'No style',
                     command: 'gPageStyleMenu.disableStyle();',
                 },
                 {
                     type: 'app',
-                    id: 'cBPages_defaultStyle',
+                    id: 'cBPage_defaultStyle',
                     name: 'Default style',
                     command: 'gPageStyleMenu.switchStyleSheet(null);',
                 },
@@ -202,7 +202,7 @@ var cBPagesMenu = {
         //},
         {
             type: 'app',
-            id: 'cBPages_caretBrowsing',
+            id: 'cBPage_caretBrowsing',
             name: 'Caret browsing',
             command: 'gBrowser.toggleCaretBrowsing()',
         },
@@ -211,13 +211,13 @@ var cBPagesMenu = {
         },
         {
             type: 'app',
-            id: 'cBPages_properties',
+            id: 'cBPage_properties',
             name: 'Properties',
             command: 'BrowserPageInfo();',
         },
         {
             type: 'app',
-            id: 'cBPages_viewSource',
+            id: 'cBPage_viewSource',
             name: 'View source',
             command: 'BrowserViewSource(window.gBrowser.selectedBrowser)',
         },
@@ -228,33 +228,33 @@ var cBPagesMenu = {
     init: function() {
         const XULNS = 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul';
     
-        var ExternalPagesBtn = document.createElementNS(XULNS, 'toolbarbutton');
-        ExternalPagesBtn.id = cBPagesMenu.id + 'Button';
-        ExternalPagesBtn.setAttribute("label", cBPagesMenu.name);
-        ExternalPagesBtn.style.listStyleImage = cBPagesMenu.image;
-        ExternalPagesBtn.setAttribute("onclick", "event.preventDefault();event.stopPropagation();");
-        ExternalPagesBtn.setAttribute("type", "menu");
-        ExternalPagesBtn.setAttribute("removable", "true");
+        var ExternalPageBtn = document.createElementNS(XULNS, 'toolbarbutton');
+        ExternalPageBtn.id = cBPageMenu.id + 'Button';
+        ExternalPageBtn.setAttribute("label", cBPageMenu.name);
+        ExternalPageBtn.style.listStyleImage = cBPageMenu.image;
+        ExternalPageBtn.setAttribute("onclick", "event.preventDefault();event.stopPropagation();");
+        ExternalPageBtn.setAttribute("type", "menu");
+        ExternalPageBtn.setAttribute("removable", "true");
     
-        document.getElementById("nav-bar-customization-target").appendChild(ExternalPagesBtn);
+        document.getElementById("nav-bar-customization-target").appendChild(ExternalPageBtn);
     
-        var ExternalPagesPopup = document.createElementNS(XULNS, 'menupopup');
-        ExternalPagesPopup.setAttribute('id', cBPagesMenu.id + 'PopUp');
-        ExternalPagesPopup.setAttribute('position', 'bottomright topright');
-        this._externalAppPopup = ExternalPagesPopup;
-        ExternalPagesBtn.appendChild(ExternalPagesPopup);
-        cBPagesMenu.onpopupshowing();
+        var ExternalPagePopup = document.createElementNS(XULNS, 'menupopup');
+        ExternalPagePopup.setAttribute('id', cBPageMenu.id + 'PopUp');
+        ExternalPagePopup.setAttribute('position', 'bottomright topright');
+        this._externalAppPopup = ExternalPagePopup;
+        ExternalPageBtn.appendChild(ExternalPagePopup);
+        cBPageMenu.onpopupshowing();
     },
 
     onpopupshowing: function() {
         if (this._isready) return;
         if (this._externalAppPopup === null) return;
-        var ExternalPagesPopup = this._externalAppPopup;
+        var ExternalPagePopup = this._externalAppPopup;
 
         for (var i = 0; i < this.items.length; i++) {
             var item = this.items[i];
             if (item.type === 'subdir') {
-                var subDirItem = ExternalPagesPopup.appendChild(document.createXULElement('menu'));
+                var subDirItem = ExternalPagePopup.appendChild(document.createXULElement('menu'));
                 subDirItem.setAttribute('class', 'menu-iconic');
                 subDirItem.setAttribute('id', item.id);
                 subDirItem.setAttribute('label', item.name);
@@ -277,7 +277,7 @@ var cBPagesMenu = {
                 }
 
                 subDirItem.appendChild(subDirPopup);
-                ExternalPagesPopup.appendChild(subDirItem);
+                ExternalPagePopup.appendChild(subDirItem);
             } else if (item.type === 'app') {
                 var appsItems = document.createXULElement('menuitem');
                 appsItems.setAttribute('class', 'menuitem-iconic');
@@ -285,9 +285,9 @@ var cBPagesMenu = {
                 appsItems.setAttribute('label', item.name);
                 appsItems.setAttribute('image', item.image);
                 appsItems.setAttribute('oncommand', item.command);
-                ExternalPagesPopup.appendChild(appsItems);
+                ExternalPagePopup.appendChild(appsItems);
             } else if (item.type === 'separator') {
-                ExternalPagesPopup.appendChild(document.createXULElement('menuseparator'));
+                ExternalPagePopup.appendChild(document.createXULElement('menuseparator'));
             }
         }
         this._isready = true;
@@ -306,7 +306,7 @@ var cBPagesMenu = {
     },
 };
 
-cBPagesMenu.init();
+cBPageMenu.init();
 
 function translatePage() {
     // Get the current page URL

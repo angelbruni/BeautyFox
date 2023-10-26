@@ -8,6 +8,16 @@
     }
 }
 
+#PersonalToolbar {
+    toolbaritem:first-of-type {
+        margin-right: 0 !important;
+    }
+    
+    toolbarbutton {
+        appearance: auto !important;
+    }
+}
+
 #statusbarContainer {
     position: relative;
     display: flex;
@@ -209,7 +219,8 @@
         width: fit-content !important;
     }
 
-    #browser, #customization-container {
+    #browser,
+    #customization-container {
         border-bottom: 0 !important;
         border-radius: 0 !important;
         padding-bottom: 0 !important;
@@ -225,8 +236,30 @@
     list-style-image: url("chrome://browser/skin/home.svg");
 }
 
+#cBReadMailButton {
+    list-style-image: url("chrome://browser/skin/mail.svg");
+}
+
 #cBPrintButton {
     list-style-image: url("chrome://global/skin/icons/print.svg");
+}
+
+#cBHomeButton {
+    list-style-image: url("images/cBHome.png");
+}
+
+#cBReadMailButton {
+    list-style-image: url("images/cBReadMail.png");
+}
+
+#cBPrintButton {
+    list-style-image: url("images/cBPrint.png");
+}
+
+#cBHelpMenuButton {
+    .toolbarbutton-icon {
+        list-style-image: url("images/cBHelp.png") !important;
+    }
 }
 
 #cBPageButton {
@@ -235,13 +268,13 @@
     }
 }
 
-#cBPagesMenuButton {
+#cBPageMenuButton {
     .toolbarbutton-text {
         display: block;
     }
 
-    > #cBPagesMenuPopUp {
-        > #cBPages_newWindow {
+    > #cBPageMenuPopUp {
+        > #cBPage_newWindow {
             > .menu-iconic-left {
                 position: relative;
 
@@ -261,7 +294,7 @@
             }
         }
 
-        > #cBPages_googleTranslate {
+        > #cBPage_googleTranslate {
             > .menu-iconic-left {
                 position: relative;
 
@@ -281,7 +314,7 @@
             }
         }
 
-        > #cBPages_saveAs {
+        > #cBPage_saveAs {
             > .menu-iconic-left {
                 position: relative;
 
@@ -301,7 +334,7 @@
             }
         }
 
-        > #cBPages_sendLinkbyEMail {
+        > #cBPage_sendLinkbyEMail {
             > .menu-iconic-left {
                 position: relative;
 
@@ -321,7 +354,7 @@
             }
         }
 
-        > #cBPages_zoom {
+        > #cBPage_zoom {
             > .menu-iconic-left {
                 position: relative;
 
@@ -341,7 +374,7 @@
             }
         }
 
-        > #cBPages_viewSource {
+        > #cBPage_viewSource {
             > .menu-iconic-left {
                 position: relative;
 
@@ -536,4 +569,55 @@
             }
         }
     }
+}
+
+#cBHomeButton,
+#cBPrintButton,
+#cBReadMailButton {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    align-items: center !important;
+
+    .toolbarbutton-icon {
+        padding: 0 !important;
+        height: auto !important;
+        width: auto !important;
+    }
+}
+
+#cBPageMenuButton,
+#cBSafetyMenuButton,
+#cBToolsMenuButton {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
+#cBHomeButton,
+#cBPrintButton,
+#cBReadMailButton,
+#cBPageButton,
+#cBPageMenuButton,
+#cBSafetyMenuButton,
+#cBToolsMenuButton,
+#cBHelpMenuButton {
+    appearance: auto !important;
+    margin-block: 0 !important;
+    margin-bottom: 2px !important;
+    margin-top: 2px !important;
+
+    &[type="menu"] {
+        &::after {
+            content: url(images/dropdown.png);
+            margin-bottom: 6px;
+            margin-left: 4px;
+        }
+
+        .toolbarbutton-text {
+            margin-bottom: 2px !important;
+        }
+    }
+}
+
+#cBHelpMenuButton {
+    margin-right: 13px !important;
 }
