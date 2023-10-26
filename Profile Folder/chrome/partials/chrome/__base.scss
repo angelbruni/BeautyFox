@@ -66,10 +66,6 @@
     --appearance_IE11Win10: 0;
 }
 
-* {
-    font-size: 9pt !important;
-}
-
 toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     -moz-window-dragging: no-drag !important;
 }
@@ -364,6 +360,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
 #urlbar {
     --urlbar-height: 24.00px !important;
+    font-size: 9pt !important;
 
     top: 0 !important;
     max-height: var(--urlbar-height) !important;

@@ -21,11 +21,6 @@ function createCommandBar() {
                 for (var p in props) {
                     toolbaritem.setAttribute(p, props[p]);
                 }
-
-                var helpButton = aDocument.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'toolbarbutton');
-                helpButton.id = 'cBHelpButton';
-                helpButton.setAttribute('onclick', 'PrintUtils.togglePrintPreview(gBrowser.selectedBrowser.browsingContext);');
-                toolbaritem.appendChild(helpButton);
                 
                 return toolbaritem;
             }

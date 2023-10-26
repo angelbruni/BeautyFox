@@ -1,0 +1,106 @@
+window {
+  background: transparent !important;
+  -webkit-appearance: auto !important;
+     -moz-appearance: auto !important;
+          appearance: auto !important;
+  -moz-default-appearance: -moz-win-borderless-glass !important;
+}
+window .page {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+}
+window h1 {
+  font-size: 12pt !important;
+  color: rgb(0, 51, 153);
+  margin-bottom: 17px;
+}
+window > div > hbox:first-child {
+  align-items: center;
+  -moz-window-dragging: drag !important;
+}
+window button.navBackButton {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  height: 30px;
+  width: 30px;
+  background-size: 30px;
+  background-image: url(chrome://userchrome/content/windows/Navigation_BackButton_Normal.ico);
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+  background-color: transparent;
+  border: 0;
+  margin-right: 8px;
+}
+window button.navBackButton[disabled=true] {
+  pointer-events: none;
+  background-image: url(chrome://userchrome/content/windows/Navigation_BackButton_Disabled.ico);
+}
+window button.navBackButton:not([disabled]):hover {
+  background-image: url(chrome://userchrome/content/windows/Navigation_BackButton_Hot.ico);
+}
+window button.navBackButton:not([disabled]):active {
+  background-image: url(chrome://userchrome/content/windows/Navigation_BackButton_Pressed.ico);
+}
+window #contentArea {
+  flex: 1;
+  background: white;
+  outline: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  margin: 1px;
+  border-radius: 1px;
+}
+window toolbarbutton.commandLinkButton {
+  width: 100%;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  padding: 9px 6px;
+}
+window toolbarbutton.commandLinkButton .commandLinkButtonThumbnail {
+  max-width: 165px;
+  max-height: 165px;
+  margin-bottom: 5px;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.5);
+}
+window toolbarbutton.commandLinkButton .toolbarbutton-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+}
+window toolbarbutton.commandLinkButton .title {
+  text-align: left;
+  font-size: 12pt !important;
+  color: rgb(21, 28, 85);
+}
+window .pageContent {
+  padding: 24px 38px;
+  flex: 1;
+}
+window .pageContent > hbox:first-child {
+  margin-top: 16px;
+}
+window .pageFooter {
+  justify-content: end;
+  align-items: center;
+  height: 41px;
+  border-top: 1px solid rgb(223, 223, 223);
+  background-color: rgb(240, 240, 240);
+  padding: 0 6px;
+}
+window .pageFooter button {
+  min-width: 64px;
+  width: 0;
+  height: 23px;
+  justify-content: center;
+  align-items: center;
+}
+window .pageFooter button > hbox {
+  display: none;
+}/*# sourceMappingURL=firstStartup.css.map */

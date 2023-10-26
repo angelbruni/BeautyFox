@@ -90,10 +90,6 @@ window[lang=ja] {
   background-repeat: no-repeat !important;
 }
 
-* {
-  font-size: 9pt !important;
-}
-
 toolbar:not([nowindowdrag=true], [customizing=true]) {
   -moz-window-dragging: no-drag !important;
 }
@@ -330,6 +326,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 
 #urlbar {
   --urlbar-height: 24.00px !important;
+  font-size: 9pt !important;
   top: 0 !important;
   max-height: var(--urlbar-height) !important;
 }
@@ -2371,10 +2368,6 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 
 #cBPrintButton {
   list-style-image: url("chrome://global/skin/icons/print.svg");
-}
-
-#cBHelpButton {
-  list-style-image: url("chrome://global/skin/icons/help.svg");
 }
 
 #cBPageButton::before {

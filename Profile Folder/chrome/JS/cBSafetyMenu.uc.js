@@ -1,6 +1,6 @@
 var cBSafetyMenu = {
-    autohideEmptySubDirs: true,
-    moveSubDirstoBottom: false,
+    id: 'cBSafetyMenu',
+    name: 'Safety',
     items: [
         {
             type: 'app',
@@ -81,12 +81,12 @@ var cBSafetyMenu = {
     _externalAppPopup: null,
     _isready: false,
     init: function() {
-        this.handleRelativePath(this.getAllApps());
         const XULNS = 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul';
     
         var ExternalSafetyBtn = document.createElementNS(XULNS, 'toolbarbutton');
-        ExternalSafetyBtn.id = "cBSafetyMenuButton";
-        ExternalSafetyBtn.setAttribute("label", "Safety");
+        ExternalSafetyBtn.id = cBSafetyMenu.id + 'Button';
+        ExternalSafetyBtn.setAttribute("label", cBSafetyMenu.name);
+        ExternalSafetyBtn.style.listStyleImage = cBSafetyMenu.image;
         ExternalSafetyBtn.setAttribute("onclick", "event.preventDefault();event.stopPropagation();");
         ExternalSafetyBtn.setAttribute("type", "menu");
         ExternalSafetyBtn.setAttribute("removable", "true");
@@ -94,7 +94,7 @@ var cBSafetyMenu = {
         document.getElementById("nav-bar-customization-target").appendChild(ExternalSafetyBtn);
     
         var ExternalSafetyPopup = document.createElementNS(XULNS, 'menupopup');
-        ExternalSafetyPopup.setAttribute('id', 'cBSafetyMenuPopUp');
+        ExternalSafetyPopup.setAttribute('id', cBSafetyMenu.id + 'PopUp');
         ExternalSafetyPopup.setAttribute('position', 'bottomright topright');
         this._externalAppPopup = ExternalSafetyPopup;
         ExternalSafetyBtn.appendChild(ExternalSafetyPopup);
@@ -145,26 +145,6 @@ var cBSafetyMenu = {
                 ExternalSafetyPopup.appendChild(document.createXULElement('menuseparator'));
             }
         }
-    
-        if (this.autohideEmptySubDirs) {
-            for (var i = 0; i < ExternalSafetyPopup.childNodes.length; i++) {
-                var childNode = ExternalSafetyPopup.childNodes[i];
-                if (childNode.localName === 'menu' && !childNode.hasChildNodes()) {
-                    childNode.setAttribute('hidden', 'true');
-                }
-            }
-        }
-    
-        if (this.moveSubDirstoBottom) {
-            let i = ExternalSafetyPopup.childNodes.length;
-            while (i-- !== 0) {
-                if (ExternalSafetyPopup.firstChild.localName === 'menu') {
-                    ExternalSafetyPopup.appendChild(ExternalSafetyPopup.firstChild);
-                } else {
-                    break;
-                }
-            }
-        }
         this._isready = true;
     },
 
@@ -178,41 +158,6 @@ var cBSafetyMenu = {
             }
         }
         return apps;
-    },
-
-    handleRelativePath: function(apps) {
-        for (var i = 0; i < apps.length; i++) {
-            if (apps[i].path) {
-                apps[i].path = apps[i].path.replace(/\//g, '\\').toLocaleLowerCase();
-                var ffdir = Components.classes['@mozilla.org/file/directory_service;1'].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile).path;
-                if (/^(\\)/.test(apps[i].path)) {
-                    apps[i].path = ffdir + apps[i].path;
-                }
-            }
-        }
-    },
-
-    exec: function(path, args) {
-        args = args || [];
-        var args_t = args.slice(0);
-        for (var i = 0; i < args_t.length; i++) {
-            args_t[i] = args_t[i].replace(/%u/g, gBrowser.currentURI.spec);
-        }
-
-        var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
-        file.initWithPath(path);
-        if (!file.exists()) {
-            alert('Datei nicht gefunden: ' + path);
-            return;
-        }
-
-        if (!file.isExecutable()) {
-            file.launch();
-        } else {
-            var process = Cc['@mozilla.org/process/util;1'].createInstance(Ci.nsIProcess);
-            process.init(file);
-            process.run(false, args_t, args_t.length);
-        }
     },
 };
 

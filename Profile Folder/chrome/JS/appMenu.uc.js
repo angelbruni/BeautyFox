@@ -1,6 +1,4 @@
 var appMenu = {
-    autohideEmptySubDirs: true,
-    moveSubDirstoBottom: false,
     items: [
         {
             type: 'subdir',
@@ -183,7 +181,6 @@ var appMenu = {
     _externalAppPopup: null,
     _isready: false,
     init: function() {
-        this.handleRelativePath(this.getAllApps());
         const XULNS = 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul';
     
         var ExternalappMenuBtn = document.createElementNS(XULNS, 'toolbarbutton');
@@ -248,27 +245,6 @@ var appMenu = {
                 ExternalappMenuPopup.appendChild(document.createXULElement('menuseparator'));
             }
         }
-    
-        if (this.autohideEmptySubDirs) {
-            for (var i = 0; i < ExternalappMenuPopup.childNodes.length; i++) {
-                var childNode = ExternalappMenuPopup.childNodes[i];
-                if (childNode.localName === 'menu' && !childNode.hasChildNodes()) {
-                    childNode.setAttribute('hidden', 'true');
-                }
-            }
-        }
-    
-        if (this.moveSubDirstoBottom) {
-            let i = ExternalappMenuPopup.childNodes.length;
-            while (i-- !== 0) {
-                if (ExternalappMenuPopup.firstChild.localName === 'menu') {
-                    ExternalappMenuPopup.appendChild(ExternalappMenuPopup.firstChild);
-                } else {
-                    break;
-                }
-            }
-        }
-        this._isready = true;
     },
 
     getAllApps: function() {
@@ -281,41 +257,6 @@ var appMenu = {
             }
         }
         return apps;
-    },
-
-    handleRelativePath: function(apps) {
-        for (var i = 0; i < apps.length; i++) {
-            if (apps[i].path) {
-                apps[i].path = apps[i].path.replace(/\//g, '\\').toLocaleLowerCase();
-                var ffdir = Components.classes['@mozilla.org/file/directory_service;1'].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile).path;
-                if (/^(\\)/.test(apps[i].path)) {
-                    apps[i].path = ffdir + apps[i].path;
-                }
-            }
-        }
-    },
-
-    exec: function(path, args) {
-        args = args || [];
-        var args_t = args.slice(0);
-        for (var i = 0; i < args_t.length; i++) {
-            args_t[i] = args_t[i].replace(/%u/g, gBrowser.currentURI.spec);
-        }
-
-        var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
-        file.initWithPath(path);
-        if (!file.exists()) {
-            alert('Datei nicht gefunden: ' + path);
-            return;
-        }
-
-        if (!file.isExecutable()) {
-            file.launch();
-        } else {
-            var process = Cc['@mozilla.org/process/util;1'].createInstance(Ci.nsIProcess);
-            process.init(file);
-            process.run(false, args_t, args_t.length);
-        }
     },
 };
 

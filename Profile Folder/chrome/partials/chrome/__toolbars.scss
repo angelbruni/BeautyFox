@@ -229,10 +229,6 @@
     list-style-image: url("chrome://global/skin/icons/print.svg");
 }
 
-#cBHelpButton {
-    list-style-image: url("chrome://global/skin/icons/help.svg");
-}
-
 #cBPageButton {
     &::before {
         content: attr(label);

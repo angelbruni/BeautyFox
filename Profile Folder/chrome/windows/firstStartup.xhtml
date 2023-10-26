@@ -1,0 +1,130 @@
+<?xml version="1.0"?> <!-- -*- Mode: HTML -*- -->
+
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://userchrome/content/windows/firstStartup.css" type="text/css"?>
+
+
+<window xmlns:html="http://www.w3.org/1999/xhtml"
+		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+		id="firstStartup"
+		windowtype="navigator:browser"
+		width="612"
+		height="422"
+		role="dialog"
+		chromemargin="-1,3,3,3">
+		<button style="margin-top: -20px; position: absolute; right: 0; top: 0; padding: 0; appearance: none;" oncommand="window.close();">Close</button>
+
+
+		<hbox style="align-items: center; margin-bottom: 3px; -moz-window-dragging: drag !important;">
+			<button class="navBackButton" id="backButton" disabled="true"></button>
+			<image style="margin-left: 1px; height: 16px; width: 16px;" src="chrome://userchrome/content/windows/firstStartup.png"/>
+			<label style="margin-top: 4px; margin-left: 5px; text-shadow: 0px 0px 8px rgb(255, 255, 255), 0px 0px 8px rgb(255, 255, 255), 0px 0px 8px rgb(255, 255, 255, 0.5);">
+				BeautyFox
+			</label>
+		</hbox>
+		<vbox id="contentArea">
+			<!-- Welcome -->
+			<html:div id="page0" class="page">
+				<vbox class="pageContent">
+					<h1>Welcome to BeautyFox!</h1>
+					<hbox>
+						<p>This project aims to revive the clean, minimalist essence of internet browsing, prioritizing elegance. With a streamlined interface, BeautyFox offers users a refreshing escape from the overwhelming complexity of modern browsers.</p>
+					</hbox>
+				</vbox>
+				<hbox class="pageFooter">
+					<button onclick="showPage(1)">Next</button>
+					<button oncommand="window.close()">Cancel</button>
+				</hbox>
+			</html:div>
+			<!-- Select appearance -->
+			<html:div id="page1" class="page">
+				<vbox class="pageContent">
+					<h1>Choose your preferred appearance</h1>
+					<hbox>
+						<toolbarbutton class="commandLinkButton" onclick="showPage(3)">
+							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/IE9Beta.png" alt=""></image>
+							<hbox>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<label class="title">Internet Explorer 9 Beta</label>
+							</hbox>
+						</toolbarbutton>
+						<toolbarbutton class="commandLinkButton" onclick="showPage(3)">
+							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/IE9.png" alt=""></image>
+							<hbox>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<label class="title">Internet Explorer 9</label>
+							</hbox>
+						</toolbarbutton>
+						<toolbarbutton class="commandLinkButton" onclick="showPage(2)">
+							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/IE10.png" alt=""></image>
+							<hbox>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<label class="title">Internet Explorer 10+</label>
+							</hbox>
+						</toolbarbutton>
+					</hbox>
+				</vbox>
+				<hbox class="pageFooter">
+					<button oncommand="window.close()">Cancel</button>
+				</hbox>
+			</html:div>
+			<!-- IE10+ specific features -->
+			<html:div id="page2" class="page">
+				<vbox class="pageContent">
+					<h1>Select Internet Explorer 10+ specific features</h1>
+					<hbox>
+						
+					</hbox>
+				</vbox>
+				<hbox class="pageFooter">
+					<button onclick="showPage(3)">Next</button>
+					<button oncommand="window.close()">Cancel</button>
+				</hbox>
+			</html:div>
+			<!-- Additional options -->
+			<html:div id="page3" class="page">
+				<vbox class="pageContent">
+					<h1>Additional options</h1>
+					<vbox>
+						<input type="checkbox" name="" id=""/>
+						<checkbox id="hideUnifiedExtensions" label="Hide extensions button"/>
+						<checkbox id="tabsOnNavRow" label="Show tabs on the same row as the navigation bar"/>
+						<checkbox id="showStatusBar" label="Show status bar"/>
+						<checkbox id="showDownloadProgress" label="Hide download progress in download button"/>
+						<checkbox id="customColouredNavButtons" label="Enable custom color for navigation buttons"/>
+					</vbox>
+				</vbox>
+				<hbox class="pageFooter">
+					<button onclick="showPage(4)">Next</button>
+					<button oncommand="window.close()">Cancel</button>
+				</hbox>
+			</html:div>
+			<!-- Thank you! -->
+			<html:div id="page4" class="page">
+				<vbox class="pageContent">
+					<h1>Thank you for choosing BeautyFox!</h1>
+					<p style="margin-bottom: 17px;">To apply the changes you need to restart Firefox.</p>
+					<vbox>
+						<toolbarbutton class="commandLinkButton" oncommand="_ucUtils.restart(true);">
+							<hbox>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<label class="title">Restart now</label>
+							</hbox>
+						</toolbarbutton>
+						<toolbarbutton class="commandLinkButton" oncommand="window.close();">
+							<hbox>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<label class="title">Restart later</label>
+							</hbox>
+						</toolbarbutton>
+					</vbox>
+				</vbox>
+				<hbox class="pageFooter">
+					
+				</hbox>
+			</html:div>
+		</vbox>
+
+		<script src="chrome://userchrome/content/windows/script.js"></script>
+</window>

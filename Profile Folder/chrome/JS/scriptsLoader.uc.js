@@ -1,3 +1,9 @@
+function openBeautyFoxWizardWindow() {
+    var features = "chrome,centerscreen,resizeable=no,dependent";
+
+    window.openDialog('chrome://userchrome/content/windows/firstStartup.xhtml', "First startup", features); 
+}
+
 function executeFunctions() {
     console.info("Found 12 functions. Attempting to execute.");
 
@@ -25,6 +31,7 @@ function executeFunctions() {
     console.log("createCBHomeButton() function from moveNotificationPopUps executed.");
     createCBPrintButton();
     console.log("createCBPrintButton() function from moveNotificationPopUps executed.");
+    openBeautyFoxWizardWindow();
     console.info("Functions were executed.");
 }
 
