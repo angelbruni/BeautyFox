@@ -8,6 +8,34 @@
     }
 }
 
+#suggestedsites_bruni_com-BAP {
+    list-style-image: url('images/iexplore_16.png') !important;
+    padding: 3px !important;
+
+    &::after {
+        content: url(images/dropdown.png);
+        margin-bottom: 6px;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+
+    &[open="true"] {
+        &::after,
+        * {
+            transform: translateX(1px) translateY(1px);
+        }
+    }
+
+    .toolbarbutton-badge-stack {
+        padding: 0 !important;
+        margin-inline-end: 4px;
+    }
+
+    .toolbarbutton-text {
+        padding: 0 !important;
+    }
+}
+
 #PersonalToolbar {
     toolbaritem:first-of-type {
         margin-right: 0 !important;
@@ -15,6 +43,16 @@
     
     toolbarbutton {
         appearance: auto !important;
+    }
+
+    #suggestedsites_bruni_com-BAP {
+        align-items: center !important;
+
+        .toolbarbutton-text {
+            display: block !important;
+            padding-top: 0 !important;
+            min-height: 0 !important;
+        }
     }
 }
 
@@ -180,6 +218,7 @@
     #urlbar-zoom-button {
         display: block !important;
         position: fixed !important;
+        font-size: 9pt !important;
         right: 46px !important;
         bottom: 2px !important;
         z-index: 1 !important;
