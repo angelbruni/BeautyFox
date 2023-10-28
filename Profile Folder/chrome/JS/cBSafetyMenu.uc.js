@@ -7,6 +7,7 @@ var cBSafetyMenu = {
             id: 'cBSafety_deleteBrowsingHistory',
             name: 'Delete browsing history...',
             image: 'chrome://devtools/skin/images/clear.svg',
+            accelText: 'Ctrl+Shift+Del',
             command: 'Sanitizer.showUI(window);',
         },
         {
@@ -14,6 +15,7 @@ var cBSafetyMenu = {
             id: 'cBSafety_inPrivateBrowsing',
             name: 'InPrivate Browsing',
             image: 'chrome://browser/skin/privateBrowsing.svg',
+            accelText: 'Ctrl+Shift+P',
             command: 'OpenBrowserWindow({private: true});',
         },
         {
@@ -68,19 +70,21 @@ var cBSafetyMenu = {
                 },
             ]
         },
-        //{
-        //    type: 'separator',
-        //},
-        //{
-        //    type: 'app',
-        //    id: 'cBSafety_windowsUpdate',
-        //    name: 'Windows Update',
-        //},
+        {
+            type: 'separator',
+        },
+        {
+            type: 'app',
+            id: 'cBSafety_windowsUpdate',
+            name: 'Windows Update',
+            path: '\\chrome\\shortcuts\\windowsUpdate.lnk'
+        },
     ],
     
     _externalAppPopup: null,
     _isready: false,
     init: function() {
+        this.handleRelativePath(this.getAllApps());
         const XULNS = 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul';
     
         var ExternalSafetyBtn = document.createElementNS(XULNS, 'toolbarbutton');
@@ -125,6 +129,11 @@ var cBSafetyMenu = {
                         appItem.setAttribute('id', subItem.id);
                         appItem.setAttribute('image', subItem.image);
                         appItem.setAttribute('oncommand', subItem.command);
+
+                        if (subItem.accelText) {
+                            appItem.setAttribute('acceltext', subItem.accelText);
+                        }
+
                         subDirPopup.appendChild(appItem);
                     } else if (subItem.type === 'separator') {
                         subDirPopup.appendChild(document.createXULElement('menuseparator'));
@@ -139,7 +148,25 @@ var cBSafetyMenu = {
                 appsItems.setAttribute('id', item.id);
                 appsItems.setAttribute('label', item.name);
                 appsItems.setAttribute('image', item.image);
-                appsItems.setAttribute('oncommand', item.command);
+                if (item.path !== undefined && item.path !== null) {
+                    var escapedPath = item.path.replace(/\\/g, '\\\\'); // Escape backslashes in item.path
+                    
+                    // Check if item.args is defined, if not, set it to an empty array
+                    var argsToEscape = item.args || [];
+                
+                    // Escape backslashes in each arg and create escapedArgs
+                    var escapedArgs = JSON.stringify(argsToEscape.map(arg => arg.replace(/\\/g, '\\\\')));
+                    
+                    appsItems.setAttribute('oncommand', 'cBSafetyMenu.exec("' + escapedPath + '", ' + escapedArgs + ');');
+                } else {
+                    console.error('item.path is undefined or null:', item);
+                    appsItems.setAttribute('oncommand', item.command);
+                }
+
+                if (item.accelText) {
+                    appsItems.setAttribute('acceltext', item.accelText)
+                }
+
                 ExternalSafetyPopup.appendChild(appsItems);
             } else if (item.type === 'separator') {
                 ExternalSafetyPopup.appendChild(document.createXULElement('menuseparator'));
@@ -158,6 +185,41 @@ var cBSafetyMenu = {
             }
         }
         return apps;
+    },
+
+    handleRelativePath: function(items) {
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].path) {
+                items[i].path = items[i].path.replace(/\//g, '\\').toLocaleLowerCase();
+                var ffdir = Components.classes['@mozilla.org/file/directory_service;1'].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile).path;
+                if (/^(\\)/.test(items[i].path)) {
+                    items[i].path = ffdir + items[i].path;
+                }
+            }
+        }
+    },
+
+    exec: function(path, args) {
+        args = args || [];
+        var args_t = args.slice(0);
+        for (var i = 0; i < args_t.length; i++) {
+            args_t[i] = args_t[i].replace(/%u/g, gBrowser.currentURI.spec);
+        }
+
+        var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
+        file.initWithPath(path);
+        if (!file.exists()) {
+            alert('File not found: ' + path);
+            return;
+        }
+
+        if (!file.isExecutable()) {
+            file.launch();
+        } else {
+            var process = Cc['@mozilla.org/process/util;1'].createInstance(Ci.nsIProcess);
+            process.init(file);
+            process.run(false, args_t, args_t.length);
+        }
     },
 };
 

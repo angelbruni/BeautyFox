@@ -8,6 +8,18 @@
     }
 }
 
+#history-menu {
+    display: none !important;
+}
+
+#bookmarksMenu {
+    .menubar-text {
+        &::before {
+            content: 'Favorites' !important;
+        }
+    }
+}
+
 #suggestedsites_bruni_com-BAP {
     list-style-image: url('images/iexplore_16.png') !important;
     padding: 3px !important;
@@ -19,9 +31,11 @@
         margin-right: 3px;
     }
 
+    &:active,
     &[open="true"] {
         &::after,
-        * {
+        .toolbarbutton-icon,
+        .toolbarbutton-text {
             transform: translateX(1px) translateY(1px);
         }
     }
@@ -320,6 +334,86 @@
                 &::before {
                     content: '';
                     background-image: url('images/newWindow.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+
+        > #cBPage_cut {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/cut.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+        
+        > #cBPage_copy {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/copy.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+
+        > #cBPage_paste {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/paste.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+        
+        > #cBPage_eMailWindowsLive {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/windowsLive.ico') !important;
                     background-size: 16px;
                     background-position: center;
                     background-repeat: no-repeat;

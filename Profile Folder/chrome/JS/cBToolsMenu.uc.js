@@ -38,6 +38,7 @@ var cBToolsMenu = {
             type: 'app',
             id: 'cBTools_viewDownloads',
             name: 'View downloads',
+            accelText: 'Ctrl+J',
             command: 'BrowserDownloadsUI();',
         },
         {
@@ -71,6 +72,7 @@ var cBToolsMenu = {
             id: 'cBTools_fullScreen',
             name: 'Full screen',
             image: 'chrome://browser/skin/fullscreen.svg',
+            accelText: 'F11',
             command: 'BrowserFullScreen();',
         },
         {
@@ -210,6 +212,11 @@ var cBToolsMenu = {
                         appItem.setAttribute('id', subItem.id);
                         appItem.setAttribute('image', subItem.image);
                         appItem.setAttribute('oncommand', subItem.command);
+
+                        if (subItem.accelText) {
+                            appItem.setAttribute('acceltext', subItem.accelText);
+                        }
+
                         subDirPopup.appendChild(appItem);
                     } else if (subItem.type === 'separator') {
                         subDirPopup.appendChild(document.createXULElement('menuseparator'));
@@ -225,6 +232,11 @@ var cBToolsMenu = {
                 appsItems.setAttribute('label', item.name);
                 appsItems.setAttribute('image', item.image);
                 appsItems.setAttribute('oncommand', item.command);
+
+                if (item.accelText) {
+                    appsItems.setAttribute('acceltext', item.accelText)
+                }
+
                 ExternalToolsPopup.appendChild(appsItems);
             } else if (item.type === 'separator') {
                 ExternalToolsPopup.appendChild(document.createXULElement('menuseparator'));

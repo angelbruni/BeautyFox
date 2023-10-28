@@ -7,34 +7,49 @@ var cBPageMenu = {
             id: 'cBPage_newWindow',
             name: 'New Window',
             image: 'chrome://browser/skin/window.svg',
+            accelText: 'Ctrl+N',
             command: 'OpenBrowserWindow();',
         },
         //{
         //    type: 'app',
         //    name: 'Add site to Start Menu',
         //},
-        //{
-        //    type: 'separator',
-        //},
-        //{
-        //    type: 'app',
-        //    name: 'Cut',
-        //},
-        //{
-        //    type: 'app',
-        //    name: 'Copy',
-        //},
-        //{
-        //    type: 'app',
-        //    name: 'Paste',
-        //},
-        //{
-        //    type: 'separator',
-        //},
-        //{
-        //    type: 'app',
-        //    name: 'E-mail with Windows Live',
-        //},
+        {
+            type: 'separator',
+        },
+        {
+            type: 'app',
+            id: 'cBPage_cut',
+            name: 'Cut',
+            image: 'chrome://browser/skin/edit-cut.svg',
+            accelText: 'Ctrl+X',
+            command: "goDoCommand('cmd_cut')"
+        },
+        {
+            type: 'app',
+            id: 'cBPage_copy',
+            name: 'Copy',
+            image: 'chrome://devtools/skin/images/copy.svg',
+            accelText: 'Ctrl+C',
+            command: "goDoCommand('cmd_copy')"
+        },
+        {
+            type: 'app',
+            id: 'cBPage_paste',
+            name: 'Paste',
+            image: 'chrome://browser/skin/edit-paste.svg',
+            accelText: 'Ctrl+V',
+            command: "goDoCommand('cmd_paste')"
+        },
+        {
+            type: 'separator',
+        },
+        {
+            type: 'app',
+            id: 'cBPage_eMailWindowsLive',
+            name: 'E-mail with Windows Live',
+            command: 'mailWithWindowsLive()'
+        },
         //{
         //    type: 'app',
         //    name: 'Translate with Bing',
@@ -48,16 +63,24 @@ var cBPageMenu = {
         {
             type: 'separator',
         },
-        //{
-        //    type: 'subdir',
-        //    name: 'All Accelerators',
-        //    items: [],
-        //},
         {
-            type: 'app',
+            type: 'subdir',
             id: 'cBPage_allAccelerators',
             name: 'All Accelerators',
-            command: 'BrowserOpenAddonsMgr();',
+            items: [
+                {
+                    type: 'app',
+                    id: 'cBPage_findMoreAccelerators',
+                    name: 'Find more Accelerators',
+                    command: 'findMoreAccelerators();',
+                },
+                {
+                    type: 'app',
+                    id: 'cBPage_manageAccelerators',
+                    name: 'Manage Accelerators...',
+                    command: 'BrowserOpenAddonsMgr();',
+                }
+            ],
         },
         {
             type: 'separator',
@@ -67,6 +90,7 @@ var cBPageMenu = {
             id: 'cBPage_saveAs',
             name: 'Save as...',
             image: 'chrome://browser/skin/save.svg',
+            accelText: 'Ctrl+S',
             command: 'saveBrowser(gBrowser.selectedBrowser);',
         },
         //{
@@ -108,12 +132,14 @@ var cBPageMenu = {
                     type: 'app',
                     id: 'cBPage_zoomIn',
                     name: 'Zoom in',
+                    accelText: 'Ctrl +',
                     command: 'FullZoom.enlarge()',
                 },
                 {
                     type: 'app',
                     id: 'cBPage_zoomOut',
                     name: 'Zoom out',
+                    accelText: 'Ctrl -',
                     command: 'FullZoom.reduce()',
                 },
                 {
@@ -147,6 +173,7 @@ var cBPageMenu = {
                     type: 'app',
                     id: 'cBPage_setZoom100',
                     name: '100%',
+                    accelText: 'Ctrl+0',
                     command: 'FullZoom.setZoom(1)',
                 },
                 {
@@ -167,7 +194,6 @@ var cBPageMenu = {
                 //{
                 //    type: 'app',
                 //    name: 'Custom...',
-                //    command: 'FullZoom.reduce()',
                 //},
             ],
         },
@@ -204,6 +230,7 @@ var cBPageMenu = {
             type: 'app',
             id: 'cBPage_caretBrowsing',
             name: 'Caret browsing',
+            accelText: 'F7',
             command: 'gBrowser.toggleCaretBrowsing()',
         },
         {
@@ -226,6 +253,7 @@ var cBPageMenu = {
     _externalAppPopup: null,
     _isready: false,
     init: function() {
+        this.handleRelativePath(this.getAllApps());
         const XULNS = 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul';
     
         var ExternalPageBtn = document.createElementNS(XULNS, 'toolbarbutton');
@@ -270,6 +298,11 @@ var cBPageMenu = {
                         appItem.setAttribute('id', subItem.id);
                         appItem.setAttribute('image', subItem.image);
                         appItem.setAttribute('oncommand', subItem.command);
+
+                        if (subItem.accelText) {
+                            appItem.setAttribute('acceltext', subItem.accelText);
+                        }
+                        
                         subDirPopup.appendChild(appItem);
                     } else if (subItem.type === 'separator') {
                         subDirPopup.appendChild(document.createXULElement('menuseparator'));
@@ -284,7 +317,25 @@ var cBPageMenu = {
                 appsItems.setAttribute('id', item.id);
                 appsItems.setAttribute('label', item.name);
                 appsItems.setAttribute('image', item.image);
-                appsItems.setAttribute('oncommand', item.command);
+                if (item.path !== undefined && item.path !== null) {
+                    var escapedPath = item.path.replace(/\\/g, '\\\\'); // Escape backslashes in item.path
+                    
+                    // Check if item.args is defined, if not, set it to an empty array
+                    var argsToEscape = item.args || [];
+                
+                    // Escape backslashes in each arg and create escapedArgs
+                    var escapedArgs = JSON.stringify(argsToEscape.map(arg => arg.replace(/\\/g, '\\\\')));
+                    
+                    appsItems.setAttribute('oncommand', 'cBPageMenu.exec("' + escapedPath + '", ' + escapedArgs + ');');
+                } else {
+                    console.error('item.path is undefined or null:', item);
+                    appsItems.setAttribute('oncommand', item.command);
+                }
+                
+                if (item.accelText) {
+                    appsItems.setAttribute('acceltext', item.accelText)
+                }
+
                 ExternalPagePopup.appendChild(appsItems);
             } else if (item.type === 'separator') {
                 ExternalPagePopup.appendChild(document.createXULElement('menuseparator'));
@@ -304,9 +355,51 @@ var cBPageMenu = {
         }
         return apps;
     },
+
+    handleRelativePath: function(items) {
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].path) {
+                items[i].path = items[i].path.replace(/\//g, '\\').toLocaleLowerCase();
+                var ffdir = Components.classes['@mozilla.org/file/directory_service;1'].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile).path;
+                if (/^(\\)/.test(items[i].path)) {
+                    items[i].path = ffdir + items[i].path;
+                }
+            }
+        }
+    },
+
+    exec: function(path, args) {
+        args = args || [];
+        var args_t = args.slice(0);
+        for (var i = 0; i < args_t.length; i++) {
+            args_t[i] = args_t[i].replace(/%u/g, gBrowser.currentURI.spec);
+        }
+
+        var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
+        file.initWithPath(path);
+        if (!file.exists()) {
+            alert('File not found: ' + path);
+            return;
+        }
+
+        if (!file.isExecutable()) {
+            file.launch();
+        } else {
+            var process = Cc['@mozilla.org/process/util;1'].createInstance(Ci.nsIProcess);
+            process.init(file);
+            process.run(false, args_t, args_t.length);
+        }
+    },
 };
 
 cBPageMenu.init();
+
+function mailWithWindowsLive() {
+    _ucUtils.loadURI(window,{
+        url: 'https://outlook.live.com/mail',
+        where: 'tab'
+    });
+}
 
 function translatePage() {
     // Get the current page URL
@@ -318,5 +411,12 @@ function translatePage() {
     _ucUtils.loadURI(window,{
         url: translatorUrl,
         where: "tab"
+    });
+}
+
+function findMoreAccelerators() {
+    _ucUtils.loadURI(window,{
+        url: 'https://addons.mozilla.org',
+        where: 'tab'
     });
 }

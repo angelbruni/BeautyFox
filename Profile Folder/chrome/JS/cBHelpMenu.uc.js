@@ -7,6 +7,7 @@ var cBHelpMenu = {
             type: 'app',
             id: 'cBHelp_internetExplorerHelp',
             name: 'Internet Explorer Help',
+            accelText: 'F1',
             command: "openHelpLink('firefox-help');",
         },
         {
@@ -97,6 +98,12 @@ var cBHelpMenu = {
                         appItem.setAttribute('label', subItem.name);
                         appItem.setAttribute('id', subItem.id);
                         appItem.setAttribute('image', subItem.image);
+                        appItem.setAttribute('oncommand', subItem.command);
+
+                        if (subItem.accelText) {
+                            appItem.setAttribute('acceltext', subItem.accelText);
+                        }
+
                         subDirPopup.appendChild(appItem);
                     } else if (subItem.type === 'separator') {
                         subDirPopup.appendChild(document.createXULElement('menuseparator'));
@@ -124,6 +131,10 @@ var cBHelpMenu = {
                 } else {
                     console.error('item.path is undefined or null:', item);
                     appsItems.setAttribute('oncommand', item.command);
+                }
+
+                if (item.accelText) {
+                    appsItems.setAttribute('acceltext', item.accelText)
                 }
                 
                 ExternalHelpPopup.appendChild(appsItems);

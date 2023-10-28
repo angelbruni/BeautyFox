@@ -292,6 +292,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 }
 
 #stop-reload-button {
+    justify-content: end;
     z-index: 3;
     
     > toolbarbutton {
@@ -406,6 +407,11 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         mask-position: var(--urlbar-fake-dropdown-mask-position);
         mask-repeat: no-repeat;
     }
+}
+
+#urlbar-input {
+    margin-right: -31px !important;
+    mask-image: none !important;
 }
 
 #favimginurlbar {
@@ -814,6 +820,10 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     #stop-reload-button {
         align-items: center;
         width: calc(var(--stop-reload-button_width) * 2);
+    }
+
+    #urlbar-go-button {
+        margin-right: 17px !important;
     }
 
     .toolbarbutton-icon,
@@ -1442,6 +1452,10 @@ findbar {
 
     #nav-bar {
         overflow: visible !important;
+
+        #urlbar-go-button {
+            margin-right: 0 !important;
+        }
     }
 
     #titlebar {
@@ -1470,11 +1484,6 @@ findbar {
     #urlbar-container + #stop-reload-button {
         margin-right: calc(-48px + 1px);
         transform: translateX(-48px);
-    }
-
-    #urlbar-container + #stop-reload-button.stop-reload-button-margin {
-        margin-right: calc(-25px + 1px);
-        transform: translateX(-25px);
     }
 
     #urlbar-go-button,
@@ -1558,6 +1567,11 @@ findbar {
             align-items: center;
             width: 22px;
         }
+
+        #urlbar-go-button {
+            margin-right: 0 !important;
+            margin-left: 5px !important;
+        }
     }
 
     #urlbar-input-container {
@@ -1566,7 +1580,11 @@ findbar {
 
     #urlbar-container + #stop-reload-button {
         margin-right: -22px;
-        transform: translateX(-21px);
+        transform: translateX(-24px);
+    }
+
+    .toolbarbutton-animatable-box {
+        display: none !important;
     }
 
     toolbarbutton {

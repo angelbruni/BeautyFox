@@ -285,6 +285,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 
 #stop-reload-button {
+  justify-content: end;
   z-index: 3;
 }
 #stop-reload-button > toolbarbutton {
@@ -379,6 +380,12 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
           mask-position: var(--urlbar-fake-dropdown-mask-position);
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
+}
+
+#urlbar-input {
+  margin-right: -31px !important;
+  -webkit-mask-image: none !important;
+          mask-image: none !important;
 }
 
 #favimginurlbar {
@@ -750,6 +757,9 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #nav-bar #stop-reload-button {
   align-items: center;
   width: calc(var(--stop-reload-button_width) * 2);
+}
+#nav-bar #urlbar-go-button {
+  margin-right: 17px !important;
 }
 #nav-bar .toolbarbutton-icon,
 #nav-bar .toolbarbutton-badge-stack {
@@ -1418,6 +1428,9 @@ findbar {
   #nav-bar {
     overflow: visible !important;
   }
+  #nav-bar #urlbar-go-button {
+    margin-right: 0 !important;
+  }
   #titlebar {
     position: relative;
   }
@@ -1439,10 +1452,6 @@ findbar {
   #urlbar-container + #stop-reload-button {
     margin-right: -47px;
     transform: translateX(-48px);
-  }
-  #urlbar-container + #stop-reload-button.stop-reload-button-margin {
-    margin-right: -24px;
-    transform: translateX(-25px);
   }
   #urlbar-go-button,
   .search-go-button {
@@ -1503,12 +1512,19 @@ findbar {
     align-items: center;
     width: 22px;
   }
+  #nav-bar #urlbar-go-button {
+    margin-right: 0 !important;
+    margin-left: 5px !important;
+  }
   #urlbar-input-container {
     padding-right: 22px !important;
   }
   #urlbar-container + #stop-reload-button {
     margin-right: -22px;
-    transform: translateX(-21px);
+    transform: translateX(-24px);
+  }
+  .toolbarbutton-animatable-box {
+    display: none !important;
   }
   toolbarbutton#home-button::after, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#bookmarks-sidebar-menu-button::after, toolbarbutton#PanelUI-menu-button::after, toolbarbutton#appMenuButton::after, toolbarbutton#unified-extensions-button::after, toolbarbutton#downloads-button::after {
     content: unset !important;
@@ -2089,10 +2105,6 @@ findbar {
 .tabbrowser-tab[selected=true] .tab-close-button {
   display: block;
 }
-.tabbrowser-tab:not([pinned]) {
-  max-width: 200px !important;
-  min-width: 45px !important;
-}
 .tabbrowser-tab:first-child .tab-background {
   border-left: 1px solid var(--tab-border-colour) !important;
 }
@@ -2121,6 +2133,15 @@ findbar {
 }
 .tabbrowser-tab .tab-close-button:active {
   background-color: #E10C0C !important;
+}
+
+.tab-loading-burst {
+  display: none !important;
+}
+
+.tabbrowser-tab[fadein]:not([pinned]):not([style*=max-width]) {
+  max-width: 200px !important;
+  min-width: 45px !important;
 }
 
 .tab-context-line {
@@ -2208,8 +2229,15 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   display: none;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  :root[sessionrestored] .tab-throbber[busy]::before {
+    content: unset !important;
+  }
+}
 .tab-throbber {
   background-image: url(images/throbber.png) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
   width: 16px !important;
   height: 16px !important;
   opacity: 1 !important;
@@ -2424,6 +2452,14 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     --toolbar-bgcolor: #f7f7f7 !important;
   }
 }
+#history-menu {
+  display: none !important;
+}
+
+#bookmarksMenu .menubar-text::before {
+  content: "Favorites" !important;
+}
+
 #suggestedsites_bruni_com-BAP {
   list-style-image: url("images/iexplore_16.png") !important;
   padding: 3px !important;
@@ -2434,8 +2470,11 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   margin-left: 3px;
   margin-right: 3px;
 }
-#suggestedsites_bruni_com-BAP[open=true]::after,
-#suggestedsites_bruni_com-BAP[open=true] * {
+#suggestedsites_bruni_com-BAP:active::after,
+#suggestedsites_bruni_com-BAP:active .toolbarbutton-icon,
+#suggestedsites_bruni_com-BAP:active .toolbarbutton-text, #suggestedsites_bruni_com-BAP[open=true]::after,
+#suggestedsites_bruni_com-BAP[open=true] .toolbarbutton-icon,
+#suggestedsites_bruni_com-BAP[open=true] .toolbarbutton-text {
   transform: translateX(1px) translateY(1px);
 }
 #suggestedsites_bruni_com-BAP .toolbarbutton-badge-stack {
@@ -2697,6 +2736,66 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   width: 16px;
 }
 #cBPageMenuButton > #cBPageMenuPopUp > #cBPage_newWindow > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_cut > .menu-iconic-left {
+  position: relative;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_cut > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/cut.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_cut > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_copy > .menu-iconic-left {
+  position: relative;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_copy > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/copy.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_copy > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_paste > .menu-iconic-left {
+  position: relative;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_paste > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/paste.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_paste > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_eMailWindowsLive > .menu-iconic-left {
+  position: relative;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_eMailWindowsLive > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/windowsLive.ico") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBPageMenuButton > #cBPageMenuPopUp > #cBPage_eMailWindowsLive > .menu-iconic-left > .menu-iconic-icon {
   display: none;
 }
 #cBPageMenuButton > #cBPageMenuPopUp > #cBPage_googleTranslate > .menu-iconic-left {
@@ -3248,37 +3347,39 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) :is(.menu-text, .menu
   --arrowpanel-menuitem-border-radius: 0 !important;
 }
 
-panel {
-  --panel-shadow: var(--pop-up_shadow) !important;
+/*panel {
+    --panel-shadow: var(--pop-up_shadow) !important;
 }
 
 .PanelUI-subView {
-  max-height: 100% !important;
-  min-height: 0 !important;
+    max-height: 100% !important;
+    min-height: 0 !important;
 }
 
-:is(menupopup, panel)[type=arrow] {
-  --panel-border-radius: 0 !important;
+:is(menupopup, panel)[type="arrow"] {
+    --panel-border-radius: 0 !important;
 }
 
 .cui-widget-panel {
-  --arrowpanel-padding: 0 !important;
-}
-.cui-widget-panel .panel-viewcontainer {
-  padding: 3px !important;
-  min-height: 0 !important;
+    --arrowpanel-padding: 0 !important;
+
+    .panel-viewcontainer {
+        padding: 3px !important;
+        min-height: 0 !important;
+    }
 }
 
 #appMenu-fxa-status2, #appMenu-fxa-separator {
-  display: none !important;
+    display: none !important;
 }
 
-#appMenu-protonMainView .subviewbutton:not(.subviewbutton-iconic, #appMenu-zoomReset-button2) {
-  min-height: 22px !important;
-  padding-inline-start: 30px !important;
-  padding-inline-end: 6px !important;
-}
-
+#appMenu-protonMainView {
+    .subviewbutton:not(.subviewbutton-iconic, #appMenu-zoomReset-button2) {
+        min-height: 22px !important;
+        padding-inline-start: 30px !important;
+        padding-inline-end: 6px !important;
+    }
+}*/
 .panel-footer {
   color-scheme: unset !important;
 }
@@ -3617,4 +3718,4 @@ panel {
 }
 .textbox-search-icons .textbox-search-clear:hover {
   list-style-image: url(images/clear-hover.svg) !important;
-}
+}/*# sourceMappingURL=userChrome.css.map */

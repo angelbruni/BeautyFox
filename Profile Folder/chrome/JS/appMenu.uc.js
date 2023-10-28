@@ -1,27 +1,51 @@
 var appMenu = {
     items: [
         {
-            type: 'subdir',
+            type: 'app',
             id: 'appMenu_print',
             name: 'Print',
-            items: [
-                //{
-                //    type: 'app',
-                //    id: 'appMenu_turnOffPopUpBlocker',
-                //    name: 'Turn off Pop-Up Blocker',
-                //},
-            ]
+            accelText: 'Ctrl+P',
+            command: 'PrintUtils.togglePrintPreview(gBrowser.selectedBrowser.browsingContext);'
         },
+        //{
+        //    type: 'subdir',
+        //    id: 'appMenu_print',
+        //    name: 'Print',
+        //    items: []
+        //},
         {
             type: 'subdir',
             id: 'appMenu_file',
             name: 'File',
             items: [
-                //{
-                //    type: 'app',
-                //    id: 'appMenu_turnOffPopUpBlocker',
-                //    name: 'Turn off Pop-Up Blocker',
-                //},
+                {
+                    type: 'app',
+                    id: 'appMenu_fullScreen',
+                    name: 'Full screen',
+                    accelText: 'F11',
+                    command: 'BrowserFullScreen();',
+                },
+                {
+                    type: 'app',
+                    id: 'appMenu_saveAs',
+                    name: 'Save as...',
+                    accelText: 'Ctrl+S',
+                    command: 'saveBrowser(gBrowser.selectedBrowser);',
+                },
+                {
+                    type: 'app',
+                    id: 'appMenu_find',
+                    name: 'Find on this page',
+                    accelText: 'Ctrl+F',
+                    command: "gLazyFindCommand('onFindCommand')"
+                },
+                {
+                    type: 'app',
+                    id: 'appMenu_caretBrowsing',
+                    name: 'Caret browsing',
+                    accelText: 'F7',
+                    command: 'gBrowser.toggleCaretBrowsing()',
+                },
             ]
         },
         {
@@ -33,12 +57,14 @@ var appMenu = {
                     type: 'app',
                     id: 'appMenu_zoomIn',
                     name: 'Zoom in',
+                    accelText: 'Ctrl +',
                     command: 'FullZoom.enlarge()',
                 },
                 {
                     type: 'app',
                     id: 'appMenu_zoomOut',
                     name: 'Zoom out',
+                    accelText: 'Ctrl -',
                     command: 'FullZoom.reduce()',
                 },
                 {
@@ -72,6 +98,7 @@ var appMenu = {
                     type: 'app',
                     id: 'appMenu_setZoom100',
                     name: '100%',
+                    accelText: 'Ctrl + 0',
                     command: 'FullZoom.setZoom(1)',
                 },
                 {
@@ -105,12 +132,14 @@ var appMenu = {
                     type: 'app',
                     id: 'appMenu_deleteBrowsingHistory',
                     name: 'Delete browsing history...',
+                    accelText: 'Ctrl + Shift + Del',
                     command: 'Sanitizer.showUI(window);',
                 },
                 {
                     type: 'app',
                     id: 'appMenu_inPrivateBrowsing',
                     name: 'InPrivate Browsing',
+                    accelText: 'Ctrl + Shift + P',
                     command: 'OpenBrowserWindow({private: true});',
                 },
                 {
@@ -147,6 +176,7 @@ var appMenu = {
             type: 'app',
             id: 'appMenu_viewDownloads',
             name: 'View downloads',
+            accelText: 'Ctrl + J',
             command: 'BrowserDownloadsUI();',
         },
         {
@@ -225,6 +255,11 @@ var appMenu = {
                         appItem.setAttribute('id', subItem.id);
                         appItem.setAttribute('image', subItem.image);
                         appItem.setAttribute('oncommand', subItem.command);
+
+                        if (subItem.accelText) {
+                            appItem.setAttribute('acceltext', subItem.accelText);
+                        }
+
                         subDirPopup.appendChild(appItem);
                     } else if (subItem.type === 'separator') {
                         subDirPopup.appendChild(document.createXULElement('menuseparator'));
@@ -240,6 +275,11 @@ var appMenu = {
                 appsItems.setAttribute('label', item.name);
                 appsItems.setAttribute('image', item.image);
                 appsItems.setAttribute('oncommand', item.command);
+
+                if (item.accelText) {
+                    appsItems.setAttribute('acceltext', item.accelText)
+                }
+
                 ExternalappMenuPopup.appendChild(appsItems);
             } else if (item.type === 'separator') {
                 ExternalappMenuPopup.appendChild(document.createXULElement('menuseparator'));
