@@ -80,11 +80,12 @@ var cBToolsMenu = {
             id: 'cBTools_toolbars',
             name: 'Toolbars',
             items: [
-                //{
-                //    type: 'app',
-                //    id: 'cBTools_menuBar',
-                //    name: 'Menu bar',
-                //},
+                {
+                    type: 'app',
+                    id: 'cBTools_menuBar',
+                    name: 'Menu bar',
+                    command: 'toggleMenuBar();' 
+                },
                 {
                     type: 'app',
                     id: 'cBTools_favoritesBar',
@@ -267,3 +268,17 @@ function reportUnsafeWebsite() {
         where: 'tab'
     });
 }
+
+
+
+function toggleMenuBar() {
+    const menuBar = document.getElementById("toolbar-menubar");
+    
+    if (menuBar) {
+        if (menuBar.getAttribute("autohide") === "true") {
+            menuBar.setAttribute("autohide", "false");
+        } else {
+            menuBar.setAttribute("autohide", "true");
+        }
+    }
+};

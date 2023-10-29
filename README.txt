@@ -5,8 +5,8 @@ Tested on: Windows 7, Windows 8.1/10 with the default theme and Aero themes with
 
 MAKE SURE THAT YOUR PROFILE HAS NOT BEEN MODIFIED BY OTHER THEMES IN THE PAST, AND IF SO, DELETE THE MODIFIED FILES OR CREATE A NEW PROFILE!
 
-Changelog b3.0.1
-- Fixed tabsOnNavRow tabs not having margin-left when maximised.
+Changelog b4.0
+- 
 
 
 
@@ -45,6 +45,7 @@ Instructions
 	- Boolean - BeautyFox.option.hideUnifiedExtensions	Hide the extensions button;
 	- Boolean - BeautyFox.option.tabsOnNavRow		Move tabs to navigation row;
 	- Boolean - BeautyFox.option.hideSettingsInPopUp	Hide the settings button in pop-up windows;
+	- Boolean - BeautyFox.option.userAccentColorNavButtons	Use user accent color in navigation buttons;	
 	- Boolean - BeautyFox.fix.fakeTitlebarAccentColor	Accent color in titlebar for Firefox 117+ and Windows 10+;
 	- Boolean - BeautyFox.appearance.IE9PreRelease		Use Internet Explorer 9 Pre-Release appearance;
 	- Boolean - BeautyFox.appearance.IE10			Use Internet Explorer 10 appearance (disable Internet Explorer 9 Pre-Release appearance first);

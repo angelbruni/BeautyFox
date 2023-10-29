@@ -1,6 +1,7 @@
 :root {
     --panel-border-color: #b4b4b4 !important;
     --urlbarView-subtract: 23px;
+    --urlbarView-min-width: 400px;
 }
 
 .urlbarView {
@@ -12,6 +13,18 @@
     width: calc(100% - 2 * (5px + var(--urlbar-container-padding)) - var(--urlbarView-subtract)) !important;
     min-width: var(--urlbarView-min-width) !important;
     border: 1px solid var(--panel-border-color) !important;
+}
+
+#urlbar-go-button,
+.search-go-button {
+    list-style-image: none !important;
+    background-image: url(images/go-mask.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 17px !important;
+    height: 22px !important;
+    border-radius: 0 !important;
+    opacity: 0.5;
 }
 
 .urlbarView-action {
@@ -53,6 +66,24 @@
 
 .urlbarView-url {
     color: #6d6d6d !important;
+    font-size: 9pt !important;
+}
+
+.urlbarView-no-wrap {
+    display: block !important;
+    
+}
+
+.urlbarView-overflowable[overflow],
+.urlbarView-url[overflow],
+.urlbarView-no-wrap {
+    overflow-x: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.urlbarView-overflowable[overflow],
+.urlbarView-url[overflow] {
+    mask-image: none !important;
 }
 
 .search-one-offs {
@@ -79,6 +110,10 @@
 }
 
 #urlbar-engine-one-off-item-history {
+    display: none !important;
+}
+
+#pageAction-urlbar-_testpilot-containers {
     display: none !important;
 }
 

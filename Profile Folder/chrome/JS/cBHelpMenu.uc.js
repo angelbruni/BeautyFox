@@ -36,6 +36,12 @@ var cBHelpMenu = {
         },
         {
             type: 'app',
+            id: 'cBHelp_aboutInternetExplorerIE11Win10',
+            name: 'About Internet Explorer',
+            command: 'callShellAboutWIE();',
+        },
+        {
+            type: 'app',
             id: 'appMenu_internetOptions',
             name: 'Internet options',
             command: 'openPreferences();',

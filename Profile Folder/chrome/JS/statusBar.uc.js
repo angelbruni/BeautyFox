@@ -40,10 +40,15 @@ var addStatusbar = {
 			addonsBar.setAttribute('lockiconsize','true');
 			addonsBar.setAttribute('class','toolbar-primary chromeclass-toolbar browser-toolbar customization-target');
 			statusbarContainer.appendChild(addonsBar);		
-			
 			CustomizableUI.registerArea('addonsBar', {legacy: true});
-		
 			CustomizableUI.registerToolbarNode(addonsBar);
+
+			var gripper = document.createElement('img');
+			gripper.id = 'gripper';
+			gripper.height = 16;
+			gripper.width = 16;
+			gripper.src = 'chrome://userchrome/content/images/Status_Gripper_BottomRight.ico';
+			statusbarContainer.appendChild(gripper);
 		}
 	} catch(e) {}
   }

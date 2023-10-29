@@ -77,7 +77,7 @@ var cBSafetyMenu = {
             type: 'app',
             id: 'cBSafety_windowsUpdate',
             name: 'Windows Update',
-            path: '\\chrome\\shortcuts\\windowsUpdate.lnk'
+            command: 'openWindowsUpdate()'
         },
     ],
     

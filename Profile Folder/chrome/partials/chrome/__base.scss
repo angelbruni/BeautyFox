@@ -3,6 +3,7 @@
     --urlbar-min-height: 24px !important;
     --urlbar-width: 28.83%;
     --urlbar-min-width: 198px;
+    --urlbarView-result-button-size: 16px !important;
     --tab-block-margin: 0 !important;
     --toolbarbutton-hover-background: transparent !important;
     --toolbarbutton-active-background: transparent !important;
@@ -83,8 +84,9 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
     &[sizemode="maximized"],
     &[sizemode="fullscreen"] {
-        #nav-bar {
-            padding-right: 3px;
+        //#nav-bar,
+        #endToolbar {
+            padding-right: 3px !important;
         }
 
         #PersonalToolbar,
@@ -130,7 +132,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
     &[sizemode="fullscreen"],
     &:not([tabsintitlebar="true"]) {
-        --titlebar-height: 2px;
+        --titlebar-height: 2px !important;
     }
 
     &[sizemode="fullscreen"] {
@@ -242,10 +244,10 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 }
 
 #nav-bar {
-    order: 1;
     background-color: transparent !important;
     padding-top: var(--titlebar-height-calc) !important;
     -moz-window-dragging: drag !important;
+    flex: 1 !important;
 }
 
 toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
@@ -277,18 +279,6 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             }
         }
     }
-}
-
-#urlbar-go-button,
-.search-go-button {
-    list-style-image: none !important;
-    background-image: url(images/go-mask.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 17px !important;
-    height: 22px !important;
-    border-radius: 0 !important;
-    opacity: 0.5;
 }
 
 #stop-reload-button {
@@ -646,6 +636,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 }
 
 #searchbar {
+    font-size: 9pt !important;
     position: relative;
 }
 
@@ -814,8 +805,9 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     }
 }
 
-#nav-bar {
-    padding-right: 5px;
+#nav-bar,
+#endToolbar {
+    //padding-right: 5px;
 
     #stop-reload-button {
         align-items: center;
@@ -1262,6 +1254,10 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     transform: translateX(calc((var(--stop-reload-button_width) * 2) * -1 - 2px));
 }
 
+.toolbarbutton-animatable-box {
+    display: none !important;
+}
+
 findbar {
     order: -1;
     margin-top: -1px;
@@ -1392,10 +1388,12 @@ findbar {
         display: none !important;
     }
 }
+
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
     #urlbar-container {
         flex: unset !important;
-        width: var(--urlbar-width) !important;
+        //width: var(--urlbar-width) !important;
+        width: calc(28vw + 7px) !important;
         min-width: var(--urlbar-min-width) !important;
     }
 
@@ -1405,6 +1403,10 @@ findbar {
 
     #wrapper-search-container {
         display: none !important;
+    }
+
+    #nav-bar {
+        flex: unset !important;
     }
 }
 
@@ -1545,6 +1547,11 @@ findbar {
     }
 }
 
+#appMenu_aboutInternetExplorerIE11Win10,
+#cBHelp_aboutInternetExplorerIE11Win10 {
+    display: none !important;
+}
+
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     :root {
         --appearance_IE10: 1 !important;
@@ -1583,10 +1590,6 @@ findbar {
         transform: translateX(-24px);
     }
 
-    .toolbarbutton-animatable-box {
-        display: none !important;
-    }
-
     toolbarbutton {
         &#home-button,
         &#bookmarks-menu-button,
@@ -1619,6 +1622,16 @@ findbar {
         @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
             :root {
                 --appearance_IE11Win10: 1 !important;
+            }
+
+            #appMenu_aboutInternetExplorerIE11Win10,
+            #cBHelp_aboutInternetExplorerIE11Win10 {
+                display: flex !important;
+            }
+
+            #appMenu_aboutInternetExplorer,
+            #cBHelp_aboutInternetExplorer {
+                display: none !important;
             }
 
             #browser {

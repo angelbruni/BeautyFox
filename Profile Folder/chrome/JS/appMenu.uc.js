@@ -206,6 +206,12 @@ var appMenu = {
             name: 'About Internet Explorer',
             command: 'openAboutDialog();',
         },
+        {
+            type: 'app',
+            id: 'appMenu_aboutInternetExplorerIE11Win10',
+            name: 'About Internet Explorer',
+            command: 'callShellAboutWIE();',
+        },
     ],
     
     _externalAppPopup: null,

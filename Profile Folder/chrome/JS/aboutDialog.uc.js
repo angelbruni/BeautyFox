@@ -151,43 +151,7 @@
 	
 	var IsIE11Appearance = getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11') == 1;
 	
-	var IsIE11Win10Appearance = getComputedStyle(document.documentElement).getPropertyValue('--appearance_IE11Win10') == 1;
-	
-	// Strings
-	if (IsIE10Appearance && IsIE11Appearance && IsIE11Win10Appearance) {
-		var OSCompany = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-company');
-		var OSName = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-name');
-		var OSBuildVersion = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-build-version');
-		var OSBuildString = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-build-string');
-		var OSCopyrightYear = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-copyright-year');
-		var OSVersion = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-version');
-		var OSEdition = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-edition');
-		var OSUsername = getComputedStyle(document.documentElement).getPropertyValue('--winver-os-username');
-	
-		aboutDialogInfoPane.appendChild(winverSeparator);
-	
-		winverOSName.innerHTML = OSCompany + ' ' + OSName;
-		aboutDialogInfoPane.appendChild(winverOSName);
-	
-		aboutDialogInfoVersion.innerHTML = 'Version' + ' ' + OSBuildVersion + ' (OS Build ' + OSBuildString + ')';
-		aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);
-	
-		aboutDialogMicrosoft.innerHTML = '© ' + OSCopyrightYear + ' ' + OSCompany + ' Corporation. All rights reserved.';
-		aboutDialogInfoPane.appendChild(aboutDialogMicrosoft);
-	
-		winverCopyright.innerHTML = 'The ' + OSName + ' ' + OSVersion + ' ' + OSEdition + ' operating system and its user interface are protected by trademark and other pending or existing intellectual property rights in the United States and other countries/regions.';
-		aboutDialogInfoPane.appendChild(winverCopyright);
-	
-		winverLicense.innerHTML = 'This product is licensed under the ' + '<a href="#">' + OSCompany + ' Software License<br />Terms</a>' + ' to:';
-		aboutDialogInfoPane.appendChild(winverLicense);
-	
-		winverUser.innerHTML = OSUsername;
-		aboutDialogInfoPane.appendChild(winverUser);
-	
-		aboutDialogOKButton.innerHTML = 'OK';
-		aboutDialogInfoPane.appendChild(aboutDialogOKButton);
-	
-	} else if (IsIE10Appearance && IsIE11Appearance) {
+	if (IsIE10Appearance && IsIE11Appearance) {
 	
 		aboutDialogInfoVersion.innerHTML = 'Version:' + ' ' + '11.0.9600.17843';
 		aboutDialogInfoPane.appendChild(aboutDialogInfoVersion);

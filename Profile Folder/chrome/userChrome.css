@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(uservars.css);
 :root {
   --label-view-downloads: View Downloads - ;
   --label-view-n-track-your-downloads: View and track your downloads;
@@ -42,6 +41,7 @@ window[lang=ja] {
   --urlbar-min-height: 24px !important;
   --urlbar-width: 28.83%;
   --urlbar-min-width: 198px;
+  --urlbarView-result-button-size: 16px !important;
   --tab-block-margin: 0 !important;
   --toolbarbutton-hover-background: transparent !important;
   --toolbarbutton-active-background: transparent !important;
@@ -100,8 +100,8 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
 #main-window:not([sizemode=maximized]) .titlebar-buttonbox {
   top: -3px !important;
 }
-#main-window[sizemode=maximized] #nav-bar, #main-window[sizemode=fullscreen] #nav-bar {
-  padding-right: 3px;
+#main-window[sizemode=maximized] #endToolbar, #main-window[sizemode=fullscreen] #endToolbar {
+  padding-right: 3px !important;
 }
 #main-window[sizemode=maximized] #PersonalToolbar,
 #main-window[sizemode=maximized] #toolbar-menubar, #main-window[sizemode=fullscreen] #PersonalToolbar,
@@ -143,7 +143,7 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   left: 0 !important;
 }
 #main-window[sizemode=fullscreen], #main-window:not([tabsintitlebar=true]) {
-  --titlebar-height: 2px;
+  --titlebar-height: 2px !important;
 }
 #main-window[sizemode=fullscreen] {
   background: black !important;
@@ -246,10 +246,10 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
 }
 
 #nav-bar {
-  order: 1;
   background-color: transparent !important;
   padding-top: var(--titlebar-height-calc) !important;
   -moz-window-dragging: drag !important;
+  flex: 1 !important;
 }
 
 toolbarpaletteitem[id*=wrapper-customizableui-special-spring] {
@@ -270,18 +270,6 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 #urlbar-container.toolbar-hover-fix #urlbar-background::before {
   background-color: var(--toolbar-field-background-color_hover) !important;
-}
-
-#urlbar-go-button,
-.search-go-button {
-  list-style-image: none !important;
-  background-image: url(images/go-mask.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 17px !important;
-  height: 22px !important;
-  border-radius: 0 !important;
-  opacity: 0.5;
 }
 
 #stop-reload-button {
@@ -607,6 +595,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 
 #searchbar {
+  font-size: 9pt !important;
   position: relative;
 }
 
@@ -751,71 +740,89 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   list-style-image: url(images/iexplore_16.png) !important;
 }
 
-#nav-bar {
-  padding-right: 5px;
-}
-#nav-bar #stop-reload-button {
+#nav-bar #stop-reload-button,
+#endToolbar #stop-reload-button {
   align-items: center;
   width: calc(var(--stop-reload-button_width) * 2);
 }
-#nav-bar #urlbar-go-button {
+#nav-bar #urlbar-go-button,
+#endToolbar #urlbar-go-button {
   margin-right: 17px !important;
 }
 #nav-bar .toolbarbutton-icon,
-#nav-bar .toolbarbutton-badge-stack {
+#nav-bar .toolbarbutton-badge-stack,
+#endToolbar .toolbarbutton-icon,
+#endToolbar .toolbarbutton-badge-stack {
   padding: 0 !important;
   height: 16px !important;
   width: 17px !important;
 }
 #nav-bar #reload-button,
-#nav-bar #stop-button {
+#nav-bar #stop-button,
+#endToolbar #reload-button,
+#endToolbar #stop-button {
   height: 22px !important;
   width: var(--stop-reload-button_width) !important;
   overflow: hidden;
   margin-bottom: 0 !important;
 }
 #nav-bar #reload-button .toolbarbutton-icon,
-#nav-bar #stop-button .toolbarbutton-icon {
+#nav-bar #stop-button .toolbarbutton-icon,
+#endToolbar #reload-button .toolbarbutton-icon,
+#endToolbar #stop-button .toolbarbutton-icon {
   height: 16px !important;
   width: 16px !important;
 }
 #nav-bar toolbarbutton,
-#nav-bar .toolbaritem-combined-buttons {
+#nav-bar .toolbaritem-combined-buttons,
+#endToolbar toolbarbutton,
+#endToolbar .toolbaritem-combined-buttons {
   height: 24px !important;
   width: 24px !important;
   margin-bottom: var(--toolbaritems-margin-bottom) !important;
 }
-#nav-bar .toolbarbutton-1 {
+#nav-bar .toolbarbutton-1,
+#endToolbar .toolbarbutton-1 {
   margin-right: 1px !important;
 }
-#nav-bar .toolbarbutton-icon {
+#nav-bar .toolbarbutton-icon,
+#endToolbar .toolbarbutton-icon {
   height: 16px !important;
   width: 17px !important;
 }
-#nav-bar toolbaritem {
+#nav-bar toolbaritem,
+#endToolbar toolbaritem {
   padding-block: 0 !important;
   margin-bottom: var(--toolbaritems-margin-bottom);
 }
-#nav-bar toolbaritem > toolbarbutton {
+#nav-bar toolbaritem > toolbarbutton,
+#endToolbar toolbaritem > toolbarbutton {
   margin-bottom: 0 !important;
 }
-#nav-bar toolbaritem#urlbar-container {
+#nav-bar toolbaritem#urlbar-container,
+#endToolbar toolbaritem#urlbar-container {
   margin-bottom: var(--toolbaritems-margin-bottom) !important;
 }
-#nav-bar toolbaritem#stop-reload-button {
+#nav-bar toolbaritem#stop-reload-button,
+#endToolbar toolbaritem#stop-reload-button {
   margin-bottom: calc(var(--toolbaritems-margin-bottom) + 1px) !important;
 }
-#nav-bar #downloads-indicator-anchor {
+#nav-bar #downloads-indicator-anchor,
+#endToolbar #downloads-indicator-anchor {
   display: none;
 }
-#nav-bar toolbar .toolbaritem-combined-buttons {
+#nav-bar toolbar .toolbaritem-combined-buttons,
+#endToolbar toolbar .toolbaritem-combined-buttons {
   margin-inline: 0 !important;
 }
-#nav-bar .toolbaritem-combined-buttons {
+#nav-bar .toolbaritem-combined-buttons,
+#endToolbar .toolbaritem-combined-buttons {
   padding: 0 calc(var(--toolbarbutton-outer-padding) + 2px) !important;
 }
 #nav-bar toolbarbutton,
-#nav-bar toolbaritem {
+#nav-bar toolbaritem,
+#endToolbar toolbarbutton,
+#endToolbar toolbaritem {
   background-position: center;
   background-repeat: no-repeat;
   /* Extensions support */
@@ -830,7 +837,27 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #nav-bar toolbaritem#downloads-button,
 #nav-bar toolbaritem#_testpilot-containers-BAP,
 #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP,
+#endToolbar toolbarbutton#home-button,
+#endToolbar toolbarbutton#bookmarks-menu-button,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button,
+#endToolbar toolbarbutton#PanelUI-menu-button,
+#endToolbar toolbarbutton#appMenuButton,
+#endToolbar toolbarbutton#unified-extensions-button,
+#endToolbar toolbarbutton#downloads-button,
+#endToolbar toolbarbutton#_testpilot-containers-BAP,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP,
+#endToolbar toolbaritem#home-button,
+#endToolbar toolbaritem#bookmarks-menu-button,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button,
+#endToolbar toolbaritem#PanelUI-menu-button,
+#endToolbar toolbaritem#appMenuButton,
+#endToolbar toolbaritem#unified-extensions-button,
+#endToolbar toolbaritem#downloads-button,
+#endToolbar toolbaritem#_testpilot-containers-BAP,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP {
   list-style-image: none !important;
   position: relative;
 }
@@ -854,7 +881,47 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before,
 #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after,
 #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::before,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after,
+#endToolbar toolbarbutton#home-button::before,
+#endToolbar toolbarbutton#home-button::after,
+#endToolbar toolbarbutton#bookmarks-menu-button::before,
+#endToolbar toolbarbutton#bookmarks-menu-button::after,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::before,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbarbutton#PanelUI-menu-button::before,
+#endToolbar toolbarbutton#PanelUI-menu-button::after,
+#endToolbar toolbarbutton#appMenuButton::before,
+#endToolbar toolbarbutton#appMenuButton::after,
+#endToolbar toolbarbutton#unified-extensions-button::before,
+#endToolbar toolbarbutton#unified-extensions-button::after,
+#endToolbar toolbarbutton#downloads-button::before,
+#endToolbar toolbarbutton#downloads-button::after,
+#endToolbar toolbarbutton#_testpilot-containers-BAP::before,
+#endToolbar toolbarbutton#_testpilot-containers-BAP::after,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP::before,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP::after,
+#endToolbar toolbaritem#home-button::before,
+#endToolbar toolbaritem#home-button::after,
+#endToolbar toolbaritem#bookmarks-menu-button::before,
+#endToolbar toolbaritem#bookmarks-menu-button::after,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button::before,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbaritem#PanelUI-menu-button::before,
+#endToolbar toolbaritem#PanelUI-menu-button::after,
+#endToolbar toolbaritem#appMenuButton::before,
+#endToolbar toolbaritem#appMenuButton::after,
+#endToolbar toolbaritem#unified-extensions-button::before,
+#endToolbar toolbaritem#unified-extensions-button::after,
+#endToolbar toolbaritem#downloads-button::before,
+#endToolbar toolbaritem#downloads-button::after,
+#endToolbar toolbaritem#_testpilot-containers-BAP::before,
+#endToolbar toolbaritem#_testpilot-containers-BAP::after,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP::before,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP::after {
   /* ::before - Icon Hover/Active Colour */
   /* ::after - Icon Gradient Hover/Active */
   content: "";
@@ -879,7 +946,27 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #nav-bar toolbaritem#downloads-button::after,
 #nav-bar toolbaritem#_testpilot-containers-BAP::after,
 #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after,
+#endToolbar toolbarbutton#home-button::after,
+#endToolbar toolbarbutton#bookmarks-menu-button::after,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbarbutton#PanelUI-menu-button::after,
+#endToolbar toolbarbutton#appMenuButton::after,
+#endToolbar toolbarbutton#unified-extensions-button::after,
+#endToolbar toolbarbutton#downloads-button::after,
+#endToolbar toolbarbutton#_testpilot-containers-BAP::after,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP::after,
+#endToolbar toolbaritem#home-button::after,
+#endToolbar toolbaritem#bookmarks-menu-button::after,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbaritem#PanelUI-menu-button::after,
+#endToolbar toolbaritem#appMenuButton::after,
+#endToolbar toolbaritem#unified-extensions-button::after,
+#endToolbar toolbaritem#downloads-button::after,
+#endToolbar toolbaritem#_testpilot-containers-BAP::after,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP::after {
   opacity: 0;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
 }
@@ -893,7 +980,27 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #nav-bar toolbaritem#downloads-button::before,
 #nav-bar toolbaritem#_testpilot-containers-BAP::before,
 #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP::before {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP::before,
+#endToolbar toolbarbutton#home-button::before,
+#endToolbar toolbarbutton#bookmarks-menu-button::before,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::before,
+#endToolbar toolbarbutton#PanelUI-menu-button::before,
+#endToolbar toolbarbutton#appMenuButton::before,
+#endToolbar toolbarbutton#unified-extensions-button::before,
+#endToolbar toolbarbutton#downloads-button::before,
+#endToolbar toolbarbutton#_testpilot-containers-BAP::before,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP::before,
+#endToolbar toolbaritem#home-button::before,
+#endToolbar toolbaritem#bookmarks-menu-button::before,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button::before,
+#endToolbar toolbaritem#PanelUI-menu-button::before,
+#endToolbar toolbaritem#appMenuButton::before,
+#endToolbar toolbaritem#unified-extensions-button::before,
+#endToolbar toolbaritem#downloads-button::before,
+#endToolbar toolbaritem#_testpilot-containers-BAP::before,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP::before {
   background-color: white;
   z-index: -1;
 }
@@ -937,7 +1044,87 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:hover::before,
 #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:hover::after,
 #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::before,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::after {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::after,
+#endToolbar toolbarbutton#home-button:hover::before,
+#endToolbar toolbarbutton#home-button:hover::after,
+#endToolbar toolbarbutton#home-button:active::before,
+#endToolbar toolbarbutton#home-button:active::after,
+#endToolbar toolbarbutton#bookmarks-menu-button:hover::before,
+#endToolbar toolbarbutton#bookmarks-menu-button:hover::after,
+#endToolbar toolbarbutton#bookmarks-menu-button:active::before,
+#endToolbar toolbarbutton#bookmarks-menu-button:active::after,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:hover::before,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:hover::after,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:active::before,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:active::after,
+#endToolbar toolbarbutton#PanelUI-menu-button:hover::before,
+#endToolbar toolbarbutton#PanelUI-menu-button:hover::after,
+#endToolbar toolbarbutton#PanelUI-menu-button:active::before,
+#endToolbar toolbarbutton#PanelUI-menu-button:active::after,
+#endToolbar toolbarbutton#appMenuButton:hover::before,
+#endToolbar toolbarbutton#appMenuButton:hover::after,
+#endToolbar toolbarbutton#appMenuButton:active::before,
+#endToolbar toolbarbutton#appMenuButton:active::after,
+#endToolbar toolbarbutton#unified-extensions-button:hover::before,
+#endToolbar toolbarbutton#unified-extensions-button:hover::after,
+#endToolbar toolbarbutton#unified-extensions-button:active::before,
+#endToolbar toolbarbutton#unified-extensions-button:active::after,
+#endToolbar toolbarbutton#downloads-button:hover::before,
+#endToolbar toolbarbutton#downloads-button:hover::after,
+#endToolbar toolbarbutton#downloads-button:active::before,
+#endToolbar toolbarbutton#downloads-button:active::after,
+#endToolbar toolbarbutton#_testpilot-containers-BAP:hover::before,
+#endToolbar toolbarbutton#_testpilot-containers-BAP:hover::after,
+#endToolbar toolbarbutton#_testpilot-containers-BAP:active::before,
+#endToolbar toolbarbutton#_testpilot-containers-BAP:active::after,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::before,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::after,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::after,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP:hover::before,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP:hover::after,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP:active::before,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP:active::after,
+#endToolbar toolbaritem#home-button:hover::before,
+#endToolbar toolbaritem#home-button:hover::after,
+#endToolbar toolbaritem#home-button:active::before,
+#endToolbar toolbaritem#home-button:active::after,
+#endToolbar toolbaritem#bookmarks-menu-button:hover::before,
+#endToolbar toolbaritem#bookmarks-menu-button:hover::after,
+#endToolbar toolbaritem#bookmarks-menu-button:active::before,
+#endToolbar toolbaritem#bookmarks-menu-button:active::after,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button:hover::before,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button:hover::after,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button:active::before,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button:active::after,
+#endToolbar toolbaritem#PanelUI-menu-button:hover::before,
+#endToolbar toolbaritem#PanelUI-menu-button:hover::after,
+#endToolbar toolbaritem#PanelUI-menu-button:active::before,
+#endToolbar toolbaritem#PanelUI-menu-button:active::after,
+#endToolbar toolbaritem#appMenuButton:hover::before,
+#endToolbar toolbaritem#appMenuButton:hover::after,
+#endToolbar toolbaritem#appMenuButton:active::before,
+#endToolbar toolbaritem#appMenuButton:active::after,
+#endToolbar toolbaritem#unified-extensions-button:hover::before,
+#endToolbar toolbaritem#unified-extensions-button:hover::after,
+#endToolbar toolbaritem#unified-extensions-button:active::before,
+#endToolbar toolbaritem#unified-extensions-button:active::after,
+#endToolbar toolbaritem#downloads-button:hover::before,
+#endToolbar toolbaritem#downloads-button:hover::after,
+#endToolbar toolbaritem#downloads-button:active::before,
+#endToolbar toolbaritem#downloads-button:active::after,
+#endToolbar toolbaritem#_testpilot-containers-BAP:hover::before,
+#endToolbar toolbaritem#_testpilot-containers-BAP:hover::after,
+#endToolbar toolbaritem#_testpilot-containers-BAP:active::before,
+#endToolbar toolbaritem#_testpilot-containers-BAP:active::after,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::before,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::after,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::after,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP:hover::before,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP:hover::after,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP:active::before,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP:active::after {
   opacity: 1;
 }
 #nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button[open=true]::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbarbutton#appMenuButton:active::before, #nav-bar toolbarbutton#appMenuButton[open=true]::before, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button[open=true]::before, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button[open=true]::before, #nav-bar toolbarbutton#_testpilot-containers-BAP:active::before, #nav-bar toolbarbutton#_testpilot-containers-BAP[open=true]::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[open=true]::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:active::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP[open=true]::before,
@@ -960,30 +1147,84 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before,
 #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[open=true]::before,
 #nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::before,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP[open=true]::before {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP[open=true]::before,
+#endToolbar toolbarbutton#home-button:active::before,
+#endToolbar toolbarbutton#home-button[open=true]::before,
+#endToolbar toolbarbutton#bookmarks-menu-button:active::before,
+#endToolbar toolbarbutton#bookmarks-menu-button[open=true]::before,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:active::before,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button[open=true]::before,
+#endToolbar toolbarbutton#PanelUI-menu-button:active::before,
+#endToolbar toolbarbutton#PanelUI-menu-button[open=true]::before,
+#endToolbar toolbarbutton#appMenuButton:active::before,
+#endToolbar toolbarbutton#appMenuButton[open=true]::before,
+#endToolbar toolbarbutton#unified-extensions-button:active::before,
+#endToolbar toolbarbutton#unified-extensions-button[open=true]::before,
+#endToolbar toolbarbutton#downloads-button:active::before,
+#endToolbar toolbarbutton#downloads-button[open=true]::before,
+#endToolbar toolbarbutton#_testpilot-containers-BAP:active::before,
+#endToolbar toolbarbutton#_testpilot-containers-BAP[open=true]::before,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[open=true]::before,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP:active::before,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP[open=true]::before,
+#endToolbar toolbaritem#home-button:active::before,
+#endToolbar toolbaritem#home-button[open=true]::before,
+#endToolbar toolbaritem#bookmarks-menu-button:active::before,
+#endToolbar toolbaritem#bookmarks-menu-button[open=true]::before,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button:active::before,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button[open=true]::before,
+#endToolbar toolbaritem#PanelUI-menu-button:active::before,
+#endToolbar toolbaritem#PanelUI-menu-button[open=true]::before,
+#endToolbar toolbaritem#appMenuButton:active::before,
+#endToolbar toolbaritem#appMenuButton[open=true]::before,
+#endToolbar toolbaritem#unified-extensions-button:active::before,
+#endToolbar toolbaritem#unified-extensions-button[open=true]::before,
+#endToolbar toolbaritem#downloads-button:active::before,
+#endToolbar toolbaritem#downloads-button[open=true]::before,
+#endToolbar toolbaritem#_testpilot-containers-BAP:active::before,
+#endToolbar toolbaritem#_testpilot-containers-BAP[open=true]::before,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[open=true]::before,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP:active::before,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP[open=true]::before {
   transition: none;
 }
 #nav-bar toolbarbutton#home-button,
-#nav-bar toolbaritem#home-button {
+#nav-bar toolbaritem#home-button,
+#endToolbar toolbarbutton#home-button,
+#endToolbar toolbaritem#home-button {
   background-image: url(images/home.svg);
 }
 #nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#home-button::after,
 #nav-bar toolbaritem#home-button::before,
-#nav-bar toolbaritem#home-button::after {
+#nav-bar toolbaritem#home-button::after,
+#endToolbar toolbarbutton#home-button::before,
+#endToolbar toolbarbutton#home-button::after,
+#endToolbar toolbaritem#home-button::before,
+#endToolbar toolbaritem#home-button::after {
   -webkit-mask-image: url(images/home-mask.svg);
           mask-image: url(images/home-mask.svg);
 }
 #nav-bar toolbarbutton#home-button:hover::before,
-#nav-bar toolbaritem#home-button:hover::before {
+#nav-bar toolbaritem#home-button:hover::before,
+#endToolbar toolbarbutton#home-button:hover::before,
+#endToolbar toolbaritem#home-button:hover::before {
   background-color: var(--toolbarbutton-blue-colour);
 }
 #nav-bar toolbarbutton#home-button:active::before,
-#nav-bar toolbaritem#home-button:active::before {
+#nav-bar toolbaritem#home-button:active::before,
+#endToolbar toolbarbutton#home-button:active::before,
+#endToolbar toolbaritem#home-button:active::before {
   background-color: var(--toolbarbutton-blue-colour_hover);
 }
 #nav-bar toolbarbutton#bookmarks-menu-button, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button,
 #nav-bar toolbaritem#bookmarks-menu-button,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button {
+#nav-bar toolbaritem#bookmarks-sidebar-menu-button,
+#endToolbar toolbarbutton#bookmarks-menu-button,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button,
+#endToolbar toolbaritem#bookmarks-menu-button,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button {
   background-image: url(images/favorites.svg);
   width: 23px !important;
 }
@@ -991,76 +1232,130 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #nav-bar toolbaritem#bookmarks-menu-button::before,
 #nav-bar toolbaritem#bookmarks-menu-button::after,
 #nav-bar toolbaritem#bookmarks-sidebar-menu-button::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button::after {
+#nav-bar toolbaritem#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbarbutton#bookmarks-menu-button::before,
+#endToolbar toolbarbutton#bookmarks-menu-button::after,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::before,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbaritem#bookmarks-menu-button::before,
+#endToolbar toolbaritem#bookmarks-menu-button::after,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button::before,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button::after {
   -webkit-mask-image: url(images/favorites-mask.svg);
           mask-image: url(images/favorites-mask.svg);
 }
 #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::after,
 #nav-bar toolbaritem#bookmarks-menu-button::after,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button::after {
+#nav-bar toolbaritem#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbarbutton#bookmarks-menu-button::after,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbaritem#bookmarks-menu-button::after,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button::after {
   background: linear-gradient(0deg, rgba(255, 208, 0, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
 }
 #nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:hover::before,
 #nav-bar toolbaritem#bookmarks-menu-button:hover::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button:hover::before {
+#nav-bar toolbaritem#bookmarks-sidebar-menu-button:hover::before,
+#endToolbar toolbarbutton#bookmarks-menu-button:hover::before,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:hover::before,
+#endToolbar toolbaritem#bookmarks-menu-button:hover::before,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button:hover::before {
   background-color: rgb(244, 180, 21);
 }
 #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button[open=true]::before,
 #nav-bar toolbaritem#bookmarks-menu-button:active::before,
 #nav-bar toolbaritem#bookmarks-menu-button[open=true]::before,
 #nav-bar toolbaritem#bookmarks-sidebar-menu-button:active::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button[open=true]::before {
+#nav-bar toolbaritem#bookmarks-sidebar-menu-button[open=true]::before,
+#endToolbar toolbarbutton#bookmarks-menu-button:active::before,
+#endToolbar toolbarbutton#bookmarks-menu-button[open=true]::before,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:active::before,
+#endToolbar toolbarbutton#bookmarks-sidebar-menu-button[open=true]::before,
+#endToolbar toolbaritem#bookmarks-menu-button:active::before,
+#endToolbar toolbaritem#bookmarks-menu-button[open=true]::before,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button:active::before,
+#endToolbar toolbaritem#bookmarks-sidebar-menu-button[open=true]::before {
   background-color: rgb(234, 129, 2);
 }
 #nav-bar toolbarbutton#unified-extensions-button,
-#nav-bar toolbaritem#unified-extensions-button {
+#nav-bar toolbaritem#unified-extensions-button,
+#endToolbar toolbarbutton#unified-extensions-button,
+#endToolbar toolbaritem#unified-extensions-button {
   background-image: url(images/extensions.svg);
 }
 #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#unified-extensions-button::after,
 #nav-bar toolbaritem#unified-extensions-button::before,
-#nav-bar toolbaritem#unified-extensions-button::after {
+#nav-bar toolbaritem#unified-extensions-button::after,
+#endToolbar toolbarbutton#unified-extensions-button::before,
+#endToolbar toolbarbutton#unified-extensions-button::after,
+#endToolbar toolbaritem#unified-extensions-button::before,
+#endToolbar toolbaritem#unified-extensions-button::after {
   -webkit-mask-image: url(images/extensions-mask.svg);
           mask-image: url(images/extensions-mask.svg);
 }
 #nav-bar toolbarbutton#unified-extensions-button::after,
-#nav-bar toolbaritem#unified-extensions-button::after {
+#nav-bar toolbaritem#unified-extensions-button::after,
+#endToolbar toolbarbutton#unified-extensions-button::after,
+#endToolbar toolbaritem#unified-extensions-button::after {
   background: linear-gradient(0deg, rgba(85, 235, 65, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
 }
 #nav-bar toolbarbutton#unified-extensions-button:hover::before,
-#nav-bar toolbaritem#unified-extensions-button:hover::before {
+#nav-bar toolbaritem#unified-extensions-button:hover::before,
+#endToolbar toolbarbutton#unified-extensions-button:hover::before,
+#endToolbar toolbaritem#unified-extensions-button:hover::before {
   background-color: var(--toolbarbutton-green-colour);
 }
 #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button[open=true]::before,
 #nav-bar toolbaritem#unified-extensions-button:active::before,
-#nav-bar toolbaritem#unified-extensions-button[open=true]::before {
+#nav-bar toolbaritem#unified-extensions-button[open=true]::before,
+#endToolbar toolbarbutton#unified-extensions-button:active::before,
+#endToolbar toolbarbutton#unified-extensions-button[open=true]::before,
+#endToolbar toolbaritem#unified-extensions-button:active::before,
+#endToolbar toolbaritem#unified-extensions-button[open=true]::before {
   background-color: var(--toolbarbutton-green-colour_hover);
 }
 #nav-bar toolbarbutton#downloads-button,
-#nav-bar toolbaritem#downloads-button {
+#nav-bar toolbaritem#downloads-button,
+#endToolbar toolbarbutton#downloads-button,
+#endToolbar toolbaritem#downloads-button {
   background-image: url(images/downloads.svg);
 }
 #nav-bar toolbarbutton#downloads-button::before, #nav-bar toolbarbutton#downloads-button::after,
 #nav-bar toolbaritem#downloads-button::before,
-#nav-bar toolbaritem#downloads-button::after {
+#nav-bar toolbaritem#downloads-button::after,
+#endToolbar toolbarbutton#downloads-button::before,
+#endToolbar toolbarbutton#downloads-button::after,
+#endToolbar toolbaritem#downloads-button::before,
+#endToolbar toolbaritem#downloads-button::after {
   -webkit-mask-image: url(images/downloads-mask.svg);
           mask-image: url(images/downloads-mask.svg);
 }
 #nav-bar toolbarbutton#downloads-button:hover::before,
-#nav-bar toolbaritem#downloads-button:hover::before {
+#nav-bar toolbaritem#downloads-button:hover::before,
+#endToolbar toolbarbutton#downloads-button:hover::before,
+#endToolbar toolbaritem#downloads-button:hover::before {
   background-color: var(--toolbarbutton-blue-colour);
 }
 #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button[open=true]::before,
 #nav-bar toolbaritem#downloads-button:active::before,
-#nav-bar toolbaritem#downloads-button[open=true]::before {
+#nav-bar toolbaritem#downloads-button[open=true]::before,
+#endToolbar toolbarbutton#downloads-button:active::before,
+#endToolbar toolbarbutton#downloads-button[open=true]::before,
+#endToolbar toolbaritem#downloads-button:active::before,
+#endToolbar toolbaritem#downloads-button[open=true]::before {
   background-color: var(--toolbarbutton-blue-colour_hover);
 }
 #nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack,
-#nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack {
+#nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack,
+#endToolbar toolbarbutton#downloads-button > .toolbarbutton-badge-stack,
+#endToolbar toolbaritem#downloads-button > .toolbarbutton-badge-stack {
   opacity: 0 !important;
 }
 @supports -moz-bool-pref("BeautyFox.option.showDownloadProgress") {
   #nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack,
-  #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack {
+  #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack,
+  #endToolbar toolbarbutton#downloads-button > .toolbarbutton-badge-stack,
+  #endToolbar toolbaritem#downloads-button > .toolbarbutton-badge-stack {
     opacity: 1 !important;
     -webkit-mask-image: url(images/downloads-mask.svg);
             mask-image: url(images/downloads-mask.svg);
@@ -1070,39 +1365,69 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
             mask-repeat: no-repeat;
   }
   #nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner,
-  #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner {
+  #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner,
+  #endToolbar toolbarbutton#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner,
+  #endToolbar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner {
     border-radius: 0 !important;
     background: linear-gradient(var(--toolbarbutton-icon-fill-attention) var(--download-progress-pcent), transparent var(--download-progress-pcent)) !important;
   }
 }
 #nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbarbutton#appMenuButton,
 #nav-bar toolbaritem#PanelUI-menu-button,
-#nav-bar toolbaritem#appMenuButton {
+#nav-bar toolbaritem#appMenuButton,
+#endToolbar toolbarbutton#PanelUI-menu-button,
+#endToolbar toolbarbutton#appMenuButton,
+#endToolbar toolbaritem#PanelUI-menu-button,
+#endToolbar toolbaritem#appMenuButton {
   background-image: url(images/settings.svg);
 }
 #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#appMenuButton::before, #nav-bar toolbarbutton#appMenuButton::after,
 #nav-bar toolbaritem#PanelUI-menu-button::before,
 #nav-bar toolbaritem#PanelUI-menu-button::after,
 #nav-bar toolbaritem#appMenuButton::before,
-#nav-bar toolbaritem#appMenuButton::after {
+#nav-bar toolbaritem#appMenuButton::after,
+#endToolbar toolbarbutton#PanelUI-menu-button::before,
+#endToolbar toolbarbutton#PanelUI-menu-button::after,
+#endToolbar toolbarbutton#appMenuButton::before,
+#endToolbar toolbarbutton#appMenuButton::after,
+#endToolbar toolbaritem#PanelUI-menu-button::before,
+#endToolbar toolbaritem#PanelUI-menu-button::after,
+#endToolbar toolbaritem#appMenuButton::before,
+#endToolbar toolbaritem#appMenuButton::after {
   -webkit-mask-image: url(images/settings-mask.svg);
           mask-image: url(images/settings-mask.svg);
 }
 #nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#appMenuButton:hover::before,
 #nav-bar toolbaritem#PanelUI-menu-button:hover::before,
-#nav-bar toolbaritem#appMenuButton:hover::before {
+#nav-bar toolbaritem#appMenuButton:hover::before,
+#endToolbar toolbarbutton#PanelUI-menu-button:hover::before,
+#endToolbar toolbarbutton#appMenuButton:hover::before,
+#endToolbar toolbaritem#PanelUI-menu-button:hover::before,
+#endToolbar toolbaritem#appMenuButton:hover::before {
   background-color: var(--toolbarbutton-blue-colour);
 }
 #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbarbutton#appMenuButton:active::before, #nav-bar toolbarbutton#appMenuButton[open=true]::before,
 #nav-bar toolbaritem#PanelUI-menu-button:active::before,
 #nav-bar toolbaritem#PanelUI-menu-button[open=true]::before,
 #nav-bar toolbaritem#appMenuButton:active::before,
-#nav-bar toolbaritem#appMenuButton[open=true]::before {
+#nav-bar toolbaritem#appMenuButton[open=true]::before,
+#endToolbar toolbarbutton#PanelUI-menu-button:active::before,
+#endToolbar toolbarbutton#PanelUI-menu-button[open=true]::before,
+#endToolbar toolbarbutton#appMenuButton:active::before,
+#endToolbar toolbarbutton#appMenuButton[open=true]::before,
+#endToolbar toolbaritem#PanelUI-menu-button:active::before,
+#endToolbar toolbaritem#PanelUI-menu-button[open=true]::before,
+#endToolbar toolbaritem#appMenuButton:active::before,
+#endToolbar toolbaritem#appMenuButton[open=true]::before {
   background-color: var(--toolbarbutton-blue-colour_hover);
 }
 #nav-bar toolbarbutton#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge, #nav-bar toolbarbutton#appMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
 #nav-bar toolbaritem#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
-#nav-bar toolbaritem#appMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge {
+#nav-bar toolbaritem#appMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
+#endToolbar toolbarbutton#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
+#endToolbar toolbarbutton#appMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
+#endToolbar toolbaritem#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
+#endToolbar toolbaritem#appMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge {
   background-color: white !important;
   border-radius: 50% !important;
   border: 2px solid orange !important;
@@ -1120,83 +1445,127 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   z-index: -2 !important;
 }
 #nav-bar toolbarbutton#_testpilot-containers-BAP,
-#nav-bar toolbaritem#_testpilot-containers-BAP {
+#nav-bar toolbaritem#_testpilot-containers-BAP,
+#endToolbar toolbarbutton#_testpilot-containers-BAP,
+#endToolbar toolbaritem#_testpilot-containers-BAP {
   background-image: url(images/containers.svg);
 }
 #nav-bar toolbarbutton#_testpilot-containers-BAP::before, #nav-bar toolbarbutton#_testpilot-containers-BAP::after,
 #nav-bar toolbaritem#_testpilot-containers-BAP::before,
-#nav-bar toolbaritem#_testpilot-containers-BAP::after {
+#nav-bar toolbaritem#_testpilot-containers-BAP::after,
+#endToolbar toolbarbutton#_testpilot-containers-BAP::before,
+#endToolbar toolbarbutton#_testpilot-containers-BAP::after,
+#endToolbar toolbaritem#_testpilot-containers-BAP::before,
+#endToolbar toolbaritem#_testpilot-containers-BAP::after {
   -webkit-mask-image: url(images/containers-mask.svg);
           mask-image: url(images/containers-mask.svg);
 }
 #nav-bar toolbarbutton#_testpilot-containers-BAP:hover::before,
-#nav-bar toolbaritem#_testpilot-containers-BAP:hover::before {
+#nav-bar toolbaritem#_testpilot-containers-BAP:hover::before,
+#endToolbar toolbarbutton#_testpilot-containers-BAP:hover::before,
+#endToolbar toolbaritem#_testpilot-containers-BAP:hover::before {
   background-color: var(--toolbarbutton-blue-colour);
 }
 #nav-bar toolbarbutton#_testpilot-containers-BAP:active::before,
-#nav-bar toolbaritem#_testpilot-containers-BAP:active::before {
+#nav-bar toolbaritem#_testpilot-containers-BAP:active::before,
+#endToolbar toolbarbutton#_testpilot-containers-BAP:active::before,
+#endToolbar toolbaritem#_testpilot-containers-BAP:active::before {
   background-color: var(--toolbarbutton-blue-colour_hover);
 }
 #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP,
-#nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP {
+#nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP {
   background-image: url(images/stylus.svg);
 }
 #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after,
 #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before,
-#nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after {
+#nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::before,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP::after {
   -webkit-mask-image: url(images/stylus-mask.svg);
           mask-image: url(images/stylus-mask.svg);
 }
 #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::before,
-#nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::before {
+#nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::before,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::before,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:hover::before {
   background-color: var(--toolbarbutton-blue-colour) !important;
 }
 #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before,
-#nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before {
+#nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP:active::before {
   background-color: var(--toolbarbutton-blue-colour_hover) !important;
 }
 #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[style*='--webextension-menupanel-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEv0lEQVRYR7VXDUxVZRh+7g/E/09LhCAIZKAm8aeuIDdMF9aSSV0ySobgaG7UdJqzzVwrSptWsLU12HTodg0tCgYjbAa4GIleoUtCQBAUWAJBoMjl5/6cvvfQvbuHc++5XG59293O+e77Pe/zvuf7nvf9ZBCOOPb605K5/+xV6eVZa9DNHmKA/WZQmRV6Mnu+xn5uNOfu5wv9/RlALneJAGc0ws3HG/rp+zyOTKEwsLkN7LGXf7egy2TXwXGb6f3Jk8ewoSDHJcfmxcb5BSgecMfVwrfQd6man/YKXt2lGxklElYEAI4mthQXYW1O1rKdU5am+gcRGBsNpaeH5DrN+8XQlpRRVk0wmRQiAgSQN6yVBBm/1Y1fKqower0N07/fxvzUXYG9X2Q4QlI2ITJjB0LTUiBX8H4so/yRBBhm5yy+rfcAR989d0BjkwBFeu3YCfRe+GrZ2cnWNsIn7GGB/bnIjeb9wPsWEvD3Q+6vN0QOiHFd5l6M3ZTOjvXCwHUxUDXXiLDOR23Cwr1pOxmwQ6DlaBF+Pnth2ZGTYfyBAmw+fth1AnOTU1DHpoAzmQRg3qEhSDy0Hw/FP0ZHC3oWFW3GMY0Wg3VXsKOiDMFP0MkWDqcz0F9Zi6b9RwQoMqYNWa318I+KsJkV+mQyhRwKd3fXCXR8egY33v1IFP0rHU1OfRKzsdMZ6Cw7z3b/SZGz9M9LEf5MmtMknCYw0tqG2udfFTmSu7khJjsTj7++z+6nsMVOkgBp9t7f2gTrTEzLq7e9iInOHrvRRu16lieyKoFXV8lRHp4IVpAEx5CXYBqrEuOw68qXIoC/tJ18Foxz85LgwUwB6WSEpaXatWt87TAGqustp4qEiKNdnVFfwes5ZcHWIBIN+QcwPfSHoyAR/VIGtnz8ns3awHEcZv4cwcWkbeCMJl4JOToyqpY6BERHSoKTgrUe/xB9X9TApNdL2oY9/RTSmRYsrQXGhQVM9vShajsreExbeAI8kkyG8PStSFd/5jDC2fG/0XVGje7yCsxNTNq1Tz31DtbnZwv+r925B7SxWelfdGv1L2drE0qxoQ06WPMtbp4owb3BIZFpQMwaZP1QJ5g/92jyYqPzr+9lFSNHKSHl+0aVz0p0u8g0p68VHoEBlnmndcCRc/P/ww3NuLy7QGS+u+07+EWE/f8Ebl9tQb1qn4gA9RfUZ5jHijJQl5mLoI2JiN2jEkRjBqVNSdGPd3QJCPiGh+Ll9gbBnNMECFy9NsUC4hUcxHc5D66P4efmJ+9iuLEZhhmdKPrko28g6UihawQGai4zATq43K1gsaPe8IWmKpGwOZ2BlXRD/kzQnqs8K+oHiZ00ARtNaW/F19AUfYLZsXGHWXDz9eGFJ+nNQrstumRTyq5OyBv60aYjasep3Zro7IaOkdHdGYUPa8u82X4IjF0Dv8gIBCXF2a0lZlDJtpyMtpaeRrRqp8NoV2Kg+aAE2uJSOxcTuVzLikM8AaeeZhqeJ9TwlTikNSaDAXKlEt8ffBu96koexjNkdc/sndF19GwtxXQvpMspfxulTpcfrEi5NKjoMAjOYFyEWbyWJbCnW0sJ0DuROMWcprJqpXTJ8ZLFLCC90sujXT89Q3rNO6fxD+POBDvinLWaAAAAAElFTkSuQmCC");']::before,
-#nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[style*='--webextension-menupanel-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEv0lEQVRYR7VXDUxVZRh+7g/E/09LhCAIZKAm8aeuIDdMF9aSSV0ySobgaG7UdJqzzVwrSptWsLU12HTodg0tCgYjbAa4GIleoUtCQBAUWAJBoMjl5/6cvvfQvbuHc++5XG59293O+e77Pe/zvuf7nvf9ZBCOOPb605K5/+xV6eVZa9DNHmKA/WZQmRV6Mnu+xn5uNOfu5wv9/RlALneJAGc0ws3HG/rp+zyOTKEwsLkN7LGXf7egy2TXwXGb6f3Jk8ewoSDHJcfmxcb5BSgecMfVwrfQd6man/YKXt2lGxklElYEAI4mthQXYW1O1rKdU5am+gcRGBsNpaeH5DrN+8XQlpRRVk0wmRQiAgSQN6yVBBm/1Y1fKqower0N07/fxvzUXYG9X2Q4QlI2ITJjB0LTUiBX8H4so/yRBBhm5yy+rfcAR989d0BjkwBFeu3YCfRe+GrZ2cnWNsIn7GGB/bnIjeb9wPsWEvD3Q+6vN0QOiHFd5l6M3ZTOjvXCwHUxUDXXiLDOR23Cwr1pOxmwQ6DlaBF+Pnth2ZGTYfyBAmw+fth1AnOTU1DHpoAzmQRg3qEhSDy0Hw/FP0ZHC3oWFW3GMY0Wg3VXsKOiDMFP0MkWDqcz0F9Zi6b9RwQoMqYNWa318I+KsJkV+mQyhRwKd3fXCXR8egY33v1IFP0rHU1OfRKzsdMZ6Cw7z3b/SZGz9M9LEf5MmtMknCYw0tqG2udfFTmSu7khJjsTj7++z+6nsMVOkgBp9t7f2gTrTEzLq7e9iInOHrvRRu16lieyKoFXV8lRHp4IVpAEx5CXYBqrEuOw68qXIoC/tJ18Foxz85LgwUwB6WSEpaXatWt87TAGqustp4qEiKNdnVFfwes5ZcHWIBIN+QcwPfSHoyAR/VIGtnz8ns3awHEcZv4cwcWkbeCMJl4JOToyqpY6BERHSoKTgrUe/xB9X9TApNdL2oY9/RTSmRYsrQXGhQVM9vShajsreExbeAI8kkyG8PStSFd/5jDC2fG/0XVGje7yCsxNTNq1Tz31DtbnZwv+r925B7SxWelfdGv1L2drE0qxoQ06WPMtbp4owb3BIZFpQMwaZP1QJ5g/92jyYqPzr+9lFSNHKSHl+0aVz0p0u8g0p68VHoEBlnmndcCRc/P/ww3NuLy7QGS+u+07+EWE/f8Ebl9tQb1qn4gA9RfUZ5jHijJQl5mLoI2JiN2jEkRjBqVNSdGPd3QJCPiGh+Ll9gbBnNMECFy9NsUC4hUcxHc5D66P4efmJ+9iuLEZhhmdKPrko28g6UihawQGai4zATq43K1gsaPe8IWmKpGwOZ2BlXRD/kzQnqs8K+oHiZ00ARtNaW/F19AUfYLZsXGHWXDz9eGFJ+nNQrstumRTyq5OyBv60aYjasep3Zro7IaOkdHdGYUPa8u82X4IjF0Dv8gIBCXF2a0lZlDJtpyMtpaeRrRqp8NoV2Kg+aAE2uJSOxcTuVzLikM8AaeeZhqeJ9TwlTikNSaDAXKlEt8ffBu96koexjNkdc/sndF19GwtxXQvpMspfxulTpcfrEi5NKjoMAjOYFyEWbyWJbCnW0sJ0DuROMWcprJqpXTJ8ZLFLCC90sujXT89Q3rNO6fxD+POBDvinLWaAAAAAElFTkSuQmCC");']::before {
+#nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[style*='--webextension-menupanel-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEv0lEQVRYR7VXDUxVZRh+7g/E/09LhCAIZKAm8aeuIDdMF9aSSV0ySobgaG7UdJqzzVwrSptWsLU12HTodg0tCgYjbAa4GIleoUtCQBAUWAJBoMjl5/6cvvfQvbuHc++5XG59293O+e77Pe/zvuf7nvf9ZBCOOPb605K5/+xV6eVZa9DNHmKA/WZQmRV6Mnu+xn5uNOfu5wv9/RlALneJAGc0ws3HG/rp+zyOTKEwsLkN7LGXf7egy2TXwXGb6f3Jk8ewoSDHJcfmxcb5BSgecMfVwrfQd6man/YKXt2lGxklElYEAI4mthQXYW1O1rKdU5am+gcRGBsNpaeH5DrN+8XQlpRRVk0wmRQiAgSQN6yVBBm/1Y1fKqower0N07/fxvzUXYG9X2Q4QlI2ITJjB0LTUiBX8H4so/yRBBhm5yy+rfcAR989d0BjkwBFeu3YCfRe+GrZ2cnWNsIn7GGB/bnIjeb9wPsWEvD3Q+6vN0QOiHFd5l6M3ZTOjvXCwHUxUDXXiLDOR23Cwr1pOxmwQ6DlaBF+Pnth2ZGTYfyBAmw+fth1AnOTU1DHpoAzmQRg3qEhSDy0Hw/FP0ZHC3oWFW3GMY0Wg3VXsKOiDMFP0MkWDqcz0F9Zi6b9RwQoMqYNWa318I+KsJkV+mQyhRwKd3fXCXR8egY33v1IFP0rHU1OfRKzsdMZ6Cw7z3b/SZGz9M9LEf5MmtMknCYw0tqG2udfFTmSu7khJjsTj7++z+6nsMVOkgBp9t7f2gTrTEzLq7e9iInOHrvRRu16lieyKoFXV8lRHp4IVpAEx5CXYBqrEuOw68qXIoC/tJ18Foxz85LgwUwB6WSEpaXatWt87TAGqustp4qEiKNdnVFfwes5ZcHWIBIN+QcwPfSHoyAR/VIGtnz8ns3awHEcZv4cwcWkbeCMJl4JOToyqpY6BERHSoKTgrUe/xB9X9TApNdL2oY9/RTSmRYsrQXGhQVM9vShajsreExbeAI8kkyG8PStSFd/5jDC2fG/0XVGje7yCsxNTNq1Tz31DtbnZwv+r925B7SxWelfdGv1L2drE0qxoQ06WPMtbp4owb3BIZFpQMwaZP1QJ5g/92jyYqPzr+9lFSNHKSHl+0aVz0p0u8g0p68VHoEBlnmndcCRc/P/ww3NuLy7QGS+u+07+EWE/f8Ebl9tQb1qn4gA9RfUZ5jHijJQl5mLoI2JiN2jEkRjBqVNSdGPd3QJCPiGh+Ll9gbBnNMECFy9NsUC4hUcxHc5D66P4efmJ+9iuLEZhhmdKPrko28g6UihawQGai4zATq43K1gsaPe8IWmKpGwOZ2BlXRD/kzQnqs8K+oHiZ00ARtNaW/F19AUfYLZsXGHWXDz9eGFJ+nNQrstumRTyq5OyBv60aYjasep3Zro7IaOkdHdGYUPa8u82X4IjF0Dv8gIBCXF2a0lZlDJtpyMtpaeRrRqp8NoV2Kg+aAE2uJSOxcTuVzLikM8AaeeZhqeJ9TwlTikNSaDAXKlEt8ffBu96koexjNkdc/sndF19GwtxXQvpMspfxulTpcfrEi5NKjoMAjOYFyEWbyWJbCnW0sJ0DuROMWcprJqpXTJ8ZLFLCC90sujXT89Q3rNO6fxD+POBDvinLWaAAAAAElFTkSuQmCC");']::before,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[style*='--webextension-menupanel-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEv0lEQVRYR7VXDUxVZRh+7g/E/09LhCAIZKAm8aeuIDdMF9aSSV0ySobgaG7UdJqzzVwrSptWsLU12HTodg0tCgYjbAa4GIleoUtCQBAUWAJBoMjl5/6cvvfQvbuHc++5XG59293O+e77Pe/zvuf7nvf9ZBCOOPb605K5/+xV6eVZa9DNHmKA/WZQmRV6Mnu+xn5uNOfu5wv9/RlALneJAGc0ws3HG/rp+zyOTKEwsLkN7LGXf7egy2TXwXGb6f3Jk8ewoSDHJcfmxcb5BSgecMfVwrfQd6man/YKXt2lGxklElYEAI4mthQXYW1O1rKdU5am+gcRGBsNpaeH5DrN+8XQlpRRVk0wmRQiAgSQN6yVBBm/1Y1fKqower0N07/fxvzUXYG9X2Q4QlI2ITJjB0LTUiBX8H4so/yRBBhm5yy+rfcAR989d0BjkwBFeu3YCfRe+GrZ2cnWNsIn7GGB/bnIjeb9wPsWEvD3Q+6vN0QOiHFd5l6M3ZTOjvXCwHUxUDXXiLDOR23Cwr1pOxmwQ6DlaBF+Pnth2ZGTYfyBAmw+fth1AnOTU1DHpoAzmQRg3qEhSDy0Hw/FP0ZHC3oWFW3GMY0Wg3VXsKOiDMFP0MkWDqcz0F9Zi6b9RwQoMqYNWa318I+KsJkV+mQyhRwKd3fXCXR8egY33v1IFP0rHU1OfRKzsdMZ6Cw7z3b/SZGz9M9LEf5MmtMknCYw0tqG2udfFTmSu7khJjsTj7++z+6nsMVOkgBp9t7f2gTrTEzLq7e9iInOHrvRRu16lieyKoFXV8lRHp4IVpAEx5CXYBqrEuOw68qXIoC/tJ18Foxz85LgwUwB6WSEpaXatWt87TAGqustp4qEiKNdnVFfwes5ZcHWIBIN+QcwPfSHoyAR/VIGtnz8ns3awHEcZv4cwcWkbeCMJl4JOToyqpY6BERHSoKTgrUe/xB9X9TApNdL2oY9/RTSmRYsrQXGhQVM9vShajsreExbeAI8kkyG8PStSFd/5jDC2fG/0XVGje7yCsxNTNq1Tz31DtbnZwv+r925B7SxWelfdGv1L2drE0qxoQ06WPMtbp4owb3BIZFpQMwaZP1QJ5g/92jyYqPzr+9lFSNHKSHl+0aVz0p0u8g0p68VHoEBlnmndcCRc/P/ww3NuLy7QGS+u+07+EWE/f8Ebl9tQb1qn4gA9RfUZ5jHijJQl5mLoI2JiN2jEkRjBqVNSdGPd3QJCPiGh+Ll9gbBnNMECFy9NsUC4hUcxHc5D66P4efmJ+9iuLEZhhmdKPrko28g6UihawQGai4zATq43K1gsaPe8IWmKpGwOZ2BlXRD/kzQnqs8K+oHiZ00ARtNaW/F19AUfYLZsXGHWXDz9eGFJ+nNQrstumRTyq5OyBv60aYjasep3Zro7IaOkdHdGYUPa8u82X4IjF0Dv8gIBCXF2a0lZlDJtpyMtpaeRrRqp8NoV2Kg+aAE2uJSOxcTuVzLikM8AaeeZhqeJ9TwlTikNSaDAXKlEt8ffBu96koexjNkdc/sndF19GwtxXQvpMspfxulTpcfrEi5NKjoMAjOYFyEWbyWJbCnW0sJ0DuROMWcprJqpXTJ8ZLFLCC90sujXT89Q3rNO6fxD+POBDvinLWaAAAAAElFTkSuQmCC");']::before,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP[style*='--webextension-menupanel-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEv0lEQVRYR7VXDUxVZRh+7g/E/09LhCAIZKAm8aeuIDdMF9aSSV0ySobgaG7UdJqzzVwrSptWsLU12HTodg0tCgYjbAa4GIleoUtCQBAUWAJBoMjl5/6cvvfQvbuHc++5XG59293O+e77Pe/zvuf7nvf9ZBCOOPb605K5/+xV6eVZa9DNHmKA/WZQmRV6Mnu+xn5uNOfu5wv9/RlALneJAGc0ws3HG/rp+zyOTKEwsLkN7LGXf7egy2TXwXGb6f3Jk8ewoSDHJcfmxcb5BSgecMfVwrfQd6man/YKXt2lGxklElYEAI4mthQXYW1O1rKdU5am+gcRGBsNpaeH5DrN+8XQlpRRVk0wmRQiAgSQN6yVBBm/1Y1fKqower0N07/fxvzUXYG9X2Q4QlI2ITJjB0LTUiBX8H4so/yRBBhm5yy+rfcAR989d0BjkwBFeu3YCfRe+GrZ2cnWNsIn7GGB/bnIjeb9wPsWEvD3Q+6vN0QOiHFd5l6M3ZTOjvXCwHUxUDXXiLDOR23Cwr1pOxmwQ6DlaBF+Pnth2ZGTYfyBAmw+fth1AnOTU1DHpoAzmQRg3qEhSDy0Hw/FP0ZHC3oWFW3GMY0Wg3VXsKOiDMFP0MkWDqcz0F9Zi6b9RwQoMqYNWa318I+KsJkV+mQyhRwKd3fXCXR8egY33v1IFP0rHU1OfRKzsdMZ6Cw7z3b/SZGz9M9LEf5MmtMknCYw0tqG2udfFTmSu7khJjsTj7++z+6nsMVOkgBp9t7f2gTrTEzLq7e9iInOHrvRRu16lieyKoFXV8lRHp4IVpAEx5CXYBqrEuOw68qXIoC/tJ18Foxz85LgwUwB6WSEpaXatWt87TAGqustp4qEiKNdnVFfwes5ZcHWIBIN+QcwPfSHoyAR/VIGtnz8ns3awHEcZv4cwcWkbeCMJl4JOToyqpY6BERHSoKTgrUe/xB9X9TApNdL2oY9/RTSmRYsrQXGhQVM9vShajsreExbeAI8kkyG8PStSFd/5jDC2fG/0XVGje7yCsxNTNq1Tz31DtbnZwv+r925B7SxWelfdGv1L2drE0qxoQ06WPMtbp4owb3BIZFpQMwaZP1QJ5g/92jyYqPzr+9lFSNHKSHl+0aVz0p0u8g0p68VHoEBlnmndcCRc/P/ww3NuLy7QGS+u+07+EWE/f8Ebl9tQb1qn4gA9RfUZ5jHijJQl5mLoI2JiN2jEkRjBqVNSdGPd3QJCPiGh+Ll9gbBnNMECFy9NsUC4hUcxHc5D66P4efmJ+9iuLEZhhmdKPrko28g6UihawQGai4zATq43K1gsaPe8IWmKpGwOZ2BlXRD/kzQnqs8K+oHiZ00ARtNaW/F19AUfYLZsXGHWXDz9eGFJ+nNQrstumRTyq5OyBv60aYjasep3Zro7IaOkdHdGYUPa8u82X4IjF0Dv8gIBCXF2a0lZlDJtpyMtpaeRrRqp8NoV2Kg+aAE2uJSOxcTuVzLikM8AaeeZhqeJ9TwlTikNSaDAXKlEt8ffBu96koexjNkdc/sndF19GwtxXQvpMspfxulTpcfrEi5NKjoMAjOYFyEWbyWJbCnW0sJ0DuROMWcprJqpXTJ8ZLFLCC90sujXT89Q3rNO6fxD+POBDvinLWaAAAAAElFTkSuQmCC");']::before {
   background-color: rgb(159, 225, 255);
 }
 #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP {
   background-image: url(images/ublockorigin.svg);
 }
 #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::before, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::after,
 #nav-bar toolbaritem#ublock0_raymondhill_net-BAP::before,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP::before,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP::after,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP::before,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP::after {
   -webkit-mask-image: url(images/ublockorigin-mask.svg);
           mask-image: url(images/ublockorigin-mask.svg);
 }
 #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:hover::before,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP:hover::before {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP:hover::before,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP:hover::before,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP:hover::before {
   background-color: var(--toolbarbutton-red-colour) !important;
 }
 #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP::after,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP::after,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP::after,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP::after {
   background: linear-gradient(0deg, rgba(223, 101, 101, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
 }
 #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP:active::before,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::before {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP:active::before,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP:active::before,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP:active::before {
   background-color: var(--toolbarbutton-red-colour_hover) !important;
 }
 #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP[style*='--webextension-menupanel-image: url("moz-extension://c34c6dd4-2c0d-4707-8ce0-3786dbccc341/img/icon_32.png");']::before,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP[style*='--webextension-menupanel-image: url("moz-extension://c34c6dd4-2c0d-4707-8ce0-3786dbccc341/img/icon_32.png");']::before {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP[style*='--webextension-menupanel-image: url("moz-extension://c34c6dd4-2c0d-4707-8ce0-3786dbccc341/img/icon_32.png");']::before,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP[style*='--webextension-menupanel-image: url("moz-extension://c34c6dd4-2c0d-4707-8ce0-3786dbccc341/img/icon_32.png");']::before,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP[style*='--webextension-menupanel-image: url("moz-extension://c34c6dd4-2c0d-4707-8ce0-3786dbccc341/img/icon_32.png");']::before {
   background-color: rgb(255, 159, 159);
 }
 #nav-bar toolbarbutton#_testpilot-containers-BAP .toolbarbutton-icon, #nav-bar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP .toolbarbutton-icon, #nav-bar toolbarbutton#ublock0_raymondhill_net-BAP .toolbarbutton-icon,
 #nav-bar toolbaritem#_testpilot-containers-BAP .toolbarbutton-icon,
 #nav-bar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP .toolbarbutton-icon,
-#nav-bar toolbaritem#ublock0_raymondhill_net-BAP .toolbarbutton-icon {
+#nav-bar toolbaritem#ublock0_raymondhill_net-BAP .toolbarbutton-icon,
+#endToolbar toolbarbutton#_testpilot-containers-BAP .toolbarbutton-icon,
+#endToolbar toolbarbutton#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP .toolbarbutton-icon,
+#endToolbar toolbarbutton#ublock0_raymondhill_net-BAP .toolbarbutton-icon,
+#endToolbar toolbaritem#_testpilot-containers-BAP .toolbarbutton-icon,
+#endToolbar toolbaritem#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP .toolbarbutton-icon,
+#endToolbar toolbaritem#ublock0_raymondhill_net-BAP .toolbarbutton-icon {
   display: none;
 }
-#nav-bar #PanelUI-button {
+#nav-bar #PanelUI-button,
+#endToolbar #PanelUI-button {
   align-items: end;
   max-width: 0 !important;
   opacity: 0 !important;
 }
-#nav-bar #PanelUI-menu-button {
+#nav-bar #PanelUI-menu-button,
+#endToolbar #PanelUI-menu-button {
   padding: 0 !important;
   height: 24px;
   margin-bottom: 0 !important;
@@ -1260,6 +1629,10 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   margin-left: 0;
   margin-right: calc(var(--stop-reload-button_width) * 2 * -1);
   transform: translateX(calc(var(--stop-reload-button_width) * 2 * -1 - 2px));
+}
+
+.toolbarbutton-animatable-box {
+  display: none !important;
 }
 
 findbar {
@@ -1389,7 +1762,7 @@ findbar {
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
   #urlbar-container {
     flex: unset !important;
-    width: var(--urlbar-width) !important;
+    width: calc(28vw + 7px) !important;
     min-width: var(--urlbar-min-width) !important;
   }
   toolbarpaletteitem#wrapper-urlbar-container {
@@ -1397,6 +1770,9 @@ findbar {
   }
   #wrapper-search-container {
     display: none !important;
+  }
+  #nav-bar {
+    flex: unset !important;
   }
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
@@ -1494,6 +1870,11 @@ findbar {
     }
   }
 }
+#appMenu_aboutInternetExplorerIE11Win10,
+#cBHelp_aboutInternetExplorerIE11Win10 {
+  display: none !important;
+}
+
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
   :root {
     --appearance_IE10: 1 !important;
@@ -1523,9 +1904,6 @@ findbar {
     margin-right: -22px;
     transform: translateX(-24px);
   }
-  .toolbarbutton-animatable-box {
-    display: none !important;
-  }
   toolbarbutton#home-button::after, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#bookmarks-sidebar-menu-button::after, toolbarbutton#PanelUI-menu-button::after, toolbarbutton#appMenuButton::after, toolbarbutton#unified-extensions-button::after, toolbarbutton#downloads-button::after {
     content: unset !important;
   }
@@ -1543,6 +1921,14 @@ findbar {
     @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
       :root {
         --appearance_IE11Win10: 1 !important;
+      }
+      #appMenu_aboutInternetExplorerIE11Win10,
+      #cBHelp_aboutInternetExplorerIE11Win10 {
+        display: flex !important;
+      }
+      #appMenu_aboutInternetExplorer,
+      #cBHelp_aboutInternetExplorer {
+        display: none !important;
       }
       #browser {
         margin: -1px !important;
@@ -1568,6 +1954,7 @@ findbar {
 :root {
   --panel-border-color: #b4b4b4 !important;
   --urlbarView-subtract: 23px;
+  --urlbarView-min-width: 400px;
 }
 
 .urlbarView {
@@ -1579,6 +1966,18 @@ findbar {
   width: calc(100% - 2 * (5px + var(--urlbar-container-padding)) - var(--urlbarView-subtract)) !important;
   min-width: var(--urlbarView-min-width) !important;
   border: 1px solid var(--panel-border-color) !important;
+}
+
+#urlbar-go-button,
+.search-go-button {
+  list-style-image: none !important;
+  background-image: url(images/go-mask.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 17px !important;
+  height: 22px !important;
+  border-radius: 0 !important;
+  opacity: 0.5;
 }
 
 .urlbarView-action {
@@ -1620,6 +2019,24 @@ findbar {
 
 .urlbarView-url {
   color: #6d6d6d !important;
+  font-size: 9pt !important;
+}
+
+.urlbarView-no-wrap {
+  display: block !important;
+}
+
+.urlbarView-overflowable[overflow],
+.urlbarView-url[overflow],
+.urlbarView-no-wrap {
+  overflow-x: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.urlbarView-overflowable[overflow],
+.urlbarView-url[overflow] {
+  -webkit-mask-image: none !important;
+          mask-image: none !important;
 }
 
 .search-one-offs {
@@ -1646,6 +2063,10 @@ findbar {
 }
 
 #urlbar-engine-one-off-item-history {
+  display: none !important;
+}
+
+#pageAction-urlbar-_testpilot-containers {
   display: none !important;
 }
 
@@ -1902,9 +2323,9 @@ findbar {
     margin-left: 7px !important;
   }
 }
-@supports -moz-bool-pref("BeautyFox.option.customColouredNavButtons") {
+@supports -moz-bool-pref("BeautyFox.option.userAccentColorNavButtons") {
   :root {
-    --navButtons-colour: var(--navButtons-customColour);
+    --navButtons-colour: var(--userAccentColor);
   }
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -1980,11 +2401,11 @@ findbar {
   }
 }
 :root {
-  --tab-background-colour: var(--tab-inset-border-colour);
-  --tab-background-colour_hover: linear-gradient(180deg, rgba(254,254,254, 0.78) 0%, rgba(213,213,213, 0.7) 100%);
-  --tab-background-colour_active: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgba(254, 254, 254, 0.62) 100%);
+  --tab-background-colour: linear-gradient(180deg, rgba(254,254,254,.62) 0%, rgba(110,110,110,.5) 100%);
+  --tab-background-colour_hover: linear-gradient(180deg, rgba(254,254,254,.88) 0%, rgba(213,213,213,.7) 100%);
+  --tab-background-colour_active: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(254,254,254,.62) 100%);
   --tab-border-colour: rgba(96, 96, 96, .78);
-  --tab-inset-border-colour: linear-gradient(180deg, rgba(254, 254, 254, 0.78) 0%, rgba(143, 143, 143, 0.55) 100%);
+  --tab-inset-border-colour: var(--tab-background-colour);
   --tab-border-radius: 0 !important;
   --tab-height: 23px;
   --newtab-button-width: 29px;
@@ -2055,6 +2476,10 @@ findbar {
   list-style-image: url("images/left.svg") !important;
 }
 
+#scrollbutton-down {
+  margin-left: -1px !important;
+}
+
 .tabbrowser-tab {
   padding: 0 !important;
   border-radius: var(--tab-border-radius) !important;
@@ -2063,7 +2488,7 @@ findbar {
 .tabbrowser-tab .tab-background {
   box-shadow: none !important;
   border: 1px solid var(--tab-border-colour) !important;
-  border-left: 0 !important;
+  margin-left: -1px !important;
   border-bottom: 0px !important;
   background: transparent !important;
   position: relative;
@@ -2091,9 +2516,6 @@ findbar {
   border-image-source: var(--tab-inset-border-colour);
   background: var(--tab-background-colour_hover);
 }
-.tabbrowser-tab:hover .tab-close-button {
-  display: block !important;
-}
 .tabbrowser-tab[selected=true] .tab-background {
   background: transparent !important;
 }
@@ -2107,6 +2529,7 @@ findbar {
 }
 .tabbrowser-tab:first-child .tab-background {
   border-left: 1px solid var(--tab-border-colour) !important;
+  margin-left: 0px !important;
 }
 .tabbrowser-tab:not([busy=true]) .tab-icon-image:not(.tabbrowser-tab:not([busy=true]) .tab-icon-image[src*=data]) {
   content: url(images/iexplore_16.png) !important;
@@ -2134,6 +2557,17 @@ findbar {
 .tabbrowser-tab .tab-close-button:active {
   background-color: #E10C0C !important;
 }
+.tabbrowser-tab[class*=identity-color] .tab-background::before {
+  background: color-mix(in srgb, var(--identity-icon-color) 60%, white);
+  -webkit-mask-image: linear-gradient(black, rgba(0, 0, 0, 0.2));
+          mask-image: linear-gradient(black, rgba(0, 0, 0, 0.2));
+}
+.tabbrowser-tab[class*=identity-color] .tab-context-line {
+  display: none;
+}
+.tabbrowser-tab:not([selected=true]):hover[class*=identity-color] .tab-background {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
 
 .tab-loading-burst {
   display: none !important;
@@ -2142,6 +2576,14 @@ findbar {
 .tabbrowser-tab[fadein]:not([pinned]):not([style*=max-width]) {
   max-width: 200px !important;
   min-width: 45px !important;
+}
+.tabbrowser-tab[fadein]:not([pinned]):not([style*=max-width]):hover .tab-close-button {
+  display: block !important;
+}
+
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+  margin-inline-start: 4px !important;
+  border-left: 1px solid var(--tab-border-colour) !important;
 }
 
 .tab-context-line {
@@ -2176,7 +2618,7 @@ toolbarbutton#tabs-newtab-button,
   margin: 0 !important;
   padding: 0 !important;
   border: 1px solid var(--tab-border-colour) !important;
-  border-left: 0 !important;
+  margin-left: -1px !important;
   border-bottom: 0px !important;
   background: transparent;
   border-radius: var(--tab-border-radius) !important;
@@ -2267,9 +2709,11 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   #TabsToolbar-customization-target {
     margin-right: 9px !important;
   }
-  .tabbrowser-tab {
-    transform: translateX(0) !important; /* Unfortunately, drag reordering doesn't work when tabs are moved to the navigation bar. Disabling the dragging effect. */
-  }
+  /*.tabbrowser-tab {
+      transform: none !important; Unfortunately, drag reordering doesn't work when tabs are moved to the navigation bar. Disabling the dragging effect. 
+
+          THIS HAS NOW BEEN FIXED.
+  }*/
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
   :root {
@@ -2363,12 +2807,32 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   }
   .tabbrowser-tab[selected=true] .tab-background::before {
     background: white !important;
-    border: unset !important;
     width: 100%;
     height: 100%;
   }
   .tabbrowser-tab[selected=true] .tab-close-button {
     display: block;
+  }
+  .tabbrowser-tab[selected=true][class*=identity-color] .tab-background::before {
+    background: color-mix(in srgb, var(--identity-icon-color) 60%, white) !important;
+    opacity: 1;
+    -webkit-mask: unset !important;
+            mask: unset !important;
+  }
+  .tabbrowser-tab[class*=identity-color] .tab-background::before {
+    background: color-mix(in srgb, var(--identity-icon-color) 60%, white) !important;
+    opacity: 0.5;
+    -webkit-mask: unset !important;
+            mask: unset !important;
+  }
+  .tabbrowser-tab[class*=identity-color] .tab-background:hover::before {
+    background: color-mix(in srgb, var(--identity-icon-color) 60%, white) !important;
+    -webkit-mask: unset !important;
+            mask: unset !important;
+    opacity: 0.8;
+  }
+  .tabbrowser-tab[class*=identity-color] .tab-context-line {
+    display: none;
   }
   .tabbrowser-tab:first-child .tab-background {
     border-left: 1px solid var(--tab-border-colour) !important;
@@ -2460,29 +2924,64 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   content: "Favorites" !important;
 }
 
-#suggestedsites_bruni_com-BAP {
-  list-style-image: url("images/iexplore_16.png") !important;
+#suggestedsites_bruni_com-BAP,
+#unified-extensions-button {
   padding: 3px !important;
+  align-items: center !important;
 }
-#suggestedsites_bruni_com-BAP::after {
+#suggestedsites_bruni_com-BAP::after,
+#unified-extensions-button::after {
   content: url(images/dropdown.png);
   margin-bottom: 6px;
-  margin-left: 3px;
+  margin-left: 6px;
   margin-right: 3px;
 }
 #suggestedsites_bruni_com-BAP:active::after,
 #suggestedsites_bruni_com-BAP:active .toolbarbutton-icon,
 #suggestedsites_bruni_com-BAP:active .toolbarbutton-text, #suggestedsites_bruni_com-BAP[open=true]::after,
 #suggestedsites_bruni_com-BAP[open=true] .toolbarbutton-icon,
-#suggestedsites_bruni_com-BAP[open=true] .toolbarbutton-text {
+#suggestedsites_bruni_com-BAP[open=true] .toolbarbutton-text,
+#unified-extensions-button:active::after,
+#unified-extensions-button:active .toolbarbutton-icon,
+#unified-extensions-button:active .toolbarbutton-text,
+#unified-extensions-button[open=true]::after,
+#unified-extensions-button[open=true] .toolbarbutton-icon,
+#unified-extensions-button[open=true] .toolbarbutton-text {
   transform: translateX(1px) translateY(1px);
 }
-#suggestedsites_bruni_com-BAP .toolbarbutton-badge-stack {
+#suggestedsites_bruni_com-BAP .toolbarbutton-badge-stack,
+#unified-extensions-button .toolbarbutton-badge-stack {
   padding: 0 !important;
   margin-inline-end: 4px;
 }
-#suggestedsites_bruni_com-BAP .toolbarbutton-text {
+#suggestedsites_bruni_com-BAP .toolbarbutton-text,
+#unified-extensions-button .toolbarbutton-text {
+  display: block !important;
   padding: 0 !important;
+  min-height: 0 !important;
+}
+#suggestedsites_bruni_com-BAP .toolbarbutton-icon,
+#unified-extensions-button .toolbarbutton-icon {
+  height: 16px !important;
+  width: 16px !important;
+  padding: 0 !important;
+  margin-inline-end: 4px !important;
+}
+
+#suggestedsites_bruni_com-BAP {
+  list-style-image: url("images/iexplore_16.png") !important;
+}
+
+#unified-extensions-button {
+  list-style-image: url("images/110.ico") !important;
+}
+#unified-extensions-button .toolbarbutton-text::before {
+  content: "Get More Add-ons" !important;
+}
+
+#newToolbar {
+  display: flex;
+  align-items: end;
 }
 
 #PersonalToolbar toolbaritem:first-of-type {
@@ -2506,6 +3005,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   position: relative;
   display: flex;
   justify-content: end;
+  align-items: end;
   padding-top: 0;
   padding-bottom: 0;
   border-bottom: 1px solid var(--browser-outer-border-color);
@@ -2546,7 +3046,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   pointer-events: none;
   border-top: 1px solid #aaabab;
 }
-#statusbarContainer > *:not(:first-child) {
+#statusbarContainer > *:not(:first-child, #gripper) {
   border-left: 1px solid #d7d7d7;
 }
 #statusbarContainer > div {
@@ -2585,6 +3085,9 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 }
 #statusbarContainer #addonsBar .toolbarbutton-badge-stack {
   padding: 0 !important;
+}
+#statusbarContainer #gripper {
+  margin-right: 1px;
 }
 #statusbarContainer #statusbarZoomContainer {
   padding-left: 10px;
@@ -2645,7 +3148,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     display: block !important;
     position: fixed !important;
     font-size: 9pt !important;
-    right: 46px !important;
+    right: 63px !important;
     bottom: 2px !important;
     z-index: 1 !important;
     padding: 0 !important;
@@ -2688,6 +3191,17 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     border-bottom: 0 !important;
   }
 }
+#newToolbar {
+  -moz-window-dragging: drag !important;
+}
+
+#endToolbar {
+  min-width: 24px;
+  padding-right: 5px;
+  background-color: transparent !important;
+  -moz-window-dragging: drag !important;
+}
+
 #cBHomeButton {
   list-style-image: url("chrome://browser/skin/home.svg");
 }
@@ -3181,80 +3695,6 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       }
       p.aboutDialogInfo {
         margin-bottom: 2px !important;
-      }
-      @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
-        :root {
-          --logo-image: var(--winver-logo-image);
-          --font-size: 8pt;
-          --font-family: Tahoma;
-        }
-        #aboutDialogPane {
-          width: 360px;
-          height: 337px;
-          padding-left: 53px;
-          padding-right: 45px;
-          padding-top: 0;
-        }
-        #aboutDialogContainer {
-          background-color: rgb(240, 240, 240) !important;
-        }
-        #aboutDialogInfoPane {
-          position: relative;
-        }
-        #aboutDialogInfoPane::before {
-          content: "";
-          position: absolute;
-          top: 17px;
-          left: -42px;
-          height: 32px;
-          width: 32px;
-          background-image: url(images/iexplore_32.png);
-          background-position: center;
-          background-repeat: no-repeat;
-        }
-        .winverSeparator {
-          margin-top: 11px;
-          margin-bottom: 15px;
-          border-top: 1px solid rgb(160, 160, 160);
-          border-bottom: 1px solid white;
-          border-right: 1px solid white;
-          margin-left: -38px;
-          margin-right: -28px;
-        }
-        #aboutDialogLogo {
-          background-image: var(--logo-image);
-          background-size: cover;
-          width: 458px;
-          height: 72px;
-          margin-left: -53px;
-          margin-right: -45px;
-          margin-bottom: 0;
-        }
-        p.aboutDialogInfo {
-          color: black !important;
-          margin-bottom: 3px !important;
-        }
-        #aboutDialogMicrosoft {
-          margin-bottom: 20px !important;
-        }
-        #winverCopyright {
-          margin-bottom: 57px !important;
-        }
-        a {
-          text-decoration: underline !important;
-        }
-        #winverUser {
-          margin-top: 4px !important;
-          margin-left: 15px !important;
-        }
-        #aboutDialogOKButton {
-          width: 73px;
-          height: 21px;
-          right: 9px;
-          bottom: 11px;
-          font-size: 8pt !important;
-          padding: 0 !important;
-        }
       }
     }
   }

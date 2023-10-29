@@ -215,9 +215,9 @@
     }
 }
 
-@supports -moz-bool-pref("BeautyFox.option.customColouredNavButtons") {
+@supports -moz-bool-pref("BeautyFox.option.userAccentColorNavButtons") {
     :root {
-        --navButtons-colour: var(--navButtons-customColour);
+        --navButtons-colour: var(--userAccentColor);
     }
 }
 

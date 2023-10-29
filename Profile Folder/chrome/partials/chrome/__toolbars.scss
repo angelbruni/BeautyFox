@@ -20,14 +20,15 @@
     }
 }
 
-#suggestedsites_bruni_com-BAP {
-    list-style-image: url('images/iexplore_16.png') !important;
+#suggestedsites_bruni_com-BAP,
+#unified-extensions-button {
     padding: 3px !important;
+    align-items: center !important;
 
     &::after {
         content: url(images/dropdown.png);
         margin-bottom: 6px;
-        margin-left: 3px;
+        margin-left: 6px;
         margin-right: 3px;
     }
 
@@ -46,8 +47,36 @@
     }
 
     .toolbarbutton-text {
+        display: block !important;
         padding: 0 !important;
+        min-height: 0 !important;
     }
+
+    .toolbarbutton-icon {
+        height: 16px !important;
+        width: 16px !important;
+        padding: 0 !important;
+        margin-inline-end: 4px !important;
+    }
+}
+
+#suggestedsites_bruni_com-BAP {
+    list-style-image: url('images/iexplore_16.png') !important;
+}
+
+#unified-extensions-button {
+    list-style-image: url('images/110.ico') !important;
+
+    .toolbarbutton-text {
+        &::before {
+            content: 'Get More Add-ons' !important;
+        }
+    }
+}
+
+#newToolbar {
+    display: flex;
+    align-items: end;
 }
 
 #PersonalToolbar {
@@ -73,7 +102,8 @@
 #statusbarContainer {
     position: relative;
     display: flex;
-    justify-content: end; 
+    justify-content: end;
+    align-items: end;
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: 1px solid var(--browser-outer-border-color);
@@ -117,7 +147,7 @@
         }
     }
 
-    > *:not(:first-child) {
+    > *:not(:first-child, #gripper) {
         border-left: 1px solid #d7d7d7;
     }
 
@@ -162,6 +192,10 @@
         .toolbarbutton-badge-stack {
             padding: 0 !important;
         }
+    }
+
+    #gripper {
+        margin-right: 1px;
     }
 
     #statusbarZoomContainer {
@@ -233,7 +267,7 @@
         display: block !important;
         position: fixed !important;
         font-size: 9pt !important;
-        right: 46px !important;
+        right: 63px !important;
         bottom: 2px !important;
         z-index: 1 !important;
         padding: 0 !important;
@@ -283,6 +317,17 @@
             border-bottom: 0 !important;
         }
     }
+}
+
+#newToolbar {
+    -moz-window-dragging: drag !important;
+}
+
+#endToolbar {
+    min-width: 24px;
+    padding-right: 5px;
+    background-color: transparent !important;
+    -moz-window-dragging: drag !important;
 }
 
 #cBHomeButton {
