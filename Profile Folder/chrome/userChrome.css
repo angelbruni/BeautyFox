@@ -262,7 +262,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #urlbar-container {
   padding-right: 0px;
   margin-inline-start: 1px !important;
-  margin-inline-end: 1px !important;
+  margin-inline-end: 0px !important;
   --urlbar-container-height: 24px !important;
 }
 #urlbar-container:hover #urlbar-background::before {
@@ -1561,7 +1561,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #nav-bar #PanelUI-button,
 #endToolbar #PanelUI-button {
   align-items: end;
-  max-width: 0 !important;
+  max-width: 1px !important;
   opacity: 0 !important;
 }
 #nav-bar #PanelUI-menu-button,
@@ -1984,6 +1984,10 @@ findbar {
   display: none !important;
 }
 
+.urlbarView-row:hover .urlbarView-url, .urlbarView-row[selected] .urlbarView-url {
+  display: none !important;
+}
+
 .urlbarView-row,
 .autocomplete-richlistitem {
   border: 0 !important;
@@ -1993,9 +1997,29 @@ findbar {
   margin-right: 4px !important;
   padding: 0 25px !important;
 }
-.urlbarView-row:hover,
-.autocomplete-richlistitem:hover {
+.urlbarView-row:hover, .urlbarView-row[selected],
+.autocomplete-richlistitem:hover,
+.autocomplete-richlistitem[selected] {
   background-color: rgb(240, 240, 240) !important;
+}
+
+.urlbarView-row[dynamicType=onboardTabToSearch],
+.urlbarView-group-aria-label {
+  display: none !important;
+}
+
+.urlbarView-row[label]::before {
+  font-size: 9pt !important;
+  margin-inline-start: 0 !important;
+  left: 10px !important;
+}
+.urlbarView-row[label]::after {
+  content: "";
+  position: absolute;
+  right: 19px;
+  border-top: 1px solid rgb(227, 227, 227);
+  width: calc(100% - 114px);
+  top: -9px;
 }
 
 .urlbarView-row-inner {
@@ -2024,6 +2048,7 @@ findbar {
 
 .urlbarView-no-wrap {
   display: block !important;
+  max-width: 100% !important;
 }
 
 .urlbarView-overflowable[overflow],
@@ -3117,6 +3142,10 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   height: 100%;
 }
 
+#main-window[sizemode=fullscreen] #statusbarContainer {
+  display: none !important;
+}
+
 @supports -moz-bool-pref("BeautyFox.option.showStatusBar") {
   #statusbarContainer {
     max-height: unset;
@@ -3530,12 +3559,36 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   height: auto !important;
   width: auto !important;
 }
+#cBHomeButton:active .toolbarbutton-icon,
+#cBPrintButton:active .toolbarbutton-icon,
+#cBReadMailButton:active .toolbarbutton-icon {
+  transform: translateX(1px) translateY(1px);
+}
 
 #cBPageMenuButton,
 #cBSafetyMenuButton,
 #cBToolsMenuButton {
-  padding-left: 4px !important;
   padding-right: 4px !important;
+}
+#cBPageMenuButton[open=true] .toolbarbutton-text, #cBPageMenuButton[open=true]::after, #cBPageMenuButton:active .toolbarbutton-text, #cBPageMenuButton:active::after,
+#cBSafetyMenuButton[open=true] .toolbarbutton-text,
+#cBSafetyMenuButton[open=true]::after,
+#cBSafetyMenuButton:active .toolbarbutton-text,
+#cBSafetyMenuButton:active::after,
+#cBToolsMenuButton[open=true] .toolbarbutton-text,
+#cBToolsMenuButton[open=true]::after,
+#cBToolsMenuButton:active .toolbarbutton-text,
+#cBToolsMenuButton:active::after {
+  transform: translateX(1px) translateY(1px);
+}
+
+#cBPageMenuButton,
+#cBSafetyMenuButton {
+  padding-left: 8px !important;
+}
+
+#cBToolsMenuButton {
+  padding-left: 10px !important;
 }
 
 #cBHomeButton,
@@ -3564,6 +3617,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   content: url(images/dropdown.png);
   margin-bottom: 6px;
   margin-left: 4px;
+  margin-right: 1px;
 }
 #cBHomeButton[type=menu] .toolbarbutton-text,
 #cBPrintButton[type=menu] .toolbarbutton-text,
@@ -3577,126 +3631,26 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 }
 
 #cBHelpMenuButton {
-  margin-right: 13px !important;
+  padding-left: 4px !important;
+  margin-right: 14px !important;
+}
+#cBHelpMenuButton[type=menu]::after {
+  margin-left: 2px;
+}
+#cBHelpMenuButton[open=true] .toolbarbutton-icon, #cBHelpMenuButton:active .toolbarbutton-icon {
+  transform: translateX(1px) translateY(1px);
 }
 
-@-moz-document url("chrome://browser/content/aboutDialog.xhtml") {
-  :root {
-    --logo-image: url(images/IELOGO-9.PNG);
-    --font-size: 8pt;
-    --font-family: Tahoma;
+@supports -moz-bool-pref("BeautyFox.option.fakeDropdownArrowsinCB") {
+  #cBHomeButton,
+  #cBPrintButton {
+    padding-left: 8px !important;
   }
-  #aboutDialog {
-    font-family: var(--font-family) !important;
-  }
-  #aboutDialogContainer {
-    background-color: white !important;
-    color-scheme: unset !important;
-  }
-  #aboutDialogPane {
-    width: 326px;
-    height: 254px;
-    padding: 21px;
-    padding-top: 13px;
-    padding-bottom: 29px;
-    position: relative;
-  }
-  #aboutDialogLogo {
-    background-image: var(--logo-image);
-    background-size: cover;
-    width: 314px;
-    height: 76px;
-    margin-bottom: 23px;
-  }
-  p.aboutDialogInfo {
-    color: rgb(97, 97, 97) !important;
-    font-size: var(--font-size) !important;
-    line-height: 13px !important;
-    margin-left: 0 !important;
-    margin-top: 0 !important;
-    margin-right: 0 !important;
-    margin-bottom: 0 !important;
-  }
-  p.aboutDialogInfo#aboutDialogWarning {
-    margin-top: 13px !important;
-    margin-bottom: 12px !important;
-  }
-  a {
-    font-size: var(--font-size) !important;
-    color: rgb(0, 102, 204) !important;
-  }
-  a:visited {
-    color: rgb(128, 0, 128) !important;
-  }
-  #aboutDialogOKButton {
-    position: fixed;
-    width: 67px;
-    height: 20px;
-    right: 22px;
-    bottom: 23px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-    :root {
-      --logo-image: url(images/IELOGO-9PreRelease.PNG);
-    }
-  }
-  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-    :root {
-      --logo-image: url(images/IELOGO-10.PNG);
-    }
-    #aboutDialogPane {
-      width: 317px;
-      height: 216px;
-    }
-    #aboutDialogInfoCipherStrength, #aboutDialogWarning {
-      display: none;
-    }
-    #aboutDialogInfoProductID {
-      margin-bottom: 18px !important;
-    }
-    a {
-      font-size: var(--font-size) !important;
-      color: rgb(0, 102, 204) !important;
-      text-decoration: none !important;
-    }
-    a:visited {
-      color: rgb(128, 0, 128) !important;
-    }
-    a:hover {
-      text-decoration: underline !important;
-    }
-    #aboutDialogOKButton {
-      width: 68px;
-      height: 24px;
-      right: 36px;
-      bottom: 16px;
-    }
-    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-      :root {
-        --logo-image: url(images/IELOGO-11.PNG);
-        --font-size: 9pt;
-        --font-family: Segoe UI;
-      }
-      #aboutDialogPane {
-        width: 295px;
-        height: 184px;
-        padding: 31px;
-        padding-left: 32px;
-        padding-right: 32px;
-        padding-top: 20px;
-        padding-bottom: 54px;
-      }
-      #aboutDialogLogo {
-        margin-bottom: 10px;
-        margin-left: -2px;
-      }
-      p.aboutDialogInfo {
-        margin-bottom: 2px !important;
-      }
-    }
+  #cBHomeButton::after,
+  #cBPrintButton::after {
+    content: url(images/dropdown.png);
+    margin-bottom: 6px;
+    margin-left: 10px;
   }
 }
 #contentAreaContextMenu #context-navigation {

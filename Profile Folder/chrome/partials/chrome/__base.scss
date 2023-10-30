@@ -261,7 +261,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 #urlbar-container {
     padding-right: 0px;
     margin-inline-start: 1px !important;
-    margin-inline-end: 1px !important;
+    margin-inline-end: 0px !important;
     --urlbar-container-height: 24px !important;
 
     &:hover {
@@ -1182,7 +1182,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     
     #PanelUI-button {
         align-items: end;
-        max-width: 0 !important;
+        max-width: 1px !important;
         opacity: 0 !important;
     }
 

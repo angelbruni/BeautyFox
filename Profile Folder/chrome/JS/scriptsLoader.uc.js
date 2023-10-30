@@ -16,6 +16,7 @@ function executeFunctions() {
     createCBHomeButton();
     createCBPrintButton();
     createCBReadMailButton()
+    //openManageAddons()
     console.info("Functions executed.");
 }
 

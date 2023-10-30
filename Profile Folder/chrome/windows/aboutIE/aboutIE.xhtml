@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://userchrome/content/windows/aboutIE/aboutIE.css" type="text/css"?>
+
+<window xmlns:html="http://www.w3.org/1999/xhtml"
+		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+		id="aboutIE"
+		windowtype="Browser:AboutIE"
+        title="About Internet Explorer"
+		role="dialog"
+        >
+
+    <linkset>
+        <!--I CAN'T GET THIS TO WORK AT ALL
+            <html:link rel="localization" href="chrome://userchrome/content/locale/BeautyFox/aboutIE.ftl"/>-->
+    </linkset>
+
+    <vbox id="aboutIEContainer">
+        <vbox id="aboutIEPane">
+            <html:div id="aboutIELogo"></html:div>
+            <vbox id="aboutIEInfoPane">
+                <label id="aboutIEInfoVersion" class="aboutDialogInfo">Version: 9.0.8112.16421   64-bit Edition</label>
+                <label id="aboutIEInfoUpdateVersion" class="aboutDialogInfo">Update Versions: 9.0.41 (<a id="aboutIEInfoUpdateVersion" href="#">KB3078071</a>)</label>
+                <label id="aboutIEInfoCipherStrength" class="aboutDialogInfo">Cipher Strength: 256-bit</label>
+                <label id="aboutIEInfoProductID" class="aboutDialogInfo">Product ID: 03553-292-0000007-85504</label>
+                <label id="aboutIEWarning" class="aboutDialogInfo">
+                    Warning: This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law.
+                </label>
+                <a id="aboutIEMicrosoft" class="aboutDialogInfo" href="#">© 2011 Microsoft Corporation</a>
+                <button id="aboutIEOKButton" class="aboutDialogInfo">
+                    <hbox class="box-inherit button-box" align="center" pack="center" flex="1" anonid="button-box">
+                        <image class="button-icon"/>
+                        <label class="button-text">OK</label>
+                    </hbox>
+                </button>
+            </vbox>
+        </vbox>
+    </vbox>
+    
+    <!--<script src="chrome://userchrome/content/windows/aboutIE/script.js"></script>-->
+</window>

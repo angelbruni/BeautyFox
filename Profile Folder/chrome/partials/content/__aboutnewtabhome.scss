@@ -22,6 +22,12 @@
         }
     }
 
+    .body-wrapper {
+        .discovery-stream:not(:first-child) {
+            display: none !important;
+        }
+    }
+
     .icon-settings {
         background-image: none !important;
     }

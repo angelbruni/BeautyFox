@@ -98,44 +98,6 @@
 	};
 	setAttributes(aboutDialogOKButton, aboutDialogOKButtonAttrs);
 	
-	const winverSeparator = document.createElement("div");
-	const winverSeparatorAttrs = {
-		"class": "winverSeparator"
-	}
-	setAttributes(winverSeparator, winverSeparatorAttrs);
-	
-	// Winver OS Name
-	const winverOSName = document.createElement("p");
-	const winverOSNameAttrs = {
-		"class": "aboutDialogInfo",
-		"id": "winverOSName",
-	}
-	setAttributes(winverOSName, winverOSNameAttrs);
-	
-	// Winver Copyright
-	const winverCopyright = document.createElement("p");
-	const winverCopyrightAttrs = {
-		"class": "aboutDialogInfo",
-		"id": "winverCopyright",
-	}
-	setAttributes(winverCopyright, winverCopyrightAttrs);
-	
-	// Winver License
-	const winverLicense = document.createElement("p");
-	const winverLicenseAttrs = {
-		"class": "aboutDialogInfo",
-		"id": "winverLicense",
-	}
-	setAttributes(winverLicense, winverLicenseAttrs);
-	
-	// Winver User
-	const winverUser = document.createElement("p");
-	const winverUserAttrs = {
-		"class": "aboutDialogInfo",
-		"id": "winverUser",
-	}
-	setAttributes(winverUser, winverUserAttrs);
-	
 	// Clear HTML
 	aboutDialogContainer.innerHTML = '';
 	

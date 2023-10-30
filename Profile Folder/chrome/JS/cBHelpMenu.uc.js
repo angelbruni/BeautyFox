@@ -32,7 +32,7 @@ var cBHelpMenu = {
             type: 'app',
             id: 'cBHelp_aboutInternetExplorer',
             name: 'About Internet Explorer',
-            command: 'openAboutDialog();',
+            command: 'openFakeIEAbout();',
         },
         {
             type: 'app',

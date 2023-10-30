@@ -1,0 +1,139 @@
+:root {
+	--logo-image: url('chrome://userchrome/content/images/IELOGO-9.PNG');
+	--font-size: 8pt;
+	--font-family: Tahoma;
+}
+
+#aboutIE {
+	font-family: var(--font-family) !important;
+}
+
+#aboutIEContainer {
+	background-color: white;
+	color-scheme: unset;
+}
+
+#aboutIEPane {
+	width: 368px;
+	height: 296px;
+	padding: 21px;
+	padding-top: 13px;
+	padding-bottom: 29px;
+	position: relative;
+}
+
+#aboutIELogo {
+	background-image: var(--logo-image);
+	background-size: cover;
+	width: 314px;
+	height: 76px;
+	margin-bottom: 23px;
+}
+
+label.aboutDialogInfo {
+	color: rgb(97, 97, 97);
+	font-size: var(--font-size);
+	line-height: 13px;
+	margin-left: 0;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+
+	&#aboutIEWarning {
+		margin-top: 13px;
+		margin-bottom: 12px;
+	}
+}
+
+a {
+	display: inline;
+	font-size: var(--font-size);
+	color: rgb(0, 102, 204);
+
+	&:visited {
+		color: rgb(128, 0, 128);
+	}
+}
+
+#aboutIEOKButton {
+	position: fixed;
+	appearance: button;
+	min-height: 0 !important;
+	min-width: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	justify-content: center;
+	align-items: center;
+	width: 67px;
+	height: 20px;
+	right: 22px;
+	bottom: 23px;
+	font-size: var(--font-size);
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+	:root {
+		--logo-image: url('chrome://userchrome/content/images/IELOGO-9PreRelease.PNG');
+	}
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+	:root {
+		--logo-image: url('chrome://userchrome/content/images/IELOGO-10.PNG');
+	}
+
+	#aboutIEPane {
+		width: 317px;
+		height: 216px;
+	}
+
+	#aboutIEInfoCipherStrength, #aboutIEWarning {
+		display: none;
+	}
+
+	#aboutIEInfoProductID {
+		margin-bottom: 18px;
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	#aboutIEOKButton {
+		width: 68px;
+		height: 24px;
+		right: 36px;
+		bottom: 16px;
+	}
+
+	@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+		:root {
+			--logo-image: url('chrome://userchrome/content/images/IELOGO-11.PNG');
+			--font-size: 9pt;
+			--font-family: Segoe UI;
+		}
+
+		#aboutIEPane {
+			width: 295px;
+			height: 184px;
+			padding: 31px;
+			padding-left: 32px;
+			padding-right: 32px;
+			padding-top: 20px;
+			padding-bottom: 54px;
+		}
+
+		#aboutIELogo {
+			margin-bottom: 10px;
+			margin-left: -2px;
+		}
+
+		label.aboutDialogInfo {
+			margin-bottom: 2px;
+		}
+	}
+}

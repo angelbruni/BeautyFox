@@ -212,7 +212,8 @@
 }
 
 #main-window {
-    &[sizemode="maximized"], &[sizemode="fullscreen"] { 
+    &[sizemode="maximized"],
+    &[sizemode="fullscreen"] { 
         #statusbarContainer {
             padding-top: 1px;
             border-bottom: 0;
@@ -230,6 +231,14 @@
                 width: 100%;
                 height: 100%;
             }
+        }
+    } 
+}
+
+#main-window {
+    &[sizemode="fullscreen"] { 
+        #statusbarContainer {
+            display: none !important;
         }
     } 
 }
@@ -761,13 +770,34 @@
         height: auto !important;
         width: auto !important;
     }
+
+    &:active {
+        .toolbarbutton-icon {
+            transform: translateX(1px) translateY(1px);
+        }
+    }
 }
 
 #cBPageMenuButton,
 #cBSafetyMenuButton,
 #cBToolsMenuButton {
-    padding-left: 4px !important;
     padding-right: 4px !important;
+
+    &[open="true"],
+    &:active {
+        .toolbarbutton-text,
+        &::after {
+            transform: translateX(1px) translateY(1px);
+        }
+    }
+}
+
+#cBPageMenuButton,
+#cBSafetyMenuButton {
+    padding-left: 8px !important;
+}
+#cBToolsMenuButton {
+    padding-left: 10px !important;
 }
 
 #cBHomeButton,
@@ -788,6 +818,7 @@
             content: url(images/dropdown.png);
             margin-bottom: 6px;
             margin-left: 4px;
+            margin-right: 1px;
         }
 
         .toolbarbutton-text {
@@ -797,5 +828,32 @@
 }
 
 #cBHelpMenuButton {
-    margin-right: 13px !important;
+    padding-left: 4px !important;
+
+    &[type="menu"] {
+        &::after {
+            margin-left: 2px;
+        }
+    }
+
+    &[open="true"],
+    &:active {
+        .toolbarbutton-icon {
+            transform: translateX(1px) translateY(1px);
+        }
+    }
+
+    margin-right: 14px !important;
+}
+
+@supports -moz-bool-pref("BeautyFox.option.fakeDropdownArrowsinCB") {
+    #cBHomeButton,
+    #cBPrintButton {
+        padding-left: 8px !important;
+        &::after {
+            content: url(images/dropdown.png);
+            margin-bottom: 6px;
+            margin-left: 10px;
+        }
+    }
 }

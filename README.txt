@@ -19,8 +19,9 @@ Instructions
 1.1.	Number	- ui.prefersReducedMotion = 1;
 1.2.	Boolean	- toolkit.legacyUserProfileCustomizations.stylesheets = true;
 1.3.	Boolean	- browser.tabs.tabmanager.enabled = false;
-1.4.	Boolean	- browser.theme.dark-private-windows = false.
-1.5.	Close Firefox
+1.4.	Boolean	- browser.theme.dark-private-windows = false;
+1.5.	Boolean - nglayout.enable_drag_images = false;
+1.6.	Close Firefox.
 
 
 2.	Copy/pasting

@@ -204,7 +204,7 @@ var appMenu = {
             type: 'app',
             id: 'appMenu_aboutInternetExplorer',
             name: 'About Internet Explorer',
-            command: 'openAboutDialog();',
+            command: 'openFakeIEAbout();',
         },
         {
             type: 'app',
