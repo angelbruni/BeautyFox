@@ -73,4 +73,14 @@ Instructions
 
 2.3.	Restart your computer.
 
+
+
+3.	Extensions
+
+3.1	[Optional] In about:config, xpinstall.signatures.required = false and drag and drop suggestedSites.xpi in Firefox;
+
+3.2	Add to bookmarks bar: https://addons.mozilla.org/en-US/firefox/addon/add-to-favorites-bar/
+
+3.3	[Optional] FeedBro for RSS feeds: https://addons.mozilla.org/en-US/firefox/addon/feedbroreader/
+
 Done!
