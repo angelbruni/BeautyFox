@@ -68,7 +68,7 @@
 
     "es": {
         "fallback": {
-            "dialogNext": "Avance",
+            "dialogNext": "Siguiente",
 
             "aboutTitlebar": "Acerca de Internet Explorer",
             "aboutVersion": "Versión:",
@@ -79,20 +79,20 @@
 
             "wizardTitlebar": "Asistente de BeautyFox",
             "wizardWelcome": "¡Bienvenidos a BeautyFox!",
-            "wizardAbout": "Este proyecto pretende recuperar la esencia limpia y minimalista de la navegación por Internet, primando la elegancia. Con una interfaz optimizada, BeautyFox ofrece a los usuarios un escape refrescante de la abrumadora complejidad de los navegadores modernos.",
-            "wizardAppearance": "Elige tu apariencia preferida",
-            "wizardIE10Plus": "Seleccione funciones específicas de Internet Explorer 10+",
-            "wizardContinueIE10": "Continuar con la apariencia de Internet Explorer 10",
-            "wizardEnableIE11": "Utilice la apariencia de Internet Explorer 11",
+            "wizardAbout": "Este proyecto pretende revivir la esencia limpia y minimalista de la navegación por Internet, priorizando la elegancia. Con una interfaz optimizada, BeautyFox ofrece a los usuarios una refrescante vía de escape de la abrumadora complejidad de los navegadores modernos.",
+            "wizardAppearance": "Elija su aspecto preferido",
+            "wizardIE10Plus": "Seleccionar funciones específicas de Internet Explorer 10",
+            "wizardContinueIE10": "Continuar con el aspecto de Internet Explorer 10",
+            "wizardEnableIE11": "Utilizar el aspecto de Internet Explorer 11",
             "wizardEnableIE11Info": "Cambia el cuadro de diálogo 'Acerca de Internet Explorer' para contener información de la versión 11",
-            "wizardEnableIE11Win10": "Utilice la apariencia de Windows 10 Internet Explorer 11",
-            "wizardEnableIE11Win10Info": "Agrega un botón de comentarios (cara sonriente) (se puede arrastrar) y cambia la función 'Acerca de Internet Explorer' para abrir el subprograma de informes de la versión de Windows con información de Internet Explorer.",
+            "wizardEnableIE11Win10": "Utilizar el aspecto de Internet Explorer 11 de Windows 10",
+            "wizardEnableIE11Win10Info": "Botón de comentarios (cara sonriente, se puede quitar) y cambia la función 'Acerca de Internet Explorer' para abrir el applet de informe de la versión de Windows con información de Internet Explorer.",
             "wizardAdditional": "Opciones adicionales",
             "wizardCheckBoxTabs": "Mover pestañas a la barra de navegación",
             "wizardCheckBoxOnlyIcons": "Mostrar solo iconos en la barra de comandos",
-            "wizardCheckBoxFakeDropdown": "Mostrar íconos de flechas falsos en los botones de la barra de comandos",
+            "wizardCheckBoxFakeDropdown": "Mostrar íconos de flechas falsas en los botones de la barra de comandos",
             "wizardCheckboxStatusBar": "Mostrar barra de estado",
-            "wizardCheckboxAccentNavBtns": "Habilite el color del tema de Windows para los botones de navegación",
+            "wizardCheckboxAccentNavBtns": "Activar el color del tema de Windows para los botones de navegación",
             "wizardThanks": "¡Gracias por elegir BeautyFox!",
             "wizardRestart": "Para aplicar los cambios, es necesario reiniciar Firefox. Puede acceder a la configuración de BeautyFox en cualquier momento en el menú de configuración.",
             "wizardRestartNow": "Reiniciar ahora",
