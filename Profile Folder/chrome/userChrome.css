@@ -626,7 +626,7 @@ panel {
   height: calc(100% - 2px);
   background-color: var(--toolbar-field-background-color) !important;
   border: 1px solid rgba(254, 254, 254, 0.2);
-  z-index: -1;
+  z-index: 0;
 }
 
 .identity-box-button {
@@ -956,6 +956,7 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#downloads-button::after {
   opacity: 0;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 2;
 }
 #nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#appMenuButton::before, #nav-bar toolbarbutton#feedbackButton::before, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#downloads-button::before,
 #nav-bar toolbaritem#home-button::before,
@@ -983,7 +984,7 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#unified-extensions-button::before,
 #endToolbar toolbaritem#downloads-button::before {
   background-color: white;
-  z-index: -1;
+  z-index: 1;
 }
 #nav-bar toolbarbutton#home-button:hover::before, #nav-bar toolbarbutton#home-button:hover::after, #nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button:active::after, #nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-menu-button:hover::after, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:hover::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::after, #nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#PanelUI-menu-button:hover::after, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::after, #nav-bar toolbarbutton#appMenuButton:hover::before, #nav-bar toolbarbutton#appMenuButton:hover::after, #nav-bar toolbarbutton#appMenuButton:active::before, #nav-bar toolbarbutton#appMenuButton:active::after, #nav-bar toolbarbutton#feedbackButton:hover::before, #nav-bar toolbarbutton#feedbackButton:hover::after, #nav-bar toolbarbutton#feedbackButton:active::before, #nav-bar toolbarbutton#feedbackButton:active::after, #nav-bar toolbarbutton#unified-extensions-button:hover::before, #nav-bar toolbarbutton#unified-extensions-button:hover::after, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button:active::after, #nav-bar toolbarbutton#downloads-button:hover::before, #nav-bar toolbarbutton#downloads-button:hover::after, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button:active::after,
 #nav-bar toolbaritem#home-button:hover::before,
