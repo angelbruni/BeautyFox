@@ -25,9 +25,10 @@
 			<html:div id="page0" class="page">
 				<vbox class="pageContent">
 					<h1 data-i18n="wizardWelcome"></h1>
-					<hbox>
+					<vbox>
 						<p data-i18n="wizardAbout"></p>
-					</hbox>
+						<image style="margin-top: 20px;" src="chrome://userchrome/content/windows/beautyFoxWizard/welcome.jpg" width="575" height="200"/>
+					</vbox>
 				</vbox>
 				<hbox class="dialogFooter">
 					<button onclick="showPage(1)" data-i18n="dialogNext"></button>
@@ -39,27 +40,27 @@
 					<h1 data-i18n="wizardAppearance"></h1>
 					<hbox>
 						<toolbarbutton class="commandLinkButton" onclick="chosenIEAppearance = 0; showPage(3);">
-							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE9Beta.png" alt=""></image>
+							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE9Beta.png" alt=""/>
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
 								<vbox>
 									<label class="title">Internet Explorer 9 Pre-Release</label>
 								</vbox>
 							</hbox>
 						</toolbarbutton>
 						<toolbarbutton class="commandLinkButton" onclick="chosenIEAppearance = 1; showPage(3)">
-							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE9.png" alt=""></image>
+							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE9.png" alt=""/>
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
 								<vbox>
 									<label class="title">Internet Explorer 9</label>
 								</vbox>
 							</hbox>
 						</toolbarbutton>
 						<toolbarbutton class="commandLinkButton" onclick="showPage(2)">
-							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE10.png" alt=""></image>
+							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE10.png" alt=""/>
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
 								<vbox>
 									<label class="title">Internet Explorer 10+</label>
 								</vbox>
@@ -76,7 +77,7 @@
 					<vbox>
 						<toolbarbutton class="commandLinkButton" onclick="chosenIEAppearance = 2; showPage(3)">
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
 								<vbox>
 									<label class="title" data-i18n="wizardContinueIE10"></label>
 								</vbox>
@@ -84,7 +85,7 @@
 						</toolbarbutton>
 						<toolbarbutton class="commandLinkButton" onclick="chosenIEAppearance = 3; showPage(3)">
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
 								<vbox>
 									<label class="title" data-i18n="wizardEnableIE11"></label>
 									<label data-i18n="wizardEnableIE11Info"></label>
@@ -93,7 +94,7 @@
 						</toolbarbutton>
 						<toolbarbutton class="commandLinkButton" onclick="chosenIEAppearance = 4; showPage(3)">
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
 								<vbox>
 									<label class="title" data-i18n="wizardEnableIE11Win10"></label>
 									<label data-i18n="wizardEnableIE11Win10Info"></label>
@@ -131,13 +132,13 @@
 					<vbox>
 						<toolbarbutton class="commandLinkButton" id="restartNow">
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
 								<label class="title" data-i18n="wizardRestartNow"></label>
 							</hbox>
 						</toolbarbutton>
 						<toolbarbutton class="commandLinkButton" id="restartLater" oncommand="window.close();">
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"></image>
+								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
 								<label class="title" data-i18n="wizardRestartLater"></label>
 							</hbox>
 						</toolbarbutton>

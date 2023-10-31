@@ -122,7 +122,7 @@ var cBHelpMenu = {
             type: 'app',
             id: 'cBHelp_whatsNewInBeautyFox',
             name: "What's new in BeautyFox Beta 3.2",
-            path: '\\chrome\\temppages\\whats-new.html',
+            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/whats-new.html',where: 'tab'});"
         },
         {
             type: 'app',
@@ -150,15 +150,6 @@ var cBHelpMenu = {
             id: 'appMenu_internetOptions',
             name: 'Internet options',
             command: 'openPreferences();',
-        },
-        {
-            type: 'separator',
-        },
-        {
-            type: 'app',
-            id: 'appMenu_beautyFoxOptions',
-            name: 'BeautyFox options',
-            command: 'openBeautyFoxWizardWindow(false);',
         },
     ],
     

@@ -192,6 +192,15 @@ var appMenu = {
         //    image: 'chrome://global/skin/icons/developer.svg',
         //},
         {
+            type: 'separator',
+        },
+        {
+            type: 'app',
+            id: 'appMenu_beautyFoxOptions',
+            name: 'BeautyFox options',
+            command: 'openBeautyFoxWizardWindow(false);',
+        },
+        {
             type: 'separator'
         },
         {

@@ -9,6 +9,7 @@ function updateNavBackButton() {
 
         // Assign a function to the onclick property
         navBackButton.onclick = function() {
+            // Check if currentPage is IE10+ feature specific page
             if (currentPage == 3) {
                 showPage(1);
             }
@@ -93,6 +94,26 @@ function getCurrentSettings() {
 getCurrentSettings()
 
 function setOptions() {
+    let isBeautyFoxFirstRunFinished = false;
+    try {
+        isBeautyFoxFirstRunFinished = Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished");
+    } catch (error) {}
+
+    if (!isBeautyFoxFirstRunFinished) {
+        Services.prefs.setBoolPref('toolkit.legacyUserProfileCustomizations.stylesheets', true);        // Enables chrome themes;
+        Services.prefs.setIntPref('browser.display.windows.non_native_menus', 0);                       // Disables non-native menus;
+        Services.prefs.setBoolPref('widget.non-native-theme.enabled', false);                           // Disables non-native-looking controls;
+        Services.prefs.setBoolPref('browser.tabs.tabmanager.enabled', false);                           // Removes tabs dropdown;
+        Services.prefs.setBoolPref('browser.theme.dark-private-windows', false);                        // Disables dark theme in Private window;
+        Services.prefs.setBoolPref('nglayout.enable_drag_images', false);                               // Disables thumbnail preview when dragging tab;
+        Services.prefs.setIntPref('browser.newtabpage.activity-stream.topSitesRows', 2);                // Enables two rows for the new tab page;
+        Services.prefs.setBoolPref('browser.taskbar.previews.enable', true);                            // Enables taskbar tabs previews;
+        Services.prefs.setBoolPref('browser.download.always_ask_before_handling_new_types', true);      // Enables legacy download dialog;
+        Services.prefs.setIntPref('security.dialog_enable_delay', 0);                                   // Disables OK button delay in the legacy download dialog.
+
+        Services.prefs.setBoolPref('BeautyFox.parameter.isFirstRunFinished', true)
+    }
+
     switch (chosenIEAppearance) {
         case 0:
             // IE9PreRelease
@@ -160,8 +181,6 @@ function setOptions() {
     } else {
         Services.prefs.setBoolPref('BeautyFox.option.userAccentColorNavButtons', false)
     }
-
-    Services.prefs.setBoolPref('BeautyFox.parameter.isFirstRunFinished', true)
 }
 
 var restartNow = document.getElementById('restartNow');

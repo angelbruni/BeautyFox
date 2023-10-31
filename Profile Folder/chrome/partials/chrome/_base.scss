@@ -61,6 +61,8 @@
     --toolbar-field-background-color: rgba(254,254,254,.65) !important;
     --toolbar-field-background-color_hover: rgba(255,255,255,.8);
 
+    --arrowpanel-border-radius: 0 !important;
+
     --appearance_IE9PreRelease: 0;
     --appearance_IE10: 0;
     --appearance_IE11: 0;
@@ -224,6 +226,8 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
 #main-menubar {
     height: 100%;
+    background: transparent !important;
+    text-shadow: none !important;
 
     menu {
         padding: 0 2px;
@@ -554,7 +558,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             padding-right: 0 !important;
     
             .toolbarbutton-icon {
-                list-style-image: url("images/folder.png");
+                list-style-image: url("moz-icon:file:///C:/?size=16");
             }
     
             .toolbarbutton-text {
@@ -613,6 +617,11 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     }
 }
 
+panel {
+    --panel-shadow: var(--pop-up_shadow) !important;
+
+    transition: none !important;
+}
 
 #statuspanel {
     left: 5px !important;
@@ -1350,7 +1359,6 @@ findbar {
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
     #urlbar-container {
         flex: unset !important;
-        //width: var(--urlbar-width) !important;
         width: calc(28vw + 7px) !important;
         min-width: var(--urlbar-min-width) !important;
     }
@@ -1503,6 +1511,10 @@ findbar {
             }
         }
     }
+}
+
+.panel-arrowbox {
+    display: none !important
 }
 
 #appMenu_aboutInternetExplorerIE11Win10,

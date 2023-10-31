@@ -346,7 +346,8 @@ toolbarbutton#tabs-newtab-button,
 
         &:is([privatebrowsingmode="temporary"]) {
             #urlbar-container {
-                width: calc(58px + 28.83%) !important;
+                width: calc(var(--urlbar-inprivatebadge-width) + 28vw + 7px) !important;
+                min-width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-min-width)) !important;
             }
         }
     }

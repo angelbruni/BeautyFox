@@ -76,6 +76,7 @@ window[lang=ja] {
   --toolbarbutton-icon-fill-attention: var(--toolbarbutton-green-colour_hover) !important;
   --toolbar-field-background-color: rgba(254,254,254,.65) !important;
   --toolbar-field-background-color_hover: rgba(255,255,255,.8);
+  --arrowpanel-border-radius: 0 !important;
   --appearance_IE9PreRelease: 0;
   --appearance_IE10: 0;
   --appearance_IE11: 0;
@@ -229,6 +230,8 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
 
 #main-menubar {
   height: 100%;
+  background: transparent !important;
+  text-shadow: none !important;
 }
 #main-menubar menu {
   padding: 0 2px;
@@ -524,7 +527,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 #PersonalToolbar .bookmark-item:not(menuitem)[type=menu]:not(#PlacesChevron) .toolbarbutton-icon,
 #PersonalToolbar #star-button-box[type=menu]:not(#PlacesChevron) .toolbarbutton-icon {
-  list-style-image: url("images/folder.png");
+  list-style-image: url("moz-icon:file:///C:/?size=16");
 }
 #PersonalToolbar .bookmark-item:not(menuitem)[type=menu]:not(#PlacesChevron) .toolbarbutton-text::after,
 #PersonalToolbar #star-button-box[type=menu]:not(#PlacesChevron) .toolbarbutton-text::after {
@@ -574,6 +577,11 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   background-repeat: no-repeat !important;
   height: 100% !important;
   width: 100% !important;
+}
+
+panel {
+  --panel-shadow: var(--pop-up_shadow) !important;
+  transition: none !important;
 }
 
 #statuspanel {
@@ -1737,6 +1745,10 @@ findbar {
     }
   }
 }
+.panel-arrowbox {
+  display: none !important;
+}
+
 #appMenu_aboutInternetExplorerIE11Win10,
 #cBHelp_aboutInternetExplorerIE11Win10 {
   display: none !important;
@@ -2593,7 +2605,8 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     --tab-height: 27px;
   }
   :root:is([privatebrowsingmode=temporary]) #urlbar-container {
-    width: calc(58px + 28.83%) !important;
+    width: calc(var(--urlbar-inprivatebadge-width) + 28vw + 7px) !important;
+    min-width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-min-width)) !important;
   }
   #search-container {
     display: none !important;
@@ -4074,4 +4087,4 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) :is(.menu-text, .menu
 
 .devtools-horizontal-splitter {
   background-color: rgb(163, 167, 172) !important;
-}
+}/*# sourceMappingURL=userChrome.css.map */
