@@ -667,7 +667,7 @@ panel {
         height: calc(100% - 2px);
         background-color: var(--toolbar-field-background-color) !important;
         border: 1px solid rgba(254,254,254,.2);
-        z-index: -1;
+        z-index: 0;
     }
 }
 
@@ -934,11 +934,12 @@ toolbarbutton {
             &::after {
                 opacity: 0;
                 background: linear-gradient(0deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+                z-index: 2;
             }
     
             &::before {
                 background-color: white;
-                z-index: -1;
+                z-index: 1;
             }
     
             &:hover,
