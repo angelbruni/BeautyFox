@@ -956,11 +956,12 @@ var cBToolsMenu = {
     id: 'cBToolsMenu',
     name: 'Tools',
     items: [
-        //{
-        //    type: 'app',
-        //    id: 'cBTools_diagnoseConnectionProblems',
-        //    name: 'Diagnose connection problems...',
-        //},
+        {
+            type: 'app',
+            id: 'cBTools_diagnoseConnectionProblems',
+            name: 'Diagnose connection problems...',
+            command: 'launchNetworkDiagnostics()',
+        },
         {
             type: 'app',
             id: 'cBTools_reopenLastBrowsingSession',

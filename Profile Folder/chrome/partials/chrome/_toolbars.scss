@@ -649,6 +649,26 @@
     }
 
     > #cBToolsMenuPopUp {
+        > #cBTools_diagnoseConnectionProblems {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/diagnose.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+
         > #cBTools_reopenLastBrowsingSession {
             > .menu-iconic-left {
                 position: relative;
