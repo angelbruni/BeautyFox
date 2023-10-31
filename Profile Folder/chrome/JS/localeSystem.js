@@ -35,7 +35,17 @@ function setLocaleText() {
             text = translations.en.fallback[key];
         }
 
-        element.textContent = text;
+        if (element.tagName.toLowerCase() === 'window') {
+            // If element is a window, set localized string to title attribute
+            element.setAttribute('title', text);
+        } else if (element.tagName.toLowerCase() === 'checkbox'){
+            // If element is a checkbox, set localized string to label attribute
+            element.setAttribute('label', text);
+        }
+        else {
+            // For other elements, set localized string to textContent
+            element.textContent = text;
+        }
     });
 }
 

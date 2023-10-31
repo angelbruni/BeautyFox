@@ -28,7 +28,7 @@ window {
             height: 30px;
             width: 30px;
             background-size: 30px;
-            background-image: url(chrome://userchrome/content/windows/firstStartup/Navigation_BackButton_Normal.ico);
+            background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Normal.ico);
             background-position: center;
             background-repeat: no-repeat;
             padding: 0;
@@ -41,16 +41,16 @@ window {
 
             &[disabled="true"] {
                 pointer-events: none;
-                background-image: url(chrome://userchrome/content/windows/firstStartup/Navigation_BackButton_Disabled.ico);
+                background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Disabled.ico);
             }
 
             &:not([disabled]) {
                 &:hover {
-                    background-image: url(chrome://userchrome/content/windows/firstStartup/Navigation_BackButton_Hot.ico);
+                    background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Hot.ico);
                 }
 
                 &:active {
-                    background-image: url(chrome://userchrome/content/windows/firstStartup/Navigation_BackButton_Pressed.ico);
+                    background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Pressed.ico);
                 }
             }
         }
@@ -71,6 +71,7 @@ window {
         align-items: start;
         flex-direction: column;
         padding: 9px 6px;
+        color: rgb(21, 28, 85);
 
         .commandLinkButtonThumbnail {
             max-width: 165px;
@@ -89,7 +90,6 @@ window {
         .title {
             text-align: left;
             font-size: 12pt !important;
-            color: rgb(21, 28, 85);
         }
     }
 
@@ -102,7 +102,7 @@ window {
         }
     }
 
-    .pageFooter {
+    .dialogFooter {
         justify-content: end;
         align-items: center;
         height: 41px;

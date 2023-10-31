@@ -1,6 +1,8 @@
+// This is so we can use ctypes later.
 const { ctypes } = ChromeUtils.import("resource://gre/modules/ctypes.jsm");
 
 function executeFunctions() {
+    openBeautyFoxWizardWindow(true);
     getAndSetTitleBarHeight();
     getAndSetUserAccentColor();
     createFeedbackButton();
@@ -17,7 +19,6 @@ function executeFunctions() {
     createCBHomeButton();
     createCBPrintButton();
     createCBReadMailButton()
-    //openManageAddons()
     console.info("Functions executed.");
 }
 

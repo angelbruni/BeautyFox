@@ -1,16 +1,16 @@
-@import 'partials/chrome/__localisation.scss';
+@import 'partials/chrome/localisation';
 
-@import 'partials/chrome/__base.scss';
-@import 'partials/chrome/__urlsearch-results.scss';
+@import 'partials/chrome/base';
+@import 'partials/chrome/urlsearch-results';
 
-@import 'partials/chrome/__navigation-buttons.scss';
-@import 'partials/chrome/__tabs.scss';
-@import 'partials/chrome/__toolbars.scss';
+@import 'partials/chrome/navigation-buttons';
+@import 'partials/chrome/tabs';
+@import 'partials/chrome/toolbars';
 
-@import 'partials/chrome/__context-menu.scss';
-@import 'partials/chrome/__menupopup.scss';
-@import 'partials/chrome/__app-menu.scss';
-@import 'partials/chrome/__flyouts.scss';
-@import 'partials/chrome/__sidebar.scss';
-@import 'partials/chrome/__library-window.scss';
+@import 'partials/chrome/context-menu';
+@import 'partials/chrome/menupopup';
+@import 'partials/chrome/app-menu';
+@import 'partials/chrome/flyouts';
+@import 'partials/chrome/sidebar';
+@import 'partials/chrome/library-window';
 @import 'partials/chrome/devtools';

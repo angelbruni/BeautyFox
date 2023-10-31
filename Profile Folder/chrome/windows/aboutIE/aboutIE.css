@@ -14,7 +14,7 @@ label {
 
 #aboutIEContainer {
   background-color: white;
-  color-scheme: unset;
+  color-scheme: unset !important;
 }
 
 #aboutIEPane {
@@ -44,7 +44,7 @@ label {
   margin-bottom: 23px;
 }
 
-.aboutDialogInfo:not(a) {
+.aboutDialogInfo:not(a, [is=text-link]) {
   color: rgb(97, 97, 97);
 }
 
@@ -63,15 +63,6 @@ label {
 
 #aboutVersionBit {
   display: none;
-}
-
-a {
-  display: inline;
-  font-size: var(--font-size);
-  color: rgb(0, 102, 204);
-}
-a:visited {
-  color: rgb(128, 0, 128);
 }
 
 #aboutIEOKButton {
@@ -146,4 +137,4 @@ a:visited {
       margin-bottom: 2px;
     }
   }
-}/*# sourceMappingURL=aboutIE.css.map */
+}

@@ -1,30 +1,102 @@
 {
     "en": {
         "fallback": {
+            "dialogNext": "Next",
+
+            "aboutTitlebar": "About Internet Explorer",
             "aboutVersion": "Version:",
             "aboutUpdateVersions": "Update Versions:",
             "aboutCipherStrength": "Cipher Strength:",
-            "aboutProductID": "Product ID",
-            "aboutWarning": "Warning: This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law."
+            "aboutProductID": "Product ID:",
+            "aboutWarning": "Warning: This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law.",
+
+            "wizardTitlebar": "BeautyFox Wizard",
+            "wizardWelcome": "Welcome to BeautyFox!",
+            "wizardAbout": "This project aims to revive the clean, minimalist essence of internet browsing, prioritizing elegance. With a streamlined interface, BeautyFox offers users a refreshing escape from the overwhelming complexity of modern browsers.",
+            "wizardAppearance": "Choose your preferred appearance",
+            "wizardIE10Plus": "Select Internet Explorer 10+ specific features",
+            "wizardContinueIE10": "Continue with Internet Explorer 10 appearance",
+            "wizardEnableIE11": "Use the Internet Explorer 11 appearance",
+            "wizardEnableIE11Info": "Changes 'About Internet Explorer' dialog to contain version 11 information",
+            "wizardEnableIE11Win10": "Use the Windows 10 Internet Explorer 11 look and feel",
+            "wizardEnableIE11Win10Info": "Adds feedback button (smiley face) (can be dragged out) and changes the 'About Internet Explorer' function to open the Windows version reporter applet with Internet Explorer information",
+            "wizardAdditional": "Additional options",
+            "wizardCheckBoxTabs": "Move tabs to the navigation bar",
+            "wizardCheckBoxOnlyIcons": "Show only icons in the command bar",
+            "wizardCheckBoxFakeDropdown": "Show fake dropdown arrow icons in command bar buttons",
+            "wizardCheckboxStatusBar": "Show status bar",
+            "wizardCheckboxAccentNavBtns": "Enable Windows accent color for navigation buttons",
+            "wizardThanks": "Thank you for choosing BeautyFox!",
+            "wizardRestart": "To apply the changes, Firefox needs to be restarted. You can access BeautyFox settings at any time in the settings menu.",
+            "wizardRestartNow": "Restart now",
+            "wizardRestartLater": "Restart later"
         }
     },
 
     "pt": {
         "fallback": {
+            "dialogNext": "Avançar",
+
+            "aboutTitlebar": "Sobre o Internet Explorer",
             "aboutVersion": "Versão:",
-            "aboutUpdateVersion": "Versões de Atualização:",
+            "aboutUpdateVersions": "Versões de Atualização:",
             "aboutProductID": "Product ID (Ident. do produto):",
-            "aboutWarning": "Aviso: este programa de computador é protegido por leis de direitos autorais e tratados internacionais. A reprodução ou distribuição não autorizada desde programa, ou qualquer parte dele, poderá resultar em severas punições civis e criminais, e os infratores serão punidos dentro do máximo rigor permitido por lei."
+            "aboutWarning": "Aviso: este programa de computador é protegido por leis de direitos autorais e tratados internacionais. A reprodução ou distribuição não autorizada desde programa, ou qualquer parte dele, poderá resultar em severas punições civis e criminais, e os infratores serão punidos dentro do máximo rigor permitido por lei.",
+
+            "wizardTitlebar": "Assistente do BeautyFox",
+            "wizardWelcome": "Bem-vindo(a) ao BeautyFox!",
+            "wizardAbout": "Este projeto visa resgatar a essência clean e minimalista da navegação na internet, priorizando a elegância. Com uma interface simplificada, BeautyFox oferece aos usuários uma fuga refrescante da enorme complexidade dos navegadores modernos.",
+            "wizardAppearance": "Escolha sua aparência preferida",
+            "wizardIE10Plus": "Selecione recursos específicos do Internet Explorer 10+",
+            "wizardContinueIE10": "Continuar com a aparência do Internet Explorer 10",
+            "wizardEnableIE11": "Usar a aparência do Internet Explorer 11",
+            "wizardEnableIE11Info": "Altera o diálogo 'Sobre o Internet Explorer' para conter informações da versão 11",
+            "wizardEnableIE11Win10": "Usar a aparência do Internet Explorer 11 do Windows 10",
+            "wizardEnableIE11Win10Info": "Adiciona o botão de feedback (rosto sorridente) (pode ser arrastado para fora) e altera a função do 'Sobre o Internet Explorer' para abrir o miniaplicativo de repórter de versão do Windows com as informações do Internet Explorer",
+            "wizardAdditional": "Opções adicionais",
+            "wizardCheckBoxTabs": "Mover as abas para a barra de navegação",
+            "wizardCheckBoxOnlyIcons": "Mostrar apenas ícones na barra de comando",
+            "wizardCheckBoxFakeDropdown": "Mostrar ícones falsos de seta nos botões da barra de comando",
+            "wizardCheckboxStatusBar": "Mostrar barra de status",
+            "wizardCheckboxAccentNavBtns": "Habilitar cor do tema do Windows para botões de navegação",
+            "wizardThanks": "Obrigado por escolher a BeautyFox!",
+            "wizardRestart": "Para aplicar as alterações, o Firefox precisa ser reiniciado. Você pode acessar as configurações do BeautyFox a qualquer momento no menu de configurações.",
+            "wizardRestartNow": "Reiniciar agora",
+            "wizardRestartLater": "Reiniciar mais tarde"
         }
     },
 
     "es": {
         "fallback": {
+            "dialogNext": "Avance",
+
+            "aboutTitlebar": "Acerca de Internet Explorer",
             "aboutVersion": "Versión:",
             "aboutUpdateVersions": "Versiones de actualización:",
             "aboutCipherStrength": "Intensidad del cifrado:",
             "aboutProductID": "Id. del producto:",
-            "aboutWarning": "Advertencia: este programa está protegido por las leyes de derechos de autor y otros tratados internacionales. La reproducción o distribución ilícitas de este programa o de parte del mismo está penada por la ley con severas sanciones civiles y penales, y será objeto de todas las acciones judiciales que correspondan."
+            "aboutWarning": "Advertencia: este programa está protegido por las leyes de derechos de autor y otros tratados internacionales. La reproducción o distribución ilícitas de este programa o de parte del mismo está penada por la ley con severas sanciones civiles y penales, y será objeto de todas las acciones judiciales que correspondan.",
+
+            "wizardTitlebar": "Asistente de BeautyFox",
+            "wizardWelcome": "¡Bienvenidos a BeautyFox!",
+            "wizardAbout": "Este proyecto pretende recuperar la esencia limpia y minimalista de la navegación por Internet, primando la elegancia. Con una interfaz optimizada, BeautyFox ofrece a los usuarios un escape refrescante de la abrumadora complejidad de los navegadores modernos.",
+            "wizardAppearance": "Elige tu apariencia preferida",
+            "wizardIE10Plus": "Seleccione funciones específicas de Internet Explorer 10+",
+            "wizardContinueIE10": "Continuar con la apariencia de Internet Explorer 10",
+            "wizardEnableIE11": "Utilice la apariencia de Internet Explorer 11",
+            "wizardEnableIE11Info": "Cambia el cuadro de diálogo 'Acerca de Internet Explorer' para contener información de la versión 11",
+            "wizardEnableIE11Win10": "Utilice la apariencia de Windows 10 Internet Explorer 11",
+            "wizardEnableIE11Win10Info": "Agrega un botón de comentarios (cara sonriente) (se puede arrastrar) y cambia la función 'Acerca de Internet Explorer' para abrir el subprograma de informes de la versión de Windows con información de Internet Explorer.",
+            "wizardAdditional": "Opciones adicionales",
+            "wizardCheckBoxTabs": "Mover pestañas a la barra de navegación",
+            "wizardCheckBoxOnlyIcons": "Mostrar solo iconos en la barra de comandos",
+            "wizardCheckBoxFakeDropdown": "Mostrar íconos de flechas falsos en los botones de la barra de comandos",
+            "wizardCheckboxStatusBar": "Mostrar barra de estado",
+            "wizardCheckboxAccentNavBtns": "Habilite el color del tema de Windows para los botones de navegación",
+            "wizardThanks": "¡Gracias por elegir BeautyFox!",
+            "wizardRestart": "Para aplicar los cambios, es necesario reiniciar Firefox. Puede acceder a la configuración de BeautyFox en cualquier momento en el menú de configuración.",
+            "wizardRestartNow": "Reiniciar ahora",
+            "wizardRestartLater": "Reiniciar más tarde"
         }
     }
 }

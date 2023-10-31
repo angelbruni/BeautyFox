@@ -3409,6 +3409,22 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   display: none;
 }
 
+#cBHelpMenuButton > #cBHelpMenuPopUp > #cBHelp_onlineSupport > .menu-iconic-left {
+  position: relative;
+}
+#cBHelpMenuButton > #cBHelpMenuPopUp > #cBHelp_onlineSupport > .menu-iconic-left::before {
+  content: "";
+  background-image: url("images/onlineSupport.png") !important;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+#cBHelpMenuButton > #cBHelpMenuPopUp > #cBHelp_onlineSupport > .menu-iconic-left > .menu-iconic-icon {
+  display: none;
+}
+
 #cBHomeButton,
 #cBPrintButton,
 #cBReadMailButton {
@@ -3497,6 +3513,39 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   margin-bottom: 2px !important;
 }
 
+@supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
+  #cBPageMenuButton,
+  #cBSafetyMenuButton,
+  #cBToolsMenuButton {
+    padding-left: 3px !important;
+  }
+  #cBPageMenuButton .toolbarbutton-text,
+  #cBSafetyMenuButton .toolbarbutton-text,
+  #cBToolsMenuButton .toolbarbutton-text {
+    display: none !important;
+  }
+  #cBPageMenuButton::after,
+  #cBSafetyMenuButton::after,
+  #cBToolsMenuButton::after {
+    margin-left: 2px !important;
+  }
+  #cBPageMenuButton[open=true]::after, #cBPageMenuButton:active::after,
+  #cBSafetyMenuButton[open=true]::after,
+  #cBSafetyMenuButton:active::after,
+  #cBToolsMenuButton[open=true]::after,
+  #cBToolsMenuButton:active::after {
+    transform: translateX(0) translateY(0) !important;
+  }
+  #cBPageMenuButton .toolbarbutton-icon {
+    list-style-image: url("images/cBPage.png") !important;
+  }
+  #cBSafetyMenuButton .toolbarbutton-icon {
+    list-style-image: url("images/cBSafety.png") !important;
+  }
+  #cBToolsMenuButton .toolbarbutton-icon {
+    list-style-image: url("images/cBTools.png") !important;
+  }
+}
 #cBHelpMenuButton {
   padding-left: 4px !important;
   margin-right: 14px !important;
@@ -3542,6 +3591,24 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     content: url(images/dropdown.png);
     margin-bottom: 6px;
     margin-left: 10px;
+  }
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+  #cBPageMenuPopUp menuseparator:nth-child(6), #cBPageMenuPopUp menuseparator:nth-child(9) {
+    display: none !important;
+  }
+  #cBPage_eMailWindowsLive,
+  #cBPage_googleTranslate,
+  #cBPage_allAccelerators {
+    display: none !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+    #cBSafetyMenuPopUp menuseparator:last-of-type {
+      display: none !important;
+    }
+    #cBSafety_windowsUpdate {
+      display: none !important;
+    }
   }
 }
 #contentAreaContextMenu #context-navigation {
@@ -4007,4 +4074,4 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) :is(.menu-text, .menu
 
 .devtools-horizontal-splitter {
   background-color: rgb(163, 167, 172) !important;
-}/*# sourceMappingURL=userChrome.css.map */
+}

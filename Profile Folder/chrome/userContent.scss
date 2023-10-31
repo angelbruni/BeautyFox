@@ -1,12 +1,11 @@
-@import 'partials/content/__base.scss';
+@import 'partials/content/base';
 
-@import 'partials/content/__aboutnewtabhome.scss';
-@import 'partials/content/__aboutprivatebrowsing.scss';
+@import 'partials/content/aboutnewtabhome';
+@import 'partials/content/aboutprivatebrowsing';
 
-@import 'partials/content/__aboutneterror.scss';
-@import 'partials/content/__aboutcerterror.scss';
+@import 'partials/content/aboutneterror';
+@import 'partials/content/aboutcerterror';
 
-@import 'partials/content/__aboutpreferences.scss';
-//@import 'partials/content/aboutaddons';
+@import 'partials/content/aboutpreferences';
 
 @import 'partials/content/devtools';

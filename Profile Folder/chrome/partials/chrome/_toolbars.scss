@@ -751,6 +751,30 @@
     }
 }
 
+#cBHelpMenuButton {
+    > #cBHelpMenuPopUp {
+        > #cBHelp_onlineSupport {
+            > .menu-iconic-left {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('images/onlineSupport.png') !important;
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 16px;
+                }
+
+                > .menu-iconic-icon {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
 #cBHomeButton,
 #cBPrintButton,
 #cBReadMailButton {
@@ -821,6 +845,45 @@
     }
 }
 
+@supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
+    #cBPageMenuButton,
+    #cBSafetyMenuButton,
+    #cBToolsMenuButton {
+        padding-left: 3px !important;
+
+        .toolbarbutton-text {
+            display: none !important;
+        }
+
+        &::after {
+            margin-left: 2px !important;
+        }
+
+        &[open="true"],
+        &:active {
+            &::after {
+                transform: translateX(0) translateY(0) !important;
+            }
+        }
+    }
+
+    #cBPageMenuButton {
+        .toolbarbutton-icon {
+            list-style-image: url("images/cBPage.png") !important;
+        }
+    }
+    #cBSafetyMenuButton {
+        .toolbarbutton-icon {
+            list-style-image: url("images/cBSafety.png") !important;
+        }
+    }
+    #cBToolsMenuButton {
+        .toolbarbutton-icon {
+            list-style-image: url("images/cBTools.png") !important;
+        }
+    }
+}
+
 #cBHelpMenuButton {
     padding-left: 4px !important;
 
@@ -880,6 +943,35 @@
             content: url(images/dropdown.png);
             margin-bottom: 6px;
             margin-left: 10px;
+        }
+    }
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    #cBPageMenuPopUp {
+        menuseparator {
+            &:nth-child(6),
+            &:nth-child(9) {
+                display: none !important;
+            }
+        }
+    }
+
+    #cBPage_eMailWindowsLive,
+    #cBPage_googleTranslate,
+    #cBPage_allAccelerators {
+        display: none !important;
+    }
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+        #cBSafetyMenuPopUp {
+            menuseparator:last-of-type {
+                display: none !important;
+            }
+        }
+        
+        #cBSafety_windowsUpdate {
+            display: none !important;
         }
     }
 }

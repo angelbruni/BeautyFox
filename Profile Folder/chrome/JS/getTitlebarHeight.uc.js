@@ -1,11 +1,11 @@
 function getAndSetTitleBarHeight() {
     // Load User32.dll library
-    const user32 = ctypes.open("User32.dll");
+    const user32 = ctypes.open("user32.dll");
 
     // Define the GetSystemMetrics function signature
     const GetSystemMetrics = user32.declare("GetSystemMetrics", ctypes.winapi_abi,
-        ctypes.int32_t,  // Return type: int
-        ctypes.int32_t   // Parameter type: int
+        ctypes.int32_t,
+        ctypes.int32_t
     );
 
     // Get the height of the system title bar (SM_CYCAPTION)
@@ -22,6 +22,4 @@ function getAndSetTitleBarHeight() {
         }
     `
     document.head.appendChild(titlebarHeightStyle);
-
-    // You can use the titleBarHeight variable in your JavaScript code as needed.
 }

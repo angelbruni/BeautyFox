@@ -26,7 +26,7 @@ window button.navBackButton {
   height: 30px;
   width: 30px;
   background-size: 30px;
-  background-image: url(chrome://userchrome/content/windows/firstStartup/Navigation_BackButton_Normal.ico);
+  background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Normal.ico);
   background-position: center;
   background-repeat: no-repeat;
   padding: 0;
@@ -39,13 +39,13 @@ window button.navBackButton {
 }
 window button.navBackButton[disabled=true] {
   pointer-events: none;
-  background-image: url(chrome://userchrome/content/windows/firstStartup/Navigation_BackButton_Disabled.ico);
+  background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Disabled.ico);
 }
 window button.navBackButton:not([disabled]):hover {
-  background-image: url(chrome://userchrome/content/windows/firstStartup/Navigation_BackButton_Hot.ico);
+  background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Hot.ico);
 }
 window button.navBackButton:not([disabled]):active {
-  background-image: url(chrome://userchrome/content/windows/firstStartup/Navigation_BackButton_Pressed.ico);
+  background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Pressed.ico);
 }
 window #contentArea {
   flex: 1;
@@ -61,6 +61,7 @@ window toolbarbutton.commandLinkButton {
   align-items: start;
   flex-direction: column;
   padding: 9px 6px;
+  color: rgb(21, 28, 85);
 }
 window toolbarbutton.commandLinkButton .commandLinkButtonThumbnail {
   max-width: 165px;
@@ -77,7 +78,6 @@ window toolbarbutton.commandLinkButton .toolbarbutton-icon {
 window toolbarbutton.commandLinkButton .title {
   text-align: left;
   font-size: 12pt !important;
-  color: rgb(21, 28, 85);
 }
 window .pageContent {
   padding: 24px 38px;
@@ -86,7 +86,7 @@ window .pageContent {
 window .pageContent > hbox:first-child {
   margin-top: 16px;
 }
-window .pageFooter {
+window .dialogFooter {
   justify-content: end;
   align-items: center;
   height: 41px;
@@ -94,13 +94,13 @@ window .pageFooter {
   background-color: rgb(240, 240, 240);
   padding: 0 6px;
 }
-window .pageFooter button {
+window .dialogFooter button {
   min-width: 64px;
   width: 0;
   height: 23px;
   justify-content: center;
   align-items: center;
 }
-window .pageFooter button > hbox {
+window .dialogFooter button > hbox {
   display: none;
-}/*# sourceMappingURL=firstStartup.css.map */
+}
