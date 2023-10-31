@@ -1,5 +1,4 @@
 function getAndSetTitleBarHeight() {
-    
     if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS == "WINNT") {
         // Load User32.dll library
         const user32 = ctypes.open("user32.dll");
@@ -15,14 +14,14 @@ function getAndSetTitleBarHeight() {
 
         // Close the User32.dll library
         user32.close();
-    }
 
-    // Set titlebarHeight
-    var titlebarHeightStyle = document.createElement('style');
-    titlebarHeightStyle.innerHTML = `
-        :root {
-            --titlebar-height:`+ titleBarHeight +`px;
-        }
-    `
-    document.head.appendChild(titlebarHeightStyle);
+        // Set titlebarHeight
+        var titlebarHeightStyle = document.createElement('style');
+        titlebarHeightStyle.innerHTML = `
+            :root {
+                --titlebar-height:`+ titleBarHeight +`px;
+            }
+        `
+        document.head.appendChild(titlebarHeightStyle);
+    }
 }
