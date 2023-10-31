@@ -1,15 +1,18 @@
-function createFavouritesSidebarButton() {
+function createFeedbackButton() {
     try {
-        var button_label = "Open Bookmarks Sidebar";
+        var button_label = "Feedback";
     
         CustomizableUI.createWidget({
-            id: "bookmarks-sidebar-menu-button",
+            id: "feedbackButton",
             defaultArea: CustomizableUI.AREA_NAVBAR,
             removable: true,
             label: button_label,
             tooltiptext: button_label,
             onClick: function() {
-                SidebarUI.toggle('viewBookmarksSidebar');
+                _ucUtils.loadURI(window,{
+                    url: 'chrome://userchrome/content/temppages/discord-invite.html',
+                    where: "tab"
+                });
             },
             onCreated: function(button) {
                 return button;

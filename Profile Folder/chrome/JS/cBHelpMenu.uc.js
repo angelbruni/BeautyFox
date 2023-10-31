@@ -23,7 +23,7 @@ var cBHelpMenu = {
             type: 'app',
             id: 'cBHelp_onlineSupport',
             name: 'Online support',
-            path: '\\chrome\\temppages\\discord-invite.html',
+            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/discord-invite.html',where: 'tab'});"
         },
         {
             type: 'separator',

@@ -8,8 +8,6 @@ var addStatusbar = {
 		if(gBrowser.selectedBrowser.getAttribute('blank')) gBrowser.selectedBrowser.removeAttribute('blank');
 	} catch(e) {}
 
-	var addonsBarLabel = 'Add-on Bar';
-
 	try {
 		if (document.getElementById('statusbarContainer') == null) {
 			var statusbarContainer = document.createElement('div');
@@ -27,7 +25,8 @@ var addStatusbar = {
 			statusbarInternetProtectionMode.textContent = 'Internet';
 			statusbarInternetProtectionModeContainer.appendChild(statusbarInternetProtectionMode);
 			statusbarContainer.appendChild(statusbarInternetProtectionModeContainer);
-
+			
+			var addonsBarLabel = 'Add-on Bar';
 			var addonsBar = document.createXULElement('toolbar');
 			addonsBar.setAttribute('id','addonsBar');
 			addonsBar.setAttribute('collapsed', 'false');

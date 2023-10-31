@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 
+<!DOCTYPE inline_dtd[<!ENTITY nbsp "&#x00A0;">]>
+
 <?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
 <?xml-stylesheet href="chrome://userchrome/content/windows/aboutIE/aboutIE.css" type="text/css"?>
 
@@ -11,23 +13,32 @@
 		role="dialog"
         >
 
-    <linkset>
-        <!--I CAN'T GET THIS TO WORK AT ALL
-            <html:link rel="localization" href="chrome://userchrome/content/locale/BeautyFox/aboutIE.ftl"/>-->
-    </linkset>
-
     <vbox id="aboutIEContainer">
         <vbox id="aboutIEPane">
             <html:div id="aboutIELogo"></html:div>
             <vbox id="aboutIEInfoPane">
-                <label id="aboutIEInfoVersion" class="aboutDialogInfo">Version: 9.0.8112.16421   64-bit Edition</label>
-                <label id="aboutIEInfoUpdateVersion" class="aboutDialogInfo">Update Versions: 9.0.41 (<a id="aboutIEInfoUpdateVersion" href="#">KB3078071</a>)</label>
-                <label id="aboutIEInfoCipherStrength" class="aboutDialogInfo">Cipher Strength: 256-bit</label>
-                <label id="aboutIEInfoProductID" class="aboutDialogInfo">Product ID: 03553-292-0000007-85504</label>
-                <label id="aboutIEWarning" class="aboutDialogInfo">
-                    Warning: This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law.
-                </label>
-                <a id="aboutIEMicrosoft" class="aboutDialogInfo" href="#">© 2011 Microsoft Corporation</a>
+                <vbox class="aboutDialogInfo">
+                    <label data-i18n="aboutVersion"></label>
+                    &nbsp;<label id="aboutVersion"></label>
+                    &nbsp;&nbsp;<label id="aboutVersionBit">64-bit Edition</label>
+                </vbox>
+                <vbox class="aboutDialogInfo">
+                    <label data-i18n="aboutUpdateVersions"></label>
+                    &nbsp;<label id="aboutUpdateVersions"></label>
+                    &nbsp;<label>(<a href="#">KB3078071</a>)</label>
+                </vbox>
+                <vbox id="aboutIEInfoCipherStrength" class="aboutDialogInfo">
+                    <label data-i18n="aboutCipherStrength"></label>
+                    &nbsp;256-bit
+                </vbox>
+                <vbox id="aboutIEInfoProductID" class="aboutDialogInfo">
+                    <label data-i18n="aboutProductID"></label>
+                    &nbsp;03553-292-0000007-85504
+                </vbox>
+                <vbox id="aboutIEWarning" class="aboutDialogInfo" data-i18n="aboutWarning"></vbox>
+                <a id="aboutIEMicrosoft" class="aboutDialogInfo" href="#">
+                    © 2011 Microsoft Corporation
+                </a>
                 <button id="aboutIEOKButton" class="aboutDialogInfo">
                     <hbox class="box-inherit button-box" align="center" pack="center" flex="1" anonid="button-box">
                         <image class="button-icon"/>
@@ -38,5 +49,6 @@
         </vbox>
     </vbox>
     
-    <!--<script src="chrome://userchrome/content/windows/aboutIE/script.js"></script>-->
+    <script src="chrome://userchrome/content/windows/aboutIE/script.js" type="text/javascript"></script>
+    <script src="chrome://userchrome/content/JS/locale.js" type="text/javascript"></script>
 </window>

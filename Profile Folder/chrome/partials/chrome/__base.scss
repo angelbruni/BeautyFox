@@ -805,6 +805,12 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     }
 }
 
+toolbarbutton {
+    &#feedbackButton {
+        display: none !important;
+    }
+}
+
 #nav-bar,
 #endToolbar {
     //padding-right: 5px;
@@ -895,15 +901,14 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         &#bookmarks-sidebar-menu-button,
         &#PanelUI-menu-button,
         &#appMenuButton,
+        &#feedbackButton,
         &#unified-extensions-button,
-        &#downloads-button,
-        &#_testpilot-containers-BAP,
-        &#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP,
-        &#ublock0_raymondhill_net-BAP {
+        &#downloads-button {
             list-style-image: none !important;
             position: relative;
     
-            &::before, &::after {
+            &::before,
+            &::after {
                 /* ::before - Icon Hover/Active Colour */
                 /* ::after - Icon Gradient Hover/Active */
                 content: '';
@@ -927,13 +932,15 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                 z-index: -1;
             }
     
-            &:hover, &:active {
+            &:hover,
+            &:active {
                 &::before, &::after {
                     opacity: 1;
                 }
             }
     
-            &:active, &[open="true"] {
+            &:active,
+            &[open="true"] {
                 &::before {
                     transition: none;
                 }
@@ -943,7 +950,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         &#home-button {
             background-image: url(images/home.svg);  
     
-            &::before, &::after {
+            &::before,
+            &::after {
                 mask-image: url(images/home-mask.svg);
             }
     
@@ -965,7 +973,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             background-image: url(images/favorites.svg);
             width: 23px !important;
             
-            &::before, &::after {
+            &::before,
+            &::after {
                 mask-image: url(images/favorites-mask.svg);
             }
     
@@ -989,7 +998,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         &#unified-extensions-button {
             background-image: url(images/extensions.svg);
     
-            &::before, &::after {
+            &::before,
+            &::after {
                 mask-image: url(images/extensions-mask.svg);
             }
     
@@ -1003,7 +1013,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                 }
             }
     
-            &:active, &[open="true"] {
+            &:active,
+            &[open="true"] {
                 &::before {
                     background-color: var(--toolbarbutton-green-colour_hover);
                 }
@@ -1013,7 +1024,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         &#downloads-button {
             background-image: url(images/downloads.svg);
             
-            &::before, &::after {
+            &::before,
+            &::after {
                 mask-image: url(images/downloads-mask.svg);
             }
     
@@ -1023,7 +1035,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                 }
             }
     
-            &:active, &[open="true"] {
+            &:active,
+            &[open="true"] {
                 &::before {
                     background-color: var(--toolbarbutton-blue-colour_hover);
                 }
@@ -1052,7 +1065,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         &#appMenuButton {
             background-image: url(images/settings.svg);  
             
-            &::before, &::after {
+            &::before,
+            &::after {
                 mask-image: url(images/settings-mask.svg);
             }
     
@@ -1062,7 +1076,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                 }
             }
     
-            &:active, &[open="true"] {
+            &:active,
+            &[open="true"] {
                 &::before {
                     background-color: var(--toolbarbutton-blue-colour_hover);
                 }
@@ -1090,92 +1105,35 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                 }
             }
         }
-    
-        /* Extensions support */
-        &#_testpilot-containers-BAP {
-            background-image: url(images/containers.svg);  
-    
+
+        &#feedbackButton {
+            background-image: url(images/feedback.svg);
+            width: 23px !important;
+            
             &::before,
             &::after {
-                mask-image: url(images/containers-mask.svg);
+                mask-image: url(images/feedback-mask.svg);
+            }
+
+            &::before {
+                background-color: #ffdb4c;
+            }
+    
+            &::after {
+                background: linear-gradient(0deg, rgba(255, 208, 0, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
             }
     
             &:hover {
                 &::before {
-                    background-color: var(--toolbarbutton-blue-colour);
+                    background-color: #ffcc00;
                 }
             }
     
-            &:active {
+            &:active,
+            &[open="true"] {
                 &::before {
-                    background-color: var(--toolbarbutton-blue-colour_hover);
+                    background-color: #fff000   ;
                 }
-            }
-        }
-    
-        &#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP {
-            background-image: url(images/stylus.svg);  
-    
-            &::before,
-            &::after {
-                mask-image: url(images/stylus-mask.svg);
-            }
-    
-            &:hover {
-                &::before {
-                    background-color: var(--toolbarbutton-blue-colour) !important;
-                }
-            }
-    
-            &:active {
-                &::before {
-                    background-color: var(--toolbarbutton-blue-colour_hover) !important;
-                }
-            }
-    
-            &[style*='--webextension-menupanel-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEv0lEQVRYR7VXDUxVZRh+7g/E/09LhCAIZKAm8aeuIDdMF9aSSV0ySobgaG7UdJqzzVwrSptWsLU12HTodg0tCgYjbAa4GIleoUtCQBAUWAJBoMjl5/6cvvfQvbuHc++5XG59293O+e77Pe/zvuf7nvf9ZBCOOPb605K5/+xV6eVZa9DNHmKA/WZQmRV6Mnu+xn5uNOfu5wv9/RlALneJAGc0ws3HG/rp+zyOTKEwsLkN7LGXf7egy2TXwXGb6f3Jk8ewoSDHJcfmxcb5BSgecMfVwrfQd6man/YKXt2lGxklElYEAI4mthQXYW1O1rKdU5am+gcRGBsNpaeH5DrN+8XQlpRRVk0wmRQiAgSQN6yVBBm/1Y1fKqower0N07/fxvzUXYG9X2Q4QlI2ITJjB0LTUiBX8H4so/yRBBhm5yy+rfcAR989d0BjkwBFeu3YCfRe+GrZ2cnWNsIn7GGB/bnIjeb9wPsWEvD3Q+6vN0QOiHFd5l6M3ZTOjvXCwHUxUDXXiLDOR23Cwr1pOxmwQ6DlaBF+Pnth2ZGTYfyBAmw+fth1AnOTU1DHpoAzmQRg3qEhSDy0Hw/FP0ZHC3oWFW3GMY0Wg3VXsKOiDMFP0MkWDqcz0F9Zi6b9RwQoMqYNWa318I+KsJkV+mQyhRwKd3fXCXR8egY33v1IFP0rHU1OfRKzsdMZ6Cw7z3b/SZGz9M9LEf5MmtMknCYw0tqG2udfFTmSu7khJjsTj7++z+6nsMVOkgBp9t7f2gTrTEzLq7e9iInOHrvRRu16lieyKoFXV8lRHp4IVpAEx5CXYBqrEuOw68qXIoC/tJ18Foxz85LgwUwB6WSEpaXatWt87TAGqustp4qEiKNdnVFfwes5ZcHWIBIN+QcwPfSHoyAR/VIGtnz8ns3awHEcZv4cwcWkbeCMJl4JOToyqpY6BERHSoKTgrUe/xB9X9TApNdL2oY9/RTSmRYsrQXGhQVM9vShajsreExbeAI8kkyG8PStSFd/5jDC2fG/0XVGje7yCsxNTNq1Tz31DtbnZwv+r925B7SxWelfdGv1L2drE0qxoQ06WPMtbp4owb3BIZFpQMwaZP1QJ5g/92jyYqPzr+9lFSNHKSHl+0aVz0p0u8g0p68VHoEBlnmndcCRc/P/ww3NuLy7QGS+u+07+EWE/f8Ebl9tQb1qn4gA9RfUZ5jHijJQl5mLoI2JiN2jEkRjBqVNSdGPd3QJCPiGh+Ll9gbBnNMECFy9NsUC4hUcxHc5D66P4efmJ+9iuLEZhhmdKPrko28g6UihawQGai4zATq43K1gsaPe8IWmKpGwOZ2BlXRD/kzQnqs8K+oHiZ00ARtNaW/F19AUfYLZsXGHWXDz9eGFJ+nNQrstumRTyq5OyBv60aYjasep3Zro7IaOkdHdGYUPa8u82X4IjF0Dv8gIBCXF2a0lZlDJtpyMtpaeRrRqp8NoV2Kg+aAE2uJSOxcTuVzLikM8AaeeZhqeJ9TwlTikNSaDAXKlEt8ffBu96koexjNkdc/sndF19GwtxXQvpMspfxulTpcfrEi5NKjoMAjOYFyEWbyWJbCnW0sJ0DuROMWcprJqpXTJ8ZLFLCC90sujXT89Q3rNO6fxD+POBDvinLWaAAAAAElFTkSuQmCC");'] {
-                &::before {
-                    background-color: rgb(159, 225, 255);
-                }
-            }
-        }
-    
-        &#ublock0_raymondhill_net-BAP {
-            background-image: url(images/ublockorigin.svg);  
-    
-            &::before,
-            &::after {
-                mask-image: url(images/ublockorigin-mask.svg);
-            }
-    
-            &:hover {
-                &::before {
-                    background-color: var(--toolbarbutton-red-colour) !important;
-                }
-            }
-    
-            &::after {
-                background: linear-gradient(0deg, rgba(223, 101, 101, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
-            }
-    
-            &:active {
-                &::before {
-                    background-color: var(--toolbarbutton-red-colour_hover) !important;
-                }
-            }
-    
-            &[style*='--webextension-menupanel-image: url("moz-extension://c34c6dd4-2c0d-4707-8ce0-3786dbccc341/img/icon_32.png");'] {
-                &::before {
-                    background-color: rgb(255, 159, 159);
-                }
-            }
-        }
-    
-        &#_testpilot-containers-BAP,
-        &#_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-BAP,
-        &#ublock0_raymondhill_net-BAP {
-            .toolbarbutton-icon {
-                display: none;
             }
         }
     }
@@ -1596,7 +1554,7 @@ findbar {
         &#bookmarks-sidebar-menu-button,
         &#PanelUI-menu-button,
         &#appMenuButton,
-        &#unified-extensions-button,
+        &#feedbackButton,
         &#downloads-button {
             &::after {
                 content: unset !important;
@@ -1622,6 +1580,12 @@ findbar {
         @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
             :root {
                 --appearance_IE11Win10: 1 !important;
+            }
+
+            toolbarbutton {
+                &#feedbackButton {
+                    display: block !important;
+                }
             }
 
             #appMenu_aboutInternetExplorerIE11Win10,

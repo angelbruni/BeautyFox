@@ -4,6 +4,10 @@
   --font-family: Tahoma;
 }
 
+label {
+  margin: 0;
+}
+
 #aboutIE {
   font-family: var(--font-family) !important;
 }
@@ -22,16 +26,29 @@
   position: relative;
 }
 
+#aboutIEInfoPane > vbox {
+  display: flex;
+  flex-direction: row;
+}
+#aboutIEInfoPane > vbox:not(#aboutIEWarning) {
+  white-space: nowrap;
+}
+
 #aboutIELogo {
   background-image: var(--logo-image);
   background-size: cover;
+  min-width: 314px;
+  min-height: 76px;
   width: 314px;
   height: 76px;
   margin-bottom: 23px;
 }
 
-label.aboutDialogInfo {
+.aboutDialogInfo:not(a) {
   color: rgb(97, 97, 97);
+}
+
+.aboutDialogInfo {
   font-size: var(--font-size);
   line-height: 13px;
   margin-left: 0;
@@ -39,9 +56,13 @@ label.aboutDialogInfo {
   margin-right: 0;
   margin-bottom: 0;
 }
-label.aboutDialogInfo#aboutIEWarning {
+.aboutDialogInfo#aboutIEWarning {
   margin-top: 13px;
   margin-bottom: 12px;
+}
+
+#aboutVersionBit {
+  display: none;
 }
 
 a {
@@ -85,7 +106,7 @@ a:visited {
     height: 216px;
   }
   #aboutIEInfoCipherStrength, #aboutIEWarning {
-    display: none;
+    display: none !important;
   }
   #aboutIEInfoProductID {
     margin-bottom: 18px;
@@ -121,7 +142,7 @@ a:visited {
       margin-bottom: 10px;
       margin-left: -2px;
     }
-    label.aboutDialogInfo {
+    .aboutDialogInfo {
       margin-bottom: 2px;
     }
   }

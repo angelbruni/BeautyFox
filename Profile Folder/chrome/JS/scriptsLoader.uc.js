@@ -3,6 +3,7 @@ const { ctypes } = ChromeUtils.import("resource://gre/modules/ctypes.jsm");
 function executeFunctions() {
     getAndSetTitleBarHeight();
     getAndSetUserAccentColor();
+    createFeedbackButton();
     addContainerSupport();
     fixTabs();
     urlbarContainerBackgroundOnMouseAttrs();
@@ -10,7 +11,7 @@ function executeFunctions() {
     removeReloadWhenTyping();
     changeFakeDropdownAccordingly();
     addEllipsesSearch();
-    createfavouritesSidebarButton();
+    createFavouritesSidebarButton();
     moveExtensionsBtn();
     createCommandBar();
     createCBHomeButton();

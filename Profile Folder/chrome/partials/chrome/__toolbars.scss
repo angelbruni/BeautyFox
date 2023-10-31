@@ -147,10 +147,6 @@
         }
     }
 
-    > *:not(:first-child, #gripper) {
-        border-left: 1px solid #d7d7d7;
-    }
-
     > div {
         height: 100%;
         display: flex;
@@ -167,7 +163,6 @@
     }
 
     #statusbarInternetProtectionModeContainer {
-        border-left: 1px solid #d7d7d7;
         padding-left: 4px;
         width: 100%;
         max-width: 270px;
@@ -182,11 +177,10 @@
 
     #addonsBar {
         margin-right: 108px !important;
-        min-width: 31px !important;
+        min-width: 130px !important;
         min-height: 22px !important;
         background-color: transparent !important;
         display: flex !important;
-        justify-content: end !important;
         padding-left: 10px !important;
     
         .toolbarbutton-badge-stack {
@@ -285,7 +279,6 @@
         background-color: transparent !important;
         pointer-events: none !important;
         overflow: visible !important;
-        border-left: 1px solid #d7d7d7 !important;
         border-radius: 0 !important;
         
         &::before {
@@ -801,6 +794,7 @@
 }
 
 #cBHomeButton,
+#_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP,
 #cBPrintButton,
 #cBReadMailButton,
 #cBPageButton,
@@ -846,10 +840,42 @@
     margin-right: 14px !important;
 }
 
+#_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP {
+    padding-left: 8px !important;
+    padding-right: 4px !important;
+    list-style-image: url('images/cBRSS.png') !important;
+    align-items: center !important;
+
+    &::after {
+        content: url(images/dropdown.png);
+        margin-bottom: 6px;
+        margin-left: 10px;
+    }
+
+    .toolbarbutton-icon {
+        filter: grayscale(100%) !important;
+    }
+
+    &[badge] {
+        .toolbarbutton-icon {
+            filter: grayscale(0%) !important;
+        }
+    }
+
+    .toolbarbutton-badge {
+        display: none !important;
+    }
+
+    .toolbarbutton-badge-stack {
+        padding: 0 !important;
+    }
+}
+
 @supports -moz-bool-pref("BeautyFox.option.fakeDropdownArrowsinCB") {
     #cBHomeButton,
     #cBPrintButton {
         padding-left: 8px !important;
+
         &::after {
             content: url(images/dropdown.png);
             margin-bottom: 6px;

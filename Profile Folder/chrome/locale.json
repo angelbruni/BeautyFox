@@ -1,0 +1,30 @@
+{
+    "en": {
+        "fallback": {
+            "aboutVersion": "Version:",
+            "aboutUpdateVersions": "Update Versions:",
+            "aboutCipherStrength": "Cipher Strength:",
+            "aboutProductID": "Product ID",
+            "aboutWarning": "Warning: This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law."
+        }
+    },
+
+    "pt": {
+        "fallback": {
+            "aboutVersion": "Versão:",
+            "aboutUpdateVersion": "Versões de Atualização:",
+            "aboutProductID": "Product ID (Ident. do produto):",
+            "aboutWarning": "Aviso: este programa de computador é protegido por leis de direitos autorais e tratados internacionais. A reprodução ou distribuição não autorizada desde programa, ou qualquer parte dele, poderá resultar em severas punições civis e criminais, e os infratores serão punidos dentro do máximo rigor permitido por lei."
+        }
+    },
+
+    "es": {
+        "fallback": {
+            "aboutVersion": "Versión:",
+            "aboutUpdateVersions": "Versiones de actualización:",
+            "aboutCipherStrength": "Intensidad del cifrado:",
+            "aboutProductID": "Id. del producto:",
+            "aboutWarning": "Advertencia: este programa está protegido por las leyes de derechos de autor y otros tratados internacionales. La reproducción o distribución ilícitas de este programa o de parte del mismo está penada por la ley con severas sanciones civiles y penales, y será objeto de todas las acciones judiciales que correspondan."
+        }
+    }
+}
