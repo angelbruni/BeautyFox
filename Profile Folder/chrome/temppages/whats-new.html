@@ -8,7 +8,7 @@
         html {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
-            margin-top: 120px;
+            margin-top: 5px;
             justify-content: center;
         }
 
@@ -25,10 +25,46 @@
 <body>
     <h1 >What's new in BeautyFox Beta 4.0</h1>
     <ul>
-        <li>Added a button to open the Favourites sidebar;</li>
-        <li>Added status bar;</li>
-        <li>Added command bar buttons and menus;</li>
-        <li>Added alternative app settings menu.</li>
+        <li>Added a button to open the Favourites sidebar, can be used to replace the "Bookmarks Menu" button;</li>
+        <li>Added status bar, addons can be put in it. For convenience, made status bar hide in fullscreen mode;</li>
+        <li>Added command bar buttons and menus, need to be manually placed. Command bar also has a setting for icons-only;</li>
+        <li>Added alternative app settings menu;</li>
+        <li>BeautyFox options wizard added, all settings that I am not considering removing are present there. The wizard automatically adds default about:config preferences making going to about:config not needed for initial setup;</li>
+        <li>Removed "move starbox" code, use <a href="https://addons.mozilla.org/en-US/firefox/addon/add-to-favorites-bar/" target="_blank">florin's extension</a> instead;</li>
+        <li>Stop and refresh buttons always show up in Internet Explorer 9 appearance now;</li>
+        <li>Suggested Sites extension;</li>
+        <li>Modified Download dialog to resemble IE7/8 since it's impossible to theme pop-ups to look like IE9-11's pop-ups and it would also be impossible to change the prompt to be a pop-up instead;</li>
+        <li>Removed Firefox appMenu styling code since there's a separate settings menu for the BeautyFox theme now;</li>
+        <li>Fixed urlbar go button being in the wrong position;</li>
+        <li>Fixed URL being cut of before reaching the end of available space and removed the smooth mask;</li>
+        <li>Fixed tab closing not cleaning spot if ui.reducedMotion is not 1, no need to enable reduced motion anymore;</li>
+        <li>Replaced "Bookmarks" text the menu bar with "Favorites";</li>
+        <li>Replaced the fake Version Reporter Applet code with ctypes code for calling real ShellAboutW with Internet Explorer title and iexplore.exe icon (Internet Explorer 11 Windows 10 Appearance only);</li>
+        <li>Removed the fake Version Reporter Applet assets;</li>
+        <li>Completely rewrote how tabs are moved when BeautyFox.option.tabsOnNavRow is set to true, fixing tabs re-arrangement by dragging not working;</li>
+        <li>Removed custom color for navigation buttons code and replaced with a ctypes code to get user accent color for the new bool called BeautyFox.option.userAccentColorNavButtons;</li>
+        <li>Removed dummy javascript "loaderTest.uc.js" that I forgot to delete a long time ago;</li>
+        <li>Moved unified extensions button to bookmars toolbar with an appearance similar to a folder item but with the iexplore file icon and the label "Get More Add-ons";</li>
+        <li>Removed unused experimental pop-up notifications code;</li>
+        <li>Changed the way tabs get colored by the container so it looks better and more like real IE tab coloring (still needs to be adapted for IE9PreRelease);</li>
+        <li>Changed Internet Explorer 9 tab gradient for all states to resemble the real IE9 tabs more;</li>
+        <li>Changed how the border-left in tabs and new tab button is hidden so it doesn't look as obvious when dragging tabs;</li>
+        <li>Fixed the search suggestions pane text being cut off with a smooth mask instead of ellipsis;</li>
+        <li>Firefox Multi-Containers button in url bar is now hidden;</li>
+        <li>Close button in pinned tabs is always hidden;</li>
+        <li>User titlebar height value is requested by ctypes code making custom titlebar height variable deprecated;</li>
+        <li>uservars.css is deprecated, all the custom variables are now obtainable by ctypes code;</li>
+        <li>Implemented a new, separate About Internet Explorer dialog that does not replace the Firefox about dialog;</li>
+        <li>Finally fixed "Firefox Suggest" in URL bar suggestions;</li>
+        <li>Added RSS Command Bar style to <a href="https://addons.mozilla.org/en-US/firefox/addon/feedbroreader/" target="_blank">FeedBro</a> extension;</li>
+        <li>Added feedback smiley button to BeautyFox.appearance.IE11Win10;</li>
+        <li>Added locale system for everything but only works with window elements, checkbox elements and elements that sets text with textContent;</li>
+        <li>Made en, pt and es localisation for About Internet Explorer dialog and BeautyFox Wizard;</li>
+        <li>Removed style code for extensions in navigation bar as there is a statusbar for them now;</li>
+        <li>Initial developer tools theming for IE9 and IE10+;</li>
+        <li>Changed bookmarks folder icon to get the system icon automatically, no need to replace folder.png anymore, it's gone;</li>
+        <li>Removed weird menu bar background and glow on Windows 7;</li>
+        <li>Made a temporary "What's New" page (you are reading it now!).</li>
     </ul>
 </body>
 </html>
