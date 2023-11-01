@@ -17,7 +17,7 @@ function getAndSetTitleBarHeight() {
 
         
     } else {
-        var titleBarHeight = 32;
+        var titleBarHeight = 16;
     }
 
     var titlebarHeightStyle = document.createElement('style');
