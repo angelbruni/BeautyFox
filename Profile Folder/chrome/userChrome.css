@@ -1834,6 +1834,18 @@ findbar {
     }
   }
 }
+@media (-moz-platform: macos) {
+  :root {
+    --titlebar-height: 8px !important;
+  }
+  #newToolbar {
+    margin-left: 76px !important;
+  }
+  .titlebar-buttonbox-container {
+    top: 6px !important;
+    left: 0 !important;
+  }
+}
 :root {
   --panel-border-color: #b4b4b4 !important;
   --urlbarView-subtract: 23px;
