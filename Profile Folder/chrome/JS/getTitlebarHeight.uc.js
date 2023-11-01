@@ -1,8 +1,4 @@
-function getAndSetTitleBarHeight() {
-    
-    var titlebarHeightStyle = document.createElement('style');
-    var titleBarHeight = 32;
-
+function getAndSetTitleBarHeight() { 
     if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS == "WINNT") {
         // Load User32.dll library
         const user32 = ctypes.open("user32.dll");
@@ -19,8 +15,13 @@ function getAndSetTitleBarHeight() {
         // Close the User32.dll library
         user32.close();
 
-        document.head.appendChild(titlebarHeightStyle);
+        
+    } else {
+        var titleBarHeight = 32;
     }
+
+    var titlebarHeightStyle = document.createElement('style');
+    document.head.appendChild(titlebarHeightStyle);
 
     titlebarHeightStyle.innerHTML = `
         :root {
