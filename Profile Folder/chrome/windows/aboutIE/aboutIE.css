@@ -1,7 +1,7 @@
 :root {
   --logo-image: url("chrome://userchrome/content/images/IELOGO-9.PNG");
   --font-size: 8pt;
-  --font-family: Tahoma;
+  --font-family: Tahoma, Geneva, Verdana, sans-serif;
 }
 
 label {
