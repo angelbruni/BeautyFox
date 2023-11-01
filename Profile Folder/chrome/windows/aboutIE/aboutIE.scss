@@ -97,8 +97,18 @@ label {
 	}
 
 	#aboutIEPane {
-		width: 317px;
-		height: 216px;
+		width: 359px;
+		height: 258px;
+		padding-top: 20px;
+		padding-left: 30px;
+	}
+
+	#aboutIELogo {
+		margin-bottom: 10px;
+	}
+
+	.aboutDialogInfo {
+		margin-bottom: 2px;
 	}
 
 	#aboutIEInfoCipherStrength, #aboutIEWarning {
@@ -106,7 +116,7 @@ label {
 	}
 
 	#aboutIEInfoProductID {
-		margin-bottom: 18px;
+		margin-bottom: 26px;
 	}
 
 	a {
@@ -127,27 +137,6 @@ label {
 	@supports -moz-bool-pref("BeautyFox.appearance.IE11") {
 		:root {
 			--logo-image: url('chrome://userchrome/content/images/IELOGO-11.PNG');
-			--font-size: 9pt;
-			--font-family: Segoe UI;
-		}
-
-		#aboutIEPane {
-			width: 295px;
-			height: 184px;
-			padding: 31px;
-			padding-left: 32px;
-			padding-right: 32px;
-			padding-top: 20px;
-			padding-bottom: 54px;
-		}
-
-		#aboutIELogo {
-			margin-bottom: 10px;
-			margin-left: -2px;
-		}
-
-		.aboutDialogInfo {
-			margin-bottom: 2px;
 		}
 	}
 }
