@@ -121,7 +121,7 @@ var cBHelpMenu = {
         {
             type: 'app',
             id: 'cBHelp_whatsNewInBeautyFox',
-            name: "What's new in BeautyFox Beta 3.2",
+            name: "What's new in BeautyFox Beta 4.0.1",
             command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/whats-new.html',where: 'tab'});"
         },
         {
