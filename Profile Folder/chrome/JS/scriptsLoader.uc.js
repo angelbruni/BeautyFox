@@ -19,6 +19,7 @@ function executeFunctions() {
     createCBHomeButton();
     createCBPrintButton();
     createCBReadMailButton()
+    downloadsButton()
     console.info("Functions executed.");
 }
 

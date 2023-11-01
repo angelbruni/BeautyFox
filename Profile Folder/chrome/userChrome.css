@@ -73,10 +73,9 @@ window[lang=ja] {
   --toolbarbutton-green-colour_hover: rgb(67, 202, 83);
   --toolbarbutton-red-colour: rgb(254, 171, 171);
   --toolbarbutton-red-colour_hover: rgb(243, 116, 116);
-  --toolbarbutton-icon-fill-attention: var(--toolbarbutton-green-colour_hover) !important;
+  --toolbarbutton-icon-fill-attention: var(--toolbarbutton-blue-colour_hover) !important;
   --toolbar-field-background-color: rgba(254,254,254,.65) !important;
   --toolbar-field-background-color_hover: rgba(255,255,255,.8);
-  --arrowpanel-border-radius: 0 !important;
   --appearance_IE9PreRelease: 0;
   --appearance_IE10: 0;
   --appearance_IE11: 0;
@@ -838,45 +837,47 @@ toolbarbutton#feedbackButton {
   background-position: center;
   background-repeat: no-repeat;
 }
-#nav-bar toolbarbutton#home-button, #nav-bar toolbarbutton#bookmarks-menu-button, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button, #nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbarbutton#appMenuButton, #nav-bar toolbarbutton#feedbackButton, #nav-bar toolbarbutton#unified-extensions-button, #nav-bar toolbarbutton#downloads-button,
+#nav-bar toolbarbutton#home-button, #nav-bar toolbarbutton#bookmarks-menu-button, #nav-bar toolbarbutton#bookmarksSidebarButton, #nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbarbutton#IEMenuButton, #nav-bar toolbarbutton#feedbackButton, #nav-bar toolbarbutton#unified-extensions-button, #nav-bar toolbarbutton#downloads-button,
 #nav-bar toolbaritem#home-button,
 #nav-bar toolbaritem#bookmarks-menu-button,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button,
+#nav-bar toolbaritem#bookmarksSidebarButton,
 #nav-bar toolbaritem#PanelUI-menu-button,
-#nav-bar toolbaritem#appMenuButton,
+#nav-bar toolbaritem#IEMenuButton,
 #nav-bar toolbaritem#feedbackButton,
 #nav-bar toolbaritem#unified-extensions-button,
 #nav-bar toolbaritem#downloads-button,
 #endToolbar toolbarbutton#home-button,
 #endToolbar toolbarbutton#bookmarks-menu-button,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button,
+#endToolbar toolbarbutton#bookmarksSidebarButton,
 #endToolbar toolbarbutton#PanelUI-menu-button,
-#endToolbar toolbarbutton#appMenuButton,
+#endToolbar toolbarbutton#IEMenuButton,
 #endToolbar toolbarbutton#feedbackButton,
 #endToolbar toolbarbutton#unified-extensions-button,
 #endToolbar toolbarbutton#downloads-button,
 #endToolbar toolbaritem#home-button,
 #endToolbar toolbaritem#bookmarks-menu-button,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button,
+#endToolbar toolbaritem#bookmarksSidebarButton,
 #endToolbar toolbaritem#PanelUI-menu-button,
-#endToolbar toolbaritem#appMenuButton,
+#endToolbar toolbaritem#IEMenuButton,
 #endToolbar toolbaritem#feedbackButton,
 #endToolbar toolbaritem#unified-extensions-button,
 #endToolbar toolbaritem#downloads-button {
   list-style-image: none !important;
   position: relative;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
 }
-#nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::after, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#appMenuButton::before, #nav-bar toolbarbutton#appMenuButton::after, #nav-bar toolbarbutton#feedbackButton::before, #nav-bar toolbarbutton#feedbackButton::after, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::before, #nav-bar toolbarbutton#downloads-button::after,
+#nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarksSidebarButton::before, #nav-bar toolbarbutton#bookmarksSidebarButton::after, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#IEMenuButton::before, #nav-bar toolbarbutton#IEMenuButton::after, #nav-bar toolbarbutton#feedbackButton::before, #nav-bar toolbarbutton#feedbackButton::after, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::before, #nav-bar toolbarbutton#downloads-button::after,
 #nav-bar toolbaritem#home-button::before,
 #nav-bar toolbaritem#home-button::after,
 #nav-bar toolbaritem#bookmarks-menu-button::before,
 #nav-bar toolbaritem#bookmarks-menu-button::after,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button::after,
+#nav-bar toolbaritem#bookmarksSidebarButton::before,
+#nav-bar toolbaritem#bookmarksSidebarButton::after,
 #nav-bar toolbaritem#PanelUI-menu-button::before,
 #nav-bar toolbaritem#PanelUI-menu-button::after,
-#nav-bar toolbaritem#appMenuButton::before,
-#nav-bar toolbaritem#appMenuButton::after,
+#nav-bar toolbaritem#IEMenuButton::before,
+#nav-bar toolbaritem#IEMenuButton::after,
 #nav-bar toolbaritem#feedbackButton::before,
 #nav-bar toolbaritem#feedbackButton::after,
 #nav-bar toolbaritem#unified-extensions-button::before,
@@ -887,12 +888,12 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbarbutton#home-button::after,
 #endToolbar toolbarbutton#bookmarks-menu-button::before,
 #endToolbar toolbarbutton#bookmarks-menu-button::after,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::before,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbarbutton#bookmarksSidebarButton::before,
+#endToolbar toolbarbutton#bookmarksSidebarButton::after,
 #endToolbar toolbarbutton#PanelUI-menu-button::before,
 #endToolbar toolbarbutton#PanelUI-menu-button::after,
-#endToolbar toolbarbutton#appMenuButton::before,
-#endToolbar toolbarbutton#appMenuButton::after,
+#endToolbar toolbarbutton#IEMenuButton::before,
+#endToolbar toolbarbutton#IEMenuButton::after,
 #endToolbar toolbarbutton#feedbackButton::before,
 #endToolbar toolbarbutton#feedbackButton::after,
 #endToolbar toolbarbutton#unified-extensions-button::before,
@@ -903,12 +904,12 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#home-button::after,
 #endToolbar toolbaritem#bookmarks-menu-button::before,
 #endToolbar toolbaritem#bookmarks-menu-button::after,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button::before,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbaritem#bookmarksSidebarButton::before,
+#endToolbar toolbaritem#bookmarksSidebarButton::after,
 #endToolbar toolbaritem#PanelUI-menu-button::before,
 #endToolbar toolbaritem#PanelUI-menu-button::after,
-#endToolbar toolbaritem#appMenuButton::before,
-#endToolbar toolbaritem#appMenuButton::after,
+#endToolbar toolbaritem#IEMenuButton::before,
+#endToolbar toolbaritem#IEMenuButton::after,
 #endToolbar toolbaritem#feedbackButton::before,
 #endToolbar toolbaritem#feedbackButton::after,
 #endToolbar toolbaritem#unified-extensions-button::before,
@@ -929,28 +930,28 @@ toolbarbutton#feedbackButton {
   left: 0;
   transition: opacity 0.3s steps(5), background-color 0.3s steps(5);
 }
-#nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::after, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#appMenuButton::after, #nav-bar toolbarbutton#feedbackButton::after, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::after,
+#nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarksSidebarButton::after, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#IEMenuButton::after, #nav-bar toolbarbutton#feedbackButton::after, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::after,
 #nav-bar toolbaritem#home-button::after,
 #nav-bar toolbaritem#bookmarks-menu-button::after,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button::after,
+#nav-bar toolbaritem#bookmarksSidebarButton::after,
 #nav-bar toolbaritem#PanelUI-menu-button::after,
-#nav-bar toolbaritem#appMenuButton::after,
+#nav-bar toolbaritem#IEMenuButton::after,
 #nav-bar toolbaritem#feedbackButton::after,
 #nav-bar toolbaritem#unified-extensions-button::after,
 #nav-bar toolbaritem#downloads-button::after,
 #endToolbar toolbarbutton#home-button::after,
 #endToolbar toolbarbutton#bookmarks-menu-button::after,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbarbutton#bookmarksSidebarButton::after,
 #endToolbar toolbarbutton#PanelUI-menu-button::after,
-#endToolbar toolbarbutton#appMenuButton::after,
+#endToolbar toolbarbutton#IEMenuButton::after,
 #endToolbar toolbarbutton#feedbackButton::after,
 #endToolbar toolbarbutton#unified-extensions-button::after,
 #endToolbar toolbarbutton#downloads-button::after,
 #endToolbar toolbaritem#home-button::after,
 #endToolbar toolbaritem#bookmarks-menu-button::after,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbaritem#bookmarksSidebarButton::after,
 #endToolbar toolbaritem#PanelUI-menu-button::after,
-#endToolbar toolbaritem#appMenuButton::after,
+#endToolbar toolbaritem#IEMenuButton::after,
 #endToolbar toolbaritem#feedbackButton::after,
 #endToolbar toolbaritem#unified-extensions-button::after,
 #endToolbar toolbaritem#downloads-button::after {
@@ -958,35 +959,35 @@ toolbarbutton#feedbackButton {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   z-index: 2;
 }
-#nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#appMenuButton::before, #nav-bar toolbarbutton#feedbackButton::before, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#downloads-button::before,
+#nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarksSidebarButton::before, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#IEMenuButton::before, #nav-bar toolbarbutton#feedbackButton::before, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#downloads-button::before,
 #nav-bar toolbaritem#home-button::before,
 #nav-bar toolbaritem#bookmarks-menu-button::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button::before,
+#nav-bar toolbaritem#bookmarksSidebarButton::before,
 #nav-bar toolbaritem#PanelUI-menu-button::before,
-#nav-bar toolbaritem#appMenuButton::before,
+#nav-bar toolbaritem#IEMenuButton::before,
 #nav-bar toolbaritem#feedbackButton::before,
 #nav-bar toolbaritem#unified-extensions-button::before,
 #nav-bar toolbaritem#downloads-button::before,
 #endToolbar toolbarbutton#home-button::before,
 #endToolbar toolbarbutton#bookmarks-menu-button::before,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::before,
+#endToolbar toolbarbutton#bookmarksSidebarButton::before,
 #endToolbar toolbarbutton#PanelUI-menu-button::before,
-#endToolbar toolbarbutton#appMenuButton::before,
+#endToolbar toolbarbutton#IEMenuButton::before,
 #endToolbar toolbarbutton#feedbackButton::before,
 #endToolbar toolbarbutton#unified-extensions-button::before,
 #endToolbar toolbarbutton#downloads-button::before,
 #endToolbar toolbaritem#home-button::before,
 #endToolbar toolbaritem#bookmarks-menu-button::before,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button::before,
+#endToolbar toolbaritem#bookmarksSidebarButton::before,
 #endToolbar toolbaritem#PanelUI-menu-button::before,
-#endToolbar toolbaritem#appMenuButton::before,
+#endToolbar toolbaritem#IEMenuButton::before,
 #endToolbar toolbaritem#feedbackButton::before,
 #endToolbar toolbaritem#unified-extensions-button::before,
 #endToolbar toolbaritem#downloads-button::before {
   background-color: white;
   z-index: 1;
 }
-#nav-bar toolbarbutton#home-button:hover::before, #nav-bar toolbarbutton#home-button:hover::after, #nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button:active::after, #nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-menu-button:hover::after, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:hover::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::after, #nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#PanelUI-menu-button:hover::after, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::after, #nav-bar toolbarbutton#appMenuButton:hover::before, #nav-bar toolbarbutton#appMenuButton:hover::after, #nav-bar toolbarbutton#appMenuButton:active::before, #nav-bar toolbarbutton#appMenuButton:active::after, #nav-bar toolbarbutton#feedbackButton:hover::before, #nav-bar toolbarbutton#feedbackButton:hover::after, #nav-bar toolbarbutton#feedbackButton:active::before, #nav-bar toolbarbutton#feedbackButton:active::after, #nav-bar toolbarbutton#unified-extensions-button:hover::before, #nav-bar toolbarbutton#unified-extensions-button:hover::after, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button:active::after, #nav-bar toolbarbutton#downloads-button:hover::before, #nav-bar toolbarbutton#downloads-button:hover::after, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button:active::after,
+#nav-bar toolbarbutton#home-button:hover::before, #nav-bar toolbarbutton#home-button:hover::after, #nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button:active::after, #nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-menu-button:hover::after, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::after, #nav-bar toolbarbutton#bookmarksSidebarButton:hover::before, #nav-bar toolbarbutton#bookmarksSidebarButton:hover::after, #nav-bar toolbarbutton#bookmarksSidebarButton:active::before, #nav-bar toolbarbutton#bookmarksSidebarButton:active::after, #nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#PanelUI-menu-button:hover::after, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::after, #nav-bar toolbarbutton#IEMenuButton:hover::before, #nav-bar toolbarbutton#IEMenuButton:hover::after, #nav-bar toolbarbutton#IEMenuButton:active::before, #nav-bar toolbarbutton#IEMenuButton:active::after, #nav-bar toolbarbutton#feedbackButton:hover::before, #nav-bar toolbarbutton#feedbackButton:hover::after, #nav-bar toolbarbutton#feedbackButton:active::before, #nav-bar toolbarbutton#feedbackButton:active::after, #nav-bar toolbarbutton#unified-extensions-button:hover::before, #nav-bar toolbarbutton#unified-extensions-button:hover::after, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button:active::after, #nav-bar toolbarbutton#downloads-button:hover::before, #nav-bar toolbarbutton#downloads-button:hover::after, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button:active::after,
 #nav-bar toolbaritem#home-button:hover::before,
 #nav-bar toolbaritem#home-button:hover::after,
 #nav-bar toolbaritem#home-button:active::before,
@@ -995,18 +996,18 @@ toolbarbutton#feedbackButton {
 #nav-bar toolbaritem#bookmarks-menu-button:hover::after,
 #nav-bar toolbaritem#bookmarks-menu-button:active::before,
 #nav-bar toolbaritem#bookmarks-menu-button:active::after,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button:hover::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button:hover::after,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button:active::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button:active::after,
+#nav-bar toolbaritem#bookmarksSidebarButton:hover::before,
+#nav-bar toolbaritem#bookmarksSidebarButton:hover::after,
+#nav-bar toolbaritem#bookmarksSidebarButton:active::before,
+#nav-bar toolbaritem#bookmarksSidebarButton:active::after,
 #nav-bar toolbaritem#PanelUI-menu-button:hover::before,
 #nav-bar toolbaritem#PanelUI-menu-button:hover::after,
 #nav-bar toolbaritem#PanelUI-menu-button:active::before,
 #nav-bar toolbaritem#PanelUI-menu-button:active::after,
-#nav-bar toolbaritem#appMenuButton:hover::before,
-#nav-bar toolbaritem#appMenuButton:hover::after,
-#nav-bar toolbaritem#appMenuButton:active::before,
-#nav-bar toolbaritem#appMenuButton:active::after,
+#nav-bar toolbaritem#IEMenuButton:hover::before,
+#nav-bar toolbaritem#IEMenuButton:hover::after,
+#nav-bar toolbaritem#IEMenuButton:active::before,
+#nav-bar toolbaritem#IEMenuButton:active::after,
 #nav-bar toolbaritem#feedbackButton:hover::before,
 #nav-bar toolbaritem#feedbackButton:hover::after,
 #nav-bar toolbaritem#feedbackButton:active::before,
@@ -1027,18 +1028,18 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbarbutton#bookmarks-menu-button:hover::after,
 #endToolbar toolbarbutton#bookmarks-menu-button:active::before,
 #endToolbar toolbarbutton#bookmarks-menu-button:active::after,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:hover::before,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:hover::after,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:active::before,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:active::after,
+#endToolbar toolbarbutton#bookmarksSidebarButton:hover::before,
+#endToolbar toolbarbutton#bookmarksSidebarButton:hover::after,
+#endToolbar toolbarbutton#bookmarksSidebarButton:active::before,
+#endToolbar toolbarbutton#bookmarksSidebarButton:active::after,
 #endToolbar toolbarbutton#PanelUI-menu-button:hover::before,
 #endToolbar toolbarbutton#PanelUI-menu-button:hover::after,
 #endToolbar toolbarbutton#PanelUI-menu-button:active::before,
 #endToolbar toolbarbutton#PanelUI-menu-button:active::after,
-#endToolbar toolbarbutton#appMenuButton:hover::before,
-#endToolbar toolbarbutton#appMenuButton:hover::after,
-#endToolbar toolbarbutton#appMenuButton:active::before,
-#endToolbar toolbarbutton#appMenuButton:active::after,
+#endToolbar toolbarbutton#IEMenuButton:hover::before,
+#endToolbar toolbarbutton#IEMenuButton:hover::after,
+#endToolbar toolbarbutton#IEMenuButton:active::before,
+#endToolbar toolbarbutton#IEMenuButton:active::after,
 #endToolbar toolbarbutton#feedbackButton:hover::before,
 #endToolbar toolbarbutton#feedbackButton:hover::after,
 #endToolbar toolbarbutton#feedbackButton:active::before,
@@ -1059,18 +1060,18 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#bookmarks-menu-button:hover::after,
 #endToolbar toolbaritem#bookmarks-menu-button:active::before,
 #endToolbar toolbaritem#bookmarks-menu-button:active::after,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button:hover::before,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button:hover::after,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button:active::before,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button:active::after,
+#endToolbar toolbaritem#bookmarksSidebarButton:hover::before,
+#endToolbar toolbaritem#bookmarksSidebarButton:hover::after,
+#endToolbar toolbaritem#bookmarksSidebarButton:active::before,
+#endToolbar toolbaritem#bookmarksSidebarButton:active::after,
 #endToolbar toolbaritem#PanelUI-menu-button:hover::before,
 #endToolbar toolbaritem#PanelUI-menu-button:hover::after,
 #endToolbar toolbaritem#PanelUI-menu-button:active::before,
 #endToolbar toolbaritem#PanelUI-menu-button:active::after,
-#endToolbar toolbaritem#appMenuButton:hover::before,
-#endToolbar toolbaritem#appMenuButton:hover::after,
-#endToolbar toolbaritem#appMenuButton:active::before,
-#endToolbar toolbaritem#appMenuButton:active::after,
+#endToolbar toolbaritem#IEMenuButton:hover::before,
+#endToolbar toolbaritem#IEMenuButton:hover::after,
+#endToolbar toolbaritem#IEMenuButton:active::before,
+#endToolbar toolbaritem#IEMenuButton:active::after,
 #endToolbar toolbaritem#feedbackButton:hover::before,
 #endToolbar toolbaritem#feedbackButton:hover::after,
 #endToolbar toolbaritem#feedbackButton:active::before,
@@ -1085,17 +1086,17 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#downloads-button:active::after {
   opacity: 1;
 }
-#nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button[open=true]::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbarbutton#appMenuButton:active::before, #nav-bar toolbarbutton#appMenuButton[open=true]::before, #nav-bar toolbarbutton#feedbackButton:active::before, #nav-bar toolbarbutton#feedbackButton[open=true]::before, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button[open=true]::before, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button[open=true]::before,
+#nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button[open=true]::before, #nav-bar toolbarbutton#bookmarksSidebarButton:active::before, #nav-bar toolbarbutton#bookmarksSidebarButton[open=true]::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbarbutton#IEMenuButton:active::before, #nav-bar toolbarbutton#IEMenuButton[open=true]::before, #nav-bar toolbarbutton#feedbackButton:active::before, #nav-bar toolbarbutton#feedbackButton[open=true]::before, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button[open=true]::before, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button[open=true]::before,
 #nav-bar toolbaritem#home-button:active::before,
 #nav-bar toolbaritem#home-button[open=true]::before,
 #nav-bar toolbaritem#bookmarks-menu-button:active::before,
 #nav-bar toolbaritem#bookmarks-menu-button[open=true]::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button:active::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button[open=true]::before,
+#nav-bar toolbaritem#bookmarksSidebarButton:active::before,
+#nav-bar toolbaritem#bookmarksSidebarButton[open=true]::before,
 #nav-bar toolbaritem#PanelUI-menu-button:active::before,
 #nav-bar toolbaritem#PanelUI-menu-button[open=true]::before,
-#nav-bar toolbaritem#appMenuButton:active::before,
-#nav-bar toolbaritem#appMenuButton[open=true]::before,
+#nav-bar toolbaritem#IEMenuButton:active::before,
+#nav-bar toolbaritem#IEMenuButton[open=true]::before,
 #nav-bar toolbaritem#feedbackButton:active::before,
 #nav-bar toolbaritem#feedbackButton[open=true]::before,
 #nav-bar toolbaritem#unified-extensions-button:active::before,
@@ -1106,12 +1107,12 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbarbutton#home-button[open=true]::before,
 #endToolbar toolbarbutton#bookmarks-menu-button:active::before,
 #endToolbar toolbarbutton#bookmarks-menu-button[open=true]::before,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:active::before,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button[open=true]::before,
+#endToolbar toolbarbutton#bookmarksSidebarButton:active::before,
+#endToolbar toolbarbutton#bookmarksSidebarButton[open=true]::before,
 #endToolbar toolbarbutton#PanelUI-menu-button:active::before,
 #endToolbar toolbarbutton#PanelUI-menu-button[open=true]::before,
-#endToolbar toolbarbutton#appMenuButton:active::before,
-#endToolbar toolbarbutton#appMenuButton[open=true]::before,
+#endToolbar toolbarbutton#IEMenuButton:active::before,
+#endToolbar toolbarbutton#IEMenuButton[open=true]::before,
 #endToolbar toolbarbutton#feedbackButton:active::before,
 #endToolbar toolbarbutton#feedbackButton[open=true]::before,
 #endToolbar toolbarbutton#unified-extensions-button:active::before,
@@ -1122,12 +1123,12 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#home-button[open=true]::before,
 #endToolbar toolbaritem#bookmarks-menu-button:active::before,
 #endToolbar toolbaritem#bookmarks-menu-button[open=true]::before,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button:active::before,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button[open=true]::before,
+#endToolbar toolbaritem#bookmarksSidebarButton:active::before,
+#endToolbar toolbaritem#bookmarksSidebarButton[open=true]::before,
 #endToolbar toolbaritem#PanelUI-menu-button:active::before,
 #endToolbar toolbaritem#PanelUI-menu-button[open=true]::before,
-#endToolbar toolbaritem#appMenuButton:active::before,
-#endToolbar toolbaritem#appMenuButton[open=true]::before,
+#endToolbar toolbaritem#IEMenuButton:active::before,
+#endToolbar toolbaritem#IEMenuButton[open=true]::before,
 #endToolbar toolbaritem#feedbackButton:active::before,
 #endToolbar toolbaritem#feedbackButton[open=true]::before,
 #endToolbar toolbaritem#unified-extensions-button:active::before,
@@ -1164,63 +1165,63 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#home-button:active::before {
   background-color: var(--toolbarbutton-blue-colour_hover);
 }
-#nav-bar toolbarbutton#bookmarks-menu-button, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button,
+#nav-bar toolbarbutton#bookmarks-menu-button, #nav-bar toolbarbutton#bookmarksSidebarButton,
 #nav-bar toolbaritem#bookmarks-menu-button,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button,
+#nav-bar toolbaritem#bookmarksSidebarButton,
 #endToolbar toolbarbutton#bookmarks-menu-button,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button,
+#endToolbar toolbarbutton#bookmarksSidebarButton,
 #endToolbar toolbaritem#bookmarks-menu-button,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button {
+#endToolbar toolbaritem#bookmarksSidebarButton {
   background-image: url(images/favorites.svg);
   width: 23px !important;
 }
-#nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::after,
+#nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarksSidebarButton::before, #nav-bar toolbarbutton#bookmarksSidebarButton::after,
 #nav-bar toolbaritem#bookmarks-menu-button::before,
 #nav-bar toolbaritem#bookmarks-menu-button::after,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button::after,
+#nav-bar toolbaritem#bookmarksSidebarButton::before,
+#nav-bar toolbaritem#bookmarksSidebarButton::after,
 #endToolbar toolbarbutton#bookmarks-menu-button::before,
 #endToolbar toolbarbutton#bookmarks-menu-button::after,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::before,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbarbutton#bookmarksSidebarButton::before,
+#endToolbar toolbarbutton#bookmarksSidebarButton::after,
 #endToolbar toolbaritem#bookmarks-menu-button::before,
 #endToolbar toolbaritem#bookmarks-menu-button::after,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button::before,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button::after {
+#endToolbar toolbaritem#bookmarksSidebarButton::before,
+#endToolbar toolbaritem#bookmarksSidebarButton::after {
   -webkit-mask-image: url(images/favorites-mask.svg);
           mask-image: url(images/favorites-mask.svg);
 }
-#nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button::after,
+#nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarksSidebarButton::after,
 #nav-bar toolbaritem#bookmarks-menu-button::after,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button::after,
+#nav-bar toolbaritem#bookmarksSidebarButton::after,
 #endToolbar toolbarbutton#bookmarks-menu-button::after,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button::after,
+#endToolbar toolbarbutton#bookmarksSidebarButton::after,
 #endToolbar toolbaritem#bookmarks-menu-button::after,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button::after {
+#endToolbar toolbaritem#bookmarksSidebarButton::after {
   background: linear-gradient(0deg, rgba(255, 208, 0, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
 }
-#nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:hover::before,
+#nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarksSidebarButton:hover::before,
 #nav-bar toolbaritem#bookmarks-menu-button:hover::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button:hover::before,
+#nav-bar toolbaritem#bookmarksSidebarButton:hover::before,
 #endToolbar toolbarbutton#bookmarks-menu-button:hover::before,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:hover::before,
+#endToolbar toolbarbutton#bookmarksSidebarButton:hover::before,
 #endToolbar toolbaritem#bookmarks-menu-button:hover::before,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button:hover::before {
+#endToolbar toolbaritem#bookmarksSidebarButton:hover::before {
   background-color: rgb(244, 180, 21);
 }
-#nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-sidebar-menu-button[open=true]::before,
+#nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button[open=true]::before, #nav-bar toolbarbutton#bookmarksSidebarButton:active::before, #nav-bar toolbarbutton#bookmarksSidebarButton[open=true]::before,
 #nav-bar toolbaritem#bookmarks-menu-button:active::before,
 #nav-bar toolbaritem#bookmarks-menu-button[open=true]::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button:active::before,
-#nav-bar toolbaritem#bookmarks-sidebar-menu-button[open=true]::before,
+#nav-bar toolbaritem#bookmarksSidebarButton:active::before,
+#nav-bar toolbaritem#bookmarksSidebarButton[open=true]::before,
 #endToolbar toolbarbutton#bookmarks-menu-button:active::before,
 #endToolbar toolbarbutton#bookmarks-menu-button[open=true]::before,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button:active::before,
-#endToolbar toolbarbutton#bookmarks-sidebar-menu-button[open=true]::before,
+#endToolbar toolbarbutton#bookmarksSidebarButton:active::before,
+#endToolbar toolbarbutton#bookmarksSidebarButton[open=true]::before,
 #endToolbar toolbaritem#bookmarks-menu-button:active::before,
 #endToolbar toolbaritem#bookmarks-menu-button[open=true]::before,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button:active::before,
-#endToolbar toolbaritem#bookmarks-sidebar-menu-button[open=true]::before {
+#endToolbar toolbaritem#bookmarksSidebarButton:active::before,
+#endToolbar toolbaritem#bookmarksSidebarButton[open=true]::before {
   background-color: rgb(234, 129, 2);
 }
 #nav-bar toolbarbutton#unified-extensions-button,
@@ -1309,6 +1310,19 @@ toolbarbutton#feedbackButton {
             mask-position: center;
     -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
+    z-index: 1 !important;
+  }
+  #nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack .toolbarbutton-animatable-box,
+  #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack .toolbarbutton-animatable-box,
+  #endToolbar toolbarbutton#downloads-button > .toolbarbutton-badge-stack .toolbarbutton-animatable-box,
+  #endToolbar toolbaritem#downloads-button > .toolbarbutton-badge-stack .toolbarbutton-animatable-box {
+    display: grid !important;
+  }
+  #nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-outer,
+  #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-outer,
+  #endToolbar toolbarbutton#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-outer,
+  #endToolbar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-outer {
+    visibility: visible !important;
   }
   #nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner,
   #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner,
@@ -1318,62 +1332,62 @@ toolbarbutton#feedbackButton {
     background: linear-gradient(var(--toolbarbutton-icon-fill-attention) var(--download-progress-pcent), transparent var(--download-progress-pcent)) !important;
   }
 }
-#nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbarbutton#appMenuButton,
+#nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbarbutton#IEMenuButton,
 #nav-bar toolbaritem#PanelUI-menu-button,
-#nav-bar toolbaritem#appMenuButton,
+#nav-bar toolbaritem#IEMenuButton,
 #endToolbar toolbarbutton#PanelUI-menu-button,
-#endToolbar toolbarbutton#appMenuButton,
+#endToolbar toolbarbutton#IEMenuButton,
 #endToolbar toolbaritem#PanelUI-menu-button,
-#endToolbar toolbaritem#appMenuButton {
+#endToolbar toolbaritem#IEMenuButton {
   background-image: url(images/settings.svg);
 }
-#nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#appMenuButton::before, #nav-bar toolbarbutton#appMenuButton::after,
+#nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#IEMenuButton::before, #nav-bar toolbarbutton#IEMenuButton::after,
 #nav-bar toolbaritem#PanelUI-menu-button::before,
 #nav-bar toolbaritem#PanelUI-menu-button::after,
-#nav-bar toolbaritem#appMenuButton::before,
-#nav-bar toolbaritem#appMenuButton::after,
+#nav-bar toolbaritem#IEMenuButton::before,
+#nav-bar toolbaritem#IEMenuButton::after,
 #endToolbar toolbarbutton#PanelUI-menu-button::before,
 #endToolbar toolbarbutton#PanelUI-menu-button::after,
-#endToolbar toolbarbutton#appMenuButton::before,
-#endToolbar toolbarbutton#appMenuButton::after,
+#endToolbar toolbarbutton#IEMenuButton::before,
+#endToolbar toolbarbutton#IEMenuButton::after,
 #endToolbar toolbaritem#PanelUI-menu-button::before,
 #endToolbar toolbaritem#PanelUI-menu-button::after,
-#endToolbar toolbaritem#appMenuButton::before,
-#endToolbar toolbaritem#appMenuButton::after {
+#endToolbar toolbaritem#IEMenuButton::before,
+#endToolbar toolbaritem#IEMenuButton::after {
   -webkit-mask-image: url(images/settings-mask.svg);
           mask-image: url(images/settings-mask.svg);
 }
-#nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#appMenuButton:hover::before,
+#nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#IEMenuButton:hover::before,
 #nav-bar toolbaritem#PanelUI-menu-button:hover::before,
-#nav-bar toolbaritem#appMenuButton:hover::before,
+#nav-bar toolbaritem#IEMenuButton:hover::before,
 #endToolbar toolbarbutton#PanelUI-menu-button:hover::before,
-#endToolbar toolbarbutton#appMenuButton:hover::before,
+#endToolbar toolbarbutton#IEMenuButton:hover::before,
 #endToolbar toolbaritem#PanelUI-menu-button:hover::before,
-#endToolbar toolbaritem#appMenuButton:hover::before {
+#endToolbar toolbaritem#IEMenuButton:hover::before {
   background-color: var(--toolbarbutton-blue-colour);
 }
-#nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbarbutton#appMenuButton:active::before, #nav-bar toolbarbutton#appMenuButton[open=true]::before,
+#nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbarbutton#IEMenuButton:active::before, #nav-bar toolbarbutton#IEMenuButton[open=true]::before,
 #nav-bar toolbaritem#PanelUI-menu-button:active::before,
 #nav-bar toolbaritem#PanelUI-menu-button[open=true]::before,
-#nav-bar toolbaritem#appMenuButton:active::before,
-#nav-bar toolbaritem#appMenuButton[open=true]::before,
+#nav-bar toolbaritem#IEMenuButton:active::before,
+#nav-bar toolbaritem#IEMenuButton[open=true]::before,
 #endToolbar toolbarbutton#PanelUI-menu-button:active::before,
 #endToolbar toolbarbutton#PanelUI-menu-button[open=true]::before,
-#endToolbar toolbarbutton#appMenuButton:active::before,
-#endToolbar toolbarbutton#appMenuButton[open=true]::before,
+#endToolbar toolbarbutton#IEMenuButton:active::before,
+#endToolbar toolbarbutton#IEMenuButton[open=true]::before,
 #endToolbar toolbaritem#PanelUI-menu-button:active::before,
 #endToolbar toolbaritem#PanelUI-menu-button[open=true]::before,
-#endToolbar toolbaritem#appMenuButton:active::before,
-#endToolbar toolbaritem#appMenuButton[open=true]::before {
+#endToolbar toolbaritem#IEMenuButton:active::before,
+#endToolbar toolbaritem#IEMenuButton[open=true]::before {
   background-color: var(--toolbarbutton-blue-colour_hover);
 }
-#nav-bar toolbarbutton#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge, #nav-bar toolbarbutton#appMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
+#nav-bar toolbarbutton#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge, #nav-bar toolbarbutton#IEMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
 #nav-bar toolbaritem#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
-#nav-bar toolbaritem#appMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
+#nav-bar toolbaritem#IEMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
 #endToolbar toolbarbutton#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
-#endToolbar toolbarbutton#appMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
+#endToolbar toolbarbutton#IEMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
 #endToolbar toolbaritem#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
-#endToolbar toolbaritem#appMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge {
+#endToolbar toolbaritem#IEMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge {
   background-color: white !important;
   border-radius: 50% !important;
   border: 2px solid orange !important;
@@ -1412,6 +1426,9 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbarbutton#feedbackButton::before,
 #endToolbar toolbaritem#feedbackButton::before {
   background-color: #ffdb4c;
+  background-image: url(images/feedback.svg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 #nav-bar toolbarbutton#feedbackButton::after,
 #nav-bar toolbaritem#feedbackButton::after,
@@ -1750,7 +1767,7 @@ findbar {
   display: none !important;
 }
 
-#appMenu_aboutInternetExplorerIE11Win10,
+#IEMenu_aboutInternetExplorerIE11Win10,
 #cBHelp_aboutInternetExplorerIE11Win10 {
   display: none !important;
 }
@@ -1784,13 +1801,13 @@ findbar {
     margin-right: -22px;
     transform: translateX(-24px);
   }
-  toolbarbutton#home-button::after, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#bookmarks-sidebar-menu-button::after, toolbarbutton#PanelUI-menu-button::after, toolbarbutton#appMenuButton::after, toolbarbutton#feedbackButton::after, toolbarbutton#downloads-button::after {
+  toolbarbutton#home-button::after, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#bookmarksSidebarButton::after, toolbarbutton#PanelUI-menu-button::after, toolbarbutton#IEMenuButton::after, toolbarbutton#feedbackButton::after, toolbarbutton#downloads-button::after {
     content: unset !important;
   }
-  toolbarbutton#bookmarks-menu-button, toolbarbutton#bookmarks-sidebar-menu-button {
+  toolbarbutton#bookmarks-menu-button, toolbarbutton#bookmarksSidebarButton {
     background-image: url(images/favorites-ie10.svg) !important;
   }
-  toolbarbutton#bookmarks-menu-button::before, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#bookmarks-sidebar-menu-button::before, toolbarbutton#bookmarks-sidebar-menu-button::after {
+  toolbarbutton#bookmarks-menu-button::before, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#bookmarksSidebarButton::before, toolbarbutton#bookmarksSidebarButton::after {
     -webkit-mask-image: url(images/favorites-ie10-mask.svg) !important;
             mask-image: url(images/favorites-ie10-mask.svg) !important;
   }
@@ -1805,11 +1822,11 @@ findbar {
       toolbarbutton#feedbackButton {
         display: block !important;
       }
-      #appMenu_aboutInternetExplorerIE11Win10,
+      #IEMenu_aboutInternetExplorerIE11Win10,
       #cBHelp_aboutInternetExplorerIE11Win10 {
         display: flex !important;
       }
-      #appMenu_aboutInternetExplorer,
+      #IEMenu_aboutInternetExplorer,
       #cBHelp_aboutInternetExplorer {
         display: none !important;
       }
@@ -2809,6 +2826,9 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       }
       #toolbar-menubar::before, #toolbar-menubar::after, #PersonalToolbar::before, #PersonalToolbar::after {
         border: 0 !important;
+        top: 0 !important;
+        left: 0px !important;
+        width: 100% !important;
       }
       #toolbar-menubar::before {
         height: 100% !important;
@@ -2816,6 +2836,23 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       #toolbar-menubar[inactive=true] {
         opacity: 0 !important;
         margin-top: -1px;
+      }
+      #navigator-toolbox::after {
+        width: 100% !important;
+        left: 0 !important;
+      }
+      #statusbarContainer {
+        border: 0 !important;
+        border-radius: 0 !important;
+      }
+      #statusbarContainer::before {
+        border: 0 !important;
+        width: 100% !important;
+      }
+      #statusbarBackground {
+        left: 0px !important;
+        width: calc(100% - 2px) !important;
+        height: calc(100% - 2px) !important;
       }
       toolbarbutton#tabs-newtab-button:hover::before,
       #TabsToolbar #new-tab-button:hover::before {
@@ -3124,6 +3161,14 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   padding-right: 5px;
   background-color: transparent !important;
   -moz-window-dragging: drag !important;
+}
+
+#bookmarksSidebarButton {
+  list-style-image: url("chrome://browser/skin/bookmark.svg");
+}
+
+#IEMenuButton {
+  list-style-image: url("chrome://browser/skin/menu.svg");
 }
 
 #cBHomeButton {
@@ -3471,6 +3516,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   display: none;
 }
 
+#downloads-button,
 #cBHomeButton,
 #cBPrintButton,
 #cBReadMailButton {
@@ -3478,6 +3524,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   padding-right: 4px !important;
   align-items: center !important;
 }
+#downloads-button .toolbarbutton-icon,
 #cBHomeButton .toolbarbutton-icon,
 #cBPrintButton .toolbarbutton-icon,
 #cBReadMailButton .toolbarbutton-icon {
@@ -3485,10 +3532,24 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   height: auto !important;
   width: auto !important;
 }
+#downloads-button:active .toolbarbutton-icon,
+#downloads-button:active .toolbarbutton-badge-stack,
 #cBHomeButton:active .toolbarbutton-icon,
+#cBHomeButton:active .toolbarbutton-badge-stack,
 #cBPrintButton:active .toolbarbutton-icon,
-#cBReadMailButton:active .toolbarbutton-icon {
+#cBPrintButton:active .toolbarbutton-badge-stack,
+#cBReadMailButton:active .toolbarbutton-icon,
+#cBReadMailButton:active .toolbarbutton-badge-stack {
   transform: translateX(1px) translateY(1px);
+}
+
+#downloads-button .toolbarbutton-badge-stack {
+  padding: 0 !important;
+}
+#downloads-button #downloads-indicator-anchor {
+  list-style-image: none !important;
+  background-image: url("images/113.ico") !important;
+  background-size: 16px !important;
 }
 
 #cBPageMenuButton,
@@ -3614,6 +3675,9 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   margin-bottom: 6px;
   margin-left: 10px;
 }
+#_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP[open=true] .toolbarbutton-badge-stack, #_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP:active .toolbarbutton-badge-stack {
+  transform: translateX(1px) translateY(1px);
+}
 #_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP .toolbarbutton-icon {
   filter: grayscale(100%) !important;
 }
@@ -3675,6 +3739,10 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 }
 #contentAreaContextMenu #context-sep-navigation {
   margin-left: 0 !important;
+}
+
+menulist > menupopup {
+  background-color: Menu !important;
 }
 
 @media not (-moz-windows-non-native-menus) {
@@ -3739,8 +3807,9 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) :is(.menu-text, .menu
 }
 
 :root {
-  --arrowpanel-menuitem-padding: 0 !important;
   --panel-subview-body-padding: 0 !important;
+  --arrowpanel-border-radius: 0 !important;
+  --arrowpanel-menuitem-padding: 0 !important;
   --arrowpanel-menuitem-margin: 0 !important;
   --arrowpanel-menuitem-border-radius: 0 !important;
 }

@@ -1,47 +1,47 @@
-var appMenu = {
+var IEMenu = {
     items: [
         {
             type: 'app',
-            id: 'appMenu_print',
+            id: 'IEMenu_print',
             name: 'Print',
             accelText: 'Ctrl+P',
             command: 'PrintUtils.togglePrintPreview(gBrowser.selectedBrowser.browsingContext);'
         },
         //{
         //    type: 'subdir',
-        //    id: 'appMenu_print',
+        //    id: 'IEMenu_print',
         //    name: 'Print',
         //    items: []
         //},
         {
             type: 'subdir',
-            id: 'appMenu_file',
+            id: 'IEMenu_file',
             name: 'File',
             items: [
                 {
                     type: 'app',
-                    id: 'appMenu_fullScreen',
+                    id: 'IEMenu_fullScreen',
                     name: 'Full screen',
                     accelText: 'F11',
                     command: 'BrowserFullScreen();',
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_saveAs',
+                    id: 'IEMenu_saveAs',
                     name: 'Save as...',
                     accelText: 'Ctrl+S',
                     command: 'saveBrowser(gBrowser.selectedBrowser);',
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_find',
+                    id: 'IEMenu_find',
                     name: 'Find on this page',
                     accelText: 'Ctrl+F',
                     command: "gLazyFindCommand('onFindCommand')"
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_caretBrowsing',
+                    id: 'IEMenu_caretBrowsing',
                     name: 'Caret browsing',
                     accelText: 'F7',
                     command: 'gBrowser.toggleCaretBrowsing()',
@@ -50,19 +50,19 @@ var appMenu = {
         },
         {
             type: 'subdir',
-            id: 'appMenu_zoom',
+            id: 'IEMenu_zoom',
             name: 'Zoom',
             items: [
                 {
                     type: 'app',
-                    id: 'appMenu_zoomIn',
+                    id: 'IEMenu_zoomIn',
                     name: 'Zoom in',
                     accelText: 'Ctrl +',
                     command: 'FullZoom.enlarge()',
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_zoomOut',
+                    id: 'IEMenu_zoomOut',
                     name: 'Zoom out',
                     accelText: 'Ctrl -',
                     command: 'FullZoom.reduce()',
@@ -72,44 +72,44 @@ var appMenu = {
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_setZoom400',
+                    id: 'IEMenu_setZoom400',
                     name: '400%',
                     command: 'FullZoom.setZoom(4)',
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_setZoom200',
+                    id: 'IEMenu_setZoom200',
                     name: '200%',
                     command: 'FullZoom.setZoom(2)',
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_setZoom150',
+                    id: 'IEMenu_setZoom150',
                     name: '150%',
                     command: 'FullZoom.setZoom(1.5)',
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_setZoom125',
+                    id: 'IEMenu_setZoom125',
                     name: '125%',
                     command: 'FullZoom.setZoom(1.25)',
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_setZoom100',
+                    id: 'IEMenu_setZoom100',
                     name: '100%',
                     accelText: 'Ctrl + 0',
                     command: 'FullZoom.setZoom(1)',
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_setZoom075',
+                    id: 'IEMenu_setZoom075',
                     name: '75%',
                     command: 'FullZoom.setZoom(.75)',
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_setZoom050',
+                    id: 'IEMenu_setZoom050',
                     name: '50%',
                     command: 'FullZoom.reduce(.5)',
                 },
@@ -125,37 +125,37 @@ var appMenu = {
         },
         {
             type: 'subdir',
-            id: 'appMenu_safety',
+            id: 'IEMenu_safety',
             name: 'Safety',
             items: [
                 {
                     type: 'app',
-                    id: 'appMenu_deleteBrowsingHistory',
+                    id: 'IEMenu_deleteBrowsingHistory',
                     name: 'Delete browsing history...',
                     accelText: 'Ctrl + Shift + Del',
                     command: 'Sanitizer.showUI(window);',
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_inPrivateBrowsing',
+                    id: 'IEMenu_inPrivateBrowsing',
                     name: 'InPrivate Browsing',
                     accelText: 'Ctrl + Shift + P',
                     command: 'OpenBrowserWindow({private: true});',
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_trackingProtection',
+                    id: 'IEMenu_trackingProtection',
                     name: 'Tracking Protection...',
                     command: 'gProtectionsHandler.openPreferences()',
                 },
                 //{
                 //    type: 'app',
-                //    id: 'appMenu_activeXFiltering',
+                //    id: 'IEMenu_activeXFiltering',
                 //    name: 'ActiveX Filtering',
                 //},
                 //{
                 //    type: 'app',
-                //    id: 'appMenu_webpagePrivacyPolicy',
+                //    id: 'IEMenu_webpagePrivacyPolicy',
                 //    name: 'Webpage privacy policy...',
                 //},
                 {
@@ -163,7 +163,7 @@ var appMenu = {
                 },
                 {
                     type: 'app',
-                    id: 'appMenu_reportUnsafeWebsite',
+                    id: 'IEMenu_reportUnsafeWebsite',
                     name: 'Report unsafe website',
                     command: 'reportUnsafeWebsite();',
                 },
@@ -174,20 +174,20 @@ var appMenu = {
         },
         {
             type: 'app',
-            id: 'appMenu_viewDownloads',
+            id: 'IEMenu_viewDownloads',
             name: 'View downloads',
             accelText: 'Ctrl + J',
             command: 'BrowserDownloadsUI();',
         },
         {
             type: 'app',
-            id: 'appMenu_manageAddOns',
+            id: 'IEMenu_manageAddOns',
             name: 'Manage add-ons',
             command: 'BrowserOpenAddonsMgr();',
         },
         //{
         //    type: 'app',
-        //    id: 'appMenu_f12DeveloperappMenu',
+        //    id: 'IEMenu_f12DeveloperIEMenu',
         //    name: 'F12 developer tools',
         //    image: 'chrome://global/skin/icons/developer.svg',
         //},
@@ -196,7 +196,7 @@ var appMenu = {
         },
         {
             type: 'app',
-            id: 'appMenu_beautyFoxOptions',
+            id: 'IEMenu_beautyFoxOptions',
             name: 'BeautyFox options',
             command: 'openBeautyFoxWizardWindow(false);',
         },
@@ -205,19 +205,19 @@ var appMenu = {
         },
         {
             type: 'app',
-            id: 'appMenu_internetOptions',
+            id: 'IEMenu_internetOptions',
             name: 'Internet options',
             command: 'openPreferences();',
         },
         {
             type: 'app',
-            id: 'appMenu_aboutInternetExplorer',
+            id: 'IEMenu_aboutInternetExplorer',
             name: 'About Internet Explorer',
             command: 'openFakeIEAbout();',
         },
         {
             type: 'app',
-            id: 'appMenu_aboutInternetExplorerIE11Win10',
+            id: 'IEMenu_aboutInternetExplorerIE11Win10',
             name: 'About Internet Explorer',
             command: 'callShellAboutWIE();',
         },
@@ -228,33 +228,33 @@ var appMenu = {
     init: function() {
         const XULNS = 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul';
     
-        var ExternalappMenuBtn = document.createElementNS(XULNS, 'toolbarbutton');
-        ExternalappMenuBtn.id = "appMenuButton";
-        ExternalappMenuBtn.className = 'toolbarbutton-1';
-        ExternalappMenuBtn.setAttribute("label", "appMenu");
-        ExternalappMenuBtn.setAttribute("onclick", "event.preventDefault();event.stopPropagation();");
-        ExternalappMenuBtn.setAttribute("type", "menu");
-        ExternalappMenuBtn.setAttribute("removable", "true");
+        var ExternalIEMenuBtn = document.createElementNS(XULNS, 'toolbarbutton');
+        ExternalIEMenuBtn.id = "IEMenuButton";
+        ExternalIEMenuBtn.className = 'toolbarbutton-1';
+        ExternalIEMenuBtn.setAttribute("label", "Internet Explorer Menu");
+        ExternalIEMenuBtn.setAttribute("onclick", "event.preventDefault();event.stopPropagation();");
+        ExternalIEMenuBtn.setAttribute("type", "menu");
+        ExternalIEMenuBtn.setAttribute("removable", "true");
     
-        document.getElementById("nav-bar-customization-target").appendChild(ExternalappMenuBtn);
+        document.getElementById("nav-bar-customization-target").appendChild(ExternalIEMenuBtn);
     
-        var ExternalappMenuPopup = document.createElementNS(XULNS, 'menupopup');
-        ExternalappMenuPopup.setAttribute('id', 'appMenuPopUp');
-        ExternalappMenuPopup.setAttribute('position', 'bottomright topright');
-        this._externalAppPopup = ExternalappMenuPopup;
-        ExternalappMenuBtn.appendChild(ExternalappMenuPopup);
-        appMenu.onpopupshowing();
+        var ExternalIEMenuPopup = document.createElementNS(XULNS, 'menupopup');
+        ExternalIEMenuPopup.setAttribute('id', 'IEMenuPopUp');
+        ExternalIEMenuPopup.setAttribute('position', 'bottomright topright');
+        this._externalAppPopup = ExternalIEMenuPopup;
+        ExternalIEMenuBtn.appendChild(ExternalIEMenuPopup);
+        IEMenu.onpopupshowing();
     },
 
     onpopupshowing: function() {
         if (this._isready) return;
         if (this._externalAppPopup === null) return;
-        var ExternalappMenuPopup = this._externalAppPopup;
+        var ExternalIEMenuPopup = this._externalAppPopup;
 
         for (var i = 0; i < this.items.length; i++) {
             var item = this.items[i];
             if (item.type === 'subdir') {
-                var subDirItem = ExternalappMenuPopup.appendChild(document.createXULElement('menu'));
+                var subDirItem = ExternalIEMenuPopup.appendChild(document.createXULElement('menu'));
                 subDirItem.setAttribute('class', 'menu-iconic');
                 subDirItem.setAttribute('id', item.id);
                 subDirItem.setAttribute('label', item.name);
@@ -282,7 +282,7 @@ var appMenu = {
                 }
 
                 subDirItem.appendChild(subDirPopup);
-                ExternalappMenuPopup.appendChild(subDirItem);
+                ExternalIEMenuPopup.appendChild(subDirItem);
             } else if (item.type === 'app') {
                 var appsItems = document.createXULElement('menuitem');
                 appsItems.setAttribute('class', 'menuitem-iconic');
@@ -295,9 +295,9 @@ var appMenu = {
                     appsItems.setAttribute('acceltext', item.accelText)
                 }
 
-                ExternalappMenuPopup.appendChild(appsItems);
+                ExternalIEMenuPopup.appendChild(appsItems);
             } else if (item.type === 'separator') {
-                ExternalappMenuPopup.appendChild(document.createXULElement('menuseparator'));
+                ExternalIEMenuPopup.appendChild(document.createXULElement('menuseparator'));
             }
         }
     },
@@ -315,7 +315,7 @@ var appMenu = {
     },
 };
 
-appMenu.init();
+IEMenu.init();
 
 function reportUnsafeWebsite() {
     _ucUtils.loadURI(window,{

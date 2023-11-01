@@ -15,10 +15,10 @@ fetch('chrome://userchrome/content/locale.json')
 // Function to set text based on locale
 function setLocaleText() {
     const userLanguage = navigator.language || navigator.userLanguage;
-    const elements = document.querySelectorAll('[data-i18n]');
+    const elements = document.querySelectorAll('[locale]');
     
     elements.forEach(element => {
-        const key = element.getAttribute('data-i18n');
+        const key = element.getAttribute('locale');
         let text = "";
 
         const lang = userLanguage.split('-')[0];

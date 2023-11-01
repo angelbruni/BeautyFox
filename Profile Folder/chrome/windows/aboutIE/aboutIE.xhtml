@@ -9,7 +9,7 @@
 		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 		id="aboutIE"
 		windowtype="Browser:AboutIE"
-        data-i18n="aboutTitlebar"
+        locale="aboutTitlebar"
 		role="dialog"
         >
 
@@ -18,24 +18,24 @@
             <html:div id="aboutIELogo"></html:div>
             <vbox id="aboutIEInfoPane">
                 <vbox class="aboutDialogInfo">
-                    <label data-i18n="aboutVersion"></label>
+                    <label locale="aboutVersion"></label>
                     &nbsp;<label id="aboutVersion"></label>
                     &nbsp;&nbsp;<label id="aboutVersionBit">64-bit Edition</label>
                 </vbox>
                 <vbox class="aboutDialogInfo">
-                    <label data-i18n="aboutUpdateVersions"></label>
+                    <label locale="aboutUpdateVersions"></label>
                     &nbsp;<label id="aboutUpdateVersions"></label>
                     &nbsp;<label is="text-link" id="aboutUpdateKB"></label>
                 </vbox>
                 <vbox id="aboutIEInfoCipherStrength" class="aboutDialogInfo">
-                    <label data-i18n="aboutCipherStrength"></label>
+                    <label locale="aboutCipherStrength"></label>
                     &nbsp;256-bit
                 </vbox>
                 <vbox id="aboutIEInfoProductID" class="aboutDialogInfo">
-                    <label data-i18n="aboutProductID"></label>
+                    <label locale="aboutProductID"></label>
                     &nbsp;<label id="aboutProductID"></label>
                 </vbox>
-                <vbox id="aboutIEWarning" class="aboutDialogInfo" data-i18n="aboutWarning"></vbox>
+                <vbox id="aboutIEWarning" class="aboutDialogInfo" locale="aboutWarning"></vbox>
                 <label is="text-link" id="aboutIEMicrosoft" class="aboutDialogInfo" href="http://go.microsoft.com/fwlink/?LinkId=54758"></label>
                 <button id="aboutIEOKButton" onclick="window.close()">
                     <hbox class="box-inherit button-box" align="center" pack="center" flex="1" anonid="button-box">

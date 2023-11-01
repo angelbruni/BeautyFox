@@ -3,7 +3,7 @@ function createFavouritesSidebarButton() {
         var button_label = "Open Bookmarks Sidebar";
     
         CustomizableUI.createWidget({
-            id: "bookmarks-sidebar-menu-button",
+            id: "bookmarksSidebarButton",
             defaultArea: CustomizableUI.AREA_NAVBAR,
             removable: true,
             label: button_label,

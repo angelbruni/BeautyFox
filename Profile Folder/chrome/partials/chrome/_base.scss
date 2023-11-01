@@ -56,12 +56,10 @@
     --toolbarbutton-green-colour_hover: rgb(67, 202, 83);
     --toolbarbutton-red-colour: rgb(254, 171, 171);
     --toolbarbutton-red-colour_hover: rgb(243, 116, 116);
-    --toolbarbutton-icon-fill-attention: var(--toolbarbutton-green-colour_hover) !important;
+    --toolbarbutton-icon-fill-attention: var(--toolbarbutton-blue-colour_hover) !important;
 
     --toolbar-field-background-color: rgba(254,254,254,.65) !important;
     --toolbar-field-background-color_hover: rgba(255,255,255,.8);
-
-    --arrowpanel-border-radius: 0 !important;
 
     --appearance_IE9PreRelease: 0;
     --appearance_IE10: 0;
@@ -907,14 +905,16 @@ toolbarbutton {
     
         &#home-button,
         &#bookmarks-menu-button,
-        &#bookmarks-sidebar-menu-button,
+        &#bookmarksSidebarButton,
         &#PanelUI-menu-button,
-        &#appMenuButton,
+        &#IEMenuButton,
         &#feedbackButton,
         &#unified-extensions-button,
         &#downloads-button {
             list-style-image: none !important;
             position: relative;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
     
             &::before,
             &::after {
@@ -979,7 +979,7 @@ toolbarbutton {
         }
     
         &#bookmarks-menu-button,
-        &#bookmarks-sidebar-menu-button {
+        &#bookmarksSidebarButton {
             background-image: url(images/favorites.svg);
             width: 23px !important;
             
@@ -1062,6 +1062,15 @@ toolbarbutton {
                     mask-image: url(images/downloads-mask.svg);
                     mask-position: center;
                     mask-repeat: no-repeat;
+                    z-index: 1 !important;
+
+                    .toolbarbutton-animatable-box {
+                        display: grid !important;
+                    }
+
+                    #downloads-indicator-progress-outer {
+                        visibility: visible !important;
+                    }
     
                     #downloads-indicator-progress-inner {
                         border-radius: 0 !important;
@@ -1072,7 +1081,7 @@ toolbarbutton {
         }
     
         &#PanelUI-menu-button,
-        &#appMenuButton {
+        &#IEMenuButton {
             background-image: url(images/settings.svg);  
             
             &::before,
@@ -1127,6 +1136,9 @@ toolbarbutton {
 
             &::before {
                 background-color: #ffdb4c;
+                background-image: url(images/feedback.svg);
+                background-position: center;
+                background-repeat: no-repeat;
             }
     
             &::after {
@@ -1518,7 +1530,7 @@ findbar {
     display: none !important
 }
 
-#appMenu_aboutInternetExplorerIE11Win10,
+#IEMenu_aboutInternetExplorerIE11Win10,
 #cBHelp_aboutInternetExplorerIE11Win10 {
     display: none !important;
 }
@@ -1564,9 +1576,9 @@ findbar {
     toolbarbutton {
         &#home-button,
         &#bookmarks-menu-button,
-        &#bookmarks-sidebar-menu-button,
+        &#bookmarksSidebarButton,
         &#PanelUI-menu-button,
-        &#appMenuButton,
+        &#IEMenuButton,
         &#feedbackButton,
         &#downloads-button {
             &::after {
@@ -1575,7 +1587,7 @@ findbar {
         }
 
         &#bookmarks-menu-button,
-        &#bookmarks-sidebar-menu-button {
+        &#bookmarksSidebarButton {
             background-image: url(images/favorites-ie10.svg) !important; 
             
             &::before,
@@ -1601,12 +1613,12 @@ findbar {
                 }
             }
 
-            #appMenu_aboutInternetExplorerIE11Win10,
+            #IEMenu_aboutInternetExplorerIE11Win10,
             #cBHelp_aboutInternetExplorerIE11Win10 {
                 display: flex !important;
             }
 
-            #appMenu_aboutInternetExplorer,
+            #IEMenu_aboutInternetExplorer,
             #cBHelp_aboutInternetExplorer {
                 display: none !important;
             }

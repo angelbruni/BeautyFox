@@ -332,6 +332,14 @@
     -moz-window-dragging: drag !important;
 }
 
+#bookmarksSidebarButton {
+    list-style-image: url("chrome://browser/skin/bookmark.svg");
+}
+
+#IEMenuButton {
+    list-style-image: url("chrome://browser/skin/menu.svg");
+}
+
 #cBHomeButton {
     list-style-image: url("chrome://browser/skin/home.svg");
 }
@@ -795,6 +803,7 @@
     }
 }
 
+#downloads-button,
 #cBHomeButton,
 #cBPrintButton,
 #cBReadMailButton {
@@ -809,9 +818,22 @@
     }
 
     &:active {
-        .toolbarbutton-icon {
+        .toolbarbutton-icon,
+        .toolbarbutton-badge-stack {
             transform: translateX(1px) translateY(1px);
         }
+    }
+}
+
+#downloads-button {
+    .toolbarbutton-badge-stack {
+        padding: 0 !important;
+    }
+
+    #downloads-indicator-anchor {
+        list-style-image: none !important;
+        background-image: url('images/113.ico') !important;
+        background-size: 16px !important;
     }
 }
 
@@ -935,10 +957,17 @@
         margin-left: 10px;
     }
 
+    &[open="true"],
+    &:active {
+        .toolbarbutton-badge-stack {
+            transform: translateX(1px) translateY(1px);
+        }
+    }
+
     .toolbarbutton-icon {
         filter: grayscale(100%) !important;
     }
-
+      
     &[badge] {
         .toolbarbutton-icon {
             filter: grayscale(0%) !important;

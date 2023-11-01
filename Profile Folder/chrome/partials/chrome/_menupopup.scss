@@ -1,3 +1,7 @@
+menulist > menupopup {
+    background-color: Menu !important;
+}
+
 @media not (-moz-windows-non-native-menus) {
     toolbarbutton menupopup[placespopup] {
         --panel-shadow-margin: 0px !important;
