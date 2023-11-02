@@ -183,6 +183,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     position: relative;
     border-radius: 3px 3px 0 0;
     background-color: var(--toolbar-bgcolor) !important;
+    border-inline-style: solid !important;
 
     &::before {
         content: '';

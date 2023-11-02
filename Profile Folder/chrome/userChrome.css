@@ -193,6 +193,7 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   position: relative;
   border-radius: 3px 3px 0 0;
   background-color: var(--toolbar-bgcolor) !important;
+  border-inline-style: solid !important;
 }
 #toolbar-menubar::before {
   content: "";
@@ -3765,7 +3766,6 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) {
 }
 
 :is(panel, menupopup)::part(content), arrowscrollbox {
-  background: transparent !important;
   box-shadow: none !important;
   margin: 0 !important;
   padding: 0 !important;
