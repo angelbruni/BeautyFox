@@ -156,6 +156,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         bottom: 0;
         height: 1px;
         border-bottom: 1px solid var(--chrome-content-separator-color);
+        z-index: 1;
     }
 }
 
@@ -181,6 +182,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     color: black !important;
     position: relative;
     border-radius: 3px 3px 0 0;
+    background-color: var(--toolbar-bgcolor) !important;
 
     &::before {
         content: '';
@@ -189,7 +191,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         top: 1px;
         width: calc(100% - 2px);
         height: calc(100% - 1px);
-        background-color: var(--toolbar-bgcolor);
+        
         z-index: -1;
     }
 
@@ -423,7 +425,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     border-right: 1px solid var(--browser-outer-border-color);
     position: relative;
     padding: 0 1px;
-    background-color: transparent !important;
+    background-color: var(--toolbar-bgcolor) !important;
 
     &::before {
         content: '';
@@ -432,7 +434,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         top: 0px;
         width: calc(100% - 2px);
         height: calc(100% - 0px);
-        background-color: var(--toolbar-bgcolor);
+        
         z-index: -1;
     }
 
