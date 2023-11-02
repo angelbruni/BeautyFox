@@ -1657,9 +1657,11 @@ findbar {
         margin-left: 76px !important;
     }
 
-    #endToolbar {
-        height: 100% !important;
-        align-items: center !important;
+    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+        #endToolbar {
+            height: 100% !important;
+            align-items: center !important;
+        }
     }
 
     .titlebar-buttonbox-container {
