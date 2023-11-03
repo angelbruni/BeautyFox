@@ -78,7 +78,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
     &:not([sizemode="maximized"]) {
         .titlebar-buttonbox {
-            top: -3px !important;
+            top: 4px !important;
         }
     }
 
@@ -1191,9 +1191,9 @@ toolbarbutton {
     right: 0;
 }
 
-.titlebar-color {
+/*.titlebar-color {
     height: 27px !important;
-}
+}*/
 
 #browser,
 #customization-container {

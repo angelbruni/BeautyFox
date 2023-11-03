@@ -77,6 +77,8 @@
 #newToolbar {
     display: flex;
     align-items: end;
+    appearance: auto;
+    -moz-default-appearance: -moz-window-titlebar;
 }
 
 #PersonalToolbar {

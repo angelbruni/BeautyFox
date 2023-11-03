@@ -217,7 +217,7 @@
 
 @supports -moz-bool-pref("BeautyFox.option.userAccentColorNavButtons") {
     :root {
-        --navButtons-colour: var(--userAccentColor);
+        --navButtons-colour: var(--userAccentColor) !important;
     }
 }
 
@@ -225,7 +225,6 @@
     :root {
         --navButtons-colour: #0284c5;
     }
-
     
     #main-window {
         #nav-bar {

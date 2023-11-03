@@ -98,7 +98,7 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   --titlebar-height-calc: calc(var(--titlebar-height) + 6px);
 }
 #main-window:not([sizemode=maximized]) .titlebar-buttonbox {
-  top: -3px !important;
+  top: 4px !important;
 }
 #main-window[sizemode=maximized] #endToolbar, #main-window[sizemode=fullscreen] #endToolbar {
   padding-right: 3px !important;
@@ -1480,10 +1480,9 @@ toolbarbutton#feedbackButton {
   right: 0;
 }
 
-.titlebar-color {
-  height: 27px !important;
-}
-
+/*.titlebar-color {
+    height: 27px !important;
+}*/
 #browser,
 #customization-container {
   border-left: 1px solid var(--browser-outer-border-color);
@@ -2270,7 +2269,7 @@ findbar {
 }
 @supports -moz-bool-pref("BeautyFox.option.userAccentColorNavButtons") {
   :root {
-    --navButtons-colour: var(--userAccentColor);
+    --navButtons-colour: var(--userAccentColor) !important;
   }
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -2948,6 +2947,10 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 #newToolbar {
   display: flex;
   align-items: end;
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
+  -moz-default-appearance: -moz-window-titlebar;
 }
 
 #PersonalToolbar toolbaritem:first-of-type {
