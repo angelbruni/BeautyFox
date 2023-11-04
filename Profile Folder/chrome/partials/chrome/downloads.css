@@ -16,43 +16,28 @@
   color: rgb(0, 51, 153);
   font-size: 12pt;
 }
-#places #placesToolbox #placesToolbar > *:not(#clearDownloadsButton, search-textbox) {
+#places #placesToolbox #placesToolbar > *:not(#clearDownloadsButton, #closeButton, search-textbox) {
   display: none !important;
 }
+#places #placesToolbox #placesToolbar #clearDownloadsButton,
+#places #placesToolbox #placesToolbar #closeButton {
+  position: fixed;
+  bottom: 7px;
+  width: 86px !important;
+  -webkit-appearance: button !important;
+     -moz-appearance: button !important;
+          appearance: button !important;
+  -moz-default-appearance: button !important;
+}
+#places #placesToolbox #placesToolbar #clearDownloadsButton[disabled],
+#places #placesToolbox #placesToolbar #closeButton[disabled] {
+  opacity: 1 !important;
+}
 #places #placesToolbox #placesToolbar #clearDownloadsButton {
-  position: fixed !important;
-  bottom: 7px !important;
+  right: 107px !important;
+}
+#places #placesToolbox #placesToolbar #closeButton {
   right: 11px !important;
-  padding: 0 10px !important;
-  width: auto !important;
-  height: 25px !important;
-  border: 1px solid white !important;
-  outline: 1px solid rgb(176, 178, 182) !important;
-  background: linear-gradient(0deg, rgb(231, 231, 231) 0%, rgb(244, 244, 244) 100%) !important;
-  justify-content: center !important;
-  border-radius: 5px !important;
-}
-#places #placesToolbox #placesToolbar #clearDownloadsButton:hover {
-  background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
-}
-#places #placesToolbox #placesToolbar #clearDownloadsButton:active, #places #placesToolbox #placesToolbar #clearDownloadsButton[open=true] {
-  background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
-}
-@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-  #places #placesToolbox #placesToolbar #clearDownloadsButton {
-    outline: none !important;
-    border: 1px solid rgb(172, 172, 172) !important;
-    border-radius: 0 !important;
-    background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
-  }
-  #places #placesToolbox #placesToolbar #clearDownloadsButton:hover {
-    border: 1px solid rgb(126, 180, 234) !important;
-    background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
-  }
-  #places #placesToolbox #placesToolbar #clearDownloadsButton:active, #places #placesToolbox #placesToolbar #clearDownloadsButton[open=true] {
-    border: 1px solid rgb(86, 157, 229) !important;
-    background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
-  }
 }
 #places #placesToolbox #placesToolbar search-textbox {
   -webkit-appearance: textfield !important;
