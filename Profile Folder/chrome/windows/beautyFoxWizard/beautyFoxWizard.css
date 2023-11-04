@@ -41,7 +41,7 @@ window button.navBackButton {
   height: 30px;
   width: 30px;
   background-size: 30px;
-  background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Normal.ico);
+  background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/Navigation/BackButton/Normal.ico");
   background-position: center;
   background-repeat: no-repeat;
   padding: 0;
@@ -54,13 +54,13 @@ window button.navBackButton {
 }
 window button.navBackButton[disabled=true] {
   pointer-events: none;
-  background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Disabled.ico);
+  background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/Navigation/BackButton/Disabled.ico");
 }
 window button.navBackButton:not([disabled]):hover {
-  background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Hot.ico);
+  background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/Navigation/BackButton/Hot.ico");
 }
 window button.navBackButton:not([disabled]):active {
-  background-image: url(chrome://userchrome/content/windows/beautyFoxWizard/Navigation_BackButton_Pressed.ico);
+  background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/Navigation/BackButton/Pressed.ico");
 }
 window #contentArea {
   flex: 1;
