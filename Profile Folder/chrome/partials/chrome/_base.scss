@@ -1550,11 +1550,6 @@ toolbarbutton {
     display: none !important
 }
 
-#IEMenu_aboutInternetExplorerIE11Win10,
-#cBHelp_aboutInternetExplorerIE11Win10 {
-    display: none !important;
-}
-
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     :root {
         --appearance_IE10: 1 !important;
@@ -1631,16 +1626,6 @@ toolbarbutton {
                 &#feedbackButton {
                     display: block !important;
                 }
-            }
-
-            #IEMenu_aboutInternetExplorerIE11Win10,
-            #cBHelp_aboutInternetExplorerIE11Win10 {
-                display: flex !important;
-            }
-
-            #IEMenu_aboutInternetExplorer,
-            #cBHelp_aboutInternetExplorer {
-                display: none !important;
             }
         }
     }

@@ -54,7 +54,7 @@
                     content: '';
                     height: 20px;
                     width: 24px;
-                    background-image: url(images/search7.svg);
+                    background-image: url(chrome://userchrome/content/images/search7.svg);
                     background-position: center;
                     background-repeat: no-repeat;
                     position: absolute;
@@ -188,7 +188,7 @@
     width: 18px !important;
 
     .textbox-search-icon {
-        list-style-image: url(images/search7.svg) !important;
+        list-style-image: url(chrome://userchrome/content/images/search7.svg) !important;
         height: 16px !important;
         width: 16px !important;
     }

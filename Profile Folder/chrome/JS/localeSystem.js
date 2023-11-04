@@ -1,4 +1,3 @@
-// Define your language resources
 let translations; // Variable to store translations
 
 // Load translations asynchronously

@@ -3,7 +3,6 @@
 // ==/UserScript==
 
 (function () {
-
     var style = document.createElement('style');
     style.innerHTML = `
     #unknownContentTypeWindow {
@@ -115,16 +114,19 @@
     document.getElementById('unknownContentTypeWindow').appendChild(riskWarningContainer);
     var riskWarningIcon = document.createElement('img');
     riskWarningIcon.id = 'riskWarningIcon';
-    riskWarningIcon.src = 'chrome://userchrome/content/images/36870.ico';
+    riskWarningIcon.src = 'chrome://userchrome/content/chrome://userchrome/content/resources/ieframe.dll/Icon Group/36870.ico';
     riskWarningIcon.width = 32;
     riskWarningIcon.height = 32;
     riskWarningContainer.appendChild(riskWarningIcon);
+
     var riskWarningTextContainer = document.createElement('div');
     riskWarningTextContainer.id = 'riskWarningTextContainer';
     riskWarningContainer.appendChild(riskWarningTextContainer);
+
     var riskWarningText = document.createElement('label');
     riskWarningText.textContent = 'While files from the internet can be useful, this file type can potentially harm your computer. If you do not trust the source, do not run or save this software. '
     riskWarningTextContainer.appendChild(riskWarningText);
+
     var riskWarningLink = document.createElement('a');
     riskWarningLink.textContent = "What's the risk?";
     riskWarningTextContainer.appendChild(riskWarningLink);
@@ -132,33 +134,18 @@
     function replaceIcon() {
         var icon = document.getElementById('contentTypeImage');
     
-        // Check if the element was found
         if (icon) {
             var iconSrc = icon.src;
     
-            // Log the current icon source URL
-            console.log("Original Icon Src: " + iconSrc);
-    
-            // Check if icon source contains 'size=16'
             if (iconSrc.includes("size=16")) {
                 let icon32 = iconSrc.replace("size=16", "size=32");
                 icon.src = icon32;
-    
-                // Log the modified icon source URL
-                console.log("Modified Icon Src: " + icon.src);
-            } else {
-                // Log a message if 'size=16' was not found in the icon source URL
-                console.log("No 'size=16' found in the icon source URL.");
             }
-        } else {
-            // Log a message if the element with ID 'contentTypeImage' was not found
-            console.log("Element with ID 'contentTypeImage' not found.");
         }
     }
 
     setTimeout(() => {
         replaceIcon();
     }, 50);
-
 })();
 

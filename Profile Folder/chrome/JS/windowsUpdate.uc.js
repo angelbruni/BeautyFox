@@ -28,7 +28,5 @@ function openWindowsUpdate() {
 
     if (hInstance.isNull()) {
         console.error("Failed to open Windows Update. Error code: " + ctypes.winLastError);
-    } else {
-        console.log("Windows Update opened successfully!");
     }
 }

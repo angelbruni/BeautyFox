@@ -51,10 +51,7 @@ updateNavBackButton();
 function getBoolPrefWithCatch(prefName, element) {
     try {
         element.setAttribute('checked', Services.prefs.getBoolPref(prefName));
-    } catch (error) {
-        // Handle the error here if needed
-        // For example, log the error or provide a default value for the attribute
-    }
+    } catch (error) {}
 }
 
 var chosenIEAppearance = 0;

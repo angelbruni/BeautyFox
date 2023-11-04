@@ -65,7 +65,7 @@
 }
 
 #suggestedsites_bruni_com-BAP {
-    list-style-image: url('images/110.ico') !important;
+    list-style-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/30788.ico') !important;
 
     .toolbarbutton-icon {
         margin-inline-end: 0 !important;
@@ -73,7 +73,7 @@
 }
 
 #unified-extensions-button {
-    list-style-image: url('images/110.ico') !important;
+    list-style-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/110.ico') !important;
 
     .toolbarbutton-text {
         &::before {
@@ -610,7 +610,7 @@ findbar {
 
                 &::before {
                     content: '';
-                    background-image: url('images/windowsLive.ico') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/17363.ico') !important;
                     background-size: 16px;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -630,7 +630,7 @@ findbar {
 
                 &::before {
                     content: '';
-                    background-image: url('images/bingTranslator.ico') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/17365.ico') !important;
                     background-size: 16px;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -974,7 +974,7 @@ findbar {
 
     #downloads-indicator-anchor {
         list-style-image: none !important;
-        background-image: url('images/113.ico') !important;
+        background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/113.ico') !important;
         background-size: 16px !important;
     }
 }

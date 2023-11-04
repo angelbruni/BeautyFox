@@ -535,7 +535,8 @@
     margin-top: 0 !important;
   }
   .button-container > button#exceptionDialogButton::before {
-    background-image: url(images/redShield.png);
+    background-image: url(chrome://userchrome/content/resources/ieframe.dll/31058.ico);
+    background-size: 16px;
   }
   .button-container > button#advancedButton {
     font-size: 1em !important;

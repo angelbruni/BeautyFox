@@ -1,6 +1,5 @@
 function convertCheckboxesToNativeLook() {
     const config = { childList: true, subtree: true };
-
     const callback = function(mutationsList, observer) {
         for(const mutation of mutationsList) {
             if (mutation.type === 'childList') {
@@ -20,8 +19,6 @@ function convertCheckboxesToNativeLook() {
             }
         }
     };
-
     const observer = new MutationObserver(callback);
-
-    observer.observe(document.body, config); // Observe the entire document body for added nodes
+    observer.observe(document.body, config);
 }

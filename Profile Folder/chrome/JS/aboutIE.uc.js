@@ -50,3 +50,16 @@ function callShellAboutWIE() {
         user32.close();
     }
 }
+
+function openAboutIE() {
+    let isIE11Win10 = false;
+    try {
+        isIE11Win10 = Services.prefs.getBoolPref("BeautyFox.appearance.IE11Win10");
+    } catch (error) {}
+
+    if (isIE11Win10) {
+        callShellAboutWIE();
+    } else {
+        openFakeIEAbout();
+    }
+}

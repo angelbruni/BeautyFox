@@ -213,13 +213,7 @@ var IEMenu = {
             type: 'app',
             id: 'IEMenu_aboutInternetExplorer',
             name: 'About Internet Explorer',
-            command: 'openFakeIEAbout();',
-        },
-        {
-            type: 'app',
-            id: 'IEMenu_aboutInternetExplorerIE11Win10',
-            name: 'About Internet Explorer',
-            command: 'callShellAboutWIE();',
+            command: 'openAboutIE();',
         },
     ],
     

@@ -1,13 +1,7 @@
 function insecureToolbarFieldBackground() {
 	const navBarCustomizationTarget = document.getElementById("nav-bar-customization-target")
-
-	// Select the node that will be observed for mutations
 	const identityBox = document.getElementById("identity-box");
-
-	// Options for the observer (which mutations to observe)
-	const identityBoxObserverConfig = { attributes: true, childList: false, subtree: false };
-
-	// Callback function to execute when mutations are observed
+	const identityBoxObserverConfig = { attributes: true };
 	const identityBoxObserverCallback = (mutationList, observer) => {
 	for (const mutation of mutationList) {
 	if (mutation.type === "attributes") {
@@ -20,10 +14,6 @@ function insecureToolbarFieldBackground() {
 	}
 	}
 	};
-
-	// Create an observer instance linked to the callback function
 	const identityBoxObserver = new MutationObserver(identityBoxObserverCallback);
-
-	// Start observing the target node for configured mutations
 	identityBoxObserver.observe(identityBox, identityBoxObserverConfig);
 }
