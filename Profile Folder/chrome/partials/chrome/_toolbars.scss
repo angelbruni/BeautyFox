@@ -20,6 +20,10 @@
     }
 }
 
+.toolbarbutton-icon {
+    border-radius: 0 !important;
+}
+
 #suggestedsites_bruni_com-BAP,
 #unified-extensions-button {
     padding: 3px !important;
@@ -61,7 +65,11 @@
 }
 
 #suggestedsites_bruni_com-BAP {
-    list-style-image: url('images/iexplore_16.png') !important;
+    list-style-image: url('images/110.ico') !important;
+
+    .toolbarbutton-icon {
+        margin-inline-end: 0 !important;
+    }
 }
 
 #unified-extensions-button {
@@ -228,10 +236,8 @@
                 height: 100%;
             }
         }
-    } 
-}
-
-#main-window {
+    }
+    
     &[sizemode="fullscreen"] { 
         #statusbarContainer {
             display: none !important;
@@ -239,6 +245,140 @@
     } 
 }
 
+findbar {
+    order: -1;
+    margin-top: -1px;
+    padding: 0 !important;
+    padding-top: 3px !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    border-top: none !important;
+    border-bottom: 1px solid rgb(111,111,111);
+    display: flex !important;
+    align-items: center !important;
+    height: 29px !important;
+}
+
+.findbar-container {
+    height: auto !important;
+    order: 1;
+    margin: 0 !important;
+    overflow: visible !important;
+
+    checkbox {
+        padding: 0 !important;
+        margin: 0 !important;
+        margin-right: 8px !important;
+        transform: translateY(-2px) !important;
+    }
+
+    .findbar-highlight {
+        margin-left: 8px !important;
+    }
+
+    toolbarbutton {
+        appearance: auto !important;
+        margin: 0 !important;
+        padding: 0 6px !important;
+        transform: translateY(-2px) !important;
+
+        .toolbarbutton-icon,
+        .toolbarbutton-text {
+            display: none !important;
+        }
+    }
+}
+
+.findbar-label {
+    margin-bottom: 3px !important;
+
+    &.found-matches {
+        margin-inline: 0 !important;
+        margin-left: 7px !important;
+        font-weight: bold !important;
+    }
+}
+
+.findbar-find-previous {
+    &::before {
+        content: 'Previous';
+    }
+}
+
+.findbar-find-next {
+    position: relative;
+
+    &::before {
+        content: 'Next';
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 18px;
+        border-right: 1px solid rgb(126,131,137);
+        right: -3px !important;
+    }
+}
+
+
+.findbar-closebutton {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 17px !important;
+    height: 16px !important;
+    margin-right: 5px !important;
+
+    .toolbarbutton-icon {
+        height: 8px !important;
+        width: 9px !important;
+    }
+}
+
+[anonid="findbar-textbox-wrapper"] {
+    &::before {
+        content: 'Find:';
+        height: fit-content;
+        margin-top: 3px;
+        margin-right: 5px;
+    }
+}
+
+.findbar-textbox {
+    border: 1px solid rgb(93,95,98) !important;
+    border-radius: 2px !important;
+    height: 22px !important;
+    padding: 0 !important;
+    padding-left: 5px !important;
+    width: 294px !important;
+    margin-right: 3px !important;
+
+    &::placeholder {
+        opacity: 0 !important;
+    }
+
+    &:focus {
+        box-shadow: none !important;
+    }
+
+    &[status="notfound"] {
+        background-color: var(--input-bgcolor, var(--toolbar-field-background-color)) !important;
+    }
+}
+
+.findbar-entire-word {
+    &::after {
+        content: '';
+        position: absolute;
+        height: 18px;
+        border-right: 1px solid rgb(126,131,137);
+        right: -8px !important;
+    }
+}
+
+.findbar-find-status {
+    margin-inline: 0 !important;
+}
 
 @supports -moz-bool-pref("BeautyFox.option.showStatusBar") {
     #statusbarContainer {

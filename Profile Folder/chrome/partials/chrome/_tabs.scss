@@ -609,51 +609,6 @@ toolbarbutton#tabs-newtab-button,
                 --newtab-button-width: 22px;
             }
 
-            #toolbar-menubar, #PersonalToolbar {
-                border: 0 !important;
-
-                &::before, &::after {
-                    border: 0 !important;
-                    top: 0 !important;
-                    left: 0px !important;
-                    width: 100% !important;
-                }
-            }
-
-            #toolbar-menubar {
-                &::before {
-                    height: 100% !important;
-                }
-
-                &[inactive="true"] {
-                    opacity: 0 !important;
-                    margin-top: -1px;
-                }
-            }
-
-            #navigator-toolbox {
-                &::after {
-                    width: 100% !important;
-                    left: 0 !important;
-                }
-            }
-
-            #statusbarContainer {
-                border: 0 !important;
-                border-radius: 0 !important;
-
-                &::before {
-                    border: 0 !important;
-                    width: 100% !important;
-                }
-            }
-
-            #statusbarBackground {
-                left: 0px !important;
-                width: calc(100% - 2px) !important;
-                height: calc(100% - 2px) !important;
-            }
-
             toolbarbutton#tabs-newtab-button,
             #TabsToolbar #new-tab-button {
                 &:hover {

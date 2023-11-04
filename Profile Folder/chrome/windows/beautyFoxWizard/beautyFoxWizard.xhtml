@@ -112,12 +112,20 @@
 				<vbox class="pageContent">
 					<h1 locale="wizardAdditional"></h1>
 					<vbox>
-						<input type="checkbox" name="" id=""/>
-						<checkbox native="true" id="tabsOnNavRow" locale="wizardCheckBoxTabs"/>
-						<checkbox native="true" id="onlyIconsinCB" locale="wizardCheckBoxOnlyIcons"/>
-						<checkbox native="true" id="fakeDropdownArrowsinCB" locale="wizardCheckBoxFakeDropdown"/>
-						<checkbox native="true" id="showStatusBar" locale="wizardCheckboxStatusBar"/>
-						<checkbox native="true" id="accentNavBtns" locale="wizardCheckboxAccentNavBtns"/>
+						<groupbox>
+							<label>Settings</label>
+							<checkbox native="true" id="tabsOnNavRow" locale="wizardCheckBoxTabs"/>
+							<checkbox native="true" id="onlyIconsinCB" locale="wizardCheckBoxOnlyIcons"/>
+							<checkbox native="true" id="fakeDropdownArrowsinCB" locale="wizardCheckBoxFakeDropdown"/>
+							<checkbox native="true" id="showStatusBar" locale="wizardCheckboxStatusBar"/>
+							<checkbox native="true" id="hideSettingsPopup" locale="wizardCheckboxHideSettingsPopup"/>
+							<checkbox native="true" id="hideFakeInnerBorders" locale="wizardCheckboxHideFakeInnerBorders"/>
+						</groupbox>
+						<groupbox>
+							<label>Extras</label>
+							<checkbox native="true" id="showDownloadProgress" locale="wizardCheckBoxDownloadProgress"/>
+							<checkbox native="true" id="accentNavBtns" locale="wizardCheckboxAccentNavBtns"/>
+						</groupbox>
 					</vbox>
 				</vbox>
 				<hbox class="dialogFooter">

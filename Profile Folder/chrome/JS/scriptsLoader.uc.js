@@ -19,7 +19,8 @@ function executeFunctions() {
     createCBHomeButton();
     createCBPrintButton();
     createCBReadMailButton()
-    downloadsButton()
+    downloadsButton();
+    convertCheckboxesToNativeLook();
     console.info("Functions executed.");
 }
 
