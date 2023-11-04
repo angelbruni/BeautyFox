@@ -94,7 +94,7 @@
         margin-right: 0 !important;
     }
     
-    toolbarbutton {
+    toolbarbutton:not(#PlacesChevron) {
         appearance: auto !important;
     }
 
@@ -474,6 +474,28 @@ findbar {
     -moz-window-dragging: drag !important;
 }
 
+#downloads-button,
+#cBHomeButton,
+#cBPrintButton,
+#cBReadMailButton {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    align-items: center !important;
+
+    .toolbarbutton-icon {
+        padding: 0 !important;
+        height: auto !important;
+        width: auto !important;
+    }
+
+    &:active {
+        .toolbarbutton-icon,
+        .toolbarbutton-badge-stack {
+            transform: translateX(1px) translateY(1px);
+        }
+    }
+}
+
 #bookmarksSidebarButton {
     list-style-image: url("chrome://browser/skin/bookmark.svg");
 }
@@ -491,24 +513,54 @@ findbar {
 }
 
 #cBPrintButton {
-    list-style-image: url("chrome://global/skin/icons/print.svg");
+    list-style-image: none;
+
+    .toolbarbutton-icon {
+        height: 16px !important;
+        width: 16px !important;
+        background-image: url("chrome://userchrome/content/resources/imageres.dll/Icon Group/51.ico");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 16px;
+    }
 }
 
 #cBHomeButton {
-    list-style-image: url("images/cBHome.png");
+    list-style-image: none;
+
+    .toolbarbutton-icon {
+        height: 16px !important;
+        width: 16px !important;
+        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/100.ico");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 16px;
+    }
 }
 
 #cBReadMailButton {
-    list-style-image: url("images/cBReadMail.png");
-}
+    list-style-image: none;
 
-#cBPrintButton {
-    list-style-image: url("images/cBPrint.png");
+    .toolbarbutton-icon {
+        height: 16px !important;
+        width: 16px !important;
+        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31076.ico");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 16px;
+    }
 }
 
 #cBHelpMenuButton {
+    list-style-image: none !important;
+
     .toolbarbutton-icon {
-        list-style-image: url("images/cBHelp.png") !important;
+        height: 16px !important;
+        width: 16px !important;
+        background-image: url("chrome://userchrome/content/resources/imageres.dll/Icon Group/99.ico");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 16px;
     }
 }
 
@@ -630,7 +682,7 @@ findbar {
 
                 &::before {
                     content: '';
-                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/17365.ico') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/17364.ico') !important;
                     background-size: 16px;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -945,28 +997,6 @@ findbar {
     }
 }
 
-#downloads-button,
-#cBHomeButton,
-#cBPrintButton,
-#cBReadMailButton {
-    padding-left: 4px !important;
-    padding-right: 4px !important;
-    align-items: center !important;
-
-    .toolbarbutton-icon {
-        padding: 0 !important;
-        height: auto !important;
-        width: auto !important;
-    }
-
-    &:active {
-        .toolbarbutton-icon,
-        .toolbarbutton-badge-stack {
-            transform: translateX(1px) translateY(1px);
-        }
-    }
-}
-
 #downloads-button {
     .toolbarbutton-badge-stack {
         padding: 0 !important;
@@ -1026,6 +1056,21 @@ findbar {
         .toolbarbutton-text {
             margin-bottom: 2px !important;
         }
+    }
+}
+
+#_2556b991-60fd-43ba-ae1a-ddc211a6a264_-BAP {
+    align-items: center !important;
+
+    .toolbarbutton-badge-stack {
+        background-size: 16px !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_5.ico") !important;
+    }
+
+    .toolbarbutton-icon {
+        opacity: 0 !important;
     }
 }
 
@@ -1090,7 +1135,7 @@ findbar {
 #_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP {
     padding-left: 8px !important;
     padding-right: 4px !important;
-    list-style-image: url('images/cBRSS.png') !important;
+    list-style-image: none !important;
     align-items: center !important;
 
     &::after {
@@ -1107,6 +1152,12 @@ findbar {
     }
 
     .toolbarbutton-icon {
+        height: 16px !important;
+        width: 16px !important;
+        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31064.ico");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 16px;
         filter: grayscale(100%) !important;
     }
       

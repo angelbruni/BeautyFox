@@ -19,7 +19,6 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) {
 }
 
 :is(panel, menupopup)::part(content), arrowscrollbox {
-    //background: transparent !important;
     box-shadow: none !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -46,10 +45,6 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) :is(.menu-text, .menu
 .menu-right {
     list-style-image: none !important;
 }
-
-/*.menu-right {
-    transform: translateX(24px) !important;
-}*/
 
 .menu-accel-container {
     appearance: auto !important;

@@ -1,5 +1,4 @@
 :root {
-  --logo-image: url("chrome://userchrome/content/images/IELOGO-9.PNG");
   --font-size: 8pt;
   --font-family: Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -35,8 +34,9 @@ label {
 }
 
 #aboutIELogo {
-  background-image: var(--logo-image);
-  background-size: cover;
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll.mui/2110/IELOGO.png");
+  background-position-x: 0;
+  background-position-y: -76px;
   min-width: 314px;
   min-height: 76px;
   width: 314px;
@@ -84,14 +84,11 @@ label {
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-  :root {
-    --logo-image: url("chrome://userchrome/content/images/IELOGO-9PreRelease.PNG");
+  #aboutIELogo {
+    background-position-y: 0;
   }
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-  :root {
-    --logo-image: url("chrome://userchrome/content/images/IELOGO-10.PNG");
-  }
   #aboutIEPane {
     width: 359px;
     height: 258px;
@@ -100,6 +97,7 @@ label {
   }
   #aboutIELogo {
     margin-bottom: 10px;
+    background-position-y: -152px;
   }
   .aboutDialogInfo {
     margin-bottom: 2px;
@@ -123,8 +121,9 @@ label {
     bottom: 16px;
   }
   @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-    :root {
-      --logo-image: url("chrome://userchrome/content/images/IELOGO-11.PNG");
+    #aboutIELogo {
+      margin-bottom: 10px;
+      background-position-y: -228px;
     }
   }
 }/*# sourceMappingURL=aboutIE.css.map */

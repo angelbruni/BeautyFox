@@ -36,6 +36,14 @@ window[lang=ja] {
   --label-about-after: のバージョン情報;
 }
 
+@keyframes tab-throbber {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -192px;
+  }
+}
 :root {
   --chrome-content-separator-color: #6f6f6f !important;
   --urlbar-min-height: 24px !important;
@@ -69,6 +77,8 @@ window[lang=ja] {
   --toolbarbutton-blue-colour_hover: rgb(27, 172, 250);
   --toolbarbutton-yellow-colour: rgb(248, 233, 158);
   --toolbarbutton-yellow-colour_hover: rgb(246, 222, 123);
+  --toolbarbutton-orange-colour: rgb(255, 204, 0);
+  --toolbarbutton-orange-colour_hover: rgb(252, 180, 5);
   --toolbarbutton-green-colour: rgb(171, 254, 181);
   --toolbarbutton-green-colour_hover: rgb(67, 202, 83);
   --toolbarbutton-red-colour: rgb(254, 171, 171);
@@ -194,15 +204,6 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   border-radius: 3px 3px 0 0;
   background-color: var(--toolbar-bgcolor) !important;
   border-inline-style: solid !important;
-}
-#toolbar-menubar::before {
-  content: "";
-  position: absolute;
-  left: 1px;
-  top: 1px;
-  width: calc(100% - 2px);
-  height: calc(100% - 1px);
-  z-index: -1;
 }
 #toolbar-menubar::after {
   content: "";
@@ -360,10 +361,9 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 .urlbar-input-box::after {
   content: "";
-  right: 0;
-  top: 1px;
   transform: translateX(var(--urlbar-dropdown-button_width));
   width: var(--urlbar-dropdown-button_width);
+  margin-left: var(--urlbar-dropdown-button_width);
   height: 22px;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 49%, rgba(0, 0, 0, 0.5) 50%);
   -webkit-mask: var(--urlbar-fake-dropdown-mask);
@@ -398,15 +398,6 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   position: relative;
   padding: 0 1px;
   background-color: var(--toolbar-bgcolor) !important;
-}
-#PersonalToolbar::before {
-  content: "";
-  position: absolute;
-  left: 1px;
-  top: 0px;
-  width: calc(100% - 2px);
-  height: calc(100% - 0px);
-  z-index: -1;
 }
 #PersonalToolbar::after {
   content: "";
@@ -466,18 +457,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 
 #star-button-box {
-  height: 24px !important;
-  width: 24px !important;
   display: none !important;
-}
-#star-button-box.star-button-box_cloned {
-  display: block !important;
-}
-#star-button-box #star-button {
-  height: auto !important;
-  width: auto !important;
-  margin-top: 1px;
-  list-style-image: url(images/addtotoolbar.png) !important;
 }
 
 #PersonalToolbar {
@@ -512,7 +492,8 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   content: "";
   height: 16px;
   width: 16px;
-  background-image: url("images/iexplore_16.png");
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico");
+  background-size: 16px;
   background-position: center;
   background-repeat: no-repeat;
   margin-inline-end: 4px;
@@ -602,33 +583,6 @@ panel {
   transition: opacity 0.2s;
 }
 
-#searchbar {
-  font-size: 9pt !important;
-  position: relative;
-}
-
-#urlbar-background,
-#searchbar {
-  border-top: 1px solid rgba(0, 0, 0, 0.5) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
-  border-left: 1px solid rgba(0, 0, 0, 0.5) !important;
-  border-radius: 0 !important;
-  border-right: 1px solid rgba(0, 0, 0, 0.5) !important;
-  background-color: transparent !important;
-}
-#urlbar-background::before,
-#searchbar::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: calc(100% - 2px);
-  height: calc(100% - 2px);
-  background-color: var(--toolbar-field-background-color) !important;
-  border: 1px solid rgba(254, 254, 254, 0.2);
-  z-index: 0;
-}
-
 .identity-box-button {
   padding-inline: 0 !important;
 }
@@ -657,10 +611,10 @@ panel {
   transition: background-color 0.3s steps(5);
 }
 #identity-box.verifiedDomain:hover #identity-icon {
-  background-color: var(--toolbarbutton-yellow-colour);
+  background-color: var(--toolbarbutton-orange-colour);
 }
 #identity-box.verifiedDomain:active #identity-icon {
-  background-color: var(--toolbarbutton-yellow-colour_hover);
+  background-color: var(--toolbarbutton-orange-colour_hover);
 }
 #identity-box.certErrorPage #identity-icon {
   list-style-image: none !important;
@@ -679,74 +633,8 @@ panel {
   background-color: white !important;
 }
 
-#searchbar {
-  padding: 0 0 0 7px;
-  background-color: transparent !important;
-  border-radius: 0 !important;
-}
-#searchbar:hover {
-  background-color: transparent !important;
-}
-#searchbar:hover::before {
-  background-color: var(--toolbar-field-background-color_hover) !important;
-}
-#searchbar:focus-within {
-  box-shadow: none !important;
-}
-#searchbar:focus-within::before {
-  background-color: white !important;
-}
-
-.search-go-container {
-  display: none;
-}
-
-#search-container {
-  margin-inline-start: 6px !important;
-  margin-inline-end: 9px !important;
-  border-radius: 0 !important;
-  background-color: transparent !important;
-  height: 24px;
-}
-
-.searchbar-search-button {
-  order: 2;
-  -webkit-mask-image: url(images/search-dropdown-mask.svg);
-          mask-image: url(images/search-dropdown-mask.svg);
-  -webkit-mask-position: center;
-          mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 32px !important;
-  margin-right: 6px !important;
-}
-.searchbar-search-button .searchbar-search-icon {
-  list-style-image: none !important;
-  fill-opacity: unset !important;
-}
-
-.searchbar-textbox {
-  order: 1;
-  z-index: 1;
-}
-.searchbar-textbox::-moz-placeholder {
-  opacity: 1 !important;
-}
-.searchbar-textbox::placeholder {
-  opacity: 1 !important;
-}
-
-.searchbar-textbox::-moz-placeholder {
-  display: none !important;
-}
-
-.searchbar-textbox::placeholder {
-  display: none !important;
-}
-
 #favimginurlbar[style='list-style-image: url("chrome://branding/content/icon32.png");'], #favimginurlbar[style='list-style-image: url("chrome://global/skin/icons/info.svg");'], #favimginurlbar[style='list-style-image: url("chrome://global/skin/icons/settings.svg");'], #favimginurlbar[style='list-style-image: url("chrome://global/skin/icons/warning.svg");'], #favimginurlbar[style='list-style-image: url("chrome://browser/skin/privatebrowsing/favicon.svg");'] {
-  list-style-image: url(images/iexplore_16.png) !important;
+  list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico") !important;
 }
 
 toolbarbutton#feedbackButton {
@@ -1506,9 +1394,6 @@ toolbarbutton#feedbackButton {
   right: 0;
 }
 
-/*.titlebar-color {
-    height: 27px !important;
-}*/
 #browser,
 #customization-container {
   border-left: 1px solid var(--browser-outer-border-color);
@@ -1614,10 +1499,6 @@ toolbarbutton#feedbackButton {
   display: none !important;
 }
 
-.searchbar-search-icon-overlay {
-  display: none !important;
-}
-
 #identity-permission-box {
   display: none !important;
 }
@@ -1631,6 +1512,10 @@ toolbarbutton#feedbackButton {
 }
 
 #private-browsing-indicator-with-label {
+  display: none !important;
+}
+
+#nav-bar-overflow-button {
   display: none !important;
 }
 
@@ -1665,17 +1550,6 @@ toolbarbutton#feedbackButton {
   }
 }
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-  #urlbar-container {
-    flex: unset !important;
-    width: calc(28vw + 7px) !important;
-    min-width: var(--urlbar-min-width) !important;
-  }
-  toolbarpaletteitem#wrapper-urlbar-container {
-    flex: unset !important;
-  }
-  #wrapper-search-container {
-    display: none !important;
-  }
   #nav-bar {
     flex: unset !important;
   }
@@ -1936,7 +1810,7 @@ toolbarbutton#feedbackButton {
   background-image: url(images/go-mask.svg);
   background-repeat: no-repeat;
   background-position: center;
-  width: 17px !important;
+  width: calc(var(--stop-reload-button_width) + 3px) !important;
   height: 22px !important;
   border-radius: 0 !important;
   opacity: 0.5;
@@ -2127,6 +2001,120 @@ toolbarbutton#feedbackButton {
   display: none !important;
 }
 
+#searchbar {
+  font-size: 9pt !important;
+  position: relative;
+}
+
+#urlbar-background {
+  overflow: hidden !important;
+}
+
+#urlbar-background,
+#searchbar {
+  border-top: 1px solid rgba(0, 0, 0, 0.5) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.5) !important;
+  border-radius: 0 !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.5) !important;
+  background-color: transparent !important;
+}
+#urlbar-background::before,
+#searchbar::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--toolbar-field-background-color) !important;
+  border: 1px solid rgba(254, 254, 254, 0.2);
+  z-index: 0;
+}
+
+#searchbar {
+  padding: 0 0 0 7px;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+}
+#searchbar:hover {
+  background-color: transparent !important;
+}
+#searchbar:hover::before {
+  background-color: var(--toolbar-field-background-color_hover) !important;
+}
+#searchbar:focus-within {
+  box-shadow: none !important;
+}
+#searchbar:focus-within::before {
+  background-color: white !important;
+}
+
+.search-go-container {
+  display: none;
+}
+
+#search-container {
+  margin-inline-start: 6px !important;
+  margin-inline-end: 9px !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  height: 24px;
+}
+
+.searchbar-search-button {
+  order: 2;
+  -webkit-mask-image: url(images/search-dropdown-mask.svg);
+          mask-image: url(images/search-dropdown-mask.svg);
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 32px !important;
+  margin-right: 6px !important;
+}
+.searchbar-search-button .searchbar-search-icon {
+  list-style-image: none !important;
+  fill-opacity: unset !important;
+}
+
+.searchbar-textbox {
+  order: 1;
+  z-index: 1;
+}
+.searchbar-textbox::-moz-placeholder {
+  opacity: 1 !important;
+}
+.searchbar-textbox::placeholder {
+  opacity: 1 !important;
+}
+
+.searchbar-textbox::-moz-placeholder {
+  display: none !important;
+}
+
+.searchbar-textbox::placeholder {
+  display: none !important;
+}
+
+.searchbar-search-icon-overlay {
+  display: none !important;
+}
+
+@supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+  #urlbar-container {
+    flex: unset !important;
+    width: calc(28vw + 7px) !important;
+    min-width: var(--urlbar-min-width) !important;
+  }
+  toolbarpaletteitem#wrapper-urlbar-container {
+    flex: unset !important;
+  }
+  #wrapper-search-container {
+    display: none !important;
+  }
+}
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
   :root {
     --urlbarView-subtract: 34px;
@@ -2142,7 +2130,7 @@ toolbarbutton#feedbackButton {
   position: absolute;
   left: 3px;
   top: var(--titlebar-height-calc);
-  background-image: url(images/TRAVEL_BACKGROUND_MINIE.png);
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_BACKGROUND_MINIE.png");
   width: 67px;
   height: 35px;
 }
@@ -2150,8 +2138,6 @@ toolbarbutton#feedbackButton {
 #main-window #nav-bar #forward-button {
   border: 1px solid rgba(0, 0, 0, 0.35);
   border-radius: 50%;
-  outline: 1px solid rgba(247, 247, 247, 0.2);
-  outline-offset: -2px;
   background-color: var(--navButtons-colour) !important;
   list-style-image: none !important;
   overflow: hidden;
@@ -2180,6 +2166,10 @@ toolbarbutton#feedbackButton {
   width: 100%;
   height: 100%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 254, 254, 0.15) 49%, rgba(255, 255, 255, 0.01) 50%);
+  outline: 1px solid rgba(247, 247, 247, 0.2);
+  border-radius: 50%;
+  outline-offset: -1px;
+  box-sizing: border-box;
 }
 #main-window #nav-bar #back-button:hover,
 #main-window #nav-bar #forward-button:hover {
@@ -2326,7 +2316,6 @@ toolbarbutton#feedbackButton {
   #main-window #nav-bar #forward-button {
     border: 1px solid rgba(0, 0, 0, 0.3);
     background: var(--navButtons-colour) !important;
-    outline: none !important;
   }
   #main-window #nav-bar #back-button::before,
   #main-window #nav-bar #forward-button::before {
@@ -2345,6 +2334,7 @@ toolbarbutton#feedbackButton {
   #main-window #nav-bar #forward-button::after {
     background: transparent;
     transition: background-color 0.2s steps(4);
+    outline: 0 !important;
   }
   #main-window #nav-bar #back-button:hover::after,
   #main-window #nav-bar #forward-button:hover::after {
@@ -2486,14 +2476,15 @@ toolbarbutton#feedbackButton {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: calc(100% - 2px);
-  height: calc(100% - 1px);
+  width: 100%;
+  height: 100%;
   border-width: 1px;
   border-style: solid;
   border-image-slice: 1;
   border-image-source: var(--tab-inset-border-colour);
   border-bottom: none !important;
   background: var(--tab-background-colour);
+  box-sizing: border-box;
 }
 .tabbrowser-tab:hover .tab-background {
   background: transparent !important;
@@ -2519,7 +2510,7 @@ toolbarbutton#feedbackButton {
   margin-left: 0px !important;
 }
 .tabbrowser-tab:not([busy=true]) .tab-icon-image:not(.tabbrowser-tab:not([busy=true]) .tab-icon-image[src*=data]) {
-  content: url(images/iexplore_16.png) !important;
+  content: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico") !important;
 }
 .tabbrowser-tab:not([busy=true]) .tab-icon-image:-moz-broken {
   display: block !important;
@@ -2619,18 +2610,19 @@ toolbarbutton#tabs-newtab-button::before,
   position: absolute;
   bottom: 0;
   left: 0;
-  width: calc(100% - 2px);
-  height: calc(100% - 1px);
+  width: 100%;
+  height: 100%;
   border-width: 1px;
   border-style: solid;
   border-image-slice: 1;
   border-image-source: var(--tab-inset-border-colour);
   border-bottom: none !important;
   background: var(--tab-background-colour);
+  box-sizing: border-box;
 }
 toolbarbutton#tabs-newtab-button:hover .toolbarbutton-icon,
 #TabsToolbar #new-tab-button:hover .toolbarbutton-icon {
-  background-image: url(images/newtab.png);
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31062.ico");
 }
 toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 #TabsToolbar #new-tab-button .toolbarbutton-icon {
@@ -2641,6 +2633,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   z-index: 1;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: 16px;
 }
 
 .tab-label-container[textoverflow][labeldirection=ltr]:not([pinned]) {
@@ -2664,11 +2657,11 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   }
 }
 .tab-throbber {
-  background-image: url(images/throbber.png) !important;
-  background-position: center !important;
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/624.png") !important;
   background-repeat: no-repeat !important;
   width: 16px !important;
   height: 16px !important;
+  animation: tab-throbber 0.7s steps(12) infinite !important;
   opacity: 1 !important;
 }
 
@@ -2872,7 +2865,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       }
       toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
       #TabsToolbar #new-tab-button .toolbarbutton-icon {
-        background-image: url(images/newtab.png);
+        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31062.ico");
       }
       @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
         :root {
@@ -2973,7 +2966,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 #PersonalToolbar toolbaritem:first-of-type {
   margin-right: 0 !important;
 }
-#PersonalToolbar toolbarbutton {
+#PersonalToolbar toolbarbutton:not(#PlacesChevron) {
   -webkit-appearance: auto !important;
      -moz-appearance: auto !important;
           appearance: auto !important;
@@ -3308,6 +3301,33 @@ findbar {
   -moz-window-dragging: drag !important;
 }
 
+#downloads-button,
+#cBHomeButton,
+#cBPrintButton,
+#cBReadMailButton {
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  align-items: center !important;
+}
+#downloads-button .toolbarbutton-icon,
+#cBHomeButton .toolbarbutton-icon,
+#cBPrintButton .toolbarbutton-icon,
+#cBReadMailButton .toolbarbutton-icon {
+  padding: 0 !important;
+  height: auto !important;
+  width: auto !important;
+}
+#downloads-button:active .toolbarbutton-icon,
+#downloads-button:active .toolbarbutton-badge-stack,
+#cBHomeButton:active .toolbarbutton-icon,
+#cBHomeButton:active .toolbarbutton-badge-stack,
+#cBPrintButton:active .toolbarbutton-icon,
+#cBPrintButton:active .toolbarbutton-badge-stack,
+#cBReadMailButton:active .toolbarbutton-icon,
+#cBReadMailButton:active .toolbarbutton-badge-stack {
+  transform: translateX(1px) translateY(1px);
+}
+
 #bookmarksSidebarButton {
   list-style-image: url("chrome://browser/skin/bookmark.svg");
 }
@@ -3325,23 +3345,51 @@ findbar {
 }
 
 #cBPrintButton {
-  list-style-image: url("chrome://global/skin/icons/print.svg");
+  list-style-image: none;
+}
+#cBPrintButton .toolbarbutton-icon {
+  height: 16px !important;
+  width: 16px !important;
+  background-image: url("chrome://userchrome/content/resources/imageres.dll/Icon Group/51.ico");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
 }
 
 #cBHomeButton {
-  list-style-image: url("images/cBHome.png");
+  list-style-image: none;
+}
+#cBHomeButton .toolbarbutton-icon {
+  height: 16px !important;
+  width: 16px !important;
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/100.ico");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
 }
 
 #cBReadMailButton {
-  list-style-image: url("images/cBReadMail.png");
+  list-style-image: none;
+}
+#cBReadMailButton .toolbarbutton-icon {
+  height: 16px !important;
+  width: 16px !important;
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31076.ico");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
 }
 
-#cBPrintButton {
-  list-style-image: url("images/cBPrint.png");
+#cBHelpMenuButton {
+  list-style-image: none !important;
 }
-
 #cBHelpMenuButton .toolbarbutton-icon {
-  list-style-image: url("images/cBHelp.png") !important;
+  height: 16px !important;
+  width: 16px !important;
+  background-image: url("chrome://userchrome/content/resources/imageres.dll/Icon Group/99.ico");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
 }
 
 #cBPageButton::before {
@@ -3431,7 +3479,7 @@ findbar {
 }
 #cBPageMenuButton > #cBPageMenuPopUp > #cBPage_googleTranslate > .menu-iconic-left::before {
   content: "";
-  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/17365.ico") !important;
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/17364.ico") !important;
   background-size: 16px;
   background-position: center;
   background-repeat: no-repeat;
@@ -3661,33 +3709,6 @@ findbar {
   display: none;
 }
 
-#downloads-button,
-#cBHomeButton,
-#cBPrintButton,
-#cBReadMailButton {
-  padding-left: 4px !important;
-  padding-right: 4px !important;
-  align-items: center !important;
-}
-#downloads-button .toolbarbutton-icon,
-#cBHomeButton .toolbarbutton-icon,
-#cBPrintButton .toolbarbutton-icon,
-#cBReadMailButton .toolbarbutton-icon {
-  padding: 0 !important;
-  height: auto !important;
-  width: auto !important;
-}
-#downloads-button:active .toolbarbutton-icon,
-#downloads-button:active .toolbarbutton-badge-stack,
-#cBHomeButton:active .toolbarbutton-icon,
-#cBHomeButton:active .toolbarbutton-badge-stack,
-#cBPrintButton:active .toolbarbutton-icon,
-#cBPrintButton:active .toolbarbutton-badge-stack,
-#cBReadMailButton:active .toolbarbutton-icon,
-#cBReadMailButton:active .toolbarbutton-badge-stack {
-  transform: translateX(1px) translateY(1px);
-}
-
 #downloads-button .toolbarbutton-badge-stack {
   padding: 0 !important;
 }
@@ -3765,6 +3786,19 @@ findbar {
   margin-bottom: 2px !important;
 }
 
+#_2556b991-60fd-43ba-ae1a-ddc211a6a264_-BAP {
+  align-items: center !important;
+}
+#_2556b991-60fd-43ba-ae1a-ddc211a6a264_-BAP .toolbarbutton-badge-stack {
+  background-size: 16px !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_5.ico") !important;
+}
+#_2556b991-60fd-43ba-ae1a-ddc211a6a264_-BAP .toolbarbutton-icon {
+  opacity: 0 !important;
+}
+
 @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
   #cBPageMenuButton,
   #cBSafetyMenuButton,
@@ -3812,7 +3846,7 @@ findbar {
 #_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP {
   padding-left: 8px !important;
   padding-right: 4px !important;
-  list-style-image: url("images/cBRSS.png") !important;
+  list-style-image: none !important;
   align-items: center !important;
 }
 #_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP::after {
@@ -3824,6 +3858,12 @@ findbar {
   transform: translateX(1px) translateY(1px);
 }
 #_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP .toolbarbutton-icon {
+  height: 16px !important;
+  width: 16px !important;
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31064.ico");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
   filter: grayscale(100%) !important;
 }
 #_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP[badge] .toolbarbutton-icon {
@@ -3940,9 +3980,6 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) :is(.menu-text, .menu
   list-style-image: none !important;
 }
 
-/*.menu-right {
-    transform: translateX(24px) !important;
-}*/
 .menu-accel-container {
   -webkit-appearance: auto !important;
      -moz-appearance: auto !important;
@@ -3958,39 +3995,6 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) :is(.menu-text, .menu
   --arrowpanel-menuitem-border-radius: 0 !important;
 }
 
-/*panel {
-    --panel-shadow: var(--pop-up_shadow) !important;
-}
-
-.PanelUI-subView {
-    max-height: 100% !important;
-    min-height: 0 !important;
-}
-
-:is(menupopup, panel)[type="arrow"] {
-    --panel-border-radius: 0 !important;
-}
-
-.cui-widget-panel {
-    --arrowpanel-padding: 0 !important;
-
-    .panel-viewcontainer {
-        padding: 3px !important;
-        min-height: 0 !important;
-    }
-}
-
-#appMenu-fxa-status2, #appMenu-fxa-separator {
-    display: none !important;
-}
-
-#appMenu-protonMainView {
-    .subviewbutton:not(.subviewbutton-iconic, #appMenu-zoomReset-button2) {
-        min-height: 22px !important;
-        padding-inline-start: 30px !important;
-        padding-inline-end: 6px !important;
-    }
-}*/
 .panel-footer {
   color-scheme: unset !important;
 }

@@ -67,13 +67,6 @@
                     border-color: transparent;
                     outline: none !important;
                 }
-
-                /* Doesn't work yet.
-                input {
-                    &::placeholder {
-                        font-style: italic !important;
-                    }
-                }*/
             }
         }
     }
@@ -120,13 +113,6 @@
                                     font-size: 12pt !important;
                                     width: 50% !important;
                                 }
-
-                                /* Doesn't work ??
-                                .downloadProgress {
-                                    &::before {
-                                        content: attr(value) "%";
-                                    }
-                                }*/
                             }
                         }
 

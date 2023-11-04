@@ -57,12 +57,6 @@
       position: absolute;
       right: 0;
   }*/
-  /* Doesn't work yet.
-  input {
-      &::placeholder {
-          font-style: italic !important;
-      }
-  }*/
 }
 #places #placesToolbox #placesToolbar search-textbox[focused] {
   box-shadow: none !important;
@@ -101,14 +95,6 @@
 }
 #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadTypeIcon {
   display: none !important;
-}
-#places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadContainer {
-  /* Doesn't work ??
-  .downloadProgress {
-      &::before {
-          content: attr(value) "%";
-      }
-  }*/
 }
 #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadContainer .downloadTarget {
   font-size: 12pt !important;

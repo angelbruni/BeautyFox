@@ -114,7 +114,7 @@
     document.getElementById('unknownContentTypeWindow').appendChild(riskWarningContainer);
     var riskWarningIcon = document.createElement('img');
     riskWarningIcon.id = 'riskWarningIcon';
-    riskWarningIcon.src = 'chrome://userchrome/content/chrome://userchrome/content/resources/ieframe.dll/Icon Group/36870.ico';
+    riskWarningIcon.src = 'chrome://userchrome/content/resources/ieframe.dll/Icon Group/36870.ico';
     riskWarningIcon.width = 32;
     riskWarningIcon.height = 32;
     riskWarningContainer.appendChild(riskWarningIcon);

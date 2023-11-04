@@ -52,6 +52,8 @@
     --toolbarbutton-blue-colour_hover: rgb(27, 172, 250);
     --toolbarbutton-yellow-colour: rgb(248, 233, 158);
     --toolbarbutton-yellow-colour_hover: rgb(246, 222, 123);
+    --toolbarbutton-orange-colour: rgb(255, 204, 0);
+    --toolbarbutton-orange-colour_hover: rgb(252, 180, 5);
     --toolbarbutton-green-colour: rgb(171, 254, 181);
     --toolbarbutton-green-colour_hover: rgb(67, 202, 83);
     --toolbarbutton-red-colour: rgb(254, 171, 171);
@@ -84,7 +86,6 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
     &[sizemode="maximized"],
     &[sizemode="fullscreen"] {
-        //#nav-bar,
         #endToolbar {
             padding-right: 3px !important;
         }
@@ -184,17 +185,6 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     border-radius: 3px 3px 0 0;
     background-color: var(--toolbar-bgcolor) !important;
     border-inline-style: solid !important;
-
-    &::before {
-        content: '';
-        position: absolute;
-        left: 1px;
-        top: 1px;
-        width: calc(100% - 2px);
-        height: calc(100% - 1px);
-        
-        z-index: -1;
-    }
 
     &::after {
         content: '';
@@ -392,10 +382,9 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
     &::after {
         content: '';
-        right: 0;
-        top: 1px;
         transform: translateX(var(--urlbar-dropdown-button_width));
         width: var(--urlbar-dropdown-button_width);
+        margin-left: var(--urlbar-dropdown-button_width);
         height: 22px;
         background: linear-gradient(90deg, rgba(0,0,0,.5) 49%, rgba(0,0,0,.5) 50%);
         mask: var(--urlbar-fake-dropdown-mask);
@@ -427,17 +416,6 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     position: relative;
     padding: 0 1px;
     background-color: var(--toolbar-bgcolor) !important;
-
-    &::before {
-        content: '';
-        position: absolute;
-        left: 1px;
-        top: 0px;
-        width: calc(100% - 2px);
-        height: calc(100% - 0px);
-        
-        z-index: -1;
-    }
 
     &::after {
         content: '';
@@ -498,20 +476,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 }
 
 #star-button-box {
-    height: 24px !important;
-    width: 24px !important;
     display: none !important;
-
-    &.star-button-box_cloned {
-        display: block !important;
-    }
-
-    #star-button {
-        height: auto !important;
-        width: auto !important;
-        margin-top: 1px;
-        list-style-image: url(images/addtotoolbar.png) !important;
-    }
 }
 
 #PersonalToolbar {
@@ -543,7 +508,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                     content: '';
                     height: 16px;
                     width: 16px;
-                    background-image: url("images/iexplore_16.png");
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico");
+                    background-size: 16px;
                     background-position: center;
                     background-repeat: no-repeat;
                     margin-inline-end: 4px;
@@ -645,33 +611,6 @@ panel {
     }
 }
 
-#searchbar {
-    font-size: 9pt !important;
-    position: relative;
-}
-
-#urlbar-background,
-#searchbar {
-    border-top: 1px solid rgba(0,0,0,.5) !important;
-    border-bottom: 1px solid rgba(0,0,0,.5) !important;
-    border-left: 1px solid rgba(0,0,0,.5) !important;
-    border-radius: 0 !important;
-    border-right: 1px solid rgba(0,0,0,.5) !important;
-    background-color: transparent !important;
-
-    &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: calc(100% - 2px);
-        height: calc(100% - 2px);
-        background-color: var(--toolbar-field-background-color) !important;
-        border: 1px solid rgba(254,254,254,.2);
-        z-index: 0;
-    }
-}
-
 .identity-box-button {
     padding-inline: 0 !important;
 }
@@ -692,7 +631,6 @@ panel {
     }
 
     &.verifiedDomain {
-
         #identity-icon {
             list-style-image: none !important;
             background-color: rgba(0,0,0,.5);
@@ -702,14 +640,14 @@ panel {
 
         &:hover {
             #identity-icon {
-                background-color: var(--toolbarbutton-yellow-colour);
+                background-color: var(--toolbarbutton-orange-colour);
             }
             
         }
 
         &:active {
             #identity-icon {
-                background-color: var(--toolbarbutton-yellow-colour_hover)
+                background-color: var(--toolbarbutton-orange-colour_hover)
             }
             
         }
@@ -741,78 +679,13 @@ panel {
     }
 }
 
-#searchbar {
-    padding: 0 0 0 7px;
-    background-color: transparent !important;
-    border-radius: 0 !important;
-
-    &:hover {
-        background-color: transparent !important;
-
-        &::before {
-            background-color: var(--toolbar-field-background-color_hover) !important;
-        }
-    }
-
-    &:focus-within {
-        box-shadow: none !important;
-
-        &::before {
-            background-color: white !important;
-        }
-    }
-}
-
-.search-go-container {
-    display: none;
-}
-
-#search-container {
-    margin-inline-start: 6px !important;
-    margin-inline-end: 9px !important;
-
-    
-    border-radius: 0 !important;
-    background-color: transparent !important;
-
-    height: 24px;
-}
-
-.searchbar-search-button {
-    order: 2;
-    mask-image: url(images/search-dropdown-mask.svg);
-    mask-position: center;
-    mask-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 32px !important;
-    margin-right: 6px !important;
-
-    .searchbar-search-icon {
-        list-style-image: none !important;
-        fill-opacity: unset !important;
-    }
-}
-
-.searchbar-textbox {
-    order: 1;
-    z-index: 1;
-    
-    &::placeholder {
-        opacity: 1 !important;
-    }
-}
-
-.searchbar-textbox::placeholder {
-    display: none !important;
-}
-
 #favimginurlbar {
     &[style='list-style-image: url("chrome://branding/content/icon32.png");'],
     &[style='list-style-image: url("chrome://global/skin/icons/info.svg");'],
     &[style='list-style-image: url("chrome://global/skin/icons/settings.svg");'],
     &[style='list-style-image: url("chrome://global/skin/icons/warning.svg");'],
     &[style='list-style-image: url("chrome://browser/skin/privatebrowsing/favicon.svg");'] {
-        list-style-image: url(images/iexplore_16.png) !important;
+        list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico") !important;
     }
 }
 
@@ -853,8 +726,6 @@ toolbarbutton {
 
 #nav-bar,
 #endToolbar {
-    //padding-right: 5px;
-
     #stop-reload-button {
         align-items: center;
         width: calc(var(--stop-reload-button_width) * 2);
@@ -1221,10 +1092,6 @@ toolbarbutton {
     right: 0;
 }
 
-/*.titlebar-color {
-    height: 27px !important;
-}*/
-
 #browser,
 #customization-container {
     border-left: 1px solid var(--browser-outer-border-color);
@@ -1335,9 +1202,6 @@ toolbarbutton {
         display: none !important;
     }
 }
-.searchbar-search-icon-overlay {
-    display: none !important;
-}
 #identity-permission-box {
     display: none !important;
 }
@@ -1349,6 +1213,10 @@ toolbarbutton {
 }
 
 #private-browsing-indicator-with-label {
+    display: none !important;
+}
+
+#nav-bar-overflow-button {
     display: none !important;
 }
 
@@ -1390,20 +1258,6 @@ toolbarbutton {
 }
 
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-    #urlbar-container {
-        flex: unset !important;
-        width: calc(28vw + 7px) !important;
-        min-width: var(--urlbar-min-width) !important;
-    }
-
-    toolbarpaletteitem#wrapper-urlbar-container {
-        flex: unset !important;
-    }
-
-    #wrapper-search-container {
-        display: none !important;
-    }
-
     #nav-bar {
         flex: unset !important;
     }

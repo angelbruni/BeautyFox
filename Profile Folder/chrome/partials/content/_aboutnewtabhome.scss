@@ -105,7 +105,6 @@
                 &.letter-fallback::before {
                     font-size: 16pt !important;
                     font-weight: normal !important;
-                    //font-family: 'Segoe UI';
                     top: -2px !important;
                     transform: rotate(0deg) !important;
                 }
@@ -146,7 +145,7 @@
                 right: 80px;
                 height: 97px;
                 width: 209px;
-                background-image: url(images/820.png);
+                background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/821.png");
                 background-size: cover;
                 opacity: 0.5;
             }

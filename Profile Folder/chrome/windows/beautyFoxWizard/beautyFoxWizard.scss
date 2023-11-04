@@ -81,13 +81,27 @@ window {
         border-radius: 1px;
     }
 
-    toolbarbutton.commandLinkButton {
+    commandlinkbutton {
         width: 100%;
         justify-content: start;
         align-items: start;
         flex-direction: column;
         padding: 9px 6px;
         color: rgb(21, 28, 85);
+        appearance: auto;
+        -moz-default-appearance: toolbarbutton;
+        
+        &:hover {
+            .commandlinkbutton-glyph {
+                background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/CommandLinkGlyph/Hot.ico");
+            }
+        }
+
+        &:active {
+            .commandlinkbutton-glyph {
+                background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/CommandLinkGlyph/Normal.ico");
+            }
+        }
 
         .commandLinkButtonThumbnail {
             max-width: 165px;
@@ -97,9 +111,13 @@ window {
             -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.5);
         }
 
-        .toolbarbutton-icon {
+        .commandlinkbutton-glyph {
             width: 20px;
             height: 20px;
+            background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/CommandLinkGlyph/Normal.ico");
+            background-size: 20px;
+            background-position: center;
+            background-repeat: no-repeat;
             margin-right: 7px;
         }
 

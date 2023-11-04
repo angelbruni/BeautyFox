@@ -1,6 +1,6 @@
 @-moz-document url-prefix(about:neterror) {
     :root {
-        --error-icon: url(images/noConnect.png);
+        --error-icon: url("chrome://userchrome/content/resources/ieframe.dll.mui/HTML/noConnect.png");
 
         --in-content-page-color: #575757 !important;
     }

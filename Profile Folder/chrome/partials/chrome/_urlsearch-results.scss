@@ -21,7 +21,7 @@
     background-image: url(images/go-mask.svg);
     background-repeat: no-repeat;
     background-position: center;
-    width: 17px !important;
+    width: calc(var(--stop-reload-button_width) + 3px) !important;
     height: 22px !important;
     border-radius: 0 !important;
     opacity: 0.5;
@@ -225,6 +225,122 @@
 
 #searchbar-anon-search-settings {
     display: none !important;
+}
+
+#searchbar {
+    font-size: 9pt !important;
+    position: relative;
+}
+
+#urlbar-background {
+    overflow: hidden !important;
+}
+
+#urlbar-background,
+#searchbar {
+    border-top: 1px solid rgba(0,0,0,.5) !important;
+    border-bottom: 1px solid rgba(0,0,0,.5) !important;
+    border-left: 1px solid rgba(0,0,0,.5) !important;
+    border-radius: 0 !important;
+    border-right: 1px solid rgba(0,0,0,.5) !important;
+    background-color: transparent !important;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        width: 100%;
+        height: 100%;
+        background-color: var(--toolbar-field-background-color) !important;
+        border: 1px solid rgba(254,254,254,.2);
+        z-index: 0;
+    }
+}
+
+#searchbar {
+    padding: 0 0 0 7px;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+
+    &:hover {
+        background-color: transparent !important;
+
+        &::before {
+            background-color: var(--toolbar-field-background-color_hover) !important;
+        }
+    }
+
+    &:focus-within {
+        box-shadow: none !important;
+
+        &::before {
+            background-color: white !important;
+        }
+    }
+}
+
+.search-go-container {
+    display: none;
+}
+
+#search-container {
+    margin-inline-start: 6px !important;
+    margin-inline-end: 9px !important;
+
+    
+    border-radius: 0 !important;
+    background-color: transparent !important;
+
+    height: 24px;
+}
+
+.searchbar-search-button {
+    order: 2;
+    mask-image: url(images/search-dropdown-mask.svg);
+    mask-position: center;
+    mask-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 32px !important;
+    margin-right: 6px !important;
+
+    .searchbar-search-icon {
+        list-style-image: none !important;
+        fill-opacity: unset !important;
+    }
+}
+
+.searchbar-textbox {
+    order: 1;
+    z-index: 1;
+    
+    &::placeholder {
+        opacity: 1 !important;
+    }
+}
+
+.searchbar-textbox::placeholder {
+    display: none !important;
+}
+
+.searchbar-search-icon-overlay {
+    display: none !important;
+}
+
+@supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+    #urlbar-container {
+        flex: unset !important;
+        width: calc(28vw + 7px) !important;
+        min-width: var(--urlbar-min-width) !important;
+    }
+
+    toolbarpaletteitem#wrapper-urlbar-container {
+        flex: unset !important;
+    }
+
+    #wrapper-search-container {
+        display: none !important;
+    }
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {

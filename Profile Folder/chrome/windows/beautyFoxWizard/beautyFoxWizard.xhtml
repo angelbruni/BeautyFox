@@ -39,33 +39,33 @@
 				<vbox class="pageContent">
 					<h1 locale="wizardAppearance"></h1>
 					<hbox>
-						<toolbarbutton class="commandLinkButton" onclick="chosenIEAppearance = 0; showPage(3);">
+						<commandlinkbutton onclick="chosenIEAppearance = 0; showPage(3);">
 							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE9Beta.png" alt=""/>
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
+								<image class="commandlinkbutton-glyph"/>
 								<vbox>
 									<label class="title">Internet Explorer 9 Pre-Release</label>
 								</vbox>
 							</hbox>
-						</toolbarbutton>
-						<toolbarbutton class="commandLinkButton" onclick="chosenIEAppearance = 1; showPage(3)">
+						</commandlinkbutton>
+						<commandlinkbutton onclick="chosenIEAppearance = 1; showPage(3)">
 							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE9.png" alt=""/>
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
+								<image class="commandlinkbutton-glyph"/>
 								<vbox>
 									<label class="title">Internet Explorer 9</label>
 								</vbox>
 							</hbox>
-						</toolbarbutton>
-						<toolbarbutton class="commandLinkButton" onclick="showPage(2)">
+						</commandlinkbutton>
+						<commandlinkbutton onclick="showPage(2)">
 							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE10.png" alt=""/>
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
+								<image class="commandlinkbutton-glyph"/>
 								<vbox>
 									<label class="title">Internet Explorer 10+</label>
 								</vbox>
 							</hbox>
-						</toolbarbutton>
+						</commandlinkbutton>
 					</hbox>
 				</vbox>
 				<hbox class="dialogFooter"></hbox>
@@ -75,32 +75,32 @@
 				<vbox class="pageContent">
 					<h1 locale="wizardIE10Plus"></h1>
 					<vbox>
-						<toolbarbutton class="commandLinkButton" onclick="chosenIEAppearance = 2; showPage(3)">
+						<commandlinkbutton onclick="chosenIEAppearance = 2; showPage(3)">
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
+								<image class="commandlinkbutton-glyph"/>
 								<vbox>
 									<label class="title" locale="wizardContinueIE10"></label>
 								</vbox>
 							</hbox>
-						</toolbarbutton>
-						<toolbarbutton class="commandLinkButton" onclick="chosenIEAppearance = 3; showPage(3)">
+						</commandlinkbutton>
+						<commandlinkbutton onclick="chosenIEAppearance = 3; showPage(3)">
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
+								<image class="commandlinkbutton-glyph"/>
 								<vbox>
 									<label class="title" locale="wizardEnableIE11"></label>
 									<label locale="wizardEnableIE11Info"></label>
 								</vbox>
 							</hbox>
-						</toolbarbutton>
-						<toolbarbutton class="commandLinkButton" onclick="chosenIEAppearance = 4; showPage(3)">
+						</commandlinkbutton>
+						<commandlinkbutton onclick="chosenIEAppearance = 4; showPage(3)">
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
+								<image class="commandlinkbutton-glyph"/>
 								<vbox>
 									<label class="title" locale="wizardEnableIE11Win10"></label>
 									<label locale="wizardEnableIE11Win10Info"></label>
 								</vbox>
 							</hbox>
-						</toolbarbutton>
+						</commandlinkbutton>
 					</vbox>
 				</vbox>
 				<hbox class="dialogFooter">
@@ -138,18 +138,18 @@
 					<h1 locale="wizardThanks"></h1>
 					<p style="margin-bottom: 17px;" locale="wizardRestart"></p>
 					<vbox>
-						<toolbarbutton class="commandLinkButton" id="restartNow">
+						<commandlinkbutton id="restartNow">
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
+								<image class="commandlinkbutton-glyph"/>
 								<label class="title" locale="wizardRestartNow"></label>
 							</hbox>
-						</toolbarbutton>
-						<toolbarbutton class="commandLinkButton" id="restartLater" oncommand="window.close();">
+						</commandlinkbutton>
+						<commandlinkbutton id="restartLater" oncommand="window.close();">
 							<hbox>
-								<image class="toolbarbutton-icon" src="chrome://userchrome/content/images/Button_CommandLinkGlyph_Normal.ico"/>
+								<image class="commandlinkbutton-glyph"/>
 								<label class="title" locale="wizardRestartLater"></label>
 							</hbox>
-						</toolbarbutton>
+						</commandlinkbutton>
 					</vbox>
 				</vbox>
 				<hbox class="dialogFooter"></hbox>

@@ -1,6 +1,6 @@
 @-moz-document url-prefix(about:certerror) {
     :root {
-        --error-icon: url(images/redShield_48.png);
+        --error-icon: url("chrome://userchrome/content/resources/ieframe.dll.mui/HTML/red_shield_48.png");
 
         --in-content-page-color: #575757 !important;
     }
@@ -136,7 +136,7 @@
 
             &#returnButton {
                 &::before {
-                    background-image: url(images/greenShield.png);
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll.mui/Bitmap/green_shield.png");
                 }
             }
 
@@ -144,7 +144,7 @@
                 margin-top: 0 !important;
 
                 &::before {
-                    background-image: url(chrome://userchrome/content/resources/ieframe.dll/31058.ico);
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31058.ico");
                     background-size: 16px;
                 }
             }
@@ -178,7 +178,7 @@
         &[hidden=""] {
             &:first-child {
                 &::before {
-                    background-image: url(images/down.png);
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll.mui/HTML/down.png");
                 }
             }
 
@@ -195,7 +195,7 @@
                 left: -28px;
                 height: 15px;
                 width: 15px;
-                background-image: url(images/up.png);
+                background-image: url("chrome://userchrome/content/resources/ieframe.dll.mui/HTML/up.png");
             }
         }
 

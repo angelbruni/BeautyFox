@@ -46,7 +46,7 @@ var addStatusbar = {
 			gripper.id = 'gripper';
 			gripper.height = 16;
 			gripper.width = 16;
-			gripper.src = 'chrome://userchrome/content/images/Status_Gripper_BottomRight.ico';
+			gripper.src = 'chrome://userchrome/content/resources/aero.msstyles/Toolbars, Headers & Rebar/Toolbars & Headers/Status/Gripper/BottomRight.ico';
 			statusbarContainer.appendChild(gripper);
 		}
 	} catch(e) {}

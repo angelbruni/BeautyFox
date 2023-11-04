@@ -70,27 +70,41 @@ window #contentArea {
   margin: 1px;
   border-radius: 1px;
 }
-window toolbarbutton.commandLinkButton {
+window commandlinkbutton {
   width: 100%;
   justify-content: start;
   align-items: start;
   flex-direction: column;
   padding: 9px 6px;
   color: rgb(21, 28, 85);
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
+  -moz-default-appearance: toolbarbutton;
 }
-window toolbarbutton.commandLinkButton .commandLinkButtonThumbnail {
+window commandlinkbutton:hover .commandlinkbutton-glyph {
+  background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/CommandLinkGlyph/Hot.ico");
+}
+window commandlinkbutton:active .commandlinkbutton-glyph {
+  background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/CommandLinkGlyph/Normal.ico");
+}
+window commandlinkbutton .commandLinkButtonThumbnail {
   max-width: 165px;
   max-height: 165px;
   margin-bottom: 5px;
   box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.5);
 }
-window toolbarbutton.commandLinkButton .toolbarbutton-icon {
+window commandlinkbutton .commandlinkbutton-glyph {
   width: 20px;
   height: 20px;
+  background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/CommandLinkGlyph/Normal.ico");
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
   margin-right: 7px;
 }
-window toolbarbutton.commandLinkButton .title {
+window commandlinkbutton .title {
   text-align: left;
   font-size: 12pt !important;
 }

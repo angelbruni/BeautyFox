@@ -14,8 +14,6 @@ function getAndSetTitleBarHeight() {
 
         // Close the User32.dll library
         user32.close();
-
-        
     } else {
         var titleBarHeight = 16;
     }
