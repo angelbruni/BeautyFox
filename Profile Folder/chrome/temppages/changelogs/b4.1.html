@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>What's new in BeautyFox Beta 4.1</title>
+
+    <style>
+        html {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            margin-top: 2px;
+            justify-content: center;
+        }
+
+        body {
+                width: 1024px;
+            }
+
+        h1 {
+            font-size: 31pt;
+            margin-top: 66px;
+            font-weight: normal;
+            background: linear-gradient(90deg, rgba(10,168,214,1) 0%, rgba(137,46,144,1) 50%, #ffa621 75%, rgba(137,46,144,1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <a href="chrome://userchrome/content/temppages/changelogs/index.html">< Go back</a>
+    <h1>What's new in BeautyFox Beta 4.1</h1>
+    <ul>
+        <li>Updated Spanish locale with <a href="https://github.com/luisl173" target="_blank">luisl</a>'s help;</li>
+        <li>Windows User Preferences related code only runs on Windows, this fixes the theme not working in other OSs;</li>
+        <li>Fixed some elements' fill color being transparent when window frame has texture (non-aero-glass frames: non-DWM themes, Linux/macOS themes...)</li>
+        <li>Added default titlebarHeight values for other OSs in case the OS is not Windows;</li>
+        <li>macOS now has it's own layout;</li>
+        <li>Fixed About Internet Explorer dialog not having fallback fonts;</li>
+        <li>Downloads button should open the downloads window...</li>
+        <li>Changed the ID of the bookmarks button to from "bookmarks-sidebar-menu-button" to "bookmarksSidebarButton";</li>
+        <li>Fixed the option that enables download progress in Downloads button and added style for the progress if the button is not in the End Toolbar;</li>
+        <li>Renamed "appMenu" to "Internet Explorer Menu";</li>
+        <li>Fixed bookmarks and IEMenu buttons going invisible if in the wrong place;</li>
+        <li>Fixed dropdown menus not having a background (I actually have no clue how this is happening but it's not my fault);</li>
+        <li>Fixed RSS button active state "transform: translateX(1px) translateY(1px)" not working;</li>
+        <li>Downloads button now shows another icon if not in the End Toolbar;</li>
+        <li>Fixed the size of the About Internet Explorer Dialog window in IE10+ appearances;</li>
+        <li>Toolbar colouring fixes for all OSs;</li>
+        <li>Fixed transparent background on Linux context menus;</li>
+        <li>macOS-only - End Toolbar only vertically centers items if tabs are moved to navigation bar;</li>
+        <li>Fixed titlebar texture for non-DWM themes;</li>
+        <li>Fixed accent color on navigation buttons not working in IE10+ appearances;</li>
+        <li>Improved search string ellipses insertion (still does not work every time);</li>
+        <li>Styled Find Bar;</li>
+        <li>Added more settings to wizard: Show download progress in Downloads button; Hide Settings button in pop-up windows; Hide fake inner borders and separated them into two groups;</li>
+        <li>Made wizard code for getting and setting settings way cleaner;</li>
+        <li>Slightly more accurate downloads window.</li>
+        <li>Reworked open About Internet Explorer request to take into account both fake About Internet Explorer and ShellAboutW;</li>
+        <li>Changed some paths to use "chrome://" protocol;</li>
+        <li>Some assets are now organised in "chrome/resources" folder;</li>
+        <li>Removed unused ag and au userChrome files;</li>
+        <li>Most icons (excluding menus) are now DPI-aware;</li>
+        <li>Removed more unused style code;</li>
+        <li>Improved how certain absolute full-sized elements are sized;</li>
+        <li>Lock icon hover now has a more orange-y colour in IE9 modes;</li>
+        <li>Throbber now uses the original Internet Explorer sprite sheet;</li>
+        <li>Fixed more bookmarks button having two styles;</li>
+        <li>Less image files, more sprite sheets!</li>
+        <li>Recreated GroupBox and CommandLinkButton.</li>
+    </ul>
+</body>
+</html>
