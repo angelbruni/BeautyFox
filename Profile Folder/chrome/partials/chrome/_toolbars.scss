@@ -474,7 +474,27 @@ findbar {
     -moz-window-dragging: drag !important;
 }
 
-#downloads-button,
+#PersonalToolbar {
+    #downloads-button {
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+        align-items: center !important;
+
+        .toolbarbutton-icon {
+            padding: 0 !important;
+            height: auto !important;
+            width: auto !important;
+        }
+        
+        &:active {
+            .toolbarbutton-icon,
+            .toolbarbutton-badge-stack {
+                transform: translateX(1px) translateY(1px);
+            }
+        }
+    }
+}
+
 #cBHomeButton,
 #cBPrintButton,
 #cBReadMailButton {

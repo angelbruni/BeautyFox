@@ -1238,13 +1238,23 @@ toolbarbutton#feedbackButton {
   #endToolbar toolbarbutton#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-outer,
   #endToolbar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-outer {
     visibility: visible !important;
+    background: none !important;
   }
   #nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner,
   #nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner,
   #endToolbar toolbarbutton#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner,
   #endToolbar toolbaritem#downloads-button > .toolbarbutton-badge-stack #downloads-indicator-progress-inner {
     border-radius: 0 !important;
-    background: linear-gradient(var(--toolbarbutton-icon-fill-attention) var(--download-progress-pcent), transparent var(--download-progress-pcent)) !important;
+    background: none !important;
+    background-color: var(--toolbarbutton-blue-colour_hover) !important;
+    width: 100% !important;
+    height: var(--download-progress-pcent) !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-appearance: none !important;
+       -moz-appearance: none !important;
+            appearance: none !important;
   }
 }
 #nav-bar toolbarbutton#PanelUI-menu-button, #nav-bar toolbarbutton#IEMenuButton,
@@ -2170,10 +2180,6 @@ toolbarbutton#feedbackButton {
   border-radius: 50%;
   outline-offset: -1px;
   box-sizing: border-box;
-}
-#main-window #nav-bar #back-button:hover,
-#main-window #nav-bar #forward-button:hover {
-  outline: 1px solid rgba(250, 255, 250, 0.2);
 }
 #main-window #nav-bar #back-button:hover::before,
 #main-window #nav-bar #forward-button:hover::before {
@@ -3301,7 +3307,21 @@ findbar {
   -moz-window-dragging: drag !important;
 }
 
-#downloads-button,
+#PersonalToolbar #downloads-button {
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  align-items: center !important;
+}
+#PersonalToolbar #downloads-button .toolbarbutton-icon {
+  padding: 0 !important;
+  height: auto !important;
+  width: auto !important;
+}
+#PersonalToolbar #downloads-button:active .toolbarbutton-icon,
+#PersonalToolbar #downloads-button:active .toolbarbutton-badge-stack {
+  transform: translateX(1px) translateY(1px);
+}
+
 #cBHomeButton,
 #cBPrintButton,
 #cBReadMailButton {
@@ -3309,7 +3329,6 @@ findbar {
   padding-right: 4px !important;
   align-items: center !important;
 }
-#downloads-button .toolbarbutton-icon,
 #cBHomeButton .toolbarbutton-icon,
 #cBPrintButton .toolbarbutton-icon,
 #cBReadMailButton .toolbarbutton-icon {
@@ -3317,8 +3336,6 @@ findbar {
   height: auto !important;
   width: auto !important;
 }
-#downloads-button:active .toolbarbutton-icon,
-#downloads-button:active .toolbarbutton-badge-stack,
 #cBHomeButton:active .toolbarbutton-icon,
 #cBHomeButton:active .toolbarbutton-badge-stack,
 #cBPrintButton:active .toolbarbutton-icon,

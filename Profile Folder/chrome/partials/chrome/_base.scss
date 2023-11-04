@@ -974,11 +974,19 @@ toolbarbutton {
 
                     #downloads-indicator-progress-outer {
                         visibility: visible !important;
+                        background: none !important;
                     }
     
                     #downloads-indicator-progress-inner {
                         border-radius: 0 !important;
-                        background: linear-gradient(var(--toolbarbutton-icon-fill-attention) var(--download-progress-pcent), transparent var(--download-progress-pcent)) !important;
+                        background: none !important;
+                        background-color: var(--toolbarbutton-blue-colour_hover) !important;
+                        width: 100% !important;
+                        height: var(--download-progress-pcent) !important;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        appearance: none !important;
                     }
                 }
             }

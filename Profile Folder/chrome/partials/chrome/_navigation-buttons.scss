@@ -52,9 +52,7 @@
                 box-sizing: border-box;
             }
         
-            &:hover {
-                outline: 1px solid rgba(250,5047, 250, 0.20);
-    
+            &:hover { 
                 &::before {
                     opacity: 0.5;
                 }

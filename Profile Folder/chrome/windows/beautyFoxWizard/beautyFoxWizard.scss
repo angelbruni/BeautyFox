@@ -112,6 +112,8 @@ window {
         }
 
         .commandlinkbutton-glyph {
+            min-width: 20px;
+            min-height: 20px;
             width: 20px;
             height: 20px;
             background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/CommandLinkGlyph/Normal.ico");

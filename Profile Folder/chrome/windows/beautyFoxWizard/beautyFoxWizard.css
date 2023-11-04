@@ -96,6 +96,8 @@ window commandlinkbutton .commandLinkButtonThumbnail {
   -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.5);
 }
 window commandlinkbutton .commandlinkbutton-glyph {
+  min-width: 20px;
+  min-height: 20px;
   width: 20px;
   height: 20px;
   background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/CommandLinkGlyph/Normal.ico");
