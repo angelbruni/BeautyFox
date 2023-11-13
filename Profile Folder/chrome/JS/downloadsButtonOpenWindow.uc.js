@@ -1,5 +1,5 @@
 function downloadsButton() {
     var downloadsButton = document.getElementById('downloads-button');
     downloadsButton.setAttribute('onmousedown','');
-    downloadsButton.setAttribute('onclick','BrowserDownloadsUI();');
+    downloadsButton.setAttribute('oncommand','BrowserDownloadsUI();');
 }

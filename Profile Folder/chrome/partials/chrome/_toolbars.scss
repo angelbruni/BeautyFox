@@ -98,6 +98,14 @@
         appearance: auto !important;
     }
 
+    &[collapsed="true"] {
+        visibility: visible !important;
+
+        &.instant {
+            visibility: visible !important;
+        }
+    }
+
     #suggestedsites_bruni_com-BAP {
         align-items: center !important;
 
@@ -1234,6 +1242,33 @@ findbar {
         
         #cBSafety_windowsUpdate {
             display: none !important;
+        }
+    }
+}
+
+@supports -moz-bool-pref("BeautyFox.option.hideExtensionsButton") {
+    *,
+    #PersonalToolbar {
+        #unified-extensions-button,
+        #unified-extensions-button:not(#PlacesChevron) {
+            appearance: none !important;
+            min-width: 0 !important;
+            min-height: 0 !important;
+            width: 0 !important;
+            height: 0 !important;
+            max-width: 0 !important;
+            max-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+    
+            &::before {
+                content: unset !important;
+            }
+            
+            &::after {
+                content: unset !important;
+            }
         }
     }
 }

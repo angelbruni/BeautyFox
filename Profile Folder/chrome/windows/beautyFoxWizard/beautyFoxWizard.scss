@@ -5,7 +5,7 @@ window {
         margin: 8px 0;
         padding-top: 6px;
 
-        label:first-child {
+        > label:first-child {
             position: absolute;
             top: -11px;
             background: white;
@@ -131,6 +131,7 @@ window {
 
     .pageContent {
         padding: 24px 38px;
+        padding-bottom: 0;
         flex: 1;
 
         > hbox:first-child {

@@ -48,6 +48,58 @@ function showPage(pageNumber) {
 showPage(currentPage);
 updateNavBackButton();
 
+const { ctypes } = Components.utils.import("resource://gre/modules/ctypes.jsm");
+
+const advapi32 = ctypes.open("advapi32.dll");
+
+function checkRegistryKeyExists(keyPath) {
+    const RegOpenKeyExW = advapi32.declare(
+        "RegOpenKeyExW",
+        ctypes.winapi_abi,
+        ctypes.int32_t,
+        ctypes.uintptr_t,
+        ctypes.jschar.ptr,
+        ctypes.int32_t,
+        ctypes.uint32_t,
+        ctypes.uintptr_t.ptr
+    );
+
+    const hKey = new ctypes.uintptr_t();
+    const result = RegOpenKeyExW(
+        0x80000002, // HKEY_LOCAL_MACHINE
+        keyPath,
+        0,
+        0x20019, // KEY_READ | KEY_WOW64_64KEY
+        hKey.address()
+    );
+
+    if (result == 0) {
+        const RegCloseKey = advapi32.declare(
+            "RegCloseKey",
+            ctypes.winapi_abi,
+            ctypes.int32_t,
+            ctypes.uintptr_t,
+            ctypes.jschar.ptr,
+            ctypes.int32_t,
+            ctypes.uint32_t,
+            ctypes.uintptr_t.ptr
+        );
+
+        RegCloseKey(0x80000002, // HKEY_LOCAL_MACHINE
+                    keyPath,
+                    0,
+                    0x20019, // KEY_READ | KEY_WOW64_64KEY
+                    hKey.address());
+                    
+        return true;
+    }
+
+    return false;
+}
+
+const registryKeyPath = "SOFTWARE\\AWM";
+const isRegistryKeyExists = checkRegistryKeyExists(registryKeyPath);
+
 function getBoolPrefWithCatch(prefName, element) {
     try {
         element.setAttribute('checked', Services.prefs.getBoolPref(prefName));
@@ -60,6 +112,7 @@ var optionOnlyIconsinCB = document.getElementById('onlyIconsinCB');
 var optionFakeDropdownArrowsinCB = document.getElementById('fakeDropdownArrowsinCB');
 var optionStatusBar = document.getElementById('showStatusBar');
 var optionAccentNavBtns = document.getElementById('accentNavBtns');
+var optionAWMAccentNavBtns = document.getElementById('AWMAccentNavBtns');
 var optionHideSettingsPopup = document.getElementById('hideSettingsPopup');
 var optionShowDownloadProgress = document.getElementById('showDownloadProgress');
 var optionHideFakeInnerBorders = document.getElementById('hideFakeInnerBorders');
@@ -70,9 +123,20 @@ function getCurrentSettings() {
     getBoolPrefWithCatch("BeautyFox.option.fakeDropdownArrowsinCB", optionFakeDropdownArrowsinCB);
     getBoolPrefWithCatch("BeautyFox.option.showStatusBar", optionStatusBar);
     getBoolPrefWithCatch("BeautyFox.option.userAccentColorNavButtons", optionAccentNavBtns);
+
+    if (!Services.prefs.getBoolPref("BeautyFox.option.userAccentColorNavButtons")) {
+        optionAWMAccentNavBtns.disabled = true;
+    }
+
     getBoolPrefWithCatch("BeautyFox.option.hideSettingsInPopUp", optionHideSettingsPopup);
     getBoolPrefWithCatch("BeautyFox.option.showDownloadProgress", optionShowDownloadProgress);
     getBoolPrefWithCatch("BeautyFox.option.hideFakeInnerBorders", optionHideFakeInnerBorders);
+
+    if (!optionAccentNavBtns.getAttribute('checked')) {
+        optionAWMAccentNavBtns.checked = false;
+    } else {
+        getBoolPrefWithCatch("BeautyFox.option.AWMAccentColorNavButtons", optionAWMAccentNavBtns);
+    }
 }
 getCurrentSettings()
 
@@ -143,11 +207,51 @@ function setOptions() {
     Services.prefs.setBoolPref('BeautyFox.option.hideSettingsInPopUp', optionHideSettingsPopup.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.showDownloadProgress', optionShowDownloadProgress.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.hideFakeInnerBorders', optionHideFakeInnerBorders.getAttribute('checked') === 'true');
+
+    var wizardComboBoxExtensionsButtonItem0 = document.getElementById('wizardComboBoxExtensionsButtonItem0');
+    var wizardComboBoxExtensionsButtonItem2 = document.getElementById('wizardComboBoxExtensionsButtonItem2');
+
+    if (wizardComboBoxExtensionsButtonItem0.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', true);
+        Services.prefs.setBoolPref('BeautyFox.option.moveToEndToolbar', false);
+    } else if (wizardComboBoxExtensionsButtonItem2.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', false);
+        Services.prefs.setBoolPref('BeautyFox.option.moveToEndToolbar', true);
+    } else {
+        Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', false);
+        Services.prefs.setBoolPref('BeautyFox.option.moveToEndToolbar', false);
+    }
+
+    Services.prefs.setBoolPref('BeautyFox.option.AWMAccentColorNavButtons', optionAWMAccentNavBtns.getAttribute('checked') === 'true');
 }
+
+optionAccentNavBtns.addEventListener("click", function() {
+    setTimeout(() => {
+        if (optionAccentNavBtns.getAttribute('checked', 'true')) {
+            if (isRegistryKeyExists == true) {
+                console.log("AWM registry key exists.");
+
+                if (optionAccentNavBtns.checked == true) {
+                    optionAWMAccentNavBtns.disabled = false
+                }
+            } else {
+                console.log("AWM registry key does not exist.");
+            }
+                
+            console.log("Registry key check result: " + isRegistryKeyExists);
+        } else  {
+            optionAWMAccentNavBtns.disabled = true
+            optionAWMAccentNavBtns.checked = false
+        }
+    }, 0);
+}); 
 
 var restartNow = document.getElementById('restartNow');
 restartNow.addEventListener("click", function() {
     setOptions();
+
+    // Close the library
+    advapi32.close();
 
     _ucUtils.restart(true);
 }); 
@@ -155,6 +259,9 @@ restartNow.addEventListener("click", function() {
 var restartLater = document.getElementById('restartLater');
 restartNow.addEventListener("click", function() {
     setOptions();
+
+    // Close the library
+    advapi32.close();
     
     window.close();
 }); 

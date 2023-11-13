@@ -2977,6 +2977,12 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
      -moz-appearance: auto !important;
           appearance: auto !important;
 }
+#PersonalToolbar[collapsed=true] {
+  visibility: visible !important;
+}
+#PersonalToolbar[collapsed=true].instant {
+  visibility: visible !important;
+}
 #PersonalToolbar #suggestedsites_bruni_com-BAP {
   align-items: center !important;
 }
@@ -3921,6 +3927,37 @@ findbar {
     #cBSafety_windowsUpdate {
       display: none !important;
     }
+  }
+}
+@supports -moz-bool-pref("BeautyFox.option.hideExtensionsButton") {
+  * #unified-extensions-button,
+  * #unified-extensions-button:not(#PlacesChevron),
+  #PersonalToolbar #unified-extensions-button,
+  #PersonalToolbar #unified-extensions-button:not(#PlacesChevron) {
+    -webkit-appearance: none !important;
+       -moz-appearance: none !important;
+            appearance: none !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+  * #unified-extensions-button::before,
+  * #unified-extensions-button:not(#PlacesChevron)::before,
+  #PersonalToolbar #unified-extensions-button::before,
+  #PersonalToolbar #unified-extensions-button:not(#PlacesChevron)::before {
+    content: unset !important;
+  }
+  * #unified-extensions-button::after,
+  * #unified-extensions-button:not(#PlacesChevron)::after,
+  #PersonalToolbar #unified-extensions-button::after,
+  #PersonalToolbar #unified-extensions-button:not(#PlacesChevron)::after {
+    content: unset !important;
   }
 }
 #contentAreaContextMenu #context-navigation {

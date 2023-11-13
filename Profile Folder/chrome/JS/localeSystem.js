@@ -37,8 +37,8 @@ function setLocaleText() {
         if (element.tagName.toLowerCase() === 'window') {
             // If element is a window, set localized string to title attribute
             element.setAttribute('title', text);
-        } else if (element.tagName.toLowerCase() === 'checkbox'){
-            // If element is a checkbox, set localized string to label attribute
+        } else if (element.tagName.toLowerCase() === 'checkbox' || element.tagName.toLowerCase() === 'menuitem'){
+            // If element is a checkbox or a menuitem, set localized string to label attribute
             element.setAttribute('label', text);
         }
         else {

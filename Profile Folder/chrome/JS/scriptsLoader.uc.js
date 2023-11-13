@@ -24,6 +24,6 @@ function executeFunctions() {
     console.info("Functions executed.");
 }
 
-window.addEventListener("load", function() {
-    executeFunctions();
+window.addEventListener("load", function () {
+    executeFunctions();  
 })
