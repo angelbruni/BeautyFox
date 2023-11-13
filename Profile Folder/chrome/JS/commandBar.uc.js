@@ -225,7 +225,7 @@ var cBHelpMenu = {
                     
                     appsItems.setAttribute('oncommand', 'cBHelpMenu.exec("' + escapedPath + '", ' + escapedArgs + ');');
                 } else {
-                    console.error('item.path is undefined or null:', item);
+                    //console.error('item.path is undefined or null:', item);
                     appsItems.setAttribute('oncommand', item.command);
                 }
 
@@ -621,7 +621,7 @@ var cBPageMenu = {
                     
                     appsItems.setAttribute('oncommand', 'cBPageMenu.exec("' + escapedPath + '", ' + escapedArgs + ');');
                 } else {
-                    console.error('item.path is undefined or null:', item);
+                    //console.error('item.path is undefined or null:', item);
                     appsItems.setAttribute('oncommand', item.command);
                 }
                 
@@ -874,7 +874,7 @@ var cBSafetyMenu = {
                     
                     appsItems.setAttribute('oncommand', 'cBSafetyMenu.exec("' + escapedPath + '", ' + escapedArgs + ');');
                 } else {
-                    console.error('item.path is undefined or null:', item);
+                    //console.error('item.path is undefined or null:', item);
                     appsItems.setAttribute('oncommand', item.command);
                 }
 

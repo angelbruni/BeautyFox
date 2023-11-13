@@ -196,13 +196,13 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   border-left: 1px solid var(--browser-outer-border-color);
   border-right: 1px solid var(--browser-outer-border-color);
   min-height: 2px !important;
-  background-color: transparent;
   padding: 0px 3px 1px 3px;
   height: 22px !important;
   color: black !important;
   position: relative;
   border-radius: 3px 3px 0 0;
   background-color: var(--toolbar-bgcolor) !important;
+  background-clip: padding-box !important;
   border-inline-style: solid !important;
 }
 #toolbar-menubar::after {
@@ -1683,7 +1683,7 @@ toolbarbutton#feedbackButton {
   }
   #nav-bar #urlbar-go-button {
     margin-right: 0 !important;
-    margin-left: 5px !important;
+    margin-left: 2px !important;
   }
   #urlbar-input-container {
     padding-right: 22px !important;
@@ -1720,6 +1720,11 @@ toolbarbutton#feedbackButton {
   #browser {
     margin: -1px !important;
     margin-top: 0 !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.option.showStatusBar") {
+    #browser {
+      margin-bottom: 0 !important;
+    }
   }
   #browser,
   #customization-container {
@@ -2066,7 +2071,7 @@ toolbarbutton#feedbackButton {
 
 #search-container {
   margin-inline-start: 6px !important;
-  margin-inline-end: 9px !important;
+  margin-inline-end: 0 !important;
   border-radius: 0 !important;
   background-color: transparent !important;
   height: 24px;
@@ -2128,6 +2133,11 @@ toolbarbutton#feedbackButton {
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
   :root {
     --urlbarView-subtract: 34px;
+  }
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  #identity-box {
+    padding-right: 0 !important;
   }
 }
 :root {
@@ -2907,12 +2917,14 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   padding: 3px !important;
   align-items: center !important;
 }
-#suggestedsites_bruni_com-BAP::after,
-#unified-extensions-button::after {
-  content: url(images/dropdown.png);
-  margin-bottom: 6px;
-  margin-left: 6px;
-  margin-right: 3px;
+@supports not -moz-bool-pref("BeautyFox.option.moveExtensionsButtonToEndToolbar") {
+  #suggestedsites_bruni_com-BAP::after,
+  #unified-extensions-button::after {
+    content: url(images/dropdown.png);
+    margin-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 3px;
+  }
 }
 #suggestedsites_bruni_com-BAP:active::after,
 #suggestedsites_bruni_com-BAP:active .toolbarbutton-icon,
@@ -2990,6 +3002,9 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   display: block !important;
   padding-top: 0 !important;
   min-height: 0 !important;
+}
+#PersonalToolbar .toolbaritem-combined-buttons {
+  margin-inline: 0 !important;
 }
 
 #statusbarContainer {
@@ -3307,6 +3322,7 @@ findbar {
 }
 
 #endToolbar {
+  margin-inline-start: 9px !important;
   min-width: 24px;
   padding-right: 5px;
   background-color: transparent !important;

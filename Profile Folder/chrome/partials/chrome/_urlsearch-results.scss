@@ -286,7 +286,7 @@
 
 #search-container {
     margin-inline-start: 6px !important;
-    margin-inline-end: 9px !important;
+    margin-inline-end: 0 !important;
 
     
     border-radius: 0 !important;
@@ -346,5 +346,11 @@
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
     :root {
         --urlbarView-subtract: 34px;
+    }
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    #identity-box {
+        padding-right: 0 !important;
     }
 }

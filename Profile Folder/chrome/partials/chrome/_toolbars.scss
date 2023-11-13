@@ -29,11 +29,13 @@
     padding: 3px !important;
     align-items: center !important;
 
-    &::after {
-        content: url(images/dropdown.png);
-        margin-bottom: 6px;
-        margin-left: 6px;
-        margin-right: 3px;
+    @supports not -moz-bool-pref('BeautyFox.option.moveExtensionsButtonToEndToolbar') {
+        &::after {
+            content: url(images/dropdown.png);
+            margin-bottom: 6px;
+            margin-left: 6px;
+            margin-right: 3px;
+        }
     }
 
     &:active,
@@ -114,6 +116,10 @@
             padding-top: 0 !important;
             min-height: 0 !important;
         }
+    }
+
+    .toolbaritem-combined-buttons {
+        margin-inline: 0 !important;
     }
 }
 
@@ -476,6 +482,7 @@ findbar {
 }
 
 #endToolbar {
+    margin-inline-start: 9px !important;
     min-width: 24px;
     padding-right: 5px;
     background-color: transparent !important;

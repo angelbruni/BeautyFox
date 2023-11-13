@@ -116,6 +116,9 @@ var optionAWMAccentNavBtns = document.getElementById('AWMAccentNavBtns');
 var optionHideSettingsPopup = document.getElementById('hideSettingsPopup');
 var optionShowDownloadProgress = document.getElementById('showDownloadProgress');
 var optionHideFakeInnerBorders = document.getElementById('hideFakeInnerBorders');
+var wizardComboBoxExtensionsButtonItem0 = document.getElementById('wizardComboBoxExtensionsButtonItem0');
+var wizardComboBoxExtensionsButtonItem1 = document.getElementById('wizardComboBoxExtensionsButtonItem1');
+var wizardComboBoxExtensionsButtonItem2 = document.getElementById('wizardComboBoxExtensionsButtonItem2');
 
 function getCurrentSettings() {
     getBoolPrefWithCatch("BeautyFox.option.tabsOnNavRow", optionTabsOnNavRow);
@@ -136,6 +139,20 @@ function getCurrentSettings() {
         optionAWMAccentNavBtns.checked = false;
     } else {
         getBoolPrefWithCatch("BeautyFox.option.AWMAccentColorNavButtons", optionAWMAccentNavBtns);
+    }
+
+    if (Services.prefs.getBoolPref('BeautyFox.option.hideExtensionsButton', true)) {
+        wizardComboBoxExtensionsButtonItem0.setAttribute('selected', true);
+        wizardComboBoxExtensionsButtonItem1.removeAttribute('selected');
+        wizardComboBoxExtensionsButtonItem2.removeAttribute('selected');
+    } else if (Services.prefs.getBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', true)) {
+        wizardComboBoxExtensionsButtonItem0.removeAttribute('selected');
+        wizardComboBoxExtensionsButtonItem1.removeAttribute('selected');
+        wizardComboBoxExtensionsButtonItem2.setAttribute('selected', true);
+    } else {
+        wizardComboBoxExtensionsButtonItem0.removeAttribute('selected');
+        wizardComboBoxExtensionsButtonItem1.setAttribute('selected', true);
+        wizardComboBoxExtensionsButtonItem2.removeAttribute('selected');
     }
 }
 getCurrentSettings()
@@ -208,18 +225,17 @@ function setOptions() {
     Services.prefs.setBoolPref('BeautyFox.option.showDownloadProgress', optionShowDownloadProgress.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.hideFakeInnerBorders', optionHideFakeInnerBorders.getAttribute('checked') === 'true');
 
-    var wizardComboBoxExtensionsButtonItem0 = document.getElementById('wizardComboBoxExtensionsButtonItem0');
-    var wizardComboBoxExtensionsButtonItem2 = document.getElementById('wizardComboBoxExtensionsButtonItem2');
-
     if (wizardComboBoxExtensionsButtonItem0.getAttribute('selected', 'true')) {
         Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', true);
-        Services.prefs.setBoolPref('BeautyFox.option.moveToEndToolbar', false);
-    } else if (wizardComboBoxExtensionsButtonItem2.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', false);
+    } 
+    if (wizardComboBoxExtensionsButtonItem1.getAttribute('selected', 'true')) {
         Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', false);
-        Services.prefs.setBoolPref('BeautyFox.option.moveToEndToolbar', true);
-    } else {
+        Services.prefs.setBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', false);
+    } 
+    if (wizardComboBoxExtensionsButtonItem2.getAttribute('selected', 'true')) {
         Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', false);
-        Services.prefs.setBoolPref('BeautyFox.option.moveToEndToolbar', false);
+        Services.prefs.setBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', true);
     }
 
     Services.prefs.setBoolPref('BeautyFox.option.AWMAccentColorNavButtons', optionAWMAccentNavBtns.getAttribute('checked') === 'true');

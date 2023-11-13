@@ -177,13 +177,13 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     border-left: 1px solid var(--browser-outer-border-color);
     border-right: 1px solid var(--browser-outer-border-color);
     min-height: 2px !important;
-    background-color: transparent;
     padding: 0px 3px 1px 3px;
     height: 22px !important;
     color: black !important;
     position: relative;
     border-radius: 3px 3px 0 0;
     background-color: var(--toolbar-bgcolor) !important;
+    background-clip: padding-box !important;
     border-inline-style: solid !important;
 
     &::after {
@@ -1437,7 +1437,7 @@ toolbarbutton {
 
         #urlbar-go-button {
             margin-right: 0 !important;
-            margin-left: 5px !important;
+            margin-left: 2px !important;
         }
     }
 
@@ -1497,6 +1497,10 @@ toolbarbutton {
     #browser {
         margin: -1px !important;
         margin-top: 0 !important;
+
+        @supports -moz-bool-pref("BeautyFox.option.showStatusBar") {
+            margin-bottom: 0 !important;
+        }
     }
 
     #browser,

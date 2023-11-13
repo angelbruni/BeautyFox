@@ -1,29 +1,29 @@
-function getAndSetTitleBarHeight() { 
-    if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS == "WINNT") {
-        // Load User32.dll library
-        const user32 = ctypes.open("user32.dll");
+function getAndSetTitleBarHeight() {
+	if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS == "WINNT") {
+		// Load User32.dll library
+		const user32 = ctypes.open("user32.dll");
 
-        // Define the GetSystemMetrics function signature
-        const GetSystemMetrics = user32.declare("GetSystemMetrics", ctypes.winapi_abi,
-            ctypes.int32_t,
-            ctypes.int32_t
-        );
+		// Define the GetSystemMetrics function signature
+		const GetSystemMetrics = user32.declare("GetSystemMetrics", ctypes.winapi_abi,
+			ctypes.int32_t,
+			ctypes.int32_t
+		);
 
-        // Get the height of the system title bar (SM_CYCAPTION)
-        var titleBarHeight = GetSystemMetrics(4) - 1;
+		// Get the height of the system title bar (SM_CYCAPTION)
+		var titleBarHeight = GetSystemMetrics(4) - 1;
 
-        // Close the User32.dll library
-        user32.close();
-    } else {
-        var titleBarHeight = 16;
-    }
+		// Close the User32.dll library
+		user32.close();
+	} else {
+		var titleBarHeight = 16;
+	}
 
-    var titlebarHeightStyle = document.createElement('style');
-    document.head.appendChild(titlebarHeightStyle);
+	var titlebarHeightStyle = document.createElement('style');
+	document.head.appendChild(titlebarHeightStyle);
 
-    titlebarHeightStyle.innerHTML = `
+	titlebarHeightStyle.innerHTML = `
         :root {
-            --titlebar-height:`+ titleBarHeight +`px;
+            --titlebar-height:`+ titleBarHeight + `px;
         }
     `
 }
@@ -68,23 +68,23 @@ function getAndSetUserAccentColor() {
 
 			var result = RegOpenKeyExW(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\DWM", 0, KEY_READ, hKey.address());
 
-				if (result === 0) {
-					var color = DWORD();
-					var size = DWORD();
-					size.value = 4; // Size of a DWORD in bytes
+			if (result === 0) {
+				var color = DWORD();
+				var size = DWORD();
+				size.value = 4; // Size of a DWORD in bytes
 
-					var queryResult = RegQueryValueExW(hKey, "AccentColor", null, null, color.address(), size.address());
+				var queryResult = RegQueryValueExW(hKey, "AccentColor", null, null, color.address(), size.address());
 
-					if (queryResult === 0) {
-						var red = (color.value & 0xFF);
-						var green = ((color.value >> 8) & 0xFF);
-						var blue = ((color.value >> 16) & 0xFF);
-					} else {
-						console.log("Failed to read accent color from registry. RegQueryValueExW error code: " + queryResult);
-					}
+				if (queryResult === 0) {
+					var red = (color.value & 0xFF);
+					var green = ((color.value >> 8) & 0xFF);
+					var blue = ((color.value >> 16) & 0xFF);
 				} else {
-					console.log("Failed to open registry key. RegOpenKeyExW error code: " + result);
+					console.log("Failed to read accent color from registry. RegQueryValueExW error code: " + queryResult);
 				}
+			} else {
+				console.log("Failed to open registry key. RegOpenKeyExW error code: " + result);
+			}
 
 			try {
 				if (Services.prefs.getBoolPref("BeautyFox.option.AWMAccentColorNavButtons")) {
@@ -108,25 +108,21 @@ function getAndSetUserAccentColor() {
 							var red = rValue.value;
 							var green = gValue.value;
 							var blue = bValue.value;
-
-							console.log("Window_ColorRActive: " + red);
-							console.log("Window_ColorGActive: " + green);
-							console.log("Window_ColorBActive: " + blue);
 						}
 					}
 				}
 			} catch {
-				
+
 			}
 
 			advapi32.close();
 
 			// Get and set accentColour
 			var accentColorStyle = document.createElement('style');
-			var rgb = red+','+green+','+blue;
+			var rgb = red + ',' + green + ',' + blue;
 			accentColorStyle.innerHTML = `
 				:root {
-					--userAccentColor: rgb(`+rgb+`);
+					--userAccentColor: rgb(`+ rgb + `);
 				}
 			`
 			document.head.appendChild(accentColorStyle);

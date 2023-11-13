@@ -1,4 +1,4 @@
-let translations; // Variable to store translations
+var translations; // Variable to store translations
 
 // Load translations asynchronously
 fetch('chrome://userchrome/content/locale.json')

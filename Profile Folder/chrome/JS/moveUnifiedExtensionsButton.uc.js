@@ -9,8 +9,8 @@ function moveExtensionsBtn() {
     // Check if the button exist on the page
     if (unifiedExtensionsButton) {
         // Check if the elements exist on the page
-        if (Services.prefs.getBoolPref('BeautyFox.option.moveToEndToolbar', true)) {
-            if (endToolbar) {
+        if (Services.prefs.getBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar')) {
+            if (endToolbar && IEMenuButton) {
                 // Remove #unified-extensions-button from its current position
                 unifiedExtensionsButton.parentNode.removeChild(unifiedExtensionsButton);
                 
