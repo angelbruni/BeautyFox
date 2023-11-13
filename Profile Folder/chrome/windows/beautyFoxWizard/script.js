@@ -127,7 +127,11 @@ function getCurrentSettings() {
     getBoolPrefWithCatch("BeautyFox.option.showStatusBar", optionStatusBar);
     getBoolPrefWithCatch("BeautyFox.option.userAccentColorNavButtons", optionAccentNavBtns);
 
-    if (!Services.prefs.getBoolPref("BeautyFox.option.userAccentColorNavButtons")) {
+    try {
+        if (!Services.prefs.getBoolPref("BeautyFox.option.userAccentColorNavButtons")) {
+            optionAWMAccentNavBtns.disabled = true;
+        }
+    } catch {
         optionAWMAccentNavBtns.disabled = true;
     }
 
