@@ -1,5 +1,7 @@
 :root {
     --toolbar-bgcolor: #e6effa !important;
+
+    --favorites-label: "Favorites";
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -15,8 +17,17 @@
 #bookmarksMenu {
     .menubar-text {
         &::before {
-            content: 'Favorites' !important;
+            content: var(--favorites-label) !important;
         }
+    }
+}
+
+html {
+    &[lang*="es"], &[lang="pt-BR"] {
+        --favorites-label: "Favoritos";
+    }
+    &[lang="pt-PT"] {
+        --favorites-label: "Marcadores";
     }
 }
 
@@ -79,7 +90,7 @@
 
     .toolbarbutton-text {
         &::before {
-            content: 'Get More Add-ons' !important;
+            content: var(--get-more-add-ons-label) !important;
         }
     }
 }

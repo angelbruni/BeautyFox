@@ -75,8 +75,8 @@ window {
     #contentArea {
         flex: 1;
         background: white;
-        outline: 1px solid rgba(255, 255, 255, .8);
-        border: 1px solid rgba(0, 0, 0, .8);
+        outline: 1px solid var(--browser-outer-border-color);
+        border: 1px solid var(--browser-inner-border-color);
         margin: 1px;
         border-radius: 1px;
     }
@@ -131,8 +131,11 @@ window {
 
     .pageContent {
         padding: 24px 38px;
+        padding-bottom: 24px;
         padding-bottom: 0;
-        flex: 1;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: calc(100vh - 78px);
 
         > hbox:first-child {
             margin-top: 16px;
@@ -146,6 +149,7 @@ window {
         border-top: 1px solid rgb(223, 223, 223);
         background-color: rgb(240, 240, 240);
         padding: 0 6px;
+        margin-top: auto;
 
         button {
             min-width: 64px;

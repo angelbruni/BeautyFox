@@ -116,9 +116,11 @@ var optionAWMAccentNavBtns = document.getElementById('AWMAccentNavBtns');
 var optionHideSettingsPopup = document.getElementById('hideSettingsPopup');
 var optionShowDownloadProgress = document.getElementById('showDownloadProgress');
 var optionHideFakeInnerBorders = document.getElementById('hideFakeInnerBorders');
+var optioninetcpl = document.getElementById('inetcpl');
 var wizardComboBoxExtensionsButtonItem0 = document.getElementById('wizardComboBoxExtensionsButtonItem0');
 var wizardComboBoxExtensionsButtonItem1 = document.getElementById('wizardComboBoxExtensionsButtonItem1');
 var wizardComboBoxExtensionsButtonItem2 = document.getElementById('wizardComboBoxExtensionsButtonItem2');
+var optionNavButtonsRadius = document.getElementById('navButtonsRadius');
 
 function getCurrentSettings() {
     getBoolPrefWithCatch("BeautyFox.option.tabsOnNavRow", optionTabsOnNavRow);
@@ -138,6 +140,7 @@ function getCurrentSettings() {
     getBoolPrefWithCatch("BeautyFox.option.hideSettingsInPopUp", optionHideSettingsPopup);
     getBoolPrefWithCatch("BeautyFox.option.showDownloadProgress", optionShowDownloadProgress);
     getBoolPrefWithCatch("BeautyFox.option.hideFakeInnerBorders", optionHideFakeInnerBorders);
+    getBoolPrefWithCatch("BeautyFox.option.inetcpl", optioninetcpl);
 
     if (!optionAccentNavBtns.getAttribute('checked')) {
         optionAWMAccentNavBtns.checked = false;
@@ -157,6 +160,12 @@ function getCurrentSettings() {
         wizardComboBoxExtensionsButtonItem0.removeAttribute('selected');
         wizardComboBoxExtensionsButtonItem1.setAttribute('selected', true);
         wizardComboBoxExtensionsButtonItem2.removeAttribute('selected');
+    }
+
+    try {
+        optionNavButtonsRadius.value = Services.prefs.getIntPref('BeautyFox.option.navButtonsRadius')
+    } catch {
+        optionNavButtonsRadius.value = 50
     }
 }
 getCurrentSettings()
@@ -228,6 +237,7 @@ function setOptions() {
     Services.prefs.setBoolPref('BeautyFox.option.hideSettingsInPopUp', optionHideSettingsPopup.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.showDownloadProgress', optionShowDownloadProgress.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.hideFakeInnerBorders', optionHideFakeInnerBorders.getAttribute('checked') === 'true');
+    Services.prefs.setBoolPref('BeautyFox.option.inetcpl', optioninetcpl.getAttribute('checked') === 'true');
 
     if (wizardComboBoxExtensionsButtonItem0.getAttribute('selected', 'true')) {
         Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', true);
@@ -243,6 +253,8 @@ function setOptions() {
     }
 
     Services.prefs.setBoolPref('BeautyFox.option.AWMAccentColorNavButtons', optionAWMAccentNavBtns.getAttribute('checked') === 'true');
+
+    Services.prefs.setIntPref('BeautyFox.option.navButtonsRadius', optionNavButtonsRadius.value)
 }
 
 optionAccentNavBtns.addEventListener("click", function() {
@@ -277,11 +289,11 @@ restartNow.addEventListener("click", function() {
 }); 
 
 var restartLater = document.getElementById('restartLater');
-restartNow.addEventListener("click", function() {
+restartLater.addEventListener("click", function() {
     setOptions();
 
     // Close the library
     advapi32.close();
-    
+
     window.close();
 }); 

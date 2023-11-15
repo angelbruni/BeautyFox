@@ -45,6 +45,7 @@ window[lang=ja] {
   }
 }
 :root {
+  --get-more-add-ons-label: "Get More Add-ons";
   --chrome-content-separator-color: #6f6f6f !important;
   --urlbar-min-height: 24px !important;
   --urlbar-width: 28.83%;
@@ -98,6 +99,17 @@ window[lang=ja] {
   background: url(images/InPrivateBadge9.svg);
   background-position: center !important;
   background-repeat: no-repeat !important;
+}
+
+html[lang*=es] {
+  --get-more-add-ons-label: "Más complementos";
+}
+html[lang*=pt] {
+  --get-more-add-ons-label: "Mais extensões";
+}
+
+*[disabled=true] {
+  opacity: 1 !important;
 }
 
 toolbar:not([nowindowdrag=true], [customizing=true]) {
@@ -626,10 +638,10 @@ panel {
   height: 13px !important;
 }
 
-#urlbar[open] > #urlbar-background, #urlbar[focused=true] > #urlbar-background {
+#urlbar[open] > #urlbar-background, #urlbar:focus > #urlbar-background {
   box-shadow: none !important;
 }
-#urlbar[open] > #urlbar-background::before, #urlbar[focused=true] > #urlbar-background::before {
+#urlbar[open] > #urlbar-background::before, #urlbar:focus > #urlbar-background::before {
   background-color: white !important;
 }
 
@@ -1802,6 +1814,56 @@ toolbarbutton#feedbackButton {
     width: 0 !important;
   }
 }
+/*  VERY TEMPORARY NOT MY CODE */
+#unified-extensions-view {
+  --uei-icon-size: 20px; /*  Change icon size */
+}
+
+#unified-extensions-panel #unified-extensions-view {
+  width: 100% !important; /*  For firefox v115.x */
+}
+
+:is(panelview, #widget-overflow-fixed-list) .toolbaritem-combined-buttons {
+  margin: 2px 4px !important; /*  For firefox v115.x / Makes more compact */
+}
+
+.unified-extensions-item-menu-button.subviewbutton {
+  padding: 2px !important; /*  For firefox v115.x / Fix icon margins */
+}
+
+#unified-extensions-view #unified-extensions-manage-extensions {
+  padding-inline: 2px !important;
+  margin-bottom: 0 !important;
+}
+
+#unified-extensions-view .panel-header,
+#unified-extensions-view .panel-header + toolbarseparator,
+#unified-extensions-view .panel-subview-body + toolbarseparator,
+#unified-extensions-view .unified-extensions-item-menu-button.subviewbutton {
+  display: none !important;
+}
+
+#unified-extensions-view .panel-subview-body {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+#unified-extensions-view .unified-extensions-item .unified-extensions-item-icon,
+#unified-extensions-view .unified-extensions-item .toolbarbutton-badge-stack {
+  margin-inline-end: 2px !important;
+}
+
+#unified-extensions-view .unified-extensions-item-name,
+#unified-extensions-view .unified-extensions-item-message {
+  padding-inline-start: 0.5em !important;
+  width: 21em !important;
+}
+
+#unified-extensions-view .unified-extensions-item-action-button.subviewbutton {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
 :root {
   --panel-border-color: #b4b4b4 !important;
   --urlbarView-subtract: 23px;
@@ -2143,6 +2205,7 @@ toolbarbutton#feedbackButton {
 :root {
   --navButtons-colour: #0284c3;
   --navButtons-disabled-colour: #00000000;
+  --navButtons-radius: 50%;
 }
 
 #main-window #nav-bar::before {
@@ -2157,8 +2220,9 @@ toolbarbutton#feedbackButton {
 #main-window #nav-bar #back-button,
 #main-window #nav-bar #forward-button {
   border: 1px solid rgba(0, 0, 0, 0.35);
-  border-radius: 50%;
+  border-radius: var(--navButtons-radius);
   background-color: var(--navButtons-colour) !important;
+  background-clip: padding-box !important;
   list-style-image: none !important;
   overflow: hidden;
   position: relative;
@@ -2168,7 +2232,7 @@ toolbarbutton#feedbackButton {
   content: "";
   position: absolute;
   background-color: white;
-  border-radius: 50%;
+  border-radius: var(--navButtons-radius);
   top: 65%;
   left: 50%;
   transform: translateX(-50%);
@@ -2187,7 +2251,7 @@ toolbarbutton#feedbackButton {
   height: 100%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 254, 254, 0.15) 49%, rgba(255, 255, 255, 0.01) 50%);
   outline: 1px solid rgba(247, 247, 247, 0.2);
-  border-radius: 50%;
+  border-radius: var(--navButtons-radius);
   outline-offset: -1px;
   box-sizing: border-box;
 }
@@ -2331,7 +2395,6 @@ toolbarbutton#feedbackButton {
   #main-window #nav-bar #back-button,
   #main-window #nav-bar #forward-button {
     border: 1px solid rgba(0, 0, 0, 0.3);
-    background: var(--navButtons-colour) !important;
   }
   #main-window #nav-bar #back-button::before,
   #main-window #nav-bar #forward-button::before {
@@ -2893,6 +2956,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 }
 :root {
   --toolbar-bgcolor: #e6effa !important;
+  --favorites-label: "Favorites";
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -2905,7 +2969,14 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 }
 
 #bookmarksMenu .menubar-text::before {
-  content: "Favorites" !important;
+  content: var(--favorites-label) !important;
+}
+
+html[lang*=es], html[lang=pt-BR] {
+  --favorites-label: "Favoritos";
+}
+html[lang=pt-PT] {
+  --favorites-label: "Marcadores";
 }
 
 .toolbarbutton-icon {
@@ -2969,7 +3040,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/110.ico") !important;
 }
 #unified-extensions-button .toolbarbutton-text::before {
-  content: "Get More Add-ons" !important;
+  content: var(--get-more-add-ons-label) !important;
 }
 
 #newToolbar {

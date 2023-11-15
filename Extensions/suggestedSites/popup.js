@@ -12,6 +12,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Listen for messages from the background script
 browser.runtime.onMessage.addListener(function (message) {
+	// Get the localized title
+    const localizedTitle = browser.i18n.getMessage("extensionName");
+
+    // Send a message to the background script requesting tab information
+    browser.runtime.sendMessage({ action: "getTabInfo" });
+
+    // Set the localized title as the default_title
+    browser.browserAction.setTitle({ title: localizedTitle });
+	
 	if (message.action === "updateTabInfo") {
 		const url = message.url;
 		const title = message.title;

@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Suggested Sites",
-    "version": "1.0",
+    "version": "1.1",
     "permissions": [
         "activeTab",
         "http://*/*",
@@ -14,7 +14,7 @@
             "48": "images/icon48.png",
             "128": "images/icon128.png"
         },
-        "default_title": "Suggested Sites"
+        "default_title": "__MSG_extensionName__"
     },
     "browser_specific_settings": {
         "gecko": {
@@ -42,5 +42,6 @@
                 "content.js"
             ]
         }
-    ]
+    ],
+    "default_locale": "en"
 }

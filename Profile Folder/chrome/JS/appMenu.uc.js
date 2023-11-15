@@ -1,4 +1,4 @@
-var IEMenu = {
+/*var IEMenu = {
     items: [
         {
             type: 'app',
@@ -207,7 +207,7 @@ var IEMenu = {
             type: 'app',
             id: 'IEMenu_internetOptions',
             name: 'Internet options',
-            command: 'openPreferences();',
+            command: 'openInternetOptions();',
         },
         {
             type: 'app',
@@ -308,8 +308,7 @@ var IEMenu = {
         return apps;
     },
 };
-
-IEMenu.init();
+IEMenu.init();*/
 
 function reportUnsafeWebsite() {
     _ucUtils.loadURI(window,{

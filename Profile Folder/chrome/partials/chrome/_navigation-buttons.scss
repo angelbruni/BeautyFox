@@ -1,6 +1,8 @@
 :root {
     --navButtons-colour: #0284c3;
     --navButtons-disabled-colour: #00000000;
+
+    --navButtons-radius: 50%;
 }
 
 #main-window {
@@ -18,8 +20,9 @@
         #back-button,
         #forward-button {
             border: 1px solid rgba(0, 0, 0, .35);
-            border-radius: 50%;
+            border-radius: var(--navButtons-radius);
             background-color: var(--navButtons-colour) !important;
+            background-clip: padding-box !important;
             list-style-image: none !important;
             overflow: hidden;
             position: relative;
@@ -28,7 +31,7 @@
                 content: "";
                 position: absolute;
                 background-color: white;
-                border-radius: 50%;
+                border-radius: var(--navButtons-radius);
                 top: 65%;
                 left: 50%;
                 transform: translateX(-50%);
@@ -47,7 +50,7 @@
                 height: 100%;
                 background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 254, 254, 0.15) 49%, rgba(255, 255, 255, 0.01) 50%);
                 outline: 1px solid rgba(247, 247, 247, 0.2);
-                border-radius: 50%;
+                border-radius: var(--navButtons-radius);
                 outline-offset: -1px;
                 box-sizing: border-box;
             }
@@ -235,7 +238,7 @@
             #back-button,
             #forward-button {
                 border: 1px solid rgba(0, 0, 0, .3);
-                background: var(--navButtons-colour) !important;
+                //background: var(--navButtons-colour) !important;
 
                 &::before {
                     background: transparent !important;

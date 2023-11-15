@@ -8,6 +8,17 @@
     background-repeat: no-repeat;
     background-color: #FEFEFE !important;
   }
+  .logo-and-wordmark,
+  .info,
+  .promo,
+  #settings-link,
+  #sponsored-shortcuts,
+  .sponsored,
+  #helpButton,
+  #category-sync,
+  #category-more-from-mozilla {
+    display: none !important;
+  }
   @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     body {
       background-image: none;

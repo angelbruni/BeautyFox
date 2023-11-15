@@ -5,6 +5,7 @@ function executeFunctions() {
     openBeautyFoxWizardWindow(true);
     getAndSetTitleBarHeight();
     getAndSetUserAccentColor();
+    setnavButtonsRadius();
     createFeedbackButton();
     addContainerSupport();
     fixTabs();
@@ -21,6 +22,7 @@ function executeFunctions() {
     createCBReadMailButton()
     downloadsButton();
     convertCheckboxesToNativeLook();
+    loadLocale();
     console.info("Functions executed.");
 }
 

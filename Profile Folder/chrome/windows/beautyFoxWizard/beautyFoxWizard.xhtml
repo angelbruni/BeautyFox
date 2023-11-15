@@ -120,6 +120,7 @@
 							<checkbox native="true" id="showStatusBar" locale="wizardCheckboxStatusBar"/>
 							<checkbox native="true" id="hideSettingsPopup" locale="wizardCheckboxHideSettingsPopup"/>
 							<checkbox native="true" id="hideFakeInnerBorders" locale="wizardCheckboxHideFakeInnerBorders"/>
+							<checkbox native="true" id="inetcpl" locale="wizardCheckboxinetcpl"/>
 						</groupbox>
 						<groupbox>
 							<label locale="wizardExtras"></label>
@@ -136,6 +137,11 @@
 							<checkbox native="true" id="showDownloadProgress" locale="wizardCheckBoxDownloadProgress"/>
 							<checkbox native="true" id="accentNavBtns" locale="wizardCheckboxAccentNavBtns"/>
 							<checkbox native="true" id="AWMAccentNavBtns" style="margin-left: 23px" locale="wizardCheckboxAWMAccentNavBtns"/>
+							<hbox style="align-items: center">
+								<label locale="wizardNavButtonsRoundAmount"></label>
+								<input xmlns="http://www.w3.org/1999/xhtml" id="navButtonsRadius" style="width: 40px;" type="number" min="0" max="50"/>
+								<label style="margin-left: 0;">%</label>
+							</hbox>
 						</groupbox>
 					</vbox>
 				</vbox>
@@ -155,7 +161,7 @@
 								<label class="title" locale="wizardRestartNow"></label>
 							</hbox>
 						</commandlinkbutton>
-						<commandlinkbutton id="restartLater" oncommand="window.close();">
+						<commandlinkbutton id="restartLater">
 							<hbox>
 								<image class="commandlinkbutton-glyph"/>
 								<label class="title" locale="wizardRestartLater"></label>
@@ -168,5 +174,5 @@
 		</vbox>
 
 		<script src="chrome://userchrome/content/windows/beautyFoxWizard/script.js" type="text/javascript"></script>
-		<script src="chrome://userchrome/content/JS/localeSystem.js" type="text/javascript"></script>
+		<script src="chrome://userchrome/content/JS/localeSystem.uc.js" type="text/javascript"></script>
 </window>

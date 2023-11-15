@@ -5,14 +5,14 @@ fetch('chrome://userchrome/content/locale.json')
     .then(response => response.json())
     .then(data => {
         translations = data;
-        setLocaleText();
+        loadLocale();
     })
     .catch(error => {
         console.error('Error loading translations:', error);
     });
 
 // Function to set text based on locale
-function setLocaleText() {
+function loadLocale() {
     const userLanguage = navigator.language || navigator.userLanguage;
     const elements = document.querySelectorAll('[locale]');
     
@@ -35,18 +35,20 @@ function setLocaleText() {
         }
 
         if (element.tagName.toLowerCase() === 'window') {
-            // If element is a window, set localized string to title attribute
+            // Set localized string to title attribute for these elements
             element.setAttribute('title', text);
-        } else if (element.tagName.toLowerCase() === 'checkbox' || element.tagName.toLowerCase() === 'menuitem'){
-            // If element is a checkbox or a menuitem, set localized string to label attribute
+        } else if ( element.tagName.toLowerCase() === 'checkbox' ||
+                    element.tagName.toLowerCase() === 'menuitem' ||
+                    element.tagName.toLowerCase() === 'toolbarbutton' ||
+                    element.tagName.toLowerCase() === 'menuitem' ||
+                    element.tagName.toLowerCase() === 'menu') {
+            // Set localized string to label attribute for these elements
             element.setAttribute('label', text);
-        }
-        else {
-            // For other elements, set localized string to textContent
+        } else {
+            // Set localized string to textContent for other elements
             element.textContent = text;
         }
     });
 }
 
-// Call the function to set initial text
-setLocaleText();
+loadLocale();

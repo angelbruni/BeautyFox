@@ -92,6 +92,10 @@ label {
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+	.text-link, a {
+		text-decoration: none !important;
+	}
+
 	#aboutIEPane {
 		width: 359px;
 		height: 258px;
@@ -113,7 +117,7 @@ label {
 	}
 
 	#aboutIEInfoProductID {
-		margin-bottom: 26px;
+		margin-bottom: 43px;
 	}
 
 	a {
