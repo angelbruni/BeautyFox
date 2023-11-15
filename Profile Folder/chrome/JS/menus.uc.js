@@ -948,9 +948,9 @@ var cBHelpMenu = createMenu({
         {
             type: 'app',
             id: 'cBHelp_whatsNewInBeautyFox',
-            name: "What's new in BeautyFox Beta 4.2.1",
+            name: "What's new in BeautyFox Beta 4.3",
             locale: "NewBeautyFox",
-            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/b4.2.1.html', where: 'tab'});"
+            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/b4.3.html', where: 'tab'});"
         },
         {
             type: 'app',
