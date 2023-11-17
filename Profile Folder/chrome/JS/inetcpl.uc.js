@@ -19,26 +19,26 @@ function openinetcpl() {
 
     // Define the function signature for ShellExecuteW
     var ShellExecuteW = shell32.declare(
-    "ShellExecuteW",
-    ctypes.winapi_abi,
-    HINSTANCE,
-    HINSTANCE,
-    LPCWSTR,
-    LPCWSTR,
-    LPCWSTR,
-    LPCWSTR,
-    ctypes.uint32_t
+        "ShellExecuteW",
+        ctypes.winapi_abi,
+        HINSTANCE,
+        HINSTANCE,
+        LPCWSTR,
+        LPCWSTR,
+        LPCWSTR,
+        LPCWSTR,
+        ctypes.uint32_t
     );
 
     // Open Internet Options
     ShellExecuteW(
-    null,
-    "open",
-    "Rundll32.exe",
-    "shell32.dll,Control_RunDLL inetcpl.cpl",
-    null,
-    1
-);
+        null,
+        "open",
+        "Rundll32.exe",
+        "shell32.dll,Control_RunDLL inetcpl.cpl",
+        null,
+        1
+    );
 
-shell32.close();
+    shell32.close();
 }

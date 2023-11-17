@@ -218,11 +218,11 @@
             "Cut": "Cortar",
             "Copy": "Copiar",
             "Paste": "Pegar",
-            "EMailWithindowsLive": "Correo con Windows Live",
+            "EMailWithindowsLive": "Correo electrónico con Windows Live",
             "TranslateWithGoogle": "Traducir con Google",
-            "AllAccelerators": "All Accelerators",
-            "FindMoreAccelerators": "Find more Accelerators",
-            "ManageAccelerators": "Manage Accelerators...",
+            "AllAccelerators": "Todos los aceleradores",
+            "FindMoreAccelerators": "Buscar más aceleradores",
+            "ManageAccelerators": "Administrar aceleradores...",
             "SendLinkByEMail": "Enviar vínculo por correo electrónico...",
             "Style": "Estilo",
             "NoStyle": "Sin estilo",
@@ -232,7 +232,7 @@
             "SmartScreenFilter": "Filtro SmartScreen",
             "DiagnoseConnectionProblems": "Solucionar problemas de conexión...",
             "ReopenLastBrowsingSession": "Volver a abrir última sesión de exploración",
-            "WorkOffline": "Work offline",
+            "WorkOffline": "Trabajar sin conexión",
             "Toolbars": "Barra de herramientas",
             "MenuBar": "Barra de menús",
             "FavouritesBar": "Barra de favoritos",
@@ -243,7 +243,7 @@
             "Help": "Ayuda",
             "InternetExplorerHelp": "Ayuda de Internet Explorer",
             "NewBeautyFox": "Novedades de BeautyFox Beta 4.3",
-            "OnlineSupport": "Suporte técnico en linea"
+            "OnlineSupport": "Soporte técnico en linea"
         }
     }
 }
