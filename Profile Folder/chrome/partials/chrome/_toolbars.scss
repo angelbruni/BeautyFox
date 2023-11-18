@@ -1,7 +1,5 @@
 :root {
     --toolbar-bgcolor: #e6effa !important;
-
-    --favorites-label: "Favorites";
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -19,15 +17,6 @@
         &::before {
             content: var(--favorites-label) !important;
         }
-    }
-}
-
-html {
-    &[lang*="es"], &[lang="pt-BR"] {
-        --favorites-label: "Favoritos";
-    }
-    &[lang="pt-PT"] {
-        --favorites-label: "Marcadores";
     }
 }
 
@@ -134,6 +123,10 @@ html {
     }
 }
 
+#addonsBar {
+    background-color: transparent !important;
+}
+
 #statusbarContainer {
     position: relative;
     display: flex;
@@ -214,7 +207,6 @@ html {
         margin-right: 108px !important;
         min-width: 130px !important;
         min-height: 22px !important;
-        background-color: transparent !important;
         display: flex !important;
         padding-left: 10px !important;
     
@@ -494,10 +486,10 @@ findbar {
 
 #endToolbar {
     margin-inline-start: 9px !important;
-    min-width: 24px;
     padding-right: 5px;
     background-color: transparent !important;
     -moz-window-dragging: drag !important;
+    justify-content: end !important;
 }
 
 #PersonalToolbar {

@@ -110,7 +110,7 @@
         
             &[disabled="true"] {
                 .toolbarbutton-icon {
-                    background-image: url(images/back_disabled.png);
+                    background-image: url(images/back_disabled.svg);
                 }
             }
         
@@ -118,7 +118,7 @@
                 height: 24px !important;
                 width: 24px !important;
                 margin-left: 1px !important;
-                background-image: url(images/back.png);
+                background-image: url(images/back.svg);
             }
         }
         
@@ -132,14 +132,14 @@
         
             &[disabled="true"] {
                 .toolbarbutton-icon {
-                    background-image: url(images/forward_disabled.png);
+                    background-image: url(images/forward_disabled.svg);
                 }
             }
         
             .toolbarbutton-icon {
                 height: 16px !important;
                 width: 16px !important;
-                background-image: url(images/forward.png);
+                background-image: url(images/forward.svg);
             }
         }
 
@@ -288,24 +288,24 @@
             #back-button {
                 &[disabled="true"] {
                     .toolbarbutton-icon {
-                        background-image: url(images/back_disabled.png);
+                        background-image: url(images/back_disabled.svg);
                     }
                 }
             
                 .toolbarbutton-icon {
-                    background-image: url(images/back.png);
+                    background-image: url(images/back.svg);
                 }
             }
             
             #forward-button {      
                 &[disabled="true"] {
                     .toolbarbutton-icon {
-                        background-image: url(images/forward_disabled.png);
+                        background-image: url(images/forward_disabled.svg);
                     }
                 }
             
                 .toolbarbutton-icon {
-                    background-image: url(images/forward.png);
+                    background-image: url(images/forward.svg);
                 }
             }
         }

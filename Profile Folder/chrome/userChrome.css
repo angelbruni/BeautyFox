@@ -1,35 +1,48 @@
 @charset "UTF-8";
 :root {
+  --favorites-label: "Favourites";
   --label-view-downloads: View Downloads - ;
   --label-view-n-track-your-downloads: View and track your downloads;
   --label-about-before: About ;
   --label-about-after: ;
 }
 
-window[lang=pt-BR] {
+window[lang=en-US],
+html[lang=en-US] {
+  --favorites-label: "Favoritos";
+}
+window[lang=pt-BR],
+html[lang=pt-BR] {
+  --favorites-label: "Favoritos";
   --label-view-downloads: Exibir Downloads - ;
   --label-view-n-track-your-downloads: Exibir e acompanhar seus downloads;
   --label-about-before: Sobre o ;
   --label-about-after: ;
 }
-window[lang=pt-PT] {
+window[lang=pt-PT],
+html[lang=pt-PT] {
+  --favorites-label: "Marcadores";
   --label-view-downloads: Exibir Transferências - ;
   --label-view-n-track-your-downloads: Ver e controlar tranferências;
   --label-about-before: Acerca do ;
   --label-about-after: ;
 }
-window[lang*=es] {
+window[lang*=es],
+html[lang*=es] {
+  --favorites-label: "Favoritos";
   --label-view-downloads: Ver descargas: ;
   --label-view-n-track-your-downloads: Ver y seguir sus descargas;
   --label-about-before: Acerca de ;
   --label-about-after: ;
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-  window[lang*=es] {
+  window[lang*=es],
+  html[lang*=es] {
     --label-view-n-track-your-downloads: Ver y seguir tus descargas;
   }
 }
-window[lang=ja] {
+window[lang=ja],
+html[lang=ja] {
   --label-view-downloads: ダウンロードの表紙 - ;
   --label-view-n-track-your-downloads: ダウンロードの表紙と追跡;
   --label-about-before: ;
@@ -42,6 +55,28 @@ window[lang=ja] {
   }
   100% {
     background-position-x: -192px;
+  }
+}
+@keyframes guidePulseBefore {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+@keyframes guidePulseAfter {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
   }
 }
 :root {
@@ -1418,6 +1453,7 @@ toolbarbutton#feedbackButton {
 
 #browser,
 #customization-container {
+  background-clip: padding-box;
   border-left: 1px solid var(--browser-outer-border-color);
   border-right: 1px solid var(--browser-outer-border-color);
   border-bottom: 1px solid var(--browser-outer-border-color);
@@ -1752,6 +1788,9 @@ toolbarbutton#feedbackButton {
     left: 0 !important;
     width: 100% !important;
   }
+  #toolbar-menubar {
+    border-radius: 0 !important;
+  }
   #toolbar-menubar::before {
     height: 100% !important;
   }
@@ -1768,12 +1807,15 @@ toolbarbutton#feedbackButton {
     border-radius: 0 !important;
   }
   #statusbarContainer::before {
-    border: 0 !important;
+    border-left: 0 !important;
+    border-bottom: 0 !important;
+    border-right: 0 !important;
+    border-top: 0 !important;
     width: 100% !important;
   }
   #statusbarBackground {
     left: 0px !important;
-    width: calc(100% - 2px) !important;
+    width: 100% !important;
     height: calc(100% - 2px) !important;
   }
   #toolbar-menubar, #PersonalToolbar {
@@ -1862,6 +1904,115 @@ toolbarbutton#feedbackButton {
 #unified-extensions-view .unified-extensions-item-action-button.subviewbutton {
   padding-top: 2px !important;
   padding-bottom: 2px !important;
+}
+
+#customization-panel-container {
+  display: none !important;
+}
+
+html #TabsToolbar {
+  transition: opacity 0.5s linear;
+}
+html #navigator-toolbox-background {
+  background-color: rgba(0, 0, 0, 0) !important;
+  transition: background-color 0.5s linear;
+}
+html #statusbarBackground::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0) !important;
+  transition: background-color 0.5s linear;
+}
+html #nav-bar-customization-target,
+html #endToolbar,
+html #addonsBar {
+  position: relative !important;
+}
+html #nav-bar-customization-target::before, html #nav-bar-customization-target::after,
+html #endToolbar::before,
+html #endToolbar::after,
+html #addonsBar::before,
+html #addonsBar::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -70%;
+  opacity: 0 !important;
+  transition: opacity 0.5s;
+}
+html #nav-bar-customization-target::before,
+html #endToolbar::before,
+html #addonsBar::before {
+  width: calc(100% - 40px);
+  height: 100%;
+  animation: guidePulseBefore 1.8s linear infinite;
+  filter: blur(8px);
+}
+html #nav-bar-customization-target::after,
+html #endToolbar::after,
+html #addonsBar::after {
+  background-color: white;
+  width: calc(100% - 70px);
+  height: 80%;
+  opacity: 80%;
+  animation: guidePulseAfter 1.8s linear infinite;
+  filter: blur(4px);
+}
+html #nav-bar-customization-target::before {
+  background-color: rgba(43, 255, 0, 0.9);
+}
+html #endToolbar {
+  min-width: 79px !important;
+}
+html #endToolbar::before {
+  background-color: rgba(255, 196, 0, 0.9);
+}
+html #addonsBar::before {
+  background-color: rgba(4, 0, 255, 0.9);
+}
+html[customizing=true] #customization-palette #bookmarks-menu-button,
+html[customizing=true] #customization-palette #bookmarksSidebarButton {
+  background: none !important;
+}
+html[customizing=true] #wrapper-stop-reload-button {
+  filter: drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 4px rgba(43, 255, 0, 0.9)) drop-shadow(0px 0px 4px rgba(43, 255, 0, 0.9));
+}
+html[customizing=true] #search-container #searchbar {
+  filter: drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 4px rgba(43, 255, 0, 0.9)) drop-shadow(0px 0px 4px rgba(43, 255, 0, 0.9));
+}
+html[customizing=true] #home-button,
+html[customizing=true] #bookmarksSidebarButton,
+html[customizing=true] #IEMenuButton,
+html[customizing=true] #feedbackButton {
+  filter: drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 4px rgba(255, 196, 0, 0.9)) drop-shadow(0px 0px 4px rgba(255, 196, 0, 0.9));
+}
+html[customizing=true] #TabsToolbar {
+  opacity: 0.3;
+}
+html[customizing=true] #navigator-toolbox-background {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+html[customizing=true] #statusbarBackground::before {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+html[customizing=true] #endToolbar {
+  -webkit-clip-path: polygon(-100% -50%, 200% -50%, 150% 27px, -100% 27px);
+          clip-path: polygon(-100% -50%, 200% -50%, 150% 27px, -100% 27px);
+}
+html[customizing=true] #nav-bar-customization-target,
+html[customizing=true] #addonsBar {
+  overflow: hidden !important;
+}
+html[customizing=true] #nav-bar-customization-target::before, html[customizing=true] #nav-bar-customization-target::after,
+html[customizing=true] #endToolbar::before,
+html[customizing=true] #endToolbar::after,
+html[customizing=true] #addonsBar::before,
+html[customizing=true] #addonsBar::after {
+  opacity: 1 !important;
 }
 
 :root {
@@ -2305,13 +2456,13 @@ toolbarbutton#feedbackButton {
           clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%) !important;
 }
 #main-window #nav-bar #back-button[disabled=true] .toolbarbutton-icon {
-  background-image: url(images/back_disabled.png);
+  background-image: url(images/back_disabled.svg);
 }
 #main-window #nav-bar #back-button .toolbarbutton-icon {
   height: 24px !important;
   width: 24px !important;
   margin-left: 1px !important;
-  background-image: url(images/back.png);
+  background-image: url(images/back.svg);
 }
 #main-window #nav-bar #forward-button {
   margin-left: 2px !important;
@@ -2322,12 +2473,12 @@ toolbarbutton#feedbackButton {
   margin-bottom: 2px !important;
 }
 #main-window #nav-bar #forward-button[disabled=true] .toolbarbutton-icon {
-  background-image: url(images/forward_disabled.png);
+  background-image: url(images/forward_disabled.svg);
 }
 #main-window #nav-bar #forward-button .toolbarbutton-icon {
   height: 16px !important;
   width: 16px !important;
-  background-image: url(images/forward.png);
+  background-image: url(images/forward.svg);
 }
 #main-window #nav-bar #userContext-label {
   display: none !important;
@@ -2437,16 +2588,16 @@ toolbarbutton#feedbackButton {
     background-position: center;
   }
   #main-window #nav-bar #back-button[disabled=true] .toolbarbutton-icon {
-    background-image: url(images/back_disabled.png);
+    background-image: url(images/back_disabled.svg);
   }
   #main-window #nav-bar #back-button .toolbarbutton-icon {
-    background-image: url(images/back.png);
+    background-image: url(images/back.svg);
   }
   #main-window #nav-bar #forward-button[disabled=true] .toolbarbutton-icon {
-    background-image: url(images/forward_disabled.png);
+    background-image: url(images/forward_disabled.svg);
   }
   #main-window #nav-bar #forward-button .toolbarbutton-icon {
-    background-image: url(images/forward.png);
+    background-image: url(images/forward.svg);
   }
   @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
     @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
@@ -2956,7 +3107,6 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 }
 :root {
   --toolbar-bgcolor: #e6effa !important;
-  --favorites-label: "Favorites";
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -2970,13 +3120,6 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
 
 #bookmarksMenu .menubar-text::before {
   content: var(--favorites-label) !important;
-}
-
-html[lang*=es], html[lang=pt-BR] {
-  --favorites-label: "Favoritos";
-}
-html[lang=pt-PT] {
-  --favorites-label: "Marcadores";
 }
 
 .toolbarbutton-icon {
@@ -3078,6 +3221,10 @@ html[lang=pt-PT] {
   margin-inline: 0 !important;
 }
 
+#addonsBar {
+  background-color: transparent !important;
+}
+
 #statusbarContainer {
   position: relative;
   display: flex;
@@ -3151,7 +3298,6 @@ html[lang=pt-PT] {
   margin-right: 108px !important;
   min-width: 130px !important;
   min-height: 22px !important;
-  background-color: transparent !important;
   display: flex !important;
   padding-left: 10px !important;
 }
@@ -3394,10 +3540,10 @@ findbar {
 
 #endToolbar {
   margin-inline-start: 9px !important;
-  min-width: 24px;
   padding-right: 5px;
   background-color: transparent !important;
   -moz-window-dragging: drag !important;
+  justify-content: end !important;
 }
 
 #PersonalToolbar #downloads-button {

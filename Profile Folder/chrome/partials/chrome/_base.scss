@@ -1117,6 +1117,7 @@ toolbarbutton {
 
 #browser,
 #customization-container {
+    background-clip: padding-box;
     border-left: 1px solid var(--browser-outer-border-color);
     border-right: 1px solid var(--browser-outer-border-color);
     border-bottom: 1px solid var(--browser-outer-border-color);
@@ -1533,6 +1534,8 @@ toolbarbutton {
     }
 
     #toolbar-menubar {
+        border-radius: 0 !important;
+
         &::before {
             height: 100% !important;
         }
@@ -1555,14 +1558,17 @@ toolbarbutton {
         border-radius: 0 !important;
 
         &::before {
-            border: 0 !important;
+            border-left: 0 !important;
+            border-bottom: 0 !important;
+            border-right: 0 !important;
+            border-top: 0 !important;
             width: 100% !important;
         }
     }
 
     #statusbarBackground {
         left: 0px !important;
-        width: calc(100% - 2px) !important;
+        width: 100% !important;
         height: calc(100% - 2px) !important;
     }
 

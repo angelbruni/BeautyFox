@@ -1,13 +1,23 @@
 :root {
+    --favorites-label: "Favourites";
+
     --label-view-downloads: View Downloads - ;
     --label-view-n-track-your-downloads: View and track your downloads;
 
     --label-about-before: About ;
     --label-about-after: ;
+    
 }
 
-window {
+window,
+html {
+    &[lang="en-US"] {
+        --favorites-label: "Favoritos";
+    }
+
     &[lang="pt-BR"] {
+        --favorites-label: "Favoritos";
+
         --label-view-downloads: Exibir Downloads - ;
         --label-view-n-track-your-downloads: Exibir e acompanhar seus downloads;
 
@@ -16,6 +26,8 @@ window {
     }
 
     &[lang="pt-PT"] {
+        --favorites-label: "Marcadores";
+
         --label-view-downloads: Exibir Transferências - ;
         --label-view-n-track-your-downloads: Ver e controlar tranferências;
 
@@ -24,6 +36,8 @@ window {
     }
 
     &[lang*="es"] {
+        --favorites-label: "Favoritos";
+
         --label-view-downloads: Ver descargas: ;
         --label-view-n-track-your-downloads: Ver y seguir sus descargas;
 
