@@ -10,7 +10,7 @@ function updateNavBackButton() {
         // Assign a function to the onclick property
         navBackButton.onclick = function() {
             // Check if currentPage is IE10+ feature specific page
-            if (currentPage == 3) {
+            if (currentPage == 100 || currentPage == 101) {
                 showPage(1);
             }
             // Check if currentPage is greater than 0
@@ -107,12 +107,15 @@ function getBoolPrefWithCatch(prefName, element) {
 }
 
 var chosenIEAppearance = 0;
+var chosenAboutDialog = 0;
 var optionTabsOnNavRow = document.getElementById('tabsOnNavRow');
 var optionOnlyIconsinCB = document.getElementById('onlyIconsinCB');
 var optionFakeDropdownArrowsinCB = document.getElementById('fakeDropdownArrowsinCB');
 var optionStatusBar = document.getElementById('showStatusBar');
+var optionUseAccentColouring = document.getElementById('useAccentColouring');
+var optionAWMAccentColouring = document.getElementById('AWMAccentColouring');
 var optionAccentNavBtns = document.getElementById('accentNavBtns');
-var optionAWMAccentNavBtns = document.getElementById('AWMAccentNavBtns');
+var optionAccentToolbars = document.getElementById('accentToolbars');
 var optionHideSettingsPopup = document.getElementById('hideSettingsPopup');
 var optionShowDownloadProgress = document.getElementById('showDownloadProgress');
 var optionHideFakeInnerBorders = document.getElementById('hideFakeInnerBorders');
@@ -127,25 +130,45 @@ function getCurrentSettings() {
     getBoolPrefWithCatch("BeautyFox.option.onlyIconsinCB", optionOnlyIconsinCB);
     getBoolPrefWithCatch("BeautyFox.option.fakeDropdownArrowsinCB", optionFakeDropdownArrowsinCB);
     getBoolPrefWithCatch("BeautyFox.option.showStatusBar", optionStatusBar);
-    getBoolPrefWithCatch("BeautyFox.option.userAccentColorNavButtons", optionAccentNavBtns);
 
     try {
-        if (!Services.prefs.getBoolPref("BeautyFox.option.userAccentColorNavButtons")) {
-            optionAWMAccentNavBtns.disabled = true;
+        if (Services.prefs.getBoolPref("BeautyFox.option.useAccentColouring")) {
+            optionUseAccentColouring.checked = true;
+
+            optionAWMAccentColouring.disabled = false;
+            optionAccentNavBtns.disabled = false;
+            optionAccentToolbars.disabled = false;
+        } else {
+            optionAWMAccentColouring.checked = false;
+            optionAWMAccentColouring.disabled = true;
+
+            optionAccentNavBtns.disabled = true;
+            optionAccentNavBtns.checked = false;
+
+            optionAccentToolbars.disabled = true;
+            optionAccentToolbars.checked = false;
         }
     } catch {
-        optionAWMAccentNavBtns.disabled = true;
+        optionAWMAccentColouring.checked = false;
+        optionAWMAccentColouring.disabled = true;
+
+        optionAccentNavBtns.disabled = true;
+        optionAccentNavBtns.checked = false;
+
+        optionAccentToolbars.disabled = true;
+        optionAccentToolbars.checked = false;
     }
+    
+    getBoolPrefWithCatch("BeautyFox.option.useAccentColourToolbars", optionAccentToolbars);
+    getBoolPrefWithCatch("BeautyFox.option.userAccentColorNavButtons", optionAccentNavBtns);
 
     getBoolPrefWithCatch("BeautyFox.option.hideSettingsInPopUp", optionHideSettingsPopup);
     getBoolPrefWithCatch("BeautyFox.option.showDownloadProgress", optionShowDownloadProgress);
     getBoolPrefWithCatch("BeautyFox.option.hideFakeInnerBorders", optionHideFakeInnerBorders);
     getBoolPrefWithCatch("BeautyFox.option.inetcpl", optioninetcpl);
 
-    if (!optionAccentNavBtns.getAttribute('checked')) {
-        optionAWMAccentNavBtns.checked = false;
-    } else {
-        getBoolPrefWithCatch("BeautyFox.option.AWMAccentColorNavButtons", optionAWMAccentNavBtns);
+    if (optionUseAccentColouring.getAttribute('checked')) {
+        getBoolPrefWithCatch("BeautyFox.option.AWMAccentColorNavButtons", optionAWMAccentColouring);
     }
 
     if (Services.prefs.getBoolPref('BeautyFox.option.hideExtensionsButton', true)) {
@@ -228,12 +251,53 @@ function setOptions() {
             Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', true)
             break;
     }
+
+    switch (chosenAboutDialog) {
+        case 0:
+            // IE9/IE10/IE11
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10DeveloperPreview', false)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ConsumerPreview', false)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ReleasePreview', false)
+            break;
+        case 1:
+            // IE10DeveloperPreview
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10DeveloperPreview', true)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ConsumerPreview', false)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ReleasePreview', false)
+            break;
+        case 2:
+            // IE11ConsumerPreview
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10DeveloperPreview', false)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ConsumerPreview', true)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ReleasePreview', false)
+            break;
+        case 3:
+            // IE11ReleasePreview
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10DeveloperPreview', false)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ConsumerPreview', true)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ReleasePreview', true)
+            break;
+    }
     
     Services.prefs.setBoolPref('BeautyFox.option.tabsOnNavRow', optionTabsOnNavRow.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.onlyIconsinCB', optionOnlyIconsinCB.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.fakeDropdownArrowsinCB', optionFakeDropdownArrowsinCB.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.showStatusBar', optionStatusBar.getAttribute('checked') === 'true');
+
+    if (optionUseAccentColouring.getAttribute('checked') == 'true') {
+        if (optionAccentNavBtns.checked || optionAccentToolbars.checked) {
+            Services.prefs.setBoolPref('BeautyFox.option.useAccentColouring', true);
+        } else {
+            Services.prefs.setBoolPref('BeautyFox.option.useAccentColouring', false);
+        }
+    } else {
+        Services.prefs.setBoolPref('BeautyFox.option.useAccentColouring', false)
+    }
+    Services.prefs.setBoolPref('BeautyFox.option.AWMAccentColorNavButtons', optionAWMAccentColouring.getAttribute('checked') === 'true');
+
+    Services.prefs.setBoolPref('BeautyFox.option.useAccentColourToolbars', optionAccentToolbars.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.userAccentColorNavButtons', optionAccentNavBtns.getAttribute('checked') === 'true');
+
     Services.prefs.setBoolPref('BeautyFox.option.hideSettingsInPopUp', optionHideSettingsPopup.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.showDownloadProgress', optionShowDownloadProgress.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.hideFakeInnerBorders', optionHideFakeInnerBorders.getAttribute('checked') === 'true');
@@ -252,31 +316,43 @@ function setOptions() {
         Services.prefs.setBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', true);
     }
 
-    Services.prefs.setBoolPref('BeautyFox.option.AWMAccentColorNavButtons', optionAWMAccentNavBtns.getAttribute('checked') === 'true');
-
     Services.prefs.setIntPref('BeautyFox.option.navButtonsRadius', optionNavButtonsRadius.value)
 }
 
-optionAccentNavBtns.addEventListener("click", function() {
+optionUseAccentColouring.addEventListener("click", function() {
     setTimeout(() => {
-        if (optionAccentNavBtns.getAttribute('checked', 'true')) {
+        if (optionUseAccentColouring.getAttribute('checked', 'true')) {
             if (isRegistryKeyExists == true) {
                 console.log("AWM registry key exists.");
 
-                if (optionAccentNavBtns.checked == true) {
-                    optionAWMAccentNavBtns.disabled = false
+                if (optionUseAccentColouring.checked == true) {
+                    optionAWMAccentColouring.disabled = false;
                 }
             } else {
                 console.log("AWM registry key does not exist.");
             }
+
+            optionAccentNavBtns.disabled = false;
+
+            optionAccentToolbars.disabled = false;
                 
             console.log("Registry key check result: " + isRegistryKeyExists);
         } else  {
-            optionAWMAccentNavBtns.disabled = true
-            optionAWMAccentNavBtns.checked = false
+            optionAWMAccentColouring.disabled = true;
+            optionAWMAccentColouring.checked = false;
+
+            optionAccentNavBtns.disabled = true;
+            optionAccentNavBtns.checked = false;
+
+            optionAccentToolbars.disabled = true;
+            optionAccentToolbars.checked = false;
         }
     }, 0);
 }); 
+
+var creditsText = document.createTextNode("Credits:\n\nAngelBruni - Theme Developer;\n\nSQUEeAK - Trailer;\n\nluisl - Spanish translation and testing;\n\nMaTe - Portuguese (Brazillian) translation and testing;\n\nneptuneen - Portuguese (Brazillian) translation and testing;\n\nTesting Team - For making sure all bugs are squished and improvements are made;\n\nMicrosoft - Internet Explorer and Windows software and assets;\n\nMozilla - Firefox software.");
+
+document.getElementById('credits').appendChild(creditsText);
 
 var restartNow = document.getElementById('restartNow');
 restartNow.addEventListener("click", function() {

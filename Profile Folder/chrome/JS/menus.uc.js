@@ -24,6 +24,19 @@ function createMenu(menuData) {
         }
     }
 
+    // Add event listener for Shift key press to toggle special items
+    externalBtn.addEventListener('click', (event) => {
+        if (event.shiftKey) {
+            menuData._externalAppPopup.querySelectorAll('[special="true"]').forEach((item) => {
+                item.style.display = 'flex';
+            });
+        } else {
+            menuData._externalAppPopup.querySelectorAll('[special="true"]').forEach((item) => {
+                item.style.display = 'none';
+            });
+        }
+    });
+
     document.getElementById('nav-bar-customization-target').appendChild(externalBtn);
 
     var externalPopup = document.createElementNS(XULNS, 'menupopup');
@@ -96,14 +109,21 @@ function createMenuItem(parent, item) {
         subDirItem.setAttribute('class', 'menu-iconic');
         subDirItem.setAttribute('id', item.id);
         subDirItem.setAttribute('label', item.name);
-        
+
         if (!item.locale == "") {
             subDirItem.setAttribute('locale', item.locale);
         }
 
         subDirItem.setAttribute('image', item.image);
 
+        if (item.special) {
+            subDirItem.setAttribute('special', item.special);
+            subDirItem.style.display = 'none';
+
+        }
+
         var subDirPopup = document.createXULElement('menupopup');
+
         for (var j = 0; j < item.items.length; j++) {
             createMenuItem(subDirPopup, item.items[j]);
         }
@@ -115,10 +135,15 @@ function createMenuItem(parent, item) {
         appsItems.setAttribute('id', item.id);
         appsItems.setAttribute('label', item.name);
 
+        if (item.special) {
+            appsItems.setAttribute('special', item.special);
+            appsItems.style.display = 'none';
+        }
+
         if (!item.locale == "") {
             appsItems.setAttribute('locale', item.locale);
         }
-        
+
         appsItems.setAttribute('image', item.image);
         appsItems.setAttribute('oncommand', item.command);
 
@@ -128,7 +153,13 @@ function createMenuItem(parent, item) {
 
         parent.appendChild(appsItems);
     } else if (item.type === 'separator') {
-        parent.appendChild(document.createXULElement('menuseparator'));
+        var separator = document.createXULElement('menuseparator');
+        parent.appendChild(separator);
+
+        if (item.special) {
+            separator.setAttribute('special', item.special);
+            separator.style.display = 'none';
+        }
     }
 }
 
@@ -352,10 +383,12 @@ var IEMenu = createMenu({
             id: 'IEMenu_beautyFoxOptions',
             name: 'BeautyFox options',
             locale: 'BeautyFoxOptions',
+            special: true,
             command: 'openBeautyFoxWizardWindow(false);',
         },
         {
-            type: 'separator'
+            type: 'separator',
+            special: true
         },
         {
             type: 'app',
@@ -948,9 +981,21 @@ var cBHelpMenu = createMenu({
         {
             type: 'app',
             id: 'cBHelp_whatsNewInBeautyFox',
-            name: "What's new in BeautyFox Beta 4.3",
+            name: "What's new in BeautyFox",
             locale: "NewBeautyFox",
+            special: true,
             command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/b4.3.html', where: 'tab'});"
+        },
+        {
+            type: 'separator',
+            special: true
+        },
+        {
+            type: 'app',
+            id: 'cBHelp_whatsNewInIE',
+            name: "What's new in Internet Explorer",
+            locale: "NewIE",
+            command: "openWhatsNewIE();"
         },
         {
             type: 'app',

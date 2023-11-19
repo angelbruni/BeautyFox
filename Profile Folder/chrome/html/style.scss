@@ -1,0 +1,87 @@
+:root {
+    --background-1gradient: #2A62A1;
+    --background-2gradient: #011660;
+    --background-3gradient: #2061AE;
+    --background-4gradient: #4184CB;
+
+    --topglow-color: #BC97DA;
+
+    --bottomglow-1gradient: #7BEDFF;
+    --bottomglow-2gradient: #068EE4;
+    --bottomglow-3gradient: #0162B5;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+}
+
+#settings {
+    display: flex;
+    flex-direction: column;
+}
+
+#customColour {
+    display: flex;
+    align-items: center;
+}
+
+svg {
+    background-color: #0162B5;
+    padding: 24px;
+}
+
+#BackButton {
+    #Hot,
+    #Active {
+        transition: opacity .35s steps(5);
+        opacity: 0;
+    }
+
+    #TopShiny {
+        transition: opacity .35s steps(5);
+    }
+
+    &:hover {
+        #Hot {
+            opacity: 1;
+        }
+
+        #TopShiny {
+            opacity: .50;
+        }
+    }
+
+    &:active {
+        #Hot,
+        #Active {
+            transition: opacity .0s;
+            opacity: 0;
+        }
+
+        #Hot {
+            opacity: 0;
+        }
+
+        #Active {
+            opacity: 1;
+        }
+    }
+    &[disabled] {
+        pointer-events: none;
+
+        #Background_3,
+        #BottomGlow,
+        #States {
+            display: none;
+        }
+
+        #Glyph {
+            opacity: .5;
+        }
+    }
+}

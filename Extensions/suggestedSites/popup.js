@@ -5,6 +5,18 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 const suggestionsList = document.getElementById("suggestions");
 const body = document.body;
 
+// Flag to check if tab information has been requested
+let tabInfoRequested = false;
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Request tab information only if not already requested
+    if (!tabInfoRequested) {
+        tabInfoRequested = true;
+        // Send a message to the background script requesting tab information
+        browser.runtime.sendMessage({ action: "getTabInfo" });
+    }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
 	// Send a message to the background script requesting tab information
 	browser.runtime.sendMessage({ action: "getTabInfo" });
@@ -12,33 +24,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Listen for messages from the background script
 browser.runtime.onMessage.addListener(function (message) {
-	// Get the localized title
+    // Get the localized title
     const localizedTitle = browser.i18n.getMessage("extensionName");
-
-    // Send a message to the background script requesting tab information
-    browser.runtime.sendMessage({ action: "getTabInfo" });
 
     // Set the localized title as the default_title
     browser.browserAction.setTitle({ title: localizedTitle });
-	
-	if (message.action === "updateTabInfo") {
-		const url = message.url;
-		const title = message.title;
 
-		// Use the URL and title as needed
-		console.log("URL:", url);
-		console.log("Title:", title);
+    if (message.action === "updateTabInfo") {
+        const url = message.url;
+        const title = message.title;
 
-		// Update your popup.html with the received data
-		document.getElementById("pageTitle").textContent = title;
+        // Use the URL and title as needed
+        console.log("URL:", url);
+        console.log("Title:", title);
 
-		// Use the received URL to get suggestions from your JSON object
-		const suggestions = getSuggestionsForUrl(url);
+        // Update your popup.html with the received data
+        document.getElementById("pageTitle").textContent = title;
 
-		// Update your popup.html with the suggestions
-		updateSuggestions(suggestions);
-	}
+        // Use the received URL to get suggestions from your JSON object
+        const suggestions = getSuggestionsForUrl(url);
+
+        // Update your popup.html with the suggestions
+        updateSuggestions(suggestions);
+    }
 });
+
 
 function getSuggestionsForUrl(url) {
 	// Replace this object with your actual JSON data

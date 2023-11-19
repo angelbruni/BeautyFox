@@ -9,7 +9,7 @@
 
 window[lang=en-US],
 html[lang=en-US] {
-  --favorites-label: "Favoritos";
+  --favorites-label: "Favorites";
 }
 window[lang=pt-BR],
 html[lang=pt-BR] {
@@ -3109,6 +3109,13 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   --toolbar-bgcolor: #e6effa !important;
 }
 
+@supports not -moz-bool-pref("BeautyFox.appearance.IE10") {
+  @supports -moz-bool-pref("BeautyFox.option.useAccentColourToolbars") {
+    :root {
+      --toolbar-bgcolor: color-mix(in srgb, var(--userAccentColor) 10%, white) !important;
+    }
+  }
+}
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
   :root {
     --toolbar-bgcolor: #f7f7f7 !important;

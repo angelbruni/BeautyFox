@@ -34,6 +34,33 @@ function loadLocale() {
             text = translations.en.fallback[key];
         }
 
+        // Replace the placeholder with the actual version
+        const beautyFoxVersion = '%beautyFoxVersion';
+        text = text.replace(new RegExp(beautyFoxVersion, 'g'), 'Beta 4.3');
+        
+        const IEVersion = '%IEVersion';
+        if (IsIE11Appearance) {
+            text = text.replace(new RegExp(IEVersion, 'g'), '11');
+        }
+        else if (IsIE10Appearance) {
+            text = text.replace(new RegExp(IEVersion, 'g'), '10');
+        }
+        else if (IsIE10ReleasePreviewAppearance) {
+            text = text.replace(new RegExp(IEVersion, 'g'), '10 Release Preview');
+        }
+        else if (IsIE10ConsumerPreviewAppearance) {
+            text = text.replace(new RegExp(IEVersion, 'g'), '10 Consumer Preview');
+        }
+        else if (IsIE10DeveloperPreviewAppearance) {
+            text = text.replace(new RegExp(IEVersion, 'g'), '10 Developer Preview');
+        }
+        else if (IsIE9PreReleaseAppearance) {
+            text = text.replace(new RegExp(IEVersion, 'g'), '9 Pre-Release');
+        }
+        else {
+            text = text.replace(new RegExp(IEVersion, 'g'), '9');
+        }
+
         if (element.tagName.toLowerCase() === 'window') {
             // Set localized string to title attribute for these elements
             element.setAttribute('title', text);
@@ -50,5 +77,7 @@ function loadLocale() {
         }
     });
 }
+
+loadLocale();
 
 loadLocale();

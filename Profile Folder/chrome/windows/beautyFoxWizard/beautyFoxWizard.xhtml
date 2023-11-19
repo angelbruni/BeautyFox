@@ -12,7 +12,7 @@
 		role="dialog"
 		chromemargin="-1,3,3,3"
 		resizable="false">
-		<button style="margin-top: -20px; margin-right: -10px; position: absolute; right: 0; top: 0; padding: 0; appearance: none;" oncommand="window.close();">Close</button>
+		<button style="height: 20px; width: 50px; position: absolute; right: -7px; top: -31px; padding: 0; appearance: none;" oncommand="window.close();">Close</button>
 
 
 		<hbox style="align-items: center; margin-bottom: 3px; -moz-window-dragging: drag !important;">
@@ -39,7 +39,7 @@
 				<vbox class="pageContent">
 					<h1 locale="wizardAppearance"></h1>
 					<hbox>
-						<commandlinkbutton onclick="chosenIEAppearance = 0; showPage(3);">
+						<commandlinkbutton onclick="chosenIEAppearance = 0; showPage(2);">
 							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE9Beta.png" alt=""/>
 							<hbox>
 								<image class="commandlinkbutton-glyph"/>
@@ -48,7 +48,7 @@
 								</vbox>
 							</hbox>
 						</commandlinkbutton>
-						<commandlinkbutton onclick="chosenIEAppearance = 1; showPage(3)">
+						<commandlinkbutton onclick="chosenIEAppearance = 1; showPage(100)">
 							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE9.png" alt=""/>
 							<hbox>
 								<image class="commandlinkbutton-glyph"/>
@@ -57,7 +57,7 @@
 								</vbox>
 							</hbox>
 						</commandlinkbutton>
-						<commandlinkbutton onclick="showPage(2)">
+						<commandlinkbutton onclick="showPage(101)">
 							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE10.png" alt=""/>
 							<hbox>
 								<image class="commandlinkbutton-glyph"/>
@@ -70,45 +70,8 @@
 				</vbox>
 				<hbox class="dialogFooter"></hbox>
 			</html:div>
-			<!-- IE10+ specific features -->
-			<html:div id="page2" class="page">
-				<vbox class="pageContent">
-					<h1 locale="wizardIE10Plus"></h1>
-					<vbox>
-						<commandlinkbutton onclick="chosenIEAppearance = 2; showPage(3)">
-							<hbox>
-								<image class="commandlinkbutton-glyph"/>
-								<vbox>
-									<label class="title" locale="wizardContinueIE10"></label>
-								</vbox>
-							</hbox>
-						</commandlinkbutton>
-						<commandlinkbutton onclick="chosenIEAppearance = 3; showPage(3)">
-							<hbox>
-								<image class="commandlinkbutton-glyph"/>
-								<vbox>
-									<label class="title" locale="wizardEnableIE11"></label>
-									<label locale="wizardEnableIE11Info"></label>
-								</vbox>
-							</hbox>
-						</commandlinkbutton>
-						<commandlinkbutton onclick="chosenIEAppearance = 4; showPage(3)">
-							<hbox>
-								<image class="commandlinkbutton-glyph"/>
-								<vbox>
-									<label class="title" locale="wizardEnableIE11Win10"></label>
-									<label locale="wizardEnableIE11Win10Info"></label>
-								</vbox>
-							</hbox>
-						</commandlinkbutton>
-					</vbox>
-				</vbox>
-				<hbox class="dialogFooter">
-					<button onclick="showPage(3)" locale="dialogNext"></button>
-				</hbox>
-			</html:div>
 			<!-- Additional options -->
-			<html:div id="page3" class="page">
+			<html:div id="page2" class="page">
 				<vbox class="pageContent">
 					<h1 locale="wizardAdditional"></h1>
 					<vbox>
@@ -135,8 +98,10 @@
 								</menulist>
 							</hbox>
 							<checkbox native="true" id="showDownloadProgress" locale="wizardCheckBoxDownloadProgress"/>
-							<checkbox native="true" id="accentNavBtns" locale="wizardCheckboxAccentNavBtns"/>
-							<checkbox native="true" id="AWMAccentNavBtns" style="margin-left: 23px" locale="wizardCheckboxAWMAccentNavBtns"/>
+							<checkbox native="true" id="useAccentColouring" locale="wizardCheckboxAccentColouring"/>
+							<checkbox native="true" id="AWMAccentColouring" style="margin-left: 23px" locale="wizardCheckboxAWMAccentColouring"/>
+							<checkbox native="true" id="accentNavBtns" style="margin-left: 23px" locale="wizardCheckboxAccentNavBtns"/>
+							<checkbox native="true" id="accentToolbars" style="margin-left: 23px" locale="wizardCheckboxAccentToolbars"/>
 							<hbox style="align-items: center">
 								<label locale="wizardNavButtonsRoundAmount"></label>
 								<input xmlns="http://www.w3.org/1999/xhtml" id="navButtonsRadius" style="width: 40px;" type="number" min="0" max="50"/>
@@ -146,30 +111,115 @@
 					</vbox>
 				</vbox>
 				<hbox class="dialogFooter">
-					<button onclick="showPage(4)" locale="dialogNext"></button>
+					<button onclick="showPage(3)" locale="dialogNext"></button>
 				</hbox>
 			</html:div>
 			<!-- Thank you! -->
-			<html:div id="page4" class="page">
+			<html:div id="page3" class="page">
 				<vbox class="pageContent">
 					<h1 locale="wizardThanks"></h1>
 					<p style="margin-bottom: 17px;" locale="wizardRestart"></p>
+					<hbox style="gap: 16px; flex: 1;">
+						<vbox style="flex: 1">
+							<commandlinkbutton id="restartNow">
+								<hbox>
+									<image class="commandlinkbutton-glyph"/>
+									<label class="title" locale="wizardRestartNow"></label>
+								</hbox>
+							</commandlinkbutton>
+							<commandlinkbutton id="restartLater">
+								<hbox>
+									<image class="commandlinkbutton-glyph"/>
+									<label class="title" locale="wizardRestartLater"></label>
+								</hbox>
+							</commandlinkbutton>
+						</vbox>
+						<textarea style="flex: 1; margin-bottom: 24px;" xmlns="http://www.w3.org/1999/xhtml" id="credits" readonly="true" native="true"/>
+					</hbox>
+				</vbox>
+				<hbox class="dialogFooter"></hbox>
+			</html:div>
+
+			<!-- IE9+ specific features -->
+			<html:div id="page100" class="page">
+				<vbox class="pageContent">
+					<h1 locale="wizardIE9"></h1>
 					<vbox>
-						<commandlinkbutton id="restartNow">
+						<commandlinkbutton onclick="chosenAboutDialog = 0; showPage(2)">
 							<hbox>
 								<image class="commandlinkbutton-glyph"/>
-								<label class="title" locale="wizardRestartNow"></label>
+								<vbox>
+									<label class="title" locale="wizardContinueIE9"></label>
+								</vbox>
 							</hbox>
 						</commandlinkbutton>
-						<commandlinkbutton id="restartLater">
+						<commandlinkbutton onclick="chosenAboutDialog = 1; showPage(2)">
 							<hbox>
 								<image class="commandlinkbutton-glyph"/>
-								<label class="title" locale="wizardRestartLater"></label>
+								<vbox>
+									<label class="title" locale="wizardEnableIE10DeveloperPreviewAbout"></label>
+								</vbox>
+							</hbox>
+						</commandlinkbutton>
+						<commandlinkbutton onclick="chosenAboutDialog = 2; showPage(2)">
+							<hbox>
+								<image class="commandlinkbutton-glyph"/>
+								<vbox>
+									<label class="title" locale="wizardEnableIE10ConsumerPreviewAbout"></label>
+								</vbox>
+							</hbox>
+						</commandlinkbutton>
+						<commandlinkbutton onclick="chosenAboutDialog = 3; showPage(2)">
+							<hbox>
+								<image class="commandlinkbutton-glyph"/>
+								<vbox>
+									<label class="title" locale="wizardEnableIE10ReleasePreviewAbout"></label>
+								</vbox>
 							</hbox>
 						</commandlinkbutton>
 					</vbox>
 				</vbox>
-				<hbox class="dialogFooter"></hbox>
+				<hbox class="dialogFooter">
+					<button onclick="showPage(3)" locale="dialogNext"></button>
+				</hbox>
+			</html:div>
+
+			<!-- IE10+ specific features -->
+			<html:div id="page101" class="page">
+				<vbox class="pageContent">
+					<h1 locale="wizardIE10Plus"></h1>
+					<vbox>
+						<commandlinkbutton onclick="chosenAboutDialog = 0; chosenIEAppearance = 2; showPage(2)">
+							<hbox>
+								<image class="commandlinkbutton-glyph"/>
+								<vbox>
+									<label class="title" locale="wizardContinueIE10"></label>
+								</vbox>
+							</hbox>
+						</commandlinkbutton>
+						<commandlinkbutton onclick="chosenAboutDialog = 0; chosenIEAppearance = 3; showPage(2)">
+							<hbox>
+								<image class="commandlinkbutton-glyph"/>
+								<vbox>
+									<label class="title" locale="wizardEnableIE11"></label>
+									<label locale="wizardEnableIE11Info"></label>
+								</vbox>
+							</hbox>
+						</commandlinkbutton>
+						<commandlinkbutton onclick="chosenAboutDialog = 0; chosenIEAppearance = 4; showPage(2)">
+							<hbox>
+								<image class="commandlinkbutton-glyph"/>
+								<vbox>
+									<label class="title" locale="wizardEnableIE11Win10"></label>
+									<label locale="wizardEnableIE11Win10Info"></label>
+								</vbox>
+							</hbox>
+						</commandlinkbutton>
+					</vbox>
+				</vbox>
+				<hbox class="dialogFooter">
+					<button onclick="showPage(3)" locale="dialogNext"></button>
+				</hbox>
 			</html:div>
 		</vbox>
 

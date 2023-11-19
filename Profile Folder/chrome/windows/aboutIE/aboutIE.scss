@@ -91,6 +91,65 @@ label {
 	}
 }
 
+@supports not -moz-bool-pref("BeautyFox.appearance.IE10") {
+	@supports -moz-bool-pref("BeautyFox.appearance.IE10DeveloperPreview") {
+		#aboutIELogo {
+			background-position-y: -152px;
+		}
+	}
+
+	@supports -moz-bool-pref("BeautyFox.appearance.IE10ConsumerPreview") {
+		.text-link, a {
+			text-decoration: none !important;
+		}
+	
+		#aboutIEPane {
+			width: 359px;
+			height: 258px;
+			padding-top: 20px;
+			padding-left: 30px;
+		}
+	
+		#aboutIELogo {
+			margin-bottom: 10px;
+			background-position-y: -228px;
+		}
+	
+		.aboutDialogInfo {
+			margin-bottom: 2px;
+		}
+	
+		#aboutIEInfoCipherStrength, #aboutIEWarning {
+			display: none !important;
+		}
+	
+		#aboutIEInfoProductID {
+			margin-bottom: 43px;
+		}
+	
+		a {
+			text-decoration: none;
+	
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	
+		#aboutIEOKButton {
+			width: 68px;
+			height: 24px;
+			right: 36px;
+			bottom: 16px;
+		}
+
+		@supports -moz-bool-pref("BeautyFox.appearance.IE10ReleasePreview") {
+			#aboutIELogo {
+				background-position-y: -304px;
+			}
+		}
+	}
+}
+
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
 	.text-link, a {
 		text-decoration: none !important;
@@ -105,7 +164,7 @@ label {
 
 	#aboutIELogo {
 		margin-bottom: 10px;
-		background-position-y: -152px;
+		background-position-y: -380px;
 	}
 
 	.aboutDialogInfo {
@@ -138,7 +197,7 @@ label {
 	@supports -moz-bool-pref("BeautyFox.appearance.IE11") {		
 		#aboutIELogo {
 			margin-bottom: 10px;
-			background-position-y: -228px;
+			background-position-y: -456px;
 		}	
 	}
 }
