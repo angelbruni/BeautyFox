@@ -984,7 +984,7 @@ var cBHelpMenu = createMenu({
             name: "What's new in BeautyFox",
             locale: "NewBeautyFox",
             special: true,
-            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/b4.3.html', where: 'tab'});"
+            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/b4.3.1.html', where: 'tab'});"
         },
         {
             type: 'separator',

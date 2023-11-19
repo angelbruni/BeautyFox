@@ -2,6 +2,11 @@
     display: none !important;
 }
 
+#nav-bar:not([urlbar-exceeds-toolbar-bounds]),
+toolbar[overflowable][customizing] > .customization-target {
+    overflow: visible !important;
+}
+
 html {
     #TabsToolbar {
         transition: opacity .5s linear;
@@ -130,7 +135,6 @@ html {
             clip-path: polygon(-100% -50%, 200% -50%, 150% 27px, -100% 27px);
         }
 
-        #nav-bar-customization-target,
         #addonsBar {
             overflow: hidden !important;
         }

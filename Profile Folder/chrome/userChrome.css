@@ -1910,6 +1910,11 @@ toolbarbutton#feedbackButton {
   display: none !important;
 }
 
+#nav-bar:not([urlbar-exceeds-toolbar-bounds]),
+toolbar[overflowable][customizing] > .customization-target {
+  overflow: visible !important;
+}
+
 html #TabsToolbar {
   transition: opacity 0.5s linear;
 }
@@ -2003,7 +2008,6 @@ html[customizing=true] #endToolbar {
   -webkit-clip-path: polygon(-100% -50%, 200% -50%, 150% 27px, -100% 27px);
           clip-path: polygon(-100% -50%, 200% -50%, 150% 27px, -100% 27px);
 }
-html[customizing=true] #nav-bar-customization-target,
 html[customizing=true] #addonsBar {
   overflow: hidden !important;
 }
