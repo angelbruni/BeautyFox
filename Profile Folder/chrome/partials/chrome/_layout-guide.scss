@@ -43,6 +43,7 @@ html {
             bottom: -70%;
             opacity: 0 !important;
             transition: opacity .5s;
+            pointer-events: none;
         }
 
         &::before {

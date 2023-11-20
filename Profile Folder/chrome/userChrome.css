@@ -1948,6 +1948,7 @@ html #addonsBar::after {
   bottom: -70%;
   opacity: 0 !important;
   transition: opacity 0.5s;
+  pointer-events: none;
 }
 html #nav-bar-customization-target::before,
 html #endToolbar::before,
@@ -2654,6 +2655,12 @@ html[customizing=true] #addonsBar::after {
 #tabbrowser-tabs {
   --tab-min-height: var(--tab-height) !important;
 }
+#tabbrowser-tabs[overflow=true] #TabsMSEdgeNewTabButton {
+  display: none !important;
+}
+#tabbrowser-tabs:not([overflow=true]) ~ #MSEdgeNewTabButton {
+  display: none;
+}
 
 #scrollbutton-up,
 #scrollbutton-down {
@@ -2789,12 +2796,13 @@ html[customizing=true] #addonsBar::after {
   display: none !important;
 }
 
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+  display: block !important;
+}
+
 .tabbrowser-tab[fadein]:not([pinned]):not([style*=max-width]) {
   max-width: 200px !important;
   min-width: 45px !important;
-}
-.tabbrowser-tab[fadein]:not([pinned]):not([style*=max-width]):hover .tab-close-button {
-  display: block !important;
 }
 
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
@@ -2829,13 +2837,13 @@ html[customizing=true] #addonsBar::after {
 }
 
 toolbarbutton#tabs-newtab-button,
-toolbarbutton#MSEdgeNewTabButton,
-#TabsToolbar #new-tab-button {
+toolbarbutton#TabsMSEdgeNewTabButton,
+#TabsToolbar #new-tab-button,
+#TabsToolbar #MSEdgeNewTabButton {
   width: var(--newtab-button-width) !important;
   margin: 0 !important;
   padding: 0 !important;
   border: 1px solid var(--tab-border-colour) !important;
-  margin-left: -1px !important;
   border-bottom: 0px !important;
   background: transparent;
   border-radius: var(--tab-border-radius) !important;
@@ -2844,8 +2852,9 @@ toolbarbutton#MSEdgeNewTabButton,
   overflow: hidden;
 }
 toolbarbutton#tabs-newtab-button::before,
-toolbarbutton#MSEdgeNewTabButton::before,
-#TabsToolbar #new-tab-button::before {
+toolbarbutton#TabsMSEdgeNewTabButton::before,
+#TabsToolbar #new-tab-button::before,
+#TabsToolbar #MSEdgeNewTabButton::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -2861,13 +2870,15 @@ toolbarbutton#MSEdgeNewTabButton::before,
   box-sizing: border-box;
 }
 toolbarbutton#tabs-newtab-button:hover .toolbarbutton-icon,
-toolbarbutton#MSEdgeNewTabButton:hover .toolbarbutton-icon,
-#TabsToolbar #new-tab-button:hover .toolbarbutton-icon {
+toolbarbutton#TabsMSEdgeNewTabButton:hover .toolbarbutton-icon,
+#TabsToolbar #new-tab-button:hover .toolbarbutton-icon,
+#TabsToolbar #MSEdgeNewTabButton:hover .toolbarbutton-icon {
   background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31062.ico");
 }
 toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
-toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
-#TabsToolbar #new-tab-button .toolbarbutton-icon {
+toolbarbutton#TabsMSEdgeNewTabButton .toolbarbutton-icon,
+#TabsToolbar #new-tab-button .toolbarbutton-icon,
+#TabsToolbar #MSEdgeNewTabButton .toolbarbutton-icon {
   padding: 0 !important;
   height: 16px !important;
   width: 16px !important;
@@ -2876,6 +2887,27 @@ toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
   background-position: center;
   background-repeat: no-repeat;
   background-size: 16px;
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+  toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
+  toolbarbutton#TabsMSEdgeNewTabButton .toolbarbutton-icon,
+  #TabsToolbar #new-tab-button .toolbarbutton-icon,
+  #TabsToolbar #MSEdgeNewTabButton .toolbarbutton-icon {
+    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31062.ico");
+  }
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+  toolbarbutton#tabs-newtab-button:hover::before,
+  toolbarbutton#TabsMSEdgeNewTabButton:hover::before,
+  #TabsToolbar #new-tab-button:hover::before,
+  #TabsToolbar #MSEdgeNewTabButton:hover::before {
+    background: var(--tab-background-colour_hover) !important;
+  }
+}
+
+toolbarbutton#tabs-newtab-button,
+toolbarbutton#TabsMSEdgeNewTabButton {
+  margin-left: -1px !important;
 }
 
 .tab-label-container[textoverflow][labeldirection=ltr]:not([pinned]) {
@@ -2912,6 +2944,10 @@ toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
 }
 #main-window[sizemode=fullscreen] #TabsToolbar {
   background-image: none !important;
+}
+
+toolbarbutton#TabsMSEdgeNewTabButton {
+  display: none !important;
 }
 
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
@@ -2962,13 +2998,15 @@ toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
     outline: 1px solid var(--tab-inset-border-colour);
   }
   #tabs-newtab-button::before,
-  #MSEdgeNewTabButton::before,
-  #TabsToolbar #new-tab-button::before {
+  #TabsMSEdgeNewTabButton::before,
+  #TabsToolbar #new-tab-button::before,
+  #TabsToolbar #MSEdgeNewTabButton::before {
     border: 0 !important;
   }
   #tabs-newtab-button:hover::before,
-  #MSEdgeNewTabButton:hover::before,
-  #TabsToolbar #new-tab-button:hover::before {
+  #TabsMSEdgeNewTabButton:hover::before,
+  #TabsToolbar #new-tab-button:hover::before,
+  #TabsToolbar #MSEdgeNewTabButton:hover::before {
     background-color: var(--tab-background-colour_hover) !important;
   }
   .tab-content {
@@ -2980,14 +3018,18 @@ toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
     border-width: 0 !important;
     outline: 1px solid var(--tab-inset-border-colour);
   }
+  #TabsToolbar #MSEdgeNewTabButton {
+    display: none !important;
+  }
   #tabs-newtab-button,
-  #MSEdgeNewTabButton,
-  #TabsToolbar #new-tab-button {
+  #TabsMSEdgeNewTabButton,
+  #TabsToolbar #new-tab-button,
+  #TabsToolbar #MSEdgeNewTabButton {
     width: 27px;
     height: calc(100% - 1px);
   }
   toolbarbutton#tabs-newtab-button::before,
-  toolbarbutton#MSEdgeNewTabButton::before {
+  toolbarbutton#TabsMSEdgeNewTabButton::before {
     left: 1px;
     outline: 1px solid var(--tab-inset-border-colour);
     width: calc(100% - 2px);
@@ -3000,6 +3042,12 @@ toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
     #TabsToolbar {
       margin-left: 5px !important;
     }
+  }
+}
+@supports not -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+  #TabsToolbar #MSEdgeNewTabButton,
+  toolbarbutton#TabsMSEdgeNewTabButton {
+    display: none !important;
   }
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -3089,15 +3137,17 @@ toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
     height: 100%;
   }
   #tabs-newtab-button,
-  #MSEdgeNewTabButton,
-  #TabsToolbar #new-tab-button {
+  #TabsMSEdgeNewTabButton,
+  #TabsToolbar #new-tab-button,
+  #TabsToolbar #MSEdgeNewTabButton {
     border: 1px solid var(--tab-border-colour);
     border-left: 0 !important;
     border-bottom: 0px !important;
   }
   #tabs-newtab-button::before,
-  #MSEdgeNewTabButton::before,
-  #TabsToolbar #new-tab-button::before {
+  #TabsMSEdgeNewTabButton::before,
+  #TabsToolbar #new-tab-button::before,
+  #TabsToolbar #MSEdgeNewTabButton::before {
     border: unset !important;
     width: 100% !important;
     height: 100% !important;
@@ -3107,29 +3157,26 @@ toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
       :root {
         --newtab-button-width: 22px;
       }
-      toolbarbutton#tabs-newtab-button:hover::before,
-      toolbarbutton#MSEdgeNewTabButton:hover::before,
-      #TabsToolbar #new-tab-button:hover::before {
-        background: var(--tab-background-colour_hover);
+      toolbarbutton#TabsMSEdgeNewTabButton:hover .toolbarbutton-icon,
+      #TabsToolbar #MSEdgeNewTabButton:hover .toolbarbutton-icon {
+        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico") !important;
       }
-      toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
-      toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
-      #TabsToolbar #new-tab-button .toolbarbutton-icon {
-        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31062.ico");
+      toolbarbutton#TabsMSEdgeNewTabButton .toolbarbutton-icon,
+      #TabsToolbar #MSEdgeNewTabButton .toolbarbutton-icon {
+        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico") !important;
       }
-      toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon {
-        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico");
-      }
-      toolbarbutton#MSEdgeNewTabButton:hover .toolbarbutton-icon {
-        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico");
-      }
-      @supports -moz-bool-pref("BeautyFox.option.newMSEdgeIcon") {
-        toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon {
-          background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico");
+      @supports -moz-bool-pref("BeautyFox.option.newEdgeButton") {
+        toolbarbutton#TabsMSEdgeNewTabButton:hover .toolbarbutton-icon,
+        #TabsToolbar #MSEdgeNewTabButton:hover .toolbarbutton-icon {
+          background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico") !important;
         }
-        toolbarbutton#MSEdgeNewTabButton:hover .toolbarbutton-icon {
-          background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico");
+        toolbarbutton#TabsMSEdgeNewTabButton .toolbarbutton-icon,
+        #TabsToolbar #MSEdgeNewTabButton .toolbarbutton-icon {
+          background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico") !important;
         }
+      }
+      toolbarbutton#TabsMSEdgeNewTabButton {
+        display: flex !important;
       }
       @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
         :root {
@@ -3137,6 +3184,12 @@ toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
         }
       }
     }
+  }
+}
+@supports -moz-bool-pref("BeautyFox.option.hideEdgeButton") {
+  #TabsToolbar #MSEdgeNewTabButton,
+  toolbarbutton#TabsMSEdgeNewTabButton {
+    display: none !important;
   }
 }
 :root {
@@ -3536,7 +3589,7 @@ findbar {
     font-size: 9pt !important;
     right: 63px !important;
     bottom: 2px !important;
-    z-index: 1 !important;
+    z-index: 2 !important;
     padding: 0 !important;
     padding-left: 26px !important;
     margin: 0 !important;

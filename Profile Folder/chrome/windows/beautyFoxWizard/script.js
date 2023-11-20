@@ -2,6 +2,7 @@ var currentPage = 0; // Default to the first page
 
 var chosenIEAppearance = 0;
 var chosenAboutDialog = 0;
+var chosenEdgeButton = 0;
 var optionTabsOnNavRow = document.getElementById('tabsOnNavRow');
 var optionOnlyIconsinCB = document.getElementById('onlyIconsinCB');
 var optionFakeDropdownArrowsinCB = document.getElementById('fakeDropdownArrowsinCB');
@@ -10,10 +11,16 @@ var optionUseAccentColouring = document.getElementById('useAccentColouring');
 var optionAWMAccentColouring = document.getElementById('AWMAccentColouring');
 var optionAccentNavBtns = document.getElementById('accentNavBtns');
 var optionAccentToolbars = document.getElementById('accentToolbars');
+var edgeCBParent = document.getElementById('edgeCBParent');
 var optionHideSettingsPopup = document.getElementById('hideSettingsPopup');
 var optionShowDownloadProgress = document.getElementById('showDownloadProgress');
 var optionHideFakeInnerBorders = document.getElementById('hideFakeInnerBorders');
 var optioninetcpl = document.getElementById('inetcpl');
+
+var wizardComboBoxEdgeButtonItem0 = document.getElementById('wizardComboBoxEdgeButtonItem0');
+var wizardComboBoxEdgeButtonItem1 = document.getElementById('wizardComboBoxEdgeButtonItem1');
+var wizardComboBoxEdgeButtonItem2 = document.getElementById('wizardComboBoxEdgeButtonItem2');
+
 var wizardComboBoxExtensionsButtonItem0 = document.getElementById('wizardComboBoxExtensionsButtonItem0');
 var wizardComboBoxExtensionsButtonItem1 = document.getElementById('wizardComboBoxExtensionsButtonItem1');
 var wizardComboBoxExtensionsButtonItem2 = document.getElementById('wizardComboBoxExtensionsButtonItem2');
@@ -69,9 +76,11 @@ function showPage(pageNumber) {
         optionAccentToolbars.style.display = 'flex';
     }
 
-    /*if (!chosenIEAppearance == 4) {
-
-    }*/
+    if (chosenIEAppearance == 4) {
+        edgeCBParent.style.display = 'flex';
+    } else {
+        edgeCBParent.style.display = 'none';
+    }
 }
 
 showPage(currentPage);
@@ -181,15 +190,41 @@ function getCurrentSettings() {
         getBoolPrefWithCatch("BeautyFox.option.AWMAccentColorNavButtons", optionAWMAccentColouring);
     }
 
-    if (Services.prefs.getBoolPref('BeautyFox.option.hideExtensionsButton', true)) {
-        wizardComboBoxExtensionsButtonItem0.setAttribute('selected', true);
-        wizardComboBoxExtensionsButtonItem1.removeAttribute('selected');
-        wizardComboBoxExtensionsButtonItem2.removeAttribute('selected');
-    } else if (Services.prefs.getBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', true)) {
-        wizardComboBoxExtensionsButtonItem0.removeAttribute('selected');
-        wizardComboBoxExtensionsButtonItem1.removeAttribute('selected');
-        wizardComboBoxExtensionsButtonItem2.setAttribute('selected', true);
-    } else {
+    try {
+        if (Services.prefs.getBoolPref('BeautyFox.option.hideEdgeButton')) {
+            wizardComboBoxEdgeButtonItem0.setAttribute('selected', true);
+            wizardComboBoxEdgeButtonItem1.removeAttribute('selected');
+            wizardComboBoxEdgeButtonItem2.removeAttribute('selected');
+        } else if (Services.prefs.getBoolPref('BeautyFox.option.newEdgeButton')) {
+            wizardComboBoxEdgeButtonItem0.removeAttribute('selected');
+            wizardComboBoxEdgeButtonItem1.removeAttribute('selected');
+            wizardComboBoxEdgeButtonItem2.setAttribute('selected', true);
+        } else {
+            wizardComboBoxEdgeButtonItem0.removeAttribute('selected');
+            wizardComboBoxEdgeButtonItem1.setAttribute('selected', true);
+            wizardComboBoxEdgeButtonItem2.removeAttribute('selected');
+        }
+    } catch {
+        wizardComboBoxEdgeButtonItem0.removeAttribute('selected');
+        wizardComboBoxEdgeButtonItem1.setAttribute('selected', true);
+        wizardComboBoxEdgeButtonItem2.removeAttribute('selected');
+    }
+
+    try {
+        if (Services.prefs.getBoolPref('BeautyFox.option.hideExtensionsButton', true)) {
+            wizardComboBoxExtensionsButtonItem0.setAttribute('selected', true);
+            wizardComboBoxExtensionsButtonItem1.removeAttribute('selected');
+            wizardComboBoxExtensionsButtonItem2.removeAttribute('selected');
+        } else if (Services.prefs.getBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', true)) {
+            wizardComboBoxExtensionsButtonItem0.removeAttribute('selected');
+            wizardComboBoxExtensionsButtonItem1.removeAttribute('selected');
+            wizardComboBoxExtensionsButtonItem2.setAttribute('selected', true);
+        } else {
+            wizardComboBoxExtensionsButtonItem0.removeAttribute('selected');
+            wizardComboBoxExtensionsButtonItem1.setAttribute('selected', true);
+            wizardComboBoxExtensionsButtonItem2.removeAttribute('selected');
+        }
+    } catch {
         wizardComboBoxExtensionsButtonItem0.removeAttribute('selected');
         wizardComboBoxExtensionsButtonItem1.setAttribute('selected', true);
         wizardComboBoxExtensionsButtonItem2.removeAttribute('selected');
@@ -286,6 +321,29 @@ function setOptions() {
             Services.prefs.setBoolPref('BeautyFox.appearance.IE10DeveloperPreview', false)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE10ConsumerPreview', true)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE10ReleasePreview', true)
+            break;
+    }
+
+    if (wizardComboBoxEdgeButtonItem0.getAttribute('selected', 'true')) {
+        chosenEdgeButton = 0;
+    } else if (wizardComboBoxEdgeButtonItem1.getAttribute('selected', 'true')) {
+        chosenEdgeButton = 1;
+    } else if (wizardComboBoxEdgeButtonItem2.getAttribute('selected', 'true')) {
+        chosenEdgeButton = 2;
+    }
+
+    switch (chosenEdgeButton) {
+        case 0:
+            Services.prefs.setBoolPref('BeautyFox.option.hideEdgeButton', true)
+            Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', false)
+            break;
+        case 1:
+            Services.prefs.setBoolPref('BeautyFox.option.hideEdgeButton', false)
+            Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', false)
+            break;
+        case 2:
+            Services.prefs.setBoolPref('BeautyFox.option.hideEdgeButton', false)
+            Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', true)
             break;
     }
     

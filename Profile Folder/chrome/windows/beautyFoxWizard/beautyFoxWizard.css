@@ -19,6 +19,15 @@ window {
      -moz-appearance: auto !important;
           appearance: auto !important;
   -moz-default-appearance: -moz-win-borderless-glass !important;
+  /*input {                   Doen't work for some reason
+      &[type="number"] {
+          > div:last-child {
+              transform: translateX(2px) !important;
+              width: 17px !important;
+              height: 20px !important;
+          }
+      }
+  }*/
 }
 window .page {
   display: none;
@@ -33,6 +42,9 @@ window h1 {
 window > div > hbox:first-child {
   align-items: center;
   -moz-window-dragging: drag !important;
+}
+window hbox menulist {
+  margin-left: auto;
 }
 window button.navBackButton {
   -webkit-appearance: none;

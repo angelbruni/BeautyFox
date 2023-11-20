@@ -36,6 +36,18 @@
 
 #tabbrowser-tabs {
     --tab-min-height: var(--tab-height) !important;
+
+    &[overflow="true"] {
+        #TabsMSEdgeNewTabButton {
+            display: none !important;
+        }
+    }
+
+    &:not([overflow="true"]) {
+        ~ #MSEdgeNewTabButton{
+            display: none;
+        }
+    }
 }
 
 #scrollbutton-up,
@@ -206,15 +218,17 @@
     display: none !important;
 }
 
-.tabbrowser-tab[fadein]:not([pinned]):not([style*="max-width"]) {
-    max-width: 200px !important;
-    min-width: 45px !important;
-
+.tabbrowser-tab:not([pinned]) {
     &:hover {
         .tab-close-button {
             display: block !important;
         }
     }
+}
+
+.tabbrowser-tab[fadein]:not([pinned]):not([style*="max-width"]) {
+    max-width: 200px !important;
+    min-width: 45px !important;
 }
 
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
@@ -249,13 +263,13 @@
 }
 
 toolbarbutton#tabs-newtab-button,
-toolbarbutton#MSEdgeNewTabButton,
-#TabsToolbar #new-tab-button {
+toolbarbutton#TabsMSEdgeNewTabButton,
+#TabsToolbar #new-tab-button,
+#TabsToolbar #MSEdgeNewTabButton {
     width: var(--newtab-button-width) !important;
     margin: 0 !important;
     padding: 0 !important;
     border: 1px solid var(--tab-border-colour) !important;
-    margin-left: -1px !important;
     border-bottom: 0px !important;
     background: transparent;
     border-radius: var(--tab-border-radius) !important;
@@ -294,7 +308,24 @@ toolbarbutton#MSEdgeNewTabButton,
         background-position: center;
         background-repeat: no-repeat;
         background-size: 16px;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31062.ico"); 
+        }
     }
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+        &:hover {
+            &::before {
+                background: var(--tab-background-colour_hover) !important;
+            }
+        }
+    }
+}
+
+toolbarbutton#tabs-newtab-button,
+toolbarbutton#TabsMSEdgeNewTabButton {
+    margin-left: -1px !important;
 }
 
 .tab-label-container[textoverflow][labeldirection="ltr"]:not([pinned]) {
@@ -341,6 +372,11 @@ toolbarbutton#MSEdgeNewTabButton,
         }
     }
 }
+
+toolbarbutton#TabsMSEdgeNewTabButton {
+    display: none !important;
+}
+
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
     :root {
         --option_tabsOnNavRow: 1 !important;
@@ -410,8 +446,9 @@ toolbarbutton#MSEdgeNewTabButton,
     }
 
     #tabs-newtab-button,
-    #MSEdgeNewTabButton,
-    #TabsToolbar #new-tab-button {
+    #TabsMSEdgeNewTabButton,
+    #TabsToolbar #new-tab-button,
+    #TabsToolbar #MSEdgeNewTabButton {
         &::before {
             border: 0 !important;
         }
@@ -435,16 +472,23 @@ toolbarbutton#MSEdgeNewTabButton,
             outline: 1px solid var(--tab-inset-border-colour);
         }
     }
+
+    #TabsToolbar #MSEdgeNewTabButton {
+        display: none !important;
+    }
+
+
     
     #tabs-newtab-button,
-    #MSEdgeNewTabButton,
-    #TabsToolbar #new-tab-button {
+    #TabsMSEdgeNewTabButton,
+    #TabsToolbar #new-tab-button,
+    #TabsToolbar #MSEdgeNewTabButton {
         width: 27px;
         height: calc(100% - 1px);
     }
 
     toolbarbutton#tabs-newtab-button,
-    toolbarbutton#MSEdgeNewTabButton {
+    toolbarbutton#TabsMSEdgeNewTabButton {
         &::before {
             left: 1px;
             outline: 1px solid var(--tab-inset-border-colour);
@@ -463,6 +507,13 @@ toolbarbutton#MSEdgeNewTabButton,
         #TabsToolbar {
             margin-left: 5px !important;
         }
+    }
+}
+
+@supports not -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+    #TabsToolbar #MSEdgeNewTabButton,
+    toolbarbutton#TabsMSEdgeNewTabButton {
+        display: none !important;
     }
 }
 
@@ -595,8 +646,9 @@ toolbarbutton#MSEdgeNewTabButton,
     }
 
     #tabs-newtab-button,
-    #MSEdgeNewTabButton,
-    #TabsToolbar #new-tab-button {
+    #TabsMSEdgeNewTabButton,
+    #TabsToolbar #new-tab-button,
+    #TabsToolbar #MSEdgeNewTabButton {
         border: 1px solid var(--tab-border-colour);
         border-left: 0 !important;
         border-bottom: 0px !important;
@@ -614,42 +666,33 @@ toolbarbutton#MSEdgeNewTabButton,
                 --newtab-button-width: 22px;
             }
 
-            toolbarbutton#tabs-newtab-button,
-            toolbarbutton#MSEdgeNewTabButton,
-            #TabsToolbar #new-tab-button {
+            toolbarbutton#TabsMSEdgeNewTabButton,
+            #TabsToolbar #MSEdgeNewTabButton {
                 &:hover {
-                    &::before {
-                        background: var(--tab-background-colour_hover);
+                    .toolbarbutton-icon {
+                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico") !important;
                     }
                 }
-                
+
                 .toolbarbutton-icon {
-                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31062.ico");
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico") !important;
+                }
+
+                @supports -moz-bool-pref("BeautyFox.option.newEdgeButton") {
+                    &:hover {
+                        .toolbarbutton-icon {
+                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico") !important;
+                        }
+                    }
+
+                    .toolbarbutton-icon {
+                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico") !important;
+                    }
                 }
             }
 
-            toolbarbutton#MSEdgeNewTabButton {
-                .toolbarbutton-icon {
-                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico");
-                }
-
-                &:hover {
-                    .toolbarbutton-icon {
-                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico");
-                    }
-                }
-
-                @supports -moz-bool-pref("BeautyFox.option.newMSEdgeIcon") {
-                    .toolbarbutton-icon {
-                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico");
-                    }
-    
-                    &:hover {
-                        .toolbarbutton-icon {
-                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico");
-                        }
-                    }
-                }
+            toolbarbutton#TabsMSEdgeNewTabButton {
+                display: flex !important;
             }
 
             @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
@@ -658,5 +701,12 @@ toolbarbutton#MSEdgeNewTabButton,
                 }
             }
         }
+    }
+}
+
+@supports -moz-bool-pref("BeautyFox.option.hideEdgeButton") {
+    #TabsToolbar #MSEdgeNewTabButton,
+    toolbarbutton#TabsMSEdgeNewTabButton {
+        display: none !important;
     }
 }
