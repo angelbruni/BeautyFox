@@ -44,3 +44,11 @@ function runFile(filePath, commandLineArgs) {
     // Close the shell32.dll library
     shell32.close();
 }
+
+function launchNetworkDiagnostics() {
+	runFile("msdt.exe", "-skip TRUE -path C:\\Windows\\diagnostics\\system\\networking -ep NetworkDiagnosticsConnectivity")
+}
+
+function openWindowsUpdate() {
+    runFile("control.exe", "/name Microsoft.WindowsUpdate") 
+}
