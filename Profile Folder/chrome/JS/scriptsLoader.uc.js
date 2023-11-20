@@ -14,6 +14,7 @@ function executeFunctions() {
     removeReloadWhenTyping();
     changeFakeDropdownAccordingly();
     addEllipsesSearch();
+    insertMSEdgeNewTabButton();
     createFavouritesSidebarButton();
     moveExtensionsBtn();
     createCommandBar();

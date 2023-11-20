@@ -249,6 +249,7 @@
 }
 
 toolbarbutton#tabs-newtab-button,
+toolbarbutton#MSEdgeNewTabButton,
 #TabsToolbar #new-tab-button {
     width: var(--newtab-button-width) !important;
     margin: 0 !important;
@@ -409,6 +410,7 @@ toolbarbutton#tabs-newtab-button,
     }
 
     #tabs-newtab-button,
+    #MSEdgeNewTabButton,
     #TabsToolbar #new-tab-button {
         &::before {
             border: 0 !important;
@@ -435,12 +437,14 @@ toolbarbutton#tabs-newtab-button,
     }
     
     #tabs-newtab-button,
+    #MSEdgeNewTabButton,
     #TabsToolbar #new-tab-button {
         width: 27px;
         height: calc(100% - 1px);
     }
 
-    toolbarbutton#tabs-newtab-button {
+    toolbarbutton#tabs-newtab-button,
+    toolbarbutton#MSEdgeNewTabButton {
         &::before {
             left: 1px;
             outline: 1px solid var(--tab-inset-border-colour);
@@ -591,6 +595,7 @@ toolbarbutton#tabs-newtab-button,
     }
 
     #tabs-newtab-button,
+    #MSEdgeNewTabButton,
     #TabsToolbar #new-tab-button {
         border: 1px solid var(--tab-border-colour);
         border-left: 0 !important;
@@ -610,6 +615,7 @@ toolbarbutton#tabs-newtab-button,
             }
 
             toolbarbutton#tabs-newtab-button,
+            toolbarbutton#MSEdgeNewTabButton,
             #TabsToolbar #new-tab-button {
                 &:hover {
                     &::before {
@@ -619,6 +625,30 @@ toolbarbutton#tabs-newtab-button,
                 
                 .toolbarbutton-icon {
                     background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31062.ico");
+                }
+            }
+
+            toolbarbutton#MSEdgeNewTabButton {
+                .toolbarbutton-icon {
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico");
+                }
+
+                &:hover {
+                    .toolbarbutton-icon {
+                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico");
+                    }
+                }
+
+                @supports -moz-bool-pref("BeautyFox.option.newMSEdgeIcon") {
+                    .toolbarbutton-icon {
+                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico");
+                    }
+    
+                    &:hover {
+                        .toolbarbutton-icon {
+                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico");
+                        }
+                    }
                 }
             }
 

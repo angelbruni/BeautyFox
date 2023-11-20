@@ -148,6 +148,7 @@
     border-radius: 0px 0px 3px 3px;
     max-height: 0px;
     opacity: 0;
+    z-index: 1;
     
     &::before {
         content: '';

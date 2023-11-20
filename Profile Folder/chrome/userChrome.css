@@ -1977,7 +1977,7 @@ html #endToolbar::before {
   background-color: rgba(255, 196, 0, 0.9);
 }
 html #addonsBar::before {
-  background-color: rgba(4, 0, 255, 0.9);
+  background-color: rgba(255, 0, 0, 0.9);
 }
 html[customizing=true] #customization-palette #bookmarks-menu-button,
 html[customizing=true] #customization-palette #bookmarksSidebarButton {
@@ -2003,6 +2003,10 @@ html[customizing=true] #navigator-toolbox-background {
 }
 html[customizing=true] #statusbarBackground::before {
   background-color: rgba(0, 0, 0, 0.5) !important;
+}
+html[customizing=true] #nav-bar-customization-target {
+  -webkit-clip-path: polygon(-100% -50%, 200% -50%, 150% 35px, -100% 35px);
+          clip-path: polygon(-100% -50%, 200% -50%, 150% 35px, -100% 35px);
 }
 html[customizing=true] #endToolbar {
   -webkit-clip-path: polygon(-100% -50%, 200% -50%, 150% 27px, -100% 27px);
@@ -2825,6 +2829,7 @@ html[customizing=true] #addonsBar::after {
 }
 
 toolbarbutton#tabs-newtab-button,
+toolbarbutton#MSEdgeNewTabButton,
 #TabsToolbar #new-tab-button {
   width: var(--newtab-button-width) !important;
   margin: 0 !important;
@@ -2839,6 +2844,7 @@ toolbarbutton#tabs-newtab-button,
   overflow: hidden;
 }
 toolbarbutton#tabs-newtab-button::before,
+toolbarbutton#MSEdgeNewTabButton::before,
 #TabsToolbar #new-tab-button::before {
   content: "";
   position: absolute;
@@ -2855,10 +2861,12 @@ toolbarbutton#tabs-newtab-button::before,
   box-sizing: border-box;
 }
 toolbarbutton#tabs-newtab-button:hover .toolbarbutton-icon,
+toolbarbutton#MSEdgeNewTabButton:hover .toolbarbutton-icon,
 #TabsToolbar #new-tab-button:hover .toolbarbutton-icon {
   background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31062.ico");
 }
 toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
+toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
 #TabsToolbar #new-tab-button .toolbarbutton-icon {
   padding: 0 !important;
   height: 16px !important;
@@ -2954,10 +2962,12 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     outline: 1px solid var(--tab-inset-border-colour);
   }
   #tabs-newtab-button::before,
+  #MSEdgeNewTabButton::before,
   #TabsToolbar #new-tab-button::before {
     border: 0 !important;
   }
   #tabs-newtab-button:hover::before,
+  #MSEdgeNewTabButton:hover::before,
   #TabsToolbar #new-tab-button:hover::before {
     background-color: var(--tab-background-colour_hover) !important;
   }
@@ -2971,11 +2981,13 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     outline: 1px solid var(--tab-inset-border-colour);
   }
   #tabs-newtab-button,
+  #MSEdgeNewTabButton,
   #TabsToolbar #new-tab-button {
     width: 27px;
     height: calc(100% - 1px);
   }
-  toolbarbutton#tabs-newtab-button::before {
+  toolbarbutton#tabs-newtab-button::before,
+  toolbarbutton#MSEdgeNewTabButton::before {
     left: 1px;
     outline: 1px solid var(--tab-inset-border-colour);
     width: calc(100% - 2px);
@@ -3077,12 +3089,14 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
     height: 100%;
   }
   #tabs-newtab-button,
+  #MSEdgeNewTabButton,
   #TabsToolbar #new-tab-button {
     border: 1px solid var(--tab-border-colour);
     border-left: 0 !important;
     border-bottom: 0px !important;
   }
   #tabs-newtab-button::before,
+  #MSEdgeNewTabButton::before,
   #TabsToolbar #new-tab-button::before {
     border: unset !important;
     width: 100% !important;
@@ -3094,12 +3108,28 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
         --newtab-button-width: 22px;
       }
       toolbarbutton#tabs-newtab-button:hover::before,
+      toolbarbutton#MSEdgeNewTabButton:hover::before,
       #TabsToolbar #new-tab-button:hover::before {
         background: var(--tab-background-colour_hover);
       }
       toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
+      toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon,
       #TabsToolbar #new-tab-button .toolbarbutton-icon {
         background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31062.ico");
+      }
+      toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon {
+        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico");
+      }
+      toolbarbutton#MSEdgeNewTabButton:hover .toolbarbutton-icon {
+        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico");
+      }
+      @supports -moz-bool-pref("BeautyFox.option.newMSEdgeIcon") {
+        toolbarbutton#MSEdgeNewTabButton .toolbarbutton-icon {
+          background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico");
+        }
+        toolbarbutton#MSEdgeNewTabButton:hover .toolbarbutton-icon {
+          background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico");
+        }
       }
       @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
         :root {
@@ -3249,6 +3279,7 @@ toolbarbutton#tabs-newtab-button .toolbarbutton-icon,
   border-radius: 0px 0px 3px 3px;
   max-height: 0px;
   opacity: 0;
+  z-index: 1;
 }
 #statusbarContainer::before {
   content: "";

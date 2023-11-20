@@ -1,5 +1,24 @@
 var currentPage = 0; // Default to the first page
 
+var chosenIEAppearance = 0;
+var chosenAboutDialog = 0;
+var optionTabsOnNavRow = document.getElementById('tabsOnNavRow');
+var optionOnlyIconsinCB = document.getElementById('onlyIconsinCB');
+var optionFakeDropdownArrowsinCB = document.getElementById('fakeDropdownArrowsinCB');
+var optionStatusBar = document.getElementById('showStatusBar');
+var optionUseAccentColouring = document.getElementById('useAccentColouring');
+var optionAWMAccentColouring = document.getElementById('AWMAccentColouring');
+var optionAccentNavBtns = document.getElementById('accentNavBtns');
+var optionAccentToolbars = document.getElementById('accentToolbars');
+var optionHideSettingsPopup = document.getElementById('hideSettingsPopup');
+var optionShowDownloadProgress = document.getElementById('showDownloadProgress');
+var optionHideFakeInnerBorders = document.getElementById('hideFakeInnerBorders');
+var optioninetcpl = document.getElementById('inetcpl');
+var wizardComboBoxExtensionsButtonItem0 = document.getElementById('wizardComboBoxExtensionsButtonItem0');
+var wizardComboBoxExtensionsButtonItem1 = document.getElementById('wizardComboBoxExtensionsButtonItem1');
+var wizardComboBoxExtensionsButtonItem2 = document.getElementById('wizardComboBoxExtensionsButtonItem2');
+var optionNavButtonsRadius = document.getElementById('navButtonsRadius');
+
 function updateNavBackButton() {
     var navBackButton = document.getElementById('backButton');
 
@@ -43,6 +62,16 @@ function showPage(pageNumber) {
     }
     
     updateNavBackButton()
+
+    if (chosenIEAppearance > 1) {
+        optionAccentToolbars.style.display = 'none';
+    } else {
+        optionAccentToolbars.style.display = 'flex';
+    }
+
+    /*if (!chosenIEAppearance == 4) {
+
+    }*/
 }
 
 showPage(currentPage);
@@ -105,25 +134,6 @@ function getBoolPrefWithCatch(prefName, element) {
         element.setAttribute('checked', Services.prefs.getBoolPref(prefName));
     } catch (error) {}
 }
-
-var chosenIEAppearance = 0;
-var chosenAboutDialog = 0;
-var optionTabsOnNavRow = document.getElementById('tabsOnNavRow');
-var optionOnlyIconsinCB = document.getElementById('onlyIconsinCB');
-var optionFakeDropdownArrowsinCB = document.getElementById('fakeDropdownArrowsinCB');
-var optionStatusBar = document.getElementById('showStatusBar');
-var optionUseAccentColouring = document.getElementById('useAccentColouring');
-var optionAWMAccentColouring = document.getElementById('AWMAccentColouring');
-var optionAccentNavBtns = document.getElementById('accentNavBtns');
-var optionAccentToolbars = document.getElementById('accentToolbars');
-var optionHideSettingsPopup = document.getElementById('hideSettingsPopup');
-var optionShowDownloadProgress = document.getElementById('showDownloadProgress');
-var optionHideFakeInnerBorders = document.getElementById('hideFakeInnerBorders');
-var optioninetcpl = document.getElementById('inetcpl');
-var wizardComboBoxExtensionsButtonItem0 = document.getElementById('wizardComboBoxExtensionsButtonItem0');
-var wizardComboBoxExtensionsButtonItem1 = document.getElementById('wizardComboBoxExtensionsButtonItem1');
-var wizardComboBoxExtensionsButtonItem2 = document.getElementById('wizardComboBoxExtensionsButtonItem2');
-var optionNavButtonsRadius = document.getElementById('navButtonsRadius');
 
 function getCurrentSettings() {
     getBoolPrefWithCatch("BeautyFox.option.tabsOnNavRow", optionTabsOnNavRow);

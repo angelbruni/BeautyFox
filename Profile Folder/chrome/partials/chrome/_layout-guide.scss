@@ -78,7 +78,7 @@ html {
 
     #addonsBar {
         &::before {
-            background-color: rgba(4, 0, 255, 0.9)
+            background-color: rgba(255, 0, 0, 0.9)
         }
     }
 
@@ -130,11 +130,15 @@ html {
                 background-color: rgb(0,0,0,.5) !important;
             }
         }    
+        
+        #nav-bar-customization-target {
+            clip-path: polygon(-100% -50%, 200% -50%, 150% 35px, -100% 35px);
+        }
 
         #endToolbar {
             clip-path: polygon(-100% -50%, 200% -50%, 150% 27px, -100% 27px);
         }
-
+        
         #addonsBar {
             overflow: hidden !important;
         }
