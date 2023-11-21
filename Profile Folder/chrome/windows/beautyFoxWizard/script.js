@@ -154,7 +154,14 @@ function getCurrentSettings() {
         if (Services.prefs.getBoolPref("BeautyFox.option.useAccentColouring")) {
             optionUseAccentColouring.checked = true;
 
-            optionAWMAccentColouring.disabled = false;
+            if (isRegistryKeyExists == true) {
+                console.log("AWM registry key exists.");
+
+                optionAWMAccentColouring.disabled = false;
+            } else {
+                optionAWMAccentColouring.disabled = true;
+            }
+
             optionAccentNavBtns.disabled = false;
             optionAccentToolbars.disabled = false;
         } else {
