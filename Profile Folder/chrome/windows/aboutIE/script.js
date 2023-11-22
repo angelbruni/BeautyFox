@@ -147,7 +147,7 @@ document.addEventListener('keydown', (event) => {
         loadLocale();
 
         aboutLogoImage.style.backgroundPositionY = '-532px';
-        aboutVersionString = '4.3.1';
+        aboutVersionString = '4.3.2';
         aboutVersionBitLabel.style.display = 'none';
         aboutUpdateKBLabel.style.display = 'none';
         aboutUpdateVersionsString = 'Closed Beta';
@@ -165,7 +165,9 @@ document.addEventListener('keyup', function() {
     loadLocale();
 
     aboutLogoImage.style.backgroundPositionY = null;
-    aboutVersionBitLabel.style.display = null;
+    if (is64Bit) {
+        aboutVersionBitLabel.style.display = 'inline';
+    }
     aboutUpdateKBLabel.style.display = null;
     aboutIEInfoCipherStrength.style.opacity = null;
     aboutIEInfoProductID.style.opacity = null;
