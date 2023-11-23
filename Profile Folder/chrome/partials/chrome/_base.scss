@@ -32,7 +32,7 @@
     --urlbar-dropdown-button_width: 32px;
     --urlbar-fake-dropdown-mask: url(images/search-dropdown-mask.svg);
     --urlbar-fake-dropdown-mask-position: center;
-    --stop-reload-button_width: 17px;
+    --stop-reload-button_width: calc(10px + 6px);
 
     --focus-outline-color: transparent !important;
 
@@ -383,8 +383,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
 #urlbar-input-container {
     padding: 0 0 0 0 !important;
-    padding-right: calc(var(--stop-reload-button_width) * 2) !important;
     border-radius: 0 !important;
+    border-right: 0 !important;
 }
 
 #urlbar-input-container.urlbar-remove-padding-right {
@@ -394,6 +394,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 .urlbar-input-box {
     padding: 0 var(--urlbar-dropdown-button_width) 0 0;
     position: relative;
+    margin-left: 5px !important;
 
     &::after {
         content: '';
@@ -417,7 +418,6 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     width: 16px;
     height: 16px;
     margin-left: 3px;
-    margin-right: 5px;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -634,8 +634,8 @@ panel {
     order: 20;
     flex-direction: row-reverse;
     margin-inline-end: 0 !important;
-    padding-left: 3px !important;
-    padding-right: 4px !important;
+    /*padding-left: 3px !important;
+    padding-right: 4px !important;*/
 
     #identity-icon {
         background-position: center;
@@ -743,7 +743,7 @@ toolbarbutton {
 #endToolbar {
     #stop-reload-button {
         align-items: center;
-        width: calc(var(--stop-reload-button_width) * 2);
+        //width: calc(var(--stop-reload-button_width) * 2);
     }
 
     #urlbar-go-button {
@@ -756,18 +756,26 @@ toolbarbutton {
         height: 16px !important;
         width: 17px !important;
     }
-    
-    
+
     #reload-button,
     #stop-button {
+        padding: 0 !important;
         height: 22px !important;
         width: var(--stop-reload-button_width) !important;
         overflow: hidden;
-        margin-bottom: 0 !important;
+        margin: 0 !important;
     
         .toolbarbutton-icon {
             height: 16px !important;
             width: 16px !important;
+        }
+    }
+
+    #stop-button {
+        width: calc(var(--stop-reload-button_width) + 3px) !important;
+        
+        &::before {
+            mask-position-x: 2px !important;
         }
     }
     
@@ -798,10 +806,6 @@ toolbarbutton {
 
     toolbaritem#urlbar-container {
         margin-bottom: var(--toolbaritems-margin-bottom) !important;
-    }
-
-    toolbaritem#stop-reload-button {
-        margin-bottom: calc(var(--toolbaritems-margin-bottom) + 1px) !important;
     }
 
     #downloads-indicator-anchor {
@@ -1143,19 +1147,36 @@ toolbarbutton {
 }
 
 #identity-icon-box {
-    padding-left: 2px !important;
-    padding-right: 1px !important;
+    /*padding-left: 2px !important;
+    padding-right: 1px !important;*/
+    width: var(--stop-reload-button_width) !important;
+    justify-content: center !important;
     border-radius: 0 !important;
     background: transparent !important;
 }
 
-#urlbar-container + #stop-reload-button {
-    background: transparent !important;
-    border: 0 !important;
-    margin-left: 0;
-    margin-right: calc((var(--stop-reload-button_width) * 2) * -1);
+#stop-reload-button {
+    border-top: 1px solid rgba(0, 0, 0, 0.5) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
+    border-left: 1px solid rgba(0, 0, 0, 0.5) !important;
+    background-clip: padding-box !important;
+    background-color: var(--toolbar-field-background-color) !important;
+    margin-inline-start: 1px !important;
+}
 
-    transform: translateX(calc((var(--stop-reload-button_width) * 2) * -1 - 2px));
+#stop-reload-button + #urlbar-container {
+    margin-inline-start: 0 !important;
+
+    #urlbar-background {
+        border-right: 1px solid rgba(0,0,0,.5) !important;
+        border-left: 0 !important;
+    }  
+}
+
+#urlbar-container + #stop-reload-button {
+    border-left: 0 !important;
+    margin-inline-start: 0 !important;
+    border-right: 1px solid rgba(0,0,0,.5) !important;
 }
 
 .toolbarbutton-animatable-box {
@@ -1326,7 +1347,7 @@ toolbarbutton {
 
     #nav-bar #stop-reload-button {
         align-items: center;
-        width: calc(var(--stop-reload-button_width) * 2 + 2px);
+        //width: calc(var(--stop-reload-button_width) * 2 + 2px);
     }
 
     #nav-bar {
@@ -1384,8 +1405,8 @@ toolbarbutton {
     }
 
     #identity-box {
-        padding-left: 2px !important;
-        padding-right: 11px !important;
+        /*padding-left: 2px !important;
+        padding-right: 11px !important;*/
     }
 
     #TabsToolbar {

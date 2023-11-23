@@ -98,7 +98,7 @@ html[lang=ja] {
   --urlbar-dropdown-button_width: 32px;
   --urlbar-fake-dropdown-mask: url(images/search-dropdown-mask.svg);
   --urlbar-fake-dropdown-mask-position: center;
-  --stop-reload-button_width: 17px;
+  --stop-reload-button_width: calc(10px + 6px);
   --focus-outline-color: transparent !important;
   --browser-outer-border-color: rgba(253, 253, 253, .65);
   --browser-inner-border-color: rgba(24, 24, 24, .57);
@@ -394,8 +394,8 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 
 #urlbar-input-container {
   padding: 0 0 0 0 !important;
-  padding-right: calc(var(--stop-reload-button_width) * 2) !important;
   border-radius: 0 !important;
+  border-right: 0 !important;
 }
 
 #urlbar-input-container.urlbar-remove-padding-right {
@@ -405,6 +405,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 .urlbar-input-box {
   padding: 0 var(--urlbar-dropdown-button_width) 0 0;
   position: relative;
+  margin-left: 5px !important;
 }
 .urlbar-input-box::after {
   content: "";
@@ -431,7 +432,6 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   width: 16px;
   height: 16px;
   margin-left: 3px;
-  margin-right: 5px;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -638,8 +638,8 @@ panel {
   order: 20;
   flex-direction: row-reverse;
   margin-inline-end: 0 !important;
-  padding-left: 3px !important;
-  padding-right: 4px !important;
+  /*padding-left: 3px !important;
+  padding-right: 4px !important;*/
 }
 #identity-box #identity-icon {
   background-position: center;
@@ -716,7 +716,6 @@ toolbarbutton#feedbackButton {
 #nav-bar #stop-reload-button,
 #endToolbar #stop-reload-button {
   align-items: center;
-  width: calc(var(--stop-reload-button_width) * 2);
 }
 #nav-bar #urlbar-go-button,
 #endToolbar #urlbar-go-button {
@@ -734,10 +733,11 @@ toolbarbutton#feedbackButton {
 #nav-bar #stop-button,
 #endToolbar #reload-button,
 #endToolbar #stop-button {
+  padding: 0 !important;
   height: 22px !important;
   width: var(--stop-reload-button_width) !important;
   overflow: hidden;
-  margin-bottom: 0 !important;
+  margin: 0 !important;
 }
 #nav-bar #reload-button .toolbarbutton-icon,
 #nav-bar #stop-button .toolbarbutton-icon,
@@ -745,6 +745,14 @@ toolbarbutton#feedbackButton {
 #endToolbar #stop-button .toolbarbutton-icon {
   height: 16px !important;
   width: 16px !important;
+}
+#nav-bar #stop-button,
+#endToolbar #stop-button {
+  width: calc(var(--stop-reload-button_width) + 3px) !important;
+}
+#nav-bar #stop-button::before,
+#endToolbar #stop-button::before {
+  mask-position-x: 2px !important;
 }
 #nav-bar toolbarbutton,
 #nav-bar .toolbaritem-combined-buttons,
@@ -775,10 +783,6 @@ toolbarbutton#feedbackButton {
 #nav-bar toolbaritem#urlbar-container,
 #endToolbar toolbaritem#urlbar-container {
   margin-bottom: var(--toolbaritems-margin-bottom) !important;
-}
-#nav-bar toolbaritem#stop-reload-button,
-#endToolbar toolbaritem#stop-reload-button {
-  margin-bottom: calc(var(--toolbaritems-margin-bottom) + 1px) !important;
 }
 #nav-bar #downloads-indicator-anchor,
 #endToolbar #downloads-indicator-anchor {
@@ -1479,18 +1483,35 @@ toolbarbutton#feedbackButton {
 }
 
 #identity-icon-box {
-  padding-left: 2px !important;
-  padding-right: 1px !important;
+  /*padding-left: 2px !important;
+  padding-right: 1px !important;*/
+  width: var(--stop-reload-button_width) !important;
+  justify-content: center !important;
   border-radius: 0 !important;
   background: transparent !important;
 }
 
+#stop-reload-button {
+  border-top: 1px solid rgba(0, 0, 0, 0.5) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.5) !important;
+  background-clip: padding-box !important;
+  background-color: var(--toolbar-field-background-color) !important;
+  margin-inline-start: 1px !important;
+}
+
+#stop-reload-button + #urlbar-container {
+  margin-inline-start: 0 !important;
+}
+#stop-reload-button + #urlbar-container #urlbar-background {
+  border-right: 1px solid rgba(0, 0, 0, 0.5) !important;
+  border-left: 0 !important;
+}
+
 #urlbar-container + #stop-reload-button {
-  background: transparent !important;
-  border: 0 !important;
-  margin-left: 0;
-  margin-right: calc(var(--stop-reload-button_width) * 2 * -1);
-  transform: translateX(calc(var(--stop-reload-button_width) * 2 * -1 - 2px));
+  border-left: 0 !important;
+  margin-inline-start: 0 !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.5) !important;
 }
 
 .toolbarbutton-animatable-box {
@@ -1636,7 +1657,6 @@ toolbarbutton#feedbackButton {
   }
   #nav-bar #stop-reload-button {
     align-items: center;
-    width: calc(var(--stop-reload-button_width) * 2 + 2px);
   }
   #nav-bar {
     overflow: visible !important;
@@ -1678,8 +1698,8 @@ toolbarbutton#feedbackButton {
     border-left: 1px solid rgba(0, 0, 0, 0.6) !important;
   }
   #identity-box {
-    padding-left: 2px !important;
-    padding-right: 11px !important;
+    /*padding-left: 2px !important;
+    padding-right: 11px !important;*/
   }
   #TabsToolbar {
     margin-bottom: -1px !important;
@@ -2047,7 +2067,6 @@ html[customizing=true] #addonsBar::after {
   background-image: url(images/go-mask.svg);
   background-repeat: no-repeat;
   background-position: center;
-  width: calc(var(--stop-reload-button_width) + 3px) !important;
   height: 22px !important;
   border-radius: 0 !important;
   opacity: 0.5;
@@ -2243,10 +2262,6 @@ html[customizing=true] #addonsBar::after {
   position: relative;
 }
 
-#urlbar-background {
-  overflow: hidden !important;
-}
-
 #urlbar-background,
 #searchbar {
   border-top: 1px solid rgba(0, 0, 0, 0.5) !important;
@@ -2267,6 +2282,11 @@ html[customizing=true] #addonsBar::after {
   background-color: var(--toolbar-field-background-color) !important;
   border: 1px solid rgba(254, 254, 254, 0.2);
   z-index: 0;
+}
+
+#urlbar-background {
+  overflow: hidden !important;
+  border-right: 0 !important;
 }
 
 #searchbar {
