@@ -315,6 +315,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   padding-right: 0px;
   margin-inline-start: 1px !important;
   margin-inline-end: 0px !important;
+  z-index: 4 !important;
   --urlbar-container-height: 24px !important;
 }
 #urlbar-container:hover #urlbar-background::before {
@@ -327,6 +328,12 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #stop-reload-button {
   justify-content: end;
   z-index: 3;
+}
+#stop-reload-button:hover {
+  background-color: var(--toolbar-field-background-color_hover) !important;
+}
+#stop-reload-button.toolbar-hover-fix {
+  background-color: var(--toolbar-field-background-color_hover) !important;
 }
 #stop-reload-button > toolbarbutton {
   list-style-image: none !important;
@@ -360,7 +367,8 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   background-color: rgb(3, 132, 206);
 }
 #stop-reload-button #reload-button.reload-button-display-none {
-  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 #stop-reload-button #stop-button::before {
   -webkit-mask: url(images/stop-mask.svg);
@@ -382,6 +390,9 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   top: 0 !important;
   max-height: var(--urlbar-height) !important;
 }
+#urlbar[focused=true] #urlbar-background {
+  box-shadow: none !important;
+}
 
 #urlbar[breakout][breakout-extend] {
   left: 0 !important;
@@ -397,9 +408,10 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   border-radius: 0 !important;
   border-right: 0 !important;
 }
-
 #urlbar-input-container.urlbar-remove-padding-right {
-  padding-right: 0 !important;
+  overflow: visible !important;
+  margin-inline-end: -16px !important;
+  width: auto !important;
 }
 
 .urlbar-input-box {
@@ -411,7 +423,6 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   content: "";
   transform: translateX(var(--urlbar-dropdown-button_width));
   width: var(--urlbar-dropdown-button_width);
-  margin-left: var(--urlbar-dropdown-button_width);
   height: 22px;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 49%, rgba(0, 0, 0, 0.5) 50%);
   -webkit-mask: var(--urlbar-fake-dropdown-mask);
@@ -460,49 +471,112 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 
 .notificationbox-stack {
   order: 4;
-}
-
-#tab-notification-deck {
-  order: 5;
-}
-
-#tab-notification-deck,
-.notificationbox-stack {
+  position: fixed !important;
+  bottom: 2px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 4 !important;
+  max-width: 960px !important;
+  width: 100% !important;
+  background-color: white !important;
+  border: 1px solid black !important;
   background-color: transparent !important;
-  border-left: 1px solid var(--browser-outer-border-color);
-  border-right: 1px solid var(--browser-outer-border-color);
-  padding: 0 1px;
-  margin-top: -1px;
-  position: relative;
 }
-#tab-notification-deck::before,
-.notificationbox-stack::before {
-  content: "";
-  position: absolute;
-  left: 1px;
-  top: 0px;
-  width: calc(100% - 2px);
-  height: calc(100% - 0px);
-  background-color: var(--toolbar-bgcolor);
-  z-index: -1;
-}
-#tab-notification-deck::after,
-.notificationbox-stack::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: calc(100% - 2px);
-  height: calc(100% - 1px);
-  border-left: 1px solid var(--browser-inner-border-color) !important;
-  border-right: 1px solid var(--browser-inner-border-color) !important;
-  pointer-events: none;
-}
-#tab-notification-deck notification,
-.notificationbox-stack notification {
-  background: transparent !important;
+.notificationbox-stack notification-message {
+  margin: 1px !important;
+  border-top: 6px solid rgb(242, 177, 0) !important;
+  border-radius: 0 !important;
+  opacity: 1 !important;
 }
 
+.container.infobar {
+  box-shadow: none !important;
+  background: white !important;
+  min-height: 40px !important;
+  align-items: center !important;
+  padding-left: 16px !important;
+  padding-right: 6px !important;
+}
+.container.infobar::before {
+  content: unset !important;
+}
+.container.infobar .icon {
+  display: none !important;
+}
+.container.infobar .notification-content {
+  display: flex !important;
+  width: 100% !important;
+  margin-inline-start: 0 !important;
+  margin-inline-end: 6px !important;
+}
+.container.infobar .notification-message {
+  padding: 0 !important;
+  margin-inline-end: 0 !important;
+}
+.container.infobar .notification-button-container {
+  margin-left: auto !important;
+}
+.container.infobar .notification-button {
+  margin: 0;
+}
+.container.infobar .notification-button-container button {
+  height: 25px !important;
+  padding: 0 19px !important;
+  color: black !important;
+  border: 1px solid white !important;
+  outline: 1px solid rgb(176, 178, 182) !important;
+  background: linear-gradient(0deg, rgb(231, 231, 231) 0%, rgb(244, 244, 244) 100%) !important;
+  justify-content: center !important;
+  border-radius: 5px !important;
+  font-size: 9pt !important;
+}
+.container.infobar .notification-button-container button::before {
+  content: attr(tooltiptext);
+}
+.container.infobar .notification-button-container button:hover {
+  background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
+}
+.container.infobar .notification-button-container button:active, .container.infobar .notification-button-container button[open=true] {
+  background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  .container.infobar .notification-button-container button {
+    outline: none !important;
+    border: 1px solid rgb(172, 172, 172) !important;
+    border-radius: 0 !important;
+    background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
+  }
+  .container.infobar .notification-button-container button:hover {
+    border: 1px solid rgb(126, 180, 234) !important;
+    background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
+  }
+  .container.infobar .notification-button-container button:active, .container.infobar .notification-button-container button[open=true] {
+    border: 1px solid rgb(86, 157, 229) !important;
+    background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
+  }
+  .container.infobar .notification-button-container button[data-l10n-id=popup-warning-button]::after {
+    content: "";
+    height: 16px;
+    width: 16px;
+    -webkit-mask: url(images/dropdown-mask.svg) !important;
+            mask: url(images/dropdown-mask.svg) !important;
+    -webkit-mask-position: calc(50% - 1px) !important;
+            mask-position: calc(50% - 1px) !important;
+    -webkit-mask-size: 9px 5px !important;
+            mask-size: 9px 5px !important;
+    -webkit-mask-repeat: no-repeat !important;
+            mask-repeat: no-repeat !important;
+    background-color: black !important;
+    margin-left: 4px !important;
+    margin-top: 4px !important;
+  }
+  .container.infobar .close {
+    margin: 0 !important;
+    height: 16px !important;
+    width: 16px !important;
+  }
+}
 #star-button-box {
   display: none !important;
 }
@@ -635,7 +709,7 @@ panel {
 }
 
 #identity-box {
-  order: 20;
+  order: 1;
   flex-direction: row-reverse;
   margin-inline-end: 0 !important;
   /*padding-left: 3px !important;
@@ -717,10 +791,6 @@ toolbarbutton#feedbackButton {
 #endToolbar #stop-reload-button {
   align-items: center;
 }
-#nav-bar #urlbar-go-button,
-#endToolbar #urlbar-go-button {
-  margin-right: 17px !important;
-}
 #nav-bar .toolbarbutton-icon,
 #nav-bar .toolbarbutton-badge-stack,
 #endToolbar .toolbarbutton-icon,
@@ -746,13 +816,11 @@ toolbarbutton#feedbackButton {
   height: 16px !important;
   width: 16px !important;
 }
-#nav-bar #stop-button,
-#endToolbar #stop-button {
-  width: calc(var(--stop-reload-button_width) + 3px) !important;
-}
-#nav-bar #stop-button::before,
-#endToolbar #stop-button::before {
-  mask-position-x: 2px !important;
+@supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+  #nav-bar #reload-button,
+  #endToolbar #reload-button {
+    width: calc(var(--stop-reload-button_width) + 3px) !important;
+  }
 }
 #nav-bar toolbarbutton,
 #nav-bar .toolbaritem-combined-buttons,
@@ -1503,15 +1571,41 @@ toolbarbutton#feedbackButton {
 #stop-reload-button + #urlbar-container {
   margin-inline-start: 0 !important;
 }
+#stop-reload-button + #urlbar-container #favimginurlbar {
+  margin-left: 1px !important;
+}
 #stop-reload-button + #urlbar-container #urlbar-background {
   border-right: 1px solid rgba(0, 0, 0, 0.5) !important;
   border-left: 0 !important;
+}
+#stop-reload-button + #urlbar-container #urlbar-input-container.urlbar-remove-padding-right {
+  overflow: visible !important;
+  margin-inline-end: 0 !important;
+  width: auto !important;
+}
+#stop-reload-button + #urlbar-container #urlbar-go-button {
+  display: block !important;
+  padding: 0 !important;
+}
+@supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+  #stop-reload-button + #urlbar-container #urlbar-go-button {
+    width: calc(var(--stop-reload-button_width) + 4px) !important;
+    background-position-x: 2px !important;
+  }
 }
 
 #urlbar-container + #stop-reload-button {
   border-left: 0 !important;
   margin-inline-start: 0 !important;
   border-right: 1px solid rgba(0, 0, 0, 0.5) !important;
+}
+@supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+  #urlbar-container + #stop-reload-button #stop-button {
+    width: calc(var(--stop-reload-button_width) + 3px) !important;
+  }
+}
+#urlbar-container + #stop-reload-button #stop-button::before {
+  mask-position-x: 2px !important;
 }
 
 .toolbarbutton-animatable-box {
@@ -1640,7 +1734,7 @@ toolbarbutton#feedbackButton {
     --toolbaritems-margin-bottom: 4px;
     --urlbar-width: 28.25%;
     --urlbar-dropdown-button_width: 35px;
-    --stop-reload-button_width: 22px;
+    --stop-reload-button_width: 23px;
     --urlbar-inprivatebadge-width: 75px;
     --urlbar-fake-dropdown-mask-position: left;
   }
@@ -1678,13 +1772,30 @@ toolbarbutton#feedbackButton {
     background-color: white;
     z-index: 1;
   }
-  #urlbar-input-container.urlbar-remove-padding-right {
-    padding-right: 22px !important;
+  #reload-button,
+  #stop-button {
+    border-left: 0 !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.6) !important;
+    width: var(--stop-reload-button_width) !important;
   }
-  #wrapper-urlbar-container + #wrapper-stop-reload-button > #stop-reload-button,
-  #urlbar-container + #stop-reload-button {
-    margin-right: -47px;
-    transform: translateX(-48px);
+  #urlbar-container + #stop-reload-button #reload-button,
+  #urlbar-container + #stop-reload-button #stop-button {
+    border-right: 0 !important;
+    border-left: 1px solid rgba(0, 0, 0, 0.6) !important;
+  }
+  #urlbar-go-button {
+    width: var(--stop-reload-button_width) !important;
+    background-position-x: center !important;
+    padding: 0 !important;
+  }
+  #stop-reload-button + #urlbar-container #favimginurlbar {
+    margin-left: 3px !important;
+  }
+  #urlbar-input-container.urlbar-remove-padding-right {
+    margin-inline-end: -23px !important;
+  }
+  .urlbar-input-box::after {
+    margin-right: -4px !important;
   }
   #urlbar-go-button,
   .search-go-button {
@@ -1694,8 +1805,11 @@ toolbarbutton#feedbackButton {
   .urlbar-input-box::after {
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 49%, rgba(0, 0, 0, 0.5) 50%);
   }
-  #stop-reload-button > toolbarbutton {
-    border-left: 1px solid rgba(0, 0, 0, 0.6) !important;
+  #urlbar-container + #stop-reload-button #stop-button::before {
+    mask-position-x: center !important;
+  }
+  #stop-reload-button #stop-button::before {
+    mask-position-x: center !important;
   }
   #identity-box {
     /*padding-left: 2px !important;
@@ -1747,18 +1861,9 @@ toolbarbutton#feedbackButton {
   }
   #nav-bar #stop-reload-button {
     align-items: center;
-    width: 22px;
   }
   #nav-bar #urlbar-go-button {
-    margin-right: 0 !important;
-    margin-left: 2px !important;
-  }
-  #urlbar-input-container {
-    padding-right: 22px !important;
-  }
-  #urlbar-container + #stop-reload-button {
-    margin-right: -22px;
-    transform: translateX(-24px);
+    margin: 0 !important;
   }
   toolbarbutton#home-button::after, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#bookmarksSidebarButton::after, toolbarbutton#PanelUI-menu-button::after, toolbarbutton#IEMenuButton::after, toolbarbutton#feedbackButton::after, toolbarbutton#downloads-button::after {
     content: unset !important;
@@ -2067,9 +2172,14 @@ html[customizing=true] #addonsBar::after {
   background-image: url(images/go-mask.svg);
   background-repeat: no-repeat;
   background-position: center;
+  width: var(--stop-reload-button_width) !important;
   height: 22px !important;
   border-radius: 0 !important;
   opacity: 0.5;
+}
+
+#urlbar-go-button {
+  order: 2;
 }
 
 .urlbarView-action {
@@ -2675,6 +2785,9 @@ html[customizing=true] #addonsBar::after {
 #tabbrowser-tabs {
   --tab-min-height: var(--tab-height) !important;
 }
+#tabbrowser-tabs[overflow=true] {
+  margin-right: -1px !important;
+}
 #tabbrowser-tabs[overflow=true] #TabsMSEdgeNewTabButton {
   display: none !important;
 }
@@ -2690,6 +2803,7 @@ html[customizing=true] #addonsBar::after {
   border-bottom: 0px !important;
   padding: 0 !important;
   border-radius: var(--tab-border-radius) !important;
+  z-index: 1 !important;
   position: relative;
 }
 #scrollbutton-up::before,
@@ -2698,8 +2812,9 @@ html[customizing=true] #addonsBar::after {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: calc(100% - 2px);
-  height: calc(100% - 1px);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   border-width: 1px;
   border-style: solid;
   border-image-slice: 1;
@@ -2716,6 +2831,10 @@ html[customizing=true] #addonsBar::after {
 #scrollbutton-up .toolbarbutton-icon,
 #scrollbutton-down .toolbarbutton-icon {
   list-style-image: url("images/left.svg") !important;
+}
+
+#scrollbutton-up {
+  margin-right: -1px !important;
 }
 
 #scrollbutton-down {

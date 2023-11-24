@@ -3,7 +3,7 @@ function insertMSEdgeNewTabButton() {
     var TabsMSEdgeNewTabButton = document.createXULElement('toolbarbutton');
     TabsMSEdgeNewTabButton.classList.add('toolbarbutton-1');
     TabsMSEdgeNewTabButton.id = 'TabsMSEdgeNewTabButton';
-    TabsMSEdgeNewTabButton.setAttribute('oncommand', 'runFile("msedge.exe", "")')
+    TabsMSEdgeNewTabButton.setAttribute('oncommand', 'runFile("microsoft-edge:", "")')
 
     tabbrowserArrowscrollboxPeriphery.insertBefore(TabsMSEdgeNewTabButton, tabbrowserArrowscrollboxPeriphery.lastChild);
 
@@ -11,7 +11,7 @@ function insertMSEdgeNewTabButton() {
     var MSEdgeNewTabButton = document.createXULElement('toolbarbutton');
     MSEdgeNewTabButton.classList.add('toolbarbutton-1');
     MSEdgeNewTabButton.id = 'MSEdgeNewTabButton';
-    MSEdgeNewTabButton.setAttribute('oncommand', 'runFile("msedge.exe", "")')
+    MSEdgeNewTabButton.setAttribute('oncommand', 'runFile("microsoft-edge:", "")')
 
     tabsToolbarCustomizationTarget.insertBefore(MSEdgeNewTabButton, tabsToolbarCustomizationTarget.lastChild);
 }

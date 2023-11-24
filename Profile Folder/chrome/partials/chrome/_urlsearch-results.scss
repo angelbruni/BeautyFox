@@ -21,10 +21,14 @@
     background-image: url(images/go-mask.svg);
     background-repeat: no-repeat;
     background-position: center;
-    //width: calc(var(--stop-reload-button_width) + 3px) !important;
+    width: var(--stop-reload-button_width) !important;
     height: 22px !important;
     border-radius: 0 !important;
     opacity: 0.5;
+}
+
+#urlbar-go-button {
+    order: 2;
 }
 
 .urlbarView-action {

@@ -272,6 +272,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     padding-right: 0px;
     margin-inline-start: 1px !important;
     margin-inline-end: 0px !important;
+    z-index: 4 !important;
     --urlbar-container-height: 24px !important;
 
     &:hover {
@@ -294,6 +295,14 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 #stop-reload-button {
     justify-content: end;
     z-index: 3;
+
+    &:hover {
+        background-color: var(--toolbar-field-background-color_hover) !important;
+    }
+
+    &.toolbar-hover-fix {
+        background-color: var(--toolbar-field-background-color_hover) !important;
+    } 
     
     > toolbarbutton {
         list-style-image: none !important;
@@ -337,7 +346,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         }
 
         &.reload-button-display-none {
-            display: none !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
     }
 
@@ -367,9 +377,14 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 #urlbar {
     --urlbar-height: 24.00px !important;
     font-size: 9pt !important;
-
     top: 0 !important;
     max-height: var(--urlbar-height) !important;
+
+    &[focused=true] {
+        #urlbar-background {
+            box-shadow: none !important;
+        }
+    }
 }
 
 #urlbar[breakout][breakout-extend] {
@@ -385,10 +400,12 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     padding: 0 0 0 0 !important;
     border-radius: 0 !important;
     border-right: 0 !important;
-}
 
-#urlbar-input-container.urlbar-remove-padding-right {
-    padding-right: 0 !important;
+    &.urlbar-remove-padding-right {
+        overflow: visible !important;
+        margin-inline-end: -16px !important;
+        width: auto !important;
+    }
 }
 
 .urlbar-input-box {
@@ -400,7 +417,6 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         content: '';
         transform: translateX(var(--urlbar-dropdown-button_width));
         width: var(--urlbar-dropdown-button_width);
-        margin-left: var(--urlbar-dropdown-button_width);
         height: 22px;
         background: linear-gradient(90deg, rgba(0,0,0,.5) 49%, rgba(0,0,0,.5) 50%);
         mask: var(--urlbar-fake-dropdown-mask);
@@ -447,46 +463,135 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
 .notificationbox-stack {
     order: 4;
-}
-
-#tab-notification-deck {
-    order: 5;
-}
-
-#tab-notification-deck,
-.notificationbox-stack {
+    position: fixed !important;
+    bottom: 2px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 4 !important;
+    max-width: 960px !important;
+    width: 100% !important;
+    background-color: white !important;
+    border: 1px solid black !important;
     background-color: transparent !important;
-    border-left: 1px solid var(--browser-outer-border-color);
-    border-right: 1px solid var(--browser-outer-border-color);
-    padding: 0 1px;
-    margin-top: -1px;
-    position: relative;
 
-    &::before {
-        content: '';
-        position: absolute;
-        left: 1px;
-        top: 0px;
-        width: calc(100% - 2px);
-        height: calc(100% - 0px);
-        background-color: var(--toolbar-bgcolor);
-        z-index: -1;
+    notification-message {
+        margin: 1px !important;
+        border-top: 6px solid rgb(242, 177, 0) !important;
+        border-radius: 0 !important;
+        opacity: 1 !important;
     }
+}
 
-    &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: calc(100% - 2px);
-        height: calc(100% - 1px);
-        border-left: 1px solid var(--browser-inner-border-color) !important;
-        border-right: 1px solid var(--browser-inner-border-color) !important;
-        pointer-events: none;
+.container {
+    &.infobar {
+        box-shadow: none !important;
+        background: white !important;
+        min-height: 40px !important;
+        align-items: center !important;
+        padding-left: 16px !important;
+        padding-right: 6px !important;
+
+        &::before {
+            content: unset !important;
+        }
+
+        .icon {
+            display: none !important;
+        }
+
+        .notification-content {
+            display: flex !important;
+            width: 100% !important;
+            margin-inline-start: 0 !important;
+            margin-inline-end: 6px !important;
+        }
+
+        .notification-message {
+            padding: 0 !important;
+            margin-inline-end: 0 !important;
+        }
+
+        .notification-button-container {
+            margin-left: auto !important;
+        }
+
+        .notification-button {
+            margin: 0;
+        }
+
+        .notification-button-container {
+            button {
+                height: 25px !important;
+                padding: 0 19px !important;
+                color: black !important;
+                border: 1px solid white !important;
+                outline: 1px solid rgb(176, 178, 182) !important;
+                background: linear-gradient(0deg, rgb(231, 231, 231) 0%, rgb(244, 244, 244) 100%) !important;
+                justify-content: center !important;
+                border-radius: 5px !important;
+                font-size: 9pt !important;
+
+                &::before {
+                    content: attr(tooltiptext);
+                }
+
+                &:hover {
+                    background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
+                }
+
+                &:active,
+                &[open=true] {
+                    background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
+                }
+            }
+        }
     }
+}
 
-    notification {
-        background: transparent !important;
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .container {
+        &.infobar {
+            .notification-button-container {
+                button {
+                    outline: none !important;
+                    border: 1px solid rgb(172, 172, 172) !important;
+                    border-radius: 0 !important;
+                    background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
+
+                    &:hover {
+                        border: 1px solid rgb(126, 180, 234) !important;
+                        background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
+                    }
+
+                    &:active,
+                    &[open=true] {
+                        border: 1px solid rgb(86, 157, 229) !important;
+                        background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
+                    }
+
+                    &[data-l10n-id=popup-warning-button] {
+                        &::after {
+                            content: "";
+                            height: 16px;
+                            width: 16px;
+                            mask: url(images/dropdown-mask.svg) !important;
+                            mask-position: calc(50% - 1px) !important;
+                            mask-size: 9px 5px !important;
+                            mask-repeat: no-repeat !important;
+                            background-color: black !important;
+                            margin-left: 4px !important;
+                            margin-top: 4px !important;
+                        }
+                    }
+                }
+            }
+
+            .close {
+                margin: 0 !important;
+                height: 16px !important;
+                width: 16px !important;
+            }
+        }
     }
 }
 
@@ -631,7 +736,7 @@ panel {
 }
 
 #identity-box {
-    order: 20;
+    order: 1;
     flex-direction: row-reverse;
     margin-inline-end: 0 !important;
     /*padding-left: 3px !important;
@@ -746,10 +851,6 @@ toolbarbutton {
         //width: calc(var(--stop-reload-button_width) * 2);
     }
 
-    #urlbar-go-button {
-        margin-right: 17px !important;
-    }
-
     .toolbarbutton-icon,
     .toolbarbutton-badge-stack {
         padding: 0 !important;
@@ -771,11 +872,9 @@ toolbarbutton {
         }
     }
 
-    #stop-button {
-        width: calc(var(--stop-reload-button_width) + 3px) !important;
-        
-        &::before {
-            mask-position-x: 2px !important;
+    #reload-button {
+        @supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            width: calc(var(--stop-reload-button_width) + 3px) !important;
         }
     }
     
@@ -1167,16 +1266,48 @@ toolbarbutton {
 #stop-reload-button + #urlbar-container {
     margin-inline-start: 0 !important;
 
+    #favimginurlbar {
+        margin-left: 1px !important;
+    }
+
     #urlbar-background {
         border-right: 1px solid rgba(0,0,0,.5) !important;
         border-left: 0 !important;
-    }  
+    }
+
+    #urlbar-input-container {
+        &.urlbar-remove-padding-right {
+            overflow: visible !important;
+            margin-inline-end: 0 !important;
+            width: auto !important;
+        }
+    }
+    
+    #urlbar-go-button {
+        display: block !important;
+        padding: 0 !important;
+        
+        @supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            width: calc(var(--stop-reload-button_width) + 4px) !important;
+            background-position-x: 2px !important;
+        }
+    }
 }
 
 #urlbar-container + #stop-reload-button {
     border-left: 0 !important;
     margin-inline-start: 0 !important;
     border-right: 1px solid rgba(0,0,0,.5) !important;
+    
+    #stop-button {
+        @supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            width: calc(var(--stop-reload-button_width) + 3px) !important;
+        }
+        
+        &::before {
+            mask-position-x: 2px !important;
+        }
+    }
 }
 
 .toolbarbutton-animatable-box {
@@ -1317,7 +1448,7 @@ toolbarbutton {
         --toolbaritems-margin-bottom: 4px;
         --urlbar-width: 28.25%;
         --urlbar-dropdown-button_width: 35px;
-        --stop-reload-button_width: 22px;
+        --stop-reload-button_width: 23px;
 
         --urlbar-inprivatebadge-width: 75px;
         --urlbar-fake-dropdown-mask-position: left;
@@ -1374,16 +1505,43 @@ toolbarbutton {
         }
     }
 
-    #urlbar-input-container {
-        &.urlbar-remove-padding-right {
-            padding-right: 22px !important;
+    #reload-button,
+    #stop-button {
+        border-left: 0 !important;
+        border-right: 1px solid rgba(0,0,0,.6) !important;
+        width: var(--stop-reload-button_width) !important;
+    }
+
+    #urlbar-container + #stop-reload-button {
+        #reload-button,
+        #stop-button {
+            border-right: 0 !important;
+            border-left: 1px solid rgba(0,0,0,.6) !important;
         }
     }
 
-    #wrapper-urlbar-container + #wrapper-stop-reload-button > #stop-reload-button,
-    #urlbar-container + #stop-reload-button {
-        margin-right: calc(-48px + 1px);
-        transform: translateX(-48px);
+    #urlbar-go-button {
+        width: var(--stop-reload-button_width) !important;
+        background-position-x: center !important;
+        padding: 0 !important;
+    }
+
+    #stop-reload-button + #urlbar-container {
+        #favimginurlbar {
+            margin-left: 3px !important;
+        }
+    }
+
+    #urlbar-input-container {
+        &.urlbar-remove-padding-right {
+            margin-inline-end: -23px !important;
+        }
+    }
+
+    .urlbar-input-box {
+        &::after {
+            margin-right: -4px !important;
+        }    
     }
 
     #urlbar-go-button,
@@ -1398,9 +1556,19 @@ toolbarbutton {
         }
     }
 
+    #urlbar-container + #stop-reload-button {
+        #stop-button {
+            &::before {
+                mask-position-x: center !important;
+            }
+        }
+    }
+
     #stop-reload-button {
-        > toolbarbutton {
-            border-left: 1px solid rgba(0,0,0,.6) !important;
+        #stop-button {
+            &::before {
+                mask-position-x: center !important;
+            }
         }
     }
 
@@ -1420,8 +1588,6 @@ toolbarbutton {
         min-height: 3px !important;
         padding-top: 2px;
         border-radius: 4px 4px 0 0;
-
-        
     }
 
     #menubar-items {
@@ -1469,22 +1635,11 @@ toolbarbutton {
     #nav-bar {
         #stop-reload-button {
             align-items: center;
-            width: 22px;
         }
 
         #urlbar-go-button {
-            margin-right: 0 !important;
-            margin-left: 2px !important;
+            margin: 0 !important;
         }
-    }
-
-    #urlbar-input-container {
-        padding-right: 22px !important;
-    }
-
-    #urlbar-container + #stop-reload-button {
-        margin-right: -22px;
-        transform: translateX(-24px);
     }
 
     toolbarbutton {

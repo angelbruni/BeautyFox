@@ -38,6 +38,8 @@
     --tab-min-height: var(--tab-height) !important;
 
     &[overflow="true"] {
+        margin-right: -1px !important;
+
         #TabsMSEdgeNewTabButton {
             display: none !important;
         }
@@ -56,10 +58,9 @@
     width: 20px !important;
     border: 1px solid var(--tab-border-colour) !important;
     border-bottom: 0px !important;
-
     padding: 0 !important;
     border-radius: var(--tab-border-radius) !important;
-
+    z-index: 1 !important;
     position: relative;
     
     &::before {
@@ -67,8 +68,9 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        width: calc(100% - 2px);
-        height: calc(100% - 1px);
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
         border-width: 1px;
         border-style: solid;
         border-image-slice: 1;
@@ -88,6 +90,10 @@
     .toolbarbutton-icon {
         list-style-image: url("images/left.svg") !important;
     }
+}
+
+#scrollbutton-up {
+    margin-right: -1px !important;
 }
 
 #scrollbutton-down {
