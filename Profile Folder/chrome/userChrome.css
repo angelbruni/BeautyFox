@@ -431,6 +431,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
           mask-position: var(--urlbar-fake-dropdown-mask-position);
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
+  margin-right: 2px;
 }
 
 #urlbar-input {
@@ -822,11 +823,9 @@ toolbarbutton#feedbackButton {
   height: 16px !important;
   width: 16px !important;
 }
-@supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-  #nav-bar #reload-button,
-  #endToolbar #reload-button {
-    width: calc(var(--stop-reload-button_width) + 3px) !important;
-  }
+#nav-bar #reload-button,
+#endToolbar #reload-button {
+  width: var(--stop-reload-button_width) !important;
 }
 #nav-bar toolbarbutton,
 #nav-bar .toolbaritem-combined-buttons,
@@ -2476,9 +2475,17 @@ html[customizing=true] #addonsBar::after {
 }
 
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+  :root {
+    --urlbar-width-calc: calc(26vw + 10px);
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+    :root {
+      --urlbar-width-calc: calc(25vw + 7px);
+    }
+  }
   #urlbar-container {
     flex: unset !important;
-    width: calc(28vw + 7px) !important;
+    width: var(--urlbar-width-calc) !important;
     min-width: var(--urlbar-min-width) !important;
   }
   toolbarpaletteitem#wrapper-urlbar-container {
@@ -3101,7 +3108,7 @@ toolbarbutton#TabsMSEdgeNewTabButton {
     --tab-height: 27px;
   }
   :root:is([privatebrowsingmode=temporary]) #urlbar-container {
-    width: calc(var(--urlbar-inprivatebadge-width) + 28vw + 7px) !important;
+    width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-width-calc)) !important;
     min-width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-min-width)) !important;
   }
   #search-container {

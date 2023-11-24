@@ -422,6 +422,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         mask: var(--urlbar-fake-dropdown-mask);
         mask-position: var(--urlbar-fake-dropdown-mask-position);
         mask-repeat: no-repeat;
+        margin-right: 2px;
     }
 }
 
@@ -884,9 +885,7 @@ toolbarbutton {
     }
 
     #reload-button {
-        @supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-            width: calc(var(--stop-reload-button_width) + 3px) !important;
-        }
+        width: var(--stop-reload-button_width) !important;
     }
     
     toolbarbutton,

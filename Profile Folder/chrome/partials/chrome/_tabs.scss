@@ -390,7 +390,7 @@ toolbarbutton#TabsMSEdgeNewTabButton {
 
         &:is([privatebrowsingmode="temporary"]) {
             #urlbar-container {
-                width: calc(var(--urlbar-inprivatebadge-width) + 28vw + 7px) !important;
+                width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-width-calc)) !important;
                 min-width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-min-width)) !important;
             }
         }

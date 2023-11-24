@@ -333,9 +333,17 @@
 }
 
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+    :root {
+        --urlbar-width-calc: calc(26vw + 10px);
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            --urlbar-width-calc: calc(25vw + 7px);
+        }
+    }
+
     #urlbar-container {
         flex: unset !important;
-        width: calc(28vw + 7px) !important;
+        width: var(--urlbar-width-calc) !important;
         min-width: var(--urlbar-min-width) !important;
     }
 

@@ -1,3 +1,205 @@
+function createAddToBookmarksBarButton() {
+    try {
+        var buttonText = "Add to Favourites Bar";
+    
+        CustomizableUI.createWidget({
+            id: "addToBookmarksBarButton",
+            defaultArea: CustomizableUI.AREA_BOOKMARKS,
+            removable: true,
+            label: buttonText,
+            tooltiptext: buttonText,
+            onCommand: function() {
+                addToBookmarksBar();
+            },
+            onCreated: function(button) {
+                return button;
+            },
+        });
+    }
+    catch (e) {
+        Components.utils.reportError(e);
+    }
+}
+
+function addToBookmarksBar() {
+    var bookmarksSvc = Cc["@mozilla.org/browser/nav-bookmarks-service;1"].getService(Ci.nsINavBookmarksService);
+    bookmarksSvc.insertBookmark(3, gBrowser.currentURI, bookmarksSvc.DEFAULT_INDEX, window.document.title);
+}
+
+function createFavouritesSidebarButton() {
+    try {
+        var button_label = "Open Bookmarks Sidebar";
+    
+        CustomizableUI.createWidget({
+            id: "bookmarksSidebarButton",
+            defaultArea: CustomizableUI.AREA_NAVBAR,
+            removable: true,
+            label: button_label,
+            tooltiptext: button_label,
+            onCommand: function() {
+                SidebarUI.toggle('viewBookmarksSidebar');
+            },
+            onCreated: function(button) {
+                return button;
+            },
+        });
+    }
+    catch (e) {
+        Components.utils.reportError(e);
+    }
+}
+
+function createCBHomeButton() {
+    try {
+        var cbHomeButtonLabel = "Home";
+
+        CustomizableUI.createWidget({
+            id: 'cBHomeButton',
+            defaultArea: CustomizableUI.AREA_BOOKMARKS,
+            removable: true,
+            label: cbHomeButtonLabel,
+            tooltiptext: cbHomeButtonLabel,
+            onCommand: function() {
+                BrowserHome(event);
+            },
+            onCreated: function(button) {
+                return button;
+            },
+        });
+    }
+    catch (e) {
+        Components.utils.reportError(e);
+    }
+}
+
+function createCBPrintButton() {
+    try {
+        var cbPrintButtonLabel = "Print";
+
+        CustomizableUI.createWidget({
+            id: 'cBPrintButton',
+            defaultArea: CustomizableUI.AREA_BOOKMARKS,
+            removable: true,
+            label: cbPrintButtonLabel,
+            tooltiptext: cbPrintButtonLabel,
+            onCommand: function() {
+                PrintUtils.togglePrintPreview(gBrowser.selectedBrowser.browsingContext);
+            },
+            onCreated: function(button) {
+                return button;
+            },
+        });
+    }
+    catch (e) {
+        Components.utils.reportError(e);
+    }
+}
+
+function createCBReadMailButton() {
+    try {
+        var cbReadMailButtonLabel = "Read mail";
+
+        CustomizableUI.createWidget({
+            id: 'cBReadMailButton',
+            defaultArea: CustomizableUI.AREA_BOOKMARKS,
+            removable: true,
+            label: cbReadMailButtonLabel,
+            tooltiptext: cbReadMailButtonLabel,
+            onCommand: function() {
+                _ucUtils.loadURI(window,{
+                    url: 'mailto:',
+                    where: "tab"
+                });;
+            },
+            onCreated: function(button) {
+                return button;
+            },
+        });
+    }
+    catch (e) {
+        Components.utils.reportError(e);
+    }
+}
+
+function mailWithWindowsLive() {
+    _ucUtils.loadURI(window,{
+        url: 'https://outlook.live.com/mail',
+        where: 'tab'
+    });
+}
+
+function translatePage() {
+    // Get the current page URL
+    var currentPageUrl = gBrowser.selectedBrowser.currentURI.spec;
+
+    // Construct the Google Translator URL with the current page URL as the text to translate
+    var translatorUrl = "https://translate.google.com/translate?sl=auto&tl=en&u=" + encodeURIComponent(currentPageUrl);
+
+    _ucUtils.loadURI(window,{
+        url: translatorUrl,
+        where: "tab"
+    });
+}
+
+function findMoreAccelerators() {
+    _ucUtils.loadURI(window,{
+        url: 'https://addons.mozilla.org',
+        where: 'tab'
+    });
+}
+
+function reportUnsafeWebsite() {
+    _ucUtils.loadURI(window,{
+        url: 'https://www.microsoft.com/en-us/wdsi/support/report-unsafe-site',
+        where: 'tab'
+    });
+}
+
+function reportUnsafeWebsite() {
+    _ucUtils.loadURI(window,{
+        url: 'https://www.microsoft.com/en-us/wdsi/support/report-unsafe-site',
+        where: 'tab'
+    });
+}
+
+function toggleMenuBar() {
+    const menuBar = document.getElementById("toolbar-menubar");
+    
+    if (menuBar) {
+        if (menuBar.getAttribute("autohide") === "true") {
+            menuBar.setAttribute("autohide", "false");
+        } else {
+            menuBar.setAttribute("autohide", "true");
+        }
+    }
+};
+
+function createFeedbackButton() {
+    try {
+        var button_label = "Feedback";
+    
+        CustomizableUI.createWidget({
+            id: "feedbackButton",
+            defaultArea: CustomizableUI.AREA_NAVBAR,
+            removable: true,
+            label: button_label,
+            tooltiptext: button_label,
+            onClick: function() {
+                _ucUtils.loadURI(window,{
+                    url: 'chrome://userchrome/content/temppages/discord-invite.html',
+                    where: "tab"
+                });
+            },
+            onCreated: function(button) {
+                return button;
+            },
+        });
+    }
+    catch (e) {
+        Components.utils.reportError(e);
+    }
+}
+
 function createMenu(menuData) {
     const XULNS = 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul';
 
@@ -1024,3 +1226,77 @@ var cBHelpMenu = createMenu({
     ],
 });
 cBHelpMenu.init();
+
+function insertMSEdgeNewTabButton() {
+    var tabbrowserArrowscrollboxPeriphery = document.getElementById('tabbrowser-arrowscrollbox-periphery');
+    var TabsMSEdgeNewTabButton = document.createXULElement('toolbarbutton');
+    TabsMSEdgeNewTabButton.classList.add('toolbarbutton-1');
+    TabsMSEdgeNewTabButton.id = 'TabsMSEdgeNewTabButton';
+    TabsMSEdgeNewTabButton.setAttribute('oncommand', 'runFile("microsoft-edge:", "")')
+
+    tabbrowserArrowscrollboxPeriphery.insertBefore(TabsMSEdgeNewTabButton, tabbrowserArrowscrollboxPeriphery.lastChild);
+
+    var tabsToolbarCustomizationTarget = document.getElementById('TabsToolbar-customization-target');
+    var MSEdgeNewTabButton = document.createXULElement('toolbarbutton');
+    MSEdgeNewTabButton.classList.add('toolbarbutton-1');
+    MSEdgeNewTabButton.id = 'MSEdgeNewTabButton';
+    MSEdgeNewTabButton.setAttribute('oncommand', 'runFile("microsoft-edge:", "")')
+
+    tabsToolbarCustomizationTarget.insertBefore(MSEdgeNewTabButton, tabsToolbarCustomizationTarget.lastChild);
+}
+
+var addStatusbar = {
+    init: function() {
+      if (location != 'chrome://browser/content/browser.xhtml')
+          return;
+        
+      // Blank Tab Workaround
+      try {
+          if(gBrowser.selectedBrowser.getAttribute('blank')) gBrowser.selectedBrowser.removeAttribute('blank');
+      } catch(e) {}
+  
+      try {
+          if (document.getElementById('statusbarContainer') == null) {
+              var statusbarContainer = document.createElement('div');
+              statusbarContainer.id = 'statusbarContainer';
+              document.getElementById('browser').parentNode.appendChild(statusbarContainer);
+  
+              var statusbarBackground = document.createElement('div');
+              statusbarBackground.id = 'statusbarBackground';
+              statusbarContainer.appendChild(statusbarBackground);
+  
+              var statusbarInternetProtectionModeContainer = document.createElement('div');
+              statusbarInternetProtectionModeContainer.id = 'statusbarInternetProtectionModeContainer';
+              var statusbarInternetProtectionMode = document.createElement('p');
+              statusbarInternetProtectionMode.id = 'statusbarInternetProtectionMode';
+              statusbarInternetProtectionMode.textContent = 'Internet';
+              statusbarInternetProtectionModeContainer.appendChild(statusbarInternetProtectionMode);
+              statusbarContainer.appendChild(statusbarInternetProtectionModeContainer);
+              
+              var addonsBarLabel = 'Add-on Bar';
+              var addonsBar = document.createXULElement('toolbar');
+              addonsBar.setAttribute('id','addonsBar');
+              addonsBar.setAttribute('collapsed', 'false');
+              addonsBar.setAttribute('toolbarname', addonsBarLabel);
+              addonsBar.setAttribute('defaultset','spring,spring'); 
+              addonsBar.setAttribute('customizable','true');
+              addonsBar.setAttribute('mode','icons');
+              addonsBar.setAttribute('iconsize','small');
+              addonsBar.setAttribute('context','toolbar-context-menu');
+              addonsBar.setAttribute('lockiconsize','true');
+              addonsBar.setAttribute('class','toolbar-primary chromeclass-toolbar browser-toolbar customization-target');
+              statusbarContainer.appendChild(addonsBar);		
+              CustomizableUI.registerArea('addonsBar', {legacy: true});
+              CustomizableUI.registerToolbarNode(addonsBar);
+  
+              var gripper = document.createElement('img');
+              gripper.id = 'gripper';
+              gripper.height = 16;
+              gripper.width = 16;
+              gripper.src = 'chrome://userchrome/content/resources/aero.msstyles/Toolbars, Headers & Rebar/Toolbars & Headers/Status/Gripper/BottomRight.ico';
+              statusbarContainer.appendChild(gripper);
+          }
+      } catch(e) {}
+    }
+}
+document.addEventListener('DOMContentLoaded', addStatusbar.init(), false);

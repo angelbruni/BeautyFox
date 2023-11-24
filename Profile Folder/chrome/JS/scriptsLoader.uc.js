@@ -18,7 +18,6 @@ function executeFunctions() {
     createFavouritesSidebarButton();
     createAddToBookmarksBarButton()
     moveExtensionsBtn();
-    createCommandBar();
     createCBHomeButton();
     createCBPrintButton();
     createCBReadMailButton()
