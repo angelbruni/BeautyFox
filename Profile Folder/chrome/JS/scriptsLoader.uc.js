@@ -16,6 +16,7 @@ function executeFunctions() {
     addEllipsesSearch();
     insertMSEdgeNewTabButton();
     createFavouritesSidebarButton();
+    createAddToBookmarksBarButton()
     moveExtensionsBtn();
     createCommandBar();
     createCBHomeButton();

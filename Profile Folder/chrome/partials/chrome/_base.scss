@@ -235,7 +235,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     background: transparent !important;
     text-shadow: none !important;
 
-    menu {
+    > menu {
         padding: 0 2px;
 
         &[_moz-menuactive="true"] {
@@ -461,20 +461,30 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     }
 }
 
+#main-window {
+    &[sizemode="maximized"],
+    &[sizemode="fullscreen"] {
+        .notificationbox-stack {
+            bottom: 1px !important;
+        }
+    }
+}
+
 .notificationbox-stack {
-    order: 4;
+    order: 4 !important;
     position: fixed !important;
-    bottom: 2px !important;
+    bottom: 3px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     z-index: 4 !important;
     max-width: 960px !important;
     width: 100% !important;
-    background-color: white !important;
-    border: 1px solid black !important;
-    background-color: transparent !important;
+    background: white !important;
+    overflow: visible !important;
 
     notification-message {
+        outline: 1px solid black !important;
+        outline-offset: 1px !important;
         margin: 1px !important;
         border-top: 6px solid rgb(242, 177, 0) !important;
         border-radius: 0 !important;
@@ -484,8 +494,9 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
 .container {
     &.infobar {
+        border-radius: 0 !important;
         box-shadow: none !important;
-        background: white !important;
+        background: transparent !important;
         min-height: 40px !important;
         align-items: center !important;
         padding-left: 16px !important;
@@ -545,6 +556,12 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                 }
             }
         }
+
+        .close {
+            margin: 0 !important;
+            height: 16px !important;
+            width: 16px !important;
+        }
     }
 }
 
@@ -584,12 +601,6 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                         }
                     }
                 }
-            }
-
-            .close {
-                margin: 0 !important;
-                height: 16px !important;
-                width: 16px !important;
             }
         }
     }
@@ -645,7 +656,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             padding-right: 0 !important;
     
             .toolbarbutton-icon {
-                list-style-image: url("moz-icon:file:///C:/?size=16");
+                list-style-image: url("moz-icon:file:///C:/ProgramData/?size=16");
             }
     
             .toolbarbutton-text {

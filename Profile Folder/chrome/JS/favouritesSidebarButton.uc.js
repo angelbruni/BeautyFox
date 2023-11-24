@@ -8,7 +8,7 @@ function createFavouritesSidebarButton() {
             removable: true,
             label: button_label,
             tooltiptext: button_label,
-            onClick: function() {
+            onCommand: function() {
                 SidebarUI.toggle('viewBookmarksSidebar');
             },
             onCreated: function(button) {

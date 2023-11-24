@@ -282,10 +282,10 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   background: transparent !important;
   text-shadow: none !important;
 }
-#main-menubar menu {
+#main-menubar > menu {
   padding: 0 2px;
 }
-#main-menubar menu[_moz-menuactive=true] {
+#main-menubar > menu[_moz-menuactive=true] {
   color: white !important;
 }
 
@@ -469,20 +469,25 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   pointer-events: none;
 }
 
+#main-window[sizemode=maximized] .notificationbox-stack, #main-window[sizemode=fullscreen] .notificationbox-stack {
+  bottom: 1px !important;
+}
+
 .notificationbox-stack {
-  order: 4;
+  order: 4 !important;
   position: fixed !important;
-  bottom: 2px !important;
+  bottom: 3px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   z-index: 4 !important;
   max-width: 960px !important;
   width: 100% !important;
-  background-color: white !important;
-  border: 1px solid black !important;
-  background-color: transparent !important;
+  background: white !important;
+  overflow: visible !important;
 }
 .notificationbox-stack notification-message {
+  outline: 1px solid black !important;
+  outline-offset: 1px !important;
   margin: 1px !important;
   border-top: 6px solid rgb(242, 177, 0) !important;
   border-radius: 0 !important;
@@ -490,8 +495,9 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 
 .container.infobar {
+  border-radius: 0 !important;
   box-shadow: none !important;
-  background: white !important;
+  background: transparent !important;
   min-height: 40px !important;
   align-items: center !important;
   padding-left: 16px !important;
@@ -539,6 +545,11 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 .container.infobar .notification-button-container button:active, .container.infobar .notification-button-container button[open=true] {
   background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
 }
+.container.infobar .close {
+  margin: 0 !important;
+  height: 16px !important;
+  width: 16px !important;
+}
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
   .container.infobar .notification-button-container button {
@@ -570,11 +581,6 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
     background-color: black !important;
     margin-left: 4px !important;
     margin-top: 4px !important;
-  }
-  .container.infobar .close {
-    margin: 0 !important;
-    height: 16px !important;
-    width: 16px !important;
   }
 }
 #star-button-box {
@@ -629,7 +635,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 #PersonalToolbar .bookmark-item:not(menuitem)[type=menu]:not(#PlacesChevron) .toolbarbutton-icon,
 #PersonalToolbar #star-button-box[type=menu]:not(#PlacesChevron) .toolbarbutton-icon {
-  list-style-image: url("moz-icon:file:///C:/?size=16");
+  list-style-image: url("moz-icon:file:///C:/ProgramData/?size=16");
 }
 #PersonalToolbar .bookmark-item:not(menuitem)[type=menu]:not(#PlacesChevron) .toolbarbutton-text::after,
 #PersonalToolbar #star-button-box[type=menu]:not(#PlacesChevron) .toolbarbutton-text::after {
@@ -3780,6 +3786,9 @@ findbar {
   justify-content: end !important;
 }
 
+#PersonalToolbar toolbarbutton {
+  height: 25px !important;
+}
 #PersonalToolbar #downloads-button {
   padding-left: 4px !important;
   padding-right: 4px !important;
@@ -4276,17 +4285,19 @@ findbar {
   margin-bottom: 2px !important;
 }
 
-#_2556b991-60fd-43ba-ae1a-ddc211a6a264_-BAP {
+#addToBookmarksBarButton {
   align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
 }
-#_2556b991-60fd-43ba-ae1a-ddc211a6a264_-BAP .toolbarbutton-badge-stack {
+#addToBookmarksBarButton .toolbarbutton-icon {
+  height: 16px !important;
+  width: 16px !important;
+  padding: 0 !important;
   background-size: 16px !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_5.ico") !important;
-}
-#_2556b991-60fd-43ba-ae1a-ddc211a6a264_-BAP .toolbarbutton-icon {
-  opacity: 0 !important;
 }
 
 @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
@@ -4445,6 +4456,17 @@ findbar {
 }
 #contentAreaContextMenu #context-sep-navigation {
   margin-left: 0 !important;
+}
+
+.menupopup-arrowscrollbox {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+.menu-iconic {
+  height: 22px !important;
 }
 
 menulist > menupopup {

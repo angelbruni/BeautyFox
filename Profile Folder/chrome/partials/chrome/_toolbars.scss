@@ -502,6 +502,10 @@ findbar {
 }
 
 #PersonalToolbar {
+    toolbarbutton {
+        height: 25px !important;
+    }
+
     #downloads-button {
         padding-left: 4px !important;
         padding-right: 4px !important;
@@ -1106,18 +1110,19 @@ findbar {
     }
 }
 
-#_2556b991-60fd-43ba-ae1a-ddc211a6a264_-BAP {
+#addToBookmarksBarButton {
     align-items: center !important;
+    justify-content: center !important;
+    width: 24px !important;
 
-    .toolbarbutton-badge-stack {
+    .toolbarbutton-icon {
+        height: 16px !important;
+        width: 16px !important;
+        padding: 0 !important;
         background-size: 16px !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
         background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_5.ico") !important;
-    }
-
-    .toolbarbutton-icon {
-        opacity: 0 !important;
     }
 }
 
