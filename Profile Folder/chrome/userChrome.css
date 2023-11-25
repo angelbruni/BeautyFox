@@ -429,6 +429,8 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   margin-right: -31px !important;
   -webkit-mask-image: none !important;
           mask-image: none !important;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 }
 
 #favimginurlbar {
