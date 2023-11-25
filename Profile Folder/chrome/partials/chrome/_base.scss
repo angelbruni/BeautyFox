@@ -50,16 +50,8 @@
 
     --toolbaritems-margin-bottom: 3px;
 
-    --toolbarbutton-blue-colour: rgb(0, 161, 220);
-    --toolbarbutton-blue-colour_hover: rgb(27, 172, 250);
-    --toolbarbutton-yellow-colour: rgb(248, 233, 158);
-    --toolbarbutton-yellow-colour_hover: rgb(246, 222, 123);
-    --toolbarbutton-orange-colour: rgb(255, 204, 0);
-    --toolbarbutton-orange-colour_hover: rgb(252, 180, 5);
-    --toolbarbutton-green-colour: rgb(171, 254, 181);
-    --toolbarbutton-green-colour_hover: rgb(67, 202, 83);
-    --toolbarbutton-red-colour: rgb(254, 171, 171);
-    --toolbarbutton-red-colour_hover: rgb(243, 116, 116);
+    --toolbarbutton-blue-colour_hover: rgb(3, 132, 206);
+
     --toolbarbutton-icon-fill-attention: var(--toolbarbutton-blue-colour_hover) !important;
 
     --toolbar-field-background-color: rgba(254,254,254,.65) !important;
@@ -823,7 +815,9 @@ panel {
 
 toolbarbutton {
     &#feedbackButton {
-        display: none !important;
+        @supports not -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+            display: none !important;
+        }
     }
 }
 
@@ -885,7 +879,13 @@ toolbarbutton {
     }
 
     #reload-button {
-        width: var(--stop-reload-button_width) !important;
+        width: calc(var(--stop-reload-button_width) + 3px) !important;
+    }
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+        #stop-button {
+            width: calc(var(--stop-reload-button_width) + 3px) !important;
+        }
     }
     
     toolbarbutton,
@@ -948,65 +948,49 @@ toolbarbutton {
             background-position: center !important;
             background-repeat: no-repeat !important;
     
-            &::before,
-            &::after {
-                /* ::before - Icon Hover/Active Colour */
-                /* ::after - Icon Gradient Hover/Active */
+            &::before {
                 content: '';
                 mask-repeat: no-repeat;
                 mask-position: center;
                 position: absolute;
-                height: 100%;
-                width: 100%;
-                top: 0;
-                left: 0;
-                transition: opacity .3s steps(5), background-color .3s steps(5);
-            }
-    
-            &::after {
-                opacity: 0;
-                background: linear-gradient(0deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
-                z-index: 2;
-            }
-    
-            &::before {
-                background-color: white;
+                width: 14px; /* Width of each frame */
+                height: 14px; /* Height of each frame */
+                background-image: url('chrome://userchrome/content/images/toolbarbutton-debug-states.png'); /* Replace with the path to your sprite image */
+                background-size: 14px 84px; /* Width x Height of the entire sprite */
+                background-repeat: no-repeat;
+                transition: background-position-y 0.15s steps(4) /* total frames */; /* Transition effect with steps */
+
+                /* Initial position (first frame) */
+                background-position-y: 0;
                 z-index: 1;
             }
     
-            &:hover,
-            &:active {
-                &::before, &::after {
-                    opacity: 1;
+            &:hover {
+                &::before {
+                    background-position-y: -56px; /* Height of each frame * (total frames - 1) */
                 }
             }
     
             &:active,
             &[open="true"] {
                 &::before {
-                    transition: none;
+                    transition: background-position-y 0s steps(1);
+                    background-position-y: -70px; /* Height of each frame * total frames */
                 }
             }
         }
     
         &#home-button {
             background-image: url(images/home.svg);  
-    
-            &::before,
-            &::after {
+
+            &::before {
+                background-image: url('chrome://userchrome/content/images/toolbarbutton-blueIE9-states.png'); /* Replace with the path to your sprite image */
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    background-image: url('chrome://userchrome/content/images/toolbarbutton-blueIE10-states.png'); /* Replace with the path to your sprite image */
+                }
+
                 mask-image: url(images/home-mask.svg);
-            }
-    
-            &:hover {
-                &::before {
-                    background-color: var(--toolbarbutton-blue-colour);
-                }
-            }
-    
-            &:active {
-                &::before {
-                    background-color: var(--toolbarbutton-blue-colour_hover);
-                }
             }
         }
     
@@ -1015,77 +999,42 @@ toolbarbutton {
             background-image: url(images/favorites.svg);
             width: 23px !important;
             
-            &::before,
-            &::after {
+            &::before{
+                background-image: url('chrome://userchrome/content/images/toolbarbutton-yellowIE9-states.png'); /* Replace with the path to your sprite image */
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    background-image: url('chrome://userchrome/content/images/toolbarbutton-yellowIE10-states.png'); /* Replace with the path to your sprite image */
+                }
+
                 mask-image: url(images/favorites-mask.svg);
-            }
-    
-            &::after {
-                background: linear-gradient(0deg, rgba(255, 208, 0, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
-            }
-    
-            &:hover {
-                &::before {
-                    background-color: rgb(244, 180, 21);
-                }
-            }
-    
-            &:active, &[open="true"] {
-                &::before {
-                    background-color: rgb(234, 129, 2);
-                }
             }
         }
     
         &#unified-extensions-button {
             background-image: url(images/extensions.svg);
     
-            &::before,
-            &::after {
+            &::before{
+                background-image: url('chrome://userchrome/content/images/toolbarbutton-greenIE9-states.png'); /* Replace with the path to your sprite image */
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    background-image: url('chrome://userchrome/content/images/toolbarbutton-greenIE10-states.png'); /* Replace with the path to your sprite image */
+                }
+                
                 mask-image: url(images/extensions-mask.svg);
-            }
-    
-            &::after {
-                background: linear-gradient(0deg, rgba(85, 235, 65, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
-            }
-    
-            &:hover {
-                &::before {
-                    background-color: var(--toolbarbutton-green-colour);
-                }
-            }
-    
-            &:active,
-            &[open="true"] {
-                &::before {
-                    background-color: var(--toolbarbutton-green-colour_hover);
-                }
             }
         }
     
         &#downloads-button {
             background-image: url(images/downloads.svg);
             
-            &::before,
-            &::after {
-                mask-image: url(images/downloads-mask.svg);
-            }
-    
-            &:hover {
-                &::before {
-                    background-color: var(--toolbarbutton-blue-colour);
-                }
-            }
-    
-            &:active,
-            &[open="true"] {
-                &::before {
-                    background-color: var(--toolbarbutton-blue-colour_hover);
-                }
-            }
+            &::before {
+                background-image: url('chrome://userchrome/content/images/toolbarbutton-blueIE9-states.png'); /* Replace with the path to your sprite image */
 
-            > .toolbarbutton-badge-stack {
-                opacity: 0 !important;
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    background-image: url('chrome://userchrome/content/images/toolbarbutton-blueIE10-states.png'); /* Replace with the path to your sprite image */
+                }
+                
+                mask-image: url(images/home-mask.svg);
             }
 
             @supports -moz-bool-pref("BeautyFox.option.showDownloadProgress") {
@@ -1124,22 +1073,14 @@ toolbarbutton {
         &#IEMenuButton {
             background-image: url(images/settings.svg);  
             
-            &::before,
-            &::after {
+            &::before {
+                background-image: url('chrome://userchrome/content/images/toolbarbutton-blueIE9-states.png'); /* Replace with the path to your sprite image */
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    background-image: url('chrome://userchrome/content/images/toolbarbutton-blueIE10-states.png'); /* Replace with the path to your sprite image */
+                }
+
                 mask-image: url(images/settings-mask.svg);
-            }
-    
-            &:hover {
-                &::before {
-                    background-color: var(--toolbarbutton-blue-colour);
-                }
-            }
-    
-            &:active,
-            &[open="true"] {
-                &::before {
-                    background-color: var(--toolbarbutton-blue-colour_hover);
-                }
             }
 
             &[badge-status="update-manual"] {
@@ -1167,35 +1108,25 @@ toolbarbutton {
 
         &#feedbackButton {
             background-image: url(images/feedback.svg);
-            width: 23px !important;
             
-            &::before,
-            &::after {
+            &::before {
+                background-image: url('chrome://userchrome/content/images/toolbarbutton-smileyIE11-states.png'); /* Replace with the path to your sprite image */
+
                 mask-image: url(images/feedback-mask.svg);
             }
 
-            &::before {
-                background-color: #ffdb4c;
-                background-image: url(images/feedback.svg);
+            &::after {
+                content: '';
+                position: absolute;
+                height: 14px;
+                width: 14px;
                 background-position: center;
                 background-repeat: no-repeat;
-            }
-    
-            &::after {
-                background: linear-gradient(0deg, rgba(255, 208, 0, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
-            }
-    
-            &:hover {
-                &::before {
-                    background-color: #ffcc00;
-                }
-            }
-    
-            &:active,
-            &[open="true"] {
-                &::before {
-                    background-color: #fff000   ;
-                }
+                background-image: url(images/feedback.svg);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
             }
         }
     }
@@ -1316,6 +1247,20 @@ toolbarbutton {
         
         &::before {
             mask-position-x: 2px !important;
+        }
+    }
+
+    #reload-button {
+        width: var(--stop-reload-button_width) !important;
+    }
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+        #reload-button {
+            width: calc(var(--stop-reload-button_width) + 3px) !important;
+
+            &::before {
+                mask-position-x: 2px !important;
+            }
         }
     }
 }
@@ -1582,11 +1527,6 @@ toolbarbutton {
         }
     }
 
-    #identity-box {
-        /*padding-left: 2px !important;
-        padding-right: 11px !important;*/
-    }
-
     #TabsToolbar {
         margin-bottom: -1px !important;
         z-index: 2;
@@ -1628,13 +1568,6 @@ toolbarbutton {
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     :root {
         --appearance_IE10: 1 !important;
-
-        --toolbarbutton-blue-colour: rgb(0, 161, 220);
-        --toolbarbutton-blue-colour_hover: rgb(3, 132, 206);
-        --toolbarbutton-yellow-colour: rgb(255, 204, 0);
-        --toolbarbutton-yellow-colour_hover: rgb(252, 180, 5);
-        --toolbarbutton-green-colour: rgb(41, 248, 22);
-        --toolbarbutton-green-colour_hover: rgb(53, 211, 39);
     }
 
     #reload-button:not([displaystop]) + #stop-button,
@@ -1653,18 +1586,6 @@ toolbarbutton {
     }
 
     toolbarbutton {
-        &#home-button,
-        &#bookmarks-menu-button,
-        &#bookmarksSidebarButton,
-        &#PanelUI-menu-button,
-        &#IEMenuButton,
-        &#feedbackButton,
-        &#downloads-button {
-            &::after {
-                content: unset !important;
-            }
-        }
-
         &#bookmarks-menu-button,
         &#bookmarksSidebarButton {
             background-image: url(images/favorites-ie10.svg) !important; 
@@ -1684,12 +1605,6 @@ toolbarbutton {
         @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
             :root {
                 --appearance_IE11Win10: 1 !important;
-            }
-
-            toolbarbutton {
-                &#feedbackButton {
-                    display: block !important;
-                }
             }
         }
     }

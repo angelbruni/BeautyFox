@@ -109,16 +109,7 @@ html[lang=ja] {
   --option_hideUnifiedExtensions: 0;
   --option_tabsOnNavRow: 0;
   --toolbaritems-margin-bottom: 3px;
-  --toolbarbutton-blue-colour: rgb(0, 161, 220);
-  --toolbarbutton-blue-colour_hover: rgb(27, 172, 250);
-  --toolbarbutton-yellow-colour: rgb(248, 233, 158);
-  --toolbarbutton-yellow-colour_hover: rgb(246, 222, 123);
-  --toolbarbutton-orange-colour: rgb(255, 204, 0);
-  --toolbarbutton-orange-colour_hover: rgb(252, 180, 5);
-  --toolbarbutton-green-colour: rgb(171, 254, 181);
-  --toolbarbutton-green-colour_hover: rgb(67, 202, 83);
-  --toolbarbutton-red-colour: rgb(254, 171, 171);
-  --toolbarbutton-red-colour_hover: rgb(243, 116, 116);
+  --toolbarbutton-blue-colour_hover: rgb(3, 132, 206);
   --toolbarbutton-icon-fill-attention: var(--toolbarbutton-blue-colour_hover) !important;
   --toolbar-field-background-color: rgba(254,254,254,.65) !important;
   --toolbar-field-background-color_hover: rgba(255,255,255,.8);
@@ -765,8 +756,10 @@ panel {
   list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico") !important;
 }
 
-toolbarbutton#feedbackButton {
-  display: none !important;
+@supports not -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+  toolbarbutton#feedbackButton {
+    display: none !important;
+  }
 }
 
 @supports -moz-bool-pref("BeautyFox.option.showDownloadProgress") {
@@ -825,7 +818,13 @@ toolbarbutton#feedbackButton {
 }
 #nav-bar #reload-button,
 #endToolbar #reload-button {
-  width: var(--stop-reload-button_width) !important;
+  width: calc(var(--stop-reload-button_width) + 3px) !important;
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  #nav-bar #stop-button,
+  #endToolbar #stop-button {
+    width: calc(var(--stop-reload-button_width) + 3px) !important;
+  }
 }
 #nav-bar toolbarbutton,
 #nav-bar .toolbaritem-combined-buttons,
@@ -906,98 +905,6 @@ toolbarbutton#feedbackButton {
   background-position: center !important;
   background-repeat: no-repeat !important;
 }
-#nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarksSidebarButton::before, #nav-bar toolbarbutton#bookmarksSidebarButton::after, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#IEMenuButton::before, #nav-bar toolbarbutton#IEMenuButton::after, #nav-bar toolbarbutton#feedbackButton::before, #nav-bar toolbarbutton#feedbackButton::after, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::before, #nav-bar toolbarbutton#downloads-button::after,
-#nav-bar toolbaritem#home-button::before,
-#nav-bar toolbaritem#home-button::after,
-#nav-bar toolbaritem#bookmarks-menu-button::before,
-#nav-bar toolbaritem#bookmarks-menu-button::after,
-#nav-bar toolbaritem#bookmarksSidebarButton::before,
-#nav-bar toolbaritem#bookmarksSidebarButton::after,
-#nav-bar toolbaritem#PanelUI-menu-button::before,
-#nav-bar toolbaritem#PanelUI-menu-button::after,
-#nav-bar toolbaritem#IEMenuButton::before,
-#nav-bar toolbaritem#IEMenuButton::after,
-#nav-bar toolbaritem#feedbackButton::before,
-#nav-bar toolbaritem#feedbackButton::after,
-#nav-bar toolbaritem#unified-extensions-button::before,
-#nav-bar toolbaritem#unified-extensions-button::after,
-#nav-bar toolbaritem#downloads-button::before,
-#nav-bar toolbaritem#downloads-button::after,
-#endToolbar toolbarbutton#home-button::before,
-#endToolbar toolbarbutton#home-button::after,
-#endToolbar toolbarbutton#bookmarks-menu-button::before,
-#endToolbar toolbarbutton#bookmarks-menu-button::after,
-#endToolbar toolbarbutton#bookmarksSidebarButton::before,
-#endToolbar toolbarbutton#bookmarksSidebarButton::after,
-#endToolbar toolbarbutton#PanelUI-menu-button::before,
-#endToolbar toolbarbutton#PanelUI-menu-button::after,
-#endToolbar toolbarbutton#IEMenuButton::before,
-#endToolbar toolbarbutton#IEMenuButton::after,
-#endToolbar toolbarbutton#feedbackButton::before,
-#endToolbar toolbarbutton#feedbackButton::after,
-#endToolbar toolbarbutton#unified-extensions-button::before,
-#endToolbar toolbarbutton#unified-extensions-button::after,
-#endToolbar toolbarbutton#downloads-button::before,
-#endToolbar toolbarbutton#downloads-button::after,
-#endToolbar toolbaritem#home-button::before,
-#endToolbar toolbaritem#home-button::after,
-#endToolbar toolbaritem#bookmarks-menu-button::before,
-#endToolbar toolbaritem#bookmarks-menu-button::after,
-#endToolbar toolbaritem#bookmarksSidebarButton::before,
-#endToolbar toolbaritem#bookmarksSidebarButton::after,
-#endToolbar toolbaritem#PanelUI-menu-button::before,
-#endToolbar toolbaritem#PanelUI-menu-button::after,
-#endToolbar toolbaritem#IEMenuButton::before,
-#endToolbar toolbaritem#IEMenuButton::after,
-#endToolbar toolbaritem#feedbackButton::before,
-#endToolbar toolbaritem#feedbackButton::after,
-#endToolbar toolbaritem#unified-extensions-button::before,
-#endToolbar toolbaritem#unified-extensions-button::after,
-#endToolbar toolbaritem#downloads-button::before,
-#endToolbar toolbaritem#downloads-button::after {
-  /* ::before - Icon Hover/Active Colour */
-  /* ::after - Icon Gradient Hover/Active */
-  content: "";
-  -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-          mask-position: center;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  transition: opacity 0.3s steps(5), background-color 0.3s steps(5);
-}
-#nav-bar toolbarbutton#home-button::after, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarksSidebarButton::after, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#IEMenuButton::after, #nav-bar toolbarbutton#feedbackButton::after, #nav-bar toolbarbutton#unified-extensions-button::after, #nav-bar toolbarbutton#downloads-button::after,
-#nav-bar toolbaritem#home-button::after,
-#nav-bar toolbaritem#bookmarks-menu-button::after,
-#nav-bar toolbaritem#bookmarksSidebarButton::after,
-#nav-bar toolbaritem#PanelUI-menu-button::after,
-#nav-bar toolbaritem#IEMenuButton::after,
-#nav-bar toolbaritem#feedbackButton::after,
-#nav-bar toolbaritem#unified-extensions-button::after,
-#nav-bar toolbaritem#downloads-button::after,
-#endToolbar toolbarbutton#home-button::after,
-#endToolbar toolbarbutton#bookmarks-menu-button::after,
-#endToolbar toolbarbutton#bookmarksSidebarButton::after,
-#endToolbar toolbarbutton#PanelUI-menu-button::after,
-#endToolbar toolbarbutton#IEMenuButton::after,
-#endToolbar toolbarbutton#feedbackButton::after,
-#endToolbar toolbarbutton#unified-extensions-button::after,
-#endToolbar toolbarbutton#downloads-button::after,
-#endToolbar toolbaritem#home-button::after,
-#endToolbar toolbaritem#bookmarks-menu-button::after,
-#endToolbar toolbaritem#bookmarksSidebarButton::after,
-#endToolbar toolbaritem#PanelUI-menu-button::after,
-#endToolbar toolbaritem#IEMenuButton::after,
-#endToolbar toolbaritem#feedbackButton::after,
-#endToolbar toolbaritem#unified-extensions-button::after,
-#endToolbar toolbaritem#downloads-button::after {
-  opacity: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
-  z-index: 2;
-}
 #nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarksSidebarButton::before, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#IEMenuButton::before, #nav-bar toolbarbutton#feedbackButton::before, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#downloads-button::before,
 #nav-bar toolbaritem#home-button::before,
 #nav-bar toolbaritem#bookmarks-menu-button::before,
@@ -1023,107 +930,48 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#feedbackButton::before,
 #endToolbar toolbaritem#unified-extensions-button::before,
 #endToolbar toolbaritem#downloads-button::before {
-  background-color: white;
+  content: "";
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  position: absolute;
+  width: 14px; /* Width of each frame */
+  height: 14px; /* Height of each frame */
+  background-image: url("chrome://userchrome/content/images/toolbarbutton-debug-states.png"); /* Replace with the path to your sprite image */
+  background-size: 14px 84px; /* Width x Height of the entire sprite */
+  background-repeat: no-repeat;
+  transition: background-position-y 0.15s steps(4); /* Transition effect with steps */
+  /* Initial position (first frame) */
+  background-position-y: 0;
   z-index: 1;
 }
-#nav-bar toolbarbutton#home-button:hover::before, #nav-bar toolbarbutton#home-button:hover::after, #nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button:active::after, #nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarks-menu-button:hover::after, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::after, #nav-bar toolbarbutton#bookmarksSidebarButton:hover::before, #nav-bar toolbarbutton#bookmarksSidebarButton:hover::after, #nav-bar toolbarbutton#bookmarksSidebarButton:active::before, #nav-bar toolbarbutton#bookmarksSidebarButton:active::after, #nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#PanelUI-menu-button:hover::after, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::after, #nav-bar toolbarbutton#IEMenuButton:hover::before, #nav-bar toolbarbutton#IEMenuButton:hover::after, #nav-bar toolbarbutton#IEMenuButton:active::before, #nav-bar toolbarbutton#IEMenuButton:active::after, #nav-bar toolbarbutton#feedbackButton:hover::before, #nav-bar toolbarbutton#feedbackButton:hover::after, #nav-bar toolbarbutton#feedbackButton:active::before, #nav-bar toolbarbutton#feedbackButton:active::after, #nav-bar toolbarbutton#unified-extensions-button:hover::before, #nav-bar toolbarbutton#unified-extensions-button:hover::after, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button:active::after, #nav-bar toolbarbutton#downloads-button:hover::before, #nav-bar toolbarbutton#downloads-button:hover::after, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button:active::after,
+#nav-bar toolbarbutton#home-button:hover::before, #nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarksSidebarButton:hover::before, #nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#IEMenuButton:hover::before, #nav-bar toolbarbutton#feedbackButton:hover::before, #nav-bar toolbarbutton#unified-extensions-button:hover::before, #nav-bar toolbarbutton#downloads-button:hover::before,
 #nav-bar toolbaritem#home-button:hover::before,
-#nav-bar toolbaritem#home-button:hover::after,
-#nav-bar toolbaritem#home-button:active::before,
-#nav-bar toolbaritem#home-button:active::after,
 #nav-bar toolbaritem#bookmarks-menu-button:hover::before,
-#nav-bar toolbaritem#bookmarks-menu-button:hover::after,
-#nav-bar toolbaritem#bookmarks-menu-button:active::before,
-#nav-bar toolbaritem#bookmarks-menu-button:active::after,
 #nav-bar toolbaritem#bookmarksSidebarButton:hover::before,
-#nav-bar toolbaritem#bookmarksSidebarButton:hover::after,
-#nav-bar toolbaritem#bookmarksSidebarButton:active::before,
-#nav-bar toolbaritem#bookmarksSidebarButton:active::after,
 #nav-bar toolbaritem#PanelUI-menu-button:hover::before,
-#nav-bar toolbaritem#PanelUI-menu-button:hover::after,
-#nav-bar toolbaritem#PanelUI-menu-button:active::before,
-#nav-bar toolbaritem#PanelUI-menu-button:active::after,
 #nav-bar toolbaritem#IEMenuButton:hover::before,
-#nav-bar toolbaritem#IEMenuButton:hover::after,
-#nav-bar toolbaritem#IEMenuButton:active::before,
-#nav-bar toolbaritem#IEMenuButton:active::after,
 #nav-bar toolbaritem#feedbackButton:hover::before,
-#nav-bar toolbaritem#feedbackButton:hover::after,
-#nav-bar toolbaritem#feedbackButton:active::before,
-#nav-bar toolbaritem#feedbackButton:active::after,
 #nav-bar toolbaritem#unified-extensions-button:hover::before,
-#nav-bar toolbaritem#unified-extensions-button:hover::after,
-#nav-bar toolbaritem#unified-extensions-button:active::before,
-#nav-bar toolbaritem#unified-extensions-button:active::after,
 #nav-bar toolbaritem#downloads-button:hover::before,
-#nav-bar toolbaritem#downloads-button:hover::after,
-#nav-bar toolbaritem#downloads-button:active::before,
-#nav-bar toolbaritem#downloads-button:active::after,
 #endToolbar toolbarbutton#home-button:hover::before,
-#endToolbar toolbarbutton#home-button:hover::after,
-#endToolbar toolbarbutton#home-button:active::before,
-#endToolbar toolbarbutton#home-button:active::after,
 #endToolbar toolbarbutton#bookmarks-menu-button:hover::before,
-#endToolbar toolbarbutton#bookmarks-menu-button:hover::after,
-#endToolbar toolbarbutton#bookmarks-menu-button:active::before,
-#endToolbar toolbarbutton#bookmarks-menu-button:active::after,
 #endToolbar toolbarbutton#bookmarksSidebarButton:hover::before,
-#endToolbar toolbarbutton#bookmarksSidebarButton:hover::after,
-#endToolbar toolbarbutton#bookmarksSidebarButton:active::before,
-#endToolbar toolbarbutton#bookmarksSidebarButton:active::after,
 #endToolbar toolbarbutton#PanelUI-menu-button:hover::before,
-#endToolbar toolbarbutton#PanelUI-menu-button:hover::after,
-#endToolbar toolbarbutton#PanelUI-menu-button:active::before,
-#endToolbar toolbarbutton#PanelUI-menu-button:active::after,
 #endToolbar toolbarbutton#IEMenuButton:hover::before,
-#endToolbar toolbarbutton#IEMenuButton:hover::after,
-#endToolbar toolbarbutton#IEMenuButton:active::before,
-#endToolbar toolbarbutton#IEMenuButton:active::after,
 #endToolbar toolbarbutton#feedbackButton:hover::before,
-#endToolbar toolbarbutton#feedbackButton:hover::after,
-#endToolbar toolbarbutton#feedbackButton:active::before,
-#endToolbar toolbarbutton#feedbackButton:active::after,
 #endToolbar toolbarbutton#unified-extensions-button:hover::before,
-#endToolbar toolbarbutton#unified-extensions-button:hover::after,
-#endToolbar toolbarbutton#unified-extensions-button:active::before,
-#endToolbar toolbarbutton#unified-extensions-button:active::after,
 #endToolbar toolbarbutton#downloads-button:hover::before,
-#endToolbar toolbarbutton#downloads-button:hover::after,
-#endToolbar toolbarbutton#downloads-button:active::before,
-#endToolbar toolbarbutton#downloads-button:active::after,
 #endToolbar toolbaritem#home-button:hover::before,
-#endToolbar toolbaritem#home-button:hover::after,
-#endToolbar toolbaritem#home-button:active::before,
-#endToolbar toolbaritem#home-button:active::after,
 #endToolbar toolbaritem#bookmarks-menu-button:hover::before,
-#endToolbar toolbaritem#bookmarks-menu-button:hover::after,
-#endToolbar toolbaritem#bookmarks-menu-button:active::before,
-#endToolbar toolbaritem#bookmarks-menu-button:active::after,
 #endToolbar toolbaritem#bookmarksSidebarButton:hover::before,
-#endToolbar toolbaritem#bookmarksSidebarButton:hover::after,
-#endToolbar toolbaritem#bookmarksSidebarButton:active::before,
-#endToolbar toolbaritem#bookmarksSidebarButton:active::after,
 #endToolbar toolbaritem#PanelUI-menu-button:hover::before,
-#endToolbar toolbaritem#PanelUI-menu-button:hover::after,
-#endToolbar toolbaritem#PanelUI-menu-button:active::before,
-#endToolbar toolbaritem#PanelUI-menu-button:active::after,
 #endToolbar toolbaritem#IEMenuButton:hover::before,
-#endToolbar toolbaritem#IEMenuButton:hover::after,
-#endToolbar toolbaritem#IEMenuButton:active::before,
-#endToolbar toolbaritem#IEMenuButton:active::after,
 #endToolbar toolbaritem#feedbackButton:hover::before,
-#endToolbar toolbaritem#feedbackButton:hover::after,
-#endToolbar toolbaritem#feedbackButton:active::before,
-#endToolbar toolbaritem#feedbackButton:active::after,
 #endToolbar toolbaritem#unified-extensions-button:hover::before,
-#endToolbar toolbaritem#unified-extensions-button:hover::after,
-#endToolbar toolbaritem#unified-extensions-button:active::before,
-#endToolbar toolbaritem#unified-extensions-button:active::after,
-#endToolbar toolbaritem#downloads-button:hover::before,
-#endToolbar toolbaritem#downloads-button:hover::after,
-#endToolbar toolbaritem#downloads-button:active::before,
-#endToolbar toolbaritem#downloads-button:active::after {
-  opacity: 1;
+#endToolbar toolbaritem#downloads-button:hover::before {
+  background-position-y: -56px; /* Height of each frame * (total frames - 1) */
 }
 #nav-bar toolbarbutton#home-button:active::before, #nav-bar toolbarbutton#home-button[open=true]::before, #nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button[open=true]::before, #nav-bar toolbarbutton#bookmarksSidebarButton:active::before, #nav-bar toolbarbutton#bookmarksSidebarButton[open=true]::before, #nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbarbutton#IEMenuButton:active::before, #nav-bar toolbarbutton#IEMenuButton[open=true]::before, #nav-bar toolbarbutton#feedbackButton:active::before, #nav-bar toolbarbutton#feedbackButton[open=true]::before, #nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button[open=true]::before, #nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button[open=true]::before,
 #nav-bar toolbaritem#home-button:active::before,
@@ -1174,7 +1022,8 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#unified-extensions-button[open=true]::before,
 #endToolbar toolbaritem#downloads-button:active::before,
 #endToolbar toolbaritem#downloads-button[open=true]::before {
-  transition: none;
+  transition: background-position-y 0s steps(1);
+  background-position-y: -70px; /* Height of each frame * total frames */
 }
 #nav-bar toolbarbutton#home-button,
 #nav-bar toolbaritem#home-button,
@@ -1182,27 +1031,21 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#home-button {
   background-image: url(images/home.svg);
 }
-#nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#home-button::after,
+#nav-bar toolbarbutton#home-button::before,
 #nav-bar toolbaritem#home-button::before,
-#nav-bar toolbaritem#home-button::after,
 #endToolbar toolbarbutton#home-button::before,
-#endToolbar toolbarbutton#home-button::after,
-#endToolbar toolbaritem#home-button::before,
-#endToolbar toolbaritem#home-button::after {
+#endToolbar toolbaritem#home-button::before {
+  background-image: url("chrome://userchrome/content/images/toolbarbutton-blueIE9-states.png"); /* Replace with the path to your sprite image */
   -webkit-mask-image: url(images/home-mask.svg);
           mask-image: url(images/home-mask.svg);
 }
-#nav-bar toolbarbutton#home-button:hover::before,
-#nav-bar toolbaritem#home-button:hover::before,
-#endToolbar toolbarbutton#home-button:hover::before,
-#endToolbar toolbaritem#home-button:hover::before {
-  background-color: var(--toolbarbutton-blue-colour);
-}
-#nav-bar toolbarbutton#home-button:active::before,
-#nav-bar toolbaritem#home-button:active::before,
-#endToolbar toolbarbutton#home-button:active::before,
-#endToolbar toolbaritem#home-button:active::before {
-  background-color: var(--toolbarbutton-blue-colour_hover);
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  #nav-bar toolbarbutton#home-button::before,
+  #nav-bar toolbaritem#home-button::before,
+  #endToolbar toolbarbutton#home-button::before,
+  #endToolbar toolbaritem#home-button::before {
+    background-image: url("chrome://userchrome/content/images/toolbarbutton-blueIE10-states.png"); /* Replace with the path to your sprite image */
+  }
 }
 #nav-bar toolbarbutton#bookmarks-menu-button, #nav-bar toolbarbutton#bookmarksSidebarButton,
 #nav-bar toolbaritem#bookmarks-menu-button,
@@ -1214,54 +1057,27 @@ toolbarbutton#feedbackButton {
   background-image: url(images/favorites.svg);
   width: 23px !important;
 }
-#nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarksSidebarButton::before, #nav-bar toolbarbutton#bookmarksSidebarButton::after,
+#nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarksSidebarButton::before,
 #nav-bar toolbaritem#bookmarks-menu-button::before,
-#nav-bar toolbaritem#bookmarks-menu-button::after,
 #nav-bar toolbaritem#bookmarksSidebarButton::before,
-#nav-bar toolbaritem#bookmarksSidebarButton::after,
 #endToolbar toolbarbutton#bookmarks-menu-button::before,
-#endToolbar toolbarbutton#bookmarks-menu-button::after,
 #endToolbar toolbarbutton#bookmarksSidebarButton::before,
-#endToolbar toolbarbutton#bookmarksSidebarButton::after,
 #endToolbar toolbaritem#bookmarks-menu-button::before,
-#endToolbar toolbaritem#bookmarks-menu-button::after,
-#endToolbar toolbaritem#bookmarksSidebarButton::before,
-#endToolbar toolbaritem#bookmarksSidebarButton::after {
+#endToolbar toolbaritem#bookmarksSidebarButton::before {
+  background-image: url("chrome://userchrome/content/images/toolbarbutton-yellowIE9-states.png"); /* Replace with the path to your sprite image */
   -webkit-mask-image: url(images/favorites-mask.svg);
           mask-image: url(images/favorites-mask.svg);
 }
-#nav-bar toolbarbutton#bookmarks-menu-button::after, #nav-bar toolbarbutton#bookmarksSidebarButton::after,
-#nav-bar toolbaritem#bookmarks-menu-button::after,
-#nav-bar toolbaritem#bookmarksSidebarButton::after,
-#endToolbar toolbarbutton#bookmarks-menu-button::after,
-#endToolbar toolbarbutton#bookmarksSidebarButton::after,
-#endToolbar toolbaritem#bookmarks-menu-button::after,
-#endToolbar toolbaritem#bookmarksSidebarButton::after {
-  background: linear-gradient(0deg, rgba(255, 208, 0, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
-}
-#nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarksSidebarButton:hover::before,
-#nav-bar toolbaritem#bookmarks-menu-button:hover::before,
-#nav-bar toolbaritem#bookmarksSidebarButton:hover::before,
-#endToolbar toolbarbutton#bookmarks-menu-button:hover::before,
-#endToolbar toolbarbutton#bookmarksSidebarButton:hover::before,
-#endToolbar toolbaritem#bookmarks-menu-button:hover::before,
-#endToolbar toolbaritem#bookmarksSidebarButton:hover::before {
-  background-color: rgb(244, 180, 21);
-}
-#nav-bar toolbarbutton#bookmarks-menu-button:active::before, #nav-bar toolbarbutton#bookmarks-menu-button[open=true]::before, #nav-bar toolbarbutton#bookmarksSidebarButton:active::before, #nav-bar toolbarbutton#bookmarksSidebarButton[open=true]::before,
-#nav-bar toolbaritem#bookmarks-menu-button:active::before,
-#nav-bar toolbaritem#bookmarks-menu-button[open=true]::before,
-#nav-bar toolbaritem#bookmarksSidebarButton:active::before,
-#nav-bar toolbaritem#bookmarksSidebarButton[open=true]::before,
-#endToolbar toolbarbutton#bookmarks-menu-button:active::before,
-#endToolbar toolbarbutton#bookmarks-menu-button[open=true]::before,
-#endToolbar toolbarbutton#bookmarksSidebarButton:active::before,
-#endToolbar toolbarbutton#bookmarksSidebarButton[open=true]::before,
-#endToolbar toolbaritem#bookmarks-menu-button:active::before,
-#endToolbar toolbaritem#bookmarks-menu-button[open=true]::before,
-#endToolbar toolbaritem#bookmarksSidebarButton:active::before,
-#endToolbar toolbaritem#bookmarksSidebarButton[open=true]::before {
-  background-color: rgb(234, 129, 2);
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarksSidebarButton::before,
+  #nav-bar toolbaritem#bookmarks-menu-button::before,
+  #nav-bar toolbaritem#bookmarksSidebarButton::before,
+  #endToolbar toolbarbutton#bookmarks-menu-button::before,
+  #endToolbar toolbarbutton#bookmarksSidebarButton::before,
+  #endToolbar toolbaritem#bookmarks-menu-button::before,
+  #endToolbar toolbaritem#bookmarksSidebarButton::before {
+    background-image: url("chrome://userchrome/content/images/toolbarbutton-yellowIE10-states.png"); /* Replace with the path to your sprite image */
+  }
 }
 #nav-bar toolbarbutton#unified-extensions-button,
 #nav-bar toolbaritem#unified-extensions-button,
@@ -1269,36 +1085,21 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#unified-extensions-button {
   background-image: url(images/extensions.svg);
 }
-#nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#unified-extensions-button::after,
+#nav-bar toolbarbutton#unified-extensions-button::before,
 #nav-bar toolbaritem#unified-extensions-button::before,
-#nav-bar toolbaritem#unified-extensions-button::after,
 #endToolbar toolbarbutton#unified-extensions-button::before,
-#endToolbar toolbarbutton#unified-extensions-button::after,
-#endToolbar toolbaritem#unified-extensions-button::before,
-#endToolbar toolbaritem#unified-extensions-button::after {
+#endToolbar toolbaritem#unified-extensions-button::before {
+  background-image: url("chrome://userchrome/content/images/toolbarbutton-greenIE9-states.png"); /* Replace with the path to your sprite image */
   -webkit-mask-image: url(images/extensions-mask.svg);
           mask-image: url(images/extensions-mask.svg);
 }
-#nav-bar toolbarbutton#unified-extensions-button::after,
-#nav-bar toolbaritem#unified-extensions-button::after,
-#endToolbar toolbarbutton#unified-extensions-button::after,
-#endToolbar toolbaritem#unified-extensions-button::after {
-  background: linear-gradient(0deg, rgba(85, 235, 65, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
-}
-#nav-bar toolbarbutton#unified-extensions-button:hover::before,
-#nav-bar toolbaritem#unified-extensions-button:hover::before,
-#endToolbar toolbarbutton#unified-extensions-button:hover::before,
-#endToolbar toolbaritem#unified-extensions-button:hover::before {
-  background-color: var(--toolbarbutton-green-colour);
-}
-#nav-bar toolbarbutton#unified-extensions-button:active::before, #nav-bar toolbarbutton#unified-extensions-button[open=true]::before,
-#nav-bar toolbaritem#unified-extensions-button:active::before,
-#nav-bar toolbaritem#unified-extensions-button[open=true]::before,
-#endToolbar toolbarbutton#unified-extensions-button:active::before,
-#endToolbar toolbarbutton#unified-extensions-button[open=true]::before,
-#endToolbar toolbaritem#unified-extensions-button:active::before,
-#endToolbar toolbaritem#unified-extensions-button[open=true]::before {
-  background-color: var(--toolbarbutton-green-colour_hover);
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  #nav-bar toolbarbutton#unified-extensions-button::before,
+  #nav-bar toolbaritem#unified-extensions-button::before,
+  #endToolbar toolbarbutton#unified-extensions-button::before,
+  #endToolbar toolbaritem#unified-extensions-button::before {
+    background-image: url("chrome://userchrome/content/images/toolbarbutton-greenIE10-states.png"); /* Replace with the path to your sprite image */
+  }
 }
 #nav-bar toolbarbutton#downloads-button,
 #nav-bar toolbaritem#downloads-button,
@@ -1306,36 +1107,21 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#downloads-button {
   background-image: url(images/downloads.svg);
 }
-#nav-bar toolbarbutton#downloads-button::before, #nav-bar toolbarbutton#downloads-button::after,
+#nav-bar toolbarbutton#downloads-button::before,
 #nav-bar toolbaritem#downloads-button::before,
-#nav-bar toolbaritem#downloads-button::after,
 #endToolbar toolbarbutton#downloads-button::before,
-#endToolbar toolbarbutton#downloads-button::after,
-#endToolbar toolbaritem#downloads-button::before,
-#endToolbar toolbaritem#downloads-button::after {
-  -webkit-mask-image: url(images/downloads-mask.svg);
-          mask-image: url(images/downloads-mask.svg);
+#endToolbar toolbaritem#downloads-button::before {
+  background-image: url("chrome://userchrome/content/images/toolbarbutton-blueIE9-states.png"); /* Replace with the path to your sprite image */
+  -webkit-mask-image: url(images/home-mask.svg);
+          mask-image: url(images/home-mask.svg);
 }
-#nav-bar toolbarbutton#downloads-button:hover::before,
-#nav-bar toolbaritem#downloads-button:hover::before,
-#endToolbar toolbarbutton#downloads-button:hover::before,
-#endToolbar toolbaritem#downloads-button:hover::before {
-  background-color: var(--toolbarbutton-blue-colour);
-}
-#nav-bar toolbarbutton#downloads-button:active::before, #nav-bar toolbarbutton#downloads-button[open=true]::before,
-#nav-bar toolbaritem#downloads-button:active::before,
-#nav-bar toolbaritem#downloads-button[open=true]::before,
-#endToolbar toolbarbutton#downloads-button:active::before,
-#endToolbar toolbarbutton#downloads-button[open=true]::before,
-#endToolbar toolbaritem#downloads-button:active::before,
-#endToolbar toolbaritem#downloads-button[open=true]::before {
-  background-color: var(--toolbarbutton-blue-colour_hover);
-}
-#nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack,
-#nav-bar toolbaritem#downloads-button > .toolbarbutton-badge-stack,
-#endToolbar toolbarbutton#downloads-button > .toolbarbutton-badge-stack,
-#endToolbar toolbaritem#downloads-button > .toolbarbutton-badge-stack {
-  opacity: 0 !important;
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  #nav-bar toolbarbutton#downloads-button::before,
+  #nav-bar toolbaritem#downloads-button::before,
+  #endToolbar toolbarbutton#downloads-button::before,
+  #endToolbar toolbaritem#downloads-button::before {
+    background-image: url("chrome://userchrome/content/images/toolbarbutton-blueIE10-states.png"); /* Replace with the path to your sprite image */
+  }
 }
 @supports -moz-bool-pref("BeautyFox.option.showDownloadProgress") {
   #nav-bar toolbarbutton#downloads-button > .toolbarbutton-badge-stack,
@@ -1390,45 +1176,27 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbaritem#IEMenuButton {
   background-image: url(images/settings.svg);
 }
-#nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#PanelUI-menu-button::after, #nav-bar toolbarbutton#IEMenuButton::before, #nav-bar toolbarbutton#IEMenuButton::after,
+#nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#IEMenuButton::before,
 #nav-bar toolbaritem#PanelUI-menu-button::before,
-#nav-bar toolbaritem#PanelUI-menu-button::after,
 #nav-bar toolbaritem#IEMenuButton::before,
-#nav-bar toolbaritem#IEMenuButton::after,
 #endToolbar toolbarbutton#PanelUI-menu-button::before,
-#endToolbar toolbarbutton#PanelUI-menu-button::after,
 #endToolbar toolbarbutton#IEMenuButton::before,
-#endToolbar toolbarbutton#IEMenuButton::after,
 #endToolbar toolbaritem#PanelUI-menu-button::before,
-#endToolbar toolbaritem#PanelUI-menu-button::after,
-#endToolbar toolbaritem#IEMenuButton::before,
-#endToolbar toolbaritem#IEMenuButton::after {
+#endToolbar toolbaritem#IEMenuButton::before {
+  background-image: url("chrome://userchrome/content/images/toolbarbutton-blueIE9-states.png"); /* Replace with the path to your sprite image */
   -webkit-mask-image: url(images/settings-mask.svg);
           mask-image: url(images/settings-mask.svg);
 }
-#nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#IEMenuButton:hover::before,
-#nav-bar toolbaritem#PanelUI-menu-button:hover::before,
-#nav-bar toolbaritem#IEMenuButton:hover::before,
-#endToolbar toolbarbutton#PanelUI-menu-button:hover::before,
-#endToolbar toolbarbutton#IEMenuButton:hover::before,
-#endToolbar toolbaritem#PanelUI-menu-button:hover::before,
-#endToolbar toolbaritem#IEMenuButton:hover::before {
-  background-color: var(--toolbarbutton-blue-colour);
-}
-#nav-bar toolbarbutton#PanelUI-menu-button:active::before, #nav-bar toolbarbutton#PanelUI-menu-button[open=true]::before, #nav-bar toolbarbutton#IEMenuButton:active::before, #nav-bar toolbarbutton#IEMenuButton[open=true]::before,
-#nav-bar toolbaritem#PanelUI-menu-button:active::before,
-#nav-bar toolbaritem#PanelUI-menu-button[open=true]::before,
-#nav-bar toolbaritem#IEMenuButton:active::before,
-#nav-bar toolbaritem#IEMenuButton[open=true]::before,
-#endToolbar toolbarbutton#PanelUI-menu-button:active::before,
-#endToolbar toolbarbutton#PanelUI-menu-button[open=true]::before,
-#endToolbar toolbarbutton#IEMenuButton:active::before,
-#endToolbar toolbarbutton#IEMenuButton[open=true]::before,
-#endToolbar toolbaritem#PanelUI-menu-button:active::before,
-#endToolbar toolbaritem#PanelUI-menu-button[open=true]::before,
-#endToolbar toolbaritem#IEMenuButton:active::before,
-#endToolbar toolbaritem#IEMenuButton[open=true]::before {
-  background-color: var(--toolbarbutton-blue-colour_hover);
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#IEMenuButton::before,
+  #nav-bar toolbaritem#PanelUI-menu-button::before,
+  #nav-bar toolbaritem#IEMenuButton::before,
+  #endToolbar toolbarbutton#PanelUI-menu-button::before,
+  #endToolbar toolbarbutton#IEMenuButton::before,
+  #endToolbar toolbaritem#PanelUI-menu-button::before,
+  #endToolbar toolbaritem#IEMenuButton::before {
+    background-image: url("chrome://userchrome/content/images/toolbarbutton-blueIE10-states.png"); /* Replace with the path to your sprite image */
+  }
 }
 #nav-bar toolbarbutton#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge, #nav-bar toolbarbutton#IEMenuButton[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
 #nav-bar toolbaritem#PanelUI-menu-button[badge-status=update-manual] .toolbarbutton-badge-stack .toolbarbutton-badge,
@@ -1458,47 +1226,30 @@ toolbarbutton#feedbackButton {
 #endToolbar toolbarbutton#feedbackButton,
 #endToolbar toolbaritem#feedbackButton {
   background-image: url(images/feedback.svg);
-  width: 23px !important;
-}
-#nav-bar toolbarbutton#feedbackButton::before, #nav-bar toolbarbutton#feedbackButton::after,
-#nav-bar toolbaritem#feedbackButton::before,
-#nav-bar toolbaritem#feedbackButton::after,
-#endToolbar toolbarbutton#feedbackButton::before,
-#endToolbar toolbarbutton#feedbackButton::after,
-#endToolbar toolbaritem#feedbackButton::before,
-#endToolbar toolbaritem#feedbackButton::after {
-  -webkit-mask-image: url(images/feedback-mask.svg);
-          mask-image: url(images/feedback-mask.svg);
 }
 #nav-bar toolbarbutton#feedbackButton::before,
 #nav-bar toolbaritem#feedbackButton::before,
 #endToolbar toolbarbutton#feedbackButton::before,
 #endToolbar toolbaritem#feedbackButton::before {
-  background-color: #ffdb4c;
-  background-image: url(images/feedback.svg);
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url("chrome://userchrome/content/images/toolbarbutton-smileyIE11-states.png"); /* Replace with the path to your sprite image */
+  -webkit-mask-image: url(images/feedback-mask.svg);
+          mask-image: url(images/feedback-mask.svg);
 }
 #nav-bar toolbarbutton#feedbackButton::after,
 #nav-bar toolbaritem#feedbackButton::after,
 #endToolbar toolbarbutton#feedbackButton::after,
 #endToolbar toolbaritem#feedbackButton::after {
-  background: linear-gradient(0deg, rgba(255, 208, 0, 0.5) 0%, rgba(255, 208, 0, 0) 100%);
-}
-#nav-bar toolbarbutton#feedbackButton:hover::before,
-#nav-bar toolbaritem#feedbackButton:hover::before,
-#endToolbar toolbarbutton#feedbackButton:hover::before,
-#endToolbar toolbaritem#feedbackButton:hover::before {
-  background-color: #ffcc00;
-}
-#nav-bar toolbarbutton#feedbackButton:active::before, #nav-bar toolbarbutton#feedbackButton[open=true]::before,
-#nav-bar toolbaritem#feedbackButton:active::before,
-#nav-bar toolbaritem#feedbackButton[open=true]::before,
-#endToolbar toolbarbutton#feedbackButton:active::before,
-#endToolbar toolbarbutton#feedbackButton[open=true]::before,
-#endToolbar toolbaritem#feedbackButton:active::before,
-#endToolbar toolbaritem#feedbackButton[open=true]::before {
-  background-color: #fff000;
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(images/feedback.svg);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 #nav-bar #PanelUI-button,
 #endToolbar #PanelUI-button {
@@ -1611,6 +1362,17 @@ toolbarbutton#feedbackButton {
 }
 #urlbar-container + #stop-reload-button #stop-button::before {
   mask-position-x: 2px !important;
+}
+#urlbar-container + #stop-reload-button #reload-button {
+  width: var(--stop-reload-button_width) !important;
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+  #urlbar-container + #stop-reload-button #reload-button {
+    width: calc(var(--stop-reload-button_width) + 3px) !important;
+  }
+  #urlbar-container + #stop-reload-button #reload-button::before {
+    mask-position-x: 2px !important;
+  }
 }
 
 .toolbarbutton-animatable-box {
@@ -1816,10 +1578,6 @@ toolbarbutton#feedbackButton {
   #stop-reload-button #stop-button::before {
     mask-position-x: center !important;
   }
-  #identity-box {
-    /*padding-left: 2px !important;
-    padding-right: 11px !important;*/
-  }
   #TabsToolbar {
     margin-bottom: -1px !important;
     z-index: 2;
@@ -1853,12 +1611,6 @@ toolbarbutton#feedbackButton {
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
   :root {
     --appearance_IE10: 1 !important;
-    --toolbarbutton-blue-colour: rgb(0, 161, 220);
-    --toolbarbutton-blue-colour_hover: rgb(3, 132, 206);
-    --toolbarbutton-yellow-colour: rgb(255, 204, 0);
-    --toolbarbutton-yellow-colour_hover: rgb(252, 180, 5);
-    --toolbarbutton-green-colour: rgb(41, 248, 22);
-    --toolbarbutton-green-colour_hover: rgb(53, 211, 39);
   }
   #reload-button:not([displaystop]) + #stop-button,
   #reload-button[displaystop] {
@@ -1869,9 +1621,6 @@ toolbarbutton#feedbackButton {
   }
   #nav-bar #urlbar-go-button {
     margin: 0 !important;
-  }
-  toolbarbutton#home-button::after, toolbarbutton#bookmarks-menu-button::after, toolbarbutton#bookmarksSidebarButton::after, toolbarbutton#PanelUI-menu-button::after, toolbarbutton#IEMenuButton::after, toolbarbutton#feedbackButton::after, toolbarbutton#downloads-button::after {
-    content: unset !important;
   }
   toolbarbutton#bookmarks-menu-button, toolbarbutton#bookmarksSidebarButton {
     background-image: url(images/favorites-ie10.svg) !important;
@@ -1887,9 +1636,6 @@ toolbarbutton#feedbackButton {
     @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
       :root {
         --appearance_IE11Win10: 1 !important;
-      }
-      toolbarbutton#feedbackButton {
-        display: block !important;
       }
     }
   }
