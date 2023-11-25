@@ -818,9 +818,11 @@ panel {
   height: 16px !important;
   width: 16px !important;
 }
-#nav-bar #reload-button,
-#endToolbar #reload-button {
-  width: calc(var(--stop-reload-button_width) + 3px) !important;
+@supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+  #nav-bar #reload-button,
+  #endToolbar #reload-button {
+    width: calc(var(--stop-reload-button_width) + 3px) !important;
+  }
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
   #nav-bar #stop-button,

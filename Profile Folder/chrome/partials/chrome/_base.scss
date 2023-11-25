@@ -881,7 +881,9 @@ toolbarbutton {
     }
 
     #reload-button {
-        width: calc(var(--stop-reload-button_width) + 3px) !important;
+        @supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            width: calc(var(--stop-reload-button_width) + 3px) !important;
+        }
     }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
