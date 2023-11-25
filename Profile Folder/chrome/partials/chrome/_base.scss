@@ -1544,10 +1544,11 @@ toolbarbutton {
             border-radius: 2px 2px 0 0;
             top: var(--tab-height);
             left: 1px;
-            width: calc(100% - 2px);
+            width: 100%;
             height: 2px;
             background-color: white;
             z-index: 1;
+            box-sizing: border-box;
         }
     }
 
