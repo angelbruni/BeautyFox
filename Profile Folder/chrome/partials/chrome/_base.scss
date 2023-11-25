@@ -142,6 +142,15 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
                 margin-bottom: -20px;
             }
         }
+
+        #toolbar-menubar {
+            border-radius: 0 !important;
+
+            &::after {
+                border-radius: 0 !important;
+                width: 100% !important;
+            }
+        }
     }
 
     &[sizemode="fullscreen"],

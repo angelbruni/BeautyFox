@@ -196,6 +196,13 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
     margin-bottom: -20px;
   }
 }
+#main-window[sizemode=maximized] #toolbar-menubar {
+  border-radius: 0 !important;
+}
+#main-window[sizemode=maximized] #toolbar-menubar::after {
+  border-radius: 0 !important;
+  width: 100% !important;
+}
 #main-window[sizemode=fullscreen] #fakeTitlebarSpace, #main-window:not([tabsintitlebar=true]) #fakeTitlebarSpace {
   display: none !important;
 }
