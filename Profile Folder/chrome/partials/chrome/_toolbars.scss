@@ -32,6 +32,15 @@
     border-radius: 0 !important;
 }
 
+#suggestedsites_bruni_com-BAP {
+    &::after {
+        content: url(images/dropdown.png);
+        margin-bottom: 6px;
+        margin-left: 6px;
+        margin-right: 3px;
+    }
+}
+
 #suggestedsites_bruni_com-BAP,
 #unified-extensions-button {
     padding: 3px !important;
