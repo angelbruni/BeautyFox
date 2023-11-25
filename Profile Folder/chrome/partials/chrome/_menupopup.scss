@@ -1,45 +1,76 @@
-menulist > menupopup {
-    background-color: Menu !important;
-}
+toolbarbutton {
+    menupopup {
+        &[placespopup] {
+            --panel-shadow-margin: 0 !important;
+            --panel-background: transparent !important;
+            --panel-color: unset !important;
+            --panel-border-color: transparent !important;
+            --panel-border-radius: 0 !important;
+            --panel-padding: 0 !important;
+            
+            appearance: auto !important;
+            -moz-default-appearance: menupopup !important;
 
-@media not (-moz-windows-non-native-menus) {
-    toolbarbutton menupopup[placespopup] {
-        --panel-shadow-margin: 0px !important;
+            &::part(content) {
+                border: 0 !important;
+            }
+
+            &::part(content),
+            arrowscrollbox {
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            @media not (-moz-windows-non-native-menus) {
+                toolbarbutton menupopup[placespopup] {
+                    --panel-shadow-margin: 0px !important;
+                }
+            }
+
+            menuseparator {
+                appearance: auto !important;
+                margin: 0 !important;
+
+                &::before {
+                    content: unset !important;
+                }
+            }
+
+            > :is(menu, menuitem) {
+                min-height: unset !important;
+                appearance: auto !important;
+                margin: 0 !important;
+                min-height: 0 !important;
+                margin-inline-start: 2px !important;
+                padding-inline-end: 2px !important;
+                padding-inline-start: 1.45em !important;
+                padding: 1px 0 !important;
+
+                :is(.menu-text, .menu-iconic-text, .menu-iconic-icon, .menu-iconic-left, .menu-iconic-accel, .menu-accel-container, .menu-accel, .menu-right) {
+                    margin: unset !important;
+                    appearance: auto !important;
+                }
+
+                .menu-right {
+                    transform: translateX(5px) !important;
+                }
+            }
+
+            > :is(.menu-iconic, .menuitem-iconic) {
+                > .menu-iconic-left {
+                    margin-inline-start: -2px !important;
+                    margin-inline-end: 4px !important;
+                }
+            }
+        }
     }
 }
 
-toolbarbutton menupopup[placespopup] {
-    appearance: auto !important;
-}
-
-toolbarbutton menupopup[placespopup] > :is(menu, menuitem) {
-    appearance: auto !important;
-    padding-inline-end: 24px !important;
-    min-height: 0 !important;
-}
-
-:is(panel, menupopup)::part(content), arrowscrollbox {
-    box-shadow: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-toolbarbutton menupopup[placespopup] menuseparator {
-    appearance: auto !important;
-    margin: 0 !important;
-
-    &::before {
-        content: unset !important;
+menulist {
+    > menupopup {
+        background-color: Menu !important;
     }
-}
-
-toolbarbutton menupopup[placespopup] > :is(menu, menuitem) :is(.menu-text, .menu-iconic-text, .menu-iconic-left, .menu-iconic-accel, .menu-accel, .menu-right) {
-    margin-inline-start: 2px !important;
-    padding-inline-end: 2px !important;
-    padding-inline-start: 1.45em !important;
-    appearance: auto !important;
-    margin: 0 !important;
-    padding: 1px 0 !important;
 }
 
 .menu-right {
@@ -50,3 +81,174 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) :is(.menu-text, .menu
     appearance: auto !important;
     margin-left: 24px !important;
 }
+
+panel {
+    &:is(:not(.cui-widget-panel)) {
+        &.panel-no-padding {
+            --arrowpanel-border-color: rgb(100,100,100) !important;
+            
+            toolbarbutton:is(:not(.panel-subview-footer-button)) {
+                &:hover {
+                    background-color: transparent !important;
+                }
+
+                &#identity-popup-security-button {
+                    color: rgb(0,0,139) !important;
+                    width: fit-content !important;
+
+                    &::after {
+                        content: unset !important;
+                    }
+        
+                    &:hover {
+                        text-decoration: underline !important;
+                        cursor: pointer !important;
+                    }
+
+                    .toolbarbutton-icon {
+                        display: none !important;
+                    }
+
+                    .toolbarbutton-text {
+                        padding: 0 !important;
+                    }
+                }
+            }
+
+            toolbaritem {
+                &.unified-extensions-item {
+                    padding-top: 10px !important;
+                    padding-bottom: 6px !important;
+                }
+            }
+        }
+        
+        &#identity-popup,
+        &#unified-extensions-panel {
+            .panel-header {
+                &::before {
+                    content: '';
+                    width: 32px;
+                    height: 32px;
+                    background-size: 32px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    margin-right: 7px !important;
+                }
+            }
+        }
+        
+        &#identity-popup {
+            .panel-header {
+                &::before {
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/31056.ico');
+                }
+            }
+        }
+
+        &#unified-extensions-panel {
+            .panel-header {
+                &::before {
+                    background-image: url('chrome://userchrome/content/resources/iexplore.exe/Icon Group/32553.ico');
+                }
+            }
+        }
+        
+        #unified-extensions-area {
+            --uei-icon-size: 32px !important;
+        
+            .unified-extensions-item-action-button {
+                &:hover {
+                    cursor: pointer !important;
+        
+                    .unified-extensions-item-name {
+                        text-decoration: underline !important;
+                    }
+                }
+        
+                .unified-extensions-item-name {
+                    color: rgb(0,0,139) !important;
+                }
+            }
+        }
+        
+        .unified-extensions-item-menu-button {
+            display: none !important;
+        }
+        
+        .panel-header {
+            padding: 13px !important;
+        
+            h1 {
+                font-weight: normal !important;
+                font-size: 11pt !important;
+                color: rgb(68,101,162);
+                text-align: left !important;
+            }
+        
+            + toolbarseparator {
+                display: none !important;
+            }
+        }
+        
+        .panel-subview-body {
+            padding: 20px !important;
+            padding-top: 11px !important;
+            padding-bottom: 17px !important;
+        }
+        
+        toolbarseparator {
+            &:last-of-type {
+                width: 100% !important;
+                border-top: 1px solid rgb(227,227,227) !important;
+                margin: 0 !important;
+        
+                + .panel-subview-footer-button {
+                    border-top: 1px solid white !important;
+                }
+            }
+        }
+        
+        .panel-subview-footer-button {
+            margin: 0 !important;
+            height: 36px !important;
+            border-top: 1px solid rgb(227,227,227) !important;
+            background-color: rgb(240,240,240) !important;
+            align-items: center !important;
+        
+            > toolbarseparator:first-of-type {
+                width: 100% !important;
+                border-top: 1px solid white !important;
+                margin: 0 !important;
+            }
+        
+            > toolbarbutton:last-of-type {
+                width: fit-content !important;
+                margin: auto !important;
+                color: rgb(0,0,139) !important;
+                transform: translateY(-1px) !important;
+        
+                &:hover {
+                    text-decoration: underline !important;
+                    cursor: pointer !important;
+                }
+            }
+        }
+        
+        toolbarbutton {
+            &.panel-subview-footer-button {
+                color: rgb(0,0,139) !important;
+        
+                &:hover {
+                    text-decoration: underline !important;
+                    cursor: pointer !important;
+                }
+        
+                .toolbarbutton-text {
+                    text-align: center !important;
+                }
+            }
+        }
+    }
+}
+

@@ -274,3 +274,322 @@ function urlbarContainerBackgroundOnMouseAttrs() {
         stopReloadBtn.classList.remove('toolbar-hover-fix');
     })
 }
+
+// #region windowsOnly
+function openFakeIEAbout() {
+    for (let win of Services.wm.getEnumerator("Browser:AboutIE")) {
+        // Only open one about window
+        if (win.closed) {
+            continue;
+        }
+        win.focus();
+        return;
+    }
+
+    var features = "chrome,centerscreen,dependent";
+
+    window.openDialog('chrome://userchrome/content/windows/aboutIE/aboutIE.xhtml', '', features); 
+}
+function callShellAboutWIE() {
+    // Path to iexplore.exe
+    const szPath = "C:\\Program Files\\Internet Explorer\\iexplore.exe";
+
+    // Define necessary data types
+    const HICON = ctypes.uintptr_t;
+    const HWND = ctypes.voidptr_t;
+
+    // Load the user32 and shell32 libraries
+    const user32 = ctypes.open("user32.dll");
+    const shell32 = ctypes.open("shell32.dll");
+
+    // Define necessary functions from user32 and shell32
+    const ExtractIcon = shell32.declare("ExtractIconW", ctypes.winapi_abi, HICON, ctypes.voidptr_t, ctypes.char16_t.ptr, ctypes.uint32_t);
+    const GetDesktopWindow = user32.declare("GetDesktopWindow", ctypes.winapi_abi, HWND);
+    const ShellAboutW = shell32.declare("ShellAboutW", ctypes.winapi_abi, ctypes.voidptr_t, HWND, ctypes.char16_t.ptr, ctypes.char16_t.ptr, HICON);
+
+    // Get the icon from iexplore.exe
+    const hIcon = ExtractIcon(null, szPath, 0);
+    if (hIcon == 0 || hIcon == ctypes.voidptr_t(0)) {
+        // Handle error if ExtractIcon fails
+        alert("Failed to extract icon from iexplore.exe");
+    } else {
+        // Get the handle to the parent window (use desktop window as parent)
+        const hwndParent = GetDesktopWindow();
+
+        // Set the title and text for the ShellAboutW dialog box
+        const lpszTitle = "Internet Explorer";
+        const lpszText = null;
+        
+        ShellAboutW(hwndParent, lpszTitle, lpszText, hIcon);
+
+        // Destroy the icon handle after using it
+        shell32.close();
+        user32.close();
+    }
+}
+function openAboutIE() {
+    let isIE11Win10 = false;
+    try {
+        isIE11Win10 = Services.prefs.getBoolPref("BeautyFox.appearance.IE11Win10");
+    } catch (error) {}
+
+    if (isIE11Win10) {
+        callShellAboutWIE();
+    } else {
+        openFakeIEAbout();
+    }
+}
+
+function addEllipsesSearch() {
+    setTimeout(() => {
+        if (document.querySelector('.searchbar-textbox')) {
+            const searchPlaceholderClass = document.querySelector('.searchbar-textbox')
+            const searchPlaceholderText = searchPlaceholderClass.getAttribute('placeholder');
+            const SearchPlacegolderTextEllipses = searchPlaceholderText + '...';
+    
+            searchPlaceholderClass.setAttribute('placeholder', SearchPlacegolderTextEllipses.toString());
+        } 
+    }, 0);
+}
+
+function reportUnsafeWebsite() {
+    _ucUtils.loadURI(window,{
+        url: 'https://www.microsoft.com/en-us/wdsi/support/report-unsafe-site',
+        where: 'tab'
+    });
+}
+
+function openBeautyFoxWizardWindow(verifyFirstRun) {
+    if (verifyFirstRun) {
+        let isBeautyFoxFirstRunFinished = false;
+        try {
+            isBeautyFoxFirstRunFinished = Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished");
+        } catch (error) {}
+        
+        if (!isBeautyFoxFirstRunFinished) {
+            Services.prefs.setBoolPref('BeautyFox.parameter.isFirstRunFinished', false)
+
+            launchBeautyFoxWizard();
+        }
+    } else {
+        launchBeautyFoxWizard();
+    }
+}
+function launchBeautyFoxWizard() {
+    var features = "chrome,centerscreen,resizeable=no,dependent,modal";
+    window.openDialog('chrome://userchrome/content/windows/beautyFoxWizard/beautyFoxWizard.xhtml', "BeautyFox Wizard", features); 
+}
+
+function openInternetOptions() {
+    try {
+        if (Services.prefs.getBoolPref("BeautyFox.option.inetcpl")) {
+            openinetcpl();
+        } else {
+            openPreferences();
+        }
+    } catch {
+        openPreferences();
+    }   
+}
+function openinetcpl() {
+    runFile("Rundll32.exe", "shell32.dll,Control_RunDLL inetcpl.cpl")
+}
+
+function runFile(filePath, commandLineArgs) {
+    // Define necessary types
+    const HWND = ctypes.voidptr_t;
+    const LPCWSTR = ctypes.jschar.ptr;
+    const HINSTANCE = ctypes.voidptr_t;
+    const UINT = ctypes.uint32_t;
+    const SW = {
+        SHOWNORMAL: 1
+    };
+
+    // Load shell32.dll
+    const shell32 = ctypes.open("shell32.dll");
+
+    // Declare ShellExecuteW function
+    const ShellExecuteW = shell32.declare(
+        "ShellExecuteW",
+        ctypes.winapi_abi,
+        HINSTANCE,
+        HWND, LPCWSTR, LPCWSTR, LPCWSTR, LPCWSTR, UINT
+    );
+
+    // Convert the path and arguments to wide strings
+    const filePathWide = ctypes.jschar.array()(filePath);
+    const commandLineArgsWide = ctypes.jschar.array()(commandLineArgs);
+
+    // Use ShellExecuteW to start msedge.exe
+    const hInstance = ShellExecuteW(
+        null,
+        "open",
+        filePathWide,
+        commandLineArgsWide,
+        null,
+        SW.SHOWNORMAL
+    );
+
+    // Check if ShellExecuteW was successful
+    if (hInstance <= 32) {
+        // Handle error (you can add your own error-handling code here)
+        // Example: dump("Error starting Edge: " + hInstance.toString() + "\n");
+    }
+
+    // Close the shell32.dll library
+    shell32.close();
+}
+function launchNetworkDiagnostics() {
+	runFile("msdt.exe", "-skip TRUE -path C:\\Windows\\diagnostics\\system\\networking -ep NetworkDiagnosticsConnectivity")
+}
+function openWindowsUpdate() {
+    runFile("control.exe", "/name Microsoft.WindowsUpdate") 
+}
+
+function openWhatsNewIE() {
+    var whatsNewURL = null;
+
+    if (IsIE11Appearance) {
+        whatsNewURL = 'https://betawiki.net/wiki/Internet_Explorer_11';
+    }
+    else if (IsIE10DeveloperPreviewAppearance || IsIE10ConsumerPreviewAppearance || IsIE10ReleasePreviewAppearance || IsIE10Appearance) {
+        whatsNewURL = 'https://betawiki.net/wiki/Internet_Explorer_10';
+    }
+    else {
+        whatsNewURL = 'https://betawiki.net/wiki/Internet_Explorer_9';
+    }
+
+    _ucUtils.loadURI(window,{url: whatsNewURL, where: 'tab'})
+}
+
+function getAndSetTitleBarHeight() {
+	if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS == "WINNT") {
+		// Load User32.dll library
+		const user32 = ctypes.open("user32.dll");
+
+		// Define the GetSystemMetrics function signature
+		const GetSystemMetrics = user32.declare("GetSystemMetrics", ctypes.winapi_abi,
+			ctypes.int32_t,
+			ctypes.int32_t
+		);
+
+		// Get the height of the system title bar (SM_CYCAPTION)
+		var titleBarHeight = GetSystemMetrics(4) - 1;
+
+		// Close the User32.dll library
+		user32.close();
+	} else {
+		var titleBarHeight = 16;
+	}
+
+	var titlebarHeightStyle = document.createElement('style');
+	document.head.appendChild(titlebarHeightStyle);
+
+	titlebarHeightStyle.innerHTML = `
+        :root {
+            --titlebar-height:`+ titleBarHeight + `px;
+        }
+    `
+}
+function getAndSetUserAccentColor() {
+	if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS == "WINNT") {
+		const advapi32 = ctypes.open("advapi32.dll");
+
+		if (!advapi32) {
+			console.error("Failed to load advapi32.dll");
+		} else {
+			const HKEY = ctypes.voidptr_t;
+			const DWORD = ctypes.unsigned_long;
+			const KEY_READ = 0x20019;
+			const LPBYTE = ctypes.voidptr_t;
+			const LPDWORD = ctypes.voidptr_t;
+			const LPCTSTR = ctypes.jschar.ptr;
+
+			const HKEY_CURRENT_USER = ctypes.cast(ctypes.uintptr_t(0x80000001), HKEY);
+			const HKEY_LOCAL_MACHINE = ctypes.cast(ctypes.uintptr_t(0x80000002), HKEY);
+
+			const RegOpenKeyExW = advapi32.declare("RegOpenKeyExW",
+				ctypes.winapi_abi,
+				ctypes.int,
+				HKEY,      // hKey
+				LPCTSTR,   // lpSubKey
+				DWORD,     // ulOptions
+				DWORD,     // samDesired
+				HKEY.ptr); // phkResult
+
+			const RegQueryValueExW = advapi32.declare("RegQueryValueExW",
+				ctypes.winapi_abi,
+				ctypes.int,
+				HKEY,     // hKey
+				LPCTSTR,  // lpValueName
+				LPDWORD,  // lpReserved
+				LPDWORD,  // lpType
+				LPBYTE,   // lpData
+				LPDWORD); // lpcbData
+
+			var hKey = HKEY();
+
+			var result = RegOpenKeyExW(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\DWM", 0, KEY_READ, hKey.address());
+
+			if (result === 0) {
+				var color = DWORD();
+				var size = DWORD();
+				size.value = 4; // Size of a DWORD in bytes
+
+				var queryResult = RegQueryValueExW(hKey, "AccentColor", null, null, color.address(), size.address());
+
+				if (queryResult === 0) {
+					var red = (color.value & 0xFF);
+					var green = ((color.value >> 8) & 0xFF);
+					var blue = ((color.value >> 16) & 0xFF);
+				} else {
+					console.log("Failed to read accent color from registry. RegQueryValueExW error code: " + queryResult);
+				}
+			} else {
+				console.log("Failed to open registry key. RegOpenKeyExW error code: " + result);
+			}
+
+			try {
+				if (Services.prefs.getBoolPref("BeautyFox.option.AWMAccentColorNavButtons")) {
+					var result = RegOpenKeyExW(HKEY_LOCAL_MACHINE, "SOFTWARE\\AWM", 0, KEY_READ, hKey.address());
+					if (result === 0) {
+						// Read and get HKEY_LOCAL_MACHINE\SOFTWARE\AWM\Window_ColorRActive, HKEY_LOCAL_MACHINE\SOFTWARE\AWM\Window_ColorGActive, HKEY_LOCAL_MACHINE\SOFTWARE\AWM\Window_ColorBActive decimal values
+						var rValue = DWORD();
+						var gValue = DWORD();
+						var bValue = DWORD();
+
+						// Assuming these values are DWORDs, adjust the size accordingly if they have different data types
+						var size = DWORD();
+						size.value = 4; // Size of a DWORD in bytes
+
+						// Read R, G, B values
+						var rQueryResult = RegQueryValueExW(hKey, "Window_ColorRActive", null, null, rValue.address(), size.address());
+						var gQueryResult = RegQueryValueExW(hKey, "Window_ColorGActive", null, null, gValue.address(), size.address());
+						var bQueryResult = RegQueryValueExW(hKey, "Window_ColorBActive", null, null, bValue.address(), size.address());
+
+						if (rQueryResult === 0 && gQueryResult === 0 && bQueryResult === 0) {
+							var red = rValue.value;
+							var green = gValue.value;
+							var blue = bValue.value;
+						}
+					}
+				}
+			} catch {
+
+			}
+
+			advapi32.close();
+
+			// Get and set accentColour
+			var accentColorStyle = document.createElement('style');
+			var rgb = red + ',' + green + ',' + blue;
+			accentColorStyle.innerHTML = `
+				:root {
+					--userAccentColor: rgb(`+ rgb + `);
+				}
+			`
+			document.head.appendChild(accentColorStyle);
+		}
+	}
+}
+// #endregion

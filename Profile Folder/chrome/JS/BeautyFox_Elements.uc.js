@@ -37,6 +37,7 @@ function createFavouritesSidebarButton() {
             label: button_label,
             tooltiptext: button_label,
             onCommand: function() {
+                Services.prefs.setBoolPref('sidebar.position_start', false);
                 SidebarUI.toggle('viewBookmarksSidebar');
             },
             onCreated: function(button) {
