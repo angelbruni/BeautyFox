@@ -830,9 +830,9 @@ panel {
     width: calc(var(--stop-reload-button_width) + 3px) !important;
   }
 }
-#nav-bar toolbarbutton,
+#nav-bar toolbarbutton:not(.subviewbutton),
 #nav-bar .toolbaritem-combined-buttons,
-#endToolbar toolbarbutton,
+#endToolbar toolbarbutton:not(.subviewbutton),
 #endToolbar .toolbaritem-combined-buttons {
   height: 24px !important;
   width: 24px !important;
@@ -845,7 +845,7 @@ panel {
 #nav-bar .toolbarbutton-icon,
 #endToolbar .toolbarbutton-icon {
   height: 16px !important;
-  width: 17px !important;
+  width: 16px !important;
 }
 #nav-bar toolbaritem,
 #endToolbar toolbaritem {
@@ -4348,6 +4348,7 @@ panel:is(:not(.cui-widget-panel)) .panel-subview-footer-button {
   border-top: 1px solid rgb(227, 227, 227) !important;
   background-color: rgb(240, 240, 240) !important;
   align-items: center !important;
+  display: flex !important;
 }
 panel:is(:not(.cui-widget-panel)) .panel-subview-footer-button > toolbarseparator:first-of-type {
   width: 100% !important;
@@ -4374,6 +4375,42 @@ panel:is(:not(.cui-widget-panel)) toolbarbutton.panel-subview-footer-button:hove
 }
 panel:is(:not(.cui-widget-panel)) toolbarbutton.panel-subview-footer-button .toolbarbutton-text {
   text-align: center !important;
+}
+panel.cui-widget-panel toolbarbutton {
+  min-height: 24px !important;
+}
+panel.cui-widget-panel toolbarbutton:hover {
+  background-color: -moz-menuhover !important;
+}
+panel.cui-widget-panel toolbarbutton:hover::after {
+  color: white !important;
+}
+panel.cui-widget-panel toolbarbutton:hover label {
+  color: white !important;
+}
+panel.cui-widget-panel toolbarbutton.subviewbutton-nav::after {
+  content: "" !important;
+  -webkit-appearance: menuarrow !important;
+     -moz-appearance: menuarrow !important;
+          appearance: menuarrow !important;
+}
+panel.cui-widget-panel toolbarbutton::after {
+  margin-inline-end: 10px !important;
+}
+panel.cui-widget-panel toolbarbutton label {
+  -webkit-appearance: auto !important;
+     -moz-appearance: auto !important;
+          appearance: auto !important;
+  -moz-default-appearance: menuitemtext !important;
+  margin-inline-start: 2px !important;
+  padding-inline-end: 2px !important;
+}
+panel.cui-widget-panel toolbarseparator {
+  -webkit-appearance: auto !important;
+     -moz-appearance: auto !important;
+          appearance: auto !important;
+  -moz-default-appearance: menuseparator !important;
+  margin: 0 !important;
 }
 
 :root {

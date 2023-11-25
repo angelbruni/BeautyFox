@@ -215,6 +215,7 @@ panel {
             border-top: 1px solid rgb(227,227,227) !important;
             background-color: rgb(240,240,240) !important;
             align-items: center !important;
+            display: flex !important;
         
             > toolbarseparator:first-of-type {
                 width: 100% !important;
@@ -250,5 +251,46 @@ panel {
             }
         }
     }
-}
 
+    &.cui-widget-panel {
+        toolbarbutton {
+            min-height: 24px !important;
+
+            &:hover {
+                background-color: -moz-menuhover !important;
+
+                &::after {
+                    color: white !important;
+                }
+
+                label {
+                    color: white !important;
+                }
+            }
+
+            &.subviewbutton-nav {
+                &::after {
+                    content: '' !important;
+                    appearance: menuarrow !important;
+                }
+            }
+
+            &::after {
+                margin-inline-end: 10px !important;
+            }
+
+            label {
+                appearance: auto !important;
+                -moz-default-appearance: menuitemtext !important;
+                margin-inline-start: 2px !important;
+                padding-inline-end: 2px !important;
+            }
+        }
+
+        toolbarseparator {
+            appearance: auto !important;
+            -moz-default-appearance: menuseparator !important;
+            margin: 0 !important;
+        }
+    }
+}
