@@ -1,3 +1,9 @@
+// ==UserScript==
+// @name			Locale System
+// @description 	Locale system for Firefox themes dependent on userChrome.js.
+// @author			AngelBruni
+// ==/UserScript==
+
 var IsIE9PreReleaseAppearance = false;
 try {
     IsIE9PreReleaseAppearance = Services.prefs.getBoolPref("BeautyFox.appearance.IE9PreRelease");

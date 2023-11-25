@@ -7,7 +7,8 @@
 @namespace html url("http://www.w3.org/1999/xhtml");
 
 /* Example - this creates a small dot to appear in the top left corner of devtools-button popup - but not in any other panel */
-:is(:not(.panel-no-padding)):is(panel, menupopup)[orient="vertical"]::part(content) {
+:is(:not(.panel-no-padding)):is(panel, menupopup)[orient="vertical"]::part(content)/*,
+panel[type="arrow"].panel-no-padding::part(content)*/ {
     background: transparent !important;
     appearance: menupopup;
 }

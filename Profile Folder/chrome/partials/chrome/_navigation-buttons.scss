@@ -11,7 +11,6 @@
             content: '';
             position: absolute;
             left: 3px;
-            top: var(--titlebar-height-calc);
             background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_BACKGROUND_MINIE.png");
             width: 67px;
             height: 35px;
@@ -182,11 +181,6 @@
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
     #main-window {
         #nav-bar {
-            &::before {
-                left: 9px;
-                top: calc(var(--titlebar-height-calc) + 1px);
-            }
-            
             #back-button {
                 margin-left: 9px !important;
                 margin-bottom: -3px !important;

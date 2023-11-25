@@ -14,6 +14,7 @@ var optionAccentToolbars = document.getElementById('accentToolbars');
 var edgeCBParent = document.getElementById('edgeCBParent');
 var optionHideSettingsPopup = document.getElementById('hideSettingsPopup');
 var optionShowDownloadProgress = document.getElementById('showDownloadProgress');
+var optionRemoveTitlebarHeight = document.getElementById('removeTitlebarHeight');
 var optionHideFakeInnerBorders = document.getElementById('hideFakeInnerBorders');
 var optioninetcpl = document.getElementById('inetcpl');
 
@@ -190,6 +191,7 @@ function getCurrentSettings() {
 
     getBoolPrefWithCatch("BeautyFox.option.hideSettingsInPopUp", optionHideSettingsPopup);
     getBoolPrefWithCatch("BeautyFox.option.showDownloadProgress", optionShowDownloadProgress);
+    getBoolPrefWithCatch("BeautyFox.option.removeTitlebarHeight", optionRemoveTitlebarHeight);
     getBoolPrefWithCatch("BeautyFox.option.hideFakeInnerBorders", optionHideFakeInnerBorders);
     getBoolPrefWithCatch("BeautyFox.option.inetcpl", optioninetcpl);
 
@@ -375,6 +377,7 @@ function setOptions() {
 
     Services.prefs.setBoolPref('BeautyFox.option.hideSettingsInPopUp', optionHideSettingsPopup.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.showDownloadProgress', optionShowDownloadProgress.getAttribute('checked') === 'true');
+    Services.prefs.setBoolPref('BeautyFox.option.removeTitlebarHeight', optionRemoveTitlebarHeight.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.hideFakeInnerBorders', optionHideFakeInnerBorders.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.inetcpl', optioninetcpl.getAttribute('checked') === 'true');
 

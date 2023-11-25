@@ -104,8 +104,6 @@
 #newToolbar {
     display: flex;
     align-items: end;
-    appearance: auto;
-    -moz-default-appearance: -moz-window-titlebar;
 }
 
 #PersonalToolbar {
@@ -274,7 +272,8 @@
     }
     
     &[sizemode="fullscreen"] { 
-        #statusbarContainer {
+        #statusbarContainer,
+        #urlbar-zoom-button {
             display: none !important;
         }
     } 
@@ -1131,7 +1130,7 @@ findbar {
         background-size: 16px !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
-        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_5.ico") !important;
+        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_23.ico") !important;
     }
 }
 

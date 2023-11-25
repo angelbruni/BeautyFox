@@ -90,7 +90,6 @@ html[lang=ja] {
   --toolbarbutton-hover-background: transparent !important;
   --toolbarbutton-active-background: transparent !important;
   --toolbarbutton-disabled-opacity: 1 !important;
-  --titlebar-height-calc: calc(var(--titlebar-height) - 2px);
   --urlbar-inprivatebadge-width: 58px;
   --urlbar-box-hover-bgcolor: transparent !important;
   --urlbar-box-active-bgcolor: transparent !important;
@@ -142,11 +141,10 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   -moz-window-dragging: no-drag !important;
 }
 
-#main-window[sizemode=maximized] {
-  --titlebar-height-calc: calc(var(--titlebar-height) + 6px);
-}
-#main-window:not([sizemode=maximized]) .titlebar-buttonbox {
-  top: 4px !important;
+@media (-moz-windows-classic) {
+  :root[tabsintitlebar][sizemode=normal] #toolbar-menubar {
+    margin-top: 0px !important;
+  }
 }
 #main-window[sizemode=maximized] #endToolbar, #main-window[sizemode=fullscreen] #endToolbar {
   padding-right: 3px !important;
@@ -190,8 +188,16 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   width: 100% !important;
   left: 0 !important;
 }
-#main-window[sizemode=fullscreen], #main-window:not([tabsintitlebar=true]) {
-  --titlebar-height: 2px !important;
+#main-window[sizemode=maximized] #fakeTitlebarSpace {
+  margin-bottom: -3px;
+}
+@supports -moz-bool-pref("BeautyFox.option.removeTitlebarHeight") {
+  #main-window[sizemode=maximized] #fakeTitlebarSpace {
+    margin-bottom: -20px;
+  }
+}
+#main-window[sizemode=fullscreen] #fakeTitlebarSpace, #main-window:not([tabsintitlebar=true]) #fakeTitlebarSpace {
+  display: none !important;
 }
 #main-window[sizemode=fullscreen] {
   background: black !important;
@@ -257,6 +263,11 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   border-radius: 2px 2px 0 0;
   z-index: 1;
 }
+@media (-moz-windows-classic) {
+  #toolbar-menubar {
+    background-color: unset !important;
+  }
+}
 #toolbar-menubar[inactive=true] {
   max-height: 2px !important;
 }
@@ -288,9 +299,50 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   display: none;
 }
 
+#fakeTitlebarSpace {
+  -moz-appearance: -moz-window-titlebar;
+       appearance: -moz-window-titlebar;
+  -moz-window-dragging: drag !important;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+@media (-moz-windows-classic) {
+  #fakeTitlebarSpace {
+    align-items: center;
+  }
+}
+@media not (-moz-windows-compositor: 0) {
+  #fakeTitlebarSpace {
+    margin-bottom: -11px;
+  }
+}
+@media (-moz-windows-compositor: 0) {
+  #fakeTitlebarSpace {
+    margin-bottom: -4px;
+  }
+}
+@supports -moz-bool-pref("BeautyFox.option.removeTitlebarHeight") {
+  #fakeTitlebarSpace {
+    margin-bottom: -25px;
+  }
+}
+#fakeTitlebarSpace .titlebar-buttonbox-container:first-of-type {
+  display: none !important;
+}
+
+@supports -moz-bool-pref("BeautyFox.option.removeTitlebarHeight") {
+  #main-window[tabsintitlebar=true] #endToolbar {
+    margin-right: 137px !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+    #main-window[tabsintitlebar=true] #endToolbar > * {
+      transform: translateY(-4px);
+    }
+  }
+}
 #nav-bar {
   background-color: transparent !important;
-  padding-top: var(--titlebar-height-calc) !important;
   -moz-window-dragging: drag !important;
   flex: 1 !important;
 }
@@ -319,6 +371,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #stop-reload-button {
   justify-content: end;
   z-index: 3;
+  height: 24px !important;
 }
 #stop-reload-button:hover {
   background-color: var(--toolbar-field-background-color_hover) !important;
@@ -450,6 +503,11 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   position: relative;
   padding: 0 1px;
   background-color: var(--toolbar-bgcolor) !important;
+}
+@media (-moz-windows-classic) {
+  #PersonalToolbar {
+    background-color: unset !important;
+  }
 }
 #PersonalToolbar::after {
   content: "";
@@ -584,7 +642,13 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #PersonalToolbar {
   padding-right: 1px !important;
 }
-#PersonalToolbar .bookmark-item:not(menuitem),
+#PersonalToolbar .bookmark-item[dragover=true] {
+  color: black !important;
+}
+#PersonalToolbar .bookmark-item[container] {
+  list-style-image: url("moz-icon:file:///C:/ProgramData/?size=16") !important;
+}
+#PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic),
 #PersonalToolbar #star-button-box {
   margin: 2px 0 3px 0 !important;
   padding: 3px !important;
@@ -595,20 +659,20 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
      -moz-appearance: auto !important;
           appearance: auto !important;
 }
-#PersonalToolbar .bookmark-item:not(menuitem):active .toolbarbutton-icon,
-#PersonalToolbar .bookmark-item:not(menuitem):active .toolbarbutton-text, #PersonalToolbar .bookmark-item:not(menuitem)[open=true] .toolbarbutton-icon,
-#PersonalToolbar .bookmark-item:not(menuitem)[open=true] .toolbarbutton-text,
+#PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic):active .toolbarbutton-icon,
+#PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic):active .toolbarbutton-text, #PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic)[open=true] .toolbarbutton-icon,
+#PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic)[open=true] .toolbarbutton-text,
 #PersonalToolbar #star-button-box:active .toolbarbutton-icon,
 #PersonalToolbar #star-button-box:active .toolbarbutton-text,
 #PersonalToolbar #star-button-box[open=true] .toolbarbutton-icon,
 #PersonalToolbar #star-button-box[open=true] .toolbarbutton-text {
   transform: translate(1px, 1px) !important;
 }
-#PersonalToolbar .bookmark-item:not(menuitem)[image*="page-icon:about"] .toolbarbutton-icon,
+#PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic)[image*="page-icon:about"] .toolbarbutton-icon,
 #PersonalToolbar #star-button-box[image*="page-icon:about"] .toolbarbutton-icon {
   display: none;
 }
-#PersonalToolbar .bookmark-item:not(menuitem)[image*="page-icon:about"] .toolbarbutton-text::before,
+#PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic)[image*="page-icon:about"] .toolbarbutton-text::before,
 #PersonalToolbar #star-button-box[image*="page-icon:about"] .toolbarbutton-text::before {
   content: "";
   height: 16px;
@@ -619,19 +683,19 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   background-repeat: no-repeat;
   margin-inline-end: 4px;
 }
-#PersonalToolbar .bookmark-item:not(menuitem)[image*="page-icon:about"] .toolbarbutton-text::after,
+#PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic)[image*="page-icon:about"] .toolbarbutton-text::after,
 #PersonalToolbar #star-button-box[image*="page-icon:about"] .toolbarbutton-text::after {
   content: -moz-label-content;
 }
-#PersonalToolbar .bookmark-item:not(menuitem)[type=menu]:not(#PlacesChevron),
+#PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic)[type=menu]:not(#PlacesChevron),
 #PersonalToolbar #star-button-box[type=menu]:not(#PlacesChevron) {
   padding-right: 0 !important;
 }
-#PersonalToolbar .bookmark-item:not(menuitem)[type=menu]:not(#PlacesChevron) .toolbarbutton-icon,
+#PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic)[type=menu]:not(#PlacesChevron) .toolbarbutton-icon,
 #PersonalToolbar #star-button-box[type=menu]:not(#PlacesChevron) .toolbarbutton-icon {
   list-style-image: url("moz-icon:file:///C:/ProgramData/?size=16");
 }
-#PersonalToolbar .bookmark-item:not(menuitem)[type=menu]:not(#PlacesChevron) .toolbarbutton-text::after,
+#PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic)[type=menu]:not(#PlacesChevron) .toolbarbutton-text::after,
 #PersonalToolbar #star-button-box[type=menu]:not(#PlacesChevron) .toolbarbutton-text::after {
   content: "";
   width: 17px;
@@ -732,7 +796,7 @@ panel {
   transition: background-color 0.3s steps(5);
 }
 #identity-box.verifiedDomain:hover #identity-icon {
-  background-color: var(--toolbarbutton-orange-colour);
+  background-color: rgb(252, 180, 5);
 }
 #identity-box.verifiedDomain:active #identity-icon {
   background-color: var(--toolbarbutton-orange-colour_hover);
@@ -949,6 +1013,35 @@ panel {
   /* Initial position (first frame) */
   background-position-y: 0;
   z-index: 1;
+}
+@media (-moz-windows-classic) {
+  #nav-bar toolbarbutton#home-button::before, #nav-bar toolbarbutton#bookmarks-menu-button::before, #nav-bar toolbarbutton#bookmarksSidebarButton::before, #nav-bar toolbarbutton#PanelUI-menu-button::before, #nav-bar toolbarbutton#IEMenuButton::before, #nav-bar toolbarbutton#feedbackButton::before, #nav-bar toolbarbutton#unified-extensions-button::before, #nav-bar toolbarbutton#downloads-button::before,
+  #nav-bar toolbaritem#home-button::before,
+  #nav-bar toolbaritem#bookmarks-menu-button::before,
+  #nav-bar toolbaritem#bookmarksSidebarButton::before,
+  #nav-bar toolbaritem#PanelUI-menu-button::before,
+  #nav-bar toolbaritem#IEMenuButton::before,
+  #nav-bar toolbaritem#feedbackButton::before,
+  #nav-bar toolbaritem#unified-extensions-button::before,
+  #nav-bar toolbaritem#downloads-button::before,
+  #endToolbar toolbarbutton#home-button::before,
+  #endToolbar toolbarbutton#bookmarks-menu-button::before,
+  #endToolbar toolbarbutton#bookmarksSidebarButton::before,
+  #endToolbar toolbarbutton#PanelUI-menu-button::before,
+  #endToolbar toolbarbutton#IEMenuButton::before,
+  #endToolbar toolbarbutton#feedbackButton::before,
+  #endToolbar toolbarbutton#unified-extensions-button::before,
+  #endToolbar toolbarbutton#downloads-button::before,
+  #endToolbar toolbaritem#home-button::before,
+  #endToolbar toolbaritem#bookmarks-menu-button::before,
+  #endToolbar toolbaritem#bookmarksSidebarButton::before,
+  #endToolbar toolbaritem#PanelUI-menu-button::before,
+  #endToolbar toolbaritem#IEMenuButton::before,
+  #endToolbar toolbaritem#feedbackButton::before,
+  #endToolbar toolbaritem#unified-extensions-button::before,
+  #endToolbar toolbaritem#downloads-button::before {
+    transition: none !important; /* Transition effect with steps */
+  }
 }
 #nav-bar toolbarbutton#home-button:hover::before, #nav-bar toolbarbutton#bookmarks-menu-button:hover::before, #nav-bar toolbarbutton#bookmarksSidebarButton:hover::before, #nav-bar toolbarbutton#PanelUI-menu-button:hover::before, #nav-bar toolbarbutton#IEMenuButton:hover::before, #nav-bar toolbarbutton#feedbackButton:hover::before, #nav-bar toolbarbutton#unified-extensions-button:hover::before, #nav-bar toolbarbutton#downloads-button:hover::before,
 #nav-bar toolbaritem#home-button:hover::before,
@@ -1268,21 +1361,6 @@ panel {
   margin-bottom: 0 !important;
 }
 
-.titlebar-buttonbox {
-  width: 100%;
-  height: 21px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  justify-content: end;
-}
-
-.titlebar-buttonbox-container {
-  position: fixed !important;
-  top: 0;
-  right: 0;
-}
-
 #browser,
 #customization-container {
   background-clip: padding-box;
@@ -1383,23 +1461,45 @@ panel {
   display: none !important;
 }
 
+*|*:root[chromehidden~=toolbar] #nav-bar {
+  margin-inline-end: 1px !important;
+}
 *|*:root[chromehidden~=toolbar] #nav-bar::before {
   content: unset !important;
+}
+*|*:root[chromehidden~=toolbar] #endToolbar {
+  min-width: 0 !important;
 }
 *|*:root[chromehidden~=toolbar] #urlbar-container {
   width: 100vw !important;
 }
+*|*:root[chromehidden~=toolbar] #urlbar-container #urlbar-background {
+  border-right: 1px solid rgba(0, 0, 0, 0.5) !important;
+}
 *|*:root[chromehidden~=toolbar] #urlbar-container #urlbar-input-container {
   padding-right: 0 !important;
+}
+*|*:root[chromehidden~=toolbar] #identity-icon-box {
+  width: calc(var(--stop-reload-button_width) + 4px) !important;
+}
+*|*:root[chromehidden~=toolbar] #navigator-toolbox::after {
+  content: unset !important;
+}
+@supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
+  *|*:root[chromehidden~=toolbar] #browser {
+    padding: 1px 1px 1px 1px !important;
+    border-top: 1px solid var(--browser-outer-border-color);
+    border-radius: 3px 3px 0px 0px !important;
+  }
+  *|*:root[chromehidden~=toolbar] #browser:before {
+    border-top: 1px solid var(--browser-inner-border-color) !important;
+  }
 }
 @supports -moz-bool-pref("BeautyFox.option.hideSettingsInPopUp") {
   *|*:root[chromehidden~=toolbar] #nav-bar {
     padding-right: 0 !important;
   }
   *|*:root[chromehidden~=toolbar] #endToolbar {
-    padding: 0 !important;
-  }
-  *|*:root[chromehidden~=toolbar] #endToolbar toolbarbutton:not(#IEMenuButton) {
     display: none !important;
   }
   *|*:root[chromehidden~=toolbar] #PanelUI-button, *|*:root[chromehidden~=toolbar] #IEMenuButton {
@@ -1501,7 +1601,6 @@ panel {
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
   :root {
     --appearance_IE9PreRelease: 1 !important;
-    --titlebar-height-calc: calc(var(--titlebar-height));
     --toolbaritems-margin-bottom: 4px;
     --urlbar-width: 28.25%;
     --urlbar-dropdown-button_width: 35px;
@@ -1513,9 +1612,6 @@ panel {
     content: "";
     background: url(images/InPrivateBadge9PreRelease.svg);
     margin-left: 2px;
-  }
-  #main-window[sizemode=maximized] {
-    --titlebar-height-calc: calc(var(--titlebar-height) + 8px);
   }
   #navigator-toolbox::after {
     border-bottom: 0;
@@ -1718,9 +1814,6 @@ panel {
   }
 }
 @media (-moz-platform: macos) {
-  :root {
-    --titlebar-height: 8px !important;
-  }
   #newToolbar {
     margin-left: 76px !important;
   }
@@ -1731,6 +1824,7 @@ panel {
     }
   }
   .titlebar-buttonbox-container {
+    position: fixed !important;
     top: 6px !important;
     left: 0 !important;
     width: 0 !important;
@@ -2215,7 +2309,6 @@ html[customizing=true] #addonsBar::after {
   content: "";
   position: absolute;
   left: 3px;
-  top: var(--titlebar-height-calc);
   background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_BACKGROUND_MINIE.png");
   width: 67px;
   height: 35px;
@@ -2359,10 +2452,6 @@ html[customizing=true] #addonsBar::after {
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-  #main-window #nav-bar::before {
-    left: 9px;
-    top: calc(var(--titlebar-height-calc) + 1px);
-  }
   #main-window #nav-bar #back-button {
     margin-left: 9px !important;
     margin-bottom: -3px !important;
@@ -3142,10 +3231,6 @@ toolbarbutton#TabsMSEdgeNewTabButton {
 #newToolbar {
   display: flex;
   align-items: end;
-  -webkit-appearance: auto;
-     -moz-appearance: auto;
-          appearance: auto;
-  -moz-default-appearance: -moz-window-titlebar;
 }
 
 #PersonalToolbar toolbaritem:first-of-type {
@@ -3288,7 +3373,8 @@ toolbarbutton#TabsMSEdgeNewTabButton {
   width: 100%;
   height: 100%;
 }
-#main-window[sizemode=fullscreen] #statusbarContainer {
+#main-window[sizemode=fullscreen] #statusbarContainer,
+#main-window[sizemode=fullscreen] #urlbar-zoom-button {
   display: none !important;
 }
 
@@ -4011,7 +4097,7 @@ findbar {
   background-size: 16px !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_5.ico") !important;
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_23.ico") !important;
 }
 
 @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
@@ -4162,8 +4248,9 @@ findbar {
 #contentAreaContextMenu #context-navigation > menuitem::after {
   content: attr(aria-label);
   margin-inline-start: 2px !important;
-  padding-inline-end: 2px;
-  padding-inline-start: 30px !important;
+  -webkit-appearance: menuitemtext !important;
+     -moz-appearance: menuitemtext !important;
+          appearance: menuitemtext !important;
 }
 #contentAreaContextMenu #context-navigation > menuitem .menu-iconic-left {
   display: none !important;
@@ -4181,6 +4268,20 @@ findbar {
 
 .menu-iconic {
   height: 22px !important;
+}
+
+@media (-moz-windows-classic) {
+  menupopup {
+    padding: 1px !important;
+    border: 2px solid transparent !important;
+    border-image-source: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiIGZpbGw9IlRocmVlRERhcmtTaGFkb3ciLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSJUaHJlZURMaWdodFNoYWRvdyIvPjxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IlRocmVlRFNoYWRvdyIvPjxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IlRocmVlREhpZ2hsaWdodCIvPjxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IlRocmVlREZhY2UiLz48L3N2Zz4=") !important;
+    border-image-slice: 2 !important;
+    border-image-width: 2px !important;
+    border-image-repeat: repeat !important;
+  }
+}
+:root {
+  --arrowpanel-background: white !important;
 }
 
 toolbarbutton menupopup[placespopup] {
@@ -4244,6 +4345,24 @@ toolbarbutton menupopup[placespopup] > :is(.menu-iconic, .menuitem-iconic) > .me
   margin-inline-end: 4px !important;
 }
 
+#appMenu-protonMainView {
+  background-color: transparent !important;
+}
+
+#appMenu-zoom-controls .toolbarbutton-text {
+  -webkit-appearance: menuitemtext !important;
+     -moz-appearance: menuitemtext !important;
+          appearance: menuitemtext !important;
+  margin-inline-start: 2px !important;
+}
+
+#appMenu-fxa-text {
+  -webkit-appearance: menuitemtext !important;
+     -moz-appearance: menuitemtext !important;
+          appearance: menuitemtext !important;
+  margin-inline-start: 2px !important;
+}
+
 menulist > menupopup {
   background-color: Menu !important;
 }
@@ -4277,6 +4396,9 @@ panel:is(:not(.cui-widget-panel)).panel-no-padding toolbarbutton:is(:not(.panel-
   text-decoration: underline !important;
   cursor: pointer !important;
 }
+panel:is(:not(.cui-widget-panel)).panel-no-padding toolbarbutton:is(:not(.panel-subview-footer-button))#identity-popup-security-button:hover .identity-popup-connection-secure {
+  text-decoration: underline !important;
+}
 panel:is(:not(.cui-widget-panel)).panel-no-padding toolbarbutton:is(:not(.panel-subview-footer-button))#identity-popup-security-button .toolbarbutton-icon {
   display: none !important;
 }
@@ -4299,8 +4421,11 @@ panel:is(:not(.cui-widget-panel))#identity-popup .panel-header::before, panel:is
 panel:is(:not(.cui-widget-panel))#identity-popup .panel-header::before {
   background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31056.ico");
 }
+panel:is(:not(.cui-widget-panel))#identity-popup .subviewbutton-back {
+  display: none !important;
+}
 panel:is(:not(.cui-widget-panel))#unified-extensions-panel .panel-header::before {
-  background-image: url("chrome://userchrome/content/resources/iexplore.exe/Icon Group/32553.ico");
+  background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697_30.png");
 }
 panel:is(:not(.cui-widget-panel)) #unified-extensions-area {
   --uei-icon-size: 32px !important;
@@ -4411,6 +4536,10 @@ panel.cui-widget-panel toolbarseparator {
           appearance: auto !important;
   -moz-default-appearance: menuseparator !important;
   margin: 0 !important;
+}
+panel .panel-viewcontainer,
+panel .panel-viewstack {
+  transition: none !important;
 }
 
 :root {

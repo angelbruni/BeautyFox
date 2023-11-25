@@ -1,3 +1,9 @@
+// ==UserScript==
+// @name			BeautyFox Tweaks
+// @description 	Changes some Firefox functionality to work more lie Internet Explorer.
+// @author			AngelBruni
+// ==/UserScript==
+
 function downloadsButton() {
     var downloadsButton = document.getElementById('downloads-button');
     downloadsButton.setAttribute('onmousedown','');
@@ -275,6 +281,31 @@ function urlbarContainerBackgroundOnMouseAttrs() {
     })
 }
 
+function createFakeTitlebarSpace() {
+    // Create a new div element
+    var fakeTitlebarSpace = document.createElement("vbox");
+
+    // Set some properties for the new div (optional)
+    fakeTitlebarSpace.id = "fakeTitlebarSpace";
+
+    // Get the reference to the parent element
+    var parentElement = document.querySelector("#navigator-toolbox-background");
+
+    // Insert the new div before the #navigator-toolbox-background element
+    parentElement.parentNode.insertBefore(fakeTitlebarSpace, parentElement);
+
+    // Check if the user agent is not macOS
+    if (!navigator.userAgent.includes("Macintosh")) {
+        // Get all elements with the class "titlebar-buttonbox-container"
+        var titlebarButtonboxContainers = document.querySelectorAll(".titlebar-buttonbox-container");
+
+        // Move each element to the new div
+        titlebarButtonboxContainers.forEach(function(element) {
+            fakeTitlebarSpace.appendChild(element);
+        });
+    }
+}
+
 // #region windowsOnly
 function openFakeIEAbout() {
     for (let win of Services.wm.getEnumerator("Browser:AboutIE")) {
@@ -462,35 +493,6 @@ function openWhatsNewIE() {
     _ucUtils.loadURI(window,{url: whatsNewURL, where: 'tab'})
 }
 
-function getAndSetTitleBarHeight() {
-	if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS == "WINNT") {
-		// Load User32.dll library
-		const user32 = ctypes.open("user32.dll");
-
-		// Define the GetSystemMetrics function signature
-		const GetSystemMetrics = user32.declare("GetSystemMetrics", ctypes.winapi_abi,
-			ctypes.int32_t,
-			ctypes.int32_t
-		);
-
-		// Get the height of the system title bar (SM_CYCAPTION)
-		var titleBarHeight = GetSystemMetrics(4) - 1;
-
-		// Close the User32.dll library
-		user32.close();
-	} else {
-		var titleBarHeight = 16;
-	}
-
-	var titlebarHeightStyle = document.createElement('style');
-	document.head.appendChild(titlebarHeightStyle);
-
-	titlebarHeightStyle.innerHTML = `
-        :root {
-            --titlebar-height:`+ titleBarHeight + `px;
-        }
-    `
-}
 function getAndSetUserAccentColor() {
 	if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS == "WINNT") {
 		const advapi32 = ctypes.open("advapi32.dll");

@@ -1,9 +1,14 @@
+// ==UserScript==
+// @name			BeautyFox Functions Loader
+// @description 	Loads functions after "load" so no issues arise.
+// @author			AngelBruni
+// ==/UserScript==
+
 // This is so we can use ctypes later.
 const { ctypes } = ChromeUtils.import("resource://gre/modules/ctypes.jsm");
 
 function executeFunctions() {
     openBeautyFoxWizardWindow(true);
-    getAndSetTitleBarHeight();
     getAndSetUserAccentColor();
     setnavButtonsRadius();
     createFeedbackButton();
@@ -23,6 +28,7 @@ function executeFunctions() {
     createCBReadMailButton()
     downloadsButton();
     convertCheckboxesToNativeLook();
+    createFakeTitlebarSpace();
     loadLocale();
     console.info("Functions executed.");
 }

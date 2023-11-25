@@ -1,4 +1,6 @@
 // ==UserScript==
+// @name			Internet Explorer 9+ Downloads Window
+// @description 	Styles the Downloads window to resemble the one from Internet Explorer 9+.
 // @include			chrome://browser/content/places/places.xhtml
 // ==/UserScript==
 

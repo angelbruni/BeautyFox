@@ -1,3 +1,9 @@
+// ==UserScript==
+// @name			BeautyFox Elements
+// @description 	Adds a bunch of elements such as buttons, menus, etc...
+// @author			AngelBruni
+// ==/UserScript==
+
 function createAddToBookmarksBarButton() {
     try {
         var buttonText = "Add to Favourites Bar";

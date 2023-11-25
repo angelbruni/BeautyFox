@@ -1,3 +1,7 @@
+:root {
+    --arrowpanel-background: white !important;
+}
+
 toolbarbutton {
     menupopup {
         &[placespopup] {
@@ -67,6 +71,22 @@ toolbarbutton {
     }
 }
 
+#appMenu-protonMainView {
+    background-color: transparent !important;
+}
+
+#appMenu-zoom-controls {
+    .toolbarbutton-text {
+        appearance: menuitemtext !important;
+        margin-inline-start: 2px !important;
+    }
+}
+
+#appMenu-fxa-text {
+    appearance: menuitemtext !important;
+    margin-inline-start: 2px !important;
+}
+
 menulist {
     > menupopup {
         background-color: Menu !important;
@@ -103,6 +123,10 @@ panel {
                     &:hover {
                         text-decoration: underline !important;
                         cursor: pointer !important;
+
+                        .identity-popup-connection-secure {
+                            text-decoration: underline !important;
+                        }
                     }
 
                     .toolbarbutton-icon {
@@ -144,12 +168,16 @@ panel {
                     background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/31056.ico');
                 }
             }
+
+            .subviewbutton-back {
+                display: none !important;
+            }
         }
 
         &#unified-extensions-panel {
             .panel-header {
                 &::before {
-                    background-image: url('chrome://userchrome/content/resources/iexplore.exe/Icon Group/32553.ico');
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697_30.png');
                 }
             }
         }
@@ -292,5 +320,10 @@ panel {
             -moz-default-appearance: menuseparator !important;
             margin: 0 !important;
         }
+    }
+
+    .panel-viewcontainer,
+    .panel-viewstack {
+        transition: none !important;
     }
 }

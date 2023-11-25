@@ -1,5 +1,7 @@
 // ==UserScript==
-// @include			chrome://mozapps/content/downloads/unknownContentType.xhtml
+// @name			    Internet Explorer 9+ Confirm Download Window
+// @description 	Styles the Confirm download window to resemble the one from Internet Explorer 9+.
+// @include			  chrome://mozapps/content/downloads/unknownContentType.xhtml
 // ==/UserScript==
 
 (function () {
