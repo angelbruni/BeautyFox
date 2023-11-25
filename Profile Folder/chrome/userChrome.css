@@ -796,10 +796,11 @@ panel {
   transition: background-color 0.3s steps(5);
 }
 #identity-box.verifiedDomain:hover #identity-icon {
-  background-color: rgb(252, 180, 5);
+  background-color: rgb(242, 186, 34);
 }
 #identity-box.verifiedDomain:active #identity-icon {
-  background-color: var(--toolbarbutton-orange-colour_hover);
+  background-color: rgb(235, 147, 5);
+  transition: none;
 }
 #identity-box.certErrorPage #identity-icon {
   list-style-image: none !important;
