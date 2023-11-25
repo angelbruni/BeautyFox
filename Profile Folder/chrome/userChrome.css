@@ -2225,6 +2225,10 @@ html[customizing=true] #addonsBar::after {
   background-color: white !important;
 }
 
+.search-panel-tree {
+  background-color: white !important;
+}
+
 .search-go-container {
   display: none;
 }
