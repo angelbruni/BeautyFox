@@ -2474,6 +2474,10 @@ html[customizing=true] #addonsBar::after {
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+  #main-window #nav-bar::before {
+    left: 7px;
+    top: 1px;
+  }
   #main-window #nav-bar #back-button {
     margin-left: 9px !important;
     margin-bottom: -3px !important;
@@ -2486,9 +2490,6 @@ html[customizing=true] #addonsBar::after {
   }
   #main-window #nav-bar #userContext-icons {
     margin-inline-start: 10px !important;
-  }
-  #main-window[sizemode=maximized] #nav-bar::before {
-    left: 7px;
   }
   #main-window[sizemode=maximized] #nav-bar #back-button {
     margin-left: 7px !important;

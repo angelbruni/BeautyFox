@@ -181,6 +181,11 @@
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
     #main-window {
         #nav-bar {
+            &::before {
+                left: 7px;
+                top: 1px;
+            }
+
             #back-button {
                 margin-left: 9px !important;
                 margin-bottom: -3px !important;
@@ -195,15 +200,10 @@
             #userContext-icons {
                 margin-inline-start: 10px !important;
             }
-    
         }
 
         &[sizemode="maximized"] {
             #nav-bar {
-                &::before {
-                    left: 7px;
-                }
-    
                 #back-button {
                     margin-left: 7px !important;
                 }
