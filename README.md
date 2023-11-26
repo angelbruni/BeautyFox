@@ -36,7 +36,9 @@ BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Exp
 
 4.3	**(Optional)** Install [FeedBro](https://addons.mozilla.org/en-US/firefox/addon/feedbroreader/) for RSS feeds
 
-5. Go to `about:support` and click on "Clear startup cache"
+5. Customise your layout to resemble [this](https://www.techrepublic.com/wp-content/uploads/2011/03/6202428.png)
+
+5.1 Right click an empty space of the tabs bar and click on "Customise Toolbar..."
 
 Enjoy!
 
@@ -45,6 +47,7 @@ Enjoy!
 * [luisl173](https://github.com/luisl173) - README.md Creator, Spanish translator and testing;
 * MaTe - Portuguese (Brazillian) translation and testing;
 * nneptuneen - Portuguese (Brazillian) translator and testing;
+* Brawllux - Turkish translator and testing;
 * Testing Team - For making sure all bugs are squished and improvements are made;
 * Microsoft - Internet Explorer and Windows software and assets;
 * Mozilla - Firefox software.
