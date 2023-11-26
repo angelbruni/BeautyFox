@@ -2,15 +2,15 @@
 BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Explorer 9, 10, and 11 look and feel.
 
 # Notes
-* It has been tested on Windows 7, Windows 8.1/10 with the default theme and Aero themes with Glass8 enabled and Windows 11.
-* It doesn't work properly with WindowBlinds
-* Make sure that your profile hasn't been modified by other themes, if so, delete the modified files _or_ create a new profile
+* It has been tested on Windows 7, Windows 8.1/10 with the default theme and Aero themes with Glass8 enabled and Windows 11;
+* It doesn't work properly with WindowBlinds;
+* Make sure that your profile hasn't been modified by other themes, if so, delete the modified files _or_ create a new profile.
 
 # Instructions
 
 1. Copying files
 
-1.1.	Copy the contents of the Firefox Folder to where the firefox.exe is located;
+1.1.	**(Optional)** For InPrivate page, copy the contents of the Firefox Folder to where the `firefox.exe` is located;
 
 1.2.	Copy the contents of the Profile Folder to the Root Directory of the profile folder (if you don't know, open firefox and type `about:profiles` in the address bar).
 
@@ -24,7 +24,7 @@ BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Exp
 <supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}"/>
 <supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}"/>
 ```
-2.3.	Restart your computer.
+2.3.	Restart your computer if aero does not work after these changes.
 
 3. Open Firefox and follow the instructions of the wizard that appears on-screen.
 
