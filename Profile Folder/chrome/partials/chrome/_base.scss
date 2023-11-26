@@ -293,6 +293,12 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         &:first-of-type {
             display: none !important;
         }
+
+        @media (-moz-windows-compositor: 1) {
+            .titlebar-buttonbox {
+                transform: translateY(-4px) !important;
+            }   
+        }
     }
 }
 
@@ -313,6 +319,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     background-color: transparent !important;
     -moz-window-dragging: drag !important;
     flex: 1 !important;
+    box-shadow: none !important;
 }
 
 toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
@@ -358,7 +365,11 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
     &.toolbar-hover-fix {
         background-color: var(--toolbar-field-background-color_hover) !important;
-    } 
+    }
+
+    &[urlbarFocus="true"] {
+        background-color: white !important;
+    }
     
     > toolbarbutton {
         list-style-image: none !important;
@@ -1120,7 +1131,7 @@ toolbarbutton {
                     background-image: url('chrome://userchrome/content/images/toolbarbutton-blueIE10-states.png'); /* Replace with the path to your sprite image */
                 }
                 
-                mask-image: url(images/home-mask.svg);
+                mask-image: url(images/downloads-mask.svg);
             }
 
             @supports -moz-bool-pref("BeautyFox.option.showDownloadProgress") {

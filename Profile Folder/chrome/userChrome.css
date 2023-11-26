@@ -337,6 +337,11 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
 #fakeTitlebarSpace .titlebar-buttonbox-container:first-of-type {
   display: none !important;
 }
+@media (-moz-windows-compositor: 1) {
+  #fakeTitlebarSpace .titlebar-buttonbox-container .titlebar-buttonbox {
+    transform: translateY(-4px) !important;
+  }
+}
 
 @supports -moz-bool-pref("BeautyFox.option.removeTitlebarHeight") {
   #main-window[tabsintitlebar=true] #endToolbar {
@@ -352,6 +357,7 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   background-color: transparent !important;
   -moz-window-dragging: drag !important;
   flex: 1 !important;
+  box-shadow: none !important;
 }
 
 toolbarpaletteitem[id*=wrapper-customizableui-special-spring] {
@@ -385,6 +391,9 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 #stop-reload-button.toolbar-hover-fix {
   background-color: var(--toolbar-field-background-color_hover) !important;
+}
+#stop-reload-button[urlbarFocus=true] {
+  background-color: white !important;
 }
 #stop-reload-button > toolbarbutton {
   list-style-image: none !important;
@@ -1217,8 +1226,8 @@ panel {
 #endToolbar toolbarbutton#downloads-button::before,
 #endToolbar toolbaritem#downloads-button::before {
   background-image: url("chrome://userchrome/content/images/toolbarbutton-blueIE9-states.png"); /* Replace with the path to your sprite image */
-  -webkit-mask-image: url(images/home-mask.svg);
-          mask-image: url(images/home-mask.svg);
+  -webkit-mask-image: url(images/downloads-mask.svg);
+          mask-image: url(images/downloads-mask.svg);
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
   #nav-bar toolbarbutton#downloads-button::before,
