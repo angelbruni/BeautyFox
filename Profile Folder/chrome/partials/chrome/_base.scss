@@ -744,6 +744,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             .toolbarbutton-text {
                 &::after {
                     content: '';
+                    min-width: 17px;
                     width: 17px;
                     height: 16px;
                     background-color: black;

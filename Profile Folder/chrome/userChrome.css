@@ -714,6 +714,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic)[type=menu]:not(#PlacesChevron) .toolbarbutton-text::after,
 #PersonalToolbar #star-button-box[type=menu]:not(#PlacesChevron) .toolbarbutton-text::after {
   content: "";
+  min-width: 17px;
   width: 17px;
   height: 16px;
   background-color: black;
@@ -4295,6 +4296,13 @@ findbar {
   height: 22px !important;
 }
 
+#PlacesToolbarItems menupopup .menu-iconic-text {
+  padding-right: 48px !important;
+}
+#PlacesToolbarItems menupopup .menu-text::before {
+  padding-right: 48px !important;
+}
+
 @media (-moz-windows-classic) {
   menupopup {
     padding: 1px !important;
@@ -4561,6 +4569,9 @@ panel.cui-widget-panel toolbarseparator {
           appearance: auto !important;
   -moz-default-appearance: menuseparator !important;
   margin: 0 !important;
+}
+panel panelmultiview[transitioning] {
+  pointer-events: auto !important;
 }
 panel .panel-viewcontainer,
 panel .panel-viewstack {

@@ -322,6 +322,10 @@ panel {
         }
     }
 
+    panelmultiview[transitioning] {
+        pointer-events: auto !important;
+    }
+
     .panel-viewcontainer,
     .panel-viewstack {
         transition: none !important;

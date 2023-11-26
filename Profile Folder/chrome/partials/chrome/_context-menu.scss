@@ -34,6 +34,20 @@
     height: 22px !important;
 }
 
+#PlacesToolbarItems {
+    menupopup {
+        .menu-iconic-text {
+            padding-right: 48px !important;
+        }
+
+        .menu-text {
+            &::before {
+                padding-right: 48px !important;
+            }
+        }
+    }
+}
+
 @media (-moz-windows-classic)
 {
 	menupopup
