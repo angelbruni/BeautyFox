@@ -84,7 +84,7 @@ function loadLocale() {
 
         // Replace the placeholder with the actual version
         const beautyFoxVersion = '%beautyFoxVersion';
-        text = text.replace(new RegExp(beautyFoxVersion, 'g'), 'Beta 4.4.1');
+        text = text.replace(new RegExp(beautyFoxVersion, 'g'), 'Beta 4.4.2');
         
         const IEVersion = '%IEVersion';
         if (IsIE11Appearance) {

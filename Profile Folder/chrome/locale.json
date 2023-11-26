@@ -53,7 +53,7 @@
             "wizardCheckboxHideFakeInnerBorders": "Hide fake inner borders",
             "wizardCheckboxinetcpl": "Internet Options launches inetcpl.cpl",
             "wizardThanks": "Thank you for choosing BeautyFox!",
-            "wizardRestart": "To apply the changes, Firefox needs to be restarted. You can access BeautyFox settings at any time in the settings menu.",
+            "wizardRestart": "To apply the changes, Firefox needs to be restarted. You can access BeautyFox settings at any time by shift clicking the settings menu.",
             "wizardRestartNow": "Restart now",
             "wizardRestartLater": "Restart later",
 
@@ -174,7 +174,7 @@
             "wizardCheckboxHideFakeInnerBorders": "Ocultar as falsas bordas interiores",
             "wizardCheckboxinetcpl": "Opções da Internet executam inetcpl.cpl",
             "wizardThanks": "Obrigado por escolher a BeautyFox!",
-            "wizardRestart": "Para aplicar as alterações, o Firefox precisa ser reiniciado. Você pode acessar as configurações do BeautyFox a qualquer momento no menu de configurações.",
+            "wizardRestart": "Para aplicar as alterações, o Firefox precisa ser reiniciado. Você pode acessar as configurações do BeautyFox a qualquer momento pressionando shift enquanto clica no menu de configurações.",
             "wizardRestartNow": "Reiniciar agora",
             "wizardRestartLater": "Reiniciar mais tarde",
 
@@ -285,7 +285,7 @@
             "wizardCheckboxHideFakeInnerBorders": "Ocultar los bordes interiores falsos",
             "wizardCheckboxinetcpl": "Opciones de Internet ejecuta inetcpl.cpl",
             "wizardThanks": "¡Gracias por elegir BeautyFox!",
-            "wizardRestart": "Para aplicar los cambios, es necesario reiniciar Firefox. Puede acceder a la configuración de BeautyFox en cualquier momento en el menú de configuración.",
+            "wizardRestart": "Para aplicar los cambios, es necesario reiniciar Firefox. Puede acceder a la configuración de BeautyFox en cualquier momento pulsando Mayús mientras hace clic en el menú de configuración.",
             "wizardRestartNow": "Reiniciar ahora",
             "wizardRestartLater": "Reiniciar más tarde",
 
@@ -396,7 +396,7 @@
             "wizardCheckboxHideFakeInnerBorders": "Hide fake inner borders",
             "wizardCheckboxinetcpl": "Internet Options launches inetcpl.cpl",
             "wizardThanks": "Thank you for choosing BeautyFox!",
-            "wizardRestart": "To apply the changes, Firefox needs to be restarted. You can access BeautyFox settings at any time in the settings menu.",
+            "wizardRestart": "To apply the changes, Firefox needs to be restarted. You can access BeautyFox settings at any time by shift clicking the settings menu.",
             "wizardRestartNow": "Restart now",
             "wizardRestartLater": "Restart later",
 
@@ -508,7 +508,7 @@
             "wizardCheckboxHideFakeInnerBorders": "Sahte iç kenarlıkları gizle",
             "wizardCheckboxinetcpl": "İnternet Ayarları'nı Denetim Masasına yönlendir",
             "wizardThanks": "BeautyFox'u tercih ettiğiniz için teşekkür ederiz!",
-            "wizardRestart": "Değişikliklerin uygulanabilmesi için tarayıcınızı yeniden başlatmanız gerekiyor. BeautyFox ayarlarına her zaman ayarlar menüsünden erişebilirsiniz.",
+            "wizardRestart": "Değişiklikleri uygulamak için Firefox'un yeniden başlatılması gerekir. BeautyFox ayarlarına istediğiniz zaman shift tuşuna basılı tutarken ayarlar düğmesine basarak erişebilirsiniz.",
             "wizardRestartNow": "Şimdi yeniden başlat",
             "wizardRestartLater": "Sonra yeniden başlat",
 
