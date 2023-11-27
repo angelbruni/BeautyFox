@@ -692,6 +692,7 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #PersonalToolbar #star-button-box[image*="page-icon:about"] .toolbarbutton-text::before {
   content: "";
   height: 16px;
+  min-width: 16px;
   width: 16px;
   background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico");
   background-size: 16px;
@@ -702,6 +703,9 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 #PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic)[image*="page-icon:about"] .toolbarbutton-text::after,
 #PersonalToolbar #star-button-box[image*="page-icon:about"] .toolbarbutton-text::after {
   content: -moz-label-content;
+  overflow: hidden;
+  min-width: 149px;
+  text-overflow: ellipsis;
 }
 #PersonalToolbar .bookmark-item:not(menuitem, .menu-iconic)[type=menu]:not(#PlacesChevron),
 #PersonalToolbar #star-button-box[type=menu]:not(#PlacesChevron) {
@@ -3536,7 +3540,7 @@ findbar {
 .findbar-label {
   margin-bottom: 3px !important;
 }
-.findbar-label.found-matches {
+.findbar-label.found-matches, .findbar-label.findbar-find-status {
   margin-inline: 0 !important;
   margin-left: 7px !important;
   font-weight: bold !important;
@@ -4665,14 +4669,6 @@ panel .panel-viewstack {
   transition: none !important;
 }
 
-:root {
-  --panel-subview-body-padding: 0 !important;
-  --arrowpanel-border-radius: 0 !important;
-  --arrowpanel-menuitem-padding: 0 !important;
-  --arrowpanel-menuitem-margin: 0 !important;
-  --arrowpanel-menuitem-border-radius: 0 !important;
-}
-
 .panel-footer {
   color-scheme: unset !important;
 }
@@ -4682,6 +4678,14 @@ panel .panel-viewstack {
           appearance: auto !important;
   color: black !important;
   font-weight: normal !important;
+}
+
+:root {
+  --panel-subview-body-padding: 0 !important;
+  --arrowpanel-border-radius: 0 !important;
+  --arrowpanel-menuitem-padding: 0 !important;
+  --arrowpanel-menuitem-margin: 0 !important;
+  --arrowpanel-menuitem-border-radius: 0 !important;
 }
 
 #sidebar-box {

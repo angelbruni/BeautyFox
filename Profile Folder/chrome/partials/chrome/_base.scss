@@ -720,6 +720,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                 &::before {
                     content: '';
                     height: 16px;
+                    min-width: 16px;
                     width: 16px;
                     background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico");
                     background-size: 16px;
@@ -730,6 +731,9 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
                 &::after {
                     content: -moz-label-content;
+                    overflow: hidden;
+                    min-width: 149px;
+                    text-overflow: ellipsis;
                 }
             }
         }
