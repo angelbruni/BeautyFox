@@ -3,6 +3,10 @@
         --error-icon: url("chrome://userchrome/content/resources/ieframe.dll.mui/HTML/noConnect.png");
 
         --in-content-page-color: #575757 !important;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            --in-content-page-color: black !important;
+        }
     }
 
     body {
@@ -11,6 +15,11 @@
         background-color: rgb(232, 234, 239) !important;
         align-items: unset !important;
         justify-content: unset !important;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            background-image: none !important;
+            background-color: white !important;
+        }
     }
 
     .container {
@@ -18,6 +27,13 @@
         margin-left: 80px;
         position: relative;
         max-width: 730px !important;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            margin-top: 80px;
+            margin-left: 120px;
+            margin-right: 120px;
+            max-width: 700px !important;
+        }
     }
 
     .title {
@@ -27,6 +43,11 @@
         margin-bottom: 26px !important;
         position: relative;
         background-image: none !important;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            border-bottom: none !important;
+            margin-bottom: 0 !important;
+        }
 
         &::before {
             content: '';
@@ -38,6 +59,10 @@
             background-image: var(--error-icon);
             background-position: center;
             background-repeat: no-repeat;
+
+            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                content: unset !important;
+            }
         }
     }
 
@@ -52,6 +77,14 @@
         padding-top: 7px !important;
         padding-bottom: 23px !important;
         margin-bottom: 0 !important;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            color: #2778ec !important;
+            font-size: 38pt !important;
+            font-weight: 300 !important;
+            padding-bottom: 0 !important;
+            padding-top: 0 !important;
+        }
     }
 
     #errorShortDesc, #errorShortDesc2 {
@@ -61,6 +94,10 @@
     span[data-l10n-id="neterror-dns-not-found-hint-header"] {
         font-size: 0.9em !important;
         color: black !important;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            display: none;
+        }
         
         > strong {
             font-weight: normal !important;
@@ -76,6 +113,17 @@
             margin-right: 8px !important;
             font-weight: normal !important;
 
+            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                margin-left: 0 !important;
+                margin-top: 25px !important;
+                font-size: 12pt !important;
+                font-weight: 200 !important;
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+                    margin-left: 25px !important;
+                }
+            }
+
             > li {
                 margin-bottom: 7px !important;
                 list-style: none;
@@ -89,6 +137,12 @@
                     width: 3.5px;
                     margin-right: 4px;
                     border-radius: 50%;
+
+                    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                        height: 4px;
+                        width: 4px;
+                        margin-right: 10px;
+                    }
                 }
             }
         }
@@ -100,6 +154,12 @@
         margin-top: 0 !important;
         position: absolute;
         top: 108px;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            margin-left: 0 !important;
+            position: static;
+            margin-top: 31px !important;
+        }
 
         > button {
             margin: 0 !important;
@@ -127,102 +187,10 @@
     }
     
     @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-        :root {
-            --in-content-page-color: black !important;
-        }
-
-        body {
-            background-image: none !important;
-            background-color: white !important;
-        }
-
-        .title {
-            border-bottom: none !important;
-            margin-bottom: 0 !important;
-
-            &:before {
-                content: unset !important;
-            }
-        }
-
-        h1.title-text {
-            color: #2778ec !important;
-            font-size: 38pt !important;
-            font-weight: 300 !important;
-            padding-bottom: 0 !important;
-            padding-top: 0 !important;
-        }
-
-        .container {
-            margin-top: 80px;
-            margin-left: 120px;
-            margin-right: 120px;
-            max-width: 700px !important;
-        }
-
-        span[data-l10n-id="neterror-dns-not-found-hint-header"] {
-            display: none;
-        }
-
-        #errorLongDesc {
-            > ul {
-                margin-left: 0 !important;
-                margin-top: 25px !important;
-                font-size: 12pt !important;
-                font-weight: 200 !important;
-
-                > li {
-                    margin-bottom: 7px !important;
-
-                    &:before {
-                        height: 4px;
-                        width: 4px;
-                        margin-right: 10px;
-                    }
-                }
-            }
-        }
-
-        .button-container {
-            margin-left: 0 !important;
-            position: static;
-            margin-top: 31px !important;
-
-            > button {
-                margin: 0 !important;
-                min-height: 22px !important;
-                border-radius: 0 !important;
-                border: 1px solid rgb(112, 112, 112) !important;
-                color: black !important;
-                font-size: 9pt !important;
-                background: linear-gradient(0deg, rgb(213, 213, 213) 0%, rgb(235, 235, 235) 100%);
-                padding: 0 12px !important;
-
-                &:hover {
-                    border: 1px solid rgb(38, 160, 218) !important;
-                    background: rgb(166, 244, 255) !important;
-                }
-
-                &:active {
-                    border: 1px solid rgb(0, 137, 180) !important;
-                    background: rgb(52, 180, 227) !important;
-                    padding-top: 2px !important;
-                    padding-left: 13px !important;
-                    padding-right: 11px !important;
-                }
-            }
-        }
-
         @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
             h1.title-text {
                 color: #54b0f7 !important;
                 font-size: 36px !important;
-            }
-
-            #errorLongDesc {
-                > ul {
-                    margin-left: 25px !important;
-                }
             }
         }
     }

@@ -13,6 +13,11 @@
         align-items: unset !important;
         justify-content: unset !important;
 
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+            background-image: none !important;
+            background-color: white !important;
+        }
+
         &::before {
             content: '';
             position: absolute;
@@ -21,6 +26,10 @@
             width: 100%;
             height: 59px;
             background-image: linear-gradient(180deg, #fdedee 0%, #ffffff 96.6%, #ffffff 100%);
+        
+            @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+                content: unset !important;
+            }
         }
     }
     
@@ -29,6 +38,13 @@
         margin-left: 80px;
         position: relative;
         max-width: 730px !important;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+            margin-top: 80px;
+            margin-left: 120px;
+            margin-right: 120px;
+            max-width: 700px !important;
+        }
     }
 
     .title {
@@ -38,6 +54,11 @@
         margin-bottom: 26px !important;
         position: relative;
         background-image: none !important;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+            border-bottom: none !important;
+            margin-bottom: 25px !important;
+        }
 
         &::before {
             content: '';
@@ -49,6 +70,10 @@
             background-image: var(--error-icon);
             background-position: center;
             background-repeat: no-repeat;
+
+            @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+                content: unset !important;
+            }
         }
     }
 
@@ -60,6 +85,14 @@
             padding-top: 7px !important;
             padding-bottom: 23px !important;
             margin-bottom: 0 !important;
+
+            @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+                color: #a90000 !important;
+                font-size: 36px !important;
+                font-weight: 300 !important;
+                padding-bottom: 0 !important;
+                padding-top: 0 !important;
+            }
         }
     }
 
@@ -206,41 +239,6 @@
     }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-        body {
-            background-image: none !important;
-            background-color: white !important;
-
-            &::before {
-                content: unset !important;
-            }
-        }
-
-        .container {
-            margin-top: 80px;
-            margin-left: 120px;
-            margin-right: 120px;
-            max-width: 700px !important;
-        }
-
-        .title {
-            border-bottom: none !important;
-            margin-bottom: 25px !important;
-
-            &::before {
-                content: unset !important;
-            }
-        }
-
-        h1 {
-            &.title-text {
-                color: #a90000 !important;
-                font-size: 36px !important;
-                font-weight: 300 !important;
-                padding-bottom: 0 !important;
-                padding-top: 0 !important;
-            }
-        }
-
         #errorShortDesc {
             margin-top: 0 !important;
         }

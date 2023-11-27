@@ -2,6 +2,15 @@
     --panel-border-color: #b4b4b4 !important;
     --urlbarView-subtract: 23px;
     --urlbarView-min-width: 400px;
+    
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        --urlbar-width-calc: calc(25vw + 7px);
+        --urlbarView-subtract: 34px;
+
+        @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+            --urlbar-width-calc: calc(26vw + 10px);
+        }
+    }
 }
 
 .urlbarView {
@@ -339,12 +348,13 @@
 #search-container {
     margin-inline-start: 6px !important;
     margin-inline-end: 0 !important;
-
-    
     border-radius: 0 !important;
     background-color: transparent !important;
-
     height: 24px;
+
+    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+        display: none !important;
+    }
 }
 
 .searchbar-search-button {
@@ -380,14 +390,6 @@
 }
 
 @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-    :root {
-        --urlbar-width-calc: calc(26vw + 10px);
-
-        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-            --urlbar-width-calc: calc(25vw + 7px);
-        }
-    }
-
     #urlbar-container {
         flex: unset !important;
         width: var(--urlbar-width-calc) !important;
@@ -400,12 +402,6 @@
 
     #wrapper-search-container {
         display: none !important;
-    }
-}
-
-@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-    :root {
-        --urlbarView-subtract: 34px;
     }
 }
 

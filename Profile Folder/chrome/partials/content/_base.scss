@@ -6,6 +6,10 @@
         background-size: 100% 84px;
         background-repeat: no-repeat;
         background-color: #FEFEFE !important;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            background-image: none;
+        }
     }
 
     .logo-and-wordmark,
@@ -18,11 +22,5 @@
     #category-sync,
     #category-more-from-mozilla {
         display: none !important;
-    }
-    
-    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-        body {
-            background-image: none;
-        }
     }
 }

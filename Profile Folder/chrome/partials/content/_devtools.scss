@@ -2,6 +2,10 @@
 @-moz-document url-prefix("about:devtools-toolbox") {
     .devtools-tabbar {
         background-color: transparent !important;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            min-height: 21px !important;
+        }
     }
 
     .toolbox-tabs {
@@ -90,10 +94,6 @@
     @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
         #toolbox-toolbar-mount {
             background-color: rgb(30,30,30) !important;
-        }
-
-        .devtools-tabbar {
-            min-height: 21px !important;
         }
 
         .devtools-tabbar-button {

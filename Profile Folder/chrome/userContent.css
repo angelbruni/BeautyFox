@@ -8,6 +8,11 @@
     background-repeat: no-repeat;
     background-color: #FEFEFE !important;
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    body {
+      background-image: none;
+    }
+  }
   .logo-and-wordmark,
   .info,
   .promo,
@@ -19,28 +24,43 @@
   #category-more-from-mozilla {
     display: none !important;
   }
-  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-    body {
-      background-image: none;
-    }
-  }
 }
 @-moz-document url(about:newtab),
                url(about:home) {
   :root {
     --popular-site-label: "Your most popular sites";
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    :root {
+      --popular-site-label: "Frequent";
+    }
+  }
   html[lang*=es] {
     --popular-site-label: "Sus sitios más populares";
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    html[lang*=es] {
+      --popular-site-label: "Con más frecuencia";
+    }
+  }
   html[lang=pt-BR] {
     --popular-site-label: "Seus sites mais populares";
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    html[lang=pt-BR] {
+      --popular-site-label: "Com mais frequência";
+    }
   }
   html[lang*=pt-PT] {
     --popular-site-label: "Teus sítios mais populares";
   }
   html[lang=ja] {
     --popular-site-label: "よく使うサイト";
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    html[lang=ja] {
+      --popular-site-label: "よくアクセスするサイト";
+    }
   }
   .body-wrapper .discovery-stream:not(:first-child) {
     display: none !important;
@@ -51,6 +71,11 @@
   main {
     width: auto !important;
     margin-top: 63px !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    main {
+      margin-top: 61px !important;
+    }
   }
   .non-collapsible-section {
     display: none;
@@ -69,6 +94,26 @@
     left: 0;
     font-size: 15pt;
     color: #2a2a2a;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .top-sites-list::before {
+      top: -62px;
+      font-size: 21pt;
+      color: rgb(80, 80, 80);
+    }
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+    .top-sites-list::after {
+      content: "";
+      position: absolute;
+      top: -103px;
+      right: 80px;
+      height: 97px;
+      width: 209px;
+      background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/821.png");
+      background-size: cover;
+      opacity: 0.5;
+    }
   }
   .top-site-outer {
     width: 150px !important;
@@ -113,6 +158,11 @@
   .top-site-outer .tile .icon-wrapper .top-site-icon {
     border-radius: 0 !important;
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+    .top-site-outer .tile .icon-wrapper .top-site-icon {
+      z-index: 2;
+    }
+  }
   .top-site-outer .tile .search-topsite {
     display: none !important;
   }
@@ -133,17 +183,6 @@
     transition: none !important;
   }
   @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-    .top-sites-list::after {
-      content: "";
-      position: absolute;
-      top: -103px;
-      right: 80px;
-      height: 97px;
-      width: 209px;
-      background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/821.png");
-      background-size: cover;
-      opacity: 0.5;
-    }
     .top-site-outer .tile {
       border-radius: 4px !important;
     }
@@ -152,36 +191,10 @@
       position: relative !important;
       background: linear-gradient(180deg, white 0%, rgb(242, 242, 242) 100%);
     }
-    .top-site-icon {
-      z-index: 2;
-    }
   }
   @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-    :root {
-      --popular-site-label: "Frequent";
-    }
-    html[lang*=es] {
-      --popular-site-label: "Con más frecuencia";
-    }
-    html[lang*=pt] {
-      --popular-site-label: "Com mais frequência";
-    }
-    html[lang=ja] {
-      --popular-site-label: "よくアクセスするサイト";
-    }
     body {
       background-color: rgb(232, 238, 245) !important;
-    }
-    main {
-      width: auto !important;
-      margin-top: 61px !important;
-    }
-    .top-sites-list::before {
-      content: var(--popular-site-label);
-      top: -62px;
-      left: 0;
-      font-size: 21pt;
-      color: rgb(80, 80, 80);
     }
   }
 }
@@ -235,6 +248,11 @@
     --error-icon: url("chrome://userchrome/content/resources/ieframe.dll.mui/HTML/noConnect.png");
     --in-content-page-color: #575757 !important;
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    :root {
+      --in-content-page-color: black !important;
+    }
+  }
   body {
     background-image: linear-gradient(180deg, #ffffff 0%, #e9eaef 100%) !important;
     background-size: cover !important;
@@ -242,11 +260,25 @@
     align-items: unset !important;
     justify-content: unset !important;
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    body {
+      background-image: none !important;
+      background-color: white !important;
+    }
+  }
   .container {
     margin-top: 20px;
     margin-left: 80px;
     position: relative;
     max-width: 730px !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .container {
+      margin-top: 80px;
+      margin-left: 120px;
+      margin-right: 120px;
+      max-width: 700px !important;
+    }
   }
   .title {
     border-bottom: 1px solid #b6bcc6 !important;
@@ -255,6 +287,12 @@
     margin-bottom: 26px !important;
     position: relative;
     background-image: none !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .title {
+      border-bottom: none !important;
+      margin-bottom: 0 !important;
+    }
   }
   .title::before {
     content: "";
@@ -267,6 +305,11 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .title::before {
+      content: unset !important;
+    }
+  }
   .neterror {
     padding: 0 !important;
   }
@@ -278,12 +321,26 @@
     padding-bottom: 23px !important;
     margin-bottom: 0 !important;
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    h1.title-text {
+      color: #2778ec !important;
+      font-size: 38pt !important;
+      font-weight: 300 !important;
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
+    }
+  }
   #errorShortDesc, #errorShortDesc2 {
     display: none;
   }
   span[data-l10n-id=neterror-dns-not-found-hint-header] {
     font-size: 0.9em !important;
     color: black !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    span[data-l10n-id=neterror-dns-not-found-hint-header] {
+      display: none;
+    }
   }
   span[data-l10n-id=neterror-dns-not-found-hint-header] > strong {
     font-weight: normal !important;
@@ -295,6 +352,19 @@
     margin-inline-start: 27px !important;
     margin-right: 8px !important;
     font-weight: normal !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    #errorLongDesc > ul {
+      margin-left: 0 !important;
+      margin-top: 25px !important;
+      font-size: 12pt !important;
+      font-weight: 200 !important;
+    }
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+      #errorLongDesc > ul {
+        margin-left: 25px !important;
+      }
+    }
   }
   #errorLongDesc > ul > li {
     margin-bottom: 7px !important;
@@ -310,12 +380,26 @@
     margin-right: 4px;
     border-radius: 50%;
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    #errorLongDesc > ul > li:before {
+      height: 4px;
+      width: 4px;
+      margin-right: 10px;
+    }
+  }
   .button-container {
     margin-left: 8px !important;
     justify-content: start !important;
     margin-top: 0 !important;
     position: absolute;
     top: 108px;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .button-container {
+      margin-left: 0 !important;
+      position: static;
+      margin-top: 31px !important;
+    }
   }
   .button-container > button {
     margin: 0 !important;
@@ -339,83 +423,10 @@
     padding-right: 11px !important;
   }
   @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-    :root {
-      --in-content-page-color: black !important;
-    }
-    body {
-      background-image: none !important;
-      background-color: white !important;
-    }
-    .title {
-      border-bottom: none !important;
-      margin-bottom: 0 !important;
-    }
-    .title:before {
-      content: unset !important;
-    }
-    h1.title-text {
-      color: #2778ec !important;
-      font-size: 38pt !important;
-      font-weight: 300 !important;
-      padding-bottom: 0 !important;
-      padding-top: 0 !important;
-    }
-    .container {
-      margin-top: 80px;
-      margin-left: 120px;
-      margin-right: 120px;
-      max-width: 700px !important;
-    }
-    span[data-l10n-id=neterror-dns-not-found-hint-header] {
-      display: none;
-    }
-    #errorLongDesc > ul {
-      margin-left: 0 !important;
-      margin-top: 25px !important;
-      font-size: 12pt !important;
-      font-weight: 200 !important;
-    }
-    #errorLongDesc > ul > li {
-      margin-bottom: 7px !important;
-    }
-    #errorLongDesc > ul > li:before {
-      height: 4px;
-      width: 4px;
-      margin-right: 10px;
-    }
-    .button-container {
-      margin-left: 0 !important;
-      position: static;
-      margin-top: 31px !important;
-    }
-    .button-container > button {
-      margin: 0 !important;
-      min-height: 22px !important;
-      border-radius: 0 !important;
-      border: 1px solid rgb(112, 112, 112) !important;
-      color: black !important;
-      font-size: 9pt !important;
-      background: linear-gradient(0deg, rgb(213, 213, 213) 0%, rgb(235, 235, 235) 100%);
-      padding: 0 12px !important;
-    }
-    .button-container > button:hover {
-      border: 1px solid rgb(38, 160, 218) !important;
-      background: rgb(166, 244, 255) !important;
-    }
-    .button-container > button:active {
-      border: 1px solid rgb(0, 137, 180) !important;
-      background: rgb(52, 180, 227) !important;
-      padding-top: 2px !important;
-      padding-left: 13px !important;
-      padding-right: 11px !important;
-    }
     @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
       h1.title-text {
         color: #54b0f7 !important;
         font-size: 36px !important;
-      }
-      #errorLongDesc > ul {
-        margin-left: 25px !important;
       }
     }
   }
@@ -433,6 +444,12 @@
     align-items: unset !important;
     justify-content: unset !important;
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    body {
+      background-image: none !important;
+      background-color: white !important;
+    }
+  }
   body::before {
     content: "";
     position: absolute;
@@ -442,11 +459,24 @@
     height: 59px;
     background-image: linear-gradient(180deg, #fdedee 0%, #ffffff 96.6%, #ffffff 100%);
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    body::before {
+      content: unset !important;
+    }
+  }
   .container {
     margin-top: 20px;
     margin-left: 80px;
     position: relative;
     max-width: 730px !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    .container {
+      margin-top: 80px;
+      margin-left: 120px;
+      margin-right: 120px;
+      max-width: 700px !important;
+    }
   }
   .title {
     border-bottom: 1px solid #b6bcc6 !important;
@@ -455,6 +485,12 @@
     margin-bottom: 26px !important;
     position: relative;
     background-image: none !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    .title {
+      border-bottom: none !important;
+      margin-bottom: 25px !important;
+    }
   }
   .title::before {
     content: "";
@@ -467,6 +503,11 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    .title::before {
+      content: unset !important;
+    }
+  }
   h1.title-text {
     color: #4465a2 !important;
     font-size: 0.7em !important;
@@ -474,6 +515,15 @@
     padding-top: 7px !important;
     padding-bottom: 23px !important;
     margin-bottom: 0 !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    h1.title-text {
+      color: #a90000 !important;
+      font-size: 36px !important;
+      font-weight: 300 !important;
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
+    }
   }
   a {
     min-height: 19px !important;
@@ -592,33 +642,6 @@
     white-space: unset !important;
   }
   @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-    body {
-      background-image: none !important;
-      background-color: white !important;
-    }
-    body::before {
-      content: unset !important;
-    }
-    .container {
-      margin-top: 80px;
-      margin-left: 120px;
-      margin-right: 120px;
-      max-width: 700px !important;
-    }
-    .title {
-      border-bottom: none !important;
-      margin-bottom: 25px !important;
-    }
-    .title::before {
-      content: unset !important;
-    }
-    h1.title-text {
-      color: #a90000 !important;
-      font-size: 36px !important;
-      font-weight: 300 !important;
-      padding-bottom: 0 !important;
-      padding-top: 0 !important;
-    }
     #errorShortDesc {
       margin-top: 0 !important;
     }
@@ -645,6 +668,11 @@
 @-moz-document url-prefix("about:devtools-toolbox") {
   .devtools-tabbar {
     background-color: transparent !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .devtools-tabbar {
+      min-height: 21px !important;
+    }
   }
   .toolbox-tabs > button > img {
     display: none !important;
@@ -711,9 +739,6 @@
   @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     #toolbox-toolbar-mount {
       background-color: rgb(30, 30, 30) !important;
-    }
-    .devtools-tabbar {
-      min-height: 21px !important;
     }
     .devtools-tabbar-button {
       padding: 0 !important;

@@ -8,6 +8,43 @@
     --tab-height: 23px;
 
     --newtab-button-width: 29px;
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        --tab-border-radius: 5px 5px 0 0 !important;
+        --tab-background-colour: rgba(255, 255, 255, .3);
+        --tab-background-colour_hover: rgba(255, 255, 255, .5);
+        --tab-background-colour_active: linear-gradient(0deg, rgb(255, 255, 255) 0%, var(--tab-inset-border-colour) 100%);
+        --tab-inset-border-colour: rgba(254, 254, 254, 0.4);
+        --newtab-button-width: 27px;
+
+        @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+            --tab-height: 29px;
+        }
+    }
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+        --tab-background-colour: rgba(200, 200, 200, 0.5);
+        --tab-background-colour_hover: rgba(242, 242, 242, 0.9);
+        --tab-border-colour: rgba(0, 0, 0, .5);
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+            @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+                --newtab-button-width: 22px;
+            }
+        }
+    }
+
+    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+        --option_tabsOnNavRow: 1 !important;
+        --tab-height: 27px;
+
+        &:is([privatebrowsingmode="temporary"]) {
+            #urlbar-container {
+                width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-width-calc)) !important;
+                min-width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-min-width)) !important;
+            }
+        }
+    }
 }
 
 #customization-container {
@@ -15,6 +52,11 @@
     background-size: 100% 84px;
     background-repeat: no-repeat;
     background-color: #FEFEFE !important;
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+        background-image: none !important;
+        background-color: rgb(232, 238, 245) !important;
+    }
 }
 
 #TabsToolbar {
@@ -25,13 +67,24 @@
     background-position: bottom;
     -moz-window-dragging: drag !important;
 
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+            margin-left: 5px !important;
+        }
+    }
+
     @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
         background-image: none !important;
+        margin: 0 2px !important;
     }
 }
 
 #TabsToolbar-customization-target {
     height: var(--tab-height);
+
+    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+        margin-right: 9px !important;
+    }
 }
 
 #tabbrowser-tabs {
@@ -62,6 +115,12 @@
     border-radius: var(--tab-border-radius) !important;
     z-index: 1 !important;
     position: relative;
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+        background-color: transparent !important;
+        border: 1px solid var(--tab-border-colour) !important;
+        border-bottom: 0px !important;
+    }
     
     &::before {
         content: '';
@@ -77,6 +136,16 @@
         border-image-source: var(--tab-inset-border-colour);
         border-bottom: none !important;
         background: var(--tab-background-colour);
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            left: 1px !important;
+            border-width: 0 !important;
+            outline: 1px solid var(--tab-inset-border-colour);
+        }
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10")  {
+            border: unset !important;
+        }
     }
 
     &:hover {
@@ -104,6 +173,14 @@
     padding: 0 !important;
     border-radius: var(--tab-border-radius) !important;
     color: black !important;
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        &:only-of-type {
+            .tab-close-button {
+                display: none !important;
+            }
+        }
+    }
     
     .tab-background {
         box-shadow: none !important;
@@ -113,6 +190,12 @@
         background: transparent !important;
         position: relative;
         overflow: hidden;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            &:hover {
+                background: var(--tab-background-colour_hover) !important;
+            }
+        }
     
         &::before {
             content: '';
@@ -128,6 +211,16 @@
             border-bottom: none !important;
             background: var(--tab-background-colour);
             box-sizing: border-box;
+
+            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                left: 1px !important;
+                border-width: 0 !important;
+                outline: 1px solid var(--tab-inset-border-colour);
+            }
+
+            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                border: unset !important;
+            }
         }
     }
 
@@ -139,11 +232,36 @@
                 border-image-slice: 1;
                 border-image-source: var(--tab-inset-border-colour);
                 background: var(--tab-background-colour_hover);
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    background: var(--tab-background-colour_hover);
+                    border: unset !important;
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
     }
 
     &[selected="true"] {
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            .tab-label {
+                margin-bottom: -2px !important;
+            } 
+        }
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            &[class*="identity-color"] {
+                .tab-background {
+                    &::before {
+                        background: color-mix(in srgb, var(--identity-icon-color) 60%, white) !important;
+                        opacity: 1;
+                        mask: unset !important;
+                    }
+                }
+            }
+        }
+
         .tab-background {
             background: transparent !important;
 
@@ -151,6 +269,12 @@
                 border-image-slice: 1;
                 border-image-source: var(--tab-inset-border-colour);
                 background: var(--tab-background-colour_active);
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    background: white !important;
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
 
@@ -186,7 +310,11 @@
         mask-position: center;
         mask-repeat: no-repeat;
         display: none;
-        background-color: rgb(140, 145, 152);
+        background-color: #8c9198;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            background-color: #A7A5A5;
+        }
         
         &:hover {
             background-color: #E73C3C !important;
@@ -203,6 +331,22 @@
             &::before {
                 background: color-mix(in srgb, var(--identity-icon-color) 60%, white);
                 mask-image: linear-gradient(black, rgba(0,0,0,.2));
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    background: color-mix(in srgb, var(--identity-icon-color) 60%, white) !important;
+                    opacity: .5;
+                    mask: unset !important;
+                }
+            }
+
+            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                &:hover {
+                    &::before {
+                        background: color-mix(in srgb, var(--identity-icon-color) 60%, white) !important;
+                        mask: unset !important;
+                        opacity: .8;
+                    }
+                }
             }
         }
 
@@ -254,6 +398,10 @@
 
 .tab-content {
     padding: 0 7px 0 6px !important;
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        padding: 0 7px 0 7px !important;
+    }
 }
 
 .tab-icon-stack {
@@ -283,6 +431,11 @@ toolbarbutton#TabsMSEdgeNewTabButton,
     position: relative;
     overflow: hidden;
 
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        width: 27px;
+        height: calc(100% - 1px);
+    }
+
     &::before {
         content: '';
         position: absolute;
@@ -297,11 +450,25 @@ toolbarbutton#TabsMSEdgeNewTabButton,
         border-bottom: none !important;
         background: var(--tab-background-colour);
         box-sizing: border-box;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            border: 0 !important;
+        }
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+            border: unset !important;
+        }
     }
 
     &:hover {
         .toolbarbutton-icon {
             background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31062.ico");
+        }
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            &::before {
+                background-color: var(--tab-background-colour_hover) !important;
+            }
         }
     }
 
@@ -332,6 +499,17 @@ toolbarbutton#TabsMSEdgeNewTabButton,
 toolbarbutton#tabs-newtab-button,
 toolbarbutton#TabsMSEdgeNewTabButton {
     margin-left: -1px !important;
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        &::before {
+            outline: 1px solid var(--tab-inset-border-colour);
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            outline-offset: -1px;
+            border-radius: 3px 3px 0 0 !important;
+        }
+    }
 }
 
 .tab-label-container[textoverflow][labeldirection="ltr"]:not([pinned]) {
@@ -379,301 +557,9 @@ toolbarbutton#TabsMSEdgeNewTabButton {
     }
 }
 
-toolbarbutton#TabsMSEdgeNewTabButton {
-    display: none !important;
-}
-
-@supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-    :root {
-        --option_tabsOnNavRow: 1 !important;
-        --tab-height: 27px;
-
-        &:is([privatebrowsingmode="temporary"]) {
-            #urlbar-container {
-                width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-width-calc)) !important;
-                min-width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-min-width)) !important;
-            }
-        }
-    }
-
-    #search-container {
-        display: none !important;
-    }
-
-    #TabsToolbar {
-        margin: 0 2px !important;
-    }
-
-    #TabsToolbar-customization-target {
-        margin-right: 9px !important;
-    }
-
-    /*.tabbrowser-tab {
-        transform: none !important; Unfortunately, drag reordering doesn't work when tabs are moved to the navigation bar. Disabling the dragging effect. 
-
-            THIS HAS NOW BEEN FIXED.
-    }*/
-}
-
-@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-    :root {
-        --tab-border-radius: 5px 5px 0 0 !important;
-        --tab-background-colour: rgba(255, 255, 255, .3);
-        --tab-background-colour_hover: rgba(255, 255, 255, .5);
-        --tab-background-colour_active: linear-gradient(0deg, rgb(255, 255, 255) 0%, var(--tab-inset-border-colour) 100%);
-        --tab-inset-border-colour: rgba(254, 254, 254, 0.4);
-        --newtab-button-width: 27px;
-    }
-
-    .tabbrowser-tab {
-        &:only-of-type {
-            .tab-close-button {
-                display: none !important;
-            }
-        }
-    
-        &[selected="true"] {   
-            .tab-label {
-                margin-bottom: -2px !important;
-            } 
-
-            .tab-close-button {
-                display: block;
-            }
-        }
-
-        .tab-background {
-            &::before {
-                left: 1px !important;
-                border-width: 0 !important;
-                outline: 1px solid var(--tab-inset-border-colour);
-            }
-        }
-    }
-
-    #tabs-newtab-button,
-    #TabsMSEdgeNewTabButton,
-    #TabsToolbar #new-tab-button,
-    #TabsToolbar #MSEdgeNewTabButton {
-        &::before {
-            border: 0 !important;
-        }
-
-        &:hover {
-            &::before {
-                background-color: var(--tab-background-colour_hover) !important;
-            }
-        }
-    }
-
-    .tab-content {
-        padding: 0 7px 0 7px !important;
-    }
-
-    #scrollbutton-up,
-    #scrollbutton-down {
-        &::before {
-            left: 1px !important;
-            border-width: 0 !important;
-            outline: 1px solid var(--tab-inset-border-colour);
-        }
-    }
-
-    #TabsToolbar #MSEdgeNewTabButton {
-        display: none !important;
-    }
-
-
-    
-    #tabs-newtab-button,
-    #TabsMSEdgeNewTabButton,
-    #TabsToolbar #new-tab-button,
-    #TabsToolbar #MSEdgeNewTabButton {
-        width: 27px;
-        height: calc(100% - 1px);
-    }
-
-    toolbarbutton#tabs-newtab-button,
-    toolbarbutton#TabsMSEdgeNewTabButton {
-        &::before {
-            outline: 1px solid var(--tab-inset-border-colour);
-            width: 100%;
-            height: 100%;
-            box-sizing: border-box;
-            outline-offset: -1px;
-            border-radius: 3px 3px 0 0 !important;
-        }
-    }
-
-    
-
-    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-        :root {
-            --tab-height: 29px;
-        }
-
-        #TabsToolbar {
-            margin-left: 5px !important;
-        }
-    }
-}
-
-@supports not -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
-    #TabsToolbar #MSEdgeNewTabButton,
-    toolbarbutton#TabsMSEdgeNewTabButton {
-        display: none !important;
-    }
-}
-
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-    :root {
-        --tab-background-colour: rgba(200, 200, 200, 0.5);
-        --tab-background-colour_hover: rgba(242, 242, 242, 0.9);
-        --tab-border-colour: rgba(0, 0, 0, .5);
-    }
-
-    #customization-container {
-        background-image: none !important;
-        background-color: rgb(232, 238, 245) !important;
-    }
-
-    #scrollbutton-up, #scrollbutton-down {
-        background-color: transparent !important;
-        border: 1px solid var(--tab-border-colour) !important;
-        border-bottom: 0px !important;
-    }
-
-    .tabbrowser-tab {
-        padding: 0 !important;
-
-        .tab-background {
-            &::before {
-                background: var(--tab-background-colour);
-                border: unset !important;
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        &:hover {
-            .tab-background {
-                &::before {
-                    background: var(--tab-background-colour_hover);
-                    border: unset !important;
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-        }
-
-        &[selected="true"] {
-            .tab-background {
-                &::before {
-                    background: white !important;
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-    
-            .tab-close-button {
-                display: block;
-            }
-
-            &[class*="identity-color"] {
-                .tab-background {
-                    &::before {
-                        background: color-mix(in srgb, var(--identity-icon-color) 60%, white) !important;
-                        opacity: 1;
-                        mask: unset !important;
-                    }
-                }
-            }
-        }
-
-        &[class*="identity-color"] {
-            .tab-background {
-                &::before {
-                    background: color-mix(in srgb, var(--identity-icon-color) 60%, white) !important;
-                    opacity: .5;
-                    mask: unset !important;
-                }
-
-                &:hover {
-                    &::before {
-                        background: color-mix(in srgb, var(--identity-icon-color) 60%, white) !important;
-                        mask: unset !important;
-                        opacity: .8;
-                    }
-                }
-            }
-    
-            .tab-context-line {
-                display: none;
-            }  
-        }
-    
-        &:first-child {
-            .tab-background {
-                border-left: 1px solid var(--tab-border-colour) !important;
-            }
-        }
-    
-        .tab-close-button {
-            background-color: #A7A5A5;
-        
-            &:hover {
-                background-color: #E73C3C !important;
-            }
-        
-            &:active {
-                background-color: #E10C0C !important;
-            }
-        }
-    }
-
-    
-
-    .tab-background {
-        background: var(--tab-background-colour) !important;
-        border: 1px solid var(--tab-border-colour) !important;
-        border-left: 0 !important;
-        border-bottom: 0px !important;
-    
-        &:hover {
-            background: var(--tab-background-colour_hover) !important;
-        }
-    }
-
-    #scrollbutton-up,
-    #scrollbutton-down {
-        &::before {
-            border: unset !important;
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    #tabs-newtab-button,
-    #TabsMSEdgeNewTabButton,
-    #TabsToolbar #new-tab-button,
-    #TabsToolbar #MSEdgeNewTabButton {
-        border: 1px solid var(--tab-border-colour);
-        border-left: 0 !important;
-        border-bottom: 0px !important;
-
-        &::before {
-            border: unset !important;
-            width: 100% !important;
-            height: 100% !important;
-        }
-    }
-
     @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
         @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
-            :root {
-                --newtab-button-width: 22px;
-            }
-
             toolbarbutton#TabsMSEdgeNewTabButton,
             #TabsToolbar #MSEdgeNewTabButton {
                 &:hover {
@@ -709,6 +595,13 @@ toolbarbutton#TabsMSEdgeNewTabButton {
                 }
             }
         }
+    }
+}
+
+@supports not -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+    #TabsToolbar #MSEdgeNewTabButton,
+    toolbarbutton#TabsMSEdgeNewTabButton {
+        display: none !important;
     }
 }
 

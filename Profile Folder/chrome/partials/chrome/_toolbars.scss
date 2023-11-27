@@ -1,18 +1,14 @@
 :root {
     --toolbar-bgcolor: #e6effa !important;
-}
 
-@supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
-    @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
-        :root {
+    @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
+        @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
+            --toolbar-bgcolor: #f7f7f7 !important;
+        }
+
+        @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
             --toolbar-bgcolor: color-mix(in srgb, var(--userAccentColor) 10%, white) !important;
         }
-    }
-}
-
-@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-    :root {
-        --toolbar-bgcolor: #f7f7f7 !important;
     }
 }
 
@@ -631,198 +627,42 @@ findbar {
 }
 
 #cBPageMenuButton {
+    @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
+        .toolbarbutton-icon {
+            list-style-image: url("images/cBPage.png") !important;
+        }
+    }
+
     .toolbarbutton-text {
         display: block;
     }
 
     > #cBPageMenuPopUp {
-        > #cBPage_newWindow {
-            > .menu-iconic-left {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    background-image: url('images/newWindow.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+            menuseparator {
+                &:nth-child(6),
+                &:nth-child(9),
+                &:last-of-type {
+                    display: none !important;
                 }
             }
         }
 
-        > #cBPage_cut {
-            > .menu-iconic-left {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    background-image: url('images/cut.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
-                }
-            }
-        }
-        
-        > #cBPage_copy {
-            > .menu-iconic-left {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    background-image: url('images/copy.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
-                }
-            }
-        }
-
-        > #cBPage_paste {
-            > .menu-iconic-left {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    background-image: url('images/paste.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
-                }
-            }
-        }
-        
-        > #cBPage_eMailWindowsLive {
-            > .menu-iconic-left {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/17363.ico') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
-                }
-            }
-        }
-
-        > #cBPage_googleTranslate {
-            > .menu-iconic-left {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/17364.ico') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
-                }
-            }
-        }
-
-        > #cBPage_saveAs {
-            > .menu-iconic-left {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    background-image: url('images/saveAs.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
-                }
-            }
-        }
-
-        > #cBPage_sendLinkbyEMail {
-            > .menu-iconic-left {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    background-image: url('images/sendLinkbyEMail.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
-                }
-            }
-        }
-
-        > #cBPage_zoom {
-            > .menu-iconic-left {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    background-image: url('images/zoom.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
-                }
-            }
-        }
-
+        > #cBPage_newWindow,
+        > #cBPage_cut,
+        > #cBPage_copy,
+        > #cBPage_paste,
+        > #cBPage_eMailWindowsLive,
+        > #cBPage_googleTranslate,
+        > #cBPage_saveAs,
+        > #cBPage_sendLinkbyEMail,
+        > #cBPage_zoom,
         > #cBPage_viewSource {
             > .menu-iconic-left {
                 position: relative;
 
                 &::before {
                     content: '';
-                    background-image: url('images/viewSource.png') !important;
                     background-size: 16px;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -832,6 +672,87 @@ findbar {
 
                 > .menu-iconic-icon {
                     display: none;
+                }
+            }
+        }
+        
+        > #cBPage_newWindow {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/newWindow.png') !important;
+                    
+                }  
+            }
+        }
+
+        > #cBPage_cut {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/cut.png') !important;
+                }
+            }
+        }
+        
+        > #cBPage_copy {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/copy.png') !important;
+                }
+            }
+        }
+
+        > #cBPage_paste {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/paste.png') !important;
+                }
+            }
+        }
+        
+        > #cBPage_eMailWindowsLive {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/17363.ico') !important;
+                }
+            }
+        }
+
+        > #cBPage_googleTranslate {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/17364.ico') !important;
+                }
+            }
+        }
+
+        > #cBPage_saveAs {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/saveAs.png') !important;
+                }
+            }
+        }
+
+        > #cBPage_sendLinkbyEMail {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/sendLinkbyEMail.png') !important;
+                }
+            }
+        }
+
+        > #cBPage_zoom {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/zoom.png') !important;
+                }
+            }
+        }
+
+        > #cBPage_viewSource {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/viewSource.png') !important;
                 }
             }
         }
@@ -839,57 +760,25 @@ findbar {
 }
 
 #cBSafetyMenuButton {
+    @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
+        .toolbarbutton-icon {
+            list-style-image: url("images/cBSafety.png") !important;
+        }
+    }
+
     .toolbarbutton-text {
         display: block;
     }
 
     > #cBSafetyMenuPopUp {
-        > #cBSafety_deleteBrowsingHistory {
-            > .menu-iconic-left {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    background-image: url('images/deleteBrowsingHistory.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
-                }
-            }
-        }
-
-        > #cBSafety_inPrivateBrowsing {
-            > .menu-iconic-left {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    background-image: url('images/inPrivateBrowsing.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
-                }
-            }
-        }
+        > #cBSafety_deleteBrowsingHistory,
+        > #cBSafety_inPrivateBrowsing,
         > #cBSafety_smartScreenFilter {
             > .menu-iconic-left {
                 position: relative;
 
                 &::before {
                     content: '';
-                    background-image: url('images/smartScreenFilter.png') !important;
                     background-size: 16px;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -899,6 +788,30 @@ findbar {
 
                 > .menu-iconic-icon {
                     display: none;
+                }
+            }
+        }
+
+        > #cBSafety_deleteBrowsingHistory {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/deleteBrowsingHistory.png') !important;
+                }
+            }
+        }
+
+        > #cBSafety_inPrivateBrowsing {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/inPrivateBrowsing.png') !important;
+                }
+            }
+        }
+
+        > #cBSafety_smartScreenFilter {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/smartScreenFilter.png') !important;
                 }
             }
         }
@@ -906,18 +819,28 @@ findbar {
 }
 
 #cBToolsMenuButton {
+    @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
+        .toolbarbutton-icon {
+            list-style-image: url("images/cBTools.png") !important;
+        }
+    }
+
     .toolbarbutton-text {
         display: block;
     }
 
     > #cBToolsMenuPopUp {
-        > #cBTools_diagnoseConnectionProblems {
+        > #cBTools_diagnoseConnectionProblems,
+        > #cBTools_reopenLastBrowsingSession,
+        > #cBTools_manageAddOns,
+        > #cBTools_workOffline,
+        > #cBTools_fullScreen,
+        > #cBTools_internetOptions  {
             > .menu-iconic-left {
                 position: relative;
 
                 &::before {
                     content: '';
-                    background-image: url('images/diagnose.png') !important;
                     background-size: 16px;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -927,106 +850,54 @@ findbar {
 
                 > .menu-iconic-icon {
                     display: none;
+                }
+            }
+        }
+
+        > #cBTools_diagnoseConnectionProblems {
+            > .menu-iconic-left {
+                &::before {
+                    background-image: url('images/diagnose.png') !important;
                 }
             }
         }
 
         > #cBTools_reopenLastBrowsingSession {
             > .menu-iconic-left {
-                position: relative;
-
                 &::before {
-                    content: '';
                     background-image: url('images/reopenLastBrowsingSession.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-
-                > .menu-iconic-icon {
-                    display: none;
                 }
             }
         }
 
         > #cBTools_manageAddOns {
             > .menu-iconic-left {
-                position: relative;
-    
                 &::before {
-                    content: '';
                     background-image: url('images/manageAddOns.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-    
-                > .menu-iconic-icon {
-                    display: none;
                 }
             }
         }
     
         > #cBTools_workOffline {
             > .menu-iconic-left {
-                position: relative;
-    
                 &::before {
-                    content: '';
                     background-image: url('images/workOffline.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-    
-                > .menu-iconic-icon {
-                    display: none;
                 }
             }
         }
     
         > #cBTools_fullScreen {
             > .menu-iconic-left {
-                position: relative;
-    
                 &::before {
-                    content: '';
                     background-image: url('images/fullScreen.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-    
-                > .menu-iconic-icon {
-                    display: none;
                 }
             }
         }
     
         > #cBTools_internetOptions {
             > .menu-iconic-left {
-                position: relative;
-    
                 &::before {
-                    content: '';
                     background-image: url('images/internetOptions.png') !important;
-                    background-size: 16px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 16px;
-                    width: 16px;
-                }
-    
-                > .menu-iconic-icon {
-                    display: none;
                 }
             }
         }
@@ -1074,11 +945,27 @@ findbar {
 #cBToolsMenuButton {
     padding-right: 4px !important;
 
+    @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
+        padding-left: 3px !important;
+
+        .toolbarbutton-text {
+            display: none !important;
+        }
+
+        &::after {
+            margin-left: 2px !important;
+        }
+    }
+
     &[open="true"],
     &:active {
         .toolbarbutton-text,
         &::after {
             transform: translateX(1px) translateY(1px);
+
+            @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB")  {
+                transform: translateX(0) translateY(0) !important;
+            }
         }
     }
 }
@@ -1132,45 +1019,6 @@ findbar {
         background-position: center !important;
         background-repeat: no-repeat !important;
         background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_23.ico") !important;
-    }
-}
-
-@supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
-    #cBPageMenuButton,
-    #cBSafetyMenuButton,
-    #cBToolsMenuButton {
-        padding-left: 3px !important;
-
-        .toolbarbutton-text {
-            display: none !important;
-        }
-
-        &::after {
-            margin-left: 2px !important;
-        }
-
-        &[open="true"],
-        &:active {
-            &::after {
-                transform: translateX(0) translateY(0) !important;
-            }
-        }
-    }
-
-    #cBPageMenuButton {
-        .toolbarbutton-icon {
-            list-style-image: url("images/cBPage.png") !important;
-        }
-    }
-    #cBSafetyMenuButton {
-        .toolbarbutton-icon {
-            list-style-image: url("images/cBSafety.png") !important;
-        }
-    }
-    #cBToolsMenuButton {
-        .toolbarbutton-icon {
-            list-style-image: url("images/cBTools.png") !important;
-        }
     }
 }
 
@@ -1251,28 +1099,13 @@ findbar {
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-    #cBPageMenuPopUp {
-        menuseparator {
-            &:nth-child(6),
-            &:nth-child(9) {
-                display: none !important;
-            }
-        }
-    }
-
     #cBPage_eMailWindowsLive,
     #cBPage_googleTranslate,
     #cBPage_allAccelerators {
         display: none !important;
     }
 
-    @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
-        #cBSafetyMenuPopUp {
-            menuseparator:last-of-type {
-                display: none !important;
-            }
-        }
-        
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {        
         #cBSafety_windowsUpdate {
             display: none !important;
         }
