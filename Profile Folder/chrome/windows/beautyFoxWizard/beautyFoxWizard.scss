@@ -1,3 +1,21 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+        --hyperlink: rgb(102, 204, 255) !important;
+      --background: #212121 !important;
+          --bottomline: #252525 !important;
+        --bottom: #353535 !important;
+    }
+    }
+    
+    @media (prefers-color-scheme: light) {
+    :root {
+        --hyperlink: rgb(0, 51, 153) !important;
+      --background: #FFFFFF !important;
+            --bottomline: rgb(223, 223, 223) !important;
+      --bottom: rgb(240, 240, 240) !important;
+    }
+    }
+
 window {
     groupbox {
         appearance: groupbox;
@@ -8,7 +26,7 @@ window {
         > label:first-child {
             position: absolute;
             top: -11px;
-            background: white;
+            background: var(--background);
             padding: 0 3px;
         }
     }
@@ -27,7 +45,7 @@ window {
 
     h1 {
         font-size: 12pt !important;
-        color: rgb(0, 51, 153);
+        color: var(--hyperlink);
         margin-bottom: 17px;
     }
 
@@ -80,7 +98,7 @@ window {
 
     #contentArea {
         flex: 1;
-        background: white;
+        background: var(--background);
         outline: 1px solid var(--browser-outer-border-color);
         border: 1px solid var(--browser-inner-border-color);
         margin: 1px;
@@ -131,8 +149,10 @@ window {
 
         .title {
             text-align: left;
+            color: var(--hyperlink);
             font-size: 12pt !important;
         }
+        
     }
 
     .pageContent {
@@ -142,6 +162,7 @@ window {
         overflow-x: hidden;
         overflow-y: auto;
         height: calc(100vh - 78px);
+        color-scheme: light !important;
 
         > hbox:first-child {
             margin-top: 16px;
@@ -152,8 +173,8 @@ window {
         justify-content: end;
         align-items: center;
         height: 41px;
-        border-top: 1px solid rgb(223, 223, 223);
-        background-color: rgb(240, 240, 240);
+        border-top: 1px solid var(--bottomline);
+        background-color: var(--bottom);
         padding: 0 6px;
         margin-top: auto;
 
@@ -163,6 +184,7 @@ window {
             height: 23px;
             justify-content: center;
             align-items: center;
+            color-scheme: light !important;
 
             > hbox {
                 display: none;
