@@ -32,9 +32,7 @@ BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Exp
 
 4.1	**(Optional)** In `about:config`, set `xpinstall.signatures.required` to `false` and drag and drop `suggestedSites.xpi` in Firefox
 
-4.2	Install [Add to bookmarks bar](https://addons.mozilla.org/en-US/firefox/addon/add-to-favorites-bar/)
-
-4.3	**(Optional)** Install [FeedBro](https://addons.mozilla.org/en-US/firefox/addon/feedbroreader/) for RSS feeds
+4.2	**(Optional)** Install [FeedBro](https://addons.mozilla.org/en-US/firefox/addon/feedbroreader/) for RSS feeds
 
 5. Customise your layout to resemble [this](https://www.techrepublic.com/wp-content/uploads/2011/03/6202428.png)
 
