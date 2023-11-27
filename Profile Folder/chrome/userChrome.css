@@ -2123,6 +2123,12 @@ html[customizing=true] #addonsBar::after {
 .urlbarView-row[label] .urlbarView-title strong {
   color: rgb(0, 102, 207) !important;
 }
+.urlbarView-row[label] ~ .urlbarView-row .urlbarView-title {
+  color: black !important;
+}
+.urlbarView-row[label] ~ .urlbarView-row .urlbarView-title strong {
+  color: rgb(0, 102, 207) !important;
+}
 
 #urlbar:not([usertyping]) .urlbarView-title {
   color: black !important;

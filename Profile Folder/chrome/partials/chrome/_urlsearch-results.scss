@@ -75,6 +75,16 @@
                 color: rgb(0,102,207) !important;
             }
         }
+
+        ~ .urlbarView-row {
+            .urlbarView-title {
+                color: black !important;
+            
+                strong {
+                    color: rgb(0,102,207) !important;
+                }
+            }
+        }
     }
 }
 
