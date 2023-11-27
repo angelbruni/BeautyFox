@@ -50,17 +50,6 @@
                 height: 22px !important;
                 position: relative !important;
 
-                /*&::after {
-                    content: '';
-                    height: 20px;
-                    width: 24px;
-                    background-image: url(chrome://userchrome/content/images/search7.svg);
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    position: absolute;
-                    right: 0;
-                }*/
-
                 &[focused] {
                     box-shadow: none !important;
                     background-color: inherit !important;

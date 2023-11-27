@@ -78,16 +78,6 @@ window {
         }
     }
 
-    /*input {                   Doen't work for some reason
-        &[type="number"] {
-            > div:last-child {
-                transform: translateX(2px) !important;
-                width: 17px !important;
-                height: 20px !important;
-            }
-        }
-    }*/
-
     #contentArea {
         flex: 1;
         background: white;

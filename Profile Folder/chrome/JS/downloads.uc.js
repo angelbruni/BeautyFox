@@ -64,22 +64,6 @@
 				min-height: 22px !important;
 				height: 22px !important;
 				position: relative !important;
-				/*&::after {
-					content: '';
-					height: 20px;
-					width: 24px;
-					background-image: url(chrome://userchrome/content/images/search7.svg);
-					background-position: center;
-					background-repeat: no-repeat;
-					position: absolute;
-					right: 0;
-				}*/
-				/* Doesn't work yet.
-				input {
-					&::placeholder {
-						font-style: italic !important;
-					}
-				}*/
 			  }
 			  #places #placesToolbox #placesToolbar search-textbox[focused] {
 				box-shadow: none !important;
@@ -118,14 +102,6 @@
 			  }
 			  #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadTypeIcon {
 				display: none !important;
-			  }
-			  #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadContainer {
-				/* Doesn't work ??
-				.downloadProgress {
-					&::before {
-						content: attr(value) "%";
-					}
-				}*/
 			  }
 			  #places #contentView #placesViewsBox richlistbox#downloadsListBox > richlistitem .downloadMainArea .downloadContainer .downloadTarget {
 				font-size: 12pt !important;
@@ -190,8 +166,7 @@
 			  }
 			  .textbox-search-icons .textbox-search-clear:hover {
 				list-style-image: url(images/clear-hover.svg) !important;
-			  }/*# sourceMappingURL=downloads.css.map */
-			
+			  }
 			`
 
 			places.appendChild(style);
