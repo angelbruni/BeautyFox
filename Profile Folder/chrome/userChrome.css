@@ -4526,6 +4526,7 @@ panel:is(:not(.cui-widget-panel)) toolbarbutton.panel-subview-footer-button:hove
 }
 panel:is(:not(.cui-widget-panel)) toolbarbutton.panel-subview-footer-button .toolbarbutton-text {
   text-align: center !important;
+  transform: translateY(-1px) !important;
 }
 panel.cui-widget-panel toolbarbutton {
   min-height: 24px !important;

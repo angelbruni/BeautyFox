@@ -53,7 +53,7 @@ fetch('chrome://userchrome/content/locale.json')
     .then(response => response.json())
     .then(data => {
         translations = data;
-        loadLocale();
+        loadLocale(); // Call loadLocale inside the promise
     })
     .catch(error => {
         console.error('Error loading translations:', error);
@@ -125,7 +125,5 @@ function loadLocale() {
         }
     });
 }
-
-loadLocale();
 
 loadLocale();
