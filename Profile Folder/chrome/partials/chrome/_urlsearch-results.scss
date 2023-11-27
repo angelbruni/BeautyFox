@@ -1,3 +1,8 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+        --panel-border-color: #b4b4b4 !important;
+    }
+}
 :root {
     --panel-border-color: #b4b4b4 !important;
     --urlbarView-subtract: 23px;
