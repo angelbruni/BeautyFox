@@ -89,8 +89,10 @@ html {
     }
 }
 
-*[disabled="true"] {
-    opacity: 1 !important;
+* {
+    &[disabled="true"] {
+        opacity: 1 !important;
+    }
 }
 
 toolbar:not([nowindowdrag="true"], [customizing="true"]) {

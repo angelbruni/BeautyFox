@@ -428,7 +428,41 @@ optionUseAccentColouring.addEventListener("click", function() {
     }, 0);
 }); 
 
-var creditsText = document.createTextNode("Credits:\n\nAngelBruni - Theme Developer;\n\nSQUEeAK - Trailer;\n\nluisl - Spanish translation and testing;\n\nMaTe - Portuguese (Brazillian) translation and testing;\n\nneptuneen - Portuguese (Brazillian) translation and testing;\n\nTesting Team - For making sure all bugs are squished and improvements are made;\n\nMicrosoft - Internet Explorer and Windows software and assets;\n\nMozilla - Firefox software.");
+var creditsText = document.createTextNode(`
+
+Credits:
+\n
+\n
+AngelBruni - Theme Developer;
+\n
+\n
+SQUEeAK - Trailer;
+\n
+\n
+luisl - Spanish translation and testing;
+\n
+\n
+MaTe - Portuguese (Brazillian) translation and testing;
+\n
+\n
+neptuneen - Portuguese (Brazillian) translation and testing;
+\n
+\n
+Brawllux - Turkish translation and testing;
+\n
+\n
+ImSwordQueen - For a bunch of little cool ideas;
+\n
+\n
+Testing Team - For making sure all bugs are squished and improvements are made;
+\n
+\n
+Microsoft - Internet Explorer and Windows software and assets;
+\n
+\n
+Mozilla - Firefox software.
+
+`);
 
 document.getElementById('credits').appendChild(creditsText);
 
