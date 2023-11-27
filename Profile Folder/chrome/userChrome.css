@@ -2060,8 +2060,32 @@ html[customizing=true] #addonsBar::after {
   display: none !important;
 }
 
+.urlbarView-title {
+  color: rgb(0, 102, 207) !important;
+}
+.urlbarView-title strong {
+  color: black !important;
+  font-weight: normal !important;
+}
+
+.urlbarView-row strong {
+  font-weight: normal !important;
+}
 .urlbarView-row:hover .urlbarView-url, .urlbarView-row[selected] .urlbarView-url {
   display: none !important;
+}
+.urlbarView-row[label] .urlbarView-title {
+  color: black !important;
+}
+.urlbarView-row[label] .urlbarView-title strong {
+  color: rgb(0, 102, 207) !important;
+}
+
+#urlbar:not([usertyping]) .urlbarView-title {
+  color: black !important;
+}
+#urlbar:not([usertyping]) .urlbarView-title strong {
+  color: black !important;
 }
 
 .urlbarView-row,
@@ -2096,6 +2120,13 @@ html[customizing=true] #addonsBar::after {
   border-top: 1px solid rgb(227, 227, 227);
   width: calc(100% - 114px);
   top: -9px;
+}
+
+.ac-title-text {
+  color: black !important;
+}
+.ac-title-text span {
+  color: rgb(0, 102, 207) !important;
 }
 
 .urlbarView-row-inner {

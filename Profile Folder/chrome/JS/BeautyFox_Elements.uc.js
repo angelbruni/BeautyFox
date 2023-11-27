@@ -29,7 +29,7 @@ function createAddToBookmarksBarButton() {
 
 function addToBookmarksBar() {
     var bookmarksSvc = Cc["@mozilla.org/browser/nav-bookmarks-service;1"].getService(Ci.nsINavBookmarksService);
-    bookmarksSvc.insertBookmark(3, gBrowser.currentURI, bookmarksSvc.DEFAULT_INDEX, window.document.title);
+    bookmarksSvc.insertBookmark(3, gBrowser.currentURI, bookmarksSvc.DEFAULT_INDEX, gBrowser.selectedTab._fullLabel);
 }
 
 function createFavouritesSidebarButton() {
