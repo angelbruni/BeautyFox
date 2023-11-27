@@ -4,12 +4,14 @@
     --urlbarView-min-width: 400px;
     
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-        --urlbar-width-calc: calc(25vw + 7px);
         --urlbarView-subtract: 34px;
 
         @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-            --urlbar-width-calc: calc(26vw + 10px);
+            --urlbar-width-calc: calc(25vw + 7px);
         }
+    }
+    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+        --urlbar-width-calc: calc(26vw + 10px);
     }
 }
 
