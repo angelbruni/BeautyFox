@@ -491,7 +491,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
     #reload-button {
         &::before {
-            mask: url(images/refresh-mask.svg);
+            mask: url(chrome://userchrome/content/images/refresh-mask.svg);
         }
 
         &:hover {
@@ -514,7 +514,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
     #stop-button {
         &::before {
-            mask: url(images/stop-mask.svg);
+            mask: url(chrome://userchrome/content/images/stop-mask.svg);
         }
 
         &:hover {
@@ -532,6 +532,49 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
     + toolbarbutton {
         margin-left: 8px !important;
+    }
+}
+
+#identity-box[pageproxystate="valid"].localResource > #identity-icon-box {
+    position: relative;
+    
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        width: var(--stop-reload-button_width) !important;
+        border-left: 1px solid rgba(0, 0, 0, 0.6) !important;
+    }
+
+    &::before {
+        content: '';
+        mask-position: center !important;
+        mask-repeat: no-repeat !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,.5);
+        transition: background-color .3s steps(5);
+    }
+
+    &:active {
+        &::before {
+            transition: none;
+            background-color: rgb(3, 132, 206);
+        }
+    }
+
+    &::before {
+        mask: url(chrome://userchrome/content/images/storedpage-mask.svg);
+    }
+
+    &:hover {
+        &::before {
+            background-color: rgb(0, 161, 220);
+        }
+    }
+
+    image {
+        display: none !important;
     }
 }
 
@@ -1380,6 +1423,10 @@ toolbarbutton {
     justify-content: center !important;
     border-radius: 0 !important;
     background: transparent !important;
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        width: 30px !important;
+    }
 }
 
 #stop-reload-button {

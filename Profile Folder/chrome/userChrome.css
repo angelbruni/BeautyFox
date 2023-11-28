@@ -511,8 +511,8 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   transition: none;
 }
 #stop-reload-button #reload-button::before {
-  -webkit-mask: url(images/refresh-mask.svg);
-          mask: url(images/refresh-mask.svg);
+  -webkit-mask: url(chrome://userchrome/content/images/refresh-mask.svg);
+          mask: url(chrome://userchrome/content/images/refresh-mask.svg);
 }
 #stop-reload-button #reload-button:hover::before {
   background-color: rgb(0, 161, 220);
@@ -525,8 +525,8 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
   pointer-events: none !important;
 }
 #stop-reload-button #stop-button::before {
-  -webkit-mask: url(images/stop-mask.svg);
-          mask: url(images/stop-mask.svg);
+  -webkit-mask: url(chrome://userchrome/content/images/stop-mask.svg);
+          mask: url(chrome://userchrome/content/images/stop-mask.svg);
 }
 #stop-reload-button #stop-button:hover::before {
   background-color: #E73C3C;
@@ -536,6 +536,44 @@ toolbarpaletteitem[id*=wrapper-customizableui-special-spring] > toolbarspring {
 }
 #stop-reload-button + toolbarbutton {
   margin-left: 8px !important;
+}
+
+#identity-box[pageproxystate=valid].localResource > #identity-icon-box {
+  position: relative;
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+  #identity-box[pageproxystate=valid].localResource > #identity-icon-box {
+    width: var(--stop-reload-button_width) !important;
+    border-left: 1px solid rgba(0, 0, 0, 0.6) !important;
+  }
+}
+#identity-box[pageproxystate=valid].localResource > #identity-icon-box::before {
+  content: "";
+  -webkit-mask-position: center !important;
+          mask-position: center !important;
+  -webkit-mask-repeat: no-repeat !important;
+          mask-repeat: no-repeat !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s steps(5);
+}
+#identity-box[pageproxystate=valid].localResource > #identity-icon-box:active::before {
+  transition: none;
+  background-color: rgb(3, 132, 206);
+}
+#identity-box[pageproxystate=valid].localResource > #identity-icon-box::before {
+  -webkit-mask: url(chrome://userchrome/content/images/storedpage-mask.svg);
+          mask: url(chrome://userchrome/content/images/storedpage-mask.svg);
+}
+#identity-box[pageproxystate=valid].localResource > #identity-icon-box:hover::before {
+  background-color: rgb(0, 161, 220);
+}
+#identity-box[pageproxystate=valid].localResource > #identity-icon-box image {
+  display: none !important;
 }
 
 #urlbar {
@@ -1537,6 +1575,11 @@ panel {
   justify-content: center !important;
   border-radius: 0 !important;
   background: transparent !important;
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+  #identity-icon-box {
+    width: 30px !important;
+  }
 }
 
 #stop-reload-button {
@@ -4476,6 +4519,7 @@ panel:is(:not(.cui-widget-panel)).panel-no-padding toolbaritem.unified-extension
 }
 panel:is(:not(.cui-widget-panel))#identity-popup .panel-header::before, panel:is(:not(.cui-widget-panel))#unified-extensions-panel .panel-header::before {
   content: "";
+  min-width: 32px;
   width: 32px;
   height: 32px;
   background-size: 32px;

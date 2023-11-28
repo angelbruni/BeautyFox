@@ -152,6 +152,7 @@ panel {
             .panel-header {
                 &::before {
                     content: '';
+                    min-width: 32px;
                     width: 32px;
                     height: 32px;
                     background-size: 32px;
