@@ -2471,7 +2471,7 @@ html[customizing=true] #addonsBar::after {
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
   #main-window #nav-bar::before {
-    left: 7px;
+    left: 9px;
     top: 1px;
   }
 }
