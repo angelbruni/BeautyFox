@@ -1,210 +1,219 @@
 @-moz-document url(about:newtab),
-               url(about:home) {
-    :root {
-        --popular-site-label: 'Your most popular sites';
+url(about:home){
+:root {
+	--popular-site-label: 'Your most popular sites';
 
-        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-            --popular-site-label: 'Frequent';
-        }
-    }
+	@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+		--popular-site-label: 'Frequent';
+	}
+}
 
-    html {
-        &[lang*="es"] {
-            --popular-site-label: 'Sus sitios más populares';
+html {
+	&[lang*="es"] {
+		--popular-site-label: 'Sus sitios más populares';
 
-            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                --popular-site-label: 'Con más frecuencia';
-            }
-        }
+		@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+			--popular-site-label: 'Con más frecuencia';
+		}
+	}
 
-        &[lang="pt-BR"] {
-            --popular-site-label: 'Seus sites mais populares'; 
+	&[lang="pt-BR"] {
+		--popular-site-label: 'Seus sites mais populares';
 
-            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                --popular-site-label: 'Com mais frequência';
-            }
-        }
+		@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+			--popular-site-label: 'Com mais frequência';
+		}
+	}
 
-        &[lang*="pt-PT"] {
-            --popular-site-label: 'Teus sítios mais populares'; 
-        }
+	&[lang*="pt-PT"] {
+		--popular-site-label: 'Teus sítios mais populares';
+	}
 
-        &[lang="ja"] {
-            --popular-site-label: 'よく使うサイト'; 
+	&[lang="ja"] {
+		--popular-site-label: 'よく使うサイト';
 
-            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                --popular-site-label: 'よくアクセスするサイト';
-            }
-        }
-    }
+		@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+			--popular-site-label: 'よくアクセスするサイト';
+		}
+	}
+}
 
-    .body-wrapper {
-        .discovery-stream:not(:first-child) {
-            display: none !important;
-        }
-    }
+.body-wrapper {
+	.discovery-stream:not(:first-child) {
+		display: none !important;
+	}
+}
 
-    .icon-settings {
-        background-image: none !important;
-    }
+.icon-settings {
+	background-image: none !important;
+}
 
-    main {
-        width: auto !important;
-        margin-top: 63px !important;
+main {
+	width: auto !important;
+	margin-top: 63px !important;
 
-        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-            margin-top: 61px !important;
-        }
-    }
+	@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+		margin-top: 61px !important;
+	}
+}
 
-    .non-collapsible-section {
-        display: none;
-    }
+.non-collapsible-section {
+	display: none;
+}
 
-    .top-sites-list {
-        margin: 0 !important;
-        display: grid;
-        gap: 24px 24px;
-        grid-template-columns: repeat(5, 1fr);
-        position: relative;
+.top-sites-list {
+	margin: 0 !important;
+	display: grid;
+	gap: 24px 24px;
+	grid-template-columns: repeat(5, 1fr);
+	position: relative;
 
-        &::before {
-            content: var(--popular-site-label);
-            position: absolute;
-            top: -51px;
-            left: 0;
-            font-size: 15pt;
-            color: #2a2a2a;
+	&::before {
+		content: var(--popular-site-label);
+		position: absolute;
+		top: -51px;
+		left: 0;
+		font-size: 15pt;
+		color: #2a2a2a;
 
-            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                top: -62px;
-                font-size: 21pt;
-                color: rgb(80, 80, 80);
-            }
-        }
+		@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+			top: -62px;
+			font-size: 21pt;
+			color: rgb(80, 80, 80);
+		}
+	}
 
-        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-            &::after {
-                content: '';
-                position: absolute;
-                top: -103px;
-                right: 80px;
-                height: 97px;
-                width: 209px;
-                background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/821.png");
-                background-position-y: -97px;
-                background-size: cover;
-                opacity: 0.5;
+	@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+		&::after {
+			content: '';
+			position: absolute;
+			top: -103px;
+			right: 80px;
+			height: 97px;
+			width: 209px;
+			background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/821.png");
+			background-position-y: -97px;
+			background-size: cover;
+			opacity: 0.5;
 
-                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
-                    background-position-y: 0px;
-                }
-            }
-        }
-    }
+			@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+				background-position-y: 0px;
+			}
+		}
+	}
+}
 
-    .top-site-outer {
-        width: 150px !important;
-        padding: 0 !important;
-        position: relative;
+.top-site-outer {
+	width: 150px !important;
+	padding: 0 !important;
+	position: relative;
 
-        &:nth-child(11),
-        &:nth-child(12),
-        &:nth-child(13),
-        &:nth-child(14),
-        &:nth-child(15),
-        &:nth-child(16) {
-            display: none !important;
-        }
+	@media (max-width: 959px) {
+		width: 120px !important;
+	}
 
-        &.placeholder {
-            .tile {
-                background-color: rgb(247, 247, 247) !important;
+	&:nth-child(11),
+	&:nth-child(12),
+	&:nth-child(13),
+	&:nth-child(14),
+	&:nth-child(15),
+	&:nth-child(16) {
+		display: none !important;
+	}
 
-                .icon-wrapper {
-                    display: none !important;
-                }
-            }
-        }
+	&.placeholder {
+		.tile {
+			background-color: rgb(247, 247, 247) !important;
 
-        .tile {
-            width: 150px !important;
-            height: 150px !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-            border: 1px solid rgb(217, 217, 217) !important;
-            background-color: white !important;
-            margin: 0 !important;
-            justify-content: unset !important;
-            align-items: unset !important;
-            
-            .icon-wrapper {
-                outline: 1px solid rgb(217, 217, 217);
-                outline-offset: -1px;
-                border-radius: 0 !important;
-                width: 32px !important;
-                height: 32px !important;
-                margin-top: 8px;
-                margin-left: 8px;
+			.icon-wrapper {
+				display: none !important;
+			}
+		}
+	}
 
-                &.letter-fallback::before {
-                    font-size: 16pt !important;
-                    font-weight: normal !important;
-                    top: -2px !important;
-                    transform: rotate(0deg) !important;
-                }
+	.tile {
+		width: 150px !important;
+		height: 150px !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		border: 1px solid rgb(217, 217, 217) !important;
+		background-color: white !important;
+		margin: 0 !important;
+		justify-content: unset !important;
+		align-items: unset !important;
 
-                .top-site-icon {
-                    border-radius: 0 !important;
+		@media (max-width: 959px) {
+			width: 120px !important;
+			height: 120px !important;
+		}
 
-                    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-                        z-index: 2;
-                    }  
-                }
-            }
+		.icon-wrapper {
+			outline: 1px solid rgb(217, 217, 217);
+			outline-offset: -1px;
+			border-radius: 0 !important;
+			width: 32px !important;
+			height: 32px !important;
+			margin-top: 8px;
+			margin-left: 8px;
 
-            .search-topsite {
-                display: none !important;
-            }
-        }
-    
-        .title {
-            position: absolute !important;
-            top: 41px;
-            left: 8px;
-            text-align: left !important;
-            max-width: 134px !important;
-            font-size: 9pt !important;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-        }
+			&.letter-fallback::before {
+				font-size: 16pt !important;
+				font-weight: normal !important;
+				top: -2px !important;
+				transform: rotate(0deg) !important;
+			}
 
-        .context-menu-button {
-            top: 12px !important;
-            right: 10px !important;
-            width: 16px !important;
-            height: 16px !important;
-            transition: none !important;
-        }
-    }
-    
-    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-        .top-site-outer {
-            .tile {
-                border-radius: 4px !important;
-    
-                .icon-wrapper:not(.letter-fallback) {
-                    border-radius: 2px !important;
-                    position: relative !important;
+			.top-site-icon {
+				border-radius: 0 !important;
 
-                    background: linear-gradient(180deg, white 0%, rgb(242, 242, 242) 100%);
-                }
-            }
-        }
-    }
+				@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+					z-index: 2;
+				}
+			}
+		}
 
-    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-        body {
-            background-color: rgb(232, 238, 245) !important;
-        }
-    }
+		.search-topsite {
+			display: none !important;
+		}
+	}
+
+	.title {
+		position: absolute !important;
+		top: 41px;
+		left: 8px;
+		text-align: left !important;
+		max-width: 134px !important;
+		font-size: 9pt !important;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+	}
+
+	.context-menu-button {
+		top: 12px !important;
+		right: 10px !important;
+		width: 16px !important;
+		height: 16px !important;
+		transition: none !important;
+	}
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+	.top-site-outer {
+		.tile {
+			border-radius: 4px !important;
+
+			.icon-wrapper:not(.letter-fallback) {
+				border-radius: 2px !important;
+				position: relative !important;
+
+				background: linear-gradient(180deg, white 0%, rgb(242, 242, 242) 100%);
+			}
+		}
+	}
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+	body {
+		background-color: rgb(232, 238, 245) !important;
+	}
+}
 }

@@ -82,6 +82,14 @@
 #suggestedsites_bruni_com-BAP {
     list-style-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/30788.ico') !important;
 
+    @supports -moz-bool-pref('BeautyFox.appearance.IE9PreRelease') {
+        list-style-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/110.ico') !important;
+    }
+
+    @supports -moz-bool-pref('BeautyFox.appearance.IE10') {
+        list-style-image: url('chrome://userchrome/content/images/favicon_bing2013.svg') !important;
+    }
+
     .toolbarbutton-icon {
         margin-inline-end: 0 !important;
     }
