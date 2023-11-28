@@ -1,5 +1,6 @@
 :root {
     --arrowpanel-background: white !important;
+    @media (prefers-color-scheme: dark) {--arrowpanel-background: black !important; }
 }
 
 toolbarbutton {

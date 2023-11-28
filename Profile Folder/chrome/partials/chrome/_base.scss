@@ -49,6 +49,25 @@
     --appearance_IE11: 0;
     --appearance_IE11Win10: 0;
 
+    @media (prefers-color-scheme: dark) { 
+    
+        --chrome-content-separator-color: #6f6f6f !important;
+
+        --browser-outer-border-color: rgba(30, 30, 30, .65);
+        --browser-inner-border-color: rgba(24, 24, 24, .57);
+    
+        --tooltip_background: linear-gradient(0deg, rgb(100,100,100) 0%, rgb(0, 0, 0) 100%);
+        --tootlip_text-colour: rgb(87, 87, 87);
+        --tooltip_border-colour: rgb(118, 118, 118);
+    
+        --pop-up_shadow: 2px 2px 2px 0px rgba(0, 0, 0, .5);
+
+        --toolbarbutton-blue-colour_hover: rgb(3, 132, 206);
+
+        --toolbar-field-background-color: rgba(100,100,100,.65) !important;
+        --toolbar-field-background-color_hover: rgba(50,50,50,.8) !important;
+}
+
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         --appearance_IE9PreRelease: 1 !important;
 
@@ -78,6 +97,7 @@
             }
         }
     }
+
 }
 
 html {
