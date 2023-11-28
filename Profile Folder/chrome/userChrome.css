@@ -127,6 +127,11 @@ html[lang=ja] {
     --urlbar-inprivatebadge-width: 75px;
     --urlbar-fake-dropdown-mask-position: left;
   }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+    :root {
+      --stop-reload-button_width: 25px;
+    }
+  }
 }
 :root:is([privatebrowsingmode=temporary]) #urlbar-input-container::before {
   content: "";
@@ -252,6 +257,10 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
   #navigator-toolbox::after {
     border-bottom: 0;
   }
+}
+#navigator-toolbox:-moz-lwtheme {
+  background: none !important;
+  border-top: none !important;
 }
 
 #titlebar {
@@ -388,6 +397,7 @@ toolbar:not([nowindowdrag=true], [customizing=true]) {
 @media not (-moz-windows-compositor: 0) {
   #fakeTitlebarSpace {
     margin-bottom: -11px;
+    align-items: start;
   }
 }
 @media (-moz-windows-compositor: 0) {
@@ -932,6 +942,11 @@ panel {
 
 #favimginurlbar[style='list-style-image: url("chrome://branding/content/icon32.png");'], #favimginurlbar[style='list-style-image: url("chrome://global/skin/icons/info.svg");'], #favimginurlbar[style='list-style-image: url("chrome://global/skin/icons/settings.svg");'], #favimginurlbar[style='list-style-image: url("chrome://global/skin/icons/warning.svg");'], #favimginurlbar[style='list-style-image: url("chrome://browser/skin/privatebrowsing/favicon.svg");'] {
   list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico") !important;
+}
+@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+  #favimginurlbar[style='list-style-image: url("chrome://branding/content/icon32.png");'], #favimginurlbar[style='list-style-image: url("chrome://global/skin/icons/info.svg");'], #favimginurlbar[style='list-style-image: url("chrome://global/skin/icons/settings.svg");'], #favimginurlbar[style='list-style-image: url("chrome://global/skin/icons/warning.svg");'], #favimginurlbar[style='list-style-image: url("chrome://browser/skin/privatebrowsing/favicon.svg");'] {
+    display: none !important;
+  }
 }
 
 @supports not -moz-bool-pref("BeautyFox.appearance.IE11Win10") {

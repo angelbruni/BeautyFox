@@ -59,6 +59,10 @@
 
         --urlbar-inprivatebadge-width: 75px;
         --urlbar-fake-dropdown-mask-position: left;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+            --stop-reload-button_width: 25px;
+        }
     }
     
     &:is([privatebrowsingmode="temporary"]) {
@@ -211,6 +215,11 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
             border-bottom: 0;
         }
     }
+
+    &:-moz-lwtheme {
+        background: none !important;
+        border-top: none !important;
+    }
 }
 
 #titlebar {
@@ -347,6 +356,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
     @media not (-moz-windows-compositor: 0) {
         margin-bottom: -11px;
+        align-items: start;
     }
 
     @media (-moz-windows-compositor: 0) {
@@ -985,6 +995,10 @@ panel {
     &[style='list-style-image: url("chrome://global/skin/icons/warning.svg");'],
     &[style='list-style-image: url("chrome://browser/skin/privatebrowsing/favicon.svg");'] {
         list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico") !important;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+            display: none !important;
+        }
     }
 }
 
