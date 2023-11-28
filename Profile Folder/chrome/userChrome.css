@@ -4098,9 +4098,16 @@ findbar {
 }
 
 #cBToolsMenuButton {
-  padding-left: 10px !important;
+  padding-left: 9px !important;
 }
 
+@supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
+  #cBPageMenuButton,
+  #cBToolsMenuButton,
+  #cBSafetyMenuButton {
+    padding-left: 4px !important;
+  }
+}
 #cBHomeButton,
 #_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP,
 #cBPrintButton,
@@ -4160,7 +4167,7 @@ findbar {
 
 #cBHelpMenuButton {
   padding-left: 4px !important;
-  margin-right: 14px !important;
+  margin-right: 10px !important;
 }
 #cBHelpMenuButton[type=menu]::after {
   margin-left: 2px;
