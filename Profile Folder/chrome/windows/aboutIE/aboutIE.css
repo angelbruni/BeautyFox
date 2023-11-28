@@ -3,20 +3,6 @@
   --font-family: Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --hyperlink: rgb(102, 204, 255) !important;
-    --background: #212121 !important;
-    --text-color1: rgb(192, 192, 192) !important;
-  }
-}
-@media (prefers-color-scheme: light) {
-  :root {
-    --hyperlink: rgb(0, 51, 153) !important;
-    --background: #FFFFFF !important;
-    --text-color1: rgb(97, 97, 97) !important;
-  }
-}
 label {
   margin: 0;
 }
@@ -26,7 +12,7 @@ label {
 }
 
 #aboutIEContainer {
-  background-color: var(--background);
+  background-color: white;
   color-scheme: unset !important;
 }
 
@@ -59,7 +45,7 @@ label {
 }
 
 .aboutDialogInfo:not(a, [is=text-link]) {
-  color: var(--text-color1);
+  color: rgb(97, 97, 97);
 }
 
 .aboutDialogInfo {
@@ -95,7 +81,6 @@ label {
   right: 22px;
   bottom: 23px;
   font-size: var(--font-size);
-  color-scheme: light !important;
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
