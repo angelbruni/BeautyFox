@@ -1,3 +1,15 @@
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --toolbar-bgcolor: #e6effa !important;
+    
+        @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
+            @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
+                --toolbar-bgcolor: #f7f7f7 !important;
+            }
+        }
+    }
+}
 :root {
     --toolbar-bgcolor: #e6effa !important;
     --dropdown-color: black !important;
