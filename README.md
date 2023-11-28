@@ -1,3 +1,9 @@
+# BeautyFox Dark
+
+# What is BeautyFox Dark?
+BeautyFox Dark is a version of BeautyFox with dark mode support.
+
+
 # What is BeautyFox?
 BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Explorer 9, 10, and 11 look and feel.
 

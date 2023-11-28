@@ -1,5 +1,18 @@
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --toolbar-bgcolor: #e6effa !important;
+    
+        @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
+            @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
+                --toolbar-bgcolor: #f7f7f7 !important;
+            }
+        }
+    }
+}
 :root {
     --toolbar-bgcolor: #e6effa !important;
+    --dropdown-color: black !important;
 
     @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
         @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
@@ -10,6 +23,20 @@
             --toolbar-bgcolor: color-mix(in srgb, var(--userAccentColor) 10%, white) !important;
         }
     }
+
+    
+@media (prefers-color-scheme: dark) {
+        --toolbar-bgcolor: #e6effa !important;
+        --dropdown-color: white !important;
+
+        @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
+            @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
+                --toolbar-bgcolor: #f7f7f7 !important;
+
+            }
+        }
+}
+
 }
 
 #history-menu {
@@ -30,8 +57,13 @@
 
 #suggestedsites_bruni_com-BAP {
     &::after {
-        content: url(images/dropdown.png);
-        margin-bottom: 6px;
+        content: '';
+        width: 7px;
+        height: 4px;
+        background-color: var(--dropdown-color);;
+        mask-image: url(images/dropdown-mask.svg);
+        mask-position: center;
+        mask-repeat: no-repeat;
         margin-left: 6px;
         margin-right: 3px;
     }
@@ -44,8 +76,13 @@
 
     @supports not -moz-bool-pref('BeautyFox.option.moveExtensionsButtonToEndToolbar') {
         &::after {
-            content: url(images/dropdown.png);
-            margin-bottom: 6px;
+            content: '';
+            width: 7px;
+            height: 4px;
+            background-color: var(--dropdown-color);;
+            mask-image: url(images/dropdown-mask.svg);
+            mask-position: center;
+            mask-repeat: no-repeat;
             margin-left: 6px;
             margin-right: 3px;
         }
@@ -1006,8 +1043,13 @@ findbar {
 
     &[type="menu"] {
         &::after {
-            content: url(images/dropdown.png);
-            margin-bottom: 6px;
+            content: '';
+            width: 7px;
+            height: 4px;
+            background-color: var(--dropdown-color);;
+            mask-image: url(images/dropdown-mask.svg);
+            mask-position: center;
+            mask-repeat: no-repeat;
             margin-left: 4px;
             margin-right: 1px;
         }
@@ -1060,8 +1102,13 @@ findbar {
     align-items: center !important;
 
     &::after {
-        content: url(images/dropdown.png);
-        margin-bottom: 6px;
+        content: '';
+        width: 7px;
+        height: 4px;
+        background-color: var(--dropdown-color);;
+        mask-image: url(images/dropdown-mask.svg);
+        mask-position: center;
+        mask-repeat: no-repeat;
         margin-left: 10px;
     }
 
@@ -1103,8 +1150,13 @@ findbar {
         padding-left: 8px !important;
 
         &::after {
-            content: url(images/dropdown.png);
-            margin-bottom: 6px;
+            content: '';
+            width: 7px;
+            height: 4px;
+            background-color: var(--dropdown-color);;
+            mask-image: url(images/dropdown-mask.svg);
+            mask-position: center;
+            mask-repeat: no-repeat;
             margin-left: 10px;
         }
     }

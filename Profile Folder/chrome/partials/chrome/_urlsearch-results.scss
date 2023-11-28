@@ -3,6 +3,10 @@
     --urlbarView-subtract: 23px;
     --urlbarView-min-width: 400px;
     
+    @media (prefers-color-scheme: dark) {
+            --panel-border-color: #b4b4b4 !important;
+    }
+
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         --urlbarView-subtract: 34px;
 
