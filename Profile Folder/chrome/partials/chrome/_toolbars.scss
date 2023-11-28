@@ -3,12 +3,12 @@
 
     @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
         @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
-            --toolbar-bgcolor: #f7f7f7 !important;
-        }
-
-        @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
             --toolbar-bgcolor: color-mix(in srgb, var(--userAccentColor) 10%, white) !important;
         }
+    }
+
+    @supports -moz-bool-pref('BeautyFox.appearance.IE10') {
+        --toolbar-bgcolor: #f7f7f7 !important;
     }
 }
 
