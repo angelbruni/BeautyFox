@@ -236,6 +236,11 @@
         #nav-bar {
             &::before {
                 left: 1px;
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                    left: 8px;
+                    top: 1px;
+                }
             }
 
             #back-button {

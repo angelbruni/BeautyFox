@@ -37,7 +37,7 @@ function updateNavBackButton() {
         // Assign a function to the onclick property
         navBackButton.onclick = function() {
             // Check if currentPage is IE10+ feature specific page
-            if (currentPage == 100 || currentPage == 101) {
+            if (currentPage == 100 || currentPage == 101 || currentPage == 102) {
                 showPage(1);
             }
             // Check if currentPage is greater than 0
@@ -272,6 +272,7 @@ function setOptions() {
         case 0:
             // IE9PreRelease
             Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', true)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', false)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE10', false)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE11', false)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', false)
@@ -279,6 +280,7 @@ function setOptions() {
         case 1:
             // IE9
             Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', false)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', false)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE10', false)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE11', false)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', false)
@@ -286,6 +288,7 @@ function setOptions() {
         case 2:
             // IE10
             Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', false)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', false)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE10', true)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE11', false)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', false)
@@ -293,6 +296,7 @@ function setOptions() {
         case 3:
             // IE11
             Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', false)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', false)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE10', true)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE11', true)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', false)
@@ -300,9 +304,18 @@ function setOptions() {
         case 4:
             // IE11Win10
             Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', false)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', false)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE10', true)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE11', true)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', true)
+            break;
+        case 5:
+            // IE9PreRelease7777
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', true)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', true)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE10', false)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE11', false)
+            Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', false)
             break;
     }
 

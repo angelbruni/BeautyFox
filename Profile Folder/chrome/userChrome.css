@@ -2687,6 +2687,12 @@ html[customizing=true] #addonsBar::after {
 #main-window[sizemode=maximized] #nav-bar::before {
   left: 1px;
 }
+@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+  #main-window[sizemode=maximized] #nav-bar::before {
+    left: 8px;
+    top: 1px;
+  }
+}
 #main-window[sizemode=maximized] #nav-bar #back-button {
   margin-left: 1px !important;
 }
@@ -2813,6 +2819,7 @@ html[customizing=true] #addonsBar::after {
   border-radius: var(--tab-border-radius) !important;
   z-index: 1 !important;
   position: relative;
+  overflow: hidden !important;
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
   #scrollbutton-up,
@@ -2841,9 +2848,8 @@ html[customizing=true] #addonsBar::after {
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
   #scrollbutton-up::before,
   #scrollbutton-down::before {
-    left: 1px !important;
-    border-width: 0 !important;
-    outline: 1px solid var(--tab-inset-border-colour) !important;
+    border: 1px solid var(--tab-inset-border-colour) !important;
+    border-bottom: 0 !important;
   }
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -3130,7 +3136,10 @@ toolbarbutton#TabsMSEdgeNewTabButton::before,
   toolbarbutton#TabsMSEdgeNewTabButton::before,
   #TabsToolbar #new-tab-button::before,
   #TabsToolbar #MSEdgeNewTabButton::before {
-    border: 0 !important;
+    outline: 0 !important;
+    border: 1px solid var(--tab-inset-border-colour) !important;
+    border-bottom: 0 !important;
+    border-radius: 3px 3px 0 0 !important;
   }
 }
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -4067,6 +4076,13 @@ findbar {
   #cBToolsMenuButton::after {
     margin-left: 2px !important;
   }
+}
+#cBPageMenuButton[open=true] .toolbarbutton-icon, #cBPageMenuButton:active .toolbarbutton-icon,
+#cBSafetyMenuButton[open=true] .toolbarbutton-icon,
+#cBSafetyMenuButton:active .toolbarbutton-icon,
+#cBToolsMenuButton[open=true] .toolbarbutton-icon,
+#cBToolsMenuButton:active .toolbarbutton-icon {
+  transform: translateX(1px) translateY(1px);
 }
 #cBPageMenuButton[open=true] .toolbarbutton-text, #cBPageMenuButton[open=true]::after, #cBPageMenuButton:active .toolbarbutton-text, #cBPageMenuButton:active::after,
 #cBSafetyMenuButton[open=true] .toolbarbutton-text,

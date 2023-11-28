@@ -92,8 +92,13 @@
                 height: 97px;
                 width: 209px;
                 background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/821.png");
+                background-position-y: -97px;
                 background-size: cover;
                 opacity: 0.5;
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+                    background-position-y: 0px;
+                }
             }
         }
     }

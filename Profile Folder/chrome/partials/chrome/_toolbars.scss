@@ -956,9 +956,13 @@ findbar {
             margin-left: 2px !important;
         }
     }
-
+    
     &[open="true"],
     &:active {
+        .toolbarbutton-icon {
+            transform: translateX(1px) translateY(1px);
+        }
+
         .toolbarbutton-text,
         &::after {
             transform: translateX(1px) translateY(1px);

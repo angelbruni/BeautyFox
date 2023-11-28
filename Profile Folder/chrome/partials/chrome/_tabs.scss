@@ -115,6 +115,7 @@
     border-radius: var(--tab-border-radius) !important;
     z-index: 1 !important;
     position: relative;
+    overflow: hidden !important;
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
         background-color: transparent !important;
@@ -138,9 +139,8 @@
         background: var(--tab-background-colour);
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-            left: 1px !important;
-            border-width: 0 !important;
-            outline: 1px solid var(--tab-inset-border-colour) !important;
+            border: 1px solid var(--tab-inset-border-colour) !important;
+            border-bottom: 0 !important;
         }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10")  {
@@ -454,7 +454,10 @@ toolbarbutton#TabsMSEdgeNewTabButton,
         box-sizing: border-box;
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-            border: 0 !important;
+            outline: 0 !important;
+            border: 1px solid var(--tab-inset-border-colour) !important;
+            border-bottom: 0 !important;
+            border-radius: 3px 3px 0 0 !important;
         }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
