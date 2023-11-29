@@ -284,18 +284,11 @@ function urlbarContainerBackgroundOnMouseAttrs() {
         stopReloadBtn.classList.remove('toolbar-hover-fix');
     })
 
-    // Select the target node
     var targetNode = document.querySelector('#urlbar');
-
-    // Create a MutationObserver instance
     const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-            // Check if the attribute 'breakout-extend' has been added or removed
             if (mutation.type === 'attributes' && mutation.attributeName === 'breakout-extend') {
-                // Check the value of the 'breakout-extend' attribute
                 const breakoutExtendValue = targetNode.getAttribute('breakout-extend');
-
-                // Update the background color based on the condition
                 if (breakoutExtendValue === 'true') {
                     stopReloadBtn.setAttribute('urlbarFocus', 'true');
                 } else {
@@ -304,11 +297,7 @@ function urlbarContainerBackgroundOnMouseAttrs() {
             }
         });
     });
-
-    // Options for the observer (specify the types of mutations you want to observe)
     const config = { attributes: true };
-
-    // Start observing the target node for configured mutations
     observer.observe(targetNode, config);
 }
 

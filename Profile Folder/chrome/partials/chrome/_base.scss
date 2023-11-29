@@ -1,6 +1,4 @@
 :root {
-    --get-more-add-ons-label: "Get More Add-ons";
-
     --chrome-content-separator-color: #6f6f6f !important;
     --urlbar-min-height: 24px !important;
     --urlbar-width: 28.83%;
@@ -81,15 +79,6 @@
                 }
             }
         }
-    }
-}
-
-html {
-    &[lang*="es"] {
-        --get-more-add-ons-label: "Más complementos";
-    }
-    &[lang*="pt"] {
-        --get-more-add-ons-label: "Mais extensões";
     }
 }
 
@@ -665,7 +654,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 #PersonalToolbar {
     order: 3;
     height: 30px;
-    padding-inline: 2px !important;
+    padding-inline: 3px !important;
     border-left: 1px solid var(--browser-outer-border-color);
     border-right: 1px solid var(--browser-outer-border-color);
     position: relative;
@@ -706,6 +695,24 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         border: 1px solid transparent;
         position: relative;
         appearance: auto !important;
+
+        @supports -moz-bool-pref("BeautyFox.option.smallBookmarkItem") {
+            max-width: 59px !important;
+        }
+
+        @supports -moz-bool-pref("BeautyFox.option.iconOnlyBookmarkItem") {
+            padding: 3px 5px !important;
+
+            .toolbarbutton-icon {
+                margin: 0 !important;
+            }
+
+            .toolbarbutton-text {
+                &::before {
+                    content: unset !important;
+                }
+            }
+        }
     
         &:active, &[open="true"] {
             .toolbarbutton-icon,
@@ -735,8 +742,21 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                 &::after {
                     content: -moz-label-content;
                     overflow: hidden;
-                    min-width: 149px;
+                    max-width: 149px;
                     text-overflow: ellipsis;
+                }
+            }
+
+            @supports -moz-bool-pref("BeautyFox.option.iconOnlyBookmarkItem") {
+                .toolbarbutton-text {
+                    &::before {
+                        content: '' !important;
+                        margin: 0 !important;
+                    }
+
+                    &::after {
+                        content: unset !important;
+                    }
                 }
             }
         }

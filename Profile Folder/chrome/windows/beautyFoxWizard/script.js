@@ -18,6 +18,10 @@ var optionRemoveTitlebarHeight = document.getElementById('removeTitlebarHeight')
 var optionHideFakeInnerBorders = document.getElementById('hideFakeInnerBorders');
 var optioninetcpl = document.getElementById('inetcpl');
 
+var wizardComboBoxBookmarkItemItem0 = document.getElementById('wizardComboBoxBookmarkItemItem0');
+var wizardComboBoxBookmarkItemItem1 = document.getElementById('wizardComboBoxBookmarkItemItem1');
+var wizardComboBoxBookmarkItemItem2 = document.getElementById('wizardComboBoxBookmarkItemItem2');
+
 var wizardComboBoxEdgeButtonItem0 = document.getElementById('wizardComboBoxEdgeButtonItem0');
 var wizardComboBoxEdgeButtonItem1 = document.getElementById('wizardComboBoxEdgeButtonItem1');
 var wizardComboBoxEdgeButtonItem2 = document.getElementById('wizardComboBoxEdgeButtonItem2');
@@ -200,6 +204,26 @@ function getCurrentSettings() {
     }
 
     try {
+        if (Services.prefs.getBoolPref('BeautyFox.option.smallBookmarkItem')) {
+            wizardComboBoxBookmarkItemItem0.removeAttribute('selected');
+            wizardComboBoxBookmarkItemItem1.setAttribute('selected', true);
+            wizardComboBoxBookmarkItemItem2.removeAttribute('selected');
+        } else if (Services.prefs.getBoolPref('BeautyFox.option.iconOnlyBookmarkItem')) {
+            wizardComboBoxBookmarkItemItem0.removeAttribute('selected');
+            wizardComboBoxBookmarkItemItem1.removeAttribute('selected');
+            wizardComboBoxBookmarkItemItem2.setAttribute('selected', true);
+        } else {
+            wizardComboBoxBookmarkItemItem0.setAttribute('selected', true);
+            wizardComboBoxBookmarkItemItem1.removeAttribute('selected');
+            wizardComboBoxBookmarkItemItem2.removeAttribute('selected');
+        }
+    } catch {
+        wizardComboBoxBookmarkItemItem0.setAttribute('selected', true);
+        wizardComboBoxBookmarkItemItem1.removeAttribute('selected');
+        wizardComboBoxBookmarkItemItem2.removeAttribute('selected');
+    }
+
+    try {
         if (Services.prefs.getBoolPref('BeautyFox.option.hideEdgeButton')) {
             wizardComboBoxEdgeButtonItem0.setAttribute('selected', true);
             wizardComboBoxEdgeButtonItem1.removeAttribute('selected');
@@ -344,6 +368,17 @@ function setOptions() {
             Services.prefs.setBoolPref('BeautyFox.appearance.IE10ConsumerPreview', true)
             Services.prefs.setBoolPref('BeautyFox.appearance.IE10ReleasePreview', true)
             break;
+    }
+
+    if (wizardComboBoxBookmarkItemItem0.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.iconOnlyBookmarkItem', false)
+        Services.prefs.setBoolPref('BeautyFox.option.smallBookmarkItem', false)
+    } else if (wizardComboBoxBookmarkItemItem1.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.iconOnlyBookmarkItem', false)
+        Services.prefs.setBoolPref('BeautyFox.option.smallBookmarkItem', true)
+    } else if (wizardComboBoxBookmarkItemItem2.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.iconOnlyBookmarkItem', true)
+        Services.prefs.setBoolPref('BeautyFox.option.smallBookmarkItem', false)
     }
 
     if (wizardComboBoxEdgeButtonItem0.getAttribute('selected', 'true')) {

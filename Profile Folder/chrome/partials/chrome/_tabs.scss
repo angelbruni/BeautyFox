@@ -10,10 +10,10 @@
     --newtab-button-width: 29px;
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-        --tab-border-radius: 5px 5px 0 0 !important;
+        --tab-border-radius: 4px 4px 0 0 !important;
         --tab-background-colour: rgba(255, 255, 255, .3);
         --tab-background-colour_hover: rgba(255, 255, 255, .5);
-        --tab-background-colour_active: linear-gradient(0deg, rgb(255, 255, 255) 0%, var(--tab-inset-border-colour) 100%);
+        --tab-background-colour_active: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255,.6) 100%);
         --tab-inset-border-colour: rgba(254, 254, 254, 0.3);
         --newtab-button-width: 27px;
 
@@ -60,7 +60,7 @@
 }
 
 #TabsToolbar {
-    padding: 0 2px;
+    padding: 0 2px !important;
     max-height: var(--tab-height);
     background-image: url(images/shine.png) !important;
     background-size: 100% var(--tab-height);
@@ -241,7 +241,6 @@
                 outline: 0 !important;
                 border: 1px solid var(--tab-inset-border-colour) !important;
                 border-bottom: 0 !important;
-                border-radius: 3px 3px 0 0 !important;
             }
 
             @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -295,6 +294,10 @@
                 border-image-slice: 1;
                 border-image-source: var(--tab-inset-border-colour);
                 background: var(--tab-background-colour_active);
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                    border: 0 !important;
+                }
 
                 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
                     background: white !important;

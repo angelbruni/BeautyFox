@@ -1,43 +1,5 @@
 @-moz-document url(about:newtab),
 url(about:home){
-:root {
-	--popular-site-label: 'Your most popular sites';
-
-	@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-		--popular-site-label: 'Frequent';
-	}
-}
-
-html {
-	&[lang*="es"] {
-		--popular-site-label: 'Sus sitios más populares';
-
-		@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-			--popular-site-label: 'Con más frecuencia';
-		}
-	}
-
-	&[lang="pt-BR"] {
-		--popular-site-label: 'Seus sites mais populares';
-
-		@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-			--popular-site-label: 'Com mais frequência';
-		}
-	}
-
-	&[lang*="pt-PT"] {
-		--popular-site-label: 'Teus sítios mais populares';
-	}
-
-	&[lang="ja"] {
-		--popular-site-label: 'よく使うサイト';
-
-		@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-			--popular-site-label: 'よくアクセスするサイト';
-		}
-	}
-}
-
 .body-wrapper {
 	.discovery-stream:not(:first-child) {
 		display: none !important;

@@ -29,6 +29,7 @@ function executeFunctions() {
     downloadsButton();
     convertCheckboxesToNativeLook();
     createFakeTitlebarSpace();
+    setZoomLevelLabel();
     loadLocale();
     console.info("Functions executed.");
 }

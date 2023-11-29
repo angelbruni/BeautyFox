@@ -6,6 +6,8 @@
 
     --label-about-before: About ;
     --label-about-after: ;
+
+    --get-more-add-ons-label: "Get More Add-ons";
     
 }
 
@@ -13,6 +15,10 @@ window,
 html {
     &[lang="en-US"] {
         --favorites-label: "Favorites";
+    }
+
+    &[lang*="pt"] {
+        --get-more-add-ons-label: "Mais extensões";
     }
 
     &[lang="pt-BR"] {
@@ -43,6 +49,8 @@ html {
 
         --label-about-before: Acerca de ;
         --label-about-after: ;
+
+        --get-more-add-ons-label: "Más complementos";
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
             --label-view-n-track-your-downloads: Ver y seguir tus descargas;

@@ -25,6 +25,7 @@ html {
             width: 100%;
             background-color: rgb(0,0,0,0) !important;
             transition: background-color .5s linear;
+            border-top: white 1px solid;
         }
     }
 
@@ -180,6 +181,13 @@ html {
                     drop-shadow(0px 0px 2px #fff)
                     drop-shadow(0px 0px 4px rgba(247, 0, 255, 0.9))
                     drop-shadow(0px 0px 4px rgba(247, 0, 255, 0.9))
+        }
+
+        #zoomMenuButton {
+            filter: drop-shadow(0px 0px 2px #fff)
+                    drop-shadow(0px 0px 2px #fff)
+                    drop-shadow(0px 0px 4px rgba(255, 0, 0, 0.9))
+                    drop-shadow(0px 0px 4px rgba(255, 0, 0, 0.9))
         }
 
         #TabsToolbar {

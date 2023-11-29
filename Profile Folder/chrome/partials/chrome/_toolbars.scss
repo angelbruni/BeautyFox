@@ -82,6 +82,18 @@
 #suggestedsites_bruni_com-BAP {
     list-style-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/30788.ico') !important;
 
+    @supports -moz-bool-pref("BeautyFox.option.smallBookmarkItem") {
+        max-width: 59px !important;
+    }
+
+    @supports -moz-bool-pref("BeautyFox.option.iconOnlyBookmarkItem") {
+        .toolbarbutton-text {
+            &::before {
+                content: unset !important;
+            }
+        }
+    }
+
     @supports -moz-bool-pref('BeautyFox.appearance.IE9PreRelease') {
         list-style-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/110.ico') !important;
     }
@@ -93,6 +105,13 @@
     .toolbarbutton-icon {
         margin-inline-end: 0 !important;
     }
+
+    .toolbarbutton-text {
+        &::before {
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+    }
 }
 
 #unified-extensions-button {
@@ -101,6 +120,22 @@
     .toolbarbutton-text {
         &::before {
             content: var(--get-more-add-ons-label) !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+    }
+
+    @supports not -moz-bool-pref("BeautyFox.option.moveExtensionsButtonToEndToolbar") {
+        @supports -moz-bool-pref("BeautyFox.option.smallBookmarkItem") {
+            max-width: 59px !important;
+        }
+
+        @supports -moz-bool-pref("BeautyFox.option.iconOnlyBookmarkItem") {
+            .toolbarbutton-text {
+                &::before {
+                    content: unset !important;
+                }
+            }
         }
     }
 }
@@ -112,7 +147,7 @@
     position: relative;
     overflow: visible !important;
     box-sizing: border-box;
-    
+
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
             margin-bottom: 3px;
@@ -171,10 +206,6 @@
     }
 }
 
-#addonsBar {
-    background-color: transparent !important;
-}
-
 #statusbarContainer {
     position: relative;
     display: flex;
@@ -189,6 +220,7 @@
     max-height: 0px;
     opacity: 0;
     z-index: 1;
+    max-height: 21px !important;
     
     &::before {
         content: '';
@@ -224,6 +256,16 @@
         }
     }
 
+    #statusBarStatusLabel {
+        flex: 1 !important;
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+        margin-left: 3px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
     > div {
         height: 100%;
         display: flex;
@@ -253,11 +295,30 @@
     }
 
     #addonsBar {
-        margin-right: 108px !important;
-        min-width: 130px !important;
+        background-color: transparent !important;
+        min-width: 200px !important;
         min-height: 22px !important;
         display: flex !important;
         padding-left: 10px !important;
+        max-height: 21px !important;
+        overflow: hidden !important;
+
+        > toolbarbutton {
+            appearance: auto !important;
+            height: 22px !important;
+
+            .toolbarbutton-icon,
+            .toolbarbutton-text {
+                padding: 0 !important;
+                min-height: 0 !important;
+                height: auto !important;
+            }
+
+            .toolbarbutton-icon {
+                max-height: 16px !important;
+                max-width: 16px !important;
+            }
+        }
     
         .toolbarbutton-badge-stack {
             padding: 0 !important;
@@ -278,6 +339,45 @@
         margin-inline-end: 0 !important;
         font-family: normal !important;
         padding: 0 !important;
+    }
+}
+
+#zoomMenuButton {
+    transform: translateY(-1px) !important;
+    list-style-image: url("images/statusZoom.png");
+    padding-left: 9px !important;
+    padding-right: 9px !important;
+    min-width: 79px !important;
+    margin-left: auto !important;
+    margin-right: 3px !important;
+
+    &::after {
+        content: url(images/dropdown.png);
+        margin-bottom: 7px;
+        margin-right: -5px;
+    }
+
+    > .toolbarbutton-icon,
+    > .toolbarbutton-text {
+        transform: translateY(-1px) !important;
+    }
+
+    > .toolbarbutton-icon {
+        height: 13px !important;
+        width: 12px !important;
+        margin-right: 4px !important;
+    }
+
+    > .toolbarbutton-text {
+        display: block !important;
+        text-align: left !important;
+    }
+
+    &[open="true"] {
+        > .toolbarbutton-icon,
+        > .toolbarbutton-text {
+            transform: translateY(0px) translateX(1px) !important;
+        }
     }
 }
 
@@ -305,8 +405,7 @@
     }
     
     &[sizemode="fullscreen"] { 
-        #statusbarContainer,
-        #urlbar-zoom-button {
+        #statusbarContainer {
             display: none !important;
         }
     } 
@@ -457,65 +556,7 @@ findbar {
     }
 
     #statuspanel {
-        position: fixed !important;
-        padding-top: 0 !important;
-        bottom: 4px !important;
-        left: 3px !important;
-        transition: none !important;
-        max-width: calc(100% - 300px) !important;
-
-        > #statuspanel-label {
-            background: transparent !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            border: 0 !important;
-            color: black !important;
-            box-shadow: none !important;
-            height: fit-content !important;
-            width: fit-content !important;
-        }
-    }
-
-    #urlbar-zoom-button {
-        display: block !important;
-        position: fixed !important;
-        font-size: 9pt !important;
-        right: 63px !important;
-        bottom: 2px !important;
-        z-index: 2 !important;
-        padding: 0 !important;
-        padding-left: 26px !important;
-        margin: 0 !important;
-        background-color: transparent !important;
-        pointer-events: none !important;
-        overflow: visible !important;
-        border-radius: 0 !important;
-        
-        &::before {
-            content: url("images/statusZoom.png");
-            position: absolute !important;
-            bottom: 1px;
-            left: 11px;
-        }
-
-        &[hidden="true"] {
-            > .toolbarbutton-text {
-                &::before {
-                    content: '100%' !important;
-                }
-            }
-        }
-
-        > .toolbarbutton-text {
-            margin-top: 3px !important;
-            width: 28px !important;
-        }
-    }
-
-    #nav-bar toolbarbutton#urlbar-zoom-button {
-        margin-bottom: 0 !important;
-        height: 22px !important;
-        width: fit-content !important;
+        display: none !important;
     }
 
     #browser,
@@ -1083,7 +1124,7 @@ findbar {
         }
     }
 
-    margin-right: 10px !important;
+    margin-right: 9px !important;
 }
 
 #_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP {

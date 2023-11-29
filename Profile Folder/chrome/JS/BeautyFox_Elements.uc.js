@@ -7,17 +7,17 @@
 function createAddToBookmarksBarButton() {
     try {
         var buttonText = "Add to Favourites Bar";
-    
+
         CustomizableUI.createWidget({
             id: "addToBookmarksBarButton",
             defaultArea: CustomizableUI.AREA_BOOKMARKS,
             removable: true,
             label: buttonText,
             tooltiptext: buttonText,
-            onCommand: function() {
+            onCommand: function () {
                 addToBookmarksBar();
             },
-            onCreated: function(button) {
+            onCreated: function (button) {
                 return button;
             },
         });
@@ -35,18 +35,18 @@ function addToBookmarksBar() {
 function createFavouritesSidebarButton() {
     try {
         var button_label = "Open Bookmarks Sidebar";
-    
+
         CustomizableUI.createWidget({
             id: "bookmarksSidebarButton",
             defaultArea: CustomizableUI.AREA_NAVBAR,
             removable: true,
             label: button_label,
             tooltiptext: button_label,
-            onCommand: function() {
+            onCommand: function () {
                 Services.prefs.setBoolPref('sidebar.position_start', false);
                 SidebarUI.toggle('viewBookmarksSidebar');
             },
-            onCreated: function(button) {
+            onCreated: function (button) {
                 return button;
             },
         });
@@ -66,10 +66,10 @@ function createCBHomeButton() {
             removable: true,
             label: cbHomeButtonLabel,
             tooltiptext: cbHomeButtonLabel,
-            onCommand: function() {
+            onCommand: function () {
                 BrowserHome(event);
             },
-            onCreated: function(button) {
+            onCreated: function (button) {
                 return button;
             },
         });
@@ -89,10 +89,10 @@ function createCBPrintButton() {
             removable: true,
             label: cbPrintButtonLabel,
             tooltiptext: cbPrintButtonLabel,
-            onCommand: function() {
+            onCommand: function () {
                 PrintUtils.togglePrintPreview(gBrowser.selectedBrowser.browsingContext);
             },
-            onCreated: function(button) {
+            onCreated: function (button) {
                 return button;
             },
         });
@@ -112,13 +112,13 @@ function createCBReadMailButton() {
             removable: true,
             label: cbReadMailButtonLabel,
             tooltiptext: cbReadMailButtonLabel,
-            onCommand: function() {
-                _ucUtils.loadURI(window,{
+            onCommand: function () {
+                _ucUtils.loadURI(window, {
                     url: 'mailto:',
                     where: "tab"
                 });;
             },
-            onCreated: function(button) {
+            onCreated: function (button) {
                 return button;
             },
         });
@@ -129,7 +129,7 @@ function createCBReadMailButton() {
 }
 
 function mailWithWindowsLive() {
-    _ucUtils.loadURI(window,{
+    _ucUtils.loadURI(window, {
         url: 'https://outlook.live.com/mail',
         where: 'tab'
     });
@@ -142,28 +142,28 @@ function translatePage() {
     // Construct the Google Translator URL with the current page URL as the text to translate
     var translatorUrl = "https://translate.google.com/translate?sl=auto&tl=en&u=" + encodeURIComponent(currentPageUrl);
 
-    _ucUtils.loadURI(window,{
+    _ucUtils.loadURI(window, {
         url: translatorUrl,
         where: "tab"
     });
 }
 
 function findMoreAccelerators() {
-    _ucUtils.loadURI(window,{
+    _ucUtils.loadURI(window, {
         url: 'https://addons.mozilla.org',
         where: 'tab'
     });
 }
 
 function reportUnsafeWebsite() {
-    _ucUtils.loadURI(window,{
+    _ucUtils.loadURI(window, {
         url: 'https://www.microsoft.com/en-us/wdsi/support/report-unsafe-site',
         where: 'tab'
     });
 }
 
 function reportUnsafeWebsite() {
-    _ucUtils.loadURI(window,{
+    _ucUtils.loadURI(window, {
         url: 'https://www.microsoft.com/en-us/wdsi/support/report-unsafe-site',
         where: 'tab'
     });
@@ -171,7 +171,7 @@ function reportUnsafeWebsite() {
 
 function toggleMenuBar() {
     const menuBar = document.getElementById("toolbar-menubar");
-    
+
     if (menuBar) {
         if (menuBar.getAttribute("autohide") === "true") {
             menuBar.setAttribute("autohide", "false");
@@ -184,20 +184,20 @@ function toggleMenuBar() {
 function createFeedbackButton() {
     try {
         var button_label = "Feedback";
-    
+
         CustomizableUI.createWidget({
             id: "feedbackButton",
             defaultArea: CustomizableUI.AREA_NAVBAR,
             removable: true,
             label: button_label,
             tooltiptext: button_label,
-            onClick: function() {
-                _ucUtils.loadURI(window,{
+            onClick: function () {
+                _ucUtils.loadURI(window, {
                     url: 'chrome://userchrome/content/temppages/discord-invite.html',
                     where: "tab"
                 });
             },
-            onCreated: function(button) {
+            onCreated: function (button) {
                 return button;
             },
         });
@@ -1079,7 +1079,7 @@ var cBToolsMenu = createMenu({
                     id: 'cBTools_menuBar',
                     name: 'Menu bar',
                     locale: 'MenuBar',
-                    command: 'toggleMenuBar();' 
+                    command: 'toggleMenuBar();'
                 },
                 {
                     type: 'app',
@@ -1193,7 +1193,7 @@ var cBHelpMenu = createMenu({
             name: "What's new in BeautyFox",
             locale: "NewBeautyFox",
             special: true,
-            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/b4.4.3.html', where: 'tab'});"
+            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/b4.5.html', where: 'tab'});"
         },
         {
             type: 'separator',
@@ -1234,6 +1234,126 @@ var cBHelpMenu = createMenu({
 });
 cBHelpMenu.init();
 
+var zoomMenu = createMenu({
+    id: 'zoomMenu',
+    classes: ['toolbarbutton-1'],
+    name: 'Zoom',
+    items: [
+        {
+            type: 'app',
+            id: 'zoomMenu_zoomIn',
+            name: 'Zoom in',
+            locale: 'ZoomIn',
+            accelText: 'Ctrl +',
+            command: 'FullZoom.enlarge()',
+        },
+        {
+            type: 'app',
+            id: 'zoomMenu_zoomOut',
+            name: 'Zoom out',
+            locale: 'ZoomOut',
+            accelText: 'Ctrl -',
+            command: 'FullZoom.reduce()',
+        },
+        {
+            type: 'separator',
+        },
+        {
+            type: 'app',
+            id: 'zoomMenu_setZoom400',
+            name: '400%',
+            command: 'FullZoom.setZoom(4)',
+        },
+        {
+            type: 'app',
+            id: 'zoomMenu_setZoom200',
+            name: '200%',
+            command: 'FullZoom.setZoom(2)',
+        },
+        {
+            type: 'app',
+            id: 'zoomMenu_setZoom150',
+            name: '150%',
+            command: 'FullZoom.setZoom(1.5)',
+        },
+        {
+            type: 'app',
+            id: 'zoomMenu_setZoom125',
+            name: '125%',
+            command: 'FullZoom.setZoom(1.25)',
+        },
+        {
+            type: 'app',
+            id: 'zoomMenu_setZoom100',
+            name: '100%',
+            accelText: 'Ctrl + 0',
+            command: 'FullZoom.setZoom(1)',
+        },
+        {
+            type: 'app',
+            id: 'zoomMenu_setZoom075',
+            name: '75%',
+            command: 'FullZoom.setZoom(.75)',
+        },
+        {
+            type: 'app',
+            id: 'zoomMenu_setZoom050',
+            name: '50%',
+            command: 'FullZoom.reduce(.5)',
+        },
+        //{
+        //    type: 'separator',
+        //},
+        //{
+        //    type: 'app',
+        //    name: 'Custom...',
+        //    command: 'FullZoom.reduce()',
+        //},
+    ],
+});
+zoomMenu.init();
+
+function setZoomLevelLabel() {
+
+    // Function to handle changes in the mutation observer
+
+    const zoomLevelObserverCallback = (mutationList, observer) => {
+        for (const mutation of mutationList) {
+            if (mutation.type === 'attributes') {
+                const urlbarZoomButton = document.getElementById('urlbar-zoom-button');
+                const zoomMenuButton = document.getElementById('zoomMenuButton');
+
+                const toolbarButtonText = urlbarZoomButton.querySelector('.toolbarbutton-text');
+                const labelText = toolbarButtonText ? toolbarButtonText.getAttribute('value') : '';
+
+                if (urlbarZoomButton.hidden) {
+                    zoomMenuButton.setAttribute('label', '100%');
+                } else {
+                    // Set #zoomMenuButton label to the value of .toolbarbutton-text
+                    zoomMenuButton.setAttribute('label', labelText);
+                }
+            }
+        }
+    }
+
+
+    // Target element to observe
+    const urlbarZoomButton = document.getElementById('urlbar-zoom-button');
+
+    // Options for the observer (attributes to observe)
+    const observerOptions = {
+        attributes: true,
+    };
+
+    // Create a MutationObserver with the callback function
+    const observer = new MutationObserver(zoomLevelObserverCallback);
+
+    // Start observing the target element with the specified options
+    observer.observe(urlbarZoomButton, observerOptions);
+
+
+}
+
 function insertMSEdgeNewTabButton() {
     var tabbrowserArrowscrollboxPeriphery = document.getElementById('tabbrowser-arrowscrollbox-periphery');
     var TabsMSEdgeNewTabButton = document.createXULElement('toolbarbutton');
@@ -1253,57 +1373,80 @@ function insertMSEdgeNewTabButton() {
 }
 
 var addStatusbar = {
-    init: function() {
-      if (location != 'chrome://browser/content/browser.xhtml')
-          return;
-        
-      // Blank Tab Workaround
-      try {
-          if(gBrowser.selectedBrowser.getAttribute('blank')) gBrowser.selectedBrowser.removeAttribute('blank');
-      } catch(e) {}
-  
-      try {
-          if (document.getElementById('statusbarContainer') == null) {
-              var statusbarContainer = document.createElement('div');
-              statusbarContainer.id = 'statusbarContainer';
-              document.getElementById('browser').parentNode.appendChild(statusbarContainer);
-  
-              var statusbarBackground = document.createElement('div');
-              statusbarBackground.id = 'statusbarBackground';
-              statusbarContainer.appendChild(statusbarBackground);
-  
-              var statusbarInternetProtectionModeContainer = document.createElement('div');
-              statusbarInternetProtectionModeContainer.id = 'statusbarInternetProtectionModeContainer';
-              var statusbarInternetProtectionMode = document.createElement('p');
-              statusbarInternetProtectionMode.id = 'statusbarInternetProtectionMode';
-              statusbarInternetProtectionMode.textContent = 'Internet';
-              statusbarInternetProtectionModeContainer.appendChild(statusbarInternetProtectionMode);
-              statusbarContainer.appendChild(statusbarInternetProtectionModeContainer);
-              
-              var addonsBarLabel = 'Add-on Bar';
-              var addonsBar = document.createXULElement('toolbar');
-              addonsBar.setAttribute('id','addonsBar');
-              addonsBar.setAttribute('collapsed', 'false');
-              addonsBar.setAttribute('toolbarname', addonsBarLabel);
-              addonsBar.setAttribute('defaultset','spring,spring'); 
-              addonsBar.setAttribute('customizable','true');
-              addonsBar.setAttribute('mode','icons');
-              addonsBar.setAttribute('iconsize','small');
-              addonsBar.setAttribute('context','toolbar-context-menu');
-              addonsBar.setAttribute('lockiconsize','true');
-              addonsBar.setAttribute('class','toolbar-primary chromeclass-toolbar browser-toolbar customization-target');
-              statusbarContainer.appendChild(addonsBar);		
-              CustomizableUI.registerArea('addonsBar', {legacy: true});
-              CustomizableUI.registerToolbarNode(addonsBar);
-  
-              var gripper = document.createElement('img');
-              gripper.id = 'gripper';
-              gripper.height = 16;
-              gripper.width = 16;
-              gripper.src = 'chrome://userchrome/content/resources/aero.msstyles/Toolbars, Headers & Rebar/Toolbars & Headers/Status/Gripper/BottomRight.ico';
-              statusbarContainer.appendChild(gripper);
-          }
-      } catch(e) {}
+    init: function () {
+        if (location != 'chrome://browser/content/browser.xhtml')
+            return;
+
+        // Blank Tab Workaround
+        try {
+            if (gBrowser.selectedBrowser.getAttribute('blank')) gBrowser.selectedBrowser.removeAttribute('blank');
+        } catch (e) { }
+
+        try {
+            if (document.getElementById('statusbarContainer') == null) {
+                var statusbarContainer = document.createElement('div');
+                statusbarContainer.id = 'statusbarContainer';
+                document.getElementById('browser').parentNode.appendChild(statusbarContainer);
+
+                var statusbarBackground = document.createElement('div');
+                statusbarBackground.id = 'statusbarBackground';
+                statusbarContainer.appendChild(statusbarBackground);
+
+                var statusBarStatusLabel = document.createElement('p');
+                statusBarStatusLabel.id = 'statusBarStatusLabel';
+
+                var statusPanel = document.getElementById('statuspanel');
+                const statuspanelLabel = document.getElementById('statuspanel-label');
+                const statuspanelLabelConfig = { attributes: true };
+                const statuspanelLabelCallback = function (mutationsList, observer) {
+                    for (const mutation of mutationsList) {
+                        if (mutation.type === 'attributes') {
+                            if (!statusPanel.getAttribute('inactive')) {
+                                statusBarStatusLabel.textContent = mutation.target.value;
+                                console.log('a')
+                            } else {
+                                statusBarStatusLabel.textContent = '';
+                                console.log('b')
+                            }
+                        }
+                    }
+                };
+                const observer = new MutationObserver(statuspanelLabelCallback);
+                observer.observe(statuspanelLabel, statuspanelLabelConfig);
+                statusbarContainer.appendChild(statusBarStatusLabel);
+
+                var statusbarInternetProtectionModeContainer = document.createElement('div');
+                statusbarInternetProtectionModeContainer.id = 'statusbarInternetProtectionModeContainer';
+                var statusbarInternetProtectionMode = document.createElement('p');
+                statusbarInternetProtectionMode.id = 'statusbarInternetProtectionMode';
+                statusbarInternetProtectionMode.textContent = 'Internet';
+                statusbarInternetProtectionModeContainer.appendChild(statusbarInternetProtectionMode);
+                statusbarContainer.appendChild(statusbarInternetProtectionModeContainer);
+
+                var addonsBarLabel = 'Add-on Bar';
+                var addonsBar = document.createXULElement('toolbar');
+                addonsBar.setAttribute('id', 'addonsBar');
+                addonsBar.setAttribute('collapsed', 'false');
+                addonsBar.setAttribute('toolbarname', addonsBarLabel);
+                addonsBar.setAttribute('defaultset', 'spring,spring');
+                addonsBar.setAttribute('customizable', 'true');
+                addonsBar.setAttribute('mode', 'icons');
+                addonsBar.setAttribute('iconsize', 'small');
+                addonsBar.setAttribute('context', 'toolbar-context-menu');
+                addonsBar.setAttribute('lockiconsize', 'true');
+                addonsBar.setAttribute('class', 'toolbar-primary chromeclass-toolbar browser-toolbar customization-target');
+                statusbarContainer.appendChild(addonsBar);
+                CustomizableUI.registerArea('addonsBar', { legacy: true });
+                CustomizableUI.registerToolbarNode(addonsBar);
+
+                var gripper = document.createElement('img');
+                gripper.id = 'gripper';
+                gripper.height = 16;
+                gripper.width = 16;
+                gripper.src = 'chrome://userchrome/content/resources/aero.msstyles/Toolbars, Headers & Rebar/Toolbars & Headers/Status/Gripper/BottomRight.ico';
+                statusbarContainer.appendChild(gripper);
+            }
+        } catch (e) { }
     }
 }
 document.addEventListener('DOMContentLoaded', addStatusbar.init(), false);
