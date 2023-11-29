@@ -1,3 +1,21 @@
+
+:root {
+    @supports not (-moz-bool-pref("BeautyFox.appearance.IE10")) {
+    --devtool-background: rgb(227,238,251) !important;
+    --devtool-border: rgb(163,167,172) !important;
+    --devtool-hover: linear-gradient(0deg, rgba(234,237,241,1) 0%, rgba(195,221,251,1) 100%) !important;
+    }
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") { }
+@media (prefers-color-scheme: dark) {
+    @supports not (-moz-bool-pref("BeautyFox.appearance.IE10")) {
+    --devtool-background: rgb(41, 44, 46) !important;
+    --devtool-border: rgb(76, 79, 82) !important;
+    --devtool-hover: linear-gradient(0deg, rgb(63, 64, 65) 0%, rgb(74, 84, 94) 100%) !important;
+    }
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") { }
+}
+}
+
 /* Tabs */
 @-moz-document url-prefix("about:devtools-toolbox") {
     .devtools-tabbar {
@@ -34,12 +52,12 @@
 
     @supports not (-moz-bool-pref("BeautyFox.appearance.IE10")) {
         #toolbox-toolbar-mount {
-            background-color: rgb(227,238,251) !important;
+            background-color: var(--devtool-background) !important;
         }
     
         .devtools-tabbar {
             padding-top: 2px !important;
-            border-bottom: 1px solid rgb(163,167,172) !important;
+            border-bottom: 1px solid var(--devtool-border) !important;
         }
     
         .toolbox-tabs {
@@ -63,7 +81,7 @@
             }
     
             &.selected {
-                background-image: linear-gradient(0deg, rgba(234,237,241,1) 0%, rgba(195,221,251,1) 100%) !important;
+                background-image: var(--devtool-hover);
                 border-color: white !important;
                 overflow: visible !important;
     
@@ -75,7 +93,7 @@
                     height: calc(100% + 1px);
                     width: calc(100% + 2px);
     
-                    border: 1px solid rgb(163,167,172);
+                    border: 1px solid var(--devtool-border);
                     border-bottom: 0;
                     border-radius: 3px 3px 0 0;
                 }

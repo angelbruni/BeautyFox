@@ -48,8 +48,36 @@
 
     --toolbarbutton-icon-fill-attention: var(--toolbarbutton-blue-colour_hover) !important;
 
-    --toolbar-field-background-color: rgba(254, 254, 254, .65) !important;
-    --toolbar-field-background-color_hover: rgba(255, 255, 255, .8);
+    --toolbar-field-background-color: rgba(254,254,254,.65) !important;
+    --toolbar-field-background-color_hover: rgba(255,255,255,.8);
+    --toolbar-field-background-color_selected: white !important;
+
+    --toolbar-bgcolor: #e6effa !important;
+    --dropdown-color: black !important;
+    --search-icon: linear-gradient(90deg, rgba(0,0,0,.5) 49%, rgba(0,0,0,.5) 50%);
+
+    @media (prefers-color-scheme: dark) {
+        --chrome-content-separator-color: #6f6f6f !important;
+    
+        --browser-outer-border-color: rgba(30, 30, 30, .65);
+        --browser-inner-border-color: rgba(24, 24, 24, .57);
+    
+        --tooltip_background: linear-gradient(0deg, rgb(228, 229, 240) 0%, rgb(255, 255, 255) 100%);
+        --tootlip_text-colour: rgb(87, 87, 87);
+        --tooltip_border-colour: rgb(118, 118, 118);
+    
+        --toolbarbutton-blue-colour_hover: rgb(3, 132, 206);
+    
+        --toolbarbutton-icon-fill-attention: var(--toolbarbutton-blue-colour_hover) !important;
+    
+        --toolbar-field-background-color: rgba(100,100,100,.65) !important;
+        --toolbar-field-background-color_hover: rgba(50,50,50,.8);
+        --toolbar-field-background-color_selected: rgb(35, 35, 35) !important;
+
+        --toolbar-bgcolor: #47494b !important;
+        --dropdown-color: white !important;
+        --search-icon: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 49%, rgba(255, 255, 255, 0.5) 50%);
+    }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         --toolbaritems-margin-bottom: 4px;
@@ -497,9 +525,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             background-color: var(--toolbar-field-background-color_hover) !important;
         }
     
-        &[urlbarFocus="true"] {
-            background-color: white !important;
-        }
+    &[urlbarFocus="true"] {
+        background-color: var(--toolbar-field-background-color_selected) !important;
     }
 
     >toolbarbutton {
@@ -538,7 +565,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             transition: background-color .3s steps(5);
 
             @media not (-moz-windows-classic) {
-                background-color: rgba(0, 0, 0, .5);
+            background-color: var(--searchbar-SVG-color);
             }
         }
 
@@ -716,7 +743,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         transform: translateX(var(--urlbar-dropdown-button_width));
         width: var(--urlbar-dropdown-button_width);
         height: 22px;
-        background: linear-gradient(90deg, rgba(0, 0, 0, .5) 49%, rgba(0, 0, 0, .5) 50%);
+        background: var(--search-icon);
         mask: var(--urlbar-fake-dropdown-mask);
         mask-position: var(--urlbar-fake-dropdown-mask-position);
         mask-repeat: no-repeat;
@@ -873,7 +900,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                     min-width: 17px;
                     width: 17px;
                     height: 16px;
-                    background-color: black;
+                    background-color: var(--dropdown-color);
                     mask-image: url(images/dropdown-mask.svg);
                     mask-position: center;
                     mask-repeat: no-repeat;
@@ -1073,7 +1100,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                             mask-position: calc(50% - 1px) !important;
                             mask-size: 9px 5px !important;
                             mask-repeat: no-repeat !important;
-                            background-color: black !important;
+                            background-color: var(--dropdown-color);
                             margin-left: 4px !important;
                             margin-top: 4px !important;
                         }
@@ -1177,7 +1204,7 @@ panel {
             box-shadow: none !important;
 
             &::before {
-                background-color: white !important;
+                background-color: var(--toolbar-field-background-color_selected) !important;
             }
         }
     }
@@ -1936,7 +1963,7 @@ toolbarbutton {
 
     #urlbar-go-button,
     .search-go-button {
-        border-left: 1px solid rgba(0, 0, 0, 1) !important;
+        border-left: 1px solid var(--searchbar-SVG-color) !important;
         width: 24px !important;
     }
 

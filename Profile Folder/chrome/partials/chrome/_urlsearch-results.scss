@@ -3,6 +3,42 @@
     --urlbarView-subtract: 23px;
     --urlbarView-min-width: 400px;
     
+    --urlbarview-background: white !important;
+    --url-text-color: black !important;
+    --url-hyperlink-color: rgb(0,102,207) !important;
+    --urlbarView-row-after-border: rgb(227, 227, 227) !important;
+    --autocomplete-richlistitem-selected: rgb(240, 240, 240) !important;
+    --search-one-offs-background: rgb(252,252,252) !important;
+    --search-one-offs-border: linear-gradient(0deg, rgba(252,252,252,1) 0%, rgba(252,252,252,1) 76%, rgba(232,232,232,1) 100%) !important;
+    --search-one-offs-gradient: #d6d6d6 !important;
+    --urlbar-engine-one-off-item-background:rgb(215,243,255);
+    --urlbar-engine-one-off-item-background-border:rgb(39,159,211);
+    --searchbar-engine-one-off-item-hover:rgb(172,220,247);
+    --searchbar-engine-one-off-item-active:rgb(179,204,232);
+    --searchbar-engine-one-off-item-border:rgb(60,127,177);
+    --searchbar-borders:rgba(0,0,0,.5);
+    --searchbar-borders2:rgba(254,254,254,.2);
+    --searchbar-SVG-color:rgba(0, 0, 0, 0.5);
+    @media (prefers-color-scheme: dark) {
+        --panel-border-color: #363636 !important;
+    
+        --urlbarview-background: rgb(25, 25, 25) !important;
+        --url-text-color: rgb(194, 194, 194) !important;
+        --url-hyperlink-color: rgb(0,102,207) !important;
+        --urlbarView-row-after-border: rgb(39, 39, 39) !important;
+        --autocomplete-richlistitem-selected: rgb(65, 65, 65) !important;
+        --search-one-offs-background: rgb(70, 70, 70);
+        --search-one-offs-border: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(40, 40, 40) 76%, rgb(70, 70, 70) 100%);
+        --search-one-offs-gradient: #353535 !important;
+        --urlbar-engine-one-off-item-background:rgb(42, 54, 61);
+        --urlbar-engine-one-off-item-background-border:rgb(20, 44, 61);
+        --searchbar-engine-one-off-item-hover:rgb(42, 54, 61);
+        --searchbar-engine-one-off-item-active:rgb(43, 49, 56);
+        --searchbar-engine-one-off-item-border:rgb(20, 44, 61);
+        --searchbar-borders:rgba(0,0,0,.5);
+        --searchbar-borders2:rgba(50, 50, 50, 0.2);
+        --searchbar-SVG-color:rgba(255, 255, 255, 0.5);
+    }
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         --urlbarView-subtract: 34px;
 
@@ -19,7 +55,7 @@
     transform: translateY(-1px);
     margin-inline: 0 !important;
     box-shadow: var(--pop-up_shadow) !important;
-    background-color: white;
+    background-color: var(--urlbarview-background);
     padding: 0 !important;
     width: calc(100% - 2 * (5px + var(--urlbar-container-padding)) - var(--urlbarView-subtract)) !important;
     min-width: var(--urlbarView-min-width) !important;
@@ -47,10 +83,10 @@
 }
 
 .urlbarView-title {
-    color: rgb(0,102,207) !important;
+    color: var(--url-hyperlink-color) !important;
 
     strong {
-        color: black !important;
+        color: var(--url-text-color) !important;
         font-weight: normal !important;
     }
 }
@@ -69,19 +105,19 @@
 
     &[label] {
         .urlbarView-title {
-            color: black !important;
+            color: var(--url-text-color) !important;
         
             strong {
-                color: rgb(0,102,207) !important;
+                color: var(--url-hyperlink-color) !important;
             }
         }
 
         ~ .urlbarView-row {
             .urlbarView-title {
-                color: black !important;
+                color: var(--url-text-color) !important;
             
                 strong {
-                    color: rgb(0,102,207) !important;
+                    color: var(--url-hyperlink-color) !important;
                 }
             }
         }
@@ -91,10 +127,10 @@
 #urlbar {
     &:not([usertyping]) {
         .urlbarView-title {
-            color: black !important;
+            color: var(--url-text-color) !important;
         
             strong {
-                color: black !important;
+                color: var(--url-text-color) !important;
             }
         }
     }
@@ -111,7 +147,7 @@
 
     &:hover,
     &[selected] {
-        background-color: rgb(240, 240, 240) !important;
+        background-color: var(--autocomplete-richlistitem-selected) !important;
     }
 }
 
@@ -131,17 +167,17 @@
         content: "";
         position: absolute;
         right: 19px;
-        border-top: 1px solid rgb(227, 227, 227);
+        border-top: 1px solid var(--urlbarView-row-after-border);
         width: calc(100% - 114px);
         top: -9px;
     }
 }
 
 .ac-title-text {
-    color: black !important;
+    color: var(--url-text-color) !important;
 
     span {
-        color: rgb(0,102,207) !important;
+        color: var(--url-hyperlink-color) !important;
     }
 }
 
@@ -191,9 +227,9 @@
     padding-block: 0 !important;
     padding-left: 12px !important;
     padding-right: 6px !important;
-    border-top: 1px solid #d6d6d6 !important;
-    background: rgb(252,252,252);
-    background: linear-gradient(0deg, rgba(252,252,252,1) 0%, rgba(252,252,252,1) 76%, rgba(232,232,232,1) 100%);
+    border-top: 1px solid var(--search-one-offs-border) !important;
+    background: var(--search-one-offs-background);
+    background: var(--search-one-offs-gradient);
     position: relative;
     min-height: 22px !important;
 }
@@ -238,29 +274,29 @@
     margin-right: 3px !important;
 
     &:hover {
-        background-color: rgb(172,220,247) !important;
-        border: 1px solid rgb(60,127,177) !important;
+        background-color: var(--searchbar-engine-one-off-item-hover) !important;
+        border: 1px solid ar(--searchbar-engine-one-off-item-border) !important;
     }
 
     &:active {
-        background-color: rgb(179,204,232) !important;
-        border: 1px solid rgb(60,127,177) !important;
+        background-color: var(--searchbar-engine-one-off-item-active) !important;
+        border: 1px solid ar(--searchbar-engine-one-off-item-border) !important;
     }
 }
 
 #urlbar-engine-one-off-item-engine-0 {
-    background-color: rgb(215,243,255) !important;
-    border: 1px solid rgb(39,159,211) !important;
+    background-color: var(--urlbar-engine-one-off-item-background) !important;
+    border: 1px solid var(--urlbar-engine-one-off-item-background-border) !important;
     border-radius: 3px !important;
 
     &:hover {
-        background-color: rgb(172,220,247) !important;
-        border: 1px solid rgb(60,127,177) !important;
+        background-color: var(--searchbar-engine-one-off-item-hover) !important;
+        border: 1px solid ar(--searchbar-engine-one-off-item-border) !important;
     }
 
     &:active {
-        background-color: rgb(179,204,232) !important;
-        border: 1px solid rgb(60,127,177) !important;
+        background-color: var(--searchbar-engine-one-off-item-active) !important;
+        border: 1px solid ar(--searchbar-engine-one-off-item-border) !important;
     }
 }
 
@@ -320,6 +356,11 @@
 #urlbar-background,
 #searchbar {
     border-radius: 0 !important;
+    border-top: 1px solid var(--searchbar-borders) !important;
+    border-bottom: 1px solid var(--searchbar-borders) !important;
+    border-left: 1px solid var(--searchbar-borders) !important;
+    border-radius: 0 !important;
+    border-right: 1px solid var(--searchbar-borders) !important;
     background-color: transparent !important;
 
     @media not (-moz-windows-classic) {
@@ -354,7 +395,6 @@
             border-left: 1px solid ThreeDDarkShadow !important;
             border-right: 1px solid -moz-Dialog !important;
         }
-        z-index: 0;
     }
 }
 
@@ -413,7 +453,7 @@
     mask-image: url(images/search-dropdown-mask.svg);
     mask-position: center;
     mask-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--searchbar-SVG-color);
     width: 32px !important;
     margin-right: 6px !important;
 
