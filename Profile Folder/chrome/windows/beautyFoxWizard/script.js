@@ -486,6 +486,8 @@ SQUEeAK - Trailer;
 
 luisl - Spanish translation and testing;
 
+ephemeralViolette - Firefox Native Controls;
+
 MaTe - Portuguese (Brazillian) translation and testing;
 
 neptuneen - Portuguese (Brazillian) translation and testing;
