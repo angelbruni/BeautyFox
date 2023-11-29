@@ -58,9 +58,9 @@ Desfrutem da pista!
 * [AngelBruni](https://github.com/angelbruni) - Criador do tema;
 * [luisl173](https://github.com/luisl173) - Criador do README.md e README.es.md, tradução para espanhol e teste;
 * [ephemeralViolette](https://github.com/ephemeralViolette) - Firefox Native Controls;
-* MaTe - tradutor de português (brasileiro) e teste;
+* [MaTe](https://github.com/MisforMaTe) - tradutor de português (brasileiro) e teste;
 * [catneptune](https://github.com/catneptune) - tradutor de português (brasileiro) e teste;
-* Brawllux - tradução em turco e teste;
+* [Brawllux](https://github.com/EndlessLuck) - tradução em turco e teste;
 * Equipa de testes - por garantir que todos os erros fossem corrigidos e sugerir melhorias;
 * Microsoft - pelos recursos e software do Internet Explorer e do Windows;
 * Mozilla - pelo o Firefox.

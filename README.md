@@ -59,9 +59,9 @@ Enjoy!
 * [AngelBruni](https://github.com/angelbruni) - Theme Developer;
 * [luisl173](https://github.com/luisl173) - README.md Creator, Spanish translator and testing;
 * [ephemeralViolette](https://github.com/ephemeralViolette) - Firefox Native Controls;
-* MaTe - Portuguese (Brazillian) translation and testing;
+* [MaTe](https://github.com/MisforMaTe) - Portuguese (Brazillian) translation and testing;
 * [catneptune](https://github.com/catneptune) - Portuguese (Brazillian) translator and testing;
-* Brawllux - Turkish translator and testing;
+* [Brawllux](https://github.com/EndlessLuck) - Turkish translator and testing;
 * Testing Team - For making sure all bugs are squished and improvements are made;
 * Microsoft - Internet Explorer and Windows software and assets;
 * Mozilla - Firefox software.

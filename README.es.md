@@ -58,9 +58,9 @@ Disfruta del tema!
 * [AngelBruni](https://github.com/angelbruni) - Desarrollador del tema;
 * [luisl173](https://github.com/luisl173) - Creador de README.md y README.es.md, traducción al español y tester;
 * [ephemeralViolette](https://github.com/ephemeralViolette) - Firefox Native Controls;
-* MaTe - Traducción al portugués (brasileño) y tester;
+* [MaTe](https://github.com/MisforMaTe) - Traducción al portugués (brasileño) y tester;
 * [catneptune](https://github.com/catneptune) - Traducción al portugués (brasileño) y tester;
-* Brawllux - traducción al turco y tester;
+* [Brawllux](https://github.com/EndlessLuck) - traducción al turco y tester;
 * Equipo de pruebas - Por asegurarse de que todos los errores fueran arreglados y sugerir mejoras.
 * Microsoft - por los recursos y software de Internet Explorer y Windows;
 * Mozilla - por Firefox.
