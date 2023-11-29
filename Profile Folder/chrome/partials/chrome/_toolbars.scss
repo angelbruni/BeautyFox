@@ -110,18 +110,31 @@
     align-items: end;
     -moz-window-dragging: drag !important;
     position: relative;
-    margin-bottom: 3px;
     overflow: visible !important;
-
+    box-sizing: border-box;
+    
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            height: 3px;
-            width: 100%;
-            background-color: white;
-            border-radius: 4px 4px 0 0;
+        @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+            margin-bottom: 3px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                height: 3px;
+                width: calc(100% - 4px);
+                background-color: white;
+                border-radius: 4px 4px 0 0;
+                
+                //outline: 1px solid var(--browser-outer-border-color) !important;
+                margin-left: 1px;
+    
+                @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
+                    border-left: 1px solid var(--browser-inner-border-color) !important;
+                    border-right: 1px solid var(--browser-inner-border-color) !important;
+                    border-top: 1px solid var(--browser-inner-border-color) !important;
+                }
+            }
         }
     }
 }

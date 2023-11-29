@@ -60,7 +60,7 @@
 }
 
 #TabsToolbar {
-    margin: 0 2px;
+    padding: 0 2px;
     max-height: var(--tab-height);
     background-image: url(images/shine.png) !important;
     background-size: 100% var(--tab-height);
@@ -70,6 +70,30 @@
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
             margin-left: 5px !important;
+        }
+
+        @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+            margin-bottom: 3px !important;
+            position: relative !important;
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                height: 3px;
+                width: calc(100% - 4px);
+                background-color: white;
+                border-radius: 4px 4px 0 0;
+                
+                //outline: 1px solid var(--browser-outer-border-color) !important;
+                margin-left: -3px;
+    
+                @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
+                    border-left: 1px solid var(--browser-inner-border-color) !important;
+                    border-right: 1px solid var(--browser-inner-border-color) !important;
+                    border-top: 1px solid var(--browser-inner-border-color) !important;
+                }
+            }
         }
     }
 
@@ -551,12 +575,48 @@ toolbarbutton#TabsMSEdgeNewTabButton {
     &[sizemode="fullscreen"] {
         #TabsToolbar {
             margin: 0;
+
+            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+                    &::before {
+                        @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
+                            border-left: 0 !important;
+                            border-right: 0 !important;
+                            width: 100% !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        #newToolbar {
+            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {  
+                    &::after {
+                        @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
+                            border-left: 0 !important;
+                            border-right: 0 !important;
+                            width: 100% !important;
+                        }
+                    }
+                }
+            }
         }
     }
 
     &[sizemode="fullscreen"] {
         #TabsToolbar {
             background-image: none !important;
+        }
+
+        #TabsToolbar,
+        #newToolbar {
+            margin: 0 !important;
+
+            &::before,
+            &::after {
+                content: unset;
+            }
         }
     }
 }
