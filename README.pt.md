@@ -1,5 +1,5 @@
 [![en](https://img.shields.io/badge/readme-en-red.svg)](https://github.com/angelbruni/BeautyFox/blob/main/README.md)
-[![pt](https://img.shields.io/badge/ler--me-pt-green.svg)](https://github.com/angelbruni/BeautyFox/blob/main/README.pt.md)
+[![pt](https://img.shields.io/badge/leia--me-pt-green.svg)](https://github.com/angelbruni/BeautyFox/blob/main/README.pt.md)
 [![es](https://img.shields.io/badge/léame-es-yellow.svg)](https://github.com/angelbruni/BeautyFox/blob/main/README.es.md)
 # O que é o BeautyFox?
 BeautyFox é um tema para o Firefox 115 ESR que tem como objetivo replicar a aparência do Internet Explorer 9, 10 e 11.
@@ -59,7 +59,7 @@ Desfrutem da pista!
 * [luisl173](https://github.com/luisl173) - Criador do README.md e README.es.md, tradução para espanhol e teste;
 * [ephemeralViolette](https://github.com/ephemeralViolette) - Firefox Native Controls;
 * MaTe - tradutor de português (brasileiro) e teste;
-* nneptuneen - tradutor de português (brasileiro) e teste;
+* [catneptune](https://github.com/catneptune) - tradutor de português (brasileiro) e teste;
 * Brawllux - tradução em turco e teste;
 * Equipa de testes - por garantir que todos os erros fossem corrigidos e sugerir melhorias;
 * Microsoft - pelos recursos e software do Internet Explorer e do Windows;
