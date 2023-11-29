@@ -46,24 +46,51 @@ try {
     console.error("Error retrieving IE11 Appearance preference:", error);
 }
 
-var translations; // Variable to store translations
+var translations = {}; // Object to store translations
 
-// Load translations asynchronously
-fetch('chrome://userchrome/content/locale.json')
-    .then(response => response.json())
-    .then(data => {
-        translations = data;
-        loadLocale(); // Call loadLocale inside the promise
-    })
-    .catch(error => {
-        console.error('Error loading translations:', error);
-    });
+// Load translations asynchronously based on user's language
+function loadTranslations(lang, region) {
+    return fetch(`chrome://userchrome/content/locales/${lang}/${region}.json`)
+        .then(response => response.json())
+        .then(data => {
+            if (!translations[lang]) {
+                translations[lang] = {};
+            }
+            translations[lang][region] = data;
+        })
+        .catch(error => {
+            console.error(`Error loading translations for chrome://userchrome/content/locales/${lang}/${region}.json:`, error);
+        });
+}
 
-// Function to set text based on locale
+// Load translations for user's language and fallback to 'en' for missing keys
 function loadLocale() {
+    const userLanguage = (navigator.language || navigator.userLanguage).split('-');
+    const lang = userLanguage[0];
+    const region = userLanguage[1];
+
+    // Load translations for user's language and region
+    return loadTranslations(lang, region)
+        .then(() => {
+            // If translations for the user's language and region are not available, load 'fallback.json'
+            if (!translations[lang] || !translations[lang][region]) {
+                console.warn(`Translations not available for chrome://userchrome/content/locales/${lang}/${region}.json.`);
+
+                // Now load 'fallback.json' for missing keys
+                return loadTranslations(lang, 'fallback');
+            }
+        })
+        .then(() => {
+            // Call loadLocale inside the promise to ensure translations are loaded before processing
+            applyTranslations();
+        });
+}
+
+// Apply translations to the document
+function applyTranslations() {
     const userLanguage = navigator.language || navigator.userLanguage;
     const elements = document.querySelectorAll('[locale]');
-    
+
     elements.forEach(element => {
         const key = element.getAttribute('locale');
         let text = "";
@@ -71,15 +98,20 @@ function loadLocale() {
         const lang = userLanguage.split('-')[0];
         const region = userLanguage.split('-')[1];
 
+        // Use specific language and region translation if available
         if (translations[lang] && translations[lang][region] && translations[lang][region][key]) {
-            // Use specific language and region translation if available
             text = translations[lang][region][key];
-        } else if (translations[lang] && translations[lang].fallback && translations[lang].fallback[key]) {
-            // Use language fallback if available
-            text = translations[lang].fallback[key];
+        }
+        // Use language fallback if available
+        else if (translations[lang] && translations[lang]['fallback'] && translations[lang]['fallback'][key]) {
+            text = translations[lang]['fallback'][key];
+        }
+        // Fallback to English if no translation is found
+        // Check if translations for 'en' are available, otherwise use a placeholder or the key itself
+        else if (translations['en'] && translations['en']['fallback'] && translations['en']['fallback'][key]) {
+            text = translations['en']['fallback'][key];
         } else {
-            // Fallback to English if no translation is found
-            text = translations.en.fallback[key];
+            text = `${key}`;
         }
 
         // Replace the placeholder with the actual version

@@ -1,0 +1,11 @@
+{
+    "wizardComboBoxBookmarkItem": "Customize bookmark item title width:",
+    
+    "wizardCheckboxAccentColouring": "Use accent coloring",
+    "wizardCheckboxAccentNavBtns": "Enable Windows accent color for navigation buttons",
+    "wizardCheckboxAccentToolbars": "Enable Windows accent color for toolbars (only in the chosen appearance)",
+    "wizardCheckboxAWMAccentColouring": "Enable Aero Window Manager accent color support",
+
+    "FavouritesBar": "Favorites bar",
+    "Favourites": "Favorites"
+}

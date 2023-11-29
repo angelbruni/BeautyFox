@@ -1403,10 +1403,8 @@ var addStatusbar = {
                         if (mutation.type === 'attributes') {
                             if (!statusPanel.getAttribute('inactive')) {
                                 statusBarStatusLabel.textContent = mutation.target.value;
-                                console.log('a')
                             } else {
                                 statusBarStatusLabel.textContent = '';
-                                console.log('b')
                             }
                         }
                     }
