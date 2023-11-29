@@ -18,11 +18,15 @@ BeautyFox es un tema para Firefox 115 ESR que pretende replicar la apariencia e 
 
 1.2. Copia los contenidos de la carpeta `Profile Folder` al Directorio raíz de tu perfil (si no sabes cual es, abre Firefox y escribe `about:profiles` en la barra de direcciones)
 
-2. Descarga e instala [Resource Hacker](https://angusj.com/resourcehacker/) (si tu SO **no** es Windows Vista/7/8.x)
+2. **(Opcional, pero recomendado)** - Activar aero en en panel de navegación (para Windows 10/11):
 
-2.1. Abre Resource Hacker como administrador.
+**¡Advertencia!** Modificar el manifiesto puede causar que algunas sitios web de streaming (como Netflix) ya no funcionen. Continúa bajo tu propio riesgo.
 
-2.2. File > Open > busca `firefox.exe` > Manifest > borra/comenta estas líneas:
+Si tienes Windows Vista (con el kernel extendido), Windows 7, 8 u 8.1, no necesitas hacer esto y puedes saltarte este paso.
+
+2.1. Descarga e instala [Resource Hacker](https://angusj.com/resourcehacker/) y ejecútalo como administrador
+
+2.2. File > Open > encuentra `firefox.exe` > Manifest > borra/comenta estas líneas:
 ```xml
 <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}"/>
 <supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}"/>
@@ -51,7 +55,7 @@ BeautyFox es un tema para Firefox 115 ESR que pretende replicar la apariencia e 
 
 6.3. Cierra Firefox completamente y reemplaza el archivo `xul.dll` de la carpeta en la que esta instalado Firefox con el archivo `xul.dll` que descargaste.
 
-6.4. Abre Firefox nuevamente y ya tienes los controles nativos! (Nota, esto aplicará a ***todo*** lo que Firefox cargue, incluyendo sitios web, ¡¡¡así que sitios como Discord Web se verán algo raros por estos cambios).
+6.4. Abre Firefox nuevamente y ya tienes los controles nativos! (Nota, esto aplicará a ***todo*** lo que Firefox cargue, incluyendo sitios web, ¡¡¡así que sitios como Discord Web se verán algo raros por estos cambios!!!).
 
 Disfruta del tema!
 
