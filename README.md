@@ -1,3 +1,6 @@
+[![en](https://img.shields.io/badge/readme-en-red.svg)](https://github.com/luisl173/temp/blob/main/README.md)
+[![pt](https://img.shields.io/badge/ler--me-pt-green.svg)](https://github.com/luisl173/temp/blob/main/README.pt.md)
+[![es](https://img.shields.io/badge/léame-es-yellow.svg)](https://github.com/luisl173/temp/blob/main/README.es.md)
 # What is BeautyFox?
 BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Explorer 9, 10, and 11 look and feel.
 
@@ -8,9 +11,11 @@ BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Exp
 
 # Instructions
 
-1. Copying files
+1. Copying files:
 
-1.1.	**(Optional)** For InPrivate page, copy the contents of the Firefox Folder to where the `firefox.exe` is located;
+1.1.	Copy the contents of the Firefox Folder to where the `firefox.exe` is located;
+
+1.1.1. **(Optional)** For InPrivate page, also copy the "browser" folder inside the folder previously mentioned.
 
 1.2.	Copy the contents of the Profile Folder to the Root Directory of the profile folder (if you don't know, open firefox and type `about:profiles` in the address bar).
 
@@ -28,7 +33,7 @@ BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Exp
 
 3. Open Firefox and follow the instructions of the wizard that appears on-screen.
 
-4.	Extensions
+4.	Extensions:
 
 4.1	**(Optional)** In `about:config`, set `xpinstall.signatures.required` to `false` and drag and drop `suggestedSites.xpi` in Firefox
 
@@ -38,11 +43,22 @@ BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Exp
 
 5.1 Right click an empty space of the tabs bar and click on "Customise Toolbar..."
 
+6. **(Optional)** - Enabling native controls (scrollbars, checkboxes):
+
+6.1. Go to the [Firefox native controls repo](https://github.com/ephemeralViolette/firefox-native-controls)
+
+6.2. Go to releases and download the `xul.dll` file corresponding to your Firefox version.
+
+6.3. Close Firefox completely then replace the `xul.dll` file where Firefox is installed with the downloaded `xul.dll` file.
+
+6.4. Open Firefox again and now you have native controls! (Note that this will apply to ***everything*** Firefox loads, including websites, so sites like Discord Web will look weird with the native scrollbars).
+
 Enjoy!
 
 # Credits / Thanks
 * [AngelBruni](https://github.com/angelbruni) - Theme Developer;
 * [luisl173](https://github.com/luisl173) - README.md Creator, Spanish translator and testing;
+* [ephemeralViolette](https://github.com/ephemeralViolette) - Firefox Native Controls;
 * MaTe - Portuguese (Brazillian) translation and testing;
 * nneptuneen - Portuguese (Brazillian) translator and testing;
 * Brawllux - Turkish translator and testing;
