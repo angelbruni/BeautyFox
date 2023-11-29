@@ -1,6 +1,6 @@
-[![en](https://img.shields.io/badge/readme-en-red.svg)](https://github.com/luisl173/temp/blob/main/README.md)
-[![pt](https://img.shields.io/badge/ler--me-pt-green.svg)](https://github.com/luisl173/temp/blob/main/README.pt.md)
-[![es](https://img.shields.io/badge/léame-es-yellow.svg)](https://github.com/luisl173/temp/blob/main/README.es.md)
+[![en](https://img.shields.io/badge/readme-en-red.svg)](https://github.com/angelbruni/BeautyFox/blob/main/README.md)
+[![pt](https://img.shields.io/badge/ler--me-pt-green.svg)](https://github.com/angelbruni/BeautyFox/blob/main/README.pt.md)
+[![es](https://img.shields.io/badge/léame-es-yellow.svg)](https://github.com/angelbruni/BeautyFox/blob/main/README.es.md)
 # ¿Qué es BeautyFox?
 BeautyFox es un tema para Firefox 115 ESR que pretende replicar la apariencia e interfaz de Internet Explorer 9, 10 y 11.
 # Notas
