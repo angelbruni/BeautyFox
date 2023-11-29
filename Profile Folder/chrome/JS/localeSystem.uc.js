@@ -69,8 +69,12 @@ function loadLocale() {
     const lang = userLanguage[0];
     const region = userLanguage[1];
 
-    // Load translations for user's language and region
-    return loadTranslations(lang, region)
+    // Load translations for 'en' to ensure the fallback exists
+    return loadTranslations('en', 'fallback')
+        .then(() => {
+            // Load translations for user's language and region
+            return loadTranslations(lang, region);
+        })
         .then(() => {
             // If translations for the user's language and region are not available, load 'fallback.json'
             if (!translations[lang] || !translations[lang][region]) {
@@ -107,11 +111,8 @@ function applyTranslations() {
             text = translations[lang]['fallback'][key];
         }
         // Fallback to English if no translation is found
-        // Check if translations for 'en' are available, otherwise use a placeholder or the key itself
-        else if (translations['en'] && translations['en']['fallback'] && translations['en']['fallback'][key]) {
+        else {
             text = translations['en']['fallback'][key];
-        } else {
-            text = `${key}`;
         }
 
         // Replace the placeholder with the actual version
