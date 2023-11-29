@@ -237,7 +237,6 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     border-top: 1px solid var(--browser-outer-border-color);
     border-left: 1px solid var(--browser-outer-border-color);
     border-right: 1px solid var(--browser-outer-border-color);
-    min-height: 2px !important;
     padding: 0px 3px 1px 3px;
     height: 22px !important;
     color: black !important;
@@ -249,9 +248,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         border-top: 0;
-        min-height: 3px !important;
-        padding-top: 2px;
-        border-radius: 4px 4px 0 0;
+        border-radius: 0 !important;
     }
 
     &::after {
@@ -267,6 +264,10 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         pointer-events: none;
         border-radius: 2px 2px 0 0;
         z-index: 1;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            border-top: 0 !important;
+        }
     }
     
     @media (-moz-windows-classic) {
@@ -284,6 +285,24 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
     &:not(:-moz-lwtheme):-moz-window-inactive {
         color: ThreeDShadow !important;
+    }
+
+    > spacer {
+        display: none !important;
+    }
+
+    &[autohide="true"] {
+        max-height: 0px !important;
+
+        #menubar-items {
+            &::after {
+                content: unset !important;
+            }
+        }
+
+        &:not([inactive="true"]) {
+            max-height: unset !important;
+        }
     }
 }
 

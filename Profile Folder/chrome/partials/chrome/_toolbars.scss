@@ -108,6 +108,22 @@
 #newToolbar {
     display: flex;
     align-items: end;
+    -moz-window-dragging: drag !important;
+    position: relative;
+    margin-bottom: 3px;
+    overflow: visible !important;
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 4px 4px 0 0;
+        }
+    }
 }
 
 #PersonalToolbar {
@@ -500,10 +516,6 @@ findbar {
             border-bottom: 0 !important;
         }
     }
-}
-
-#newToolbar {
-    -moz-window-dragging: drag !important;
 }
 
 #endToolbar {
