@@ -20,16 +20,22 @@ BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Exp
 
 1.2.	Copy the contents of the Profile Folder to the Root Directory of the profile folder (if you don't know, open firefox and type `about:profiles` in the address bar).
 
-2.	Download and install [Resource Hacker](https://angusj.com/resourcehacker/) (if your OS is NOT Windows Vista/7) - this is to enable glass in navigation pane
+2. **(Optional, but recommended)** - Enabling glass on navigation pane (for Windows 10/11):
 
-2.1.	Run as administrator
+**Warning!** Modifying the manfest will cause that some streaming websites (like Netflix) to not work. Continue at your own risk.
 
-2.2.	File > Open > find `firefox.exe` > Manifest > delete/comment these lines:
+If you have Windows Vista (with extended kernel), Windows 7, 8 or 8.1, you don't need to do this and you can skip this step.
+
+2.1. Download and install [Resource Hacker](https://angusj.com/resourcehacker/) and run it as administrator
+
+2.3. File > Open > find `firefox.exe` > Manifest > delete/comment these lines:
+
 ```xml
 <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}"/>
 <supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}"/>
 <supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}"/>
 ```
+
 2.3.	Restart your computer if aero does not work after these changes.
 
 3. Open Firefox and follow the instructions of the wizard that appears on-screen.
