@@ -59,11 +59,11 @@ Enjoy!
 # Credits / Thanks
 * [AngelBruni](https://github.com/angelbruni) - Theme Developer, README.pt.md Creator;
 * SQUEeAK - Trailer;
-* [luisl173](https://github.com/luisl173) - README.md and README.es.md Creator, Spanish translator and testing;
+* [luisl173](https://github.com/luisl173) - README.md and README.es.md creator, Spanish translator and testing;
 * [ephemeralViolette](https://github.com/ephemeralViolette) - Firefox Native Controls;
 * [MaTe](https://github.com/MisforMaTe) - Portuguese (Brazillian) translation and testing;
 * [catneptune](https://github.com/catneptune) - Portuguese (Brazillian) translator and testing;
-* [Brawllux](https://github.com/EndlessLuck) - Turkish translator and testing;
+* [Brawllux](https://github.com/EndlessLuck) - README.tr.md creator, Turkish translator and testing;
 * Testing Team - For making sure all bugs are squished and improvements are made;
 * Microsoft - Internet Explorer and Windows software and assets;
 * Mozilla - Firefox software.

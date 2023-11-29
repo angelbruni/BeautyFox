@@ -62,7 +62,7 @@ Disfruta del tema!
 * [ephemeralViolette](https://github.com/ephemeralViolette) - Firefox Native Controls;
 * [MaTe](https://github.com/MisforMaTe) - Traducción al portugués (brasileño) y tester;
 * [catneptune](https://github.com/catneptune) - Traducción al portugués (brasileño) y tester;
-* [Brawllux](https://github.com/EndlessLuck) - Creador de README.pt.md, traducción al turco y tester;
+* [Brawllux](https://github.com/EndlessLuck) - Creador de README.tr.md, traducción al turco y tester;
 * Equipo de pruebas - Por asegurarse de que todos los errores fueran arreglados y sugerir mejoras.
 * Microsoft - por los recursos y software de Internet Explorer y Windows;
 * Mozilla - por Firefox.
