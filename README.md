@@ -28,7 +28,7 @@ If you have Windows Vista (with extended kernel), Windows 7, 8 or 8.1, you don't
 
 2.1. Download and install [Resource Hacker](https://angusj.com/resourcehacker/) and run it as administrator
 
-2.3. File > Open > find `firefox.exe` > Manifest > delete/comment these lines:
+2.2. File > Open > find `firefox.exe` > Manifest > delete/comment these lines:
 
 ```xml
 <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}"/>
