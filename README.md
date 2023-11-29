@@ -56,8 +56,8 @@ BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Exp
 Enjoy!
 
 # Credits / Thanks
-* [AngelBruni](https://github.com/angelbruni) - Theme Developer;
-* [luisl173](https://github.com/luisl173) - README.md Creator, Spanish translator and testing;
+* [AngelBruni](https://github.com/angelbruni) - Theme Developer, README.pt.md Creator;
+* [luisl173](https://github.com/luisl173) - README.md and README.es.md Creator, Spanish translator and testing;
 * [ephemeralViolette](https://github.com/ephemeralViolette) - Firefox Native Controls;
 * [MaTe](https://github.com/MisforMaTe) - Portuguese (Brazillian) translation and testing;
 * [catneptune](https://github.com/catneptune) - Portuguese (Brazillian) translator and testing;
