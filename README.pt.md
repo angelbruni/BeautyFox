@@ -56,6 +56,7 @@ Desfrutem da pista!
 
 # Créditos/Agradecimentos
 * [AngelBruni](https://github.com/angelbruni) - Criador do tema, criador do README.pt.md;
+* SQUEeAK - Trailer;
 * [luisl173](https://github.com/luisl173) - Criador do README.md e README.es.md, tradução para espanhol e teste;
 * [ephemeralViolette](https://github.com/ephemeralViolette) - Firefox Native Controls;
 * [MaTe](https://github.com/MisforMaTe) - tradutor de português (brasileiro) e teste;
