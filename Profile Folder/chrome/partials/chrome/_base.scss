@@ -636,6 +636,10 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         mask-position: var(--urlbar-fake-dropdown-mask-position);
         mask-repeat: no-repeat;
         margin-right: 2px;
+        
+        @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+            margin-left: var(--urlbar-dropdown-button_width);
+        }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
             margin-right: -4px !important;
