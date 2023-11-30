@@ -55,7 +55,7 @@
     --toolbar-bgcolor: #e6effa !important;
     --dropdown-color: black !important;
     --search-icon: linear-gradient(90deg, rgba(0,0,0,.5) 49%, rgba(0,0,0,.5) 50%);
-
+    --placeschevron-color: linear-gradient(0deg, rgba(51, 51, 51, 0.1) 0%, rgba(51, 51, 51, 0) 100%) !important;
     @media (prefers-color-scheme: dark) {
         --chrome-content-separator-color: #6f6f6f !important;
     
@@ -77,6 +77,7 @@
         --toolbar-bgcolor: #47494b !important;
         --dropdown-color: white !important;
         --search-icon: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 49%, rgba(255, 255, 255, 0.5) 50%);
+        --placeschevron-color: linear-gradient(0deg, rgba(255, 255, 255, 0.562) 0%, rgb(255, 255, 255) 100%) !important;
     }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
@@ -664,7 +665,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         top: 0;
         height: 100%;
         width: 100%;
-        background-color: rgba(0, 0, 0, .5);
+        background-color: var(--searchbar-SVG-color);
         transition: background-color .3s steps(5);
     }
 
@@ -1162,7 +1163,7 @@ panel {
     &.verifiedDomain {
         #identity-icon {
             list-style-image: none !important;
-            background-color: rgba(0, 0, 0, .5);
+            background-color: var(--searchbar-SVG-color);
             mask: url(images/lock-mask.svg);
             transition: background-color .3s steps(5);
         }
