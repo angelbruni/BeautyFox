@@ -221,6 +221,10 @@
     opacity: 0;
     z-index: 1;
     max-height: 21px !important;
+
+    @supports not -moz-bool-pref("BeautyFox.option.showStatusBar") {
+        display: none;
+    }
     
     &::before {
         content: '';
