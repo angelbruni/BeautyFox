@@ -157,17 +157,17 @@
                 position: absolute;
                 bottom: -3px;
                 height: 3px;
-                width: calc(100% - 4px);
                 background-color: white;
                 border-radius: 4px 4px 0 0;
-                
-                //outline: 1px solid var(--browser-outer-border-color) !important;
-                margin-left: 1px;
+                width: 100%;
+                margin-left: 0;
     
                 @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
                     border-left: 1px solid var(--browser-inner-border-color) !important;
                     border-right: 1px solid var(--browser-inner-border-color) !important;
                     border-top: 1px solid var(--browser-inner-border-color) !important;
+                    width: calc(100% - 4px);
+                    margin-left: 1px;
                 }
             }
         }
