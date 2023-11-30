@@ -1357,7 +1357,7 @@ function setZoomLevelLabel() {
 
 }
 
-function insertMSEdgeNewTabButton() {
+function createMSEdgeNewTabButton() {
     var tabbrowserArrowscrollboxPeriphery = document.getElementById('tabbrowser-arrowscrollbox-periphery');
     var TabsMSEdgeNewTabButton = document.createXULElement('toolbarbutton');
     TabsMSEdgeNewTabButton.classList.add('toolbarbutton-1');
@@ -1373,6 +1373,18 @@ function insertMSEdgeNewTabButton() {
     MSEdgeNewTabButton.setAttribute('oncommand', 'runFile("microsoft-edge:", "")')
 
     tabsToolbarCustomizationTarget.insertBefore(MSEdgeNewTabButton, tabsToolbarCustomizationTarget.lastChild);
+}
+
+function insertMSEdgeNewTabButton() {
+    try {
+        if (Services.prefs.getBoolPref('BeautyFox.option.hideEdgeButton')) {}
+        else {
+            // This is made like that instead of "if not" because getBoolPref is weird...
+            createMSEdgeNewTabButton()
+        }
+    } catch {
+        createMSEdgeNewTabButton()
+    }
 }
 
 var addStatusbar = {

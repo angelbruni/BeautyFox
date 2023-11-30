@@ -2,7 +2,6 @@ var currentPage = 0; // Default to the first page
 
 var chosenIEAppearance = 0;
 var chosenAboutDialog = 0;
-var chosenEdgeButton = 0;
 var optionTabsOnNavRow = document.getElementById('tabsOnNavRow');
 var optionFakeDropdownArrowsinCB = document.getElementById('fakeDropdownArrowsinCB');
 var optionStatusBar = document.getElementById('showStatusBar');
@@ -472,27 +471,20 @@ function setOptions() {
         Services.prefs.setBoolPref('BeautyFox.option.textIconInCB', false)
     }
 
-    if (wizardComboBoxEdgeButtonItem0.getAttribute('selected', 'true')) {
-        chosenEdgeButton = 0;
-    } else if (wizardComboBoxEdgeButtonItem1.getAttribute('selected', 'true')) {
-        chosenEdgeButton = 1;
-    } else if (wizardComboBoxEdgeButtonItem2.getAttribute('selected', 'true')) {
-        chosenEdgeButton = 2;
-    }
-
-    switch (chosenEdgeButton) {
-        case 0:
+    if (chosenIEAppearance == 4) {
+        if (wizardComboBoxEdgeButtonItem0.getAttribute('selected', 'true')) {
             Services.prefs.setBoolPref('BeautyFox.option.hideEdgeButton', true)
             Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', false)
-            break;
-        case 1:
+        } else if (wizardComboBoxEdgeButtonItem1.getAttribute('selected', 'true')) {
             Services.prefs.setBoolPref('BeautyFox.option.hideEdgeButton', false)
             Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', false)
-            break;
-        case 2:
+        } else if (wizardComboBoxEdgeButtonItem2.getAttribute('selected', 'true')) {
             Services.prefs.setBoolPref('BeautyFox.option.hideEdgeButton', false)
             Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', true)
-            break;
+        }
+    } else {
+        Services.prefs.setBoolPref('BeautyFox.option.hideEdgeButton', true)
+        Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', false)
     }
 
     Services.prefs.setBoolPref('BeautyFox.option.tabsOnNavRow', optionTabsOnNavRow.getAttribute('checked') === 'true');
@@ -588,7 +580,7 @@ optionUseAccentColouring.addEventListener("click", function () {
 });
 
 var creditsText = document.createTextNode(
-    `Credits:
+`Credits:
 
 
 AngelBruni - Theme Developer;
