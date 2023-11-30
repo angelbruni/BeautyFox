@@ -63,6 +63,7 @@ Desfrutem da pista!
 * [MaTe](https://github.com/MisforMaTe) - tradutor de português (brasileiro) e teste;
 * [catneptune](https://github.com/catneptune) - tradutor de português (brasileiro) e teste;
 * [Brawllux](https://github.com/EndlessLuck) - Criador do README.tr.md tradução em turco e teste;
+* [ImSwordQueen](https://github.com/ImSwordQueen) - Por um monte de pequenas ideias legais;
 * Equipa de testes - por garantir que todos os erros fossem corrigidos e sugerir melhorias;
 * Microsoft - pelos recursos e software do Internet Explorer e do Windows;
 * Mozilla - pelo o Firefox.

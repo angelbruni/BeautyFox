@@ -70,6 +70,7 @@ Enjoy!
 * [MaTe](https://github.com/MisforMaTe) - Portuguese (Brazillian) translation and testing;
 * [catneptune](https://github.com/catneptune) - Portuguese (Brazillian) translator and testing;
 * [Brawllux](https://github.com/EndlessLuck) - README.tr.md creator, Turkish translator and testing;
+* [ImSwordQueen](https://github.com/ImSwordQueen) - For a bunch of little cool ideas;
 * Testing Team - For making sure all bugs are squished and improvements are made;
 * Microsoft - Internet Explorer and Windows software and assets;
 * Mozilla - Firefox software.

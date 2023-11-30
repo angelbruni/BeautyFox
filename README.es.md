@@ -67,6 +67,7 @@ Disfruta del tema!
 * [MaTe](https://github.com/MisforMaTe) - Traducción al portugués (brasileño) y tester;
 * [catneptune](https://github.com/catneptune) - Traducción al portugués (brasileño) y tester;
 * [Brawllux](https://github.com/EndlessLuck) - Creador de README.tr.md, traducción al turco y tester;
+* [ImSwordQueen](https://github.com/ImSwordQueen) - Por un montón de pequeñas ideas geniales;
 * Equipo de pruebas - Por asegurarse de que todos los errores fueran arreglados y sugerir mejoras.
 * Microsoft - por los recursos y software de Internet Explorer y Windows;
 * Mozilla - por Firefox.

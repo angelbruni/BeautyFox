@@ -64,6 +64,7 @@ Tadını çıkartın! :D
 * [MaTe](https://github.com/MisforMaTe) - Portekizce (Brezilya) çeviri, test ve geri bildirim;
 * [catneptune](https://github.com/catneptune) - Portekizce (Brezilya) çeviri, test ve geri bildirim;
 * [Brawllux](https://github.com/EndlessLuck) - Türkçe çeviri, test ve geri bildirim;
+* [ImSwordQueen](https://github.com/ImSwordQueen) - Bir sürü harika küçük fikir için;
 * Test Takımı - Tema içindeki hata oranını sıfıra indirmede konusunda kararlılıkları için;
 * Microsoft - Internet Explorer ve Windows yazılımı ve bileşenleri;
 * Mozilla - Firefox yazılımının geliştiricileri.
