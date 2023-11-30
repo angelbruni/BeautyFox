@@ -10,6 +10,10 @@
     --get-more-add-ons-label: "Get More Add-ons";
 
     --feeds-label: "Feeds";
+
+    --find-label: "Find:";
+    --previous-label: "Previous";
+    --next-label: "Next";
     
 }
 
@@ -21,6 +25,10 @@ html {
 
     &[lang*="pt"] {
         --get-more-add-ons-label: "Mais extensões";
+
+        --find-label: "Buscar:";
+        --previous-label: "Anterior";
+        --next-label: "Seguinte";
     }
 
     &[lang="pt-BR"] {
@@ -55,6 +63,10 @@ html {
         --get-more-add-ons-label: "Más complementos";
 
         --feeds-label: "Fuentes";
+
+        --find-label: "Buscar:";
+        --previous-label: "Anterior";
+        --next-label: "Siguiente";
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
             --label-view-n-track-your-downloads: Ver y seguir tus descargas;

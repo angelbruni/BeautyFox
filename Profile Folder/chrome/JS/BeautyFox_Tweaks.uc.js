@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			BeautyFox Tweaks
-// @description 	Changes some Firefox functionality to work more lie Internet Explorer.
+// @description 	Changes some Firefox functionality to work more like Internet Explorer.
 // @author			AngelBruni
 // ==/UserScript==
 

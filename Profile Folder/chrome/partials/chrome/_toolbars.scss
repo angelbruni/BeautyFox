@@ -473,9 +473,16 @@ findbar {
     }
 }
 
+.findbar-find-previous,
+.findbar-find-next {
+    &[disabled="true"] {
+        color: rgb(160,160,160) !important;
+    }
+}
+
 .findbar-find-previous {
     &::before {
-        content: 'Previous';
+        content: var(--previous-label);
     }
 }
 
@@ -483,7 +490,7 @@ findbar {
     position: relative;
 
     &::before {
-        content: 'Next';
+        content: var(--next-label);
     }
 
     &::after {
@@ -540,7 +547,7 @@ findbar {
 
 [anonid="findbar-textbox-wrapper"] {
     &::before {
-        content: 'Find:';
+        content: var(--find-label);
         height: fit-content;
         margin-top: 3px;
         margin-right: 5px;

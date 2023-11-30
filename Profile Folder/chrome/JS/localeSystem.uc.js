@@ -76,7 +76,7 @@ function loadTranslations(lang, region) {
 }
 
 // Load translations for user's language and fallback to 'en' for missing keys
-function loadLocale() {
+async function loadLocale() {
     if (mainWindow) {
         userLanguageI = (mainWindow.getAttribute('lang')).split('-');
     } else {
@@ -86,25 +86,21 @@ function loadLocale() {
     const lang = userLanguageI[0];
     const region = userLanguageI[1];
 
-    // Load translations for 'en' to ensure the fallback exists
-    return loadTranslations('en', 'fallback')
-        .then(() => {
-            // Load translations for user's language and region
-            return loadTranslations(lang, region);
-        })
-        .then(() => {
-            // If translations for the user's language and region are not available, load 'fallback.json'
-            if (!translations[lang] || !translations[lang][region]) {
-                console.warn(`Translations not available for chrome://userchrome/content/locales/${lang}/${region}.json.`);
+    try {
+        // Load 'en/fallback.json' for missing keys
+        await loadTranslations('en', 'fallback');
 
-                // Now load 'fallback.json' for missing keys
-                return loadTranslations(lang, 'fallback');
-            }
-        })
-        .then(() => {
-            // Call loadLocale inside the promise to ensure translations are loaded before processing
-            applyTranslations();
-        });
+        // Load user language with fallback for missing keys
+        await loadTranslations(lang, 'fallback');
+
+        // Load translations for user's language and region
+        await loadTranslations(lang, region);
+
+        // Call applyTranslations inside the promise to ensure translations are loaded before processing
+        applyTranslations();
+    } catch (error) {
+        console.error("Error loading translations:", error);
+    }
 }
 
 // Apply translations to the document
@@ -140,7 +136,7 @@ function applyTranslations() {
         // Replace the placeholder with the actual version
         const beautyFoxVersion = '%beautyFoxVersion';
         if (text !== undefined) {
-            text = text.replace(new RegExp(beautyFoxVersion, 'g'), 'Beta 4.5.2');
+            text = text.replace(new RegExp(beautyFoxVersion, 'g'), 'Beta 4.5.3');
         }
 
         const IEVersion = '%IEVersion';
