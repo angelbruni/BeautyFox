@@ -1,20 +1,4 @@
 window {
-    groupbox {
-        appearance: groupbox;
-        position: relative;
-        margin: 8px 0;
-        padding-top: 6px;
-
-        > label:first-child {
-            position: absolute;
-            top: -11px;
-            background: white;
-            padding: 0 3px;
-        }
-    }
-}
-
-window {
     background: transparent !important;
     appearance: auto !important;
     -moz-default-appearance: -moz-win-borderless-glass !important;
@@ -75,6 +59,20 @@ window {
                     background-image: url("chrome://userchrome/content/resources/aero.msstyles/Buttons, Boxes & Controls/Buttons/Navigation/BackButton/Pressed.ico");
                 }
             }
+        }
+    }
+
+    groupbox {
+        appearance: groupbox;
+        position: relative;
+        margin: 8px 0;
+        padding-top: 6px;
+
+        > label:first-child {
+            position: absolute;
+            top: -11px;
+            background: white;
+            padding: 0 3px;
         }
     }
 

@@ -4,7 +4,6 @@ var chosenIEAppearance = 0;
 var chosenAboutDialog = 0;
 var chosenEdgeButton = 0;
 var optionTabsOnNavRow = document.getElementById('tabsOnNavRow');
-var optionOnlyIconsinCB = document.getElementById('onlyIconsinCB');
 var optionFakeDropdownArrowsinCB = document.getElementById('fakeDropdownArrowsinCB');
 var optionStatusBar = document.getElementById('showStatusBar');
 var optionUseAccentColouring = document.getElementById('useAccentColouring');
@@ -22,6 +21,10 @@ var wizardComboBoxBookmarkItemItem0 = document.getElementById('wizardComboBoxBoo
 var wizardComboBoxBookmarkItemItem1 = document.getElementById('wizardComboBoxBookmarkItemItem1');
 var wizardComboBoxBookmarkItemItem2 = document.getElementById('wizardComboBoxBookmarkItemItem2');
 
+var wizardComboBoxCBItemsItem0 = document.getElementById('wizardComboBoxCBItemsItem0');
+var wizardComboBoxCBItemsItem1 = document.getElementById('wizardComboBoxCBItemsItem1');
+var wizardComboBoxCBItemsItem2 = document.getElementById('wizardComboBoxCBItemsItem2');
+
 var wizardComboBoxEdgeButtonItem0 = document.getElementById('wizardComboBoxEdgeButtonItem0');
 var wizardComboBoxEdgeButtonItem1 = document.getElementById('wizardComboBoxEdgeButtonItem1');
 var wizardComboBoxEdgeButtonItem2 = document.getElementById('wizardComboBoxEdgeButtonItem2');
@@ -35,8 +38,20 @@ function updateNavBackButton() {
     var navBackButton = document.getElementById('backButton');
 
     if (navBackButton) {
-        // Disable the button if currentPage is 0, enable otherwise
-        navBackButton.disabled = (currentPage === 0);
+        
+
+        let isBeautyFoxFirstRunFinished = false;
+        try {
+            isBeautyFoxFirstRunFinished = Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished");
+        } catch (error) {}
+
+        if (isBeautyFoxFirstRunFinished) {
+            // Disable the button if currentPage is 0 or 1, enable otherwise
+            navBackButton.disabled = (currentPage === 0 || currentPage === 1 );
+        } else {
+            // Disable the button if currentPage is 0, enable otherwise
+            navBackButton.disabled = (currentPage === 0);
+        }
 
         // Assign a function to the onclick property
         navBackButton.onclick = function() {
@@ -88,7 +103,19 @@ function showPage(pageNumber) {
     }
 }
 
-showPage(currentPage);
+
+let isBeautyFoxFirstRunFinished = false;
+try {
+    isBeautyFoxFirstRunFinished = Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished");
+} catch (error) {}
+
+if (isBeautyFoxFirstRunFinished) {
+    showPage(1);
+} else {
+    showPage(0);
+}
+
+
 updateNavBackButton();
 
 const { ctypes } = Components.utils.import("resource://gre/modules/ctypes.jsm");
@@ -151,7 +178,6 @@ function getBoolPrefWithCatch(prefName, element) {
 
 function getCurrentSettings() {
     getBoolPrefWithCatch("BeautyFox.option.tabsOnNavRow", optionTabsOnNavRow);
-    getBoolPrefWithCatch("BeautyFox.option.onlyIconsinCB", optionOnlyIconsinCB);
     getBoolPrefWithCatch("BeautyFox.option.fakeDropdownArrowsinCB", optionFakeDropdownArrowsinCB);
     getBoolPrefWithCatch("BeautyFox.option.showStatusBar", optionStatusBar);
 
@@ -221,6 +247,26 @@ function getCurrentSettings() {
         wizardComboBoxBookmarkItemItem0.setAttribute('selected', true);
         wizardComboBoxBookmarkItemItem1.removeAttribute('selected');
         wizardComboBoxBookmarkItemItem2.removeAttribute('selected');
+    }
+
+    try {
+        if (Services.prefs.getBoolPref('BeautyFox.option.textIconInCB')) {
+            wizardComboBoxCBItemsItem0.setAttribute('selected', true);
+            wizardComboBoxCBItemsItem1.removeAttribute('selected');
+            wizardComboBoxCBItemsItem2.removeAttribute('selected');
+        } else if (Services.prefs.getBoolPref('BeautyFox.option.onlyIconsinCB')) {
+            wizardComboBoxCBItemsItem0.removeAttribute('selected');
+            wizardComboBoxCBItemsItem1.removeAttribute('selected');
+            wizardComboBoxCBItemsItem2.setAttribute('selected', true);
+        } else {
+            wizardComboBoxCBItemsItem0.removeAttribute('selected');
+            wizardComboBoxCBItemsItem1.setAttribute('selected', true);
+            wizardComboBoxCBItemsItem2.removeAttribute('selected');
+        }
+    } catch {
+        wizardComboBoxCBItemsItem0.removeAttribute('selected');
+        wizardComboBoxCBItemsItem1.setAttribute('selected', true);
+        wizardComboBoxCBItemsItem2.removeAttribute('selected');
     }
 
     try {
@@ -381,6 +427,17 @@ function setOptions() {
         Services.prefs.setBoolPref('BeautyFox.option.smallBookmarkItem', false)
     }
 
+    if (wizardComboBoxCBItemsItem0.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.onlyIconsinCB', false)
+        Services.prefs.setBoolPref('BeautyFox.option.textIconInCB', true)
+    } else if (wizardComboBoxCBItemsItem1.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.onlyIconsinCB', false)
+        Services.prefs.setBoolPref('BeautyFox.option.textIconInCB', false)
+    } else if (wizardComboBoxCBItemsItem2.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.onlyIconsinCB', true)
+        Services.prefs.setBoolPref('BeautyFox.option.textIconInCB', false)
+    }
+
     if (wizardComboBoxEdgeButtonItem0.getAttribute('selected', 'true')) {
         chosenEdgeButton = 0;
     } else if (wizardComboBoxEdgeButtonItem1.getAttribute('selected', 'true')) {
@@ -405,7 +462,6 @@ function setOptions() {
     }
     
     Services.prefs.setBoolPref('BeautyFox.option.tabsOnNavRow', optionTabsOnNavRow.getAttribute('checked') === 'true');
-    Services.prefs.setBoolPref('BeautyFox.option.onlyIconsinCB', optionOnlyIconsinCB.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.fakeDropdownArrowsinCB', optionFakeDropdownArrowsinCB.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.showStatusBar', optionStatusBar.getAttribute('checked') === 'true');
 

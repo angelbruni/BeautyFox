@@ -83,7 +83,7 @@
     list-style-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/30788.ico') !important;
 
     @supports -moz-bool-pref("BeautyFox.option.smallBookmarkItem") {
-        max-width: 59px !important;
+        max-width: 62px !important;
     }
 
     @supports -moz-bool-pref("BeautyFox.option.iconOnlyBookmarkItem") {
@@ -127,7 +127,7 @@
 
     @supports not -moz-bool-pref("BeautyFox.option.moveExtensionsButtonToEndToolbar") {
         @supports -moz-bool-pref("BeautyFox.option.smallBookmarkItem") {
-            max-width: 59px !important;
+            max-width: 62px !important;
         }
 
         @supports -moz-bool-pref("BeautyFox.option.iconOnlyBookmarkItem") {
@@ -595,10 +595,17 @@ findbar {
             height: auto !important;
             width: auto !important;
         }
+
+        @supports -moz-bool-pref("BeautyFox.option.textIconInCB") {
+            .toolbarbutton-text {
+                display: block !important;
+            }
+        }
         
         &:active {
             .toolbarbutton-icon,
-            .toolbarbutton-badge-stack {
+            .toolbarbutton-badge-stack,
+            .toolbarbutton-text {
                 transform: translateX(1px) translateY(1px);
             }
         }
@@ -620,7 +627,8 @@ findbar {
 
     &:active {
         .toolbarbutton-icon,
-        .toolbarbutton-badge-stack {
+        .toolbarbutton-badge-stack,
+        .toolbarbutton-text {
             transform: translateX(1px) translateY(1px);
         }
     }
@@ -683,6 +691,13 @@ findbar {
 
 #cBHelpMenuButton {
     list-style-image: none !important;
+
+    @supports -moz-bool-pref("BeautyFox.option.textIconInCB") {
+        .toolbarbutton-text {
+            padding-left: 4px !important;
+            padding-right: 4px !important;
+        }
+    }
 
     .toolbarbutton-icon {
         height: 16px !important;
@@ -1090,6 +1105,12 @@ findbar {
             margin-bottom: 2px !important;
         }
     }
+
+    @supports -moz-bool-pref("BeautyFox.option.textIconInCB") {
+        .toolbarbutton-text {
+            display: block !important;
+        }
+    }
 }
 
 #addToBookmarksBarButton {
@@ -1119,7 +1140,8 @@ findbar {
 
     &[open="true"],
     &:active {
-        .toolbarbutton-icon {
+        .toolbarbutton-icon,
+        .toolbarbutton-text {
             transform: translateX(1px) translateY(1px);
         }
     }
@@ -1141,8 +1163,15 @@ findbar {
 
     &[open="true"],
     &:active {
-        .toolbarbutton-badge-stack {
+        .toolbarbutton-badge-stack,
+        .toolbarbutton-text {
             transform: translateX(1px) translateY(1px);
+        }
+    }
+
+    .toolbarbutton-text {
+        &::before {
+            content: var(--feeds-label);
         }
     }
 

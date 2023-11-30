@@ -8,6 +8,8 @@
     --label-about-after: ;
 
     --get-more-add-ons-label: "Get More Add-ons";
+
+    --feeds-label: "Feeds";
     
 }
 
@@ -51,6 +53,8 @@ html {
         --label-about-after: ;
 
         --get-more-add-ons-label: "Más complementos";
+
+        --feeds-label: "Fuentes";
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
             --label-view-n-track-your-downloads: Ver y seguir tus descargas;

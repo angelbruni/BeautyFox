@@ -697,7 +697,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         appearance: auto !important;
 
         @supports -moz-bool-pref("BeautyFox.option.smallBookmarkItem") {
-            max-width: 59px !important;
+            max-width: 62px !important;
         }
 
         @supports -moz-bool-pref("BeautyFox.option.iconOnlyBookmarkItem") {

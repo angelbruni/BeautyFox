@@ -4,6 +4,18 @@
 // @author			AngelBruni
 // ==/UserScript==
 
+var userLanguageI = null;
+var userLanguageT = null;
+
+if (document.getElementById('main-window')) {
+    var mainWindow = document.getElementById('main-window');
+    userLanguageI = (mainWindow.getAttribute('lang')).split('-');
+    userLanguageT = mainWindow.getAttribute('lang');
+} else {
+    userLanguageI = (navigator.language || navigator.userLanguage).split('-');
+    userLanguageT = navigator.language || navigator.userLanguage;
+}
+
 var IsIE9PreReleaseAppearance = false;
 try {
     IsIE9PreReleaseAppearance = Services.prefs.getBoolPref("BeautyFox.appearance.IE9PreRelease");
@@ -65,9 +77,14 @@ function loadTranslations(lang, region) {
 
 // Load translations for user's language and fallback to 'en' for missing keys
 function loadLocale() {
-    const userLanguage = (navigator.language || navigator.userLanguage).split('-');
-    const lang = userLanguage[0];
-    const region = userLanguage[1];
+    if (mainWindow) {
+        userLanguageI = (mainWindow.getAttribute('lang')).split('-');
+    } else {
+        userLanguageI = (navigator.language || navigator.userLanguage).split('-');
+    }
+
+    const lang = userLanguageI[0];
+    const region = userLanguageI[1];
 
     // Load translations for 'en' to ensure the fallback exists
     return loadTranslations('en', 'fallback')
@@ -92,15 +109,20 @@ function loadLocale() {
 
 // Apply translations to the document
 function applyTranslations() {
-    const userLanguage = navigator.language || navigator.userLanguage;
+    if (mainWindow) {
+        userLanguageT = mainWindow.getAttribute('lang');
+    } else {
+        userLanguageT = navigator.language || navigator.userLanguage;
+    }
+
     const elements = document.querySelectorAll('[locale]');
 
     elements.forEach(element => {
         const key = element.getAttribute('locale');
         let text = "";
 
-        const lang = userLanguage.split('-')[0];
-        const region = userLanguage.split('-')[1];
+        const lang = userLanguageT.split('-')[0];
+        const region = userLanguageT.split('-')[1];
 
         // Use specific language and region translation if available
         if (translations[lang] && translations[lang][region] && translations[lang][region][key]) {
@@ -117,29 +139,27 @@ function applyTranslations() {
 
         // Replace the placeholder with the actual version
         const beautyFoxVersion = '%beautyFoxVersion';
-        text = text.replace(new RegExp(beautyFoxVersion, 'g'), 'Beta 4.5');
-        
+        if (text !== undefined) {
+            text = text.replace(new RegExp(beautyFoxVersion, 'g'), 'Beta 4.5');
+        }
+
         const IEVersion = '%IEVersion';
-        if (IsIE11Appearance) {
-            text = text.replace(new RegExp(IEVersion, 'g'), '11');
-        }
-        else if (IsIE10Appearance) {
-            text = text.replace(new RegExp(IEVersion, 'g'), '10');
-        }
-        else if (IsIE10ReleasePreviewAppearance) {
-            text = text.replace(new RegExp(IEVersion, 'g'), '10 Release Preview');
-        }
-        else if (IsIE10ConsumerPreviewAppearance) {
-            text = text.replace(new RegExp(IEVersion, 'g'), '10 Consumer Preview');
-        }
-        else if (IsIE10DeveloperPreviewAppearance) {
-            text = text.replace(new RegExp(IEVersion, 'g'), '10 Developer Preview');
-        }
-        else if (IsIE9PreReleaseAppearance) {
-            text = text.replace(new RegExp(IEVersion, 'g'), '9 Pre-Release');
-        }
-        else {
-            text = text.replace(new RegExp(IEVersion, 'g'), '9');
+        if (text !== undefined) {
+            if (IsIE11Appearance) {
+                text = text.replace(new RegExp(IEVersion, 'g'), '11');
+            } else if (IsIE10Appearance) {
+                text = text.replace(new RegExp(IEVersion, 'g'), '10');
+            } else if (IsIE10ReleasePreviewAppearance) {
+                text = text.replace(new RegExp(IEVersion, 'g'), '10 Release Preview');
+            } else if (IsIE10ConsumerPreviewAppearance) {
+                text = text.replace(new RegExp(IEVersion, 'g'), '10 Consumer Preview');
+            } else if (IsIE10DeveloperPreviewAppearance) {
+                text = text.replace(new RegExp(IEVersion, 'g'), '10 Developer Preview');
+            } else if (IsIE9PreReleaseAppearance) {
+                text = text.replace(new RegExp(IEVersion, 'g'), '9 Pre-Release');
+            } else {
+                text = text.replace(new RegExp(IEVersion, 'g'), '9');
+            }
         }
 
         if (element.tagName.toLowerCase() === 'window') {
@@ -160,3 +180,14 @@ function applyTranslations() {
 }
 
 loadLocale();
+
+const mainWindowConfig = { attributes: true, attributeFilter: ['lang'] };
+const callback = function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {  
+            loadLocale();
+        }
+    }
+};
+const observer = new MutationObserver(callback);
+observer.observe(mainWindow, mainWindowConfig);

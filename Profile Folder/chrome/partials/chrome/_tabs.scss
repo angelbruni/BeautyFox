@@ -234,13 +234,13 @@
             border-image-source: var(--tab-inset-border-colour);
             border-bottom: none !important;
             background: var(--tab-background-colour);
-            background-repeat: no-repeat !important;
             box-sizing: border-box;
 
             @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
                 outline: 0 !important;
                 border: 1px solid var(--tab-inset-border-colour) !important;
                 border-bottom: 0 !important;
+                background-repeat: no-repeat !important;
             }
 
             @supports -moz-bool-pref("BeautyFox.appearance.IE10") {

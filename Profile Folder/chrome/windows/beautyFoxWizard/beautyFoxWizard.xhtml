@@ -78,7 +78,6 @@
 						<groupbox>
 							<label locale="wizardSettings"></label>
 							<checkbox native="true" id="tabsOnNavRow" locale="wizardCheckBoxTabs"/>
-							<checkbox native="true" id="onlyIconsinCB" locale="wizardCheckBoxOnlyIcons"/>
 							<checkbox native="true" id="fakeDropdownArrowsinCB" locale="wizardCheckBoxFakeDropdown"/>
 							<checkbox native="true" id="showStatusBar" locale="wizardCheckboxStatusBar"/>
 							<checkbox native="true" id="hideSettingsPopup" locale="wizardCheckboxHideSettingsPopup"/>
@@ -91,6 +90,16 @@
 										<menuitem id="wizardComboBoxBookmarkItemItem0" locale="wizardComboBoxBookmarkItemItem0"/>
 									  	<menuitem id="wizardComboBoxBookmarkItemItem1" locale="wizardComboBoxBookmarkItemItem1"/>
 									  	<menuitem id="wizardComboBoxBookmarkItemItem2" locale="wizardComboBoxBookmarkItemItem2"/>
+									</menupopup>
+								</menulist>
+							</hbox>
+							<hbox id="cBItemsCBParent" style="align-items: center">
+								<label locale="wizardComboBoxCBItems"></label>
+								<menulist native="true" style="min-width: 200px;">
+									<menupopup>
+										<menuitem id="wizardComboBoxCBItemsItem0" locale="wizardComboBoxCBItemsItem0"/>
+									  	<menuitem id="wizardComboBoxCBItemsItem1" locale="wizardComboBoxCBItemsItem1"/>
+									  	<menuitem id="wizardComboBoxCBItemsItem2" locale="wizardComboBoxCBItemsItem2"/>
 									</menupopup>
 								</menulist>
 							</hbox>
@@ -165,14 +174,14 @@
 			<!-- IE9 Pre-Release specific features -->
 			<html:div id="page100" class="page">
 				<vbox class="pageContent">
-					<h1 locale="wizardAppearance"></h1>
+					<h1 locale="wizardIE9PreRelease"></h1>
 					<hbox>
 						<commandlinkbutton onclick="chosenIEAppearance = 5; showPage(2);">
 							<image class="commandLinkButtonThumbnail" src="chrome://userchrome/content/windows/beautyFoxWizard/IE9PreRelease7777.png" alt="" style="max-width: 300px;"/>
 							<hbox>
 								<image class="commandlinkbutton-glyph"/>
 								<vbox>
-									<label class="title">Continue with Build 7777 appearance</label>
+									<label class="title" locale="wizardContinueIE9PreRelease7777"></label>
 								</vbox>
 							</hbox>
 						</commandlinkbutton>
@@ -181,7 +190,7 @@
 							<hbox>
 								<image class="commandlinkbutton-glyph"/>
 								<vbox>
-									<label class="title">Continue with Build 7930 appearance</label>
+									<label class="title" locale="wizardContinueIE9PreRelease7930"></label>
 								</vbox>
 							</hbox>
 						</commandlinkbutton>

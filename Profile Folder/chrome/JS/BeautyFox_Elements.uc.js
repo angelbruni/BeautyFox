@@ -70,6 +70,7 @@ function createCBHomeButton() {
                 BrowserHome(event);
             },
             onCreated: function (button) {
+                button.setAttribute('locale', 'Home');
                 return button;
             },
         });
@@ -93,6 +94,7 @@ function createCBPrintButton() {
                 PrintUtils.togglePrintPreview(gBrowser.selectedBrowser.browsingContext);
             },
             onCreated: function (button) {
+                button.setAttribute('locale', 'Print');
                 return button;
             },
         });
@@ -119,6 +121,7 @@ function createCBReadMailButton() {
                 });;
             },
             onCreated: function (button) {
+                button.setAttribute('locale', 'ReadMail');
                 return button;
             },
         });
