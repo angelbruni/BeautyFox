@@ -649,6 +649,41 @@ findbar {
     list-style-image: url("chrome://browser/skin/menu.svg");
 }
 
+@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+    #cBSafety_trackingProtection {
+        display: none !important;
+    }
+}
+
+@supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+    #IEMenu_sendFeedback,
+    #cBHelp_sendFeedback {
+        display: none !important;
+    }
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+        #IEMenu_sendFeedback,
+        #cBHelp_sendFeedback  {
+            display: flex !important;
+        }
+
+        #cBPage_eMailWindowsLive,
+        #cBPage_googleTranslate,
+        #cBPage_allAccelerators,
+        #cBPageMenuPopUp > menuseparator:nth-of-type(2),
+        #cBPageMenuPopUp > menuseparator:nth-of-type(3) {
+            display: none !important;
+        }
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+            #IEMenu_sendFeedback,
+            #cBHelp_sendFeedback {
+                display: none !important;
+            }
+        }
+    }
+}
+
 #cBHomeButton {
     list-style-image: url("chrome://browser/skin/home.svg");
 }
@@ -737,7 +772,6 @@ findbar {
         @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
             menuseparator {
                 &:nth-child(6),
-                &:nth-child(9),
                 &:last-of-type {
                     display: none !important;
                 }
@@ -989,6 +1023,16 @@ findbar {
                 }
             }
         }
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            #cBTools_customize {
+                .menu-iconic-text {
+                    &::after {
+                        content: '...';
+                    }
+                }   
+            }
+        }
     
         > #cBTools_internetOptions {
             > .menu-iconic-left {
@@ -1221,13 +1265,8 @@ findbar {
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-    #cBPage_eMailWindowsLive,
-    #cBPage_googleTranslate,
-    #cBPage_allAccelerators {
-        display: none !important;
-    }
-
     @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {        
+        #cBSafetyMenuPopUp > menuseparator:last-of-type,
         #cBSafety_windowsUpdate {
             display: none !important;
         }

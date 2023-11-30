@@ -1,3 +1,5 @@
+// Yes, this code is terrible, oh well. HELP?
+
 var currentPage = 0; // Default to the first page
 
 var chosenIEAppearance = 0;

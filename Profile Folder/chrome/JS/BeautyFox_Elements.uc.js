@@ -195,10 +195,7 @@ function createFeedbackButton() {
             label: button_label,
             tooltiptext: button_label,
             onClick: function () {
-                _ucUtils.loadURI(window, {
-                    url: 'chrome://userchrome/content/temppages/discord-invite.html',
-                    where: "tab"
-                });
+                sendFeedbackLink();
             },
             onCreated: function (button) {
                 return button;
@@ -208,6 +205,13 @@ function createFeedbackButton() {
     catch (e) {
         Components.utils.reportError(e);
     }
+}
+
+function sendFeedbackLink() {
+    _ucUtils.loadURI(window, {
+        url: 'chrome://userchrome/content/temppages/discord-invite.html',
+        where: "tab"
+    });
 }
 
 function createMenu(menuData) {
@@ -571,7 +575,7 @@ var IEMenu = createMenu({
             id: 'IEMenu_viewDownloads',
             name: 'View downloads',
             locale: 'ViewDownloads',
-            accelText: 'Ctrl + J',
+            accelText: 'Ctrl+J',
             command: 'BrowserDownloadsUI();',
         },
         {
@@ -615,6 +619,13 @@ var IEMenu = createMenu({
             name: 'About Internet Explorer',
             locale: 'aboutIE',
             command: 'openAboutIE();',
+        },
+        {
+            type: 'app',
+            id: 'IEMenu_sendFeedback',
+            name: 'Send Feedback',
+            locale: 'sendFeedback',
+            command: 'sendFeedbackLink();',
         },
     ],
 });
@@ -1107,8 +1118,8 @@ var cBToolsMenu = createMenu({
                 {
                     type: 'app',
                     id: 'cBTools_customize',
-                    name: 'Customize',
-                    locale: 'Customize',
+                    name: 'Customize...',
+                    locale: 'Customise',
                     command: 'gCustomizeMode.enter();',
                 },
             ]
@@ -1196,7 +1207,7 @@ var cBHelpMenu = createMenu({
             name: "What's new in BeautyFox",
             locale: "NewBeautyFox",
             special: true,
-            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/b4.5.html', where: 'tab'});"
+            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/b4.5.1.html', where: 'tab'});"
         },
         {
             type: 'separator',
@@ -1214,10 +1225,17 @@ var cBHelpMenu = createMenu({
             id: 'cBHelp_onlineSupport',
             name: 'Online support',
             locale: 'OnlineSupport',
-            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/discord-invite.html', where: 'tab'});"
+            command: "sendFeedbackLink();"
         },
         {
             type: 'separator',
+        },
+        {
+            type: 'app',
+            id: 'cBHelp_sendFeedback',
+            name: 'Send Feedback',
+            locale: 'sendFeedback',
+            command: 'sendFeedbackLink();',
         },
         {
             type: 'app',
@@ -1225,13 +1243,6 @@ var cBHelpMenu = createMenu({
             name: 'About Internet Explorer',
             locale: 'aboutIE',
             command: 'openAboutIE();',
-        },
-        {
-            type: 'app',
-            id: 'cBHelp_internetOptions',
-            name: 'Internet options',
-            locale: 'InternetOptions',
-            command: 'openInternetOptions();',
         },
     ],
 });

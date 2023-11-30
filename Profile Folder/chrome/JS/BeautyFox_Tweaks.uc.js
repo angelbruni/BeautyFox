@@ -339,7 +339,7 @@ function openFakeIEAbout() {
 
     var features = "chrome,centerscreen,dependent";
 
-    window.openDialog('chrome://userchrome/content/windows/aboutIE/aboutIE.xhtml', '', features); 
+    window.openDialog('chrome://userchrome/content/windows/aboutIE/index.xhtml', '', features); 
 }
 function callShellAboutWIE() {
     // Path to iexplore.exe
@@ -428,7 +428,7 @@ function openBeautyFoxWizardWindow(verifyFirstRun) {
 }
 function launchBeautyFoxWizard() {
     var features = "chrome,centerscreen,resizeable=no,dependent,modal";
-    window.openDialog('chrome://userchrome/content/windows/beautyFoxWizard/beautyFoxWizard.xhtml', "BeautyFox Wizard", features); 
+    window.openDialog('chrome://userchrome/content/windows/beautyFoxWizard/index.xhtml', "BeautyFox Wizard", features); 
 }
 
 function openInternetOptions() {

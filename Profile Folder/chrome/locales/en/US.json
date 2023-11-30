@@ -1,5 +1,5 @@
 {
-    "wizardComboBoxBookmarkItem": "Customize command bar items:",
+    "wizardComboBoxCBItems": "Customize command bar items:",
     "wizardComboBoxBookmarkItem": "Customize bookmark item title width:",
     
     "wizardCheckboxAccentColouring": "Use accent coloring",
@@ -8,5 +8,7 @@
     "wizardCheckboxAWMAccentColouring": "Enable Aero Window Manager accent color support",
 
     "FavouritesBar": "Favorites bar",
-    "Favourites": "Favorites"
+    "Favourites": "Favorites",
+
+    "Customise": "Customize"
 }
