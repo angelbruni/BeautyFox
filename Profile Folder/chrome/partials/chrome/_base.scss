@@ -487,6 +487,14 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     #reload-button {
         &::before {
             mask: url(chrome://userchrome/content/images/refresh-mask.svg);
+
+            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+                    mask-position: 6px 3px !important;
+                }
+            }
+
+            
         }
 
         &:hover {
@@ -549,6 +557,10 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         width: 100%;
         background-color: rgba(0,0,0,.5);
         transition: background-color .3s steps(5);
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+            mask-position: 6px center !important;
+        }
     }
 
     &:active {
@@ -1523,6 +1535,10 @@ toolbarbutton {
 
             @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
                 mask-position-x: center !important;
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+                    mask-position: 6px center !important;
+                }
             }
         }
     }
