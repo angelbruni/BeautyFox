@@ -1,5 +1,7 @@
 :root {
-
+--statusbar-color: #f1edec !important;
+--statusbar-border: #aaabab !important;
+--statusbar-border2: rgba(255, 255, 255, .5) !important;
     @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
         @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
             --toolbar-bgcolor: #f7f7f7 !important;
@@ -12,7 +14,9 @@
 
     
 @media (prefers-color-scheme: dark) {
-
+    --statusbar-color: #302f2f !important;
+    --statusbar-border: #252525 !important;
+    --statusbar-border2: rgba(22, 22, 22, 0.5) !important;
         @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
             @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
                 --toolbar-bgcolor: #1b1b1b !important;
@@ -270,8 +274,8 @@
         top: 0;
         width: calc(100% - 4px);
         height: calc(100% - 3px);
-        background-color: #f1edec;
-        border: 1px solid rgba(255, 255, 255, .5);
+        background-color: var(--statusbar-color);
+        border: 1px solid var(--statubar-border2);
         z-index: -1;
 
         @media (-moz-windows-classic) {
@@ -285,7 +289,7 @@
             top: -1px;
             width: calc(100% + 2px);
             pointer-events: none;
-            border-top: 1px solid #aaabab;
+            border-top: 1px solid var(--statusbar-border);
         }
     }
 
