@@ -939,6 +939,20 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             margin: 0 !important;
             height: 16px !important;
             width: 16px !important;
+
+            list-style-image: none !important;
+            mask: url("chrome://userchrome/content/images/close-mask.svg") !important;
+            mask-position: center !important;
+            mask-repeat: no-repeat !important;
+            background-color: rgb(152, 155, 163) !important;
+
+            &:hover {
+                background-color: rgb(226, 58, 60) !important;
+            }
+
+            &:active {
+                background-color: rgb(225, 12, 12) !important;
+            }
         }
     }
 }

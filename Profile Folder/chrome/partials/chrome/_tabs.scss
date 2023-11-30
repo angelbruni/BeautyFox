@@ -338,7 +338,7 @@
         width: 16px !important;
         padding: 0 !important;
         list-style-image: none !important;
-        mask: url(images/close-mask.svg);
+        mask: url("chrome://userchrome/content/images/close-mask.svg");
         mask-position: center;
         mask-repeat: no-repeat;
         display: none;

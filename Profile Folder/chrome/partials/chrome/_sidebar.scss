@@ -111,7 +111,7 @@
             height: 8px !important;
             width: 8px !important;
             padding: 5px !important;
-            mask: url(images/close-mask.svg) !important;
+            mask: url("chrome://userchrome/content/images/close-mask.svg") !important;
             mask-position: center !important;
             mask-repeat: no-repeat !important;
             background-color: rgb(152, 155, 163) !important;

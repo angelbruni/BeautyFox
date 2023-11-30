@@ -37,11 +37,10 @@
     "wizardComboBoxBookmarkItemItem1": "Títulos curtos",
     "wizardComboBoxBookmarkItemItem2": "Somente ícones",
     "wizardComboBoxCBItems": "Personalize os itens da barra de comando:",
-    "wizardComboBoxCBItemsItem0": "Mostrar texto para todos os botões",
-    "wizardComboBoxCBItemsItem1": "Mostrar texto para alguns botões",
-    "wizardComboBoxCBItemsItem2": "Mostrar apenas ícones",
+    "wizardComboBoxCBItemsItem0": "Mostrar todas as etiquetas de texto",
+    "wizardComboBoxCBItemsItem1": "Mostrar texto seletivo",
+    "wizardComboBoxCBItemsItem2": "Mostrar apenas os ícones",
     "wizardComboBoxEdgeButton": "Botão Microsoft Edge (apenas aparência na escolhida):",
-    
     "wizardComboBoxEdgeButtonItem1": "Mostrar com o ícone antigo",
     "wizardComboBoxEdgeButtonItem2": "Mostrar com o ícone novo",
     "wizardComboBoxExtensionsButton": "Botão Extensões:",
@@ -120,6 +119,6 @@
     "NewIE": "O que há de novo no Internet Explorer %IEVersion",
     "OnlineSupport": "Suporte online",
 
-    "internetProtectedOff": "Internet | Modo protegido: desativado",
-    "internetProtectedOn": "Internet | Modo protegido: ativado"
+    "internetProtectedOff": "Internet | Modo Protegido: Desativado",
+    "internetProtectedOn": "Internet | Modo Protegido: Ativado"
 }
