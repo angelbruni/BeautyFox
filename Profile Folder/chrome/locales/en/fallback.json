@@ -34,7 +34,6 @@
     "wizardCheckBoxTabs": "Move tabs to the navigation bar",
     "wizardCheckBoxDownloadProgress": "Show download progress in Downloads button",
     "wizardCheckBoxTitlebarHeight": "Remove titlebar space",
-    
     "wizardComboBoxBookmarkItem": "Customise bookmark item title width:",
     "wizardComboBoxBookmarkItemItem0": "Long titles",
     "wizardComboBoxBookmarkItemItem1": "Short titles",
@@ -44,11 +43,9 @@
     "wizardComboBoxCBItemsItem1": "Show selective text",
     "wizardComboBoxCBItemsItem2": "Show only icons",
     "wizardComboBoxEdgeButton": "Microsoft Edge button (only in the chosen appearance):",
-    "wizardComboBoxEdgeButtonItem0": "Hide",
     "wizardComboBoxEdgeButtonItem1": "Show with old icon",
     "wizardComboBoxEdgeButtonItem2": "Show with new icon",
     "wizardComboBoxExtensionsButton": "Extensions button:",
-    "wizardComboBoxExtensionsButtonItem0": "Hide",
     "wizardComboBoxExtensionsButtonItem1": "Move to Bookmarks Bar",
     "wizardComboBoxExtensionsButtonItem2": "Move to End Toolbar",
     "wizardCheckBoxOnlyIcons": "Show only icons in the command bar",
@@ -62,10 +59,13 @@
     "wizardNavButtonsRoundAmount": "Navigation buttons round amount:",
     "wizardCheckboxHideFakeInnerBorders": "Hide fake inner borders",
     "wizardCheckboxinetcpl": "Internet Options launches inetcpl.cpl",
+    "wizardComboBoxInternetProtectedLabel": "Fake Internet Protected Label options:",
     "wizardThanks": "Thank you for choosing BeautyFox!",
     "wizardRestart": "To apply the changes, Firefox needs to be restarted. You can access BeautyFox settings at any time by shift clicking the settings menu.",
     "wizardRestartNow": "Restart now",
     "wizardRestartLater": "Restart later",
+
+    "hideOption": "Hide",
 
     "Home": "Home",
     "ReadMail": "Read mail",
@@ -120,5 +120,9 @@
     "InternetExplorerHelp": "Internet Explorer Help",
     "NewBeautyFox": "What's new in BeautyFox %beautyFoxVersion",
     "NewIE": "What's new in Internet Explorer %IEVersion",
-    "OnlineSupport": "Online support"
+    "OnlineSupport": "Online support",
+
+    "internetProtectedOff": "Internet | Protected Mode: Off",
+    "internetProtectedOn": "Internet | Protected Mode: On",
+    "internetProtected": "Internet"
 }

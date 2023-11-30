@@ -9,7 +9,6 @@
     "aboutWarning": "Aviso: este programa de computador é protegido por leis de direitos autorais e tratados internacionais. A reprodução ou distribuição não autorizada desde programa, ou qualquer parte dele, poderá resultar em severas punições civis e criminais, e os infratores serão punidos dentro do máximo rigor permitido por lei.",
 
     "aboutBeautyFox": "Sobre o BeautyFox",
-
     "wizardTitlebar": "Assistente do BeautyFox",
     "wizardWelcome": "Bem-vindo(a) ao BeautyFox!",
     "wizardAbout": "Este projeto visa resgatar a essência clean e minimalista da navegação na internet, priorizando a elegância. Com uma interface simplificada, BeautyFox oferece aos usuários uma fuga refrescante da enorme complexidade dos navegadores modernos.",
@@ -42,11 +41,10 @@
     "wizardComboBoxCBItemsItem1": "Mostrar texto para alguns botões",
     "wizardComboBoxCBItemsItem2": "Mostrar apenas ícones",
     "wizardComboBoxEdgeButton": "Botão Microsoft Edge (apenas aparência na escolhida):",
-    "wizardComboBoxEdgeButtonItem0": "Esconder",
+    
     "wizardComboBoxEdgeButtonItem1": "Mostrar com o ícone antigo",
     "wizardComboBoxEdgeButtonItem2": "Mostrar com o ícone novo",
     "wizardComboBoxExtensionsButton": "Botão Extensões:",
-    "wizardComboBoxExtensionsButtonItem0": "Esconder",
     "wizardComboBoxExtensionsButtonItem1": "Mover para a Barra de Favoritos",
     "wizardComboBoxExtensionsButtonItem2": "Mover para o End Toolbar",
     "wizardCheckBoxOnlyIcons": "Mostrar apenas ícones na barra de comando",
@@ -64,6 +62,8 @@
     "wizardRestart": "Para aplicar as alterações, o Firefox precisa ser reiniciado. Você pode acessar as configurações do BeautyFox a qualquer momento pressionando shift enquanto clica no menu de configurações.",
     "wizardRestartNow": "Reiniciar agora",
     "wizardRestartLater": "Reiniciar mais tarde",
+
+    "hideOption": "Esconder",
 
     "ReadMail": "Ler Email",
 
@@ -117,5 +117,8 @@
     "InternetExplorerHelp": "Ajuda do Internet Explorer",
     "NewBeautyFox": "O que há de novo no BeautyFox %beautyFoxVersion",
     "NewIE": "O que há de novo no Internet Explorer %IEVersion",
-    "OnlineSupport": "Suporte online"
+    "OnlineSupport": "Suporte online",
+
+    "internetProtectedOff": "Internet | Modo protegido: desativado",
+    "internetProtectedOn": "Internet | Modo protegido: ativado"
 }

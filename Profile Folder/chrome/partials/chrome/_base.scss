@@ -222,6 +222,12 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
 #toolbar-menubar[autohide="true"][inactive="true"]:not([customizing="true"]) {
     height: 0 !important;
+
+    @supports not -moz-bool-pref(BeautyFox.option.hideFakeInnerBorders) {
+        @supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            padding-top: 1px !important;
+        }
+    }
 }
 
 #toolbar-menubar {

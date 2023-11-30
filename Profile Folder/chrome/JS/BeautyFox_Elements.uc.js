@@ -1420,7 +1420,23 @@ var addStatusbar = {
                 statusbarInternetProtectionModeContainer.id = 'statusbarInternetProtectionModeContainer';
                 var statusbarInternetProtectionMode = document.createElement('p');
                 statusbarInternetProtectionMode.id = 'statusbarInternetProtectionMode';
-                statusbarInternetProtectionMode.textContent = 'Internet';
+                
+                statusbarInternetProtectionMode.setAttribute('locale', 'internetProtected');
+
+                try {
+                    if (Services.prefs.getBoolPref("BeautyFox.option.fakeInternetProtectedOff")) {
+                        //'Internet | Protected Mode: Off'
+                        statusbarInternetProtectionMode.setAttribute('locale', 'internetProtectedOff');
+                    }
+                } catch {}
+
+                try {
+                    if (Services.prefs.getBoolPref("BeautyFox.option.fakeInternetProtectedOn")) {
+                        //'Internet | Protected Mode: On'
+                        statusbarInternetProtectionMode.setAttribute('locale', 'internetProtectedOn');
+                    }
+                } catch {}
+
                 statusbarInternetProtectionModeContainer.appendChild(statusbarInternetProtectionMode);
                 statusbarContainer.appendChild(statusbarInternetProtectionModeContainer);
 

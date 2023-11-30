@@ -43,11 +43,9 @@
     "wizardComboBoxCBItemsItem1": "Bazı düğmeler için metin gösterme",
     "wizardComboBoxCBItemsItem2": "Yalnızca simgeleri göster",
     "wizardComboBoxEdgeButton": "Microsoft Edge düğmesi (yalnızca seçilen görünümde):",
-    "wizardComboBoxEdgeButtonItem0": "Gizle",
     "wizardComboBoxEdgeButtonItem1": "Eski simge ile göster",
     "wizardComboBoxEdgeButtonItem2": "Yeni simge ile göster",
     "wizardComboBoxExtensionsButton": "Eklentiler düğmesi:",
-    "wizardComboBoxExtensionsButtonItem0": "Gizle",
     "wizardComboBoxExtensionsButtonItem1": "Yer İmleri Çubuğuna Taşı",
     "wizardComboBoxExtensionsButtonItem2": "Araç Çubuğu Sonuna Taşı",
     "wizardCheckBoxOnlyIcons": "Komut çubuğunda sadece ikonları göster",
@@ -65,6 +63,8 @@
     "wizardRestart": "Değişiklikleri uygulamak için Firefox'un yeniden başlatılması gerekir. BeautyFox ayarlarına istediğiniz zaman shift tuşuna basılı tutarken ayarlar düğmesine basarak erişebilirsiniz.",
     "wizardRestartNow": "Şimdi yeniden başlat",
     "wizardRestartLater": "Sonra yeniden başlat",
+
+    "hideOption": "Gizle",
 
     "Page": "Sayfa",
     "Safety": "Güvenlik",
@@ -116,5 +116,8 @@
     "InternetExplorerHelp": "Internet Explorer Yardımı",
     "NewBeautyFox": "BeautyFox %beautyFoxVersion yenilikleri",
     "NewIE": "Internet Explorer %IEVersion yenilikleri",
-    "OnlineSupport": "Online yardım"
+    "OnlineSupport": "Online yardım",
+
+    "internetProtectedOff": "Internet | Korumalı mod: devre dışı",
+    "internetProtectedOn": "Internet | Korumalı mod: etkinleştirildi"
 }

@@ -32,29 +32,34 @@ var wizardComboBoxEdgeButtonItem2 = document.getElementById('wizardComboBoxEdgeB
 var wizardComboBoxExtensionsButtonItem0 = document.getElementById('wizardComboBoxExtensionsButtonItem0');
 var wizardComboBoxExtensionsButtonItem1 = document.getElementById('wizardComboBoxExtensionsButtonItem1');
 var wizardComboBoxExtensionsButtonItem2 = document.getElementById('wizardComboBoxExtensionsButtonItem2');
+
 var optionNavButtonsRadius = document.getElementById('navButtonsRadius');
+
+var wizardComboBoxInternetProtectedLabelItem0 = document.getElementById('wizardComboBoxInternetProtectedLabelItem0');
+var wizardComboBoxInternetProtectedLabelItem1 = document.getElementById('wizardComboBoxInternetProtectedLabelItem1');
+var wizardComboBoxInternetProtectedLabelItem2 = document.getElementById('wizardComboBoxInternetProtectedLabelItem2');
 
 function updateNavBackButton() {
     var navBackButton = document.getElementById('backButton');
 
     if (navBackButton) {
-        
+
 
         let isBeautyFoxFirstRunFinished = false;
         try {
             isBeautyFoxFirstRunFinished = Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished");
-        } catch (error) {}
+        } catch (error) { }
 
         if (isBeautyFoxFirstRunFinished) {
             // Disable the button if currentPage is 0 or 1, enable otherwise
-            navBackButton.disabled = (currentPage === 0 || currentPage === 1 );
+            navBackButton.disabled = (currentPage === 0 || currentPage === 1);
         } else {
             // Disable the button if currentPage is 0, enable otherwise
             navBackButton.disabled = (currentPage === 0);
         }
 
         // Assign a function to the onclick property
-        navBackButton.onclick = function() {
+        navBackButton.onclick = function () {
             // Check if currentPage is IE10+ feature specific page
             if (currentPage == 100 || currentPage == 101 || currentPage == 102) {
                 showPage(1);
@@ -87,7 +92,7 @@ function showPage(pageNumber) {
     } else {
         console.error('Page not found: ' + pageId);
     }
-    
+
     updateNavBackButton()
 
     if (chosenIEAppearance > 1) {
@@ -107,7 +112,7 @@ function showPage(pageNumber) {
 let isBeautyFoxFirstRunFinished = false;
 try {
     isBeautyFoxFirstRunFinished = Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished");
-} catch (error) {}
+} catch (error) { }
 
 if (isBeautyFoxFirstRunFinished) {
     showPage(1);
@@ -156,11 +161,11 @@ function checkRegistryKeyExists(keyPath) {
         );
 
         RegCloseKey(0x80000002, // HKEY_LOCAL_MACHINE
-                    keyPath,
-                    0,
-                    0x20019, // KEY_READ | KEY_WOW64_64KEY
-                    hKey.address());
-                    
+            keyPath,
+            0,
+            0x20019, // KEY_READ | KEY_WOW64_64KEY
+            hKey.address());
+
         return true;
     }
 
@@ -173,7 +178,7 @@ const isRegistryKeyExists = checkRegistryKeyExists(registryKeyPath);
 function getBoolPrefWithCatch(prefName, element) {
     try {
         element.setAttribute('checked', Services.prefs.getBoolPref(prefName));
-    } catch (error) {}
+    } catch (error) { }
 }
 
 function getCurrentSettings() {
@@ -215,7 +220,7 @@ function getCurrentSettings() {
         optionAccentToolbars.disabled = true;
         optionAccentToolbars.checked = false;
     }
-    
+
     getBoolPrefWithCatch("BeautyFox.option.useAccentColourToolbars", optionAccentToolbars);
     getBoolPrefWithCatch("BeautyFox.option.userAccentColorNavButtons", optionAccentNavBtns);
 
@@ -310,6 +315,35 @@ function getCurrentSettings() {
     }
 
     try {
+        if (Services.prefs.getBoolPref('BeautyFox.option.fakeInternetProtectedOn', true)) {
+            wizardComboBoxInternetProtectedLabelItem0.removeAttribute('selected');
+            wizardComboBoxInternetProtectedLabelItem1.removeAttribute('selected');
+            wizardComboBoxInternetProtectedLabelItem2.setAttribute('selected', true);
+            wizardComboBoxInternetProtectedLabelItem3.removeAttribute('selected');
+        } else if (Services.prefs.getBoolPref('BeautyFox.option.fakeInternetProtectedOff', true)) {
+            wizardComboBoxInternetProtectedLabelItem0.removeAttribute('selected');
+            wizardComboBoxInternetProtectedLabelItem1.removeAttribute('selected');
+            wizardComboBoxInternetProtectedLabelItem2.removeAttribute('selected');
+            wizardComboBoxInternetProtectedLabelItem3.setAttribute('selected', true);
+        } else if (Services.prefs.getBoolPref('BeautyFox.option.fakeInternetProtected', true)) {
+            wizardComboBoxInternetProtectedLabelItem0.removeAttribute('selected');
+            wizardComboBoxInternetProtectedLabelItem1.setAttribute('selected', true);
+            wizardComboBoxInternetProtectedLabelItem2.removeAttribute('selected');
+            wizardComboBoxInternetProtectedLabelItem3.removeAttribute('selected');
+        } else {
+            wizardComboBoxInternetProtectedLabelItem0.setAttribute('selected', true);
+            wizardComboBoxInternetProtectedLabelItem1.removeAttribute('selected');
+            wizardComboBoxInternetProtectedLabelItem2.removeAttribute('selected');
+            wizardComboBoxInternetProtectedLabelItem3.removeAttribute('selected');
+        }
+    } catch {
+        wizardComboBoxInternetProtectedLabelItem0.setAttribute('selected', true);
+        wizardComboBoxInternetProtectedLabelItem1.removeAttribute('selected');
+        wizardComboBoxInternetProtectedLabelItem2.removeAttribute('selected');
+        wizardComboBoxInternetProtectedLabelItem3.removeAttribute('selected');
+    }
+
+    try {
         optionNavButtonsRadius.value = Services.prefs.getIntPref('BeautyFox.option.navButtonsRadius')
     } catch {
         optionNavButtonsRadius.value = 50
@@ -321,7 +355,7 @@ function setOptions() {
     let isBeautyFoxFirstRunFinished = false;
     try {
         isBeautyFoxFirstRunFinished = Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished");
-    } catch (error) {}
+    } catch (error) { }
 
     if (!isBeautyFoxFirstRunFinished) {
         Services.prefs.setBoolPref('toolkit.legacyUserProfileCustomizations.stylesheets', true);        // Enables chrome themes;
@@ -460,7 +494,7 @@ function setOptions() {
             Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', true)
             break;
     }
-    
+
     Services.prefs.setBoolPref('BeautyFox.option.tabsOnNavRow', optionTabsOnNavRow.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.fakeDropdownArrowsinCB', optionFakeDropdownArrowsinCB.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.showStatusBar', optionStatusBar.getAttribute('checked') === 'true');
@@ -488,20 +522,41 @@ function setOptions() {
     if (wizardComboBoxExtensionsButtonItem0.getAttribute('selected', 'true')) {
         Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', true);
         Services.prefs.setBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', false);
-    } 
+    }
     if (wizardComboBoxExtensionsButtonItem1.getAttribute('selected', 'true')) {
         Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', false);
         Services.prefs.setBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', false);
-    } 
+    }
     if (wizardComboBoxExtensionsButtonItem2.getAttribute('selected', 'true')) {
         Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', false);
         Services.prefs.setBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', true);
     }
 
+    if (wizardComboBoxInternetProtectedLabelItem0.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtected', false);
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOn', false);
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOff', false);
+    }
+    if (wizardComboBoxInternetProtectedLabelItem1.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtected', true);
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOn', false);
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOff', false);
+    }
+    if (wizardComboBoxInternetProtectedLabelItem2.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtected', true);
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOn', true);
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOff', false);
+    }
+    if (wizardComboBoxInternetProtectedLabelItem3.getAttribute('selected', 'true')) {
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtected', true);
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOn', false);
+        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOff', true);
+    }
+
     Services.prefs.setIntPref('BeautyFox.option.navButtonsRadius', optionNavButtonsRadius.value)
 }
 
-optionUseAccentColouring.addEventListener("click", function() {
+optionUseAccentColouring.addEventListener("click", function () {
     setTimeout(() => {
         if (optionUseAccentColouring.getAttribute('checked', 'true')) {
             if (isRegistryKeyExists == true) {
@@ -517,9 +572,9 @@ optionUseAccentColouring.addEventListener("click", function() {
             optionAccentNavBtns.disabled = false;
 
             optionAccentToolbars.disabled = false;
-                
+
             console.log("Registry key check result: " + isRegistryKeyExists);
-        } else  {
+        } else {
             optionAWMAccentColouring.disabled = true;
             optionAWMAccentColouring.checked = false;
 
@@ -530,10 +585,10 @@ optionUseAccentColouring.addEventListener("click", function() {
             optionAccentToolbars.checked = false;
         }
     }, 0);
-}); 
+});
 
 var creditsText = document.createTextNode(
-`Credits:
+    `Credits:
 
 
 AngelBruni - Theme Developer;
@@ -562,17 +617,17 @@ Mozilla - Firefox software.`
 document.getElementById('credits').appendChild(creditsText);
 
 var restartNow = document.getElementById('restartNow');
-restartNow.addEventListener("click", function() {
+restartNow.addEventListener("click", function () {
     setOptions();
 
     // Close the library
     advapi32.close();
 
     _ucUtils.restart(true);
-}); 
+});
 
 var restartLater = document.getElementById('restartLater');
-restartLater.addEventListener("click", function() {
+restartLater.addEventListener("click", function () {
     setOptions();
 
     // Close the library

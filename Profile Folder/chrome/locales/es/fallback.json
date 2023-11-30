@@ -42,11 +42,9 @@
     "wizardComboBoxCBItemsItem1": "Mostrar el texto de algunos botones",
     "wizardComboBoxCBItemsItem2": "Mostrar sólo iconos",
     "wizardComboBoxEdgeButton": "Botón Microsoft Edge (sólo en la apariencia elegida):",
-    "wizardComboBoxEdgeButtonItem0": "Ocultar",
     "wizardComboBoxEdgeButtonItem1": "Mostrar con el icono antiguo",
     "wizardComboBoxEdgeButtonItem2": "Mostrar con el icono nuevo",
     "wizardComboBoxExtensionsButton": "Botón Extensiones:",
-    "wizardComboBoxExtensionsButtonItem0": "Ocultar",
     "wizardComboBoxExtensionsButtonItem1": "Mover a la Barra de Favoritos",
     "wizardComboBoxExtensionsButtonItem2": "Mover a la End Toolbar",
     "wizardCheckBoxOnlyIcons": "Mostrar solo iconos en la barra de comandos",
@@ -64,6 +62,8 @@
     "wizardRestart": "Para aplicar los cambios, es necesario reiniciar Firefox. Puede acceder a la configuración de BeautyFox en cualquier momento pulsando Mayús mientras hace clic en el menú de configuración.",
     "wizardRestartNow": "Reiniciar ahora",
     "wizardRestartLater": "Reiniciar más tarde",
+
+    "hideOption": "Ocultar",
 
     "Home": "Inicio",
     "ReadMail": "Leer correo",
@@ -117,5 +117,8 @@
     "InternetExplorerHelp": "Ayuda de Internet Explorer",
     "NewBeautyFox": "Novedades de BeautyFox %beautyFoxVersion",
     "NewIE": "Novedades de Internet Explorer %IEVersion",
-    "OnlineSupport": "Soporte técnico en linea"
+    "OnlineSupport": "Soporte técnico en linea",
+
+    "internetProtectedOff": "Internet | Modo protegido: desactivado",
+    "internetProtectedOn": "Internet | Modo protegido: activado"
 }

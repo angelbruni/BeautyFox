@@ -289,7 +289,10 @@
         padding-left: 4px;
         width: 100%;
         max-width: 270px;
-        display: none;
+        
+        @supports not -moz-bool-pref("BeautyFox.option.fakeInternetProtected") {
+            display: none;
+        }
 
         &::before {
             content: url('images/statusGlobe.png');
