@@ -760,7 +760,7 @@ findbar {
 #cBPageMenuButton {
     @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
         .toolbarbutton-icon {
-            list-style-image: url("images/cBPage.png") !important;
+            list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_7.ico") !important;
         }
     }
 
@@ -809,7 +809,7 @@ findbar {
         > #cBPage_newWindow {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/newWindow.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_37.ico') !important;
                     
                 }  
             }
@@ -818,7 +818,7 @@ findbar {
         > #cBPage_cut {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/cut.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_14.ico') !important;
                 }
             }
         }
@@ -826,7 +826,7 @@ findbar {
         > #cBPage_copy {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/copy.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_15.ico') !important;
                 }
             }
         }
@@ -834,7 +834,7 @@ findbar {
         > #cBPage_paste {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/paste.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_16.ico') !important;
                 }
             }
         }
@@ -858,7 +858,7 @@ findbar {
         > #cBPage_saveAs {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/saveAs.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_33.ico') !important;
                 }
             }
         }
@@ -866,7 +866,7 @@ findbar {
         > #cBPage_sendLinkbyEMail {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/sendLinkbyEMail.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_40.ico') !important;
                 }
             }
         }
@@ -874,7 +874,7 @@ findbar {
         > #cBPage_zoom {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/zoom.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_18.ico') !important;
                 }
             }
         }
@@ -882,7 +882,7 @@ findbar {
         > #cBPage_viewSource {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/viewSource.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_34.ico') !important;
                 }
             }
         }
@@ -892,7 +892,7 @@ findbar {
 #cBSafetyMenuButton {
     @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
         .toolbarbutton-icon {
-            list-style-image: url("images/cBSafety.png") !important;
+            list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_50.ico") !important;
         }
     }
 
@@ -925,7 +925,7 @@ findbar {
         > #cBSafety_deleteBrowsingHistory {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/deleteBrowsingHistory.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_41.ico') !important;
                 }
             }
         }
@@ -933,7 +933,7 @@ findbar {
         > #cBSafety_inPrivateBrowsing {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/inPrivateBrowsing.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_42.ico') !important;
                 }
             }
         }
@@ -941,7 +941,7 @@ findbar {
         > #cBSafety_smartScreenFilter {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/smartScreenFilter.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_31.ico') !important;
                 }
             }
         }
@@ -951,7 +951,7 @@ findbar {
 #cBToolsMenuButton {
     @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
         .toolbarbutton-icon {
-            list-style-image: url("images/cBTools.png") !important;
+            list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_8.ico") !important;
         }
     }
 
@@ -987,7 +987,7 @@ findbar {
         > #cBTools_diagnoseConnectionProblems {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/diagnose.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_48.ico') !important;
                 }
             }
         }
@@ -995,7 +995,7 @@ findbar {
         > #cBTools_reopenLastBrowsingSession {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/reopenLastBrowsingSession.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_49.ico') !important;
                 }
             }
         }
@@ -1003,7 +1003,7 @@ findbar {
         > #cBTools_manageAddOns {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/manageAddOns.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_30.ico') !important;
                 }
             }
         }
@@ -1011,7 +1011,7 @@ findbar {
         > #cBTools_workOffline {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/workOffline.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_39.ico') !important;
                 }
             }
         }
@@ -1019,7 +1019,7 @@ findbar {
         > #cBTools_fullScreen {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/fullScreen.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_17.ico') !important;
                 }
             }
         }
@@ -1037,7 +1037,7 @@ findbar {
         > #cBTools_internetOptions {
             > .menu-iconic-left {
                 &::before {
-                    background-image: url('images/internetOptions.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_38.ico') !important;
                 }
             }
         }
@@ -1052,7 +1052,7 @@ findbar {
 
                 &::before {
                     content: '';
-                    background-image: url('images/onlineSupport.png') !important;
+                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_26.ico') !important;
                     background-size: 16px;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -1084,6 +1084,11 @@ findbar {
 #cBSafetyMenuButton,
 #cBToolsMenuButton {
     padding-right: 4px !important;
+
+    .toolbarbutton-icon {
+        height: 16px !important;
+        width: 16px !important;
+    }
 
     @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
         padding-left: 3px !important;
