@@ -69,7 +69,6 @@ Tadını çıkartın! :D
 * Microsoft - Internet Explorer ve Windows yazılımı ve bileşenleri;
 * Mozilla - Firefox yazılımının geliştiricileri.
 
-
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
 
