@@ -61,7 +61,7 @@
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
             --stop-reload-button_width: 25px;
-            --urlbar-fake-dropdown-mask: url(images/search7777-dropdown-mask.svg) !important;
+            --urlbar-fake-dropdown-mask: url(images/search7777-dropdown-mask.svg);
         }
     }
     
@@ -616,7 +616,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         width: auto !important;
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-            margin-inline-end: -23px !important;
+            margin-inline-end: calc(var(--stop-reload-button_width) * -1) !important;
         }
     }
 }
@@ -1338,12 +1338,78 @@ toolbarbutton {
             }
 
             @supports -moz-bool-pref("BeautyFox.option.showDownloadProgress") {
+
+                &[attention="success"],
+                &[attention="warning"] {
+                    #downloads-indicator-finish-box {
+                        &::before,
+                        &::after {
+                            animation: downloadCompleted 1s linear forwards !important;
+                        }
+                    }
+                }
+
+                &[attention="success"] {
+                    #downloads-indicator-finish-box {
+                        &::before {
+                            background-color: rgb(0, 255, 0);
+                        }
+                    }
+                }
+
+                &[attention="warning"] {
+                    #downloads-indicator-finish-box {
+                        &::before {
+                            background-color: rgb(255, 174, 0);
+                        }
+                    }
+                }
+
+                
+
                 > .toolbarbutton-badge-stack {
                     opacity: 1 !important;
-                    mask-image: url(images/downloads-mask.svg);
-                    mask-position: center;
-                    mask-repeat: no-repeat;
                     z-index: 1 !important;
+
+                    > * {
+                        mask-image: url(images/downloads-mask.svg);
+                        mask-position: center;
+                        mask-repeat: no-repeat;
+                    }
+
+                    #downloads-indicator-start-box {
+                        display: none !important;
+                    }
+
+                    #downloads-indicator-finish-box {
+                        mask: unset !important;
+
+                        &::before,
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                            bottom: -50%;
+                            opacity: 0;
+                        }
+
+                        &::after {
+                            background-color: white;
+                            transform: scale(0.5);
+                            filter: blur(5px);
+                        }
+
+                        &::before {
+                            filter: blur(4px);
+                            transform: scale(.7);
+                        }
+
+                        #downloads-indicator-finish-image {
+                            display: none !important;
+                        }
+                    }
 
                     .toolbarbutton-animatable-box {
                         display: grid !important;

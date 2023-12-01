@@ -583,29 +583,17 @@ optionUseAccentColouring.addEventListener("click", function () {
 
 var creditsText = document.createTextNode(
 `Credits:
-
-
-AngelBruni - Theme Developer;
-
-SQUEeAK - Trailer;
-
-luisl - Spanish translation and testing;
-
-ephemeralViolette - Firefox Native Controls;
-
-MaTe - Portuguese (Brazillian) translation and testing;
-
-neptuneen - Portuguese (Brazillian) translation and testing;
-
-Brawllux - Turkish translation and testing;
-
-ImSwordQueen - For a bunch of little cool ideas;
-
-Testing Team - For making sure all bugs are squished and improvements are made;
-
-Microsoft - Internet Explorer and Windows software and assets;
-
-Mozilla - Firefox software.`
+- AngelBruni - Theme Developer;
+- SQUEeAK - Trailer;
+- luisl - Spanish translation and testing;
+- ephemeralViolette - Firefox Native Controls;
+- MaTe - Portuguese (Brazillian) translation and testing;
+- neptuneen - Portuguese (Brazillian) translation and testing;
+- Brawllux - Turkish translation and testing;
+- ImSwordQueen - For a bunch of little cool ideas;
+- Testing Team - For making sure all bugs are squished and improvements are made;
+- Microsoft - Internet Explorer and Windows software and assets;
+- Mozilla - Firefox software.`
 );
 
 document.getElementById('credits').appendChild(creditsText);

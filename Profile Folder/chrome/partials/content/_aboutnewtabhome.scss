@@ -19,8 +19,56 @@ main {
 	}
 }
 
-.non-collapsible-section {
-	display: none;
+@supports not -moz-bool-pref("BeautyFox.appearance.IE10") {
+	.non-collapsible-section {
+		display: none;
+	}
+}
+
+.search-wrapper {
+	padding: 0 !important;
+	margin-top: 49px !important;
+	margin-bottom: 142px !important;
+
+	.search-inner-wrapper {
+		min-height: 47px !important;
+		width: 100% !important;
+	}
+
+	.search-handoff-button {
+		appearance: none !important;
+		box-shadow: none !important;
+		border-radius: 0 !important;
+		padding-inline-start: 15px !important;
+		padding-inline-end: 10px !important;
+		border: 1px solid rgb(173, 175, 174) !important;
+		background: white !important;
+		font-size: 18pt !important;
+		font-style: italic !important;
+		color: rgb(78,85,77) !important;
+		display: flex !important;
+		align-items: center !important;
+
+		.fake-textbox {
+			opacity: 1 !important;
+			height: 34px !important;
+			text-transform: lowercase !important;
+		}
+
+		input {
+			padding-inline-start: 15px !important;
+		}
+
+		&::after {
+			content: '';
+			margin-left: auto;
+			height: 23px;
+			width: 23px;
+			mask: url(chrome://userchrome/content/images/newtabhome-search-mask.svg);
+			mask-position: 0px -1px;
+			background-color: rgb(52,52,52);
+		}
+	}
 }
 
 .top-sites-list {

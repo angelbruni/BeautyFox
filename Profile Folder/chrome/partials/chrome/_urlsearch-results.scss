@@ -291,6 +291,19 @@
     }
 }
 
+.urlbarView-button-menu {
+    background-color: transparent !important;
+    background-size: 8px !important;
+
+    &:hover {
+        color: black !important;
+    }
+}
+
+#urlbar-search-mode-indicator {
+    display: none !important;
+}
+
 #urlbar-anon-search-settings {
     display: none !important;
 }

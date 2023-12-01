@@ -102,7 +102,6 @@
 
     @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
         background-image: none !important;
-        margin: 0 2px !important;
     }
 }
 
@@ -580,7 +579,9 @@ toolbarbutton#TabsMSEdgeNewTabButton {
     &[sizemode="maximized"],
     &[sizemode="fullscreen"] {
         #TabsToolbar {
-            margin: 0;
+            @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+                padding: 0 !important;
+            }
 
             @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
                 @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
