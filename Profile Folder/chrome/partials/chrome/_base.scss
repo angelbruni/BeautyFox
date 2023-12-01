@@ -642,7 +642,6 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-            margin-right: -4px !important;
             background: linear-gradient(90deg, rgba(0,0,0,.1) 49%, rgba(0,0,0,.5) 50%);
         }
     }

@@ -585,11 +585,15 @@ toolbarbutton#TabsMSEdgeNewTabButton {
 
             @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
                 @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-                    &::before {
+                    &::before {                    
                         @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
                             border-left: 0 !important;
                             border-right: 0 !important;
                             width: 100% !important;
+                        }
+
+                        @supports -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
+                            margin-left: 0 !important;
                         }
                     }
                 }
