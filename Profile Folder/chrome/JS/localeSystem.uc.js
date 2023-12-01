@@ -136,7 +136,7 @@ function applyTranslations() {
         // Replace the placeholder with the actual version
         const beautyFoxVersion = '%beautyFoxVersion';
         if (text !== undefined) {
-            text = text.replace(new RegExp(beautyFoxVersion, 'g'), 'Beta 4.5.7');
+            text = text.replace(new RegExp(beautyFoxVersion, 'g'), 'Beta 4.5.8');
         }
 
         const IEVersion = '%IEVersion';

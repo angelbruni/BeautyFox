@@ -491,7 +491,7 @@ var IEMenu = createMenu({
                     type: 'app',
                     id: 'IEMenu_setZoom100',
                     name: '100%',
-                    accelText: 'Ctrl + 0',
+                    accelText: 'Ctrl+0',
                     command: 'FullZoom.setZoom(1)',
                 },
                 {
@@ -1207,7 +1207,7 @@ var cBHelpMenu = createMenu({
             name: "What's new in BeautyFox",
             locale: "NewBeautyFox",
             special: true,
-            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/b4.5.7.html', where: 'tab'});"
+            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/b4.5.8.html', where: 'tab'});"
         },
         {
             type: 'separator',
@@ -1300,7 +1300,7 @@ var zoomMenu = createMenu({
             type: 'app',
             id: 'zoomMenu_setZoom100',
             name: '100%',
-            accelText: 'Ctrl + 0',
+            accelText: 'Ctrl+0',
             command: 'FullZoom.setZoom(1)',
         },
         {

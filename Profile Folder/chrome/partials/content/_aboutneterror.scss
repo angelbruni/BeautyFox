@@ -107,7 +107,6 @@
     #errorLongDesc {
         > ul {
             margin-left: 27px !important;
-            margin-top: 57px !important;
             font-size: 0.9em !important;
             margin-inline-start: 27px !important;
             margin-right: 8px !important;
@@ -152,7 +151,6 @@
         margin-left: 8px !important;
         justify-content: start !important;
         margin-top: 0 !important;
-        position: absolute;
         top: 108px;
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
