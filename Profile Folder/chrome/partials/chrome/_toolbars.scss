@@ -150,12 +150,12 @@
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-            margin-bottom: 3px;
+            margin-bottom: 4px;
 
             &::after {
                 content: '';
                 position: absolute;
-                bottom: -3px;
+                bottom: -4px;
                 height: 3px;
                 background-color: white;
                 border-radius: 4px 4px 0 0;
