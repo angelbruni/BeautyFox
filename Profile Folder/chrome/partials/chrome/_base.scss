@@ -366,6 +366,9 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     height: 100%;
     background: transparent !important;
     text-shadow: none !important;
+    @media (prefers-color-scheme: dark) {
+    color: white !important;
+    }
 
     >menu {
         padding: 0 2px;

@@ -182,7 +182,7 @@
                 position: absolute;
                 bottom: -4px;
                 height: 3px;
-                background-color: white;
+                background-color: var(--line);
                 border-radius: 4px 4px 0 0;
                 width: 100%;
                 margin-left: 0;
@@ -275,7 +275,7 @@
         width: calc(100% - 4px);
         height: calc(100% - 3px);
         background-color: var(--statusbar-color);
-        border: 1px solid var(--statubar-border2);
+        border: 1px solid rgba(255, 255, 255, .5);
         z-index: -1;
 
         @media (-moz-windows-classic) {
@@ -511,16 +511,9 @@ findbar {
     }
 }
 
-.findbar-find-previous,
-.findbar-find-next {
-    &[disabled="true"] {
-        color: rgb(160,160,160) !important;
-    }
-}
-
 .findbar-find-previous {
     &::before {
-        content: var(--previous-label);
+        content: 'Previous';
     }
 }
 
@@ -528,7 +521,7 @@ findbar {
     position: relative;
 
     &::before {
-        content: var(--next-label);
+        content: 'Next';
     }
 
     &::after {
@@ -547,45 +540,16 @@ findbar {
     width: 17px !important;
     height: 16px !important;
     margin-right: 5px !important;
-    border: 1px solid transparent;
-    border-radius: 3px !important;
-    list-style-image: none !important;
-    transform: translateY(-1px) !important;
-
-    &:hover {
-        border: 1px solid rgb(150,150,150);
-        background: linear-gradient(0deg, rgb(224,224,227) 0%, rgb(248,248,248) 100%);
-        outline: rgba(255,255,255,.5) 1px solid !important;
-        outline-offset: -2px;
-
-        .toolbarbutton-icon {
-            background-color: rgb(184,59,60) !important;
-        }
-    }
-
-    &:active {
-        border: 1px solid rgb(150,150,150);
-        background: linear-gradient(0deg, rgb(251,251,251) 0%, rgb(224,224,227) 100%);
-        outline: rgba(255,255,255,.5) 1px solid !important;
-        outline-offset: -2px;
-
-        .toolbarbutton-icon {
-            background-color: rgb(157,56,56) !important;
-        }
-    }
 
     .toolbarbutton-icon {
         height: 8px !important;
         width: 9px !important;
-        mask: url(chrome://userchrome/content/images/find-close-mask.svg) !important;
-        mask-position: center !important;
-        background-color: rgb(150,150,150) !important;
     }
 }
 
 [anonid="findbar-textbox-wrapper"] {
     &::before {
-        content: var(--find-label);
+        content: 'Find:';
         height: fit-content;
         margin-top: 3px;
         margin-right: 5px;
@@ -1209,10 +1173,6 @@ findbar {
     .toolbarbutton-icon {
         height: 16px !important;
         width: 16px !important;
-
-        @supports not -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
-            display: none !important;
-        }
     }
 
     @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
