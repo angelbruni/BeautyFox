@@ -188,14 +188,12 @@ function removeReloadWhenTyping() {
 }
 
 function removeUrlbarFakeDropdownStyling() {
-    document.documentElement.style.removeProperty('--urlbar-dropdown-button_width');
     document.documentElement.style.removeProperty('--urlbar-fake-dropdown-mask');
     document.documentElement.style.removeProperty('--urlbar-fake-dropdown-mask-position');
 }
 
 function setUrlbarFakeDropdownStyling() {
-    document.documentElement.style.setProperty('--urlbar-dropdown-button_width', '17px');
-    document.documentElement.style.setProperty('--urlbar-fake-dropdown-mask', 'url(images/dropdown-mask.svg');
+    document.documentElement.style.setProperty('--urlbar-fake-dropdown-mask', 'url(images/nosearch-dropdown-mask.svg');
     document.documentElement.style.setProperty('--urlbar-fake-dropdown-mask-position', 'center');
 }
 

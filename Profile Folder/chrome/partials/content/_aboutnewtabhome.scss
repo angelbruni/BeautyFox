@@ -195,6 +195,10 @@ main {
 		max-width: 134px !important;
 		font-size: 9pt !important;
 		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+
+		@media (max-width: 959px) {
+			max-width: 103px !important;
+		}
 	}
 
 	.context-menu-button {

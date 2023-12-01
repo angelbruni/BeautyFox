@@ -150,7 +150,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         }
 
         .notificationbox-stack {
-            bottom: 1px !important;
+            bottom: -3px !important;
         }
     }
 
@@ -843,22 +843,32 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 .notificationbox-stack {
     order: 4 !important;
     position: fixed !important;
-    bottom: 3px !important;
+    bottom: -1px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     z-index: 4 !important;
-    max-width: 960px !important;
+    max-width: 962px !important;
     width: 100% !important;
-    background: white !important;
+    background: transparent !important;
     overflow: visible !important;
 
     notification-message {
         outline: 1px solid black !important;
-        outline-offset: 1px !important;
-        margin: 1px !important;
-        border-top: 6px solid rgb(242, 177, 0) !important;
+        //outline-offset: 1px !important;
+        //margin: 1px !important;
+        //border-top: 6px solid rgb(242, 177, 0) !important;
         border-radius: 0 !important;
         opacity: 1 !important;
+        background-color: white !important;
+        border: 1px solid white !important;
+        transition: all 1ms linear !important;
+
+        &::before {
+            content: '';
+            height: 6px;
+            background-color: rgb(242, 177, 0);
+            display: block;
+        }
     }
 }
 
@@ -1134,13 +1144,15 @@ toolbarbutton {
             height: 100% !important;
         }
 
+        .toolbarbutton-animatable-box {
+            display: grid !important;
+        }
+
         #downloads-indicator-start-box {
             display: none !important;
         }
 
         #downloads-indicator-finish-box {
-            mask: unset !important;
-
             &::before,
             &::after {
                 content: "";
@@ -1411,10 +1423,6 @@ toolbarbutton {
                         mask-repeat: no-repeat;
                     }
 
-                    .toolbarbutton-animatable-box {
-                        display: grid !important;
-                    }
-
                     #downloads-indicator-progress-outer {
                         visibility: visible !important;
                         background: none !important;
@@ -1430,6 +1438,22 @@ toolbarbutton {
                         top: 0;
                         left: 0;
                         appearance: none !important;
+                    }
+
+                    #downloads-indicator-finish-box {
+                        &::before,
+                        &::after {
+                            bottom: -40%;
+                        }
+
+                        &::after {
+                            transform: scale(0.8);
+                        }
+            
+                        &::before {
+                            filter: blur(4px);
+                            transform: scale(1);
+                        }
                     }
                 }
             }

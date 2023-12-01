@@ -399,6 +399,18 @@
     display: none !important;
 }
 
+.tabbrowser-tab {
+    pointer-events: auto !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    #tabbrowser-tabs[movingtab] > #tabbrowser-arrowscrollbox > .tabbrowser-tab[fadein]:not([selected]):not([multiselected]),
+    .tabbrowser-tab[tab-grouping],
+    .tabbrowser-tab[tabdrop-samewindow] {
+        transition: transform 150ms ease-in-out !important;
+    }
+}
+
 .tabbrowser-tab:not([pinned]) {
     &:hover {
         .tab-close-button {
@@ -571,8 +583,13 @@ toolbarbutton#TabsMSEdgeNewTabButton {
     background-repeat: no-repeat !important;
     width: 16px !important;
     height: 16px !important;
+    background-position-y: -16px !important;
     animation: tab-throbber .7s steps(12) infinite !important;
     opacity: 1 !important;
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        background-position-y: 0px !important;
+    }
 }
 
 #main-window {

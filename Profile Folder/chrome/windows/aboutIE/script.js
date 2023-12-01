@@ -141,7 +141,7 @@ document.addEventListener('keydown', (event) => {
         loadLocale();
 
         aboutLogoImage.style.backgroundPositionY = '-532px';
-        aboutVersionString = '4.5.8';
+        aboutVersionString = '4.5.9';
         aboutVersionBitLabel.style.display = 'none';
         aboutUpdateKBLabel.style.display = 'none';
         aboutUpdateVersionsString = 'Closed Beta';

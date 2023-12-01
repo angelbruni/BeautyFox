@@ -644,6 +644,10 @@ findbar {
                 display: block !important;
             }
         }
+
+        #downloads-indicator-finish-box {
+            mask: unset !important;
+        }
         
         &:active {
             .toolbarbutton-icon,
