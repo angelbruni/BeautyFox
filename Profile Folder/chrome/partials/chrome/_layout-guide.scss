@@ -209,6 +209,10 @@ html {
 
         #endToolbar {
             clip-path: polygon(-100% -50%, 200% -50%, 150% 27px, -100% 27px);
+
+            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                clip-path: polygon(-100% -50%, 200% -50%, 150% 29px, -100% 29px);
+            }
         }
         
         #addonsBar {
