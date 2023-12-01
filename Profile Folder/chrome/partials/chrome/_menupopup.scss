@@ -185,6 +185,9 @@ panel {
         
         #unified-extensions-area {
             --uei-icon-size: 32px !important;
+
+            overflow-x: auto !important;
+            max-height: 420px !important;
         
             .unified-extensions-item-action-button {
                 &:hover {

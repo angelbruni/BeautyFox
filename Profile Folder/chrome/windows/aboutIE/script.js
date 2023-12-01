@@ -134,6 +134,8 @@ var aboutIEWarningLabel = document.getElementById('aboutIEWarning');
 
 var aboutIEWindow = document.querySelector('window');
 
+var aboutUpdateVersionsTitle = document.getElementById('aboutUpdateVersionsTitle');
+
 // Add event listener for Shift key press to toggle special items
 document.addEventListener('keydown', (event) => {
     if (event.shiftKey) {
@@ -141,10 +143,12 @@ document.addEventListener('keydown', (event) => {
         loadLocale();
 
         aboutLogoImage.style.backgroundPositionY = '-532px';
-        aboutVersionString = '4.5.10';
+        aboutVersionString = '1.0';
         aboutVersionBitLabel.style.display = 'none';
         aboutUpdateKBLabel.style.display = 'none';
-        aboutUpdateVersionsString = 'Closed Beta';
+        aboutUpdateVersionsTitle.style.display = 'none';
+        aboutUpdateVersionsLabel.style.transform = 'translateX(-3px)';
+        aboutUpdateVersionsString = 'Release Candidate 1';
         aboutIEInfoProductID.style.opacity = 0;
         aboutIEInfoCipherStrength.style.opacity = 0;
         aboutIEWarningLabel.style.opacity = 0;
@@ -163,6 +167,8 @@ document.addEventListener('keyup', function() {
         aboutVersionBitLabel.style.display = 'inline';
     }
     aboutUpdateKBLabel.style.display = null;
+    aboutUpdateVersionsTitle.style.display = null;
+    aboutUpdateVersionsLabel.style.transform = null;
     aboutIEInfoCipherStrength.style.opacity = null;
     aboutIEInfoProductID.style.opacity = null;
     aboutIEWarningLabel.style.opacity = null;

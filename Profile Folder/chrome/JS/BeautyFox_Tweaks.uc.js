@@ -335,7 +335,7 @@ function openFakeIEAbout() {
         return;
     }
 
-    var features = "chrome,centerscreen,dependent";
+    var features = "chrome,centerscreen,dependent,modal";
 
     window.openDialog('chrome://userchrome/content/windows/aboutIE/index.xhtml', '', features); 
 }

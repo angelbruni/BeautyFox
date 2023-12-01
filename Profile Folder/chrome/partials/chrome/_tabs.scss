@@ -272,6 +272,14 @@
             .tab-label {
                 margin-bottom: -2px !important;
             } 
+
+            &[class*="identity-color"] {
+                .tab-background {
+                    &::before {
+                        mask-image: linear-gradient(rgba(0, 0, 0, 0.6), black);
+                    }
+                }
+            }
         }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -359,6 +367,10 @@
             &::before {
                 background: color-mix(in srgb, var(--identity-icon-color) 60%, white);
                 mask-image: linear-gradient(black, rgba(0,0,0,.2));
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                    mask-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+                }
 
                 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
                     background: color-mix(in srgb, var(--identity-icon-color) 60%, white) !important;
