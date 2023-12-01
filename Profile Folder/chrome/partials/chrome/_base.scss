@@ -55,6 +55,9 @@
     --toolbar-bgcolor: #e6effa !important;
     --dropdown-color: black !important;
     --search-icon: linear-gradient(90deg, rgba(0,0,0,.5) 49%, rgba(0,0,0,.5) 50%);
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        --search-icon: linear-gradient(90deg, rgba(0, 0, 0, .1) 49%, rgba(0, 0, 0, .5) 50%);
+    }
     --placeschevron-color: linear-gradient(0deg, rgba(51, 51, 51, 0.1) 0%, rgba(51, 51, 51, 0) 100%) !important;
     @media (prefers-color-scheme: dark) {
         --chrome-content-separator-color: #6f6f6f !important;
@@ -755,10 +758,6 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
         @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
             margin-left: calc(var(--urlbar-dropdown-button_width) / 2 * -1);
-        }
-
-        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-            background: linear-gradient(90deg, rgba(0, 0, 0, .1) 49%, rgba(0, 0, 0, .5) 50%);
         }
     }
 }

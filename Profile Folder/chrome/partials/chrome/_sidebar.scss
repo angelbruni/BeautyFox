@@ -1,3 +1,51 @@
+:root {
+    --sidebar-background: rgb(139, 145, 159);
+    --sidebar-switcher-border: white;
+    --sidebar-switcher-outline: rgb(176, 178, 182);
+    --sidebar-switcher-background: linear-gradient(0deg, rgb(225, 234, 244) 0%, rgb(238, 245, 255) 100%);
+    --sidebar-switcher-hover: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%);
+    --sidebar-switcher-active: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%);
+    --sidebar-title-border: rgb(176, 178, 182);
+    --sidebar-title-border2: white;
+    --sidebar-close-color: rgb(152, 155, 163);
+    --sidebar-background2: white;
+    --sidebar-border: rgb(180, 180, 180);
+    --sidebar-splitter-border: rgb(139, 145, 159);
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") { 
+
+                    --sidebar-switcher-border: rgb(172, 172, 172);
+                    --sidebar-switcher-background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%);
+                    --IE10sidebar-switcher-border: rgb(126, 180, 234);
+                    --sidebar-switcher-hover: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%);
+                    --sidebar-switcher-active: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%);
+
+                }
+    @media (prefers-color-scheme: dark) {
+        --sidebar-background: linear-gradient(0deg, rgb(42, 44, 46) 0%, rgb(72, 74, 76) 100%);
+        --sidebar-switcher-border: black;
+        --sidebar-switcher-outline: rgb(49, 49, 51);
+        --sidebar-switcher-background: linear-gradient(0deg, rgb(42, 44, 46) 0%, rgb(72, 74, 76) 100%);
+        --sidebar-switcher-hover: linear-gradient(0deg, rgb(50, 58, 68) 0%, rgb(75, 76, 75) 100%);
+        --sidebar-switcher-active: linear-gradient(0deg, rgb(31, 41, 53) 0%, rgb(47, 49, 51) 100%);
+        --sidebar-title-border: rgb(38, 38, 39);
+        --sidebar-title-border2: black;
+        --sidebar-close-color: rgb(45, 46, 49);
+        --sidebar-background2: black;
+        --sidebar-border: rgb(32, 32, 32);
+        --sidebar-splitter-border: rgb(69, 72, 78);
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") { 
+
+            --sidebar-switcher-border: rgb(32, 32, 32);
+            --sidebar-switcher-background: linear-gradient(0deg, rgb(36, 36, 36) 0%, rgb(39, 39, 39) 100%);
+            --IE10sidebar-switcher-border: rgb(126, 180, 234);
+            --sidebar-switcher-hover: linear-gradient(0deg, rgb(36, 36, 36) 0%, rgb(40, 41, 41) 100%);
+            --sidebar-switcher-active: linear-gradient(0deg, rgb(43, 50, 56) 0%, rgb(43, 43, 43) 100%);
+
+        }
+    }
+
+}
+
 #sidebar-box {
     background-color: var(--toolbar-bgcolor) !important;
     margin-top: -1px !important;
@@ -12,7 +60,7 @@
         position: absolute;
         z-index: 1;
         right: 0;
-        border: 1px solid rgb(139, 145, 159) !important;
+        border: 1px solid var(--sidebar-background) !important;
         height: calc(100% - 100px) !important;
 
         @media (-moz-windows-classic) {
@@ -32,12 +80,30 @@
             padding: 0 !important;
 
             @media not (-moz-windows-classic) {
-                border: 1px solid white !important;
-                outline: 1px solid rgb(176, 178, 182) !important;
-                background: linear-gradient(0deg, rgb(225, 234, 244) 0%, rgb(238, 245, 255) 100%) !important;
+            border: 1px solid var(--sidebar-switcher-border) !important;
+            outline: 1px solid var(--sidebar-switcher-outline) !important;
+            background: var(--sidebar-switcher-background) !important;
 
                 &:hover {
-                    background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
+					background: var(--sidebar-switcher-hover) !important;
+
+            &:active, &[open="true"] {
+                background: var(--sidebar-switcher-active) !important;
+            }
+
+            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                outline: none !important;
+                border-radius: 0 !important;
+
+                &:hover {
+                    border: 1px solid var(--IE10sidebar-switcher-border) !important;
+
+                    #sidebar-title {
+                        &::after {
+                            border-right: 1px solid var(--IE10sidebar-switcher-border) !important;
+                        }
+                    }
+
                 }
     
                 &:active, &[open="true"] {
@@ -46,7 +112,7 @@
     
                 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
                     outline: none !important;
-                    border: 1px solid rgb(172, 172, 172) !important;
+                    border: 1px solid var(--IE10sidebar-switcher-border) !important;
                     border-radius: 0 !important;
                     background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
     
@@ -75,17 +141,25 @@
                     #sidebar-title {
                         &::after {
                             border-left: 0 !important;
-                            border-right: 1px solid rgb(172, 172, 172) !important;
+                            border-right: 1px solid var(--IE10sidebar-switcher-border) !important;
                         }
                     }
                 }
             }
+
 
             @media (-moz-windows-classic) {
                 -moz-default-appearance: button !important;
                 appearance: button !important;
             }
 
+                #sidebar-title {
+                    &::after {
+                        border-left: 0 !important;
+                        border-right: 1px solid var(--sidebar-switcher-border) !important;
+                    }
+                }
+				
             #sidebar-icon {
                 display: none !important;
             }
@@ -105,8 +179,8 @@
                         top: -1px;
                         right: 0px;
                         height: calc(100% + 2px);
-                        border-left: 1px solid rgb(176, 178, 182);
-                        border-right: 1px solid white;
+                    border-left: 1px solid var(--sidebar-title-border);
+                    border-right: 1px solid var(--sidebar-title-border2);
                     }
                 }
             }
@@ -122,7 +196,7 @@
                 mask-position: calc(50% - 1px) !important;
                 mask-size: 9px 5px !important;
                 mask-repeat: no-repeat !important;
-                background-color: black !important;
+                background-color: var(--dropdown-color);
             }
         }
 
@@ -134,6 +208,7 @@
             mask: url("chrome://userchrome/content/images/close-mask.svg") !important;
             mask-position: center !important;
             mask-repeat: no-repeat !important;
+            background-color: var(--sidebar-close-color) !important;
             transform: translateY(-3px) !important;
             transition: background-color .15s linear;
 
@@ -164,8 +239,8 @@
         margin-left: 8px !important;
         margin-right: 6px !important;
         margin-bottom: 14px !important;
-        background-color: white !important;
-        border: 1px solid rgb(180, 180, 180) !important;
+        background-color: var(--sidebar-background2) !important;
+        border: 1px solid var(--sidebar-border) !important;
     }
 }
 
@@ -178,6 +253,6 @@
 }
 
 #sidebar-splitter {
-    border-color: rgb(139, 145, 159) !important;
+    border-color: var(--sidebar-splitter-border) !important;
     margin-top: -1px !important;
 }

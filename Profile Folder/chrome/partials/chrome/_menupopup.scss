@@ -1,6 +1,21 @@
 :root {
     --arrowpanel-background: white !important;
-}
+
+        --extensions-bottom-color:rgb(240,240,240);
+        --extensions-bottom-border:rgb(227,227,227);
+        --extensions-bottom-border2:white;
+        --extensions-blue-color:rgb(0,0,139);
+        --extensions-center-color: rgba(30, 30, 30, .65);
+        @media (prefers-color-scheme: dark) {
+            --arrowpanel-background: rgb(30, 30, 30) !important;
+        --extensions-bottom-color:rgb(27, 27, 27);
+        --extensions-bottom-border:rgb(78, 78, 78);
+        --extensions-bottom-border2:black;
+        --extensions-blue-color:rgb(94, 94, 192);
+        --extensions-center-color: rgba(30, 30, 30, .65);
+        }
+    }
+
 
 toolbarbutton {
     menupopup {
@@ -113,7 +128,7 @@ panel {
                 }
 
                 &#identity-popup-security-button {
-                    color: rgb(0,0,139) !important;
+                    color: var(--extensions-blue-color) !important;
                     width: fit-content !important;
 
                     &::after {
@@ -147,6 +162,7 @@ panel {
             }
         }
         
+
         &#identity-popup,
         &#unified-extensions-panel {
             .panel-header {
@@ -199,7 +215,7 @@ panel {
                 }
         
                 .unified-extensions-item-name {
-                    color: rgb(0,0,139) !important;
+                    color: var(--extensions-blue-color) !important;
                 }
             }
         }
@@ -232,33 +248,33 @@ panel {
         toolbarseparator {
             &:last-of-type {
                 width: 100% !important;
-                border-top: 1px solid rgb(227,227,227) !important;
+                border-top: 1px solid var(--extensions-bottom-border) !important;
                 margin: 0 !important;
         
                 + .panel-subview-footer-button {
-                    border-top: 1px solid white !important;
+                    border-top: 1px solid var(--extensions-bottom-border2) !important;
                 }
             }
         }
-        
+
         .panel-subview-footer-button {
             margin: 0 !important;
             height: 36px !important;
-            border-top: 1px solid rgb(227,227,227) !important;
-            background-color: rgb(240,240,240) !important;
+            border-top: 1px solid var(--extensions-bottom-border) !important;
+            background-color: var(--extensions-bottom-color) !important;
             align-items: center !important;
             display: flex !important;
         
             > toolbarseparator:first-of-type {
                 width: 100% !important;
-                border-top: 1px solid white !important;
+                border-top: 1px solid var(--extensions-bottom-border2) !important;
                 margin: 0 !important;
             }
         
             > toolbarbutton:last-of-type {
                 width: fit-content !important;
                 margin: auto !important;
-                color: rgb(0,0,139) !important;
+                color: var(--extensions-blue-color) !important;
                 transform: translateY(-1px) !important;
         
                 &:hover {
@@ -270,7 +286,7 @@ panel {
         
         toolbarbutton {
             &.panel-subview-footer-button {
-                color: rgb(0,0,139) !important;
+                color: var(--extensions-blue-color) !important;
         
                 &:hover {
                     text-decoration: underline !important;
