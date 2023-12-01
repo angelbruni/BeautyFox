@@ -85,14 +85,11 @@
                 border-radius: 4px 4px 0 0;
                 margin-left: -2px;
                 width: 100%;
-                
-                //outline: 1px solid var(--browser-outer-border-color) !important;
-                
-    
+                border-top: 1px solid var(--browser-inner-border-color) !important;
+
                 @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
                     border-left: 1px solid var(--browser-inner-border-color) !important;
                     border-right: 1px solid var(--browser-inner-border-color) !important;
-                    border-top: 1px solid var(--browser-inner-border-color) !important;
                     margin-left: -1px;
                     width: calc(100% - 4px);
                 }

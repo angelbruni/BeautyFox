@@ -14,7 +14,6 @@ var optionAccentToolbars = document.getElementById('accentToolbars');
 var edgeCBParent = document.getElementById('edgeCBParent');
 var optionHideSettingsPopup = document.getElementById('hideSettingsPopup');
 var optionShowDownloadProgress = document.getElementById('showDownloadProgress');
-var optionRemoveTitlebarHeight = document.getElementById('removeTitlebarHeight');
 var optionHideFakeInnerBorders = document.getElementById('hideFakeInnerBorders');
 var optioninetcpl = document.getElementById('inetcpl');
 
@@ -25,6 +24,8 @@ var wizardComboBoxBookmarkItemItem2 = document.getElementById('wizardComboBoxBoo
 var wizardComboBoxCBItemsItem0 = document.getElementById('wizardComboBoxCBItemsItem0');
 var wizardComboBoxCBItemsItem1 = document.getElementById('wizardComboBoxCBItemsItem1');
 var wizardComboBoxCBItemsItem2 = document.getElementById('wizardComboBoxCBItemsItem2');
+
+var optionDoNotUseOldSettingsIcon = document.getElementById('doNotUseOldSettingsIcon');
 
 var wizardComboBoxEdgeButtonItem0 = document.getElementById('wizardComboBoxEdgeButtonItem0');
 var wizardComboBoxEdgeButtonItem1 = document.getElementById('wizardComboBoxEdgeButtonItem1');
@@ -44,8 +45,6 @@ function updateNavBackButton() {
     var navBackButton = document.getElementById('backButton');
 
     if (navBackButton) {
-
-
         let isBeautyFoxFirstRunFinished = false;
         try {
             isBeautyFoxFirstRunFinished = Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished");
@@ -106,6 +105,12 @@ function showPage(pageNumber) {
         edgeCBParent.style.display = 'flex';
     } else {
         edgeCBParent.style.display = 'none';
+    }
+
+    if (chosenIEAppearance == 5) {
+        optionDoNotUseOldSettingsIcon.style.display = 'flex';
+    } else {
+        optionDoNotUseOldSettingsIcon.style.display = 'none';
     }
 }
 
@@ -227,7 +232,6 @@ function getCurrentSettings() {
 
     getBoolPrefWithCatch("BeautyFox.option.hideSettingsInPopUp", optionHideSettingsPopup);
     getBoolPrefWithCatch("BeautyFox.option.showDownloadProgress", optionShowDownloadProgress);
-    getBoolPrefWithCatch("BeautyFox.option.removeTitlebarHeight", optionRemoveTitlebarHeight);
     getBoolPrefWithCatch("BeautyFox.option.hideFakeInnerBorders", optionHideFakeInnerBorders);
     getBoolPrefWithCatch("BeautyFox.option.inetcpl", optioninetcpl);
 
@@ -274,6 +278,8 @@ function getCurrentSettings() {
         wizardComboBoxCBItemsItem1.setAttribute('selected', true);
         wizardComboBoxCBItemsItem2.removeAttribute('selected');
     }
+    
+    getBoolPrefWithCatch("BeautyFox.option.doNotUseOldSettingsIcon", optionDoNotUseOldSettingsIcon);
 
     try {
         if (Services.prefs.getBoolPref('BeautyFox.option.hideEdgeButton')) {
@@ -508,8 +514,8 @@ function setOptions() {
     Services.prefs.setBoolPref('BeautyFox.option.userAccentColorNavButtons', optionAccentNavBtns.getAttribute('checked') === 'true');
 
     Services.prefs.setBoolPref('BeautyFox.option.hideSettingsInPopUp', optionHideSettingsPopup.getAttribute('checked') === 'true');
+    Services.prefs.setBoolPref('BeautyFox.option.doNotUseOldSettingsIcon', optionDoNotUseOldSettingsIcon.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.showDownloadProgress', optionShowDownloadProgress.getAttribute('checked') === 'true');
-    Services.prefs.setBoolPref('BeautyFox.option.removeTitlebarHeight', optionRemoveTitlebarHeight.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.hideFakeInnerBorders', optionHideFakeInnerBorders.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.inetcpl', optioninetcpl.getAttribute('checked') === 'true');
 

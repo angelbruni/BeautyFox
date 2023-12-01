@@ -106,8 +106,10 @@ main {
 			background-size: cover;
 			opacity: 0.5;
 
-			@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
-				background-position-y: 0px;
+			@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+				@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+					background-position-y: 0px;
+				}
 			}
 		}
 	}

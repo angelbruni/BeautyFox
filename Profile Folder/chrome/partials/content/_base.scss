@@ -7,8 +7,10 @@
         background-repeat: no-repeat;
         background-color: #FEFEFE !important;
 
-        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
-            background-image: linear-gradient(180deg, #9ddaf5 0%, #fafdff 100%);
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+                background-image: linear-gradient(180deg, #9ddaf5 0%, #fafdff 100%);
+            }
         }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {

@@ -31,9 +31,6 @@
 
     --pop-up_shadow: 2px 2px 2px 0px rgba(0, 0, 0, .5);
 
-    --option_hideUnifiedExtensions: 0;
-    --option_tabsOnNavRow: 0;
-
     --toolbaritems-margin-bottom: 3px;
 
     --toolbarbutton-blue-colour_hover: rgb(3, 132, 206);
@@ -43,14 +40,7 @@
     --toolbar-field-background-color: rgba(254, 254, 254, .65) !important;
     --toolbar-field-background-color_hover: rgba(255, 255, 255, .8);
 
-    --appearance_IE9PreRelease: 0;
-    --appearance_IE10: 0;
-    --appearance_IE11: 0;
-    --appearance_IE11Win10: 0;
-
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-        --appearance_IE9PreRelease: 1 !important;
-
         --toolbaritems-margin-bottom: 4px;
         --urlbar-width: 28.25%;
         --urlbar-dropdown-button_width: 35px;
@@ -157,10 +147,6 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     &[sizemode="maximized"] {
         #fakeTitlebarSpace {
             margin-bottom: -3px;
-
-            @supports -moz-bool-pref("BeautyFox.option.removeTitlebarHeight") {
-                margin-bottom: -20px;
-            }
         }
 
         #toolbar-menubar {
@@ -367,10 +353,6 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         margin-bottom: -4px;
     }
 
-    @supports -moz-bool-pref("BeautyFox.option.removeTitlebarHeight") {
-        margin-bottom: -25px;
-    }
-
     .titlebar-buttonbox-container {
         &:first-of-type {
             display: none !important;
@@ -387,20 +369,6 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
             top: 6px !important;
             left: 0 !important;
             width: 0 !important;
-        }
-    }
-}
-
-@supports -moz-bool-pref("BeautyFox.option.removeTitlebarHeight") {
-    #main-window[tabsintitlebar="true"] {
-        #endToolbar {
-            margin-right: 137px !important;
-
-            @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-                >* {
-                    transform: translateY(-4px);
-                }
-            }
         }
     }
 }
@@ -639,7 +607,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         margin-right: 2px;
 
         @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-            margin-left: var(--urlbar-dropdown-button_width);
+            margin-left: calc(var(--urlbar-dropdown-button_width) / 2 * -1);
         }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
@@ -1107,8 +1075,10 @@ panel {
     &[style='list-style-image: url("chrome://browser/skin/privatebrowsing/favicon.svg");'] {
         list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico") !important;
 
-        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
-            display: none !important;
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+                display: none !important;
+            }
         }
     }
 }
@@ -1463,14 +1433,30 @@ toolbarbutton {
         &#IEMenuButton {
             background-image: url(images/settings.svg);
 
+            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+                    @supports not -moz-bool-pref("BeautyFox.option.doNotUseOldSettingsIcon") {
+                        background-image: url(images/settings7777.svg);
+                    }
+                }
+            }
+
             &::before {
                 background-image: url('chrome://userchrome/content/images/toolbarbutton-blueIE9-states.png');
+                mask-image: url(images/settings-mask.svg);
+
+                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+                        @supports not -moz-bool-pref("BeautyFox.option.doNotUseOldSettingsIcon") {
+                            mask-image: url(images/settings7777-mask.svg);
+                        }
+                    }
+                }
 
                 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
                     background-image: url('chrome://userchrome/content/images/toolbarbutton-blueIE10-states.png');
                 }
 
-                mask-image: url(images/settings-mask.svg);
             }
 
             &[badge-status="update-manual"] {
@@ -1815,12 +1801,6 @@ toolbarbutton {
     display: none !important
 }
 
-@supports -moz-bool-pref("BeautyFox.option.hideUnifiedExtensions") {
-    :root {
-        --option_hideUnifiedExtensions: 1 !important;
-    }
-}
-
 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
     #nav-bar {
         #urlbar-go-button {
@@ -1856,10 +1836,6 @@ toolbarbutton {
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-    :root {
-        --appearance_IE10: 1 !important;
-    }
-
     #reload-button:not([displaystop])+#stop-button,
     #reload-button[displaystop] {
         display: none !important;
@@ -1884,18 +1860,6 @@ toolbarbutton {
             &::before,
             &::after {
                 mask-image: url(images/favorites-ie10-mask.svg) !important;
-            }
-        }
-    }
-
-    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-        :root {
-            --appearance_IE11: 1 !important;
-        }
-
-        @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
-            :root {
-                --appearance_IE11Win10: 1 !important;
             }
         }
     }
