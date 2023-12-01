@@ -63,7 +63,7 @@ If you have Windows Vista (with extended kernel), Windows 7, 8 or 8.1, you don't
 Enjoy!
 
 # Credits / Thanks
-* [AngelBruni](https://github.com/angelbruni) - Theme Developer, README.pt.md Creator;
+* [AngelBruni](https://github.com/angelbruni) - Theme Developer, README.pt.md creator;
 * SQUEeAK - Trailer;
 * [luisl173](https://github.com/luisl173) - README.md and README.es.md creator, Spanish translator and testing;
 * [ephemeralViolette](https://github.com/ephemeralViolette) - Firefox Native Controls;
