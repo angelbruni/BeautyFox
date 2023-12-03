@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="8"
+   height="5"
+   viewBox="0 0 8 5"
+   fill="none"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="bookmarks-more.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="156"
+     inkscape:cx="4.0032051"
+     inkscape:cy="2.5"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <path
+     d="M0 0H2V1H3V2H4V3H3V4H2V5H0V4H1V3H2V2H1V1H0V0Z"
+     fill="#000260"
+     id="path2"
+     style="fill:#3337ff;fill-opacity:1" />
+  <path
+     d="M4 0H6V1H7V2H8V3H7V4H6V5H4V4H5V3H6V2H5V1H4V0Z"
+     fill="#000260"
+     id="path4"
+     style="fill:#3135ff;fill-opacity:1" />
+</svg>

@@ -1,3 +1,40 @@
+:root {
+    --search-handoff-button-color: white !important;
+	--search-handoff-button-color2: rgb(52,52,52);
+	--tile-color: rgb(247, 247, 247);
+	--search-title-color: rgb(78,85,77);
+	--popular-site-label-color: #2a2a2a;
+	
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+		--IE10-Background: rgb(232, 238, 245);
+		--popular-site-label-color: rgb(80, 80, 80);
+    }
+
+	@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+
+		--tile-color: linear-gradient(180deg, white 0%, rgb(242, 242, 242) 100%);
+				}
+				
+    @media (prefers-color-scheme: dark) { 
+		--search-handoff-button-color: rgb(68, 68, 68) !important;
+		--search-handoff-button-color2: rgb(252,252,252);
+		--tile-color: rgb(54, 54, 54);
+		--search-title-color: rgb(135, 146, 132);
+		--popular-site-label-color: #d3d3d3;
+		
+        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+			--IE10-Background: rgb(54, 54, 54);
+			--popular-site-label-color: rgb(187, 187, 187);
+        }
+
+		@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+
+			--tile-color: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(54, 54, 54) 100%);
+					}
+    }
+
+}
+
 @-moz-document url(about:newtab),
 url(about:home){
 .body-wrapper {
@@ -6,6 +43,11 @@ url(about:home){
 	}
 }
 
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+	body {
+		background-color: var(--IE10-Background) !important;
+	}
+}
 .icon-settings {
 	background-image: none !important;
 }
@@ -42,10 +84,10 @@ main {
 		padding-inline-start: 15px !important;
 		padding-inline-end: 10px !important;
 		border: 1px solid rgb(173, 175, 174) !important;
-		background: white !important;
+		background: var(--search-handoff-button-color) !important;
 		font-size: 18pt !important;
 		font-style: italic !important;
-		color: rgb(78,85,77) !important;
+		color: var(--search-title-color) !important;
 		display: flex !important;
 		align-items: center !important;
 
@@ -66,7 +108,7 @@ main {
 			width: 23px;
 			mask: url(chrome://userchrome/content/images/newtabhome-search-mask.svg);
 			mask-position: 0px -1px;
-			background-color: rgb(52,52,52);
+			background-color: var(--search-handoff-button-color2);
 		}
 	}
 }
@@ -84,12 +126,12 @@ main {
 		top: -51px;
 		left: 0;
 		font-size: 15pt;
-		color: #2a2a2a;
+		color: var(--popular-site-label-color);
 
 		@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
 			top: -62px;
 			font-size: 21pt;
-			color: rgb(80, 80, 80);
+
 		}
 	}
 
@@ -135,7 +177,7 @@ main {
 
 	&.placeholder {
 		.tile {
-			background-color: rgb(247, 247, 247) !important;
+			background-color: var(--tile-color) !important;
 
 			.icon-wrapper {
 				display: none !important;
@@ -149,7 +191,7 @@ main {
 		border-radius: 0 !important;
 		box-shadow: none !important;
 		border: 1px solid rgb(217, 217, 217) !important;
-		background-color: white !important;
+		background-color: var(--tile-color) !important;
 		margin: 0 !important;
 		justify-content: unset !important;
 		align-items: unset !important;
@@ -221,15 +263,11 @@ main {
 				border-radius: 2px !important;
 				position: relative !important;
 
-				background: linear-gradient(180deg, white 0%, rgb(242, 242, 242) 100%);
+				background: var(--tile-color);
 			}
 		}
 	}
 }
 
-@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-	body {
-		background-color: rgb(232, 238, 245) !important;
-	}
-}
+
 }

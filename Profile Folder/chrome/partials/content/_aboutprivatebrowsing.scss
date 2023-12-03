@@ -1,3 +1,18 @@
+:root {
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            --inprivate-gradient-background: linear-gradient(180deg, #e8eff9 0%, #fefeff 100%);
+            --title-inprivate-color: #d8e2f4;
+    }
+
+    @media (prefers-color-scheme: dark) { 
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                --inprivate-gradient-background: linear-gradient(180deg, #434649 0%, #1f1f1f 100%);
+                --title-inprivate-color: #333538;
+        }
+}
+}
 @-moz-document url(about:privatebrowsing) {
     #inPrivateImage {
         background-image: url(images/inprivate-9.png);
@@ -7,7 +22,7 @@
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         body {
-            background-image: linear-gradient(180deg, #e8eff9 0%, #fefeff 100%) !important;
+            background-image: var(--inprivate-gradient-background) !important;
             background-size: 100% 409px;
         }
 
@@ -21,7 +36,7 @@
         .title {
             position: relative !important;
             left: 4px;
-            color: #d8e2f4 !important;
+            color: var(--title-inprivate-color) !important;
             font-size: 445% !important;
             padding: 0 !important;
             padding-bottom: 0.2em !important;

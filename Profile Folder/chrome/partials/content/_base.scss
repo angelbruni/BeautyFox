@@ -1,17 +1,34 @@
+:root {
+    --IE9-gradient-background: linear-gradient(180deg, #02a1e2 0%, #FFFFFF 100%);
+    --home-background: #FEFEFE;
+
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+            --IE9-gradient-background: linear-gradient(180deg, #9ddaf5 0%, #fafdff 100%);
+        }
+    }
+    
+    @media (prefers-color-scheme: dark) { 
+        --IE9-gradient-background: linear-gradient(180deg, #02a1e2 0%, #1f1f1f 100%);
+        --home-background: #1f1f1f;
+
+        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+                --IE9-gradient-background: linear-gradient(180deg, #9ddaf5 0%, #1f1f1f 100%);
+            }
+        }
+    }
+
+}
+
 @-moz-document url(about:privatebrowsing),
                url(about:newtab),
                url(about:home) {
     body {
-        background-image: linear-gradient(180deg, #02a1e2 0%, #FFFFFF 100%);
+        background-image: var(--IE9-gradient-background);
         background-size: 100% 84px;
         background-repeat: no-repeat;
-        background-color: #FEFEFE !important;
-
-        @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
-                background-image: linear-gradient(180deg, #9ddaf5 0%, #fafdff 100%);
-            }
-        }
+        background-color: var(--home-background) !important;
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
             background-image: none;

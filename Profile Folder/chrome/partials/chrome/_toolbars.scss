@@ -2,26 +2,38 @@
 --statusbar-color: #f1edec !important;
 --statusbar-border: #aaabab !important;
 --statusbar-border2: rgba(255, 255, 255, .5) !important;
-    @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
-        @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
-            --toolbar-bgcolor: #f7f7f7 !important;
-        }
+
+@supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
+    @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
+        --toolbar-bgcolor: color-mix(in srgb, var(--userAccentColor) 10%, white) !important;
+    }
+}
 
         @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
             --toolbar-bgcolor: color-mix(in srgb, var(--userAccentColor) 10%, white) !important;
         }
-    }
 
+        @supports -moz-bool-pref('BeautyFox.appearance.IE10') {
+            --toolbar-bgcolor: #f7f7f7 !important;
+        }
     
 @media (prefers-color-scheme: dark) {
     --statusbar-color: #302f2f !important;
     --statusbar-border: #252525 !important;
     --statusbar-border2: rgba(22, 22, 22, 0.5) !important;
-        @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
+    @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
+        @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
+            --toolbar-bgcolor: color-mix(in srgb, var(--userAccentColor) 10%, rgb(71, 71, 71)) !important;
+        }
+    }
+    
             @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
-                --toolbar-bgcolor: #1b1b1b !important;
-
+                --toolbar-bgcolor: color-mix(in srgb, var(--userAccentColor) 10%, rgb(75, 75, 75)) !important;
             }
+    
+
+        @supports -moz-bool-pref('BeautyFox.appearance.IE10') {
+            --toolbar-bgcolor: #1b1b1b !important;
         }
 }
 

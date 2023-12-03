@@ -37,6 +37,8 @@ var wizardComboBoxExtensionsButtonItem2 = document.getElementById('wizardComboBo
 
 var optionNavButtonsRadius = document.getElementById('navButtonsRadius');
 
+var optionDoNotUseDarkTabs = document.getElementById('doNotUseDarkTabs');
+
 var wizardComboBoxInternetProtectedLabelItem0 = document.getElementById('wizardComboBoxInternetProtectedLabelItem0');
 var wizardComboBoxInternetProtectedLabelItem1 = document.getElementById('wizardComboBoxInternetProtectedLabelItem1');
 var wizardComboBoxInternetProtectedLabelItem2 = document.getElementById('wizardComboBoxInternetProtectedLabelItem2');
@@ -234,6 +236,7 @@ function getCurrentSettings() {
     getBoolPrefWithCatch("BeautyFox.option.showDownloadProgress", optionShowDownloadProgress);
     getBoolPrefWithCatch("BeautyFox.option.hideFakeInnerBorders", optionHideFakeInnerBorders);
     getBoolPrefWithCatch("BeautyFox.option.inetcpl", optioninetcpl);
+        getBoolPrefWithCatch("BeautyFox.option.LightTabs", doNotUseDarkTabs);
 
     if (optionUseAccentColouring.getAttribute('checked')) {
         getBoolPrefWithCatch("BeautyFox.option.AWMAccentColorNavButtons", optionAWMAccentColouring);
@@ -518,6 +521,7 @@ function setOptions() {
     Services.prefs.setBoolPref('BeautyFox.option.showDownloadProgress', optionShowDownloadProgress.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.hideFakeInnerBorders', optionHideFakeInnerBorders.getAttribute('checked') === 'true');
     Services.prefs.setBoolPref('BeautyFox.option.inetcpl', optioninetcpl.getAttribute('checked') === 'true');
+    Services.prefs.setBoolPref('BeautyFox.option.LightTabs', doNotUseDarkTabs.getAttribute('checked') === 'true');
 
     if (wizardComboBoxExtensionsButtonItem0.getAttribute('selected', 'true')) {
         Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', true);

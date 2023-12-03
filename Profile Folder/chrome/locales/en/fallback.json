@@ -59,6 +59,7 @@
     "wizardNavButtonsRoundAmount": "Navigation buttons round amount:",
     "wizardCheckboxHideFakeInnerBorders": "Hide fake inner borders",
     "wizardCheckboxinetcpl": "Internet Options launches inetcpl.cpl",
+    "wizardCheckboxdoNotUseDarkTabs": "Use Light tabs instead of Dark ones while using Dark theme",
     "wizardComboBoxInternetProtectedLabel": "Fake Internet Protected Label options:",
     "wizardThanks": "Thank you for choosing BeautyFox!",
     "wizardRestart": "To apply the changes, Firefox needs to be restarted. You can access BeautyFox settings at any time by shift clicking the settings menu.",

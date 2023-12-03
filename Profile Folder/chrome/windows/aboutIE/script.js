@@ -148,11 +148,11 @@ document.addEventListener('keydown', (event) => {
         aboutUpdateKBLabel.style.display = 'none';
         aboutUpdateVersionsTitle.style.display = 'none';
         aboutUpdateVersionsLabel.style.transform = 'translateX(-3px)';
-        aboutUpdateVersionsString = 'Release Candidate 2';
+        aboutUpdateVersionsString = ' BeautyFox Dark Beta 1. Based on Beautyfox Release Candidate 1';
         aboutIEInfoProductID.style.opacity = 0;
         aboutIEInfoCipherStrength.style.opacity = 0;
         aboutIEWarningLabel.style.opacity = 0;
-        aboutMicrosoftString = 'by AngelBruni with ♥';
+        aboutMicrosoftString = 'by AngelBruni and ImSwordQueen with ♥';
         aboutIEMicrosoftLabel.setAttribute('href', 'https://github.com/angelbruni');
         setIEInfo();
     }
