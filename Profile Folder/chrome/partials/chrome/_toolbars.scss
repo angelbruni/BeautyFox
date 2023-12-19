@@ -1185,6 +1185,10 @@ findbar {
     .toolbarbutton-icon {
         height: 16px !important;
         width: 16px !important;
+
+        @supports not -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
+            display: none !important;
+        }
     }
 
     @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
