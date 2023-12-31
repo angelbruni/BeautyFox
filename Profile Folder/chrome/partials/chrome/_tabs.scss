@@ -111,13 +111,13 @@
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --IE9-gradient-background: linear-gradient(180deg, #02a1e2 0%, #1f1f1f 100%);
+      --IE9-gradient-background: linear-gradient(180deg, #006a94 0%, #1f1f1f 100%);
       --home-background: #1f1f1f;
     }
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
       @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
         :root {
-          --IE9-gradient-background: linear-gradient(180deg, #9ddaf5 0%, #1f1f1f 100%);
+          --IE9-gradient-background: linear-gradient(180deg, #6a93a5 0%, #1f1f1f 100%);
         }
       }
     }
