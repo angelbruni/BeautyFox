@@ -95,17 +95,42 @@
     }
     }
     }
+
+    --IE9-gradient-background: linear-gradient(180deg, #02a1e2 0%, #FFFFFF 100%);
+    --home-background: #FEFEFE;
+    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+        --home-background: rgb(232, 238, 245);
+    }
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+      :root {
+        --IE9-gradient-background: linear-gradient(180deg, #9ddaf5 0%, #fafdff 100%);
+      }
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --IE9-gradient-background: linear-gradient(180deg, #02a1e2 0%, #1f1f1f 100%);
+      --home-background: #1f1f1f;
+    }
+    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+      @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+        :root {
+          --IE9-gradient-background: linear-gradient(180deg, #9ddaf5 0%, #1f1f1f 100%);
+        }
+      }
+    }
     }
 
 #customization-container {
-    background-image: linear-gradient(180deg, #02a1e2 0%, #FFFFFF 100%) !important;
+    background-image: var(--IE9-gradient-background) !important;
     background-size: 100% 84px;
     background-repeat: no-repeat;
-    background-color: #FEFEFE !important;
+    background-color: var(--home-background) !important;
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
         background-image: none !important;
-        background-color: rgb(232, 238, 245) !important;
     }
 }
 
