@@ -556,12 +556,12 @@ function getAndSetUserAccentColor() {
 				var size = DWORD();
 				size.value = 4; // Size of a DWORD in bytes
 
-				var queryResult = RegQueryValueExW(hKey, "AccentColor", null, null, color.address(), size.address());
+				var queryResult = RegQueryValueExW(hKey, "ColorizationColor", null, null, color.address(), size.address());
 
 				if (queryResult === 0) {
-					var red = (color.value & 0xFF);
-					var green = ((color.value >> 8) & 0xFF);
-					var blue = ((color.value >> 16) & 0xFF);
+					var red = (color.value >> 16) & 0xFF;
+                    var green = (color.value >> 8) & 0xFF;
+                    var blue = color.value & 0xFF;
 				} else {
 					console.log("Failed to read accent color from registry. RegQueryValueExW error code: " + queryResult);
 				}
