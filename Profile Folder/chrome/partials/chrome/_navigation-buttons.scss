@@ -25,7 +25,9 @@
             }
 
             @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                content: unset;
+                @media (-moz-windows-compositor) {
+                    content: unset;
+                }
             }
         }
     
