@@ -354,6 +354,8 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     }
 
     .titlebar-buttonbox-container {
+        transform: translateY(-1px) !important;
+        
         &:first-of-type {
             display: none !important;
         }

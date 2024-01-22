@@ -23,9 +23,9 @@
     }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-        --tab-background-colour: rgba(200, 200, 200, 0.5);
+        --tab-background-colour: rgba(200, 200, 200, 0.58);
         --tab-background-colour_hover: rgba(242, 242, 242, 0.9);
-        --tab-border-colour: rgba(0, 0, 0, .5);
+        --tab-border-colour: rgba(75, 75, 75, .7);
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
             @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
