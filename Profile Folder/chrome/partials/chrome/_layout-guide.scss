@@ -15,6 +15,7 @@ html {
     #navigator-toolbox-background {
         background-color: rgb(0,0,0,0) !important;
         transition: background-color .5s linear;
+        flex-direction: column !important;
     }
 
     #statusbarBackground {
