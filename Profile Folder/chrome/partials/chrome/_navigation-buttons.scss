@@ -11,245 +11,338 @@
 
 #main-window {
     #nav-bar {
-        &::before {
-            content: '';
-            position: absolute;
-            left: 3px;
-            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_BACKGROUND_MINIE.png");
-            width: 67px;
-            height: 35px;
+        #back-button,
+        #forward-button {
+            list-style-image: none !important;
+        }
+    }
+}
 
-            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-                left: 9px;
-                top: 1px;
-            }
+@media (-moz-platform: windows) {
+    @media (-moz-windows-classic) {
+        #main-window {
+            #nav-bar {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 3px;
+                    left: 2px;
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_BACKGROUND_XP_01.png");
+                    background-position: center;
+                    background-repeat: none;
+                    width: 57px;
+                    height: 29px;
+                }
 
-            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                @media (-moz-windows-compositor) {
-                    content: unset;
+                #back-button,
+                #forward-button {
+                    background-size: 25px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    margin-top: 5px !important;
+                    margin-bottom: 3px !important;
+                    height: 25px !important;
+                    width: 25px !important;
+                }
+
+                #back-button {
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_ENABLED_XP_01.png");
+                    margin-left: 4px !important;
+
+                    &[disabled="true"] {
+                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_DISABLED_XP_01.png");
+                    }
+
+                    &:not([disabled="true"]) {
+                        &:hover {
+                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_HOT_XP_01.png");
+                        }
+
+                        &:active {
+                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_PRESSED_XP_01.png");
+                        }
+                    }
+                }
+
+                #forward-button {
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_ENABLED_XP_02.png");
+                    margin-left: 3px !important;
+
+                    &[disabled="true"] {
+                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_DISABLED_XP_02.png");
+                    }
+
+                    &:not([disabled="true"]) {
+                        &:hover {
+                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_HOT_XP_02.png");
+                        }
+
+                        &:active {
+                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_PRESSED_XP_02.png");
+                        }
+                    }
+                }
+
+                #history-panelmenu {
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    width: 17px !important;
+                    height: 29px !important;
+                    list-style-image: none !important;
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_BACKGROUND_XP_02.png");
+                    background-position: center;
+                    background-repeat: no-repeat;
                 }
             }
         }
-    
-        #back-button,
-        #forward-button {
-            border: 1px solid rgba(0, 0, 0, .35);
-            border-radius: var(--navButtons-radius);
-            background-color: var(--navButtons-colour) !important;
-            background-clip: padding-box !important;
-            list-style-image: none !important;
-            overflow: hidden;
-            position: relative;
+    }
+}
 
-            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                border: 1px solid rgba(0, 0, 0, .3);
-            }
-    
+@media not (-moz-windows-classic) {
+    #main-window {
+        #nav-bar {
             &::before {
-                content: "";
-                position: absolute;
-                background-color: white;
-                border-radius: var(--navButtons-radius);
-                top: 65%;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 70%;
-                height: 50%;
-                filter: blur(4px);
-                opacity: 0.45;
-
-                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                    background: transparent !important;
-                }
-            }
-            
-            &::after {
                 content: '';
                 position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 254, 254, 0.15) 49%, rgba(255, 255, 255, 0.01) 50%);
-                outline: 1px solid rgba(247, 247, 247, 0.2);
+                left: 3px;
+                background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_BACKGROUND_MINIE.png");
+                width: 67px;
+                height: 35px;
+    
+                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                    left: 9px;
+                    top: 1px;
+                }
+    
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    @media (-moz-windows-compositor) {
+                        content: unset;
+                    }
+                }
+            }
+        
+            #back-button,
+            #forward-button {
+                border: 1px solid rgba(0, 0, 0, .35);
                 border-radius: var(--navButtons-radius);
-                outline-offset: -1px;
-                box-sizing: border-box;
-
-                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                    background: transparent;
-                    transition: background-color .2s steps(4);
-                    outline: 0 !important;
-                }
-            }
-        
-            &:hover { 
-                &::before {
-                    opacity: 0.5;
-                }
+                background-color: var(--navButtons-colour) !important;
+                background-clip: padding-box !important;
+                list-style-image: none !important;
+                overflow: hidden;
+                position: relative;
     
-                &::after {
-                    background: linear-gradient(180deg, rgba(255, 255, 255, 0.47) 0%, rgba(255, 254, 254, 0.18) 49%, rgba(255, 255, 255, 0.01) 50%);
-                
-                    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                        background: rgba(255,255,255,.2);
-                    }
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    border: 1px solid rgba(0, 0, 0, .3);
                 }
-            }  
         
-            &:active {
                 &::before {
+                    content: "";
+                    position: absolute;
+                    background-color: white;
+                    border-radius: var(--navButtons-radius);
+                    top: 65%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 70%;
+                    height: 50%;
+                    filter: blur(4px);
                     opacity: 0.45;
-                }
     
-                &::after {
-                    background: linear-gradient(180deg, rgba(217, 217, 217, 0.49) 0%, rgba(176, 176, 176, 0.31) 49%, rgba(11, 11, 11, 0.13) 50%);
-                
-                    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                        background: rgba(51,51,51,.2);
-                        transition: background-color .05s;
-                    }
-                }
-            }
-        
-            &[disabled="true"] {
-                opacity: 1 !important;
-                background-color: var(--navButtons-disabled-colour) !important;
-
-                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                    background: transparent !important;
-                }
-    
-                &::before {
-                    opacity: 0.1;
-                }
-    
-                &::after {
-                    background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.09) 49%, rgba(0, 0, 0, 0.11) 50%);
-                
                     @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
                         background: transparent !important;
                     }
                 }
                 
-                .toolbarbutton-icon {
-                    opacity: .7;
-                }
-            }
-        
-            .toolbarbutton-icon {
-                background-position: center;
-                z-index: 1;
-            }
-        }
-        
-        #back-button {
-            height: 38px !important;
-            width: 38px !important;
-            min-width: 38px !important;
-            margin-left: 3px !important;
-            margin-right: 1px !important;
-            margin-bottom: -4px !important;
-            padding-inline-start: 0 !important;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%) !important;
-
-            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-                margin-left: 9px !important;
-                margin-bottom: -3px !important;
-                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 95%) !important;
-            }
-
-            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-                    @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
-                        margin-left: 1px !important;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 254, 254, 0.15) 49%, rgba(255, 255, 255, 0.01) 50%);
+                    outline: 1px solid rgba(247, 247, 247, 0.2);
+                    border-radius: var(--navButtons-radius);
+                    outline-offset: -1px;
+                    box-sizing: border-box;
+    
+                    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                        background: transparent;
+                        transition: background-color .2s steps(4);
+                        outline: 0 !important;
                     }
                 }
-            }
+            
+                &:hover { 
+                    &::before {
+                        opacity: 0.5;
+                    }
         
-            &[disabled="true"] {
+                    &::after {
+                        background: linear-gradient(180deg, rgba(255, 255, 255, 0.47) 0%, rgba(255, 254, 254, 0.18) 49%, rgba(255, 255, 255, 0.01) 50%);
+                    
+                        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                            background: rgba(255,255,255,.2);
+                        }
+                    }
+                }  
+            
+                &:active {
+                    &::before {
+                        opacity: 0.45;
+                    }
+        
+                    &::after {
+                        background: linear-gradient(180deg, rgba(217, 217, 217, 0.49) 0%, rgba(176, 176, 176, 0.31) 49%, rgba(11, 11, 11, 0.13) 50%);
+                    
+                        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                            background: rgba(51,51,51,.2);
+                            transition: background-color .05s;
+                        }
+                    }
+                }
+            
+                &[disabled="true"] {
+                    opacity: 1 !important;
+                    background-color: var(--navButtons-disabled-colour) !important;
+    
+                    @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                        background: transparent !important;
+                    }
+        
+                    &::before {
+                        opacity: 0.1;
+                    }
+        
+                    &::after {
+                        background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.09) 49%, rgba(0, 0, 0, 0.11) 50%);
+                    
+                        @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                            background: transparent !important;
+                        }
+                    }
+                    
+                    .toolbarbutton-icon {
+                        opacity: .7;
+                    }
+                }
+            
                 .toolbarbutton-icon {
-                    background-image: url(images/back_disabled.svg);
+                    background-position: center;
+                    z-index: 1;
                 }
             }
-        
-            .toolbarbutton-icon {
-                height: 24px !important;
-                width: 24px !important;
-                margin-left: 1px !important;
-                background-image: url(images/back.svg);
-            }
-        }
-        
-        #forward-button {
-            margin-left: 2px !important;
-            margin-right: 2px !important;
-            height: 26px !important;
-            width: 26px !important;
-            min-width: 26px !important;
-            margin-bottom: 2px !important;
-
-            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-                margin-right: 7px !important;
-                margin-bottom: 3px !important;
-            }
-        
-            &[disabled="true"] {
-                .toolbarbutton-icon {
-                    background-image: url(images/forward_disabled.svg);
-                }
-            }
-        
-            .toolbarbutton-icon {
-                height: 16px !important;
-                width: 16px !important;
-                background-image: url(images/forward.svg);
-            }
-        }
-
-        #userContext-label {
-            display: none !important;
-        }
-
-        #userContext-icons {
-            position: fixed !important;
-            left: 0;
-            height: 22px !important;
-            width: 22px !important;
-            outline: 1px solid rgb(175, 175, 175);
-            outline-offset: -1px;
-            border-radius: 2px !important;
-            background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(242, 242, 242) 100%);
-            margin-inline-start: 4px !important;
-            margin-inline-end: 0 !important;
-            box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.2);
-
-            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-                margin-inline-start: 10px !important;
-            }
-        }
-
-        #userContext-indicator {
-            margin-block-start: 0 !important;
-        }
-    }
-
-    &[sizemode="maximized"] {
-        #nav-bar {
-            &::before {
-                left: 1px;
-
-                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-                    left: 8px;
-                    top: 1px;
-                }
-            }
-
+            
             #back-button {
-                margin-left: 1px !important;
-
+                height: 38px !important;
+                width: 38px !important;
+                min-width: 38px !important;
+                margin-left: 3px !important;
+                margin-right: 1px !important;
+                margin-bottom: -4px !important;
+                padding-inline-start: 0 !important;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%) !important;
+    
                 @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-                    margin-left: 7px !important;
+                    margin-left: 9px !important;
+                    margin-bottom: -3px !important;
+                    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 95%) !important;
+                }
+    
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+                        @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+                            margin-left: 1px !important;
+                        }
+                    }
+                }
+            
+                &[disabled="true"] {
+                    .toolbarbutton-icon {
+                        background-image: url(images/back_disabled.svg);
+                    }
+                }
+            
+                .toolbarbutton-icon {
+                    height: 24px !important;
+                    width: 24px !important;
+                    margin-left: 1px !important;
+                    background-image: url(images/back.svg);
+                }
+            }
+            
+            #forward-button {
+                margin-left: 2px !important;
+                margin-right: 2px !important;
+                height: 26px !important;
+                width: 26px !important;
+                min-width: 26px !important;
+                margin-bottom: 2px !important;
+    
+                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                    margin-right: 7px !important;
+                    margin-bottom: 3px !important;
+                }
+            
+                &[disabled="true"] {
+                    .toolbarbutton-icon {
+                        background-image: url(images/forward_disabled.svg);
+                    }
+                }
+            
+                .toolbarbutton-icon {
+                    height: 16px !important;
+                    width: 16px !important;
+                    background-image: url(images/forward.svg);
+                }
+            }
+    
+            #userContext-label {
+                display: none !important;
+            }
+    
+            #userContext-icons {
+                position: fixed !important;
+                left: 0;
+                height: 22px !important;
+                width: 22px !important;
+                outline: 1px solid rgb(175, 175, 175);
+                outline-offset: -1px;
+                border-radius: 2px !important;
+                background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(242, 242, 242) 100%);
+                margin-inline-start: 4px !important;
+                margin-inline-end: 0 !important;
+                box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.2);
+    
+                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                    margin-inline-start: 10px !important;
+                }
+            }
+    
+            #userContext-indicator {
+                margin-block-start: 0 !important;
+            }
+        }
+    
+        &[sizemode="maximized"] {
+            #nav-bar {
+                &::before {
+                    left: 1px;
+    
+                    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                        left: 8px;
+                        top: 1px;
+                    }
+                }
+    
+                #back-button {
+                    margin-left: 1px !important;
+    
+                    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                        margin-left: 7px !important;
+                    }
                 }
             }
         }

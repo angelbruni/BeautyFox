@@ -319,29 +319,57 @@
 
 #urlbar-background,
 #searchbar {
-    border-top: 1px solid rgba(0,0,0,.5) !important;
-    border-bottom: 1px solid rgba(0,0,0,.5) !important;
-    border-left: 1px solid rgba(0,0,0,.5) !important;
     border-radius: 0 !important;
-    border-right: 1px solid rgba(0,0,0,.5) !important;
     background-color: transparent !important;
+
+    @media not (-moz-windows-classic) {
+        border-top: 1px solid rgba(0,0,0,.5) !important;
+        border-bottom: 1px solid rgba(0,0,0,.5) !important;
+        border-left: 1px solid rgba(0,0,0,.5) !important;
+        border-right: 1px solid rgba(0,0,0,.5) !important;
+    }
+
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            border-top: 1px solid ThreeDShadow !important;
+            border-bottom: 1px solid ThreeDHighlight !important;
+            border-left: 1px solid ThreeDShadow !important;
+            border-right: 1px solid ThreeDHighlight !important;
+        }
+    }
 
     &::before {
         content: '';
         position: absolute;
-        left: -1px;
-        top: -1px;
         width: 100%;
         height: 100%;
-        background-color: var(--toolbar-field-background-color) !important;
-        border: 1px solid rgba(254,254,254,.2);
+        box-sizing: border-box !important;
+        
+        @media not (-moz-windows-classic) {
+            background-color: var(--toolbar-field-background-color) !important;
+            border: 1px solid rgba(254,254,254,.2);
+        }
+
+        @media (-moz-platform: windows) {
+            @media (-moz-windows-classic) {
+                background-color: white !important;
+                border-top: 1px solid ThreeDDarkShadow !important;
+                border-bottom: 1px solid -moz-Dialog !important;
+                border-left: 1px solid ThreeDDarkShadow !important;
+                border-right: 1px solid -moz-Dialog !important;
+            }
+        }
+
         z-index: 0;
     }
 }
 
 #urlbar-background {
     overflow: hidden !important;
-    border-right: 0 !important;
+
+    @media not (-moz-windows-classic) {
+        border-right: 0 !important;
+    }
 }
 
 #searchbar {

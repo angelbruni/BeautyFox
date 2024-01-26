@@ -9,14 +9,24 @@
 
     --newtab-button-width: 29px;
 
-    @supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-        @supports not -moz-bool-pref("BeautyFox.appearance.IE10") {
-            @media not (-moz-windows-compositor) {
-                --tab-background-colour: linear-gradient(180deg, rgb(188,211,235) 0%, rgb(234,241,250) 100%);
-                --tab-background-colour_hover: linear-gradient(180deg, rgb(253,253,254) 0%, rgb(234,241,250) 100%);
-                --tab-background-colour_active: linear-gradient(180deg, rgb(238,244,249) 0%, rgb(255,255,255) 100%);
-                --tab-border-colour: rgb(115, 131, 147);
-                --tab-inset-border-colour: linear-gradient(180deg, rgb(255,255,255) 0%, rgb(234,241,250) 100%);
+    @media (-moz-platform: windows) {
+        @supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+            @supports not -moz-bool-pref("BeautyFox.appearance.IE10") {
+                @media not (-moz-windows-classic) {
+                    @media not (-moz-windows-compositor) {
+                        --tab-background-colour: linear-gradient(180deg, rgb(188,211,235) 0%, rgb(234,241,250) 100%);
+                        --tab-background-colour_hover: linear-gradient(180deg, rgb(253,253,254) 0%, rgb(234,241,250) 100%);
+                        --tab-background-colour_active: linear-gradient(180deg, rgb(238,244,249) 0%, rgb(255,255,255) 100%);
+                        --tab-border-colour: rgb(115, 131, 147);
+                        --tab-inset-border-colour: linear-gradient(180deg, rgb(255,255,255) 0%, rgb(234,241,250) 100%);
+                    }
+                }
+
+                @media (-moz-windows-classic) {
+                    --tab-background-colour: color-mix(in srgb, -moz-Dialog 85%, black);
+                    --tab-background-colour_hover: color-mix(in srgb, -moz-Dialog 100%, black);
+                    --tab-background-colour_active: -moz-Dialog;
+                }
             }
         }
     }
@@ -219,9 +229,22 @@
     
     .tab-background {
         box-shadow: none !important;
-        border: 1px solid var(--tab-border-colour) !important;
-        margin-left: -1px !important;
-        border-bottom: 0px !important;
+
+        @media not (-moz-windows-classic) {
+            border: 1px solid var(--tab-border-colour) !important;
+            border-bottom: none !important;
+            margin-left: -1px !important;
+        }
+
+        @media (-moz-platform: windows) {
+            @media (-moz-windows-classic) {
+                border-top: 1px solid -moz-Dialog;
+                border-left: 1px solid -moz-Dialog;
+                border-bottom: 1px solid ThreeDDarkShadow;
+                border-right: 1px solid ThreeDDarkShadow;
+            }
+        }
+
         background: transparent !important;
         position: relative;
         overflow: hidden;
@@ -239,11 +262,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-width: 1px;
-            border-style: solid;
-            border-image-slice: 1;
-            border-image-source: var(--tab-inset-border-colour);
-            border-bottom: none !important;
+            
+            @media not (-moz-windows-classic) {
+                border-width: 1px;
+                border-style: solid;
+                border-image-slice: 1;
+                border-image-source: var(--tab-inset-border-colour);
+                border-bottom: none !important;
+            }
+
+            @media (-moz-windows-classic) {
+                border-top: 1px solid ThreeDHighlight;
+                border-left: 1px solid ThreeDHighlight;
+                border-bottom: 1px solid ThreeDShadow;
+                border-right: 1px solid ThreeDShadow;
+            }
+
             background: var(--tab-background-colour);
             box-sizing: border-box;
 
@@ -280,6 +314,22 @@
     }
 
     &[selected="true"] {
+        @media (-moz-platform: windows) {
+            @media (-moz-windows-classic) {
+                .tab-label {
+                    margin-bottom: -2px !important;
+                } 
+
+                .tab-background {
+                    border-bottom: 0 !important;
+
+                    &::before {
+                        border-bottom: 0 !important;
+                    }
+                }
+            }
+        }
+
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
             .tab-label {
                 margin-bottom: -2px !important;
@@ -333,7 +383,10 @@
 
     &:first-child {
         .tab-background {
-            border-left: 1px solid var(--tab-border-colour) !important;
+            @media not (-moz-windows-classic) {
+                border-left: 1px solid var(--tab-border-colour) !important;
+            }
+
             margin-left: 0px !important;
         }
     }
@@ -359,6 +412,12 @@
         mask-repeat: no-repeat;
         display: none;
         background-color: #8c9198;
+
+        @media (-moz-platform: windows) {
+            @media (-moz-windows-classic) {
+                background-color: black;
+            }
+        }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
             background-color: #A7A5A5;
@@ -487,13 +546,27 @@ toolbarbutton#TabsMSEdgeNewTabButton,
     width: var(--newtab-button-width) !important;
     margin: 0 !important;
     padding: 0 !important;
-    border: 1px solid var(--tab-border-colour) !important;
-    border-bottom: 0px !important;
     background: transparent;
-    border-radius: var(--tab-border-radius) !important;
     height: var(--tab-height) !important;
     position: relative;
     overflow: hidden;
+
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            border-top: 1px solid -moz-Dialog;
+            border-left: 1px solid -moz-Dialog;
+            border-bottom: 1px solid ThreeDDarkShadow;
+            border-right: 1px solid ThreeDDarkShadow;
+        }
+    }
+
+    @media (-moz-platform: windows) {
+        @media not (-moz-windows-classic) {
+            border: 1px solid var(--tab-border-colour) !important;
+            border-bottom: 0px !important;
+            border-radius: var(--tab-border-radius) !important;
+        }
+    }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         width: 27px;
@@ -507,13 +580,25 @@ toolbarbutton#TabsMSEdgeNewTabButton,
         left: 0;
         width: 100%;
         height: 100%;
-        border-width: 1px;
-        border-style: solid;
-        border-image-slice: 1;
-        border-image-source: var(--tab-inset-border-colour);
-        border-bottom: none !important;
         background: var(--tab-background-colour);
         box-sizing: border-box;
+
+        @media not (-moz-windows-classic) {
+            border-width: 1px;
+            border-style: solid;
+            border-image-slice: 1;
+            border-image-source: var(--tab-inset-border-colour);
+            border-bottom: none !important;
+        }
+
+        @media (-moz-platform: windows) {
+            @media (-moz-windows-classic) {
+                border-top: 1px solid ThreeDHighlight;
+                border-left: 1px solid ThreeDHighlight;
+                border-bottom: 1px solid ThreeDShadow;
+                border-right: 1px solid ThreeDShadow;
+            }
+        }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
             outline: 0 !important;

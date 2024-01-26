@@ -621,6 +621,13 @@ findbar {
     background-color: transparent !important;
     -moz-window-dragging: drag !important;
     justify-content: end !important;
+
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            padding-right: 0;
+            margin-right: -1px;
+        }
+    }
 }
 
 #PersonalToolbar {
