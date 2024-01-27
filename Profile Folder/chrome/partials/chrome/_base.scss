@@ -219,6 +219,26 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     flex-direction: column-reverse;
     justify-content: start;
     appearance: none !important;
+
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            position: relative;
+            border-top: 1px solid ThreeDShadow;
+            border-bottom: 1px solid ThreeDShadow;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                background-clip: border-box;
+                border-top: 1px solid ThreeDHighlight;
+                border-bottom: 1px solid ThreeDHighlight;
+            }
+        }
+    }
 }
 
 #toolbar-menubar[autohide="true"][inactive="true"]:not([customizing="true"]) {
@@ -244,6 +264,12 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     background-clip: padding-box !important;
     border-inline-style: solid !important;
     overflow: hidden !important;
+
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            padding: 2px 0px 2px 0px;
+        }
+    }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         border-top: 0;
@@ -320,8 +346,45 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     >menu {
         padding: 0 2px;
 
+        @media (-moz-platform: windows) {
+            @media (-moz-windows-classic) {
+                padding: 0 1px;
+                border-top: 1px solid transparent !important;
+                border-left: 1px solid transparent !important;
+                border-bottom: 1px solid transparent !important;
+                border-right: 1px solid transparent !important;
+            }
+        }
+
         &[_moz-menuactive="true"] {
             color: white !important;
+
+            @media (-moz-platform: windows) {
+                @media (-moz-windows-classic) {
+                    background-color: -moz-Dialog !important;
+                    color: -moz-DialogText !important;
+
+                    border-top: 1px solid ThreeDHighlight !important;
+                    border-left: 1px solid ThreeDHighlight !important;
+                    border-bottom: 1px solid ThreeDShadow !important;
+                    border-right: 1px solid ThreeDShadow !important;
+                }
+            }
+        }
+
+        &[open="true"] {
+            @media (-moz-platform: windows) {
+                @media (-moz-windows-classic) {
+                    border-top: 1px solid ThreeDShadow  !important;
+                    border-left: 1px solid ThreeDShadow  !important;
+                    border-bottom: 1px solid ThreeDHighlight !important;
+                    border-right: 1px solid ThreeDHighlight !important;
+
+                    >.menubar-text {
+                        transform: translate(1px, 1px);
+                    }
+                }
+            }
         }
     }
 }
@@ -419,18 +482,13 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     z-index: 4 !important;
     --urlbar-container-height: 24px !important;
 
-    &:hover {
-        #urlbar-background {
-            &::before {
-                background-color: var(--toolbar-field-background-color_hover) !important;
-            }
-        }
-    }
-
-    &.toolbar-hover-fix {
-        #urlbar-background {
-            &::before {
-                background-color: var(--toolbar-field-background-color_hover) !important;
+    @media not (-moz-windows-classic) {
+        &:hover, 
+        &.toolbar-hover-fix {
+            #urlbar-background {
+                &::before {
+                    background-color: var(--toolbar-field-background-color_hover) !important;
+                }
             }
         }
     }
@@ -1870,31 +1928,14 @@ toolbarbutton {
     display: none !important;
 }
 
+#toggle_endToolbar {
+    display: none !important;
+}
+
 
 #reload-button:not([displaystop])+#stop-button,
 #reload-button[displaystop] {
     display: block !important;
-}
-
-/* Fake titlebar accent colour for Windows 10+ on default theme with Firefox 117+ */
-@supports -moz-bool-pref("BeautyFox.fix.fakeTitlebarAccentColor") {
-
-    #titlebar,
-    #nav-bar {
-        background-color: AccentColor !important;
-
-        &:not(:-moz-lwtheme):-moz-window-inactive {
-            background-color: white !important;
-        }
-    }
-
-    .titlebar-button>.toolbarbutton-icon {
-        color: AccentColorText !important;
-
-        &:not(:-moz-lwtheme):-moz-window-inactive {
-            color: black !important;
-        }
-    }
 }
 
 .panel-arrowbox {

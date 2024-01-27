@@ -10,4 +10,16 @@
 :is(:not(.panel-no-padding)):is(panel, menupopup)[orient="vertical"]::part(content) {
     background: transparent !important;
     appearance: menupopup;
+
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            background: -moz-Dialog !important;
+            padding: 1px !important;
+            border: 2px solid transparent !important;
+            border-image-source: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiIGZpbGw9IlRocmVlRERhcmtTaGFkb3ciLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSJUaHJlZURMaWdodFNoYWRvdyIvPjxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IlRocmVlRFNoYWRvdyIvPjxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IlRocmVlREhpZ2hsaWdodCIvPjxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IlRocmVlREZhY2UiLz48L3N2Zz4=') !important;
+            border-image-slice: 2 !important;
+            border-image-width: 2px !important;
+            border-image-repeat: repeat !important;
+        }
+    }
 }

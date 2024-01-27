@@ -633,6 +633,31 @@ findbar {
 #PersonalToolbar {
     toolbarbutton {
         height: 25px !important;
+
+        @media (-moz-platform: windows) {
+            @media (-moz-windows-classic) {
+                padding: 0 1px;
+                border-top: 1px solid transparent !important;
+                border-left: 1px solid transparent !important;
+                border-bottom: 1px solid transparent !important;
+                border-right: 1px solid transparent !important;
+                border-radius: 0 !important;
+
+                &:hover {
+                    border-top: 1px solid ThreeDHighlight !important;
+                    border-left: 1px solid ThreeDHighlight !important;
+                    border-bottom: 1px solid ThreeDShadow !important;
+                    border-right: 1px solid ThreeDShadow !important;
+                }
+
+                &:active {
+                    border-top: 1px solid ThreeDShadow  !important;
+                    border-left: 1px solid ThreeDShadow  !important;
+                    border-bottom: 1px solid ThreeDHighlight !important;
+                    border-right: 1px solid ThreeDHighlight !important;
+                }
+            }
+        }
     }
 
     #downloads-button {
