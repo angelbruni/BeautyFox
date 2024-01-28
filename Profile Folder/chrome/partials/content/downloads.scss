@@ -10,12 +10,25 @@
             border-bottom: 1px solid rgb(214, 229, 245) !important;
             position: relative !important;
 
+            @media (-moz-platform: windows) {
+                @media (-moz-windows-classic) {
+                    border-bottom: 1px solid -moz-Dialog !important;
+                }
+            }
+
             &::before {
                 content: attr(data-before);
                 position: absolute;
                 left: 15px;
                 color: rgb(0, 51, 153);
                 font-size: 12pt;
+
+                @media (-moz-platform: windows) {
+                    @media (-moz-windows-classic) {
+                        font-size: 8pt;
+                        font-weight: bold;
+                    }
+                }
             }
 
             > *:not(#clearDownloadsButton, #closeButton, search-textbox) {
@@ -69,7 +82,13 @@
     }
 
     #contentView {
-        background-color: rgb(240, 240, 240) !important;
+        background: rgb(240, 240, 240) !important;
+
+        @media (-moz-platform: windows) {
+            @media (-moz-windows-classic) {
+                background: -moz-Dialog !important;
+            }
+        }
 
         #placesViewsBox {
             border-bottom: 1px solid rgb(233, 233, 233) !important;
@@ -81,12 +100,39 @@
                 &#downloadsListBox {
                     padding: 25px 9px !important;
 
+                    &:where(:focus) {
+                        > richlistitem {
+                            &[selected="true"] {
+                                @media (-moz-platform: windows) {
+                                    @media (-moz-windows-classic) {
+                                        background-color: transparent !important;
+                                        color: revert !important;
+                                        outline: none !important;
+                                        border: 1px -moz-Dialog solid !important;
+
+                                        &:not(:first-of-type) {
+                                            border-top: none !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     > richlistitem {
                         min-height: 77px !important;
                         align-items: center !important;
                         
                         &:not([selected="true"]) {
                             border-bottom: 1px rgb(220, 220, 220) solid !important;
+                        }
+
+                        &[selected="true"] {
+                            @media (-moz-platform: windows) {
+                                @media (-moz-windows-classic) {
+                                    background-color: transparent !important;
+                                }
+                            }
                         }
 
                         .downloadMainArea {
@@ -108,46 +154,53 @@
                         .downloadButton {
                             height: 25px !important;
                             min-width: 85px !important;
-                            padding: 0 !important;
                             margin-right: 33px !important;
-                            color: black !important;
-                            border: 1px solid white !important;
-                            outline: 1px solid rgb(176, 178, 182) !important;
-                            background: linear-gradient(0deg, rgb(231, 231, 231) 0%, rgb(244, 244, 244) 100%) !important;
-                            justify-content: center !important;
-                            border-radius: 5px !important;
 
-                            &:hover {
-                                background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
-                            }
-
-                            &:active, &[open="true"] {
-                                background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
+                            .button-box {
+                                display: none !important;
                             }
 
                             &::before {
                                 content: attr(tooltiptext);
                             }
 
-                            .button-box {
-                                display: none !important;
-                            }
-
-                            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                                outline: none !important;
-                                border: 1px solid rgb(172, 172, 172) !important;
-                                border-radius: 0 !important;
-                                background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
+                            @media not (-moz-windows-classic) {
+                                padding: 0 !important;
+                                color: black !important;
+                                border: 1px solid white !important;
+                                outline: 1px solid rgb(176, 178, 182) !important;
+                                background: linear-gradient(0deg, rgb(231, 231, 231) 0%, rgb(244, 244, 244) 100%) !important;
+                                justify-content: center !important;
+                                border-radius: 5px !important;
 
                                 &:hover {
-                                    border: 1px solid rgb(126, 180, 234) !important;
-                                    background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
+                                    background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
                                 }
 
                                 &:active, &[open="true"] {
-                                    border: 1px solid rgb(86, 157, 229) !important;
-                                    background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
+                                    background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
                                 }
+
+                                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                                    outline: none !important;
+                                    border: 1px solid rgb(172, 172, 172) !important;
+                                    border-radius: 0 !important;
+                                    background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
+
+                                    &:hover {
+                                        border: 1px solid rgb(126, 180, 234) !important;
+                                        background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
+                                    }
+
+                                    &:active, &[open="true"] {
+                                        border: 1px solid rgb(86, 157, 229) !important;
+                                        background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
+                                    }
+                                }
+                            }
+
+                            @media (-moz-windows-classic) {
+                                appearance: button !important;
                             }
                         }
                     }

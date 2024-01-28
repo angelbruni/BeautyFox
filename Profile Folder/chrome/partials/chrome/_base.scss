@@ -130,7 +130,9 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         }
 
         #toolbar-menubar {
-            padding: 0px 3px 1px 3px !important;
+            @media not (-moz-windows-classic) {
+                padding: 0px 3px 1px 3px !important;
+            }
         }
 
         #browser,
@@ -687,7 +689,9 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     max-height: var(--urlbar-height) !important;
 
     @media (-moz-platform: windows) {
-        font-size: 8pt !important;
+        @media (-moz-windows-classic) {
+            font-size: 8pt !important;
+        }
     }
 
     &[focused=true] {
@@ -776,8 +780,11 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     padding-right: 1px !important;
     background-color: var(--toolbar-bgcolor) !important;
 
-    @media (-moz-windows-classic) {
-        background-color: unset !important;
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            background-color: unset !important;
+            padding-inline: 0px !important;
+        }
     }
 
     &::after {

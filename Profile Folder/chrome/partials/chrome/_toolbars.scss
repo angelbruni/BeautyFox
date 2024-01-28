@@ -227,7 +227,11 @@
     }
     
     &::before {
-        content: '';
+
+        @media not (-moz-windows-classic) {
+            content: '';
+        }
+        
         position: absolute;
         left: 0;
         top: -1px;
@@ -248,6 +252,10 @@
         background-color: #f1edec;
         border: 1px solid rgba(255, 255, 255, .5);
         z-index: -1;
+
+        @media (-moz-windows-classic) {
+            display: none !important;
+        }
 
         &::after {
             content: '';
@@ -650,11 +658,17 @@ findbar {
                     border-right: 1px solid ThreeDShadow !important;
                 }
 
-                &:active {
+                &:active,
+                &[open="true"] {
                     border-top: 1px solid ThreeDShadow  !important;
                     border-left: 1px solid ThreeDShadow  !important;
                     border-bottom: 1px solid ThreeDHighlight !important;
                     border-right: 1px solid ThreeDHighlight !important;
+                }
+
+                > .toolbarbutton-text {
+                    font-size: 9pt !important;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
                 }
             }
         }
@@ -697,6 +711,13 @@ findbar {
     padding-left: 4px !important;
     padding-right: 4px !important;
     align-items: center !important;
+
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            padding-left: 3px !important;
+            padding-right: 3px !important;
+        }
+    }
 
     .toolbarbutton-icon {
         padding: 0 !important;
@@ -1157,6 +1178,12 @@ findbar {
 #cBToolsMenuButton {
     padding-right: 4px !important;
 
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            padding-right: 2px !important;
+        }
+    }
+
     .toolbarbutton-icon {
         height: 16px !important;
         width: 16px !important;
@@ -1199,8 +1226,29 @@ findbar {
 #cBSafetyMenuButton {
     padding-left: 8px !important;
 }
+
+#cBPageMenuButton {
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            padding-left: 5px !important;
+        }
+    }
+}
+#cBSafetyMenuButton {
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            padding-left: 7px !important;
+        }
+    }
+}
 #cBToolsMenuButton {
     padding-left: 9px !important;
+
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            padding-left: 3px !important;
+        }
+    }
 }
 
 @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
@@ -1263,6 +1311,12 @@ findbar {
 
 #cBHelpMenuButton {
     padding-left: 4px !important;
+
+    @media (-moz-platform: windows) {
+        @media (-moz-windows-classic) {
+            padding-left: 3px !important;
+        }
+    }
 
     &[type="menu"] {
         &::after {
@@ -1336,6 +1390,12 @@ findbar {
     #cBHomeButton,
     #cBPrintButton {
         padding-left: 8px !important;
+
+        @media (-moz-platform: windows) {
+            @media (-moz-windows-classic) {
+                padding-left: 4px !important;
+            }
+        }
 
         &::after {
             content: url(images/dropdown.png);

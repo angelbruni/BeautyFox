@@ -32,52 +32,60 @@
             font-size: 9pt !important;
             height: 23px !important;
             padding: 0 !important;
-            border: 1px solid white !important;
-            outline: 1px solid rgb(176, 178, 182) !important;
-            background: linear-gradient(0deg, rgb(225, 234, 244) 0%, rgb(238, 245, 255) 100%) !important;
 
-            &:hover {
-                background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
-            }
-
-            &:active, &[open="true"] {
-                background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
-            }
-
-            @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-                outline: none !important;
-                border: 1px solid rgb(172, 172, 172) !important;
-                border-radius: 0 !important;
-                background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
+            @media not (-moz-windows-classic) {
+                border: 1px solid white !important;
+                outline: 1px solid rgb(176, 178, 182) !important;
+                background: linear-gradient(0deg, rgb(225, 234, 244) 0%, rgb(238, 245, 255) 100%) !important;
 
                 &:hover {
-                    border: 1px solid rgb(126, 180, 234) !important;
-                    background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
-
-                    #sidebar-title {
-                        &::after {
-                            border-right: 1px solid rgb(126, 180, 234) !important;
-                        }
-                    }
+                    background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
                 }
-
+    
                 &:active, &[open="true"] {
-                    border: 1px solid rgb(86, 157, 229) !important;
-                    background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
-
+                    background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
+                }
+    
+                @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+                    outline: none !important;
+                    border: 1px solid rgb(172, 172, 172) !important;
+                    border-radius: 0 !important;
+                    background: linear-gradient(0deg, rgb(229, 229, 229) 0%, rgb(240, 240, 240) 100%) !important;
+    
+                    &:hover {
+                        border: 1px solid rgb(126, 180, 234) !important;
+                        background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
+    
+                        #sidebar-title {
+                            &::after {
+                                border-right: 1px solid rgb(126, 180, 234) !important;
+                            }
+                        }
+                    }
+    
+                    &:active, &[open="true"] {
+                        border: 1px solid rgb(86, 157, 229) !important;
+                        background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
+    
+                        #sidebar-title {
+                            &::after {
+                                border-right: 1px solid rgb(86, 157, 229) !important;
+                            }
+                        }
+                    }
+    
                     #sidebar-title {
                         &::after {
-                            border-right: 1px solid rgb(86, 157, 229) !important;
+                            border-left: 0 !important;
+                            border-right: 1px solid rgb(172, 172, 172) !important;
                         }
                     }
                 }
+            }
 
-                #sidebar-title {
-                    &::after {
-                        border-left: 0 !important;
-                        border-right: 1px solid rgb(172, 172, 172) !important;
-                    }
-                }
+            @media (-moz-windows-classic) {
+                -moz-default-appearance: button !important;
+                appearance: button !important;
             }
 
             #sidebar-icon {
@@ -92,14 +100,16 @@
                 align-items: center !important;
                 position: relative !important;
 
-                &::after {
-                    content: '';
-                    position: absolute;
-                    top: -1px;
-                    right: 0px;
-                    height: calc(100% + 2px);
-                    border-left: 1px solid rgb(176, 178, 182);
-                    border-right: 1px solid white;
+                @media not (-moz-windows-classic) {
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: -1px;
+                        right: 0px;
+                        height: calc(100% + 2px);
+                        border-left: 1px solid rgb(176, 178, 182);
+                        border-right: 1px solid white;
+                    }
                 }
             }
 
@@ -126,17 +136,28 @@
             mask: url("chrome://userchrome/content/images/close-mask.svg") !important;
             mask-position: center !important;
             mask-repeat: no-repeat !important;
-            background-color: rgb(152, 155, 163) !important;
             transform: translateY(-3px) !important;
             transition: background-color .15s linear;
 
-            &:hover {
-                background-color: rgb(226, 58, 60) !important;
+            @media not (-moz-windows-classic) {
+                background-color: rgb(152, 155, 163) !important;
+
+                &:hover {
+                    background-color: rgb(226, 58, 60) !important;
+                }
+    
+                &:active {
+                    background-color: rgb(225, 12, 12) !important;
+                    transition: none !important;
+                }
             }
 
-            &:active {
-                background-color: rgb(225, 12, 12) !important;
-                transition: none !important;
+            @media (-moz-windows-classic) {
+                background-color: black !important;
+
+                &:active {
+                    transform: translate(1px, -2px) !important;
+                }
             }
         }
     }
