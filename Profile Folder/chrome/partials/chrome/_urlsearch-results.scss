@@ -329,13 +329,11 @@
         border-right: 1px solid rgba(0,0,0,.5) !important;
     }
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            border-top: 1px solid ThreeDShadow !important;
-            border-bottom: 1px solid ThreeDHighlight !important;
-            border-left: 1px solid ThreeDShadow !important;
-            border-right: 1px solid ThreeDHighlight !important;
-        }
+    @media (-moz-windows-classic) {
+        border-top: 1px solid ThreeDShadow !important;
+        border-bottom: 1px solid ThreeDHighlight !important;
+        border-left: 1px solid ThreeDShadow !important;
+        border-right: 1px solid ThreeDHighlight !important;
     }
 
     &::before {
@@ -349,16 +347,13 @@
             background-color: var(--toolbar-field-background-color) !important;
         }
 
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                background-color: white !important;
-                border-top: 1px solid ThreeDDarkShadow !important;
-                border-bottom: 1px solid -moz-Dialog !important;
-                border-left: 1px solid ThreeDDarkShadow !important;
-                border-right: 1px solid -moz-Dialog !important;
-            }
+        @media (-moz-windows-classic) {
+            background-color: white !important;
+            border-top: 1px solid ThreeDDarkShadow !important;
+            border-bottom: 1px solid -moz-Dialog !important;
+            border-left: 1px solid ThreeDDarkShadow !important;
+            border-right: 1px solid -moz-Dialog !important;
         }
-
         z-index: 0;
     }
 }

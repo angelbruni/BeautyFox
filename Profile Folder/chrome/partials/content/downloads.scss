@@ -10,10 +10,8 @@
             border-bottom: 1px solid rgb(214, 229, 245) !important;
             position: relative !important;
 
-            @media (-moz-platform: windows) {
-                @media (-moz-windows-classic) {
-                    border-bottom: 1px solid -moz-Dialog !important;
-                }
+            @media (-moz-windows-classic) {
+                border-bottom: 1px solid -moz-Dialog !important;
             }
 
             &::before {
@@ -23,11 +21,9 @@
                 color: rgb(0, 51, 153);
                 font-size: 12pt;
 
-                @media (-moz-platform: windows) {
-                    @media (-moz-windows-classic) {
-                        font-size: 8pt;
-                        font-weight: bold;
-                    }
+                @media (-moz-windows-classic) {
+                    font-size: 8pt;
+                    font-weight: bold;
                 }
             }
 
@@ -84,10 +80,8 @@
     #contentView {
         background: rgb(240, 240, 240) !important;
 
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                background: -moz-Dialog !important;
-            }
+        @media (-moz-windows-classic) {
+            background: -moz-Dialog !important;
         }
 
         #placesViewsBox {
@@ -103,16 +97,14 @@
                     &:where(:focus) {
                         > richlistitem {
                             &[selected="true"] {
-                                @media (-moz-platform: windows) {
-                                    @media (-moz-windows-classic) {
-                                        background-color: transparent !important;
-                                        color: revert !important;
-                                        outline: none !important;
-                                        border: 1px -moz-Dialog solid !important;
+                                @media (-moz-windows-classic) {
+                                    background-color: transparent !important;
+                                    color: revert !important;
+                                    outline: none !important;
+                                    border: 1px -moz-Dialog solid !important;
 
-                                        &:not(:first-of-type) {
-                                            border-top: none !important;
-                                        }
+                                    &:not(:first-of-type) {
+                                        border-top: none !important;
                                     }
                                 }
                             }
@@ -128,10 +120,8 @@
                         }
 
                         &[selected="true"] {
-                            @media (-moz-platform: windows) {
-                                @media (-moz-windows-classic) {
-                                    background-color: transparent !important;
-                                }
+                            @media (-moz-windows-classic) {
+                                background-color: transparent !important;
                             }
                         }
 

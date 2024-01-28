@@ -15,10 +15,8 @@
         border: 1px solid rgb(139, 145, 159) !important;
         height: calc(100% - 100px) !important;
 
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                border: 1px solid ThreeDShadow !important;
-            }
+        @media (-moz-windows-classic) {
+            border: 1px solid ThreeDShadow !important;
         }
     }
 

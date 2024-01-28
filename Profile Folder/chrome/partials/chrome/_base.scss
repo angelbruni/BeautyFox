@@ -6,13 +6,10 @@
     --urlbar-height: 24.00px !important;
     --urlbar-min-height: 24px !important;
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            --urlbar-height: 22.00px !important;
-            --urlbar-min-height: 22px !important;
-        }
+    @media (-moz-windows-classic) {
+        --urlbar-height: 22.00px !important;
+        --urlbar-min-height: 22px !important;
     }
-
     --urlbarView-result-button-size: 16px !important;
     --tab-block-margin: 0 !important;
     --toolbarbutton-hover-background: transparent !important;
@@ -222,23 +219,21 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     justify-content: start;
     appearance: none !important;
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            position: relative;
-            border-top: 1px solid ThreeDShadow;
-            border-bottom: 1px solid ThreeDShadow;
+    @media (-moz-windows-classic) {
+        position: relative;
+        border-top: 1px solid ThreeDShadow;
+        border-bottom: 1px solid ThreeDShadow;
 
-            &::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                height: 100%;
-                width: 100%;
-                background-clip: border-box;
-                border-top: 1px solid ThreeDHighlight;
-                border-bottom: 1px solid ThreeDHighlight;
-            }
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-clip: border-box;
+            border-top: 1px solid ThreeDHighlight;
+            border-bottom: 1px solid ThreeDHighlight;
         }
     }
 }
@@ -267,10 +262,8 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     border-inline-style: solid !important;
     overflow: hidden !important;
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            padding: 2px 0px 2px 0px;
-        }
+    @media (-moz-windows-classic) {
+        padding: 2px 0px 2px 0px;
     }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
@@ -348,43 +341,37 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     >menu {
         padding: 0 2px;
 
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                padding: 0 1px;
-                border-top: 1px solid transparent !important;
-                border-left: 1px solid transparent !important;
-                border-bottom: 1px solid transparent !important;
-                border-right: 1px solid transparent !important;
-            }
+        @media (-moz-windows-classic) {
+            padding: 0 1px;
+            border-top: 1px solid transparent !important;
+            border-left: 1px solid transparent !important;
+            border-bottom: 1px solid transparent !important;
+            border-right: 1px solid transparent !important;
         }
 
         &[_moz-menuactive="true"] {
             color: white !important;
 
-            @media (-moz-platform: windows) {
-                @media (-moz-windows-classic) {
-                    background-color: -moz-Dialog !important;
-                    color: -moz-DialogText !important;
+            @media (-moz-windows-classic) {
+                background-color: -moz-Dialog !important;
+                color: -moz-DialogText !important;
 
-                    border-top: 1px solid ThreeDHighlight !important;
-                    border-left: 1px solid ThreeDHighlight !important;
-                    border-bottom: 1px solid ThreeDShadow !important;
-                    border-right: 1px solid ThreeDShadow !important;
-                }
+                border-top: 1px solid ThreeDHighlight !important;
+                border-left: 1px solid ThreeDHighlight !important;
+                border-bottom: 1px solid ThreeDShadow !important;
+                border-right: 1px solid ThreeDShadow !important;
             }
         }
 
         &[open="true"] {
-            @media (-moz-platform: windows) {
-                @media (-moz-windows-classic) {
-                    border-top: 1px solid ThreeDShadow  !important;
-                    border-left: 1px solid ThreeDShadow  !important;
-                    border-bottom: 1px solid ThreeDHighlight !important;
-                    border-right: 1px solid ThreeDHighlight !important;
+            @media (-moz-windows-classic) {
+                border-top: 1px solid ThreeDShadow  !important;
+                border-left: 1px solid ThreeDShadow  !important;
+                border-bottom: 1px solid ThreeDHighlight !important;
+                border-right: 1px solid ThreeDHighlight !important;
 
-                    >.menubar-text {
-                        transform: translate(1px, 1px);
-                    }
+                >.menubar-text {
+                    transform: translate(1px, 1px);
                 }
             }
         }
@@ -519,25 +506,23 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         list-style-image: none !important;
         position: relative;
 
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                background: rgb(244,246,252);
-                background: linear-gradient(0deg, rgba(244,246,252,0.65) 0%, rgba(229,234,248,0.65) 49%, rgba(239,242,251,0.65) 50%, rgba(244,245,246,0.65) 100%);
-                border: 1px solid rgba(138,144,158,.65) !important;
-                border-radius: 3px !important;
-                outline-offset: -2px;
-                outline: 1px solid rgba(255,255,255,.5);
+        @media (-moz-windows-classic) {
+            background: rgb(244,246,252);
+            background: linear-gradient(0deg, rgba(244,246,252,0.65) 0%, rgba(229,234,248,0.65) 49%, rgba(239,242,251,0.65) 50%, rgba(244,245,246,0.65) 100%);
+            border: 1px solid rgba(138,144,158,.65) !important;
+            border-radius: 3px !important;
+            outline-offset: -2px;
+            outline: 1px solid rgba(255,255,255,.5);
 
-                &:hover {
-                    background: linear-gradient(0deg, #e7eaf1 0%, #c1c8dc 49%, #dde4f7 50%, #f4f5f6 100%);
-                    border: 1px solid #8a909e !important;
-                }
+            &:hover {
+                background: linear-gradient(0deg, #e7eaf1 0%, #c1c8dc 49%, #dde4f7 50%, #f4f5f6 100%);
+                border: 1px solid #8a909e !important;
+            }
 
-                &:active {
-                    background: linear-gradient(0deg, #c1ccd4 0%, #9eafba 49%, #c5d0db 50%, #e6f0f9 100%);
-                    border: 1px solid rgba(84,96,123,.8) !important;
-                    outline: 1px solid rgba(0,0,0,.2);
-                }
+            &:active {
+                background: linear-gradient(0deg, #c1ccd4 0%, #9eafba 49%, #c5d0db 50%, #e6f0f9 100%);
+                border: 1px solid rgba(84,96,123,.8) !important;
+                outline: 1px solid rgba(0,0,0,.2);
             }
         }
 
@@ -565,16 +550,14 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     }
 
     #reload-button {
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                margin-right: 2px !important;
-                
-                &::before {
-                    background-image: url(chrome://userchrome/content/resources/ieframe.dll/Bitmap/ADDRESS_XP-ADDRESS_XP_120_03.svg);
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: 16px;
-                }
+        @media (-moz-windows-classic) {
+            margin-right: 2px !important;
+            
+            &::before {
+                background-image: url(chrome://userchrome/content/resources/ieframe.dll/Bitmap/ADDRESS_XP-ADDRESS_XP_120_03.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 16px;
             }
         }
 
@@ -603,19 +586,16 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     }
 
     #stop-button {
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                margin-left: 2px !important;
+        @media (-moz-windows-classic) {
+            margin-left: 2px !important;
 
-                &::before {
-                    background-image: url(chrome://userchrome/content/resources/ieframe.dll/Bitmap/ADDRESS_XP-ADDRESS_XP_120_02.svg);
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: 16px;
-                }
+            &::before {
+                background-image: url(chrome://userchrome/content/resources/ieframe.dll/Bitmap/ADDRESS_XP-ADDRESS_XP_120_02.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 16px;
             }
         }
-
         @media not (-moz-windows-classic) {
             &::before {
                 mask: url(chrome://userchrome/content/images/stop-mask.svg);
@@ -688,10 +668,8 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     top: 0 !important;
     max-height: var(--urlbar-height) !important;
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            font-size: 8pt !important;
-        }
+    @media (-moz-windows-classic) {
+        font-size: 8pt !important;
     }
 
     &[focused=true] {
@@ -780,11 +758,9 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     padding-right: 1px !important;
     background-color: var(--toolbar-bgcolor) !important;
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            background-color: unset !important;
-            padding-inline: 0px !important;
-        }
+    @media (-moz-windows-classic) {
+        background-color: unset !important;
+        padding-inline: 0px !important;
     }
 
     &::after {
@@ -1714,10 +1690,8 @@ toolbarbutton {
         border-left: 1px solid rgba(0, 0, 0, 0.5) !important;
     }
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            background-color: transparent !important;
-        }
+    @media (-moz-windows-classic) {
+        background-color: transparent !important;
     }
 }
 
@@ -1764,10 +1738,8 @@ toolbarbutton {
         border-right: 1px solid rgba(0, 0, 0, .5) !important;
     }
     
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            margin-inline: 5px !important;
-        }
+    @media (-moz-windows-classic) {
+        margin-inline: 5px !important;
     }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {

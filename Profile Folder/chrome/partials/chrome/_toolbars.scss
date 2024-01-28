@@ -630,11 +630,9 @@ findbar {
     -moz-window-dragging: drag !important;
     justify-content: end !important;
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            padding-right: 0;
-            margin-right: -1px;
-        }
+    @media (-moz-windows-classic) {
+        padding-right: 0;
+        margin-right: -1px;
     }
 }
 
@@ -642,34 +640,32 @@ findbar {
     toolbarbutton {
         height: 25px !important;
 
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                padding: 0 1px;
-                border-top: 1px solid transparent !important;
-                border-left: 1px solid transparent !important;
-                border-bottom: 1px solid transparent !important;
-                border-right: 1px solid transparent !important;
-                border-radius: 0 !important;
+        @media (-moz-windows-classic) {
+            padding: 0 1px;
+            border-top: 1px solid transparent !important;
+            border-left: 1px solid transparent !important;
+            border-bottom: 1px solid transparent !important;
+            border-right: 1px solid transparent !important;
+            border-radius: 0 !important;
 
-                &:hover {
-                    border-top: 1px solid ThreeDHighlight !important;
-                    border-left: 1px solid ThreeDHighlight !important;
-                    border-bottom: 1px solid ThreeDShadow !important;
-                    border-right: 1px solid ThreeDShadow !important;
-                }
+            &:hover {
+                border-top: 1px solid ThreeDHighlight !important;
+                border-left: 1px solid ThreeDHighlight !important;
+                border-bottom: 1px solid ThreeDShadow !important;
+                border-right: 1px solid ThreeDShadow !important;
+            }
 
-                &:active,
-                &[open="true"] {
-                    border-top: 1px solid ThreeDShadow  !important;
-                    border-left: 1px solid ThreeDShadow  !important;
-                    border-bottom: 1px solid ThreeDHighlight !important;
-                    border-right: 1px solid ThreeDHighlight !important;
-                }
+            &:active,
+            &[open="true"] {
+                border-top: 1px solid ThreeDShadow  !important;
+                border-left: 1px solid ThreeDShadow  !important;
+                border-bottom: 1px solid ThreeDHighlight !important;
+                border-right: 1px solid ThreeDHighlight !important;
+            }
 
-                > .toolbarbutton-text {
-                    font-size: 9pt !important;
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-                }
+            > .toolbarbutton-text {
+                font-size: 9pt !important;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
             }
         }
     }
@@ -712,11 +708,9 @@ findbar {
     padding-right: 4px !important;
     align-items: center !important;
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            padding-left: 3px !important;
-            padding-right: 3px !important;
-        }
+    @media (-moz-windows-classic) {
+        padding-left: 3px !important;
+        padding-right: 3px !important;
     }
 
     .toolbarbutton-icon {
@@ -1178,10 +1172,8 @@ findbar {
 #cBToolsMenuButton {
     padding-right: 4px !important;
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            padding-right: 2px !important;
-        }
+    @media (-moz-windows-classic) {
+        padding-right: 2px !important;
     }
 
     .toolbarbutton-icon {
@@ -1228,26 +1220,20 @@ findbar {
 }
 
 #cBPageMenuButton {
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            padding-left: 5px !important;
-        }
+    @media (-moz-windows-classic) {
+        padding-left: 5px !important;
     }
 }
 #cBSafetyMenuButton {
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            padding-left: 7px !important;
-        }
+    @media (-moz-windows-classic) {
+        padding-left: 7px !important;
     }
 }
 #cBToolsMenuButton {
     padding-left: 9px !important;
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            padding-left: 3px !important;
-        }
+    @media (-moz-windows-classic) {
+        padding-left: 3px !important;
     }
 }
 
@@ -1312,10 +1298,8 @@ findbar {
 #cBHelpMenuButton {
     padding-left: 4px !important;
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            padding-left: 3px !important;
-        }
+    @media (-moz-windows-classic) {
+        padding-left: 3px !important;
     }
 
     &[type="menu"] {
@@ -1391,10 +1375,8 @@ findbar {
     #cBPrintButton {
         padding-left: 8px !important;
 
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                padding-left: 4px !important;
-            }
+        @media (-moz-windows-classic) {
+            padding-left: 4px !important;
         }
 
         &::after {

@@ -18,83 +18,81 @@
     }
 }
 
-@media (-moz-platform: windows) {
-    @media (-moz-windows-classic) {
-        #main-window {
-            #nav-bar {
-                &::before {
-                    content: '';
-                    position: absolute;
-                    top: 3px;
-                    left: 2px;
-                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_BACKGROUND_XP_01.png");
-                    background-position: center;
-                    background-repeat: none;
-                    width: 57px;
-                    height: 29px;
+@media (-moz-windows-classic) {
+    #main-window {
+        #nav-bar {
+            &::before {
+                content: '';
+                position: absolute;
+                top: 3px;
+                left: 2px;
+                background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_BACKGROUND_XP_01.png");
+                background-position: center;
+                background-repeat: none;
+                width: 57px;
+                height: 29px;
+            }
+
+            #back-button,
+            #forward-button {
+                background-size: 25px;
+                background-position: center;
+                background-repeat: no-repeat;
+                padding: 0 !important;
+                margin: 0 !important;
+                margin-top: 5px !important;
+                margin-bottom: 3px !important;
+                height: 25px !important;
+                width: 25px !important;
+            }
+
+            #back-button {
+                background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_ENABLED_XP_01.png");
+                margin-left: 4px !important;
+
+                &[disabled="true"] {
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_DISABLED_XP_01.png");
                 }
 
-                #back-button,
-                #forward-button {
-                    background-size: 25px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    padding: 0 !important;
-                    margin: 0 !important;
-                    margin-top: 5px !important;
-                    margin-bottom: 3px !important;
-                    height: 25px !important;
-                    width: 25px !important;
-                }
-
-                #back-button {
-                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_ENABLED_XP_01.png");
-                    margin-left: 4px !important;
-
-                    &[disabled="true"] {
-                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_DISABLED_XP_01.png");
+                &:not([disabled="true"]) {
+                    &:hover {
+                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_HOT_XP_01.png");
                     }
 
-                    &:not([disabled="true"]) {
-                        &:hover {
-                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_HOT_XP_01.png");
-                        }
-
-                        &:active {
-                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_PRESSED_XP_01.png");
-                        }
+                    &:active {
+                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_PRESSED_XP_01.png");
                     }
                 }
+            }
 
-                #forward-button {
-                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_ENABLED_XP_02.png");
-                    margin-left: 3px !important;
+            #forward-button {
+                background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_ENABLED_XP_02.png");
+                margin-left: 3px !important;
 
-                    &[disabled="true"] {
-                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_DISABLED_XP_02.png");
-                    }
-
-                    &:not([disabled="true"]) {
-                        &:hover {
-                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_HOT_XP_02.png");
-                        }
-
-                        &:active {
-                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_PRESSED_XP_02.png");
-                        }
-                    }
+                &[disabled="true"] {
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_DISABLED_XP_02.png");
                 }
 
-                #history-panelmenu {
-                    margin: 0 !important;
-                    padding: 0 !important;
-                    width: 17px !important;
-                    height: 29px !important;
-                    list-style-image: none !important;
-                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_BACKGROUND_XP_02.png");
-                    background-position: center;
-                    background-repeat: no-repeat;
+                &:not([disabled="true"]) {
+                    &:hover {
+                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_HOT_XP_02.png");
+                    }
+
+                    &:active {
+                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_PRESSED_XP_02.png");
+                    }
                 }
+            }
+
+            #history-panelmenu {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 17px !important;
+                height: 29px !important;
+                list-style-image: none !important;
+                background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_BACKGROUND_XP_02.png");
+                background-position: center;
+                background-repeat: no-repeat;
             }
         }
     }

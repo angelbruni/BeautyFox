@@ -289,10 +289,8 @@ panel {
         toolbarbutton {
             min-height: 24px !important;
 
-            @media (-moz-platform: windows) {
-                @media (-moz-windows-classic) {
-                    min-height: 15px !important;
-                }
+            @media (-moz-windows-classic) {
+                min-height: 15px !important;
             }
 
             &:hover {
@@ -324,10 +322,8 @@ panel {
                 margin-inline-start: 2px !important;
                 padding-inline-end: 2px !important;
 
-                @media (-moz-platform: windows) {
-                    @media (-moz-windows-classic) {
-                        padding-inline-start: 1.45em !important;
-                    }
+                @media (-moz-windows-classic) {
+                    padding-inline-start: 1.45em !important;
                 }
             }
         }

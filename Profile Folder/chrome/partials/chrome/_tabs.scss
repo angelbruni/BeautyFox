@@ -236,15 +236,12 @@
             margin-left: -1px !important;
         }
 
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                border-top: 1px solid -moz-Dialog;
-                border-left: 1px solid -moz-Dialog;
-                border-bottom: 1px solid ThreeDDarkShadow;
-                border-right: 1px solid ThreeDDarkShadow;
-            }
+        @media (-moz-windows-classic) {
+            border-top: 1px solid -moz-Dialog;
+            border-left: 1px solid -moz-Dialog;
+            border-bottom: 1px solid ThreeDDarkShadow;
+            border-right: 1px solid ThreeDDarkShadow;
         }
-
         background: transparent !important;
         position: relative;
         overflow: hidden;
@@ -314,18 +311,16 @@
     }
 
     &[selected="true"] {
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                .tab-label {
-                    margin-bottom: -2px !important;
-                } 
+        @media (-moz-windows-classic) {
+            .tab-label {
+                margin-bottom: -2px !important;
+            } 
 
-                .tab-background {
+            .tab-background {
+                border-bottom: 0 !important;
+
+                &::before {
                     border-bottom: 0 !important;
-
-                    &::before {
-                        border-bottom: 0 !important;
-                    }
                 }
             }
         }
@@ -413,10 +408,8 @@
         display: none;
         background-color: #8c9198;
 
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                background-color: black;
-            }
+        @media (-moz-windows-classic) {
+            background-color: black;
         }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
@@ -551,21 +544,17 @@ toolbarbutton#TabsMSEdgeNewTabButton,
     position: relative;
     overflow: hidden;
 
-    @media (-moz-platform: windows) {
-        @media (-moz-windows-classic) {
-            border-top: 1px solid -moz-Dialog;
-            border-left: 1px solid -moz-Dialog;
-            border-bottom: 1px solid ThreeDDarkShadow;
-            border-right: 1px solid ThreeDDarkShadow;
-        }
+    @media (-moz-windows-classic) {
+        border-top: 1px solid -moz-Dialog;
+        border-left: 1px solid -moz-Dialog;
+        border-bottom: 1px solid ThreeDDarkShadow;
+        border-right: 1px solid ThreeDDarkShadow;
     }
 
-    @media (-moz-platform: windows) {
-        @media not (-moz-windows-classic) {
-            border: 1px solid var(--tab-border-colour) !important;
-            border-bottom: 0px !important;
-            border-radius: var(--tab-border-radius) !important;
-        }
+    @media not (-moz-windows-classic) {
+        border: 1px solid var(--tab-border-colour) !important;
+        border-bottom: 0px !important;
+        border-radius: var(--tab-border-radius) !important;
     }
 
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
@@ -591,13 +580,11 @@ toolbarbutton#TabsMSEdgeNewTabButton,
             border-bottom: none !important;
         }
 
-        @media (-moz-platform: windows) {
-            @media (-moz-windows-classic) {
-                border-top: 1px solid ThreeDHighlight;
-                border-left: 1px solid ThreeDHighlight;
-                border-bottom: 1px solid ThreeDShadow;
-                border-right: 1px solid ThreeDShadow;
-            }
+        @media (-moz-windows-classic) {
+            border-top: 1px solid ThreeDHighlight;
+            border-left: 1px solid ThreeDHighlight;
+            border-bottom: 1px solid ThreeDShadow;
+            border-right: 1px solid ThreeDShadow;
         }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
