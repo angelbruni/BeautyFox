@@ -1,91 +1,50 @@
-// Yes, this code is terrible, oh well. HELP?
+// [bruno, pre-restructure]: Yes, this code is terrible, oh well. HELP?
+// [betty]: Oh That's a Fine Lookin P-
+/* [betty]: just a sidenote: does this really needs that many bool declarations? 
+   i'm pretty sure this can be very much minified with a serialized logic. */
 
-var currentPage = 0; // Default to the first page
+var [currentPage, chosenIEAppearance, chosenAboutDialog] = Array.from({length: 3}, () => { 0 });
 
-var chosenIEAppearance = 0;
-var chosenAboutDialog = 0;
-var optionTabsOnNavRow = document.getElementById('tabsOnNavRow');
-var optionFakeDropdownArrowsinCB = document.getElementById('fakeDropdownArrowsinCB');
-var optionStatusBar = document.getElementById('showStatusBar');
-var optionUseAccentColouring = document.getElementById('useAccentColouring');
-var optionAWMAccentColouring = document.getElementById('AWMAccentColouring');
-var optionAccentNavBtns = document.getElementById('accentNavBtns');
-var optionAccentToolbars = document.getElementById('accentToolbars');
-var edgeCBParent = document.getElementById('edgeCBParent');
-var optionHideSettingsPopup = document.getElementById('hideSettingsPopup');
-var optionShowDownloadProgress = document.getElementById('showDownloadProgress');
-var optionHideFakeInnerBorders = document.getElementById('hideFakeInnerBorders');
-var optioninetcpl = document.getElementById('inetcpl');
+const elements = ['tabsOnNavRow', 'fakeDropdownArrowsinCB', 'showStatusBar', 
+'useAccentColouring', 'AWMAccentColouring', 'accentNavBtns', 'accentToolbars', 'edgeCBParent',
+'hideSettingsPopup', 'showDownloadProgress', 'hideFakeInnerBorders', 'inetcpl', 'doNotUseOldSettingsIcon', 'navButtonsRadius']
+var [optionTabsOnNavRow, optionFakeDropdownArrowsinCB, optionStatusBar, optionUseAccentColouring, 
+optionAWMAccentColouring, optionAccentNavBtns, optionAccentToolbars, edgeCBParent, optionHideSettingsPopup,
+optionShowDownloadProgress, optionHideFakeInnerBorders, optioninetcpl, optionDoNotUseOldSettingsIcon, optionNavButtonsRadius] = 
+Array.from({length: 14}, (_, i) => { elements[i] });
 
-var wizardComboBoxBookmarkItemItem0 = document.getElementById('wizardComboBoxBookmarkItemItem0');
-var wizardComboBoxBookmarkItemItem1 = document.getElementById('wizardComboBoxBookmarkItemItem1');
-var wizardComboBoxBookmarkItemItem2 = document.getElementById('wizardComboBoxBookmarkItemItem2');
-
-var wizardComboBoxCBItemsItem0 = document.getElementById('wizardComboBoxCBItemsItem0');
-var wizardComboBoxCBItemsItem1 = document.getElementById('wizardComboBoxCBItemsItem1');
-var wizardComboBoxCBItemsItem2 = document.getElementById('wizardComboBoxCBItemsItem2');
-
-var optionDoNotUseOldSettingsIcon = document.getElementById('doNotUseOldSettingsIcon');
-
-var wizardComboBoxEdgeButtonItem0 = document.getElementById('wizardComboBoxEdgeButtonItem0');
-var wizardComboBoxEdgeButtonItem1 = document.getElementById('wizardComboBoxEdgeButtonItem1');
-var wizardComboBoxEdgeButtonItem2 = document.getElementById('wizardComboBoxEdgeButtonItem2');
-
-var wizardComboBoxExtensionsButtonItem0 = document.getElementById('wizardComboBoxExtensionsButtonItem0');
-var wizardComboBoxExtensionsButtonItem1 = document.getElementById('wizardComboBoxExtensionsButtonItem1');
-var wizardComboBoxExtensionsButtonItem2 = document.getElementById('wizardComboBoxExtensionsButtonItem2');
-
-var optionNavButtonsRadius = document.getElementById('navButtonsRadius');
-
-var wizardComboBoxInternetProtectedLabelItem0 = document.getElementById('wizardComboBoxInternetProtectedLabelItem0');
-var wizardComboBoxInternetProtectedLabelItem1 = document.getElementById('wizardComboBoxInternetProtectedLabelItem1');
-var wizardComboBoxInternetProtectedLabelItem2 = document.getElementById('wizardComboBoxInternetProtectedLabelItem2');
+const comboBoxItems = ['wizardComboBoxBookmarkItemItem', 'wizardComboBoxCBItemsItem','wizardComboBoxEdgeButtonItem',
+'wizardComboBoxExtensionsButtonItem', 'wizardComboBoxInternetProtectedLabelItem'];
+var [wizardComboBoxBookmarkItemItems, wizardComboBoxCBItems, wizardComboBoxEdgeButtonItems,
+wizardComboBoxExtensionsButtonItems] = Array.from({length: 4}, (_, cb) => {Array.from({length: 3}, (_, i) => { document.getElementById(`${comboBoxItems[cb]}${i}`) })});
+var wizardComboBoxInternetProtectedLabelItems = Array.from({length: 4}, (_, i) => { document.getElementById(`${comboBoxItems[4]}${i}`) });
 
 function updateNavBackButton() {
     var navBackButton = document.getElementById('backButton');
-
-    if (navBackButton) {
-        let isBeautyFoxFirstRunFinished = false;
-        try {
-            isBeautyFoxFirstRunFinished = Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished");
-        } catch (error) { }
-
-        if (isBeautyFoxFirstRunFinished) {
-            // Disable the button if currentPage is 0 or 1, enable otherwise
+    if (navBackButton) {try {
+        if (Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished")) {
             navBackButton.disabled = (currentPage === 0 || currentPage === 1);
-        } else {
-            // Disable the button if currentPage is 0, enable otherwise
-            navBackButton.disabled = (currentPage === 0);
-        }
-
+        }} catch (error) { navBackButton.disabled = (currentPage === 0); }
         // Assign a function to the onclick property
         navBackButton.onclick = function () {
             // Check if currentPage is IE10+ feature specific page
-            if (currentPage == 100 || currentPage == 101 || currentPage == 102) {
-                showPage(1);
-            }
+            if (currentPage == 100 || currentPage == 101 || currentPage == 102) { showPage(1); }
             // Check if currentPage is greater than 0
             else if (currentPage > 0) {
                 // Call showPage with the previous page number
                 showPage(currentPage - 1);
             }
         };
-    } else {
-        console.log('The wizard back navigation button was not found.');
-    }
+    } else { console.error('The wizard back navigation button was not found.'); }
 }
 
 function showPage(pageNumber) {
-    var pageId = 'page' + pageNumber;
-    var selectedPage = document.getElementById(pageId);
+    var [pageId, selectedPage] = ['page' + pageNumber, document.getElementById(pageId)];
 
     if (selectedPage) {
         // Hide all pages
         var pages = document.querySelectorAll('.page');
-        for (var i = 0; i < pages.length; i++) {
-            pages[i].style.display = 'none';
-        }
-
+        pages.forEach((_, i) => { pages[i].style.display = 'none'; });
         // Show the selected page
         selectedPage.style.display = 'flex';
         currentPage = pageNumber; // Update the currentPage variable
@@ -94,37 +53,19 @@ function showPage(pageNumber) {
     }
 
     updateNavBackButton()
+    if (chosenIEAppearance > 1) { optionAccentToolbars.style.display = 'none';
+    } else { optionAccentToolbars.style.display = 'flex'; }
 
-    if (chosenIEAppearance > 1) {
-        optionAccentToolbars.style.display = 'none';
-    } else {
-        optionAccentToolbars.style.display = 'flex';
-    }
+    if (chosenIEAppearance === 4) { edgeCBParent.style.display = 'flex';
+    } else { edgeCBParent.style.display = 'none'; }
 
-    if (chosenIEAppearance == 4) {
-        edgeCBParent.style.display = 'flex';
-    } else {
-        edgeCBParent.style.display = 'none';
-    }
-
-    if (chosenIEAppearance == 5) {
-        optionDoNotUseOldSettingsIcon.style.display = 'flex';
-    } else {
-        optionDoNotUseOldSettingsIcon.style.display = 'none';
-    }
+    if (chosenIEAppearance === 5) { optionDoNotUseOldSettingsIcon.style.display = 'flex';
+    } else { optionDoNotUseOldSettingsIcon.style.display = 'none'; }
 }
 
 
-let isBeautyFoxFirstRunFinished = false;
-try {
-    isBeautyFoxFirstRunFinished = Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished");
-} catch (error) { }
-
-if (isBeautyFoxFirstRunFinished) {
-    showPage(1);
-} else {
-    showPage(0);
-}
+try { if(Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished")) { showPage(1); }
+} catch (error) { showPage(0); }
 
 
 updateNavBackButton();
@@ -136,20 +77,16 @@ const advapi32 = ctypes.open("advapi32.dll");
 function checkRegistryKeyExists(keyPath) {
     const RegOpenKeyExW = advapi32.declare(
         "RegOpenKeyExW",
-        ctypes.winapi_abi,
-        ctypes.int32_t,
-        ctypes.uintptr_t,
-        ctypes.jschar.ptr,
-        ctypes.int32_t,
-        ctypes.uint32_t,
+        ctypes.winapi_abi, ctypes.int32_t,
+        ctypes.uintptr_t, ctypes.jschar.ptr,
+        ctypes.int32_t, ctypes.uint32_t,
         ctypes.uintptr_t.ptr
     );
 
     const hKey = new ctypes.uintptr_t();
     const result = RegOpenKeyExW(
         0x80000002, // HKEY_LOCAL_MACHINE
-        keyPath,
-        0,
+        keyPath, 0,
         0x20019, // KEY_READ | KEY_WOW64_64KEY
         hKey.address()
     );
@@ -157,19 +94,14 @@ function checkRegistryKeyExists(keyPath) {
     if (result == 0) {
         const RegCloseKey = advapi32.declare(
             "RegCloseKey",
-            ctypes.winapi_abi,
-            ctypes.int32_t,
-            ctypes.uintptr_t,
-            ctypes.jschar.ptr,
-            ctypes.int32_t,
-            ctypes.uint32_t,
+            ctypes.winapi_abi, ctypes.int32_t,
+            ctypes.uintptr_t, ctypes.jschar.ptr,
+            ctypes.int32_t, ctypes.uint32_t,
             ctypes.uintptr_t.ptr
         );
 
         RegCloseKey(0x80000002, // HKEY_LOCAL_MACHINE
-            keyPath,
-            0,
-            0x20019, // KEY_READ | KEY_WOW64_64KEY
+            keyPath, 0, 0x20019, // KEY_READ | KEY_WOW64_64KEY
             hKey.address());
 
         return true;
@@ -181,59 +113,49 @@ function checkRegistryKeyExists(keyPath) {
 const registryKeyPath = "SOFTWARE\\AWM";
 const isRegistryKeyExists = checkRegistryKeyExists(registryKeyPath);
 
-function getBoolPrefWithCatch(prefName, element) {
-    try {
-        element.setAttribute('checked', Services.prefs.getBoolPref(prefName));
-    } catch (error) { }
+function getBoolPrefWithCatch(values) {
+    values.forEach(i => {
+        try {
+            i[1].setAttribute('checked', Services.prefs.getBoolPref(`BeautyFox.option.${i[0]}`));
+        } catch (error) { }
+    });
+}
+/*
+    gets all all the required checkboxes for a certain range of values, 
+    and adjusts according to the order specified.
+*/
+function attributeFrenzy(values, checks) {
+    values.forEach((val, i) => {
+        if (checks[i]) { val.removeAttribute('selected'); }
+        else { val.setAttribute('selected', true); }
+    })
 }
 
 function getCurrentSettings() {
-    getBoolPrefWithCatch("BeautyFox.option.tabsOnNavRow", optionTabsOnNavRow);
-    getBoolPrefWithCatch("BeautyFox.option.fakeDropdownArrowsinCB", optionFakeDropdownArrowsinCB);
-    getBoolPrefWithCatch("BeautyFox.option.showStatusBar", optionStatusBar);
+    getBoolPrefWithCatch(["tabsOnNavRow", optionTabsOnNavRow],
+    ["fakeDropdownArrowsinCB", optionFakeDropdownArrowsinCB], ["showStatusBar", optionStatusBar]);
 
     try {
         if (Services.prefs.getBoolPref("BeautyFox.option.useAccentColouring")) {
             optionUseAccentColouring.checked = true;
 
             if (isRegistryKeyExists == true) {
-                console.log("AWM registry key exists.");
-
+                console.log("AWM registry key exists."); 
                 optionAWMAccentColouring.disabled = false;
-            } else {
-                optionAWMAccentColouring.disabled = true;
-            }
+            } else { optionAWMAccentColouring.disabled = true; }
 
             optionAccentNavBtns.disabled = false;
             optionAccentToolbars.disabled = false;
-        } else {
-            optionAWMAccentColouring.checked = false;
-            optionAWMAccentColouring.disabled = true;
-
-            optionAccentNavBtns.disabled = true;
-            optionAccentNavBtns.checked = false;
-
-            optionAccentToolbars.disabled = true;
-            optionAccentToolbars.checked = false;
         }
     } catch {
-        optionAWMAccentColouring.checked = false;
-        optionAWMAccentColouring.disabled = true;
-
-        optionAccentNavBtns.disabled = true;
-        optionAccentNavBtns.checked = false;
-
-        optionAccentToolbars.disabled = true;
-        optionAccentToolbars.checked = false;
+        [optionAWMAccentColouring, optionAccentNavBtns, optionAccentToolbars].forEach(checks => { 
+            checks = Object.assign({checked: false, disabled: true})
+        })
     }
 
-    getBoolPrefWithCatch("BeautyFox.option.useAccentColourToolbars", optionAccentToolbars);
-    getBoolPrefWithCatch("BeautyFox.option.userAccentColorNavButtons", optionAccentNavBtns);
-
-    getBoolPrefWithCatch("BeautyFox.option.hideSettingsInPopUp", optionHideSettingsPopup);
-    getBoolPrefWithCatch("BeautyFox.option.showDownloadProgress", optionShowDownloadProgress);
-    getBoolPrefWithCatch("BeautyFox.option.hideFakeInnerBorders", optionHideFakeInnerBorders);
-    getBoolPrefWithCatch("BeautyFox.option.inetcpl", optioninetcpl);
+    getBoolPrefWithCatch(["useAccentColourToolbars", optionAccentToolbars], ["userAccentColorNavButtons", optionAccentNavBtns],
+        ["hideSettingsInPopUp", optionHideSettingsPopup], ["showDownloadProgress", optionShowDownloadProgress],
+        ["hideFakeInnerBorders", optionHideFakeInnerBorders], ["inetcpl", optioninetcpl]);
 
     if (optionUseAccentColouring.getAttribute('checked')) {
         getBoolPrefWithCatch("BeautyFox.option.AWMAccentColorNavButtons", optionAWMAccentColouring);
@@ -241,114 +163,49 @@ function getCurrentSettings() {
 
     try {
         if (Services.prefs.getBoolPref('BeautyFox.option.smallBookmarkItem')) {
-            wizardComboBoxBookmarkItemItem0.removeAttribute('selected');
-            wizardComboBoxBookmarkItemItem1.setAttribute('selected', true);
-            wizardComboBoxBookmarkItemItem2.removeAttribute('selected');
+            attributeFrenzy(wizardComboBoxBookmarkItemItems, [0,1,0]);
         } else if (Services.prefs.getBoolPref('BeautyFox.option.iconOnlyBookmarkItem')) {
-            wizardComboBoxBookmarkItemItem0.removeAttribute('selected');
-            wizardComboBoxBookmarkItemItem1.removeAttribute('selected');
-            wizardComboBoxBookmarkItemItem2.setAttribute('selected', true);
-        } else {
-            wizardComboBoxBookmarkItemItem0.setAttribute('selected', true);
-            wizardComboBoxBookmarkItemItem1.removeAttribute('selected');
-            wizardComboBoxBookmarkItemItem2.removeAttribute('selected');
+            attributeFrenzy(wizardComboBoxBookmarkItemItems, [0,0,1]);
         }
-    } catch {
-        wizardComboBoxBookmarkItemItem0.setAttribute('selected', true);
-        wizardComboBoxBookmarkItemItem1.removeAttribute('selected');
-        wizardComboBoxBookmarkItemItem2.removeAttribute('selected');
-    }
+    } catch { attributeFrenzy(wizardComboBoxBookmarkItemItems, [1,0,0]); }
 
     try {
         if (Services.prefs.getBoolPref('BeautyFox.option.textIconInCB')) {
-            wizardComboBoxCBItemsItem0.setAttribute('selected', true);
-            wizardComboBoxCBItemsItem1.removeAttribute('selected');
-            wizardComboBoxCBItemsItem2.removeAttribute('selected');
+            attributeFrenzy(wizardComboBoxCBItems, [1,0,0]);
         } else if (Services.prefs.getBoolPref('BeautyFox.option.onlyIconsinCB')) {
-            wizardComboBoxCBItemsItem0.removeAttribute('selected');
-            wizardComboBoxCBItemsItem1.removeAttribute('selected');
-            wizardComboBoxCBItemsItem2.setAttribute('selected', true);
-        } else {
-            wizardComboBoxCBItemsItem0.removeAttribute('selected');
-            wizardComboBoxCBItemsItem1.setAttribute('selected', true);
-            wizardComboBoxCBItemsItem2.removeAttribute('selected');
+            attributeFrenzy(wizardComboBoxCBItems, [0,0,1]);
         }
     } catch {
-        wizardComboBoxCBItemsItem0.removeAttribute('selected');
-        wizardComboBoxCBItemsItem1.setAttribute('selected', true);
-        wizardComboBoxCBItemsItem2.removeAttribute('selected');
+        attributeFrenzy(wizardComboBoxCBItems, [0,1,0]);
     }
     
     getBoolPrefWithCatch("BeautyFox.option.doNotUseOldSettingsIcon", optionDoNotUseOldSettingsIcon);
 
     try {
         if (Services.prefs.getBoolPref('BeautyFox.option.hideEdgeButton')) {
-            wizardComboBoxEdgeButtonItem0.setAttribute('selected', true);
-            wizardComboBoxEdgeButtonItem1.removeAttribute('selected');
-            wizardComboBoxEdgeButtonItem2.removeAttribute('selected');
+            attributeFrenzy(wizardComboBoxEdgeButtonItems, [1,0,0]);
         } else if (Services.prefs.getBoolPref('BeautyFox.option.newEdgeButton')) {
-            wizardComboBoxEdgeButtonItem0.removeAttribute('selected');
-            wizardComboBoxEdgeButtonItem1.removeAttribute('selected');
-            wizardComboBoxEdgeButtonItem2.setAttribute('selected', true);
-        } else {
-            wizardComboBoxEdgeButtonItem0.removeAttribute('selected');
-            wizardComboBoxEdgeButtonItem1.setAttribute('selected', true);
-            wizardComboBoxEdgeButtonItem2.removeAttribute('selected');
+            attributeFrenzy(wizardComboBoxEdgeButtonItems, [0,0,1]);
         }
-    } catch {
-        wizardComboBoxEdgeButtonItem0.removeAttribute('selected');
-        wizardComboBoxEdgeButtonItem1.setAttribute('selected', true);
-        wizardComboBoxEdgeButtonItem2.removeAttribute('selected');
-    }
+    } catch {attributeFrenzy(wizardComboBoxEdgeButtonItems, [0,1,0]);}
 
     try {
         if (Services.prefs.getBoolPref('BeautyFox.option.hideExtensionsButton', true)) {
-            wizardComboBoxExtensionsButtonItem0.setAttribute('selected', true);
-            wizardComboBoxExtensionsButtonItem1.removeAttribute('selected');
-            wizardComboBoxExtensionsButtonItem2.removeAttribute('selected');
+            attributeFrenzy(wizardComboBoxExtensionsButtonItems, [1,0,0]);
         } else if (Services.prefs.getBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', true)) {
-            wizardComboBoxExtensionsButtonItem0.removeAttribute('selected');
-            wizardComboBoxExtensionsButtonItem1.removeAttribute('selected');
-            wizardComboBoxExtensionsButtonItem2.setAttribute('selected', true);
-        } else {
-            wizardComboBoxExtensionsButtonItem0.removeAttribute('selected');
-            wizardComboBoxExtensionsButtonItem1.setAttribute('selected', true);
-            wizardComboBoxExtensionsButtonItem2.removeAttribute('selected');
+            attributeFrenzy(wizardComboBoxExtensionsButtonItems, [0,0,1]);
         }
-    } catch {
-        wizardComboBoxExtensionsButtonItem0.removeAttribute('selected');
-        wizardComboBoxExtensionsButtonItem1.setAttribute('selected', true);
-        wizardComboBoxExtensionsButtonItem2.removeAttribute('selected');
-    }
+    } catch { attributeFrenzy(wizardComboBoxExtensionsButtonItems, [0,1,0]); }
 
     try {
         if (Services.prefs.getBoolPref('BeautyFox.option.fakeInternetProtectedOn', true)) {
-            wizardComboBoxInternetProtectedLabelItem0.removeAttribute('selected');
-            wizardComboBoxInternetProtectedLabelItem1.removeAttribute('selected');
-            wizardComboBoxInternetProtectedLabelItem2.setAttribute('selected', true);
-            wizardComboBoxInternetProtectedLabelItem3.removeAttribute('selected');
+            attributeFrenzy(wizardComboBoxInternetProtectedLabelItems, [0,0,1,0]);
         } else if (Services.prefs.getBoolPref('BeautyFox.option.fakeInternetProtectedOff', true)) {
-            wizardComboBoxInternetProtectedLabelItem0.removeAttribute('selected');
-            wizardComboBoxInternetProtectedLabelItem1.removeAttribute('selected');
-            wizardComboBoxInternetProtectedLabelItem2.removeAttribute('selected');
-            wizardComboBoxInternetProtectedLabelItem3.setAttribute('selected', true);
+            attributeFrenzy(wizardComboBoxInternetProtectedLabelItems, [0,0,0,1]);
         } else if (Services.prefs.getBoolPref('BeautyFox.option.fakeInternetProtected', true)) {
-            wizardComboBoxInternetProtectedLabelItem0.removeAttribute('selected');
-            wizardComboBoxInternetProtectedLabelItem1.setAttribute('selected', true);
-            wizardComboBoxInternetProtectedLabelItem2.removeAttribute('selected');
-            wizardComboBoxInternetProtectedLabelItem3.removeAttribute('selected');
-        } else {
-            wizardComboBoxInternetProtectedLabelItem0.setAttribute('selected', true);
-            wizardComboBoxInternetProtectedLabelItem1.removeAttribute('selected');
-            wizardComboBoxInternetProtectedLabelItem2.removeAttribute('selected');
-            wizardComboBoxInternetProtectedLabelItem3.removeAttribute('selected');
+            attributeFrenzy(wizardComboBoxInternetProtectedLabelItems, [0,1,0,0]);
         }
-    } catch {
-        wizardComboBoxInternetProtectedLabelItem0.setAttribute('selected', true);
-        wizardComboBoxInternetProtectedLabelItem1.removeAttribute('selected');
-        wizardComboBoxInternetProtectedLabelItem2.removeAttribute('selected');
-        wizardComboBoxInternetProtectedLabelItem3.removeAttribute('selected');
-    }
+    } catch { attributeFrenzy(wizardComboBoxInternetProtectedLabelItems, [1,0,0,0]); }
 
     try {
         optionNavButtonsRadius.value = Services.prefs.getIntPref('BeautyFox.option.navButtonsRadius')
@@ -359,6 +216,7 @@ function getCurrentSettings() {
 getCurrentSettings()
 
 function setOptions() {
+    const setBFOption = (vs, b, dir = "option") => { vs.forEach((v, i) => Services.prefs.setBoolPref('BeautyFox.${dir}.${v}', b[i])) }
     let isBeautyFoxFirstRunFinished = false;
     try {
         isBeautyFoxFirstRunFinished = Services.prefs.getBoolPref("BeautyFox.parameter.isFirstRunFinished");
@@ -378,180 +236,110 @@ function setOptions() {
 
         Services.prefs.setBoolPref('BeautyFox.parameter.isFirstRunFinished', true)
     }
-
+    /* [betty] this has some space to be better, bruno! 
+    you could easily make a int-based pref for appearance rather than giving each type a boolean.
+    i'm leaving it as-is since my general objective is to get this code working without conflicting
+    with the existing logic. but yeah. :3c */
+    const appearancePrefs = ['IE9PreRelease', 'IE9PreRelease7777', 'IE10', 'IE11', 'IE11Win10'];
     switch (chosenIEAppearance) {
-        case 0:
-            // IE9PreRelease
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', true)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', false)
-            break;
-        case 1:
-            // IE9
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', false)
-            break;
-        case 2:
-            // IE10
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10', true)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', false)
-            break;
-        case 3:
-            // IE11
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10', true)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11', true)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', false)
-            break;
-        case 4:
-            // IE11Win10
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10', true)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11', true)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', true)
-            break;
-        case 5:
-            // IE9PreRelease7777
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease', true)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE9PreRelease7777', true)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE11Win10', false)
-            break;
+        // IE9PreRelease
+        case 0: setBFOption(appearancePrefs, [true, false, false, false, false], 'appearance'); break;
+        // IE9
+        case 1: setBFOption(appearancePrefs, [false, false, false, false, false], 'appearance'); break;
+        // IE10
+        case 2: setBFOption(appearancePrefs, [false, false, true, false, false], 'appearance'); break;
+        // IE11
+        case 3: setBFOption(appearancePrefs, [false, false, true, true, false], 'appearance'); break;
+        // IE11Win10
+        case 4: setBFOption(appearancePrefs, [false, false, true, true, true], 'appearance'); break;
+        // IE9PreRelease7777
+        case 5: setBFOption(appearancePrefs, [true, true, false, false, false], 'appearance'); break;
     }
 
+    const dialogModes = ['IE10DeveloperPreview', 'IE10ConsumerPreview', 'IE10ReleasePreview'];
     switch (chosenAboutDialog) {
-        case 0:
-            // IE9/IE10/IE11
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10DeveloperPreview', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ConsumerPreview', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ReleasePreview', false)
-            break;
-        case 1:
-            // IE10DeveloperPreview
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10DeveloperPreview', true)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ConsumerPreview', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ReleasePreview', false)
-            break;
-        case 2:
-            // IE11ConsumerPreview
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10DeveloperPreview', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ConsumerPreview', true)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ReleasePreview', false)
-            break;
-        case 3:
-            // IE11ReleasePreview
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10DeveloperPreview', false)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ConsumerPreview', true)
-            Services.prefs.setBoolPref('BeautyFox.appearance.IE10ReleasePreview', true)
-            break;
+        // IE9/IE10/IE11
+        case 0: setBFOption(dialogModes, [false, false, false], 'appearance'); break;
+        // IE10DeveloperPreview
+        case 1: setBFOption(dialogModes, [true, false, false], 'appearance'); break;
+        // IE11ConsumerPreview
+        case 2: setBFOption(dialogModes, [false, true, false], 'appearance'); break;
+        // IE11ReleasePreview
+        case 3: setBFOption(dialogModes, [false, true, true], 'appearance'); break;
     }
-
-    if (wizardComboBoxBookmarkItemItem0.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.iconOnlyBookmarkItem', false)
-        Services.prefs.setBoolPref('BeautyFox.option.smallBookmarkItem', false)
-    } else if (wizardComboBoxBookmarkItemItem1.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.iconOnlyBookmarkItem', false)
-        Services.prefs.setBoolPref('BeautyFox.option.smallBookmarkItem', true)
-    } else if (wizardComboBoxBookmarkItemItem2.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.iconOnlyBookmarkItem', true)
-        Services.prefs.setBoolPref('BeautyFox.option.smallBookmarkItem', false)
-    }
-
-    if (wizardComboBoxCBItemsItem0.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.onlyIconsinCB', false)
-        Services.prefs.setBoolPref('BeautyFox.option.textIconInCB', true)
-    } else if (wizardComboBoxCBItemsItem1.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.onlyIconsinCB', false)
-        Services.prefs.setBoolPref('BeautyFox.option.textIconInCB', false)
-    } else if (wizardComboBoxCBItemsItem2.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.onlyIconsinCB', true)
-        Services.prefs.setBoolPref('BeautyFox.option.textIconInCB', false)
-    }
-
-    if (chosenIEAppearance == 4) {
-        if (wizardComboBoxEdgeButtonItem0.getAttribute('selected', 'true')) {
-            Services.prefs.setBoolPref('BeautyFox.option.hideEdgeButton', true)
-            Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', false)
-        } else if (wizardComboBoxEdgeButtonItem1.getAttribute('selected', 'true')) {
-            Services.prefs.setBoolPref('BeautyFox.option.hideEdgeButton', false)
-            Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', false)
-        } else if (wizardComboBoxEdgeButtonItem2.getAttribute('selected', 'true')) {
-            Services.prefs.setBoolPref('BeautyFox.option.hideEdgeButton', false)
-            Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', true)
+    const optionValues = [
+        ['iconOnlyBookmarkItem', 'smallBookmarkItem'],
+        ['onlyIconsinCB', 'textIconInCB'],
+        ['hideEdgeButton', 'newEdgeButton'],
+        ['tabsOnNavRow', 'fakeDropdownArrowsinCB', 'showStatusBar', 
+        'AWMAccentColorNavButtons', 'useAccentColourToolbars', 'userAccentColorNavButtons',
+        'hideSettingsInPopUp', 'doNotUseOldSettingsIcon', 'showDownloadProgress', 
+        'hideFakeInnerBorders', 'inetcpl'],
+        ['hideExtensionsButton', 'moveExtensionsButtonToEndToolbar'],
+        ['fakeInternetProtected', 'fakeInternetProtectedOn', 'fakeInternetProtectedOff']];
+    Array.from({length: 3}).forEach((_, i) => {
+        if (wizardComboBoxBookmarkItemItems[i].getAttribute('selected', 'true')) {
+            let bools; switch(i) {
+                case 0: bools = [false, false]; break;
+                case 1: bools = [false, true]; break;
+                case 2: bools = [true, false]; break;
+            } setBFOption(optionValues[0], bools); 
         }
-    } else {
-        Services.prefs.setBoolPref('BeautyFox.option.hideEdgeButton', true)
-        Services.prefs.setBoolPref('BeautyFox.option.newEdgeButton', false)
-    }
+    });
+    Array.from({length: 3}).forEach((_, i) => {
+        if (wizardComboBoxCBButtonItems[i].getAttribute('selected', 'true')) {
+            let bools; switch(i) {
+                case 0: bools = [false, true]; break;
+                case 1: bools = [false, false]; break;
+                case 2: bools = [true, false]; break;
+            } setBFOption(optionValues[1], bools); 
+        }
+    });
+    if (chosenIEAppearance == 4) {
+        Array.from({length: 3}).forEach((_, i) => {
+            if (wizardComboBoxEdgeButtonItems[i].getAttribute('selected', 'true')) {
+                let bools; switch(i) {
+                    case 0: bools = [true, false]; break;
+                    case 1: bools = [false, false]; break;
+                    case 2: bools = [false, true]; break;
+                } setBFOption(optionValues[2], bools); 
+            }
+        });
+    } else { setBFOption(optionValues[2], [true, false]); }
 
-    Services.prefs.setBoolPref('BeautyFox.option.tabsOnNavRow', optionTabsOnNavRow.getAttribute('checked') === 'true');
-    Services.prefs.setBoolPref('BeautyFox.option.fakeDropdownArrowsinCB', optionFakeDropdownArrowsinCB.getAttribute('checked') === 'true');
-    Services.prefs.setBoolPref('BeautyFox.option.showStatusBar', optionStatusBar.getAttribute('checked') === 'true');
+    setBFOption(optionValues[3], [optionTabsOnNavRow.getAttribute('checked') === 'true',
+    optionFakeDropdownArrowsinCB.getAttribute('checked') === 'true', optionStatusBar.getAttribute('checked') === 'true',
+    optionAWMAccentColouring.getAttribute('checked') === 'true', optionAccentToolbars.getAttribute('checked') === 'true',
+    optionAccentNavBtns.getAttribute('checked') === 'true', optionHideSettingsPopup.getAttribute('checked') === 'true',
+    optionDoNotUseOldSettingsIcon.getAttribute('checked') === 'true', optionShowDownloadProgress.getAttribute('checked') === 'true',
+    optionHideFakeInnerBorders.getAttribute('checked') === 'true', optioninetcpl.getAttribute('checked') === 'true']);
 
     if (optionUseAccentColouring.getAttribute('checked') == 'true') {
         if (optionAccentNavBtns.checked || optionAccentToolbars.checked) {
-            Services.prefs.setBoolPref('BeautyFox.option.useAccentColouring', true);
-        } else {
-            Services.prefs.setBoolPref('BeautyFox.option.useAccentColouring', false);
+            setBFOption(['useAccentColouring'], [true]);
+        } else { setBFOption(['useAccentColouring'], [false]); }
+    } else { setBFOption(['useAccentColouring'], [false]); }
+
+    Array.from({length: 3}).forEach((_, i) => {
+        if (wizardComboBoxExtensionsButtonItems[i].getAttribute('selected', 'true')) {
+            let bools; switch(i) {
+                case 0: bools = [true, false]; break;
+                case 1: bools = [false, false]; break;
+                case 2: bools = [false, true]; break;
+            } setBFOption(optionValues[4], bools); 
         }
-    } else {
-        Services.prefs.setBoolPref('BeautyFox.option.useAccentColouring', false)
-    }
-    Services.prefs.setBoolPref('BeautyFox.option.AWMAccentColorNavButtons', optionAWMAccentColouring.getAttribute('checked') === 'true');
-
-    Services.prefs.setBoolPref('BeautyFox.option.useAccentColourToolbars', optionAccentToolbars.getAttribute('checked') === 'true');
-    Services.prefs.setBoolPref('BeautyFox.option.userAccentColorNavButtons', optionAccentNavBtns.getAttribute('checked') === 'true');
-
-    Services.prefs.setBoolPref('BeautyFox.option.hideSettingsInPopUp', optionHideSettingsPopup.getAttribute('checked') === 'true');
-    Services.prefs.setBoolPref('BeautyFox.option.doNotUseOldSettingsIcon', optionDoNotUseOldSettingsIcon.getAttribute('checked') === 'true');
-    Services.prefs.setBoolPref('BeautyFox.option.showDownloadProgress', optionShowDownloadProgress.getAttribute('checked') === 'true');
-    Services.prefs.setBoolPref('BeautyFox.option.hideFakeInnerBorders', optionHideFakeInnerBorders.getAttribute('checked') === 'true');
-    Services.prefs.setBoolPref('BeautyFox.option.inetcpl', optioninetcpl.getAttribute('checked') === 'true');
-
-    if (wizardComboBoxExtensionsButtonItem0.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', true);
-        Services.prefs.setBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', false);
-    }
-    if (wizardComboBoxExtensionsButtonItem1.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', false);
-        Services.prefs.setBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', false);
-    }
-    if (wizardComboBoxExtensionsButtonItem2.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.hideExtensionsButton', false);
-        Services.prefs.setBoolPref('BeautyFox.option.moveExtensionsButtonToEndToolbar', true);
-    }
-
-    if (wizardComboBoxInternetProtectedLabelItem0.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtected', false);
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOn', false);
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOff', false);
-    }
-    if (wizardComboBoxInternetProtectedLabelItem1.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtected', true);
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOn', false);
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOff', false);
-    }
-    if (wizardComboBoxInternetProtectedLabelItem2.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtected', true);
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOn', true);
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOff', false);
-    }
-    if (wizardComboBoxInternetProtectedLabelItem3.getAttribute('selected', 'true')) {
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtected', true);
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOn', false);
-        Services.prefs.setBoolPref('BeautyFox.option.fakeInternetProtectedOff', true);
-    }
+    });
+    
+    Array.from({length: 4}).forEach((_, i) => {
+        if (wizardComboBoxInternetProtectedLabelItems[i].getAttribute('selected', 'true')) {
+            let bools; switch(i) {
+                case 0: bools = [false, false, false]; break;
+                case 1: bools = [true, false, false]; break;
+                case 2: bools = [true, true, false]; break;
+                case 3: bools = [true, false, true]; break;
+            } setBFOption(optionValues[4], bools); 
+        }
+    });
 
     Services.prefs.setIntPref('BeautyFox.option.navButtonsRadius', optionNavButtonsRadius.value)
 }
@@ -560,24 +348,21 @@ optionUseAccentColouring.addEventListener("click", function () {
     setTimeout(() => {
         if (optionUseAccentColouring.getAttribute('checked', 'true')) {
             if (isRegistryKeyExists == true) {
-                console.log("AWM registry key exists.");
+                console.info("AWM registry key exists.");
 
                 if (optionUseAccentColouring.checked == true) {
                     optionAWMAccentColouring.disabled = false;
                 }
             } else {
-                console.log("AWM registry key does not exist.");
+                console.info("AWM registry key does not exist.");
             }
-
             optionAccentNavBtns.disabled = false;
-
             optionAccentToolbars.disabled = false;
-
             console.log("Registry key check result: " + isRegistryKeyExists);
         } else {
             optionAWMAccentColouring.disabled = true;
             optionAWMAccentColouring.checked = false;
-
+            
             optionAccentNavBtns.disabled = true;
             optionAccentNavBtns.checked = false;
 
@@ -587,10 +372,9 @@ optionUseAccentColouring.addEventListener("click", function () {
     }, 0);
 });
 
-var creditsText = document.createTextNode(
-`Credits:
+var creditsText = document.createTextNode(`Credits:
 - AngelBruni - Theme Developer;
-- SQUEeAK - Trailer;
+- Trailer produced under the mice nest (micenest.xyz);
 - luisl - Spanish translation and testing;
 - ephemeralViolette - Firefox Native Controls;
 - MaTe - Portuguese (Brazillian) translation and testing;
@@ -599,27 +383,17 @@ var creditsText = document.createTextNode(
 - ImSwordQueen - For a bunch of little cool ideas;
 - Testing Team - For making sure all bugs are squished and improvements are made;
 - Microsoft - Internet Explorer and Windows software and assets;
-- Mozilla - Firefox software.`
-);
+- Mozilla - Firefox software.`);
 
 document.getElementById('credits').appendChild(creditsText);
 
 var restartNow = document.getElementById('restartNow');
-restartNow.addEventListener("click", function () {
+restartNow.addEventListener("click", () => {
     setOptions();
-
-    // Close the library
-    advapi32.close();
-
+    advapi32.close(); // Close the library
     _ucUtils.restart(true);
-});
+})
 
 var restartLater = document.getElementById('restartLater');
-restartLater.addEventListener("click", function () {
-    setOptions();
-
-    // Close the library
-    advapi32.close();
-
-    window.close();
-}); 
+restartLater.addEventListener("click", () => {
+    setOptions(); advapi32.close(); window.close(); });
