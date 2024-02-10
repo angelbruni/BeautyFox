@@ -6,18 +6,29 @@
 var [currentPage, chosenIEAppearance, chosenAboutDialog] = Array.from({length: 3}, () => { 0 });
 
 const elements = ['tabsOnNavRow', 'fakeDropdownArrowsinCB', 'showStatusBar', 
-'useAccentColouring', 'AWMAccentColouring', 'accentNavBtns', 'accentToolbars', 'edgeCBParent',
-'hideSettingsPopup', 'showDownloadProgress', 'hideFakeInnerBorders', 'inetcpl', 'doNotUseOldSettingsIcon', 'navButtonsRadius']
-var [optionTabsOnNavRow, optionFakeDropdownArrowsinCB, optionStatusBar, optionUseAccentColouring, 
-optionAWMAccentColouring, optionAccentNavBtns, optionAccentToolbars, edgeCBParent, optionHideSettingsPopup,
-optionShowDownloadProgress, optionHideFakeInnerBorders, optioninetcpl, optionDoNotUseOldSettingsIcon, optionNavButtonsRadius] = 
-Array.from({length: 14}, (_, i) => { elements[i] });
+                  'useAccentColouring', 'AWMAccentColouring', 'accentNavBtns', 
+                  'accentToolbars', 'edgeCBParent', 'hideSettingsPopup', 
+                  'showDownloadProgress', 'hideFakeInnerBorders', 'inetcpl', 
+                  'doNotUseOldSettingsIcon', 'navButtonsRadius'];
+
+var [optionTabsOnNavRow, optionFakeDropdownArrowsinCB, optionStatusBar, 
+     optionUseAccentColouring, optionAWMAccentColouring, optionAccentNavBtns, 
+     optionAccentToolbars, edgeCBParent, optionHideSettingsPopup, optionShowDownloadProgress, 
+     optionHideFakeInnerBorders, optioninetcpl, optionDoNotUseOldSettingsIcon, 
+     optionNavButtonsRadius] = elements.map(id => document.getElementById(id));
+
+
 
 const comboBoxItems = ['wizardComboBoxBookmarkItemItem', 'wizardComboBoxCBItemsItem','wizardComboBoxEdgeButtonItem',
 'wizardComboBoxExtensionsButtonItem', 'wizardComboBoxInternetProtectedLabelItem'];
-var [wizardComboBoxBookmarkItemItems, wizardComboBoxCBItems, wizardComboBoxEdgeButtonItems,
-wizardComboBoxExtensionsButtonItems] = Array.from({length: 4}, (_, cb) => {Array.from({length: 3}, (_, i) => { document.getElementById(`${comboBoxItems[cb]}${i}`) })});
-var wizardComboBoxInternetProtectedLabelItems = Array.from({length: 4}, (_, i) => { document.getElementById(`${comboBoxItems[4]}${i}`) });
+var [wizardComboBoxBookmarkItemItems, wizardComboBoxCBItems, wizardComboBoxEdgeButtonItems, wizardComboBoxExtensionsButtonItems] = Array.from({length: 4}, (_, cb) => {
+    return Array.from({length: 3}, (_, i) => { 
+        return document.getElementById(`${comboBoxItems[cb]}${i}`); 
+    }); 
+});
+var wizardComboBoxInternetProtectedLabelItems = Array.from({length: 4}, (_, i) => {
+    return document.getElementById(`${comboBoxItems[4]}${i}`);
+});
 
 function updateNavBackButton() {
     var navBackButton = document.getElementById('backButton');
@@ -39,7 +50,8 @@ function updateNavBackButton() {
 }
 
 function showPage(pageNumber) {
-    var [pageId, selectedPage] = ['page' + pageNumber, document.getElementById(pageId)];
+    var pageId = 'page' + pageNumber;
+    var selectedPage = document.getElementById(pageId);
 
     if (selectedPage) {
         // Hide all pages
@@ -113,10 +125,10 @@ function checkRegistryKeyExists(keyPath) {
 const registryKeyPath = "SOFTWARE\\AWM";
 const isRegistryKeyExists = checkRegistryKeyExists(registryKeyPath);
 
-function getBoolPrefWithCatch(values) {
-    values.forEach(i => {
+function getBoolPrefWithCatch(...values) {
+    values.forEach(pair => {
         try {
-            i[1].setAttribute('checked', Services.prefs.getBoolPref(`BeautyFox.option.${i[0]}`));
+            pair[1].setAttribute('checked', Services.prefs.getBoolPref(`BeautyFox.option.${pair[0]}`));
         } catch (error) { }
     });
 }
@@ -126,14 +138,20 @@ function getBoolPrefWithCatch(values) {
 */
 function attributeFrenzy(values, checks) {
     values.forEach((val, i) => {
-        if (checks[i]) { val.removeAttribute('selected'); }
-        else { val.setAttribute('selected', true); }
-    })
+        if (checks[i]) { 
+            val.removeAttribute('selected'); 
+        } else { 
+            val.setAttribute('selected', true); 
+        }
+    });
 }
 
 function getCurrentSettings() {
-    getBoolPrefWithCatch(["tabsOnNavRow", optionTabsOnNavRow],
-    ["fakeDropdownArrowsinCB", optionFakeDropdownArrowsinCB], ["showStatusBar", optionStatusBar]);
+    getBoolPrefWithCatch(
+        ["tabsOnNavRow", optionTabsOnNavRow],
+        ["fakeDropdownArrowsinCB", optionFakeDropdownArrowsinCB],
+        ["showStatusBar", optionStatusBar]
+    );
 
     try {
         if (Services.prefs.getBoolPref("BeautyFox.option.useAccentColouring")) {
@@ -287,7 +305,7 @@ function setOptions() {
         }
     });
     Array.from({length: 3}).forEach((_, i) => {
-        if (wizardComboBoxCBButtonItems[i].getAttribute('selected', 'true')) {
+        if (wizardComboBoxCBItems[i].getAttribute('selected', 'true')) {
             let bools; switch(i) {
                 case 0: bools = [false, true]; break;
                 case 1: bools = [false, false]; break;
@@ -374,6 +392,7 @@ optionUseAccentColouring.addEventListener("click", function () {
 
 var creditsText = document.createTextNode(`Credits:
 - AngelBruni - Theme Developer;
+-------------------------------
 - Trailer produced under the mice nest (micenest.xyz);
 - luisl - Spanish translation and testing;
 - ephemeralViolette - Firefox Native Controls;
