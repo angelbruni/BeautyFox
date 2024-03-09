@@ -266,7 +266,7 @@ const IEMenu = createMenu({
                     type: 'app',
                     id: 'IEMenu_setZoom050',
                     name: '50%',
-                    command: 'FullZoom.reduce(.5)',
+                    command: 'FullZoom.setZoom(.5)',
                 },
                 //{
                 //    type: 'separator',
@@ -596,7 +596,7 @@ const cBPageMenu = createMenu({
                     type: 'app',
                     id: 'cBPage_setZoom050',
                     name: '50%',
-                    command: 'FullZoom.reduce(.5)',
+                    command: 'FullZoom.setZoom(.5)',
                 },
                 //{
                 //    type: 'separator',
@@ -978,7 +978,7 @@ const cBHelpMenu = createMenu({
             name: "What's new in BeautyFox",
             locale: "NewBeautyFox",
             special: true,
-            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/rc3-1.0.html', where: 'tab'});"
+            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/rc3-1.0.1.html', where: 'tab'});"
         },
         {
             type: 'separator',
@@ -1121,7 +1121,7 @@ const zoomMenu = createMenu({
             type: 'app',
             id: 'zoomMenu_setZoom050',
             name: '50%',
-            command: 'FullZoom.reduce(.5)',
+            command: 'FullZoom.setZoom(.5)',
         },
         //{
         //    type: 'separator',

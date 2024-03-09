@@ -6,13 +6,13 @@
 <!ENTITY tab.newTab     "Yeni Sekme sayfası">
 
 <!ENTITY preview.header         "Information">
-<!ENTITY preview.placeholder    "Hover over a setting to view more about it.">
+<!ENTITY preview.placeholder    "Bir ayar hakkında daha fazla bilgi almak için imlecinizi üzerine sürükleyin.">
 
 <!ENTITY setting.windowsClassicThemeWarning "Windows klasik tema kullandığınız tespit edildi. Bazı ayarlar devre dışı bırakılacak.">
 <!ENTITY setting.windowsBasicThemeWarning   "Windows temel tema kullandığınız tespit edildi. Bazı ayarlar devre dışı bırakılacak.">
 
 <!ENTITY setting.internetExplorerAppearance				"Görünüm">
-<!ENTITY setting.description.internetExplorerAppearance	"Choose between the many appearances Internet Explorer has had">
+<!ENTITY setting.description.internetExplorerAppearance "Internet Explorer'ın sahip olduğu birçok görünüm arasından seçim yapın">
 <!ENTITY setting.hideFakeInnerBorders				    "Sahte iç kenarları gizle">
 <!ENTITY setting.description.hideFakeInnerBorders       "Hides the fake inner borders of window frames.">
 <!ENTITY setting.inetcpl							    "İnternet Ayarları'nı Denetim Masasına yönlendir">
@@ -46,7 +46,7 @@
 <!ENTITY setting.internetLabelInternetProtectedOff	    "İnternet | Korumalı mod: etkinleştirildi">
 <!ENTITY setting.topSitesRows				            "Amount of popular sites rows in the new tab page">
 <!ENTITY setting.doNotRunWizardInNextStart			    "Sihirbazı bir sonraki başlatmada gösterme">
-<!ENTITY setting.description.doNotRunWizardInNextStart	"This will reset all your BeautyFox settings.">
+<!ENTITY setting.description.doNotRunWizardInNextStart  "Bu, tüm BeautyFox ayarlarınızı sıfırlayacaktır.">
 <!ENTITY setting.navigationButtonRadius				    "Gezinti düğmelerinin yuvarlama oranı">
 <!ENTITY setting.customColouringForUI				    "Kullanıcı arayüzü için özel renklendirme">
 <!ENTITY setting.customColourMethod					    "Özel Renk Yöntemi">
@@ -54,12 +54,12 @@
 <!ENTITY setting.custom								    "Özel">
 <!ENTITY setting.userAccentColour					    "Kullanıcının seçtiği renk">
 <!ENTITY setting.AWMAccentColour					    "Aero Window Manager rengi">
-<!ENTITY setting.DWMBGAccentColour					    "DWMBlurGlass' accent colour (slower)">
+<!ENTITY setting.DWMBGAccentColour                      "DWMBlurGlass'ın tema rengi (daha yavaş)">
 <!ENTITY setting.customcolour						    "Özel Renk">
-<!ENTITY setting.DWMBlurGlassPath						"Path to DWMBlurGlass' executable">
+<!ENTITY setting.DWMBlurGlassPath                       "DWMBlurGlass'ın program yolu">
 <!ENTITY setting.nativeControlsPatch				    "Temalanabilir kontroller Yaması">
 <!ENTITY setting.forceAeroSupport					    "Şeffaflık etkisini zorla">
-<!ENTITY setting.nativeControlsOn					    "Native controls is on">
+<!ENTITY setting.nativeControlsOn                       "Temalanabilir kontroller etkin">
 <!ENTITY setting.nativeControlsPatchIsNotInstalled	    "Gerekli yama yüklü değil.">
 <!ENTITY setting.getTheNativeControlsPatch			    "Yamayı edinin">
 

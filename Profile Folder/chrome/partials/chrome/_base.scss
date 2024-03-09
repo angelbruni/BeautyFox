@@ -2224,6 +2224,7 @@ toolbarbutton {
         height: calc(100% - 2px) !important;
     }
 
+	#personalCommandToolbar,
     #toolbar-menubar,
     #PersonalToolbar {
         border: 0 !important;
@@ -2232,7 +2233,7 @@ toolbarbutton {
         &::after {
             border: 0 !important;
             top: 0 !important;
-            left: 0px !important;
+            left: -1px !important;
             width: 100% !important;
         }
     }

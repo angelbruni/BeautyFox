@@ -5,6 +5,7 @@
 <!ENTITY wizard.welcome							"Bem-vindos ao BeautyFox!">
 <!ENTITY wizard.about							"Este projeto visa resgatar a essência clean e minimalista da navegação na internet, priorizando a elegância. Com uma interface simplificada, BeautyFox oferece aos usuários uma fuga refrescante da enorme complexidade dos navegadores modernos.">
 <!ENTITY wizard.appearance						"Escolha sua aparência preferida">
+<!ENTITY wizard.manyStyles						"O Internet Explorer teve muitos estilos ao longo de sua existência. Escolha sua aparência preferida.">
 <!ENTITY wizard.IE9PreReleaseFeatures			"Selecione recursos do Internet Explorer 9 Pre-Release">
 <!ENTITY wizard.IE9PreRelease7777Appearance		"Continuar com a aparência da Build 7777">
 <!ENTITY wizard.IE9PreRelease7930Appearance		"Continuar com a aparência da Build 7930">
