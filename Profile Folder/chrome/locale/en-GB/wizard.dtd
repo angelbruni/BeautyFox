@@ -17,7 +17,7 @@
 <!ENTITY wizard.IE10PlusFeatures				"Select Internet Explorer 10+ features">
 <!ENTITY wizard.IE10Appearance					"Continue with Internet Explorer 10 appearance">
 <!ENTITY wizard.IE11Appearance					"Continue with Internet Explorer 11 appearance">
-<!ENTITY wizard.IE11AppearanceDescription		"Changes 'About' dialog to contain Interet Explorer 11 information">
+<!ENTITY wizard.IE11AppearanceDescription		"Changes 'About' dialog to contain Internet Explorer 11 information">
 <!ENTITY wizard.IE11Win10Appearance				"Continue with Internet Explorer 11 from Windows 10 appearance">
 <!ENTITY wizard.IE11Win10AppearanceDescription	"Adds feedback button (smiley face, can be dragged out) and changes the 'About' dialog to Windows version reporter applet with Internet Explorer information">
 <!ENTITY wizard.additional						"Additional options">
