@@ -1,0 +1,43 @@
+:root {
+	--backgroundColour: white;
+	--background: var(--backgroundColour);
+	--backgroundBlue: #02a1e2;
+	--backgroundGradient: linear-gradient(180deg, var(--backgroundBlue) 0%, var(--backgroundColour) 100%);
+
+	--searchBox: var(--backgroundColour);
+	--searchBoxBorder: rgb(175,175,175);
+	--searchGlyph: rgb(52,52,52);
+
+	--label: black;
+
+	--header: var(--label);
+
+	--tileEmpty: rgb(247,247,247);
+	--tileContent: var(--backgroundColour);
+	--tileBorder: rgb(217,217,217);
+
+	--deleteNormal: rgb(167,165,165);
+	--deleteHot: rgb(231,60,60);
+
+	--activityLabel: rgb(109,109,109);
+
+	--footerLabel: rgb(85,85,85);
+	--footerSeparator: rgb(204,204,204);
+
+	&[appearance='IE97777'] {
+		--backgroundBlue: #9ddaf5;
+	}
+
+	&[appearance='IE10Plus'],
+	&[appearance='IE11'] {
+		--background: color-mix(in srgb, var(--desiredColourForUIALWAYS) 10%, var(--backgroundColour));
+
+		--header: rgb(80,80,80);
+
+		--tileBorder: rgb(228,228,228);
+	}
+
+	&[customcolour] {
+		--backgroundBlue: var(--desiredColourForUI);
+	}
+}

@@ -1,0 +1,10 @@
+<!ENTITY dialog.titleRestart                "Necessário reiniciar">
+
+<!ENTITY dialog.ok                          "OK">
+<!ENTITY dialog.close                       "Fechar">
+<!ENTITY dialog.apply                       "Aplicar">
+
+<!ENTITY dialog.restartRequiredDescription  "As seguintes configurações requerem uma reinicialização para serem aplicadas:">
+
+<!ENTITY dialog.restartNow                  "Reiniciar agora">
+<!ENTITY dialog.restartLater                "Reiniciar mais tarde">

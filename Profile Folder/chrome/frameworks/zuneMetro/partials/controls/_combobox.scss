@@ -1,0 +1,124 @@
+:root {
+	--menupopupLabel: black;
+	--menupopupBorder: #8f8f8f;
+	--menulistSeparator: #c4c4c5;
+	--menulistHover: #eeeeee;
+}
+
+.comboBoxContainer {
+	width: fit-content;
+}
+
+menulist {
+	all: unset;
+	position: relative;
+	border-radius: var(--buttonRadius);
+	border: 1px solid var(--buttonBorder);
+	padding: 0 3px;
+	min-height: var(--buttonHeight);
+	height: var(--buttonHeight);
+	background: var(--buttonNormal);
+	align-items: center;
+	display: flex;
+	color: var(--buttonLabel);
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: var(--buttonFontSize);
+	width: fit-content;
+
+	&:hover {
+		background: var(--buttonHot);
+	}
+
+	&[open='true'] {
+		background: var(--buttonActive);
+
+		menupopup {
+			animation: fadeInTopToBottom .2s;
+		}
+	}
+
+	menupopup {
+		margin-top: -28px !important;
+		all: unset;
+		//border: 1px solid var(--menupopupBorder);
+		text-transform: none;
+	}
+
+	menuitem {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		background-color: var(--windowBackground);
+		padding-inline: 1px !important;
+		font-weight: normal;
+
+		&::before,
+		&::after {
+			height: 6px;
+		}
+
+		&:first-of-type {
+			&:last-of-type  {
+				&::before,
+				&::after {
+					content: '';
+				}
+			}
+
+		}
+
+		&:first-of-type {
+			&::before {
+				content: '';
+			}
+		}
+
+		&:last-of-type {
+			&::after {
+				content: '';
+			}
+		}
+
+		&[selected] {	
+			> label {
+				background-color: var(--accentFirst) !important;
+				color: var(--windowBackground) !important;
+			}
+		}
+
+		> label {
+			padding-block: 2px !important;
+			padding-inline: 4px !important;
+			color: var(--menupopupLabel);
+			width: -moz-available;
+			height: 19px;
+		}
+	}
+
+	menuseparator {
+		appearance: none;
+		background-color: var(--windowBackground);
+		border-top: none !important;
+		padding: 6px !important;
+
+		&::before {
+			content: '';
+			height: 1px;
+			width: -moz-available;
+			background-color: var(--menulistSeparator);
+		}
+	}
+
+	dropmarker {
+		display: none !important;
+	}
+}
+
+menulist > menupopup > menuitem[_moz-menuactive='true'], menulist > menupopup > menu[_moz-menuactive='true'] {
+	background-color: var(--windowBackground);
+
+	> label {
+		background-color: var(--menulistHover);
+	}
+}

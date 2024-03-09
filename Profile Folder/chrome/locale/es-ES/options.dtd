@@ -1,0 +1,72 @@
+<!ENTITY window.title	"Opciones de BeautyFox">
+
+<!ENTITY tab.general	"General">
+<!ENTITY tab.extras		"Extras">
+<!ENTITY tab.about		"Acerca de">
+<!ENTITY tab.newTab     "Página de nueva pestaña">
+
+<!ENTITY preview.header         "Información">
+<!ENTITY preview.placeholder    "Pase el ratón por encima de un ajuste para ver más información.">
+
+<!ENTITY setting.windowsClassicThemeWarning "Tema clásico detectado. Se han desactivado algunas opciones.">
+<!ENTITY setting.windowsBasicThemeWarning   "Tema básico detectado. Se han desactivado algunas opciones.">
+
+<!ENTITY setting.internetExplorerAppearance			    "Apariencia">
+<!ENTITY setting.description.internetExplorerAppearance	"Elige entre las muchas apariencias que ha tenido Internet Explorer">
+<!ENTITY setting.hideFakeInnerBorders				    "Ocultar los bordes interiores falsos">
+<!ENTITY setting.description.hideFakeInnerBorders       "Hides the fake inner borders of window frames.">
+<!ENTITY setting.inetcpl							    "Opciones de Internet ejecuta inetcpl.cpl">
+<!ENTITY setting.showDownloadProgress				    "Mostrar el progreso de la descarga en el botón Descargas">
+<!ENTITY setting.tabsOnNavRow						    "Mover pestañas a la barra de navegación">
+<!ENTITY setting.edgeButton							    "Botón Microsoft Edge (sólo apariencia de Internet Explorer 11 de Windows 10)">
+<!ENTITY setting.description.edgeButton                 "Añade el botón de nueva ventana de Edge junto al botón de nueva pestaña (sólo apariencia de Internet Explorer 11 de Windows 10).">
+<!ENTITY setting.hide								    "Ocultar">
+<!ENTITY setting.oldEdgeIcon						    "Mostrar con el icono antiguo">
+<!ENTITY setting.newEdgeIcon						    "Mostrar con el icono nuevo">
+<!ENTITY setting.hideSettingsInPopUp				    "Ocultar el botón de configuración en las ventanas emergentes">
+<!ENTITY setting.doNotUseOldSettingsIcon			    "No utilizar el antiguo icono de configuración (sólo apariencia de Internet Explorer 9 Pre-Release 7777)">
+<!ENTITY setting.extensionsButton					    "Botón Extensiones">
+<!ENTITY setting.description.extensionsButton		    "Ocultar o elegir la posición del botón de extensiones.">
+<!ENTITY setting.moveToFavouritesBar				    "Mover a la Barra de Favoritos">
+<!ENTITY setting.moveToEndToolbar					    "Mover a la End Toolbar">
+<!ENTITY setting.bookmarkItemTitleWidth				    "Personalizar la anchura del título del marcador">
+<!ENTITY setting.longTitles							    "Títulos largos">
+<!ENTITY setting.shortTitles						    "Títulos cortos">
+<!ENTITY setting.iconsOnly							    "Sólo iconos">
+<!ENTITY setting.fakeDropdownIconsInCommandBar		    "Mostrar íconos menú desplegable falsos en los botones de la barra de comandos">
+<!ENTITY setting.customiseCommandBarItems 			    "Personaliza los elementos de la barra de comandos">
+<!ENTITY setting.description.customiseCommandBarItems   "Mostrar todas las etiquetas de los elementos de la barra de comandos, texto selectivo o sólo iconos.">
+<!ENTITY setting.showAllTextLabels					    "Mostrar todas las etiquetas de texto">
+<!ENTITY setting.showSelectiveText					    "Mostrar el texto selectivo">
+<!ENTITY setting.showOnlyIcons						    "Mostrar sólo los iconos">
+<!ENTITY setting.showStatusBar						    "Mostrar barra de estado">
+<!ENTITY setting.showFakeInternetLabel				    "Opciones de la etiqueta falsa modo protegido">
+<!ENTITY setting.internetLabelInternet				    "Internet">
+<!ENTITY setting.internetLabelInternetProtectedOn	    "Internet | Modo protegido: desactivado">
+<!ENTITY setting.internetLabelInternetProtectedOff	    "Internet | Modo protegido: activado">
+<!ENTITY setting.topSitesRows				            "Amount of popular sites rows in the new tab page">
+<!ENTITY setting.doNotRunWizardInNextStart			    "No ejecutar el asistente en el siguiente inicio">
+<!ENTITY setting.description.doNotRunWizardInNextStart	"Esto restablecerá todos los ajustes de BeautyFox.">
+<!ENTITY setting.navigationButtonRadius				    "Redondeo de los botones de navegación">
+<!ENTITY setting.customColouringForUI				    "Coloración personalizada de la interfaz de usuario">
+<!ENTITY setting.customColourMethod					    "Método de color personalizado">
+<!ENTITY setting.disabled							    "Desactivado">
+<!ENTITY setting.custom								    "Personalizado">
+<!ENTITY setting.userAccentColour					    "Color de acento del usuario">
+<!ENTITY setting.AWMAccentColour					    "Color de acento del Aero Window Manager">
+<!ENTITY setting.DWMBGAccentColour					    "Color de acento del DWMBlurGlass (más lento)">
+<!ENTITY setting.customcolour						    "Color personalizado">
+<!ENTITY setting.DWMBlurGlassPath						"Ruta al ejecutable de DWMBlurGlass">
+<!ENTITY setting.nativeControlsPatch				    "Native Controls Patch">
+<!ENTITY setting.forceAeroSupport					    "Forzar el soporte Aero">
+<!ENTITY setting.nativeControlsOn					    "Los controles nativos están activados">
+<!ENTITY setting.nativeControlsPatchIsNotInstalled	    "El parche no está instalado.">
+<!ENTITY setting.getTheNativeControlsPatch			    "Obtener el parche">
+
+<!ENTITY about.creditsAndSpecialThanks	"Créditos y agradecimientos especiales">
+<!ENTITY about.browserVersion           "Versión">
+<!ENTITY about.basedOnBrowserVersion    "Basado en el versión">
+<!ENTITY about.browserUpdateChannel     "Canal de actualización">
+<!ENTITY about.architecture             "Arquitectura">
+<!ENTITY about.OSName                   "Sistema operativo">
+<!ENTITY about.compositor               "Compositor">

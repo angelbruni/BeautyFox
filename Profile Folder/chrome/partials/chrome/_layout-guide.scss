@@ -1,5 +1,92 @@
+// TODO: Rework layout guide.
+
+#customization-container {
+	overflow-y: auto;
+}
+
+#customization-content-container,
+#customization-footer {
+	width: 849px;
+	margin: 0 auto;
+}
+
+#customization-content-container {
+	min-height: unset !important;
+	padding-top: 52px;
+}
+
+#customization-footer {
+	margin-top: 30px !important;
+	padding: 0 !important;
+}
+
+#customization-header,
+#customization-palette {
+	margin: 0 !important;
+}
+
+#customization-header {
+	margin: 0 !important;
+	margin-bottom: 0px !important;
+	margin-left: 0px !important;
+	margin-left: 3px !important;
+	font-weight: normal !important;
+	font-size: 14pt !important;
+	margin-bottom: 25px !important;
+	font-kerning: none !important;
+}
+
+#customization-palette {
+	overflow: unset !important;
+	display: grid !important;
+	padding: 0 !important;
+	flex: unset !important;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 24px;
+}
+
 #customization-panel-container {
     display: none !important;
+}
+
+toolbarpaletteitem[place='palette'] {
+	display: flex;
+	margin: 0 !important;
+	--size: 150px;
+	height: var(--size) !important;
+	width: var(--size) !important;
+	max-width: unset !important;
+	--tileBorder: rgb(217,217,217);
+	border: 1px solid var(--tileBorder);
+	background-color: white;
+	padding: 8px;
+	transform: unset !important;
+
+	&::after {
+		text-align: unset !important;
+	}
+
+	toolbarbutton {
+		width: fit-content !important;
+		padding: 0 !important;
+		margin-bottom: 12px !important;
+
+		.toolbarbutton-icon {
+			width: 32px !important;
+			height: 32px !important;
+		}
+	}
+
+	toolbaritem {
+		width: fit-content !important;
+		padding: 0 !important;
+
+		.toolbarbutton-icon,
+		#fxa-avatar-image {
+			width: 32px !important;
+			height: 32px !important;
+		}
+	}
 }
 
 #nav-bar:not([urlbar-exceeds-toolbar-bounds]),
@@ -29,7 +116,7 @@ html {
         }
     }
 
-    #nav-bar-customization-target,
+    /*#nav-bar-customization-target,
     #endToolbar,
     #addonsBar,
     #PersonalToolbar > toolbarpaletteitem:first-of-type,
@@ -78,9 +165,9 @@ html {
         &::before {
             background-color: rgba(255, 196, 0, 0.9)
         }
-    }
+    }*/
 
-    #PersonalToolbar > toolbarpaletteitem:first-of-type {
+    /*#PersonalToolbar > toolbarpaletteitem:first-of-type {
         &::before,
         &::after {
             position: absolute;
@@ -98,9 +185,9 @@ html {
         &::after {
             left: -23px;
         }
-    }
+    }*/
 
-    #PersonalToolbar > toolbarpaletteitem:last-of-type {
+    /*#PersonalToolbar > toolbarpaletteitem:last-of-type {
         &::before,
         &::after {
             position: absolute;
@@ -125,9 +212,9 @@ html {
         &::before {
             background-color: rgba(255, 0, 0, 0.9)
         }
-    }
+    }*/
 
-    &[customizing="true"] {
+    &[customizing='true'] {
         #customization-palette {
             #bookmarks-menu-button,
             #bookmarksSidebarButton {
@@ -135,7 +222,7 @@ html {
             }
         }
 
-        #wrapper-stop-reload-button {
+        /*#wrapper-stop-reload-button {
             filter: drop-shadow(0px 0px 2px #fff)
                     drop-shadow(0px 0px 2px #fff)
                     drop-shadow(0px 0px 4px rgba(43, 255, 0, 0.9))
@@ -194,7 +281,7 @@ html {
             opacity: .3;
         }
 
-        #navigator-toolbox-background {
+        /*#navigator-toolbox-background {
             background-color: rgb(0,0,0,.5) !important;
         }
 
@@ -202,7 +289,7 @@ html {
             &::before {
                 background-color: rgb(0,0,0,.5) !important;
             }
-        }    
+        } */   
         
         #nav-bar-customization-target {
             clip-path: polygon(-100% -50%, 200% -50%, 150% 35px, -100% 35px);
@@ -233,3 +320,34 @@ html {
     }
 }
 
+#wrapper-firefox-view-button,
+#wrapper-edit-controls,
+#wrapper-print-button,
+#wrapper-email-link-button,
+#wrapper-history-panelmenu,
+#wrapper-find-button,
+#wrapper-open-file-button,
+#wrapper-sidebar-button,
+#wrapper-logins-button,
+#wrapper-sync-button,
+#wrapper-screenshot-button,
+#wrapper-save-to-pocket-button,
+#wrapper-developer-button,
+#wrapper-import-button,
+#wrapper-library-button,
+#wrapper-fxa-toolbar-menu-button,
+[id*='wrapper-customizableui-special-spring'] {
+	display: none !important;
+}
+
+#customization-uidensity-button {
+    display: none !important;
+}
+
+#customization-toolbar-visibility-button {
+    display: none !important;
+}
+
+#customization-reset-button {
+	display: none !important;
+}

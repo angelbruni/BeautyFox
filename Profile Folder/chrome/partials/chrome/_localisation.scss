@@ -1,11 +1,10 @@
+// TODO: This is dumb, get rid of it.
+
 :root {
     --favorites-label: "Favourites";
 
     --label-view-downloads: View Downloads - ;
     --label-view-n-track-your-downloads: View and track your downloads;
-
-    --label-about-before: About ;
-    --label-about-after: ;
 
     --get-more-add-ons-label: "Get More Add-ons";
 
@@ -36,9 +35,6 @@ html {
 
         --label-view-downloads: Exibir Downloads - ;
         --label-view-n-track-your-downloads: Exibir e acompanhar seus downloads;
-
-        --label-about-before: Sobre o ;
-        --label-about-after: ;
     }
 
     &[lang="pt-PT"] {
@@ -46,9 +42,6 @@ html {
 
         --label-view-downloads: Exibir Transferências - ;
         --label-view-n-track-your-downloads: Ver e controlar tranferências;
-
-        --label-about-before: Acerca do ;
-        --label-about-after: ;
     }
 
     &[lang*="es"] {
@@ -56,9 +49,6 @@ html {
 
         --label-view-downloads: Ver descargas: ;
         --label-view-n-track-your-downloads: Ver y seguir sus descargas;
-
-        --label-about-before: Acerca de ;
-        --label-about-after: ;
 
         --get-more-add-ons-label: "Más complementos";
 
@@ -76,8 +66,5 @@ html {
     &[lang="ja"] {
         --label-view-downloads: ダウンロードの表紙 - ;
         --label-view-n-track-your-downloads: ダウンロードの表紙と追跡;
-
-        --label-about-before: ;
-        --label-about-after: のバージョン情報;
     }
 }

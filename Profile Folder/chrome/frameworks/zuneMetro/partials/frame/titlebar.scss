@@ -1,0 +1,104 @@
+:root {
+	--titlebarHeight: 28px;
+	--captionTitle: white;
+
+	--captionButtonNormal: transparent;
+	--captionButtonCloseHot: rgb(224,67,67);
+	--captionButtonCloseActive: rgb(199,80,80);
+	--captionButtonOthersHot: rgb(54,101,179);
+	--captionButtonOthersActive: rgb(61,96,153);
+
+	--captionButtonGlyphNormal: var(--buttonLabel);
+	--captionButtonGlyphHot: white;
+	--captionButtonGlyphActive: var(--captionButtonGlyphHot);
+}
+
+#customTitlebar {
+	display: flex;
+	height: var(--titlebarHeight);
+	-moz-window-dragging: drag !important;
+	align-items: center;
+	padding-inline-start: 8px;
+	opacity: 0;
+	transition: opacity .5s;
+
+	&.show {
+		opacity: 1;
+	}
+	
+	menulist {
+		-moz-window-dragging: no-drag;
+	}
+
+	#captionTitle {
+		all: unset;
+		color: var(--captionTitle);
+		font-size: 12pt;
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	}
+
+	#captionButtonsContainer {
+		margin-left: auto;
+		-moz-window-dragging: no-drag;
+		
+		> #captionButtons {
+			> captionButton {
+				position: relative;
+				background-color: var(--captionButtonNormal);
+				width: var(--titlebarHeight);
+				height: var(--titlebarHeight);
+				margin-left: 1px;
+	
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					box-sizing: border-box;
+					mask-position: center;
+					mask-repeat: no-repeat;
+					pointer-events: none;
+					background-color: var(--captionButtonGlyphNormal);
+				}
+	
+				&:hover {
+					background-color: var(--captionButtonOthersHot);
+
+					&::before {
+						background-color: var(--captionButtonGlyphHot);
+					}
+
+					&#closeButton {
+						background-color: var(--captionButtonCloseHot);
+					}
+				}
+	
+				&:active {
+					background-color: var(--captionButtonOthersActive);
+
+					&::before {
+						background-color: var(--captionButtonGlyphActive);
+					}
+
+					&#closeButton {
+						background-color: var(--captionButtonCloseActive)
+					}
+				}
+	
+				&#closeButton {
+					&::before {
+						mask-image: url("chrome://userchrome/content/frameworks/zuneMetro/resources/close.svg");
+					}
+				}
+	
+				&#minimiseButton {
+					&::before {
+						mask-image: url("chrome://userchrome/content/frameworks/zuneMetro/resources/minimise.svg");
+					}
+				}
+			}
+		}
+	}
+}

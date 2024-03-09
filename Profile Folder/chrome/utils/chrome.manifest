@@ -1,6 +1,20 @@
-content userchromejs ./
-content userscripts ../JS/
-skin userstyles classic/1.0 ../CSS/
-content userchrome ../
+content userchromejs        ./
+content userscripts         ../JS/ contentaccessible=yes
+content bfwindows         	../windows/ contentaccessible=yes
 
-override chrome://browser/content/aboutPrivateBrowsing.html ../HTML/aboutPrivateBrowsing.html
+locale beautyfox en-GB      ../locale/en-GB/
+locale beautyfox en-US      ../locale/en-US/
+locale beautyfox es-ES      ../locale/es-ES/
+locale beautyfox pt-PT      ../locale/pt-PT/
+locale beautyfox pt-BR      ../locale/pt-BR/
+locale beautyfox tr-TR      ../locale/tr-TR/
+locale beautyfox ja      	../locale/ja/
+
+skin userstyles classic/1.0 ../CSS/
+content userchrome          ../ contentaccessible=yes
+
+override chrome://global/skin/icons/search-textbox.svg                  ../images/search7.svg
+override chrome://global/skin/icons/arrow-down.svg                      ../frameworks/zuneMetro/resources/comboboxArrow.svg
+override chrome://mozapps/content/downloads/unknownContentType.xhtml    ../windows/saveAs/index.xhtml
+override chrome://global/skin/button.css                                ../styles/button.css
+override chrome://global/skin/dialog.css                                ../styles/dialog.css

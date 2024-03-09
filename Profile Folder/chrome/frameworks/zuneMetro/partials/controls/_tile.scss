@@ -1,0 +1,76 @@
+:root {
+	--tileOuterBorder: rgba(0, 0, 0, .5);
+	--tileInnerBorder: rgba(255, 255, 255, .2);
+	--tileLabel: black;
+}
+
+.tilesContainer {
+	margin-top: 31px;
+	gap: 10px;
+
+	> tile {
+		flex: 1;
+	}
+}
+
+tile {
+	display: flex;
+	flex-direction: column;
+	
+	.tileArtPerspective {
+		perspective: 300px;
+	}
+
+	.tileArt {
+		position: relative;
+		border: 1px solid var(--tileOuterBorder);
+		background: linear-gradient(135deg, var(--accentFirst) 0%, color-mix(in srgb, var(--accentFirst) 70%, black) 100%);
+		margin-bottom: 14px;
+		transition: transform .1s;
+		overflow: hidden;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 1px solid var(--tileInnerBorder);
+		}
+
+		.glare {
+			position: absolute;
+			height: 130px;
+			width: 130px;
+			transform: translate(-50%, -50%);
+			mask-image: radial-gradient(rgb(0, 0, 0) 0%, transparent 65%);
+			backdrop-filter: brightness(1.5);
+			opacity: 0;
+			z-index: 2;
+			transition: opacity .5s;
+		}
+	}
+
+	label {
+		color: var(--tileLabel);
+		font-weight: bold;
+		text-transform: uppercase;
+		font-size: 9pt;
+	}
+
+	&:hover {
+		.tileArt {
+			outline: 3px solid var(--accentFirst);
+
+			.glare {
+				opacity: 1;
+				transition: opacity .1s;
+			}
+		}
+
+		label {
+			color: var(--accentFirst)
+		}
+	}
+}

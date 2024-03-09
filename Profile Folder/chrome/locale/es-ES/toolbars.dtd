@@ -1,0 +1,5 @@
+<!ENTITY toolbar.navigation "Barra de navegación">
+<!ENTITY toolbar.end 		"End Toolbar">
+<!ENTITY toolbar.favourites "Barra de favoritos">
+<!ENTITY toolbar.command    "Command Bar">
+<!ENTITY toolbar.status		"Barra de estado">

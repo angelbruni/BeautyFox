@@ -1,0 +1,93 @@
+#identity-popup-mainView {
+	background: white;
+	color: rgb(59,59,59) !important;
+	min-width: unset !important;
+	max-width: unset !important;
+	
+	.identity-popup-connection-secure.security-view,
+	.identity-popup-connection-secure.upgraded,
+	.identity-popup-connection-not-secure.security-view {
+		padding-inline-start: 0 !important;
+	}
+}
+
+.identity-popup-section {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+#identity-popup-content-verifier {
+	margin: 0 !important;
+
+	~ description {
+		margin: 0 !important;
+		line-height: 11pt;
+	}
+}
+
+#identity-popup-content-verifier {
+	margin-block-end: 10px !important;
+}
+
+#identity-popup-securityView-extended-info {
+	description {
+		&[data-l10n-id="identity-connection-not-secure-security-view"],
+		&[data-l10n-id="identity-connection-verified"] {
+			margin-block-start: 11px !important;
+			margin-block-end: 9px !important;
+		}
+	}
+}
+
+#identity-popup-link {
+	padding: 0 !important;
+	appearance: none !important;
+	color: rgb(0,0,139) !important;
+	width: fit-content !important;
+
+	&::after {
+		content: unset !important;
+	}
+
+	&:hover {
+		background-color: transparent !important;
+		text-decoration: underline !important;
+		cursor: pointer !important;
+
+		.identity-popup-connection-secure {
+			text-decoration: underline !important;
+		}
+	}
+
+	.toolbarbutton-icon {
+		display: none !important;
+	}
+
+	.toolbarbutton-text {
+		padding: 0 !important;
+	}
+}
+
+:root {
+	&[securestate="ev"] {
+		#identity-popup-mainView {
+			background: linear-gradient(0deg, white 0%, rgba(227,254,222,1) 100%) !important;
+
+			.panel-header {
+                &::before {
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31049.ico");
+                }
+            }
+		}
+	}
+
+	&[securestate="insecure"] {
+		#identity-popup-mainView {
+			.panel-header {
+                &::before {
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31058.ico");
+                }
+            }
+		}
+	}
+}

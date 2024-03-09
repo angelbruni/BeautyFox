@@ -1,0 +1,5 @@
+<!ENTITY toolbar.navigation "Navigation Bar">
+<!ENTITY toolbar.end 		"End Toolbar">
+<!ENTITY toolbar.favourites "Favourites Bar">
+<!ENTITY toolbar.command    "Command Bar">
+<!ENTITY toolbar.status		"Status Bar">

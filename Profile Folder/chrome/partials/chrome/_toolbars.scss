@@ -2,8 +2,8 @@
     --toolbar-bgcolor: #e6effa !important;
 
     @supports not -moz-bool-pref('BeautyFox.appearance.IE10') {
-        @supports -moz-bool-pref('BeautyFox.option.useAccentColourToolbars') {
-            --toolbar-bgcolor: color-mix(in srgb, var(--userAccentColor) 10%, white) !important;
+        &[customcolour="true"] {
+            --toolbar-bgcolor: color-mix(in srgb, var(--desiredColourForUI) 10%, white) !important;
         }
     }
 
@@ -33,66 +33,11 @@
         content: url(images/dropdown.png);
         margin-bottom: 6px;
         margin-left: 6px;
-        margin-right: 3px;
-    }
-}
-
-#suggestedsites_bruni_com-BAP,
-#unified-extensions-button {
-    padding: 3px !important;
-    align-items: center !important;
-
-    @supports not -moz-bool-pref('BeautyFox.option.moveExtensionsButtonToEndToolbar') {
-        &::after {
-            content: url(images/dropdown.png);
-            margin-bottom: 6px;
-            margin-left: 6px;
-            margin-right: 3px;
-        }
-    }
-
-    &:active,
-    &[open="true"] {
-        &::after,
-        .toolbarbutton-icon,
-        .toolbarbutton-text {
-            transform: translateX(1px) translateY(1px);
-        }
-    }
-
-    .toolbarbutton-badge-stack {
-        padding: 0 !important;
-        margin-inline-end: 4px;
-    }
-
-    .toolbarbutton-text {
-        display: block !important;
-        padding: 0 !important;
-        min-height: 0 !important;
-    }
-
-    .toolbarbutton-icon {
-        height: 16px !important;
-        width: 16px !important;
-        padding: 0 !important;
-        margin-inline-end: 4px !important;
     }
 }
 
 #suggestedsites_bruni_com-BAP {
     list-style-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/30788.ico') !important;
-
-    @supports -moz-bool-pref("BeautyFox.option.smallBookmarkItem") {
-        max-width: 62px !important;
-    }
-
-    @supports -moz-bool-pref("BeautyFox.option.iconOnlyBookmarkItem") {
-        .toolbarbutton-text {
-            &::before {
-                content: unset !important;
-            }
-        }
-    }
 
     @supports -moz-bool-pref('BeautyFox.appearance.IE9PreRelease') {
         list-style-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/110.ico') !important;
@@ -119,25 +64,89 @@
 
     .toolbarbutton-text {
         &::before {
-            content: var(--get-more-add-ons-label) !important;
             overflow: hidden !important;
             text-overflow: ellipsis !important;
         }
     }
+}
 
-    @supports not -moz-bool-pref("BeautyFox.option.moveExtensionsButtonToEndToolbar") {
-        @supports -moz-bool-pref("BeautyFox.option.smallBookmarkItem") {
-            max-width: 62px !important;
-        }
+#PersonalToolbar {
+	#suggestedsites_bruni_com-BAP,
+	#unified-extensions-button {
+		padding: 3px !important;
+		align-items: center !important;
 
-        @supports -moz-bool-pref("BeautyFox.option.iconOnlyBookmarkItem") {
-            .toolbarbutton-text {
-                &::before {
-                    content: unset !important;
-                }
-            }
-        }
-    }
+		&:active,
+		&[open="true"] {
+			&::after,
+			.toolbarbutton-icon,
+			.toolbarbutton-text {
+				transform: translateX(1px) translateY(1px);
+			}
+		}
+
+		.toolbarbutton-badge-stack {
+			padding: 0 !important;
+		}
+
+		.toolbarbutton-text {
+			display: block !important;
+			padding: 0 !important;
+			min-height: 0 !important;
+		}
+
+		.toolbarbutton-icon {
+			height: 16px !important;
+			width: 16px !important;
+			padding: 0 !important;
+			margin-inline-end: 4px !important;
+		}
+	}
+
+	#unified-extensions-button {
+		&::after {
+			content: "";
+			margin-left: 6px;
+			width: 7px;
+			height: 4px;
+			background-image: url(images/dropdown.png);
+			background-position: center;
+			background-size: cover;
+
+			@media (-moz-windows-classic) {
+				width: 5px;
+				height: 3px;
+			}
+		}
+	}
+
+	&[bookmarkitemwidth="small"] {
+		#suggestedsites_bruni_com-BAP {
+			max-width: 62px !important;
+		}
+
+		#unified-extensions-button {
+			max-width: 62px !important;
+		}
+	}
+
+	&[bookmarkitemwidth="icons"] {
+		#suggestedsites_bruni_com-BAP {
+			.toolbarbutton-text {
+				&::before {
+					content: unset !important;
+				}
+			}
+		}
+
+		#unified-extensions-button {
+			.toolbarbutton-text {
+				&::before {
+					content: unset !important;
+				}
+			}
+		}
+	}
 }
 
 #newToolbar {
@@ -147,31 +156,41 @@
     position: relative;
     overflow: visible !important;
     box-sizing: border-box;
+}
 
-    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-        @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-            margin-bottom: 4px;
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: -4px;
-                height: 3px;
-                background-color: white;
-                border-radius: 4px 4px 0 0;
-                width: 100%;
-                margin-left: 0;
-                border-top: 1px solid var(--browser-inner-border-color) !important;
-    
-                @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
-                    border-left: 1px solid var(--browser-inner-border-color) !important;
-                    border-right: 1px solid var(--browser-inner-border-color) !important;
-                    width: calc(100% - 4px);
-                    margin-left: 1px;
-                }
-            }
-        }
-    }
+:root[tabsOnNavRow] {
+	&:not([chromehidden~="toolbar"]) {
+		#newToolbar {
+			@media not (-moz-windows-classic) {
+				@media (-moz-windows-compositor: 0) {
+					border-bottom: 1px solid rgb(115, 131, 147) !important;
+				}
+			}
+	
+			@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+				margin-bottom: 4px;
+		
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: -4px;
+					height: 3px;
+					background-color: white;
+					border-radius: 4px 4px 0 0;
+					width: 100%;
+					margin-left: 0;
+					border-top: 1px solid var(--browser-inner-border-color) !important;
+		
+					@supports not -moz-bool-pref("BeautyFox.option.bHideFakeInnerBorders") {
+						border-left: 1px solid var(--browser-inner-border-color) !important;
+						border-right: 1px solid var(--browser-inner-border-color) !important;
+						width: calc(100% - 4px);
+						margin-left: 1px;
+					}
+				}
+			}
+		}
+	}
 }
 
 #PersonalToolbar {
@@ -206,6 +225,7 @@
     }
 }
 
+
 #statusbarContainer {
     position: relative;
     display: flex;
@@ -221,13 +241,8 @@
     opacity: 0;
     z-index: 1;
     max-height: 21px !important;
-
-    @supports not -moz-bool-pref("BeautyFox.option.showStatusBar") {
-        display: none;
-    }
     
     &::before {
-
         @media not (-moz-windows-classic) {
             content: '';
         }
@@ -294,12 +309,13 @@
     }
 
     #statusbarInternetProtectionModeContainer {
+		display: none;
         padding-left: 4px;
         width: 100%;
         max-width: 270px;
         
-        @supports not -moz-bool-pref("BeautyFox.option.fakeInternetProtected") {
-            display: none;
+        &[protectionlabel] {
+            display: flex;
         }
 
         &::before {
@@ -355,6 +371,12 @@
         font-family: normal !important;
         padding: 0 !important;
     }
+}
+
+:root:not([statusbar]) {
+	#statusbarContainer {
+		display: none;
+	}
 }
 
 #zoomMenuButton {
@@ -598,8 +620,8 @@ findbar {
     margin-inline: 0 !important;
 }
 
-@supports -moz-bool-pref("BeautyFox.option.showStatusBar") {
-    #statusbarContainer {
+:root[statusbar] {
+	#statusbarContainer {
         max-height: unset;
         opacity: 1;
         padding-top: 1px;
@@ -624,7 +646,7 @@ findbar {
 }
 
 #endToolbar {
-    margin-inline-start: 9px !important;
+	margin-inline-start: 9px !important;
     padding-right: 5px;
     background-color: transparent !important;
     -moz-window-dragging: drag !important;
@@ -632,11 +654,11 @@ findbar {
 
     @media (-moz-windows-classic) {
         padding-right: 0;
-        margin-right: -1px;
+        margin-right: 3px;
     }
 }
 
-#PersonalToolbar {
+#commandBar {
     toolbarbutton {
         height: 25px !important;
 
@@ -664,7 +686,7 @@ findbar {
             }
 
             > .toolbarbutton-text {
-                font-size: 9pt !important;
+                font-size: 8pt !important;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
             }
         }
@@ -674,17 +696,14 @@ findbar {
         padding-left: 4px !important;
         padding-right: 4px !important;
         align-items: center !important;
+		margin-bottom: 2px !important;
+		margin-top: 2px !important;
+		appearance: toolbarbutton !important;
 
         .toolbarbutton-icon {
             padding: 0 !important;
             height: auto !important;
             width: auto !important;
-        }
-
-        @supports -moz-bool-pref("BeautyFox.option.textIconInCB") {
-            .toolbarbutton-text {
-                display: block !important;
-            }
         }
 
         #downloads-indicator-finish-box {
@@ -699,6 +718,14 @@ findbar {
             }
         }
     }
+
+	&[commandbaritem="texticon"] {
+		#downloads-button {
+			.toolbarbutton-text {
+                display: block !important;
+            }
+		}
+	}
 }
 
 #cBHomeButton,
@@ -821,13 +848,6 @@ findbar {
 #cBHelpMenuButton {
     list-style-image: none !important;
 
-    @supports -moz-bool-pref("BeautyFox.option.textIconInCB") {
-        .toolbarbutton-text {
-            padding-left: 4px !important;
-            padding-right: 4px !important;
-        }
-    }
-
     .toolbarbutton-icon {
         height: 16px !important;
         width: 16px !important;
@@ -845,12 +865,6 @@ findbar {
 }
 
 #cBPageMenuButton {
-    @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
-        .toolbarbutton-icon {
-            list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_7.ico") !important;
-        }
-    }
-
     .toolbarbutton-text {
         display: block;
     }
@@ -977,12 +991,6 @@ findbar {
 }
 
 #cBSafetyMenuButton {
-    @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
-        .toolbarbutton-icon {
-            list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_50.ico") !important;
-        }
-    }
-
     .toolbarbutton-text {
         display: block;
     }
@@ -1036,12 +1044,6 @@ findbar {
 }
 
 #cBToolsMenuButton {
-    @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
-        .toolbarbutton-icon {
-            list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_8.ico") !important;
-        }
-    }
-
     .toolbarbutton-text {
         display: block;
     }
@@ -1179,22 +1181,6 @@ findbar {
     .toolbarbutton-icon {
         height: 16px !important;
         width: 16px !important;
-
-        @supports not -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
-            display: none !important;
-        }
-    }
-
-    @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
-        padding-left: 3px !important;
-
-        .toolbarbutton-text {
-            display: none !important;
-        }
-
-        &::after {
-            margin-left: 2px !important;
-        }
     }
     
     &[open="true"],
@@ -1206,10 +1192,6 @@ findbar {
         .toolbarbutton-text,
         &::after {
             transform: translateX(1px) translateY(1px);
-
-            @supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB")  {
-                transform: translateX(0) translateY(0) !important;
-            }
         }
     }
 }
@@ -1237,12 +1219,58 @@ findbar {
     }
 }
 
-@supports -moz-bool-pref("BeautyFox.option.onlyIconsinCB") {
-    #cBPageMenuButton,
-    #cBToolsMenuButton,
-    #cBSafetyMenuButton {
-        padding-left: 4px !important;
-    }
+#commandBar {
+	&[commandbaritem="icons"] {
+		#cBPageMenuButton {
+			.toolbarbutton-icon {
+				list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_7.ico") !important;
+			}
+		}
+
+		#cBSafetyMenuButton {
+			.toolbarbutton-icon {
+				list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_50.ico") !important;
+			}
+		}
+
+		#cBToolsMenuButton {
+			.toolbarbutton-icon {
+				list-style-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697-699_8.ico") !important;
+			}
+		}
+
+		#cBPageMenuButton,
+		#cBSafetyMenuButton,
+		#cBToolsMenuButton {
+			padding-left: 4px !important;
+
+			.toolbarbutton-text {
+				display: none !important;
+			}
+
+			&::after {
+				margin-left: 2px !important;
+			}
+		}
+	}
+
+	&:not([commandbaritem="icons"]) {
+		#cBPageMenuButton,
+		#cBSafetyMenuButton,
+		#cBToolsMenuButton {
+			&[open="true"],
+			&:active {
+				.toolbarbutton-text,
+				&::after {
+					transform: translateX(0) translateY(0) !important;
+				}
+			}
+
+			.toolbarbutton-icon {
+				display: none !important;
+			}
+		}
+	}
 }
 
 #cBHomeButton,
@@ -1261,22 +1289,50 @@ findbar {
 
     &[type="menu"] {
         &::after {
-            content: url(images/dropdown.png);
-            margin-bottom: 6px;
+            content: "";
             margin-left: 4px;
             margin-right: 1px;
+            width: 7px;
+            height: 4px;
+            background-image: url(images/dropdown.png);
+            background-position: center;
+            background-size: cover;
+
+            @media (-moz-windows-classic) {
+                width: 5px;
+                height: 3px;
+            }
         }
 
         .toolbarbutton-text {
             margin-bottom: 2px !important;
         }
     }
+}
 
-    @supports -moz-bool-pref("BeautyFox.option.textIconInCB") {
-        .toolbarbutton-text {
-            display: block !important;
-        }
-    }
+#commandBar {
+	&[commandbaritem="texticon"] {
+		#cBHelpMenuButton {
+			.toolbarbutton-text {
+				padding-left: 4px !important;
+				padding-right: 4px !important;
+			}
+		}
+
+		#cBHomeButton,
+		#_a9c2ad37-e940-4892-8dce-cd73c6cbbc0c_-BAP,
+		#cBPrintButton,
+		#cBReadMailButton,
+		#cBPageButton,
+		#cBPageMenuButton,
+		#cBSafetyMenuButton,
+		#cBToolsMenuButton,
+		#cBHelpMenuButton {
+			.toolbarbutton-text {
+				display: block !important;
+			}
+		}
+	}
 }
 
 #addToBookmarksBarButton {
@@ -1300,6 +1356,7 @@ findbar {
 
     @media (-moz-windows-classic) {
         padding-left: 3px !important;
+        padding-right: 2px !important;
     }
 
     &[type="menu"] {
@@ -1326,9 +1383,18 @@ findbar {
     align-items: center !important;
 
     &::after {
-        content: url(images/dropdown.png);
-        margin-bottom: 6px;
+        content: "";
         margin-left: 10px;
+        width: 7px;
+        height: 4px;
+        background-image: url(images/dropdown.png);
+        background-position: center;
+        background-size: cover;
+
+        @media (-moz-windows-classic) {
+            width: 5px;
+            height: 3px;
+        }
     }
 
     &[open="true"],
@@ -1370,21 +1436,32 @@ findbar {
     }
 }
 
-@supports -moz-bool-pref("BeautyFox.option.fakeDropdownArrowsinCB") {
-    #cBHomeButton,
-    #cBPrintButton {
-        padding-left: 8px !important;
+#commandBar {
+	&[commandbardropdown] {
+		#cBHomeButton,
+		#cBPrintButton {
+			padding-left: 8px !important;
 
-        @media (-moz-windows-classic) {
-            padding-left: 4px !important;
-        }
+			@media (-moz-windows-classic) {
+				padding-left: 4px !important;
+			}
 
-        &::after {
-            content: url(images/dropdown.png);
-            margin-bottom: 6px;
-            margin-left: 10px;
-        }
-    }
+			&::after {
+				content: "";
+				margin-left: 10px;
+				width: 7px;
+				height: 4px;
+				background-image: url(images/dropdown.png);
+				background-position: center;
+				background-size: cover;
+
+				@media (-moz-windows-classic) {
+					width: 5px;
+					height: 3px;
+				}
+			}
+		}
+	}
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
@@ -1392,33 +1469,6 @@ findbar {
         #cBSafetyMenuPopUp > menuseparator:last-of-type,
         #cBSafety_windowsUpdate {
             display: none !important;
-        }
-    }
-}
-
-@supports -moz-bool-pref("BeautyFox.option.hideExtensionsButton") {
-    *,
-    #PersonalToolbar {
-        #unified-extensions-button,
-        #unified-extensions-button:not(#PlacesChevron) {
-            appearance: none !important;
-            min-width: 0 !important;
-            min-height: 0 !important;
-            width: 0 !important;
-            height: 0 !important;
-            max-width: 0 !important;
-            max-height: 0 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            overflow: hidden !important;
-    
-            &::before {
-                content: unset !important;
-            }
-            
-            &::after {
-                content: unset !important;
-            }
         }
     }
 }

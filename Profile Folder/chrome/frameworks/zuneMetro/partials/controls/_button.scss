@@ -1,0 +1,66 @@
+:root {
+	--buttonBorderHighlight: linear-gradient(0deg, color-mix(in srgb, var(--accentFirst) 70%, black) 75%, var(--accentFirst) 100%);
+	--buttonBorder: #cccccc;
+
+	--buttonNormalFirst: #E7E7E7;
+	--buttonNormalSecond: #FFFFFF;
+
+	--buttonNormal: linear-gradient(0deg, var(--buttonNormalFirst), var(--buttonNormalSecond));
+	--buttonHot: linear-gradient(0deg, color-mix(in srgb, var(--buttonNormalFirst) 92%, black), var(--buttonNormalFirst));
+	--buttonActive: linear-gradient(180deg, var(--buttonNormalFirst), var(--buttonNormalSecond));
+
+	--buttonLabel: #373A3D;
+	--buttonFontSize: 8pt;
+
+	--buttonRadius: 3px;
+	--buttonBorderSize: 1px;
+	--buttonHeight: 20px;
+}
+
+zuneButton {
+	padding: var(--buttonBorderSize);
+	width: max-content;
+	background: var(--buttonBorderHighlight);
+	color: var(--buttonLabel);
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: var(--buttonFontSize);
+	height: fit-content;
+	border-radius: var(--buttonRadius);
+	transition: transform .2s;
+
+	> div {
+		padding: 0 21px;
+		min-height: var(--buttonHeight);
+		background: var(--buttonNormal);
+		border-radius: calc(var(--buttonRadius) - var(--buttonBorderSize));
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		min-width: 71px;
+		box-sizing: border-box;
+
+		> label {
+			height: fit-content;
+		}
+	}
+
+	&[disabled='true'] {
+		background: var(--buttonBorder);
+	}
+
+	&:hover {
+		> div {
+			background: var(--buttonHot)
+		}
+	}
+
+	&:active {
+		transform: scale(.96);
+		transition: transform 0s;
+
+		> div {
+			background: var(--buttonActive);
+		}
+	}
+}

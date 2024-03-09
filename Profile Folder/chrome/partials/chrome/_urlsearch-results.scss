@@ -6,11 +6,11 @@
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         --urlbarView-subtract: 34px;
 
-        @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+        &[tabsOnNavRow] {
             --urlbar-width-calc: calc(25vw + 7px);
         }
     }
-    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+    &[tabsOnNavRow] {
         --urlbar-width-calc: calc(26vw + 10px);
     }
 }
@@ -115,7 +115,7 @@
     }
 }
 
-.urlbarView-row[dynamicType="onboardTabToSearch"],
+.urlbarView-row[dynamicType='onboardTabToSearch'],
 .urlbarView-group-aria-label {
     display: none !important;
 }
@@ -367,7 +367,6 @@
 }
 
 #searchbar {
-    padding: 0 0 0 7px;
     background-color: transparent !important;
     border-radius: 0 !important;
 
@@ -402,8 +401,10 @@
     border-radius: 0 !important;
     background-color: transparent !important;
     height: 24px;
+}
 
-    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+:root[tabsOnNavRow] {
+    #search-container {
         display: none !important;
     }
 }
@@ -423,7 +424,13 @@
     }
 }
 
+#urlbar-input,
 .searchbar-textbox {
+	color: black !important;
+}
+
+.searchbar-textbox {
+    padding: 0 0 0 7px !important;
     order: 1;
     z-index: 1;
     
@@ -440,20 +447,22 @@
     display: none !important;
 }
 
-@supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-    #urlbar-container {
-        flex: unset !important;
-        width: var(--urlbar-width-calc) !important;
-        min-width: var(--urlbar-min-width) !important;
-    }
-
-    toolbarpaletteitem#wrapper-urlbar-container {
-        flex: unset !important;
-    }
-
-    #wrapper-search-container {
-        display: none !important;
-    }
+:root[tabsOnNavRow] {
+	&:not([chromehidden~='toolbar']) {
+		#urlbar-container {
+			flex: unset !important;
+			width: var(--urlbar-width-calc) !important;
+			min-width: var(--urlbar-min-width) !important;
+		}
+	
+		toolbarpaletteitem#wrapper-urlbar-container {
+			flex: unset !important;
+		}
+	
+		#wrapper-search-container {
+			display: none !important;
+		}
+	}
 }
 
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {

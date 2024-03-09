@@ -1,0 +1,192 @@
+:root {
+	--header: var(--label);
+
+	--tasks: var(--label);
+	--label: #2a2a2a;
+
+	--footerSeparator: #C0C0C0;
+
+	--link: #0066cc;
+
+	@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+		--backgroundColour: #fefeff;
+		--backgroundBlue: #e8eff9;
+
+		--header: #d8e2f4;
+		--tasks: #549c00;
+	}
+}
+
+body {
+    background-image: var(--backgroundGradient);
+    background-size: 100% 84px;
+    background-repeat: no-repeat;
+    background-color: var(--backgroundColour);
+    font-family: "Segoe UI", sans-serif;
+    font-size: 80%;
+    margin: 0em;
+    padding: 1em;
+    width: 70em;
+}
+
+.title,
+.expandsection,
+.tasksection, 
+.expando,
+.icon,
+.help,
+.close {
+    position: relative;
+}
+
+.title {
+    font-size: 15pt;
+    color: var(--header);
+    padding-top: 39px;
+    margin:0;
+    margin-right: 5px;
+    padding-bottom: .2em;
+    padding-left: 58px;
+}
+
+.tasksection,
+.expandsection {
+    padding-bottom: 10px;
+}
+
+.column1 {
+    width: 35em;
+    margin-right: 5px;
+}
+
+.mainContent,
+.footer {
+    padding-left: 58px;
+}
+
+.footer {
+    width:65em;
+    float: left;
+    padding-top: 1em;
+}
+
+.tasksection {
+    width: 400px;
+}
+
+.expandsection {
+    padding-top: 10px;
+}
+
+.close,
+.icon,
+.help {
+    top: 3px; 
+    margin-right: 5px;
+    border: none;
+    text-decoration: none;
+    outline: none;
+}
+
+.description,
+.textcount {
+    padding-top:10px;
+    color: var(--label);
+    font-size: 9pt;
+    line-height:15pt;
+}
+
+.tasks {
+    color: var(--tasks);
+    text-decoration: none;
+    outline: none;
+    padding-top:25px;
+    padding-bottom:0px;
+    font-size: 9pt;
+}
+
+hr {
+    margin: 0em 1.5em .25em 0em;
+    height: 1px;
+    border-top: 1px var(--footerSeparator) solid;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+a {
+    font-size: 9pt;
+    color: var(--link);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+#learnMore {
+    &::after {
+        content: '\00a0';
+    }
+}
+
+#privacystatement {
+    &::before {
+        content: '\00a0';
+    }
+}
+
+#inPrivateImage {
+	background-image: url(chrome://userchrome/content/pages/privateBrowsing/resources/inprivate-9.png);
+	width: 400px;
+	height: 24px;
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+	body {
+		background-image: none;
+	}
+}
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+	body {
+		background-size: 100% 409px;
+	}
+
+	#inPrivateImage {
+		background-image: url(chrome://userchrome/content/pages/privateBrowsing/resources/inprivate-9PreRelease.png);
+		width: 287px;
+		height: 39px;
+		margin-bottom: 29px;
+	}
+
+	.title {
+		position: relative !important;
+		left: 4px;
+		font-size: 445% !important;
+		padding: 0 !important;
+		padding-bottom: 0.2em !important;
+	}
+	
+	.tasks {
+		font-size: 130% !important;
+		margin-bottom: 3px;
+		padding-top: 3px !important;
+	}
+
+	.tasksection {
+		min-width: 500px !important;
+	}
+
+	.mainContent, .footer {
+		padding-left: 35px !important;
+	}
+
+	#contentLine1 {
+		padding-top: 15px;
+	}
+
+	hr {
+		margin-bottom: 1em !important;
+	}
+}

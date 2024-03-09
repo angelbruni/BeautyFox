@@ -1,0 +1,7 @@
+<!ENTITY privateBrowsing.inPrivateIsOn      "InPrivate Gözatma etkinleştirildi">
+<!ENTITY privateBrowsing.indicator          "InPrivate Gözatma sırasında bu göstergeyi göreceksiniz">
+<!ENTITY privateBrowsing.addressBar         "Adres çubuğunda Gizli Gezinti">
+<!ENTITY privateBrowsing.info1              "<i>InPrivate Gözatma</i> , Internet Explorer'ın tarama oturumunuzla ilgili verileri depolamasını önlemeye yardımcı olur. Buna çerezler, geçici İnternet dosyaları, geçmiş ve diğer veriler dahildir. Araç çubukları ve uzantılar varsayılan olarak devre dışıdır. Daha fazla bilgi için Yardım'a bakın.">
+<!ENTITY privateBrowsing.info2              "Gizli gezintiyi kapatmak için bu tarayıcı penceresini kapatın.">
+<!ENTITY privateBrowsing.learnMore          "Gizli Gezinti hakkında daha fazla bilgi edinin">
+<!ENTITY privateBrowsing.privacyStatement   "Internet Explorer gizlilik bildirimini okuyun">

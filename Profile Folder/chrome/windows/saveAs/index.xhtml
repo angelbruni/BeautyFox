@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://bfwindows/content/saveAs/style.css" type="text/css"?>
+
+<!DOCTYPE window [
+    <!ENTITY % saveAs SYSTEM "chrome://beautyfox/locale/save.dtd">
+    %saveAs;
+]>
+
+<window id="unknownContentTypeWindow" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml" onload="dialog.initDialog();" onunload="if (dialog) dialog.onCancel();" style="min-width: 36em; max-width: 398px" screenX="" screenY="" persist="screenX screenY" aria-describedby="intro location whichIs type from source unknownPrompt">
+    <linkset>
+        <html:link rel="localization" href="branding/brand.ftl" />
+        <html:link rel="localization" href="toolkit/global/unknownContentType.ftl" />
+    </linkset>
+    <dialog id="unknownContentType">
+        <stringbundle id="strings" src="chrome://mozapps/locale/downloads/unknownContentType.properties" />
+        <script src="chrome://global/content/globalOverlay.js" />
+        <script src="chrome://global/content/editMenuOverlay.js" />
+        <vbox flex="1" id="container">
+            <description id="intro" class="header">&save.header;</description>
+            <separator class="thin" />
+            <hbox align="start" class="small-indent">
+                <image id="contentTypeImage" />
+                <html:table>
+                    <html:tr>
+                        <html:td class="labelTitle">&general.name;:</html:td>
+                        <html:td>
+                            <description id="location" class="plain" crop="end" flex="1" />
+                        </html:td>
+                    </html:tr>
+                    <html:tr>
+                        <html:td class="labelTitle">&general.type;:</html:td>
+                        <html:td>
+                            <description id="type" class="plain" crop="end" readonly="readonly" noinitialfocus="true" />
+                        </html:td>
+                    </html:tr>
+                    <html:tr>
+                        <html:td class="labelTitle">&general.from;:</html:td>
+                        <html:td>
+                            <description id="source" class="plain" crop="end" flex="1" />
+                        </html:td>
+                    </html:tr>
+                </html:table>
+            </hbox>
+			<hbox align="center" id="basicBox" style="display: none !important">
+				<label id="unknownPrompt" data-l10n-id="unknowncontenttype-prompt" flex="1">Would you like to save this file?</label>
+			</hbox>
+            <vbox flex="1" id="normalBox">
+                <radiogroup id="mode" class="small-indent">
+                    <radio id="handleInternally" hidden="true" data-l10n-id="unknowncontenttype-handleinternally" />
+                    <hbox>
+                        <radio id="open" data-l10n-id="unknowncontenttype-open-with" />
+                        <deck id="modeDeck" flex="1">
+                            <hbox id="openHandlerBox" flex="1" align="center">
+                                <menulist id="openHandler" flex="1" native="true">
+                                    <menupopup id="openHandlerPopup"
+                                        oncommand="dialog.openHandlerCommand();">
+                                        <menuitem native="true" id="defaultHandler" default="true" crop="end" />
+                                        <menuitem native="true" id="otherHandler" hidden="true" crop="start" />
+                                        <menuseparator />
+                                        <menuitem native="true" id="choose" data-l10n-id="unknowncontenttype-other" />
+                                    </menupopup>
+                                </menulist>
+                            </hbox>
+                            <hbox flex="1" align="center">
+                                <button id="chooseButton" oncommand="dialog.chooseApp();" data-l10n-id="unknowncontenttype-choose-handler" />
+                            </hbox>
+                        </deck>
+                    </hbox>
+                    <radio id="save" data-l10n-id="unknowncontenttype-save-file" />
+                </radiogroup>
+                <separator class="thin" />
+                <hbox class="small-indent">
+                    <checkbox id="rememberChoice" data-l10n-id="unknowncontenttype-remember-choice" oncommand="dialog.toggleRememberChoice(event.target);" native="true" />
+                </hbox>
+                <description id="settingsChange" hidden="true" data-l10n-id="unknowncontenttype-settingschange" />
+            </vbox>
+        </vbox>
+    </dialog>
+    <vbox class="warning">
+        <hr/>
+        <hbox id="warningContainer">
+            <image id="warningIcon" src="chrome://userchrome/content/resources/ieframe.dll/Icon Group/36870.ico" height="32" width="32"/>
+            <html:div id="warningInfo">
+                <label>&saveAs.warning;</label>
+                <label is="text-link" href="https://support.microsoft.com/windows/download-files-from-the-web-abb92c09-af3a-bd99-d279-a89848b54b0b">&saveAs.link;</label>
+            </html:div>
+        </hbox>
+    </vbox>
+    <script src="chrome://bfwindows/content/saveAs/scripts/script.js" type="text/javascript" defer="true"/>
+</window>

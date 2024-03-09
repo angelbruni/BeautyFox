@@ -4,8 +4,8 @@
 
     --navButtons-radius: 50%;
 
-    @supports -moz-bool-pref("BeautyFox.option.userAccentColorNavButtons") {
-        --navButtons-colour: var(--userAccentColor) !important;
+    &[customcolour='true'] {
+        --navButtons-colour: var(--desiredColourForUI) !important;
     }
 }
 
@@ -50,11 +50,11 @@
                 background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_ENABLED_XP_01.png");
                 margin-left: 4px !important;
 
-                &[disabled="true"] {
+                &[disabled='true'] {
                     background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_DISABLED_XP_01.png");
                 }
 
-                &:not([disabled="true"]) {
+                &:not([disabled='true']) {
                     &:hover {
                         background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_HOT_XP_01.png");
                     }
@@ -69,11 +69,11 @@
                 background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_ENABLED_XP_02.png");
                 margin-left: 3px !important;
 
-                &[disabled="true"] {
+                &[disabled='true'] {
                     background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_DISABLED_XP_02.png");
                 }
 
-                &:not([disabled="true"]) {
+                &:not([disabled='true']) {
                     &:hover {
                         background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/TRAVEL_HOT_XP_02.png");
                     }
@@ -202,7 +202,7 @@
                     }
                 }
             
-                &[disabled="true"] {
+                &[disabled='true'] {
                     opacity: 1 !important;
                     background-color: var(--navButtons-disabled-colour) !important;
     
@@ -257,7 +257,7 @@
                     }
                 }
             
-                &[disabled="true"] {
+                &[disabled='true'] {
                     .toolbarbutton-icon {
                         background-image: url(images/back_disabled.svg);
                     }
@@ -284,7 +284,7 @@
                     margin-bottom: 3px !important;
                 }
             
-                &[disabled="true"] {
+                &[disabled='true'] {
                     .toolbarbutton-icon {
                         background-image: url(images/forward_disabled.svg);
                     }
@@ -324,7 +324,7 @@
             }
         }
     
-        &[sizemode="maximized"] {
+        &[sizemode='maximized'] {
             #nav-bar {
                 &::before {
                     left: 1px;

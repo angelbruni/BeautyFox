@@ -1,0 +1,12 @@
+<!ENTITY privateBrowsing.title      "InPrivate">
+
+<!ENTITY privateBrowsing.inPrivateIsOn	"InPrivate is turned on">
+
+<!ENTITY privateBrowsing.indicator	"When InPrivate Browsing is turned on, you will see this indicator">
+<!ENTITY privateBrowsing.addressBar	"InPrivate in the address bar">
+
+<!ENTITY privateBrowsing.info1	"<i>InPrivate Browsing</i> helps prevent Internet Explorer from storing data about your browsing session. This includes cookies, temporary Internet files, history, and other data. Toolbars and extensions are disabled by default. See Help for more information.">
+<!ENTITY privateBrowsing.info2	"To turn off InPrivate Browsing, close this browser window.">
+
+<!ENTITY privateBrowsing.learnMore			"Learn more about InPrivate Browsing">
+<!ENTITY privateBrowsing.privacyStatement   "Read the Internet Explorer privacy statement online">

@@ -1,0 +1,137 @@
+@keyframes windowOpen {
+	0% {
+	  	opacity: 0;
+	  	transform: scale(0.85) rotateX(-20deg);
+	}
+	100% {
+	  	opacity: 1;
+	  	transform: scale(1) rotateX(0deg);
+	}
+}
+
+@keyframes windowClose {
+	0% {
+	  	opacity: 1;
+	  	transform: scale(1) rotateX(0deg);
+	}
+	100% {
+	  	opacity: 0;
+	  	transform: scale(0.85) rotateX(10deg);
+	}
+}
+
+@keyframes fadeInLeftToRight {
+	0% {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes backgroundMoving {
+	0% {
+		transform: scale(.96)
+	}
+
+	50% {
+		transform: scale(1)
+	}
+
+	100% {
+		transform: scale(.96)
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: var(--currentOpacity);
+	}
+}
+
+@keyframes fadeInRightToLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeInTopToBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideYAccentGradient {
+	0% {
+		background-position-y: 100%;
+	}
+	100% {
+		background-position-y: 0%;
+	}
+}
+
+@keyframes slideXAccentGradient {
+	0% {
+		background-position-x: 100%;
+	}
+	100% {
+		background-position-x: 0%;
+	}
+}
+
+.windowClose {
+	pointer-events: none;
+
+	// animation settings
+	animation-name: windowClose !important;
+}
+
+$animation-delay-base: 50ms;
+$animation-delay-increment: 50ms;
+@mixin generate-animation-delays($count) {
+	@for $i from 0 through $count {
+		&[animation-order='#{$i}'] {
+			animation-delay: $animation-delay-base + ($animation-delay-increment * $i);
+		}
+	}
+}
+.fadeInLeftToRight {
+	// prepare for animation
+	opacity: 0;
+	transform: translateX(-20px);
+
+	// animation settings
+	animation: fadeInLeftToRight 480ms forwards;
+
+	// generate animation delays
+	@include generate-animation-delays(15);
+}
+
+.backgroundMoving {
+	// prepare for animation
+	opacity: .5;
+	transform: scale(.96);
+	transform-origin: bottom right;
+
+	// animation settings
+	animation: fadeIn .2s forwards, backgroundMoving 20s infinite;
+}

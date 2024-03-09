@@ -1,0 +1,8 @@
+#previewContainer {
+	min-width: 380px;
+	max-width: 380px;
+	border-left: 1px solid lightgray;
+	padding-left: 43px;
+	margin-left: 43px;
+	transition: opacity .3s, margin-right .3s;
+}

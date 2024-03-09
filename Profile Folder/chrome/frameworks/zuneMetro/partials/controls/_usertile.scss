@@ -1,0 +1,45 @@
+userTile {
+	padding: 9px;
+	padding-right: 0;
+	align-items: center;
+	display: flex;
+
+	.userTileImageContainer {
+		overflow: hidden;
+		margin-right: 10px;
+	}
+
+	.userTileImageContainer,
+	image {
+		min-width: 48px;
+		min-height: 48px;
+		max-width: 48px;
+		max-height: 48px;
+	}
+
+	> .userTileInfoContainer {
+		> .userTileName {
+			font-size: 12pt;
+		}
+
+		> .userTileRole {
+			font-size: 9pt;
+
+			> span {
+				&::after {
+					content: ';\00a0';
+				}
+
+				&:last-of-type {
+					&::after {
+						content: '.';
+					}
+				}
+			}
+		}
+	}
+
+	> .userTileSocials {
+		margin-left: auto;
+	}
+}

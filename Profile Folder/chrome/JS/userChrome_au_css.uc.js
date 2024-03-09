@@ -8,23 +8,23 @@
 // ==/UserScript==
 
 (function () {
-    // define a startup object for the script loader to execute
-    // wherever this script is loaded
-    _ucUtils.sharedGlobal.preloadedAuthorSheet = {
-      sheet: null,
-      _startup: function(win){
-        if(!win || !this.sheet){
-          return
-        }
-        win.windowUtils.addSheet(this.sheet,Ci.nsIDOMWindowUtils.AUTHOR_SHEET);
-      }
-    };
-    // The next things execute only once per sessions because of @onlyonce in the header
-      let sss = Cc['@mozilla.org/content/style-sheet-service;1'].getService(Ci.nsIStyleSheetService);
-    try{
-      // Try to preload the file and save it to global area
-      _ucUtils.sharedGlobal.preloadedAuthorSheet.sheet = sss.preloadSheet(makeURI("chrome://userChrome/content/resources/userChrome.au.css"), sss.AUTHOR_SHEET);
-    }catch(e){
-      console.error(`Could not pre-load userChrome.au.css: ${e.name}`)
-    }
-  })();
+	// define a startup object for the script loader to execute
+	// wherever this script is loaded
+	_ucUtils.sharedGlobal.preloadedAuthorSheet = {
+		sheet: null,
+		_startup: function (win) {
+			if (!win || !this.sheet) {
+				return
+			}
+			win.windowUtils.addSheet(this.sheet, Ci.nsIDOMWindowUtils.AUTHOR_SHEET);
+		}
+	};
+	// The next things execute only once per sessions because of @onlyonce in the header
+	let sss = Cc['@mozilla.org/content/style-sheet-service;1'].getService(Ci.nsIStyleSheetService);
+	try {
+		// Try to preload the file and save it to global area
+		_ucUtils.sharedGlobal.preloadedAuthorSheet.sheet = sss.preloadSheet(makeURI("chrome://userChrome/content/resources/userChrome.au.css"), sss.AUTHOR_SHEET);
+	} catch (e) {
+		console.error(`Could not pre-load userChrome.au.css: ${e.name}`)
+	}
+})();

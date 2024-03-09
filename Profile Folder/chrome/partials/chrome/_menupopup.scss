@@ -51,6 +51,12 @@ toolbarbutton {
                 padding-inline-start: 1.45em !important;
                 padding: 1px 0 !important;
 
+                @media (-moz-windows-classic) {
+                    min-height: 19px !important;
+                    height: 19px !important;
+                    max-height: 19px !important;
+                }
+
                 :is(.menu-text, .menu-iconic-text, .menu-iconic-icon, .menu-iconic-left, .menu-iconic-accel, .menu-accel-container, .menu-accel, .menu-right) {
                     margin: unset !important;
                     appearance: auto !important;
@@ -87,12 +93,6 @@ toolbarbutton {
     margin-inline-start: 2px !important;
 }
 
-menulist {
-    > menupopup {
-        background-color: Menu !important;
-    }
-}
-
 .menu-right {
     list-style-image: none !important;
 }
@@ -121,6 +121,7 @@ panel {
                     }
         
                     &:hover {
+						background-color: transparent;
                         text-decoration: underline !important;
                         cursor: pointer !important;
 
@@ -166,7 +167,7 @@ panel {
         &#identity-popup {
             .panel-header {
                 &::before {
-                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/31056.ico');
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31056.ico");
                 }
             }
 
@@ -178,7 +179,7 @@ panel {
         &#unified-extensions-panel {
             .panel-header {
                 &::before {
-                    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/697_30.png');
+                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/697_30.png");
                 }
             }
         }
@@ -226,7 +227,7 @@ panel {
         .panel-subview-body {
             padding: 20px !important;
             padding-top: 11px !important;
-            padding-bottom: 17px !important;
+            padding-bottom: 14px !important;
         }
         
         toolbarseparator {
@@ -243,7 +244,7 @@ panel {
         
         .panel-subview-footer-button {
             margin: 0 !important;
-            height: 36px !important;
+            height: 35px !important;
             border-top: 1px solid rgb(227,227,227) !important;
             background-color: rgb(240,240,240) !important;
             align-items: center !important;

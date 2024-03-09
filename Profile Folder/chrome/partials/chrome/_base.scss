@@ -10,6 +10,7 @@
         --urlbar-height: 22.00px !important;
         --urlbar-min-height: 22px !important;
     }
+
     --urlbarView-result-button-size: 16px !important;
     --tab-block-margin: 0 !important;
     --toolbarbutton-hover-background: transparent !important;
@@ -65,6 +66,10 @@
             --urlbar-fake-dropdown-mask: url(images/search7777-dropdown-mask.svg);
         }
     }
+	
+	&[customcolour] {
+		--desiredColourForUI: #0284c5;
+	}
 
     &:is([privatebrowsingmode="temporary"]) {
         #urlbar-input-container {
@@ -85,12 +90,6 @@
     }
 }
 
-* {
-    &[disabled="true"] {
-        opacity: 1 !important;
-    }
-}
-
 toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     -moz-window-dragging: no-drag !important;
 }
@@ -103,7 +102,6 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
 
 #main-window {
-
     &[sizemode="maximized"],
     &[sizemode="fullscreen"] {
         #endToolbar {
@@ -184,8 +182,86 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     }
 }
 
+#custom-identity-label {
+	display: none;
+}
+
+#identity-icon {
+	list-style-image: none !important;
+}
+
 #nav-bar-customization-target {
     align-items: end !important;
+
+	&[securestate="ev"] {
+		--toolbar-field-background-color: rgba(143, 253, 127, 0.4);
+		--toolbar-field-background-color_hover: rgba(143, 253, 127, 0.6);
+		--toolbar-field-border: rgba(150, 179, 147, 0.3);
+
+		#urlbar-background, #searchbar {
+			&:before {
+				border: 1px solid var(--toolbar-field-border);
+			}
+		}
+
+		#identity-box {
+			margin-left: 6px !important;
+		}
+
+		#identity-icon-box {
+			width: unset !important;
+
+			&:active {
+				transform: translate(1px, 1px);
+			}
+
+			#custom-identity-label {
+				display: block;
+			}
+		}
+
+		#stop-reload-button {
+			&::before {
+				content: "";
+			}
+		}
+	}
+
+	&[securestate="insecure"] {
+		--toolbar-field-background-color: rgba(255, 71, 97, 0.59);
+		--toolbar-field-background-color_hover: rgba(255, 143, 164, 0.61);
+		--toolbar-field-border: var(--toolbar-field-background-color);
+
+		#urlbar-background, #searchbar {
+			&:before {
+				border: 1px solid var(--toolbar-field-border);
+			}
+		}
+
+		#stop-reload-button {
+			&::before {
+				content: "";
+			}
+		}
+
+		#identity-icon {
+            list-style-image: url(images/cert-error.svg) !important;
+			mask-image: url(images/cert-error.svg) !important;
+			mask-size: contain !important;
+        }
+
+		#identity-icon-box {
+			width: unset !important;
+
+			&:active {
+				transform: translate(1px, 1px);
+			}
+
+			#custom-identity-label {
+				display: block;
+			}
+		}
+	}
 }
 
 #navigator-toolbox {
@@ -241,7 +317,7 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 #toolbar-menubar[autohide="true"][inactive="true"]:not([customizing="true"]) {
     height: 0 !important;
 
-    @supports not -moz-bool-pref(BeautyFox.option.hideFakeInnerBorders) {
+    @supports not -moz-bool-pref(BeautyFox.option.bHideFakeInnerBorders) {
         @supports not -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
             padding-top: 1px !important;
         }
@@ -412,7 +488,6 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
     @media not (-moz-windows-compositor: 0) {
         margin-bottom: -11px;
-        align-items: start;
     }
 
     @media (-moz-windows-compositor: 0) {
@@ -447,13 +522,22 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
     flex: 1 !important;
     box-shadow: none !important;
 
+	&[iscontainer] {
+		--navButtons-colour: var(--containerColour) !important;
+		--navButtons-disabled-colour: var(--containerColour) !important;
+		margin-left: 28px !important
+	}
+
     @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
         overflow: visible !important;
     }
-
-    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-        flex: unset !important;
-    }
+}
+:root[tabsOnNavRow] {
+    &:not([chromehidden~="toolbar"]) {
+		#nav-bar {
+			flex: unset !important;
+		}
+	}
 }
 
 toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
@@ -487,6 +571,17 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     justify-content: end;
     z-index: 3;
     height: 24px !important;
+	position: relative;
+
+	&::before {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		left: 0;
+		top: 0;
+		box-sizing: border-box;
+		border: 1px solid var(--toolbar-field-border);
+	}
 
     @media not (-moz-windows-classic) {
         &:hover {
@@ -497,7 +592,7 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             background-color: var(--toolbar-field-background-color_hover) !important;
         }
     
-        &[urlbarFocus="true"] {
+        &[urlbarfocus="true"] {
             background-color: white !important;
         }
     }
@@ -722,14 +817,22 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         mask-repeat: no-repeat;
         margin-right: 2px;
 
-        @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-            margin-left: calc(var(--urlbar-dropdown-button_width) / 2 * -1);
-        }
-
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
             background: linear-gradient(90deg, rgba(0, 0, 0, .1) 49%, rgba(0, 0, 0, .5) 50%);
         }
     }
+}
+
+:root:not([tabsOnNavRow]) {
+    .urlbar-input-box {
+        &::after {
+            margin-left: calc(var(--urlbar-dropdown-button_width) / 2 * -1);
+        }
+    }
+
+	#TabsToolbar {
+		margin-right: 2px;
+	}
 }
 
 #urlbar-input {
@@ -747,23 +850,30 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     margin-bottom: auto;
 }
 
-#PersonalToolbar {
-    order: 3;
-    height: 30px;
-    padding-inline: 3px !important;
-    border-left: 1px solid var(--browser-outer-border-color);
+#personalCommandToolbar {
+	order: 3;
+	//background-color: var(--toolbar-bgcolor) !important;
+	border-left: 1px solid var(--browser-outer-border-color);
     border-right: 1px solid var(--browser-outer-border-color);
-    position: relative;
-    padding: 0 1px;
-    padding-right: 1px !important;
-    background-color: var(--toolbar-bgcolor) !important;
+	position: relative;
 
-    @media (-moz-windows-classic) {
-        background-color: unset !important;
-        padding-inline: 0px !important;
-    }
+	> .browser-toolbar {
+		z-index: 1 !important;
+	}
 
-    &::after {
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: -moz-available;
+		height: 100%;
+		background-color: var(--toolbar-bgcolor);
+		box-sizing: border-box;
+		margin-inline: 1px;
+	}
+
+	&::after {
         content: "";
         position: absolute;
         left: 0;
@@ -775,6 +885,21 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         pointer-events: none;
         box-sizing: border-box;
     }
+}
+
+#PersonalToolbar {
+    height: 30px;
+    padding-inline: 3px !important;
+    //background-color: var(--toolbar-bgcolor) !important;
+	background-color: transparent !important;
+    padding: 0 1px;
+	flex: 1;
+    padding-right: 1px !important;
+
+    @media (-moz-windows-classic) {
+        background-color: unset !important;
+        padding-inline: 0px !important;
+    }    
 
     .bookmark-item[dragover="true"] {
         color: black !important;
@@ -792,24 +917,6 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
         border: 1px solid transparent;
         position: relative;
         appearance: auto !important;
-
-        @supports -moz-bool-pref("BeautyFox.option.smallBookmarkItem") {
-            max-width: 62px !important;
-        }
-
-        @supports -moz-bool-pref("BeautyFox.option.iconOnlyBookmarkItem") {
-            padding: 3px 5px !important;
-
-            .toolbarbutton-icon {
-                margin: 0 !important;
-            }
-
-            .toolbarbutton-text {
-                &::before {
-                    content: unset !important;
-                }
-            }
-        }
 
         &:active,
         &[open="true"] {
@@ -845,19 +952,6 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
                     text-overflow: ellipsis;
                 }
             }
-
-            @supports -moz-bool-pref("BeautyFox.option.iconOnlyBookmarkItem") {
-                .toolbarbutton-text {
-                    &::before {
-                        content: '' !important;
-                        margin: 0 !important;
-                    }
-
-                    &::after {
-                        content: unset !important;
-                    }
-                }
-            }
         }
 
         &[type="menu"]:not(#PlacesChevron) {
@@ -881,6 +975,42 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
             }
         }
     }
+
+	&[bookmarkitemwidth="small"] {
+		.bookmark-item:not(menuitem, .menu-iconic),
+    	#star-button-box {
+			max-width: 62px !important;
+		}
+	}
+	&[bookmarkitemwidth="icons"] {
+		.bookmark-item:not(menuitem, .menu-iconic),
+    	#star-button-box {
+			padding: 3px 5px !important;
+
+            .toolbarbutton-icon {
+                margin: 0 !important;
+            }
+
+            .toolbarbutton-text {
+                &::before {
+                    content: unset !important;
+                }
+            }
+
+			&[image*="page-icon:about"] {
+				.toolbarbutton-text {
+					&::before {
+						content: '' !important;
+						margin: 0 !important;
+					}
+		
+					&::after {
+						content: unset !important;
+					}
+				}
+			}
+		}
+	}
 
     #star-button-box {
         height: calc(100% - 5px) !important;
@@ -925,6 +1055,10 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
     }
 }
 
+#commandBar {
+	background-color: transparent !important;
+}
+
 .notificationbox-stack {
     order: 4 !important;
     position: fixed !important;
@@ -939,9 +1073,6 @@ toolbarpaletteitem[id*="wrapper-customizableui-special-spring"] {
 
     notification-message {
         outline: 1px solid black !important;
-        //outline-offset: 1px !important;
-        //margin: 1px !important;
-        //border-top: 6px solid rgb(242, 177, 0) !important;
         border-radius: 0 !important;
         opacity: 1 !important;
         background-color: white !important;
@@ -1116,7 +1247,17 @@ panel {
 }
 
 .identity-box-button {
+	color: black !important;
     padding-inline: 0 !important;
+
+	label {
+		margin: 0 !important;
+		margin-inline: 7px !important;
+	}
+}
+
+.identity-popup-security-connection.identity-popup-section {
+	display: none !important;
 }
 
 #identity-box {
@@ -1132,41 +1273,31 @@ panel {
         width: 10px !important;
     }
 
-    &.verifiedDomain {
-        #identity-icon {
-            list-style-image: none !important;
-            background-color: rgba(0, 0, 0, .5);
-            mask: url(images/lock-mask.svg);
-            transition: background-color .3s steps(5);
-        }
+    #identity-icon {
+		//list-style-image: none !important;
+		background-color: rgba(0, 0, 0, .5);
+		mask: url(images/lock-mask.svg);
+		transition: background-color .3s steps(5);
+	}
 
-        &:hover {
-            #identity-icon {
-                background-color: rgb(242, 186, 34);
-            }
+	&:hover {
+		#identity-icon {
+			background-color: rgb(242, 186, 34);
+		}
 
-        }
+	}
 
-        &:active {
-            #identity-icon {
-                background-color: rgb(235, 147, 5);
-                transition: none;
-            }
+	&:active {
+		#identity-icon {
+			background-color: rgb(235, 147, 5);
+			transition: none;
+		}
 
-        }
-    }
+	}
+}
 
-    &.certErrorPage {
-        #identity-icon {
-            list-style-image: none !important;
-            background-image: url(images/cert-error.svg);
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-            width: 10px !important;
-            height: 13px !important;
-        }
-    }
+#identity-icon-label {
+	display: none;
 }
 
 #urlbar {
@@ -1201,6 +1332,8 @@ panel {
 }
 
 toolbarbutton {
+	color: black !important;
+	
     &#feedbackButton {
         @supports not -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
             display: none !important;
@@ -1208,93 +1341,96 @@ toolbarbutton {
     }
 }
 
-@supports -moz-bool-pref("BeautyFox.option.showDownloadProgress") {
-    #downloads-button {
-        .toolbarbutton-animatable-box {
-            display: block !important;
-        }
-        
-        #downloads-indicator-progress-outer {
-            top: -2px !important;
-            left: -2px !important;
-            width: 20px !important;
-            height: 20px !important;
-            justify-content: left !important;
-            border-radius: 2px !important;
-            border: 1px solid rgb(181, 181, 181) !important;
-            background: white !important;
-        }
+#downloads-button {
+	&[downloadprogress] {
+		&[progress] {
+			#downloads-indicator-anchor {
+				z-index: 1 !important;
+				opacity: 0.5 !important;
+			}
+		}
 
-        #downloads-indicator-progress-inner {
-            appearance: progresschunk !important;
-            width: var(--download-progress-pcent) !important;
-            height: 100% !important;
-        }
+		.toolbarbutton-animatable-box {
+			display: block !important;
+		}
+		
+		#downloads-indicator-progress-outer {
+			top: -2px !important;
+			left: -2px !important;
+			width: 20px !important;
+			height: 20px !important;
+			justify-content: left !important;
+			border-radius: 2px !important;
+			border: 1px solid rgb(181, 181, 181) !important;
+			background: white !important;
+		}
 
-        .toolbarbutton-animatable-box {
-            display: grid !important;
-        }
+		#downloads-indicator-progress-inner {
+			appearance: progresschunk !important;
+			width: var(--download-progress-pcent) !important;
+			height: 100% !important;
+		}
 
-        #downloads-indicator-start-box {
-            display: none !important;
-        }
+		#downloads-indicator-start-box {
+			opacity: 0 !important;
+		}
 
-        #downloads-indicator-finish-box {
-            &::before,
-            &::after {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                bottom: -50%;
-                opacity: 0;
-                z-index: 1;
-            }
+		#downloads-indicator-finish-box {
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				bottom: -50%;
+				opacity: 0;
+				z-index: 1;
+			}
 
-            &::after {
-                background-color: white;
-                transform: scale(0.5);
-                filter: blur(5px);
-            }
+			&::after {
+				background-color: white;
+				transform: scale(0.5);
+				filter: blur(5px);
+			}
 
-            &::before {
-                filter: blur(4px);
-                transform: scale(.7);
-            }
+			&::before {
+				filter: blur(4px);
+				transform: scale(.7);
+			}
 
-            #downloads-indicator-finish-image {
-                display: none !important;
-            }
-        }
+			#downloads-indicator-finish-image {
+				display: none !important;
+			}
+		}
 
-        &[attention="success"],
-        &[attention="warning"] {
-            #downloads-indicator-finish-box {
+		&[attention="success"],
+		&[attention="warning"] {
+			#downloads-indicator-finish-box {
 
-                &::before,
-                &::after {
-                    animation: downloadCompleted 1s linear forwards !important;
-                }
-            }
-        }
+				&::before,
+				&::after {
+					animation: downloadCompleted 1s linear forwards !important;
+				}
+			}
+		}
 
-        &[attention="success"] {
-            #downloads-indicator-finish-box {
-                &::before {
-                    background-color: rgb(0, 255, 0);
-                }
-            }
-        }
+		&[attention="success"] {
+			#downloads-indicator-finish-box {
+				&::before {
+					background-color: rgb(0, 255, 0);
+				}
+			}
+		}
 
-        &[attention="warning"] {
-            #downloads-indicator-finish-box {
-                &::before {
-                    background-color: rgb(255, 174, 0);
-                }
-            }
-        }
-    }
+		&[attention="warning"] {
+			#downloads-indicator-finish-box {
+				&::before {
+					background-color: rgb(255, 174, 0);
+				}
+			}
+		}
+	}
 }
 
 #nav-bar,
@@ -1397,7 +1533,6 @@ toolbarbutton {
         &#home-button,
         &#bookmarks-menu-button,
         &#bookmarksSidebarButton,
-        &#PanelUI-menu-button,
         &#IEMenuButton,
         &#feedbackButton,
         &#unified-extensions-button,
@@ -1503,8 +1638,8 @@ toolbarbutton {
                 mask-image: url(images/downloads-mask.svg);
             }
 
-            @supports -moz-bool-pref("BeautyFox.option.showDownloadProgress") {
-                >.toolbarbutton-badge-stack {
+			&[downloadprogress] {
+				>.toolbarbutton-badge-stack {
                     opacity: 1 !important;
                     z-index: 1 !important;
 
@@ -1547,32 +1682,15 @@ toolbarbutton {
                         }
                     }
                 }
-            }
+			}
         }
 
-        &#PanelUI-menu-button,
         &#IEMenuButton {
             background-image: url(images/settings.svg);
-
-            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
-                    @supports not -moz-bool-pref("BeautyFox.option.doNotUseOldSettingsIcon") {
-                        background-image: url(images/settings7777.svg);
-                    }
-                }
-            }
 
             &::before {
                 background-image: url('chrome://userchrome/content/images/toolbarbutton-blueIE9-states.png');
                 mask-image: url(images/settings-mask.svg);
-
-                @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-                    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
-                        @supports not -moz-bool-pref("BeautyFox.option.doNotUseOldSettingsIcon") {
-                            mask-image: url(images/settings7777-mask.svg);
-                        }
-                    }
-                }
 
                 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
                     background-image: url('chrome://userchrome/content/images/toolbarbutton-blueIE10-states.png');
@@ -1633,12 +1751,34 @@ toolbarbutton {
         max-width: 1px !important;
         opacity: 0 !important;
     }
+}
 
-    #PanelUI-menu-button {
-        padding: 0 !important;
-        height: 24px;
-        margin-bottom: 0 !important;
-    }
+:root:not([newsettingsicon]) {
+	#nav-bar,
+	#endToolbar {
+		toolbarbutton,
+    	toolbaritem {
+			&#IEMenuButton {
+				@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+					@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+						background-image: url(images/settings7777.svg);
+					}
+				}
+
+				&::before {
+					@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+						@supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease7777") {
+							mask-image: url(images/settings7777-mask.svg);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#PanelUI-menu-button {
+	display: none;
 }
 
 #browser,
@@ -1684,6 +1824,10 @@ toolbarbutton {
     margin-inline-start: 1px !important;
     background-color: var(--toolbar-field-background-color) !important;
 
+	&::before {
+		border-right-width: 0;
+	}
+
     @media not (-moz-windows-classic) {
         border-top: 1px solid rgba(0, 0, 0, 0.5) !important;
         border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
@@ -1709,6 +1853,11 @@ toolbarbutton {
     #urlbar-background {
         border-right: 1px solid rgba(0, 0, 0, .5) !important;
         border-left: 0 !important;
+
+		&::before {
+			border-left-width: 0;
+			border-right-width: 1px !important;
+		}
     }
 
     #urlbar-input-container {
@@ -1730,9 +1879,22 @@ toolbarbutton {
     }
 }
 
+#urlbar-container {
+	#urlbar-background {
+		&::before {
+			border-right-width: 0 !important;
+		}
+	}
+}
+
 #urlbar-container+#stop-reload-button {
     border-left: 0 !important;
     margin-inline-start: 0 !important;
+
+	&::before {
+		border-left-width: 0;
+		border-right-width: 1px;
+	}
 
     @media not (-moz-windows-classic) {
         border-right: 1px solid rgba(0, 0, 0, .5) !important;
@@ -1821,7 +1983,7 @@ toolbarbutton {
         }
     }
 
-    @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
+    @supports not -moz-bool-pref("BeautyFox.option.bHideFakeInnerBorders") {
         #browser {
             padding: 1px 1px 1px 1px !important;
             border-top: 1px solid var(--browser-outer-border-color);
@@ -1833,8 +1995,8 @@ toolbarbutton {
         }
     }
 
-    @supports -moz-bool-pref("BeautyFox.option.hideSettingsInPopUp") {
-        #nav-bar {
+	&[hidesettingspopup] {
+		#nav-bar {
             padding-right: 0 !important;
         }
 
@@ -1846,7 +2008,7 @@ toolbarbutton {
         #IEMenuButton {
             display: none !important;
         }
-    }
+	}
 }
 
 .findbar-closebutton {
@@ -1955,6 +2117,16 @@ toolbarbutton {
     }
 }
 
+:root:not([tabsOnNavRow]) {
+	&[sizemode="maximized"],
+	&[sizemode="fullscreen"] {
+		#TabsToolbar {
+			padding-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+}
+
 @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
     #reload-button:not([displaystop])+#stop-button,
     #reload-button[displaystop] {
@@ -1985,15 +2157,17 @@ toolbarbutton {
     }
 }
 
-@supports -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
+@supports -moz-bool-pref("BeautyFox.option.bHideFakeInnerBorders") {
     #browser {
         margin: -1px !important;
         margin-top: 0 !important;
-
-        @supports -moz-bool-pref("BeautyFox.option.showStatusBar") {
-            margin-bottom: 0 !important;
-        }
     }
+
+	:root[statusbar] {
+		#browser {
+			margin-bottom: 0 !important;
+		}
+	}
 
     #browser,
     #customization-container {
@@ -2081,10 +2255,12 @@ toolbarbutton {
         margin-left: 76px !important;
     }
 
-    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-        #endToolbar {
-            height: 100% !important;
-            align-items: center !important;
-        }
+    :root[tabsOnNavRow] {
+		&:not([chromehidden~="toolbar"]) {
+			#endToolbar {
+				height: 100% !important;
+				align-items: center !important;
+			}
+		}
     }
 }

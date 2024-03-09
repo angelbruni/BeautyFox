@@ -1,0 +1,16 @@
+.pagesContainer:not(#text) {
+	display: flex;
+	flex: 1;
+
+	> *:not(#previewContainer) {
+		flex: 1;
+	
+		color: #3C3C3C;
+		display: none;
+	
+		> label {
+			width: 80%;
+			line-height: 17pt;
+		}
+	}
+}

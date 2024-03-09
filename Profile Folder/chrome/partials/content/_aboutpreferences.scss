@@ -1,22 +1,29 @@
-@-moz-document url(about:preferences) {
-    #category-general {
-        .category-icon {
-            list-style-image: url(images/settings-general.png) !important;
-        }
+@-moz-document url-prefix(about:preferences) {
+    #tabPositionSettingsContainer {
+        display: none !important;
     }
-    #category-home {
-        .category-icon {
-            list-style-image: url(images/settings-home.png) !important;
-        }
+
+    #statusBarGroup {
+        display: none !important;
     }
-    #category-search {
-        .category-icon {
-            list-style-image: url(images/settings-search.png) !important;
-        }
+
+    #bookmarksBarPositionGroup {
+        display: none !important;
     }
-    #category-privacy {
-        .category-icon {
-            list-style-image: url(images/settings-privacy.png) !important;
-        }
+
+    #category-theme {
+        display: none !important;
+    }
+
+    #firefoxThemeCategory {
+        display: none !important;
+    }
+
+    #themeGroup {
+        display: none !important;
+    }
+
+    [data-subcategory='highlights'] {
+        display: none !important;
     }
 }

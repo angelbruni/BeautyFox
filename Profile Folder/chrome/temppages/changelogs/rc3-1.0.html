@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>What's new in BeautyFox Release Candidate 3 - 1.0</title>
+    <link rel="stylesheet" href="chrome://userchrome/content/temppages/changelogs/style.css">
+</head>
+<body>
+    <a href="chrome://userchrome/content/temppages/changelogs/index.html">< Changelogs list</a>
+    <h1>What's new in BeautyFox Release Candidate 3 - 1.0</h1>
+    <ul>
+        <li>Changed prefs;</li>
+        <li>Small changes to localisation strings;</li>
+        <li>Localisation now uses Firefox's system for the most part;</li>
+        <li>Created functions for easily reading and writing to different types of prefs;</li>
+        <li>Created function for easily reading registry;</li>
+        <li>Created function for easily converting RGB to HEX;</li>
+		<li>Separeted a bunch of code into its own script files again;</li>
+        <li>Completely removed previous settings code in favour of the brand new SettingsManager;</li>
+        <li>Heavily changed code for getting user and AWM's accent colour;</li>
+		<li>Added option for DWMBlurGlass accent colour for the UI;</li>
+        <li>Added option for custom colour for the UI instead of only default and accent colour;</li>
+        <li>W.I.P. classic theme support;</li>
+		<li>Added a brand new ZuneMetro framework (thanks Travis for the concept as a base) used throghout the new windows that I made for custom frames with Zune-inspired style which also brings more personality to BeautyFox's windows. It contains:</li>
+		<ul>
+			<li>Custom frames;</li>
+			<li>Animations;</li>
+			<li>Modal and its functionality;</li>
+			<li>Pages and its functionality:</li>
+			<ul>
+				<li>Tabs;</li>
+				<li>Wizard pages.</li>
+			</ul>
+			<li>Tabstrip;</li>
+			<li>Breadcrumbbar;</li>
+			<li>Button;</li>
+			<li>Checkbox;</li>
+			<li>Combobox;</li>
+			<li>Commandlinkbutton;</li>
+			<li>Link;</li>
+			<li>Navigation buttons;</li>
+			<li>Preview container;</li>
+			<li>Tile;</li>
+			<li>Usertile.</li>
+		</ul>
+		<li>Completely remade BeautyFox wizard:</li>
+		<ul>
+			<li>Uses the brand new ZuneMetro framework.</li>
+		</ul>
+		<li>Added a brand new BeautyFox options window. This window has:</li>
+		<ul>
+			<li>The ZuneMetro framework.</li>
+			<li>All the previously known settings +</li>
+			<ul>
+				<li>Amount of popular site rows in new tab page;</li>
+				<li>DWMBlurGlass accent colour for the UI;</li>
+				<li>Custom colour for the UI that is completely custom and does not rely in accent colour.</li>
+			</ul>
+			<li>Setting previews with images, descriptions and warnings;</li>
+			<li>Very detailed about tab with information about:</li>
+			<ul>
+				<li>The theme;</li>
+				<li>Its contributors and notable mentions;</li>
+				<li>The browser;</li>
+				<li>The operating system.</li>
+			</ul>
+			<li>Smart "requires restart" modal;</li>
+			<li>Added Inori.</li>
+		</ul>
+        <li>Removed settings and credits from the wizard - they are now available in the BeautyFox options window;</li>
+        <li>Removed About BeautyFox from About Internet Explorer dialog - it is now available in the BeautyFox options window;</li>
+		<li>Completely replaced the new tab page with a recreation of the Internet Explorer one, this brings more accuracy (thanks to aminomancer):</li>
+		<ul>
+			<li>Tiles with activity bar;</li>
+			<li>Footer with links;</li>
+			<li>Localisation free of CSS workaround;</li>
+			<li>Accent colour background for IE10+.</li>
+		</ul>
+		<li>Created a function to help listen to the "settingsChanged" event which helps with applying settings to every "navigator:browser" window;</li>
+		<li>Made the following settings restartless:</li>
+		<ul>
+			<li>Show download progress in Downloads button;</li>
+			<li>Extensions button visibility/position;</li>
+			<li>Move tabs to navigation bar;</li>
+			<li>Microsoft edge button visibility and appearance;</li>
+			<li>Hide the settings button in pop-up windows;</li>
+			<li>Do not use old settings icon (IE9 7777 only);</li>
+			<li>Bookmark item title width;</li>
+			<li>Show fake dropdown icons in command bar;</li>
+			<li>Customise command bar items;</li>
+			<li>Show status bar;</li>
+			<li>Fake internet protected label options;</li>
+			<li>Navigation button round amount;</li>
+			<li>Custom colouring for the user interface.</li>
+		</ul>
+		<li>Replaced the save dialog with a remade one which is more accurate to IE6+;</li>
+		<li>Removed UI density, toolbar visibility and reset buttons from customise layout;</li>
+		<li>Removed BeautyFox logo from IELOGO.png as it went unused;</li>
+		<li>Cleaned a lot of JavaScript code;</li>
+		<li>Improved end toolbar margins accuracy;</li>
+		<li>Fixed home button fill colour mask;</li>
+		<li>Reworked command bar;</li>
+		<li>Reworked URL/Search bar background changing depending on website security;</li>
+		<li>Added green URL/Search bars for Extended Validation Certificate websites;</li>
+		<li>Reworked the site information (lock) popup;</li>
+		<li>Initial customisation layout design rework;</li>
+		<li>Reworked status bar zoom text code;</li>
+		<li>Reworked container support code.</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<!ENTITY save.header "¿Deseja ejecutar o guardar este archivo?">
+
+<!ENTITY general.name "Nombre">
+<!ENTITY general.type "Tipo">
+<!ENTITY general.from "De">
+
+<!ENTITY saveAs.warning "Aunque los archivos procedentes de Internet pueden ser útiles, este tipo de archivo puede llegar a dañar el quipo. Si no confía en el origen, no ejecute ni guarde este software.">
+<!ENTITY saveAs.link    "¿Cuál es el riesgo?">

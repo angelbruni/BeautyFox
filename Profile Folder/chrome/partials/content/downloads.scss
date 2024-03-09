@@ -96,7 +96,7 @@
 
                     &:where(:focus) {
                         > richlistitem {
-                            &[selected="true"] {
+                            &[selected='true'] {
                                 @media (-moz-windows-classic) {
                                     background-color: transparent !important;
                                     color: revert !important;
@@ -115,11 +115,11 @@
                         min-height: 77px !important;
                         align-items: center !important;
                         
-                        &:not([selected="true"]) {
+                        &:not([selected='true']) {
                             border-bottom: 1px rgb(220, 220, 220) solid !important;
                         }
 
-                        &[selected="true"] {
+                        &[selected='true'] {
                             @media (-moz-windows-classic) {
                                 background-color: transparent !important;
                             }
@@ -167,7 +167,7 @@
                                     background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
                                 }
 
-                                &:active, &[open="true"] {
+                                &:active, &[open='true'] {
                                     background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
                                 }
 
@@ -182,7 +182,7 @@
                                         background: linear-gradient(0deg, rgb(220, 236, 252) 0%, rgb(236, 244, 252) 100%) !important;
                                     }
 
-                                    &:active, &[open="true"] {
+                                    &:active, &[open='true'] {
                                         border: 1px solid rgb(86, 157, 229) !important;
                                         background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
                                     }

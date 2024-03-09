@@ -208,7 +208,7 @@
         position: relative !important;
         font-size: 0.9em !important;
 
-        &[hidden=""] {
+        &[hidden=''] {
             &:first-child {
                 &::before {
                     background-image: url("chrome://userchrome/content/resources/ieframe.dll.mui/HTML/down.png");

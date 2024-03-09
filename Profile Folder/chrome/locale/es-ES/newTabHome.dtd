@@ -1,0 +1,10 @@
+<!ENTITY newTabHome.title			"New Tab">
+
+<!ENTITY newTabHome.searchPlaceholder	"Search the web">
+
+<!ENTITY newTabHome.headerIE9		"Sus sitios más populares">
+<!ENTITY newTabHome.headerIE10Plus	"Con más frecuencia">
+
+<!ENTITY newTabHome.discoverSites		"Discover other sites you might like">
+<!ENTITY newTabHome.lastSession			"Reopen last session">
+<!ENTITY newTabHome.inPrivateBrowsing	"InPrivate Browsing">

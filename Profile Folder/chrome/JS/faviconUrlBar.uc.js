@@ -50,7 +50,7 @@
 			
 		document.querySelector('#favimginurlbar').style.listStyleImage = "url("+favicon_in_urlbar+")";
 		
-		},100);
+		},0);
 
 		}
 

@@ -1,0 +1,7 @@
+<!ENTITY privateBrowsing.inPrivateIsOn      "InPrivate está activado">
+<!ENTITY privateBrowsing.indicator          "Cuando la exploración de InPrivate está activada, verá este indicador ">
+<!ENTITY privateBrowsing.addressBar         "InPrivate en la barra de direcciones">
+<!ENTITY privateBrowsing.info1              "<i>Exploración de InPrivate</i> evita que Internet Explorer almacene datos sobre su sesión de exploración. Incluye cookies, archivos temporales de Internet, historial y otros datos. Las barras de herramientas y las extensiones están deshabilitadas de forma predeterminada. Consulte la Ayuda para obtener más información.">
+<!ENTITY privateBrowsing.info2              "Para desactivar el explorador de InPrivate, cierre esta ventana del explorador.">
+<!ENTITY privateBrowsing.learnMore          "Más información sobre la exploración de InPrivate">
+<!ENTITY privateBrowsing.privacyStatement   "Lee la declaración de privacidad de Internet Explorer en línea">

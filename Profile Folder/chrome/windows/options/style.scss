@@ -1,0 +1,259 @@
+@keyframes inoriExcited {
+	0% {
+		transform: scaleY(1);
+		transform-origin: bottom center;
+		animation-timing-function: linear;
+	}
+	40% {
+		transform: scaleY(.95);
+	}
+	100% {
+		transform: scaleY(1);
+	}
+}
+
+#windowContent {
+	> .pagesContainer {
+		font-size: 9pt;
+		padding: 9px 27px 0px 38px;
+		max-height: 343px;
+	}
+}
+
+#windowStyling {
+	min-width: 1014px;
+	min-height: 508px;
+	max-width: 1014px;
+	max-height: 508px;
+}
+
+#aboutBanner {
+	#aboutLogo, #aboutFoxLogo, #aboutOSLogo {
+		padding: 20px 30px;
+	
+		> image {
+			margin: auto;
+		}
+	}
+	
+	#aboutInfo {
+		margin-left: 10px;
+		justify-content: center;
+		text-transform: uppercase;
+		font-weight: bold;
+
+		> label {
+			&:first-of-type {
+				font-size: 19pt;
+				font-weight: bold;
+				margin-bottom: 4px;
+			}
+		}
+	}
+
+	#aboutVersion {
+		font-size: 9pt;
+
+		> label {
+			&:not(:last-of-type) {
+				margin-bottom: 5px;
+			}
+		}
+	}
+	
+	#aboutLinks {
+		width: 180px;
+		align-items: end;
+		justify-content: center;
+		
+		> .zuneLink {
+			font-size: 17pt;
+		}
+	}
+}
+
+#Pb56QFszgUxotLq6OHvxjA {
+	mask-image: linear-gradient(0deg, transparent, rgb(0, 0, 0) 45%);
+	display: flex;
+	justify-content: end;
+	align-items: end;
+	height: 256px;
+	transition: height .2s;
+
+	&:active {
+		cursor: grabbing !important;
+
+		height: 253px;
+	}
+}
+
+#previewContainer {
+	tile {
+		margin-top: 16px;
+
+		&:hover {
+			.tileArt {
+				outline: none;
+			}
+		}
+	}
+
+	.tileArtPerspective {
+		pointer-events: none;
+	}
+}
+
+.tileArt {
+	min-width: 336px;
+	min-height: 120px;
+	max-width: 336px;
+	max-height: 120px;
+
+	img {
+		transform: none;
+	}
+}
+
+.aboutBrowserInfo {
+	image {
+		max-width: 16px;
+		max-height: 16px;
+	}
+}
+
+#appearanceTitlebar {
+	position: absolute;
+	height: 84px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1), transparent 100%);
+	transition: background-color 1s linear;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		display: block;
+		height: 97px;
+		width: 209px;
+		right: 80px;
+		background-size: cover;
+		opacity: 0;
+		transition: opacity .5s linear;
+		background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/821.png");
+	}
+
+	&::before {
+		background-position-y: 0px;
+	}
+
+	&::after {
+		background-position-y: -97px;
+	}
+}
+
+:root {
+	&[appearance='0'],
+	&[appearance='1'],
+	&[appearance='2'] {
+		#appearanceTitlebar {
+			background-color: rgba(2, 161, 226, 0.2);
+		}
+	}
+
+	&[appearance='0'] {
+		#appearanceTitlebar {
+			&::before {
+				opacity: 1;
+			}
+		}
+	}
+
+	&[appearance='1'] {
+		#appearanceTitlebar {
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+
+	&[customcolour] {
+		&[appearance='0'],
+		&[appearance='2'] {
+			#appearanceTitlebar {
+				background-color: color-mix(in srgb, var(--desiredColourForUI) 20%, var(--windowBackground));
+			}
+		}
+
+		&[appearance='3'],
+		&[appearance='4'],
+		&[appearance='5'],
+		&[appearance='6'],
+		&[appearance='7'],
+		&[appearance='8'] {
+			#appearanceTitlebar {
+				opacity: 0;
+			}
+	
+			#windowStyling {
+				background-color: color-mix(in srgb, var(--desiredColourForUI) 5%, var(--windowBackground));
+			}
+		}
+	}
+}
+
+[requiresrestart] {
+	&::after {
+		content: '*';
+		color: red;
+	}
+}
+
+#windowContent > .pagesContainer > [data-step],
+.group {
+	gap: 5px;
+}
+
+
+label.contentHeader {
+	margin-bottom: 0;
+}
+
+hbox > tabstrip {
+	width: 120px;
+}
+
+.NativeControlsGroupContent {
+	display: none;
+}
+
+@media (-moz-ev-native-controls-patch) {
+	.NativeControlsLink {
+		display: none;
+	}
+	
+	.NativeControlsGroupContent {
+		display: flex;
+	}
+}
+
+#customColourPicker,
+#DWMBGPath {
+	display: none;
+}
+
+#customColourMethodSection {
+	&[method='1'] {
+		#customColourPicker {
+			display: flex;
+		}
+	}
+
+	&[method='4'] {
+		#DWMBGPath {
+			display: flex;
+		}
+	}
+}

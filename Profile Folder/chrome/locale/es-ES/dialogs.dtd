@@ -1,0 +1,10 @@
+<!ENTITY dialog.titleRestart                "Reinicio necesario">
+
+<!ENTITY dialog.ok                          "Aceptar">
+<!ENTITY dialog.close                       "Cerrar">
+<!ENTITY dialog.apply                       "Aplicar">
+
+<!ENTITY dialog.restartRequiredDescription  "Para aplicar los ajustes modificados, es necesario reiniciar.">
+
+<!ENTITY dialog.restartNow                  "Reiniciar ahora">
+<!ENTITY dialog.restartLater                "Reiniciar más tarde">

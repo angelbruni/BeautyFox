@@ -1,6 +1,9 @@
 :root {
+	--background: white;
+
 	--font-size: 8pt;
 	--font-family: Tahoma, Geneva, Verdana, sans-serif;
+	--font-colour: rgb(97, 97, 97);
 }
 
 label {
@@ -12,7 +15,7 @@ label {
 }
 
 #aboutIEContainer {
-	background-color: white;
+	background-color: var(--background);
 	color-scheme: unset !important;
 }
 
@@ -48,7 +51,7 @@ label {
 }
 
 .aboutDialogInfo:not(a, [is="text-link"]) {
-	color: rgb(97, 97, 97);
+	color: var(--font-colour);
 }
 
 .aboutDialogInfo {
@@ -199,5 +202,45 @@ label {
 			margin-bottom: 10px;
 			background-position-y: -456px;
 		}	
+	}
+}
+
+#aboutVersion,
+#aboutUpdateVersions,
+#aboutUpdateKB,
+#aboutProductID {
+	margin-left: 3px;
+}
+
+#aboutUpdateKB {
+	&::before {
+		content: '(';
+	}
+
+	&::after {
+		content: ')';
+	}
+
+	&::before,
+	&::after {
+		text-decoration: none !important;
+	
+		@supports (-moz-bool-pref("BeautyFox.appearance.IE10ConsumerPreview") or
+				   -moz-bool-pref("BeautyFox.appearance.IE10DeveloperPreview") or
+				   -moz-bool-pref("BeautyFox.appearance.IE10ReleasePreview") or
+				   -moz-bool-pref("BeautyFox.appearance.IE10") or
+				   -moz-bool-pref("BeautyFox.appearance.IE11")) {
+			color: var(--font-colour) !important;
+		}
+	}
+}
+
+#aboutVersionBit {
+	margin-left: 9px;
+}
+
+#aboutIEInfoCipherStrength {
+	> label {
+		margin-right: 3px;
 	}
 }

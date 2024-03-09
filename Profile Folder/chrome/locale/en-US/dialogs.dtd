@@ -1,0 +1,10 @@
+<!ENTITY dialog.titleRestart                "Restart required">
+
+<!ENTITY dialog.ok                          "OK">
+<!ENTITY dialog.close                       "Close">
+<!ENTITY dialog.apply                       "Apply">
+
+<!ENTITY dialog.restartRequiredDescription  "The following settings require a restart to be applied:">
+
+<!ENTITY dialog.restartNow                  "Restart now">
+<!ENTITY dialog.restartLater                "Restart later">

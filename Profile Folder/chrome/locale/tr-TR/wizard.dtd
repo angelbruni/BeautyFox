@@ -1,0 +1,25 @@
+<!ENTITY window.titleWizard "BeautyFox Sihirbazı">
+
+<!ENTITY wizard.next "Sonraki">
+
+<!ENTITY wizard.welcome							"BeautyFox'a Hoş Geldiniz!">
+<!ENTITY wizard.about							"Bu proje, internet gezinmesinin temiz, minimalist özünü canlandırmayı amaçlamaktadır ve zarafeti önceliklendirir. Sadeleştirilmiş bir arayüzle, BeautyFox, kullanıcılara modern tarayıcıların karışık karmaşıklığından ferahlatıcı bir kaçış sunar.">
+<!ENTITY wizard.appearance						"Tercih ettiğiniz görünümü seçiniz">
+<!ENTITY wizard.IE9PreReleaseFeatures			"Internet Explorer 9 Ön Sürüm özelliklerini seçin">
+<!ENTITY wizard.IE9PreRelease7777Appearance		"Build 7777 görünümüyle devam edin">
+<!ENTITY wizard.IE9PreRelease7930Appearance		"Build 7930 görünümüyle devam edin">
+<!ENTITY wizard.IE9Features						"Internet Explorer 9 özelliklerini seçin">
+<!ENTITY wizard.IE9About						"Internet Explorer 9 görünümü ile devam et">
+<!ENTITY wizard.IE10DeveloperPreviewAbout		"Internet Explorer 10 Geliştirici Önizlemesi Hakkında Penceresi">
+<!ENTITY wizard.IE10ConsumerPreviewAbout		"Internet Explorer 10 Tüketici Önizlemesi Hakkında Penceresi">
+<!ENTITY wizard.IE10ReleasePreviewAbout			"Internet Explorer 10 Sürüm Önizlemesi Hakkında Penceresi">
+<!ENTITY wizard.IE10PlusFeatures				"Internet Explorer 10+ özel özellikleri değiştir">
+<!ENTITY wizard.IE10Appearance					"Internet Explorer 10 görünümü ile devam et">
+<!ENTITY wizard.IE11Appearance					"Internet Explorer 11 görünümünü kullan">
+<!ENTITY wizard.IE11AppearanceDescription		"'Internet Explorer Hakkında' diyaloğunda sürüm 11 bilgisini göster">
+<!ENTITY wizard.IE11Win10Appearance				"Windows 10'daki Internet Explorer 11 görünümü ve hissiyatı">
+<!ENTITY wizard.IE11Win10AppearanceDescription	"Geri bildirim düğmesi ekler (Güler yüz, dışarı sürüklenebilir) ve 'Internet Explorer Hakkında' diyaloğunu Windows sürüm raporlama diyaloğu ile değiştirir.">
+<!ENTITY wizard.additional						"İlave seçenekler">
+<!ENTITY wizard.openBeautyFoxOptions			"BeautyFox Ayarlarını Aç">
+<!ENTITY wizard.thanks							"BeautyFox'u tercih ettiğiniz için teşekkür ederiz!">
+<!ENTITY wizard.restartRequired					"Değişiklikleri uygulamak için Firefox'un yeniden başlatılması gerekir. BeautyFox ayarlarına istediğiniz zaman shift tuşuna basılı tutarken ayarlar düğmesine basarak erişebilirsiniz.">

@@ -8,7 +8,7 @@
         }
     }
 
-    &[style*="order: 3"] {
+    &[style*='order: 3'] {
         position: absolute;
         z-index: 1;
         right: 0;
@@ -40,7 +40,7 @@
                     background: linear-gradient(0deg, rgb(185, 214, 252) 0%, rgb(239, 243, 249) 100%) !important;
                 }
     
-                &:active, &[open="true"] {
+                &:active, &[open='true'] {
                     background: linear-gradient(0deg, rgb(145, 192, 253) 0%, rgb(229, 236, 246) 100%) !important;
                 }
     
@@ -61,7 +61,7 @@
                         }
                     }
     
-                    &:active, &[open="true"] {
+                    &:active, &[open='true'] {
                         border: 1px solid rgb(86, 157, 229) !important;
                         background: linear-gradient(0deg, rgb(196, 224, 252) 0%, rgb(218, 236, 252) 100%) !important;
     

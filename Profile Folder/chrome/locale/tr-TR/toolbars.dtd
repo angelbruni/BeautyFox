@@ -1,0 +1,5 @@
+<!ENTITY toolbar.navigation "Gezinti çubuğu">
+<!ENTITY toolbar.end 		"Araç Çubuğunu Sonlandır">
+<!ENTITY toolbar.favourites "Favoriler bölümü">
+<!ENTITY toolbar.command    "Command Bar">
+<!ENTITY toolbar.status		"Durum çubuğu">

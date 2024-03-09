@@ -39,7 +39,7 @@
         --tab-inset-border-colour: rgba(254, 254, 254, 0.3);
         --newtab-button-width: 27px;
 
-        @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
+        &[tabsOnNavRow] {
             --tab-height: 28px !important;
         }
     }
@@ -56,11 +56,10 @@
         }
     }
 
-    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-        --option_tabsOnNavRow: 1 !important;
+    &[tabsOnNavRow] {
         --tab-height: 27px;
 
-        &:is([privatebrowsingmode="temporary"]) {
+        &:is([privatebrowsingmode='temporary']) {
             #urlbar-container {
                 width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-width-calc)) !important;
                 min-width: calc(var(--urlbar-inprivatebadge-width) + var(--urlbar-min-width)) !important;
@@ -82,60 +81,69 @@
 }
 
 #TabsToolbar {
-    padding: 0 2px !important;
+    padding: 0 !important;
+	padding-left: 3px !important;
     max-height: var(--tab-height);
     background-image: url(images/shine.png) !important;
     background-size: 100% var(--tab-height);
     background-position: bottom;
     -moz-window-dragging: drag !important;
+}
 
-    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-        @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-            margin-left: 5px !important;
-        }
+:root {
+    &[tabsOnNavRow] {
+        #TabsToolbar {
+            background-image: none !important;
 
-        @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-            margin-bottom: 3px !important;
-            position: relative !important;
-
-            &::before {
-                content: '';
-                position: absolute;
-                bottom: -3px;
-                height: 3px;
-                background-color: white;
-                border-radius: 4px 4px 0 0;
-                margin-left: -2px;
-                width: 100%;
-                border-top: 1px solid var(--browser-inner-border-color) !important;
-
-                @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
-                    border-left: 1px solid var(--browser-inner-border-color) !important;
-                    border-right: 1px solid var(--browser-inner-border-color) !important;
-                    margin-left: -1px;
-                    width: calc(100% - 4px);
+            @media not (-moz-windows-classic) {
+                @media (-moz-windows-compositor: 0) {
+                    border-bottom: 1px solid rgb(115, 131, 147) !important;
                 }
+            }
+    
+            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                margin-left: 5px !important;
             }
         }
     }
 
-    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-        background-image: none !important;
+    &:not([tabsOnNavRow]) {
+        #TabsToolbar {
+            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                margin-bottom: 3px !important;
+                position: relative !important;
+    
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: -3px;
+                    height: 3px;
+                    background-color: white;
+                    border-radius: 4px 4px 0 0;
+                    margin-left: -2px;
+                    width: 100%;
+                    border-top: 1px solid var(--browser-inner-border-color) !important;
+    
+                    @supports not -moz-bool-pref("BeautyFox.option.bHideFakeInnerBorders") {
+                        border-left: 1px solid var(--browser-inner-border-color) !important;
+                        border-right: 1px solid var(--browser-inner-border-color) !important;
+                        margin-left: -1px;
+                        width: calc(100% - 4px);
+                    }
+                }
+            }
+        }
     }
 }
 
 #TabsToolbar-customization-target {
     height: var(--tab-height);
-
-    @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-        margin-right: 9px !important;
-    }
 }
 
 #tabbrowser-tabs {
     --tab-min-height: var(--tab-height) !important;
 
-    &[overflow="true"] {
+    &[overflow='true'] {
         margin-right: -1px !important;
 
         #TabsMSEdgeNewTabButton {
@@ -143,7 +151,7 @@
         }
     }
 
-    &:not([overflow="true"]) {
+    &:not([overflow='true']) {
         ~ #MSEdgeNewTabButton{
             display: none;
         }
@@ -310,7 +318,7 @@
         }
     }
 
-    &[selected="true"] {
+    &[selected='true'] {
         @media (-moz-windows-classic) {
             .tab-label {
                 margin-bottom: -2px !important;
@@ -330,7 +338,7 @@
                 margin-bottom: -2px !important;
             } 
 
-            &[class*="identity-color"] {
+            &[class*='identity-color'] {
                 .tab-background {
                     &::before {
                         mask-image: linear-gradient(rgba(0, 0, 0, 0.6), black);
@@ -340,7 +348,7 @@
         }
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-            &[class*="identity-color"] {
+            &[class*='identity-color'] {
                 .tab-background {
                     &::before {
                         background: color-mix(in srgb, var(--identity-icon-color) 60%, white) !important;
@@ -386,9 +394,9 @@
         }
     }
 
-    &:not([busy="true"]) {
+    &:not([busy='true']) {
         .tab-icon-image {
-            &:not(&[src*="data"]) {
+            &:not(&[src*='data']) {
                 content: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/190.ico") !important;
             }
             &:-moz-broken {
@@ -426,7 +434,7 @@
             
     }
 
-    &[class*="identity-color"] {
+    &[class*='identity-color'] {
         .tab-background {
             &::before {
                 background: color-mix(in srgb, var(--identity-icon-color) 60%, white);
@@ -459,8 +467,8 @@
         }
     }
 
-    &:not([selected="true"]):hover {
-        &[class*="identity-color"] {
+    &:not([selected='true']):hover {
+        &[class*='identity-color'] {
             .tab-background {
                 background: rgba(255,255,255,.5) !important;
             }
@@ -492,7 +500,7 @@
     }
 }
 
-.tabbrowser-tab[fadein]:not([pinned]):not([style*="max-width"]) {
+.tabbrowser-tab[fadein]:not([pinned]):not([style*='max-width']) {
     max-width: 200px !important;
     min-width: 45px !important;
 }
@@ -650,7 +658,7 @@ toolbarbutton#TabsMSEdgeNewTabButton {
     }
 }
 
-.tab-label-container[textoverflow][labeldirection="ltr"]:not([pinned]) {
+.tab-label-container[textoverflow][labeldirection='ltr']:not([pinned]) {
     mask-image: none !important;
 }
 
@@ -672,7 +680,7 @@ toolbarbutton#TabsMSEdgeNewTabButton {
 
 
 .tab-throbber {
-    background-image: url('chrome://userchrome/content/resources/ieframe.dll/Bitmap/624.png') !important;
+    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Bitmap/624.png") !important;
     background-repeat: no-repeat !important;
     width: 16px !important;
     height: 16px !important;
@@ -686,46 +694,7 @@ toolbarbutton#TabsMSEdgeNewTabButton {
 }
 
 #main-window {
-    &[sizemode="maximized"],
-    &[sizemode="fullscreen"] {
-        #TabsToolbar {
-            @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-                padding: 0 !important;
-            }
-
-            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-                @supports not -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-                    &::before {                    
-                        @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
-                            border-left: 0 !important;
-                            border-right: 0 !important;
-                            width: 100% !important;
-                        }
-
-                        @supports -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
-                            margin-left: 0 !important;
-                        }
-                    }
-                }
-            }
-        }
-
-        #newToolbar {
-            @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
-                @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {  
-                    &::after {
-                        @supports not -moz-bool-pref("BeautyFox.option.hideFakeInnerBorders") {
-                            border-left: 0 !important;
-                            border-right: 0 !important;
-                            width: 100% !important;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    &[sizemode="fullscreen"] {
+    &[sizemode='fullscreen'] {
         #TabsToolbar {
             background-image: none !important;
         }
@@ -742,57 +711,117 @@ toolbarbutton#TabsMSEdgeNewTabButton {
     }
 }
 
-@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
-    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
-        @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
-            toolbarbutton#TabsMSEdgeNewTabButton,
-            #TabsToolbar #MSEdgeNewTabButton {
-                &:hover {
-                    .toolbarbutton-icon {
-                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico") !important;
-                    }
-                }
-
-                .toolbarbutton-icon {
-                    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico") !important;
-                }
-
-                @supports -moz-bool-pref("BeautyFox.option.newEdgeButton") {
-                    &:hover {
-                        .toolbarbutton-icon {
-                            background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico") !important;
+:root {
+    &[tabsOnNavRow] {
+        #main-window {
+            &[sizemode='maximized'],
+            &[sizemode='fullscreen'] {
+                #newToolbar {
+                    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                        &::after {
+                            @supports not -moz-bool-pref("BeautyFox.option.bHideFakeInnerBorders") {
+                                border-left: 0 !important;
+                                border-right: 0 !important;
+                                width: 100% !important;
+                            }
                         }
                     }
+                }
 
-                    .toolbarbutton-icon {
-                        background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico") !important;
-                    }
+                #TabsToolbar {
+                    padding: 0 !important;
                 }
             }
+        }
+    }
 
-            toolbarbutton#TabsMSEdgeNewTabButton {
-                display: flex !important;
-            }
-
-            @supports -moz-bool-pref("BeautyFox.option.tabsOnNavRow") {
-                :root {
-                    --newtab-button-width: 26px;
+    &:not([tabsOnNavRow]) {
+        #main-window {
+            &[sizemode='maximized'],
+            &[sizemode='fullscreen'] {
+                #TabsToolbar {
+                    @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
+                        &::before {
+                            @supports not -moz-bool-pref("BeautyFox.option.bHideFakeInnerBorders") {
+                                border-left: 0 !important;
+                                border-right: 0 !important;
+                                width: 100% !important;
+                            }
+    
+                            @supports -moz-bool-pref("BeautyFox.option.bHideFakeInnerBorders") {
+                                margin-left: 0 !important;
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-@supports not -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
-    #TabsToolbar #MSEdgeNewTabButton,
-    toolbarbutton#TabsMSEdgeNewTabButton {
-        display: none !important;
+
+
+@supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+        @supports -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+			#TabsToolbar {
+				toolbarbutton#TabsMSEdgeNewTabButton,
+				#MSEdgeNewTabButton {
+					&:hover {
+						.toolbarbutton-icon {
+							background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico") !important;
+						}
+					}
+
+					.toolbarbutton-icon {
+						background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31065.ico") !important;
+					}
+				}
+			}
+            
+
+			#TabsToolbar {
+				&[edgebutton='new'] {
+					#MSEdgeNewTabButton,
+					toolbarbutton#TabsMSEdgeNewTabButton {
+						&:hover {
+							.toolbarbutton-icon {
+								background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico") !important;
+							}
+						}
+	
+						.toolbarbutton-icon {
+							background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31087.ico") !important;
+						}
+					}
+				}
+			}
+
+            toolbarbutton#TabsMSEdgeNewTabButton {
+                display: flex !important;
+            }
+
+            :root[tabsOnNavRow] {
+                --newtab-button-width: 26px;
+            }
+        }
     }
 }
 
-@supports -moz-bool-pref("BeautyFox.option.hideEdgeButton") {
-    #TabsToolbar #MSEdgeNewTabButton,
-    toolbarbutton#TabsMSEdgeNewTabButton {
-        display: none !important;
-    }
+@supports not -moz-bool-pref("BeautyFox.appearance.IE11Win10") {
+    #TabsToolbar {
+		#MSEdgeNewTabButton,
+		toolbarbutton#TabsMSEdgeNewTabButton {
+			display: none !important;
+		}
+	}
+}
+
+#TabsToolbar {
+	&[edgebutton='hide'] {
+		#MSEdgeNewTabButton,
+		toolbarbutton#TabsMSEdgeNewTabButton {
+			display: none !important;
+		}
+	}
 }

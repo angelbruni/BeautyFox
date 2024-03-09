@@ -1,0 +1,7 @@
+<!ENTITY dialog.title	"Internet Explorer Hakkında">
+
+<!ENTITY dialog.version			"Sürüm">
+<!ENTITY dialog.updateVersions	"Sürüm Güncellemeleri">
+<!ENTITY dialog.cipherStrength	"Şifreleme Gücü">
+<!ENTITY dialog.productID		"Ürün Kimliği">
+<!ENTITY dialog.copyright		"Uyarı: Bu bilgisayar programı telif hukuku ve uluslararası antlaşmalarla korunmaktadır. Bu programın izinsiz çoğaltılması veya dağıtılması, programın tamamı veya herhangi bir kısmının, ciddi sivil ve cezai yaptırımlara neden olabilir ve yasa tarafından mümkün olan en üst düzeyde cezalandırılacaktır.">

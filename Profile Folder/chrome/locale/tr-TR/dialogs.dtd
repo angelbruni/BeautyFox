@@ -1,0 +1,10 @@
+<!ENTITY dialog.titleRestart                "Yeniden başlatma gerekli">
+
+<!ENTITY dialog.ok                          "Tamam">
+<!ENTITY dialog.close                       "Kapat">
+<!ENTITY dialog.apply                       "Uygula">
+
+<!ENTITY dialog.restartRequiredDescription  "Aşağıdaki ayarların uygulanması için yeniden başlatma gerekir:">
+
+<!ENTITY dialog.restartNow                  "Şimdi yeniden başlat">
+<!ENTITY dialog.restartLater                "Sonra yeniden başlat">
