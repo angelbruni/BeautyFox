@@ -83,29 +83,27 @@ function toggleStatusBar() {
 }
 
 function updateStatusbarAppearance() {
-	if (pref('BeautyFox.option.bShowStatusBar').tryGet.bool())
-		document.documentElement.setAttribute('statusbar', true);
-	else
-		document.documentElement.removeAttribute('statusbar');
+	document.documentElement.toggleAttribute('statusbar', pref('BeautyFox.option.bShowStatusBar').tryGet.bool());
 
 	const statusbarInternetProtectionModeContainer = document.getElementById('statusbarInternetProtectionModeContainer');
 	const statusbarInternetProtectionMode = document.getElementById('statusbarInternetProtectionMode');
 
-	if (pref('BeautyFox.option.bFakeInternetProtected').tryGet.bool()) {
-		statusbarInternetProtectionModeContainer.setAttribute('protectionlabel', '');
-
-		switch (pref('BeautyFox.option.storedFakeInternetProtectedLabelChoice').tryGet.int()) {
-			case 1:
-				statusbarInternetProtectionMode.setAttribute('locale', 'internetProtected');
-				break;
-			case 2:
-				statusbarInternetProtectionMode.setAttribute('locale', 'internetProtectedOn');
-				break;
-			case 3:
-				statusbarInternetProtectionMode.setAttribute('locale', 'internetProtectedOff');
-				break;
-		}
-	} else {
-		statusbarInternetProtectionModeContainer.removeAttribute('protectionlabel');
+	switch (pref('BeautyFox.option.storedFakeInternetProtectedLabelChoice').tryGet.int()) {
+		case 1:
+			statusbarInternetProtectionModeContainer.style.display = 'flex';
+			statusbarInternetProtectionMode.setAttribute('locale', 'internetProtected');
+			break;
+		case 2:
+			statusbarInternetProtectionModeContainer.style.display = 'flex';
+			statusbarInternetProtectionMode.setAttribute('locale', 'internetProtectedOn');
+			break;
+		case 3:
+			statusbarInternetProtectionModeContainer.style.display = 'flex';
+			statusbarInternetProtectionMode.setAttribute('locale', 'internetProtectedOff');
+			break;
+		default:
+			statusbarInternetProtectionModeContainer.style.display = null;
+			statusbarInternetProtectionModeContainer.removeAttribute('protectionlabel');
+			break;
 	}
 }

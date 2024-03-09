@@ -50,8 +50,7 @@ function createMenu(menuData) {
 			const { Classes } = Components;
 			const { Ci } = Components.interfaces;
 
-			for (let i = 0; i < items.length; i++) {
-				const item = items[i];
+			items.forEach((item, i) => {
 				if (item.path) {
 					item.path = item.path.replace(/\//g, '\\').toLocaleLowerCase();
 					const ffdir = Classes['@mozilla.org/file/directory_service;1']
@@ -59,7 +58,7 @@ function createMenu(menuData) {
 						.get('ProfD', Ci.nsIFile).path;
 					if (/^(\\)/.test(item.path)) { item.path = ffdir + item.path; }
 				}
-			}
+			})
 		};
 		menuData.init = function () {
 			menuData.handleRelativePath(menuData.getAllApps());

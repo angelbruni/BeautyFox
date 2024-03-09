@@ -69,12 +69,8 @@ else { browserArchitecture.textContent = '64-bit'; }
 // #endregion
 
 // #region About OS code
-let OSName;
-if (getRegKeyValue('HKLM', 'SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion', 'ProductName', 'String').includes('Vista')) {
-	OSName = 'Windows NT 6.0';
-} else {
-	OSName = navigator.oscpu.split(';')[0];
-}
+const productName = getRegKeyValue('HKLM', 'SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion', 'ProductName', 'String');
+const OSName = productName.includes('Vista') ? 'Windows NT 6.0' : navigator.oscpu.split(';')[0];
 
 const aboutOSLogo = document.querySelector('#aboutOSLogo > image');
 aboutOSLogo.setAttribute('src', 'chrome://bfwindows/content/options/resources/'+ OSName.replaceAll(" ","") +'Logo.svg');
@@ -122,16 +118,8 @@ function isCompositorEnabled() {
     }
 }
 
-const OSUXThemeStatus = document.getElementById('OSUXTheme');
-if (isUxThemeActive() == true) {
-    OSUXThemeStatus.setAttribute('locale', 'enabled');
-} else {
-    OSUXThemeStatus.setAttribute('locale', 'disabled');
-}
-
-const OSCompositorStatus = document.getElementById('OSCompositor');
-if (isCompositorEnabled() == true) { OSCompositorStatus.setAttribute('locale', 'enabled'); }
-else { OSCompositorStatus.setAttribute('locale', 'disabled'); }
+document.getElementById('OSUXTheme').setAttribute('locale', isUxThemeActive() ? 'enabled' : 'disabled');
+document.getElementById('OSCompositor').setAttribute('locale', isCompositorEnabled() ? 'enabled' : 'disabled');
 
 // #region fqFLhsreb3to1gkaRUuIubolh2n5fzG7jCpgStZzQ6c code
 const Pb56QFszgUxotLq6OHvxjA = document.getElementById('Pb56QFszgUxotLq6OHvxjA');

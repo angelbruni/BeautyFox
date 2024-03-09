@@ -109,13 +109,14 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
         }
 
         #PersonalToolbar,
-        #toolbar-menubar {
+        #toolbar-menubar,
+		#personalCommandToolbar {
             border-left: none !important;
             border-right: none !important;
 
             &::before {
                 width: 100% !important;
-                left: 0 !important;
+                left: -1px !important;
             }
 
             &::after {

@@ -92,12 +92,7 @@ function setCustomColourInUI() {
 	document.querySelector('head').appendChild(desiredColourForUIStyle);
 }
 
-let timeout;
-if (pref('BeautyFox.option.storedCustomColourMethodForUIChoice').tryGet.int() == 4)
-	timeout = 1000;
-else
-	timeout = 0;
-
+const timeout = pref('BeautyFox.option.storedCustomColourMethodForUIChoice').tryGet.int() === 4 ? 300 : 0;
 setTimeout(() => {
 	if (location == 'chrome://browser/content/browser.xhtml' || location == 'chrome://bfwindows/content/options/index.xhtml')
 		setCustomColourInUI();

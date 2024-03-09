@@ -1,13 +1,5 @@
 function showRestartModal() {
-	if (bDoNotRunWizardInNextStart == true) {
-		modal("restartModal").show();
-	} else {
-		window.close();
-	}
-}
-
-function closeRestartModal() {
-	modal("restartModal").hide();
+	bDoNotRunWizardInNextStart ? modal("restartModal").show() : zuneClose();
 }
 
 if (isWindowsClassicThemeEnabled) {
@@ -21,13 +13,11 @@ if (!isWindowsCompositorEnabled) {
 	});
 }
 
-if (!checkRegKeyExistence("SOFTWARE\\AWM")) {
+if (!checkRegKeyExistence("SOFTWARE\\AWM")) 
 	document.querySelector("#customColourMethodForUISelector [value='3']").style.display = 'none';
-}
 
-if (OSName == "Windows NT 6.0") {
+if (OSName == "Windows NT 6.0") 
 	document.querySelector("#customColourMethodForUISelector [value='2']").style.display = 'none';
-}
 
 if (OSName !== "Windows NT 10.0") {
 	document.querySelector("#iForceAeroSupport").style.display = 'none';

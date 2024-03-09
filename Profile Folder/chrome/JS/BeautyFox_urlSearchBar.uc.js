@@ -102,10 +102,7 @@ function urlbarContainerBackgroundOnMouseAttrs() {
         mutations.forEach((mutation) => {
             if (mutation.type === "attributes") {
                 const breakoutExtendValue = targetNode.getAttribute("breakout-extend");
-                if (breakoutExtendValue) 
-					stopReloadBtn.setAttribute("urlbarfocus", true);
-                else 
-					stopReloadBtn.setAttribute("urlbarfocus", false);
+				stopReloadBtn.setAttribute("urlbarfocus", !!breakoutExtendValue);
             }
         });
     });

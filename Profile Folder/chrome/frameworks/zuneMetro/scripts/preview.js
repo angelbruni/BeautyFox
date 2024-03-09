@@ -15,12 +15,7 @@ settings.forEach(setting => {
             if (description !== currentDescription || descriptionImage !== currentImageSource) {
                 previewInfo.classList.remove("fadeInLeftToRight");
                 previewImageContainer.classList.remove("fadeInLeftToRight");
-
-				if (!descriptionImage) {
-					previewImageContainer.style.display = 'none';
-				} else {
-					previewImageContainer.style.display = null;
-				}
+				previewImageContainer.style.display = descriptionImage ? null : 'none';
         
                 setTimeout(() => {
                     previewInfo.textContent = description;

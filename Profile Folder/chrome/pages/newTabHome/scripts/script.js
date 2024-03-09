@@ -1,6 +1,63 @@
 let { NewTabUtils } = ChromeUtils.importESModule("resource://gre/modules/NewTabUtils.sys.mjs");
 let topFrecentSites;
 
+const websiteColors = {
+	'google': 'rgb(65,133,243)',
+	'youtube': 'rgb(255,1,1)',
+	'winclassic': 'rgb(3,28,145)',
+	'github': 'rgb(33,39,44)',
+	'instagram': 'rgb(253,20,123)',
+	'deviantart': 'rgb(0,226,153)',
+	'mega': 'rgb(236,13,19)',
+	'deepl': 'rgb(15,42,70)',
+	'gitlab': 'rgb(225,66,40)',
+	'gitgud': 'rgb(225,66,40)',
+	'betawiki': 'rgb(233,55,55)',
+	'archive.org': 'rgb(8,8,8)',
+	'microsoft': 'rgb(0,163,239)',
+	'obsproject': 'rgb(34,32,35)',
+	'last.fm': 'rgb(185,2,2)',
+	'reddit': 'rgb(254,67,0)',
+	'ftp.mozilla': 'rgb(239,4,1)',
+	'steam': 'rgb(7,26,67)',
+	'carl.gg': 'rgb(120,130,63)',
+	'discord': 'rgb(89,103,242)',
+	'sync-tube': 'rgb(208,73,73)',
+	'riotgames': 'rgb(7,7,7)',
+	'win7gadgets': 'rgb(232,134,42)',
+	'twitch': 'rgb(144,69,255)',
+	'proton.me': 'rgb(126,106,248)',
+	'cssgradient': 'rgb(6,52,118)',
+	'gamebanana': 'rgb(248,198,35)',
+	'dropbox': 'rgb(2,97,253)',
+	'css-mask-generator': 'rgb(21,21,21)',
+	'twitter': 'rgb(27,159,241)',
+	'x.com': 'rgb(27,159,241)',
+	'wikipedia': 'rgb(12,12,12)',
+	'windowswallpaper': 'rgb(139,131,48)',
+	'searchfox': 'rgb(226,49,78)',
+	'unitconverters': 'rgb(0,102,51)',
+	'trello': 'rgb(0,132,209)',
+	'curseforge': 'rgb(239,98,52)',
+	'stackoverflow': 'rgb(241,126,32)',
+	'adoptium': 'rgb(217,19,98)',
+	'vencord': 'rgb(239,190,190)',
+	'minecraftforum': 'rgb(107,183,56)',
+	'glovo': 'rgb(252,191,89)',
+	'w3schools': 'rgb(0,152,102)',
+	'soundcloud': 'rgb(255,46,0)',
+	'onedrive': 'rgb(18,137,215)',
+	'jsdelivr': 'rgb(208,73,58)',
+	'realityripple': 'rgb(6,7,7)',
+	'mozilla': 'rgb(1,1,1)',
+	'windhawk': 'rgb(51,51,51)',
+	'tracker.gg': 'rgb(213,61,31)',
+	'modrinth': 'rgb(0,174,91)',
+	'bing': 'rgb(14,108,188)',
+	'duckduckgo': 'rgb(22,90,52)',
+	'searx': 'rgb(11,11,11)'
+};
+
 function retrieveFrequentSites() {
     const desiredRows = pref('browser.newtabpage.activity-stream.topSitesRows').tryGet.int();
     const numTiles = desiredRows * 5;
@@ -71,115 +128,18 @@ function createTile(website) {
             activity.classList.add('activity');
             activity.style.width = website.frecencyPercentage+'%';
 
-            var activityColour;
-            if (website.url.includes('google')) {
-                activityColour = 'rgb(65,133,243)';
-            } else if (website.url.includes('youtube')) {
-                activityColour = 'rgb(255,1,1)';
-            } else if (website.url.includes('winclassic')) {
-                activityColour = 'rgb(3,28,145)';
-            } else if (website.url.includes('github')) {
-                activityColour = 'rgb(33,39,44)';
-            } else if (website.url.includes('instagram')) {
-                activityColour = 'rgb(253,20,123)';
-            } else if (website.url.includes('deviantart')) {
-                activityColour = 'rgb(0,226,153)';
-            } else if (website.url.includes('mega')) {
-                activityColour = 'rgb(236,13,19)';
-            } else if (website.url.includes('deepl')) {
-                activityColour = 'rgb(15,42,70)';
-            } else if (website.url.includes('gitlab') || website.url.includes('gitgud')) {
-                activityColour = 'rgb(225,66,40)';
-            } else if (website.url.includes('betawiki')) {
-                activityColour = 'rgb(233,55,55)';
-            } else if (website.url.includes('archive.org')) {
-                activityColour = 'rgb(8,8,8)';
-            } else if (website.url.includes('microsoft')) {
-                activityColour = 'rgb(0,163,239)';
-            } else if (website.url.includes('obsproject')) {
-                activityColour = 'rgb(34,32,35)';
-            } else if (website.url.includes('last.fm')) {
-                activityColour = 'rgb(185,2,2)';
-            } else if (website.url.includes('reddit')) {
-                activityColour = 'rgb(254,67,0)';
-            } else if (website.url.includes('ftp.mozilla')) {
-                activityColour = 'rgb(239,4,1)';
-            } else if (website.url.includes('steam')) {
-                activityColour = 'rgb(7,26,67)';
-            } else if (website.url.includes('carl.gg')) {
-                activityColour = 'rgb(120,130,63)';
-            } else if (website.url.includes('discord')) {
-                activityColour = 'rgb(89,103,242)';
-            } else if (website.url.includes('sync-tube')) {
-                activityColour = 'rgb(208,73,73)';
-            } else if (website.url.includes('riotgames')) {
-                activityColour = 'rgb(7,7,7)';
-            } else if (website.url.includes('win7gadgets')) {
-                activityColour = 'rgb(232,134,42)';
-            } else if (website.url.includes('twitch')) {
-                activityColour = 'rgb(144,69,255)';
-            } else if (website.url.includes('proton.me')) {
-                activityColour = 'rgb(126,106,248)';
-            } else if (website.url.includes('cssgradient')) {
-                activityColour = 'rgb(6,52,118)';
-            } else if (website.url.includes('gamebanana')) {
-                activityColour = 'rgb(248,198,35)';
-            } else if (website.url.includes('dropbox')) {
-                activityColour = 'rgb(2,97,253)';
-            } else if (website.url.includes('css-mask-generator')) {
-                activityColour = 'rgb(21,21,21)';
-            } else if (website.url.includes('twitter') || website.url.includes('x.com')) {
-                activityColour = 'rgb(27,159,241)';
-            } else if (website.url.includes('wikipedia')) {
-                activityColour = 'rgb(12,12,12)';
-            } else if (website.url.includes('windowswallpaper')) {
-                activityColour = 'rgb(139,131,48)';
-            } else if (website.url.includes('searchfox')) {
-                activityColour = 'rgb(226,49,78)';
-            } else if (website.url.includes('unitconverters')) {
-                activityColour = 'rgb(0,102,51)';
-            } else if (website.url.includes('trello')) {
-                activityColour = 'rgb(0,132,209)';
-            } else if (website.url.includes('curseforge')) {
-                activityColour = 'rgb(239,98,52)';
-            } else if (website.url.includes('stackoverflow')) {
-                activityColour = 'rgb(241,126,32)';
-            } else if (website.url.includes('adoptium')) {
-                activityColour = 'rgb(217,19,98)';
-            } else if (website.url.includes('vencord')) {
-                activityColour = 'rgb(239,190,190)';
-            } else if (website.url.includes('minecraftforum')) {
-                activityColour = 'rgb(107,183,56)';
-            } else if (website.url.includes('glovo')) {
-                activityColour = 'rgb(252,191,89)';
-            } else if (website.url.includes('w3schools')) {
-                activityColour = 'rgb(0,152,102)';
-            } else if (website.url.includes('soundcloud')) {
-                activityColour = 'rgb(255,46,0)';
-            } else if (website.url.includes('onedrive')) {
-                activityColour = 'rgb(18,137,215)';
-            } else if (website.url.includes('jsdelivr')) {
-                activityColour = 'rgb(208,73,58)';
-            } else if (website.url.includes('realityripple')) {
-                activityColour = 'rgb(6,7,7)';
-            } else if (website.url.includes('mozilla')) {
-                activityColour = 'rgb(1,1,1)';
-            } else if (website.url.includes('windhawk')) {
-                activityColour = 'rgb(51,51,51)';
-            } else if (website.url.includes('tracker.gg')) {
-                activityColour = 'rgb(213,61,31)';
-            } else if (website.url.includes('modrinth')) {
-                activityColour = 'rgb(0,174,91)';
-            } else if (website.url.includes('bing')) {
-                activityColour = 'rgb(14,108,188)';
-            } else if (website.url.includes('duckduckgo')) {
-                activityColour = 'rgb(22,90,52)';
-            } else if (website.url.includes('searx')) {
-                activityColour = 'rgb(11,11,11)';
-            } else {
-                activityColour = 'rgb(14,108,188)';
-            }
-            activity.style.setProperty('--websiteColour', activityColour);
+            const websiteURL = website.url.toLowerCase();
+			const defaultColor = 'rgb(14,108,188)'; // Default color
+			let activityColour = defaultColor;
+
+			for (const key in websiteColors) {
+				if (websiteURL.includes(key)) {
+					activityColour = websiteColors[key];
+					break;
+				}
+			}
+
+			activity.style.setProperty('--websiteColour', activityColour);
             tile.appendChild(activity);
 
             const activityLabel = document.createElement('p');

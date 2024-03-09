@@ -59,21 +59,14 @@ function updateNavButtonsStates(groupId) {
 	pagesContainer.forEach(element => {
 		if (navButtonBack) {
 			navButtonBack.forEach(navButton => {
-				if (document.querySelectorAll('.pagesContainer > #page' + (+element.getAttribute('data-page') - 1)).length === 0) {
-					navButton.setAttribute('disabled', true);
-				} else {
-					navButton.setAttribute('disabled', false);
-				}
+				const previousPageExists = document.querySelectorAll(`.pagesContainer > #page${+element.getAttribute('data-page') - 1}`).length !== 0;
+				navButton.setAttribute('disabled', !previousPageExists);
 			});
 		}
-	
 		if (navButtonBack) {
 			navButtonNext.forEach(navButton => {
-				if (document.querySelectorAll('.pagesContainer > #page' + (+element.getAttribute('data-page') + 1)).length === 0  ) {
-					navButton.setAttribute('disabled', true);
-				} else {
-					navButton.setAttribute('disabled', false);
-				}
+				const nextPageExists = document.querySelectorAll(`.pagesContainer > #page${+element.getAttribute('data-page') + 1}`).length !== 0;
+				navButton.setAttribute('disabled', !nextPageExists);
 			});
 		}
 	})
@@ -139,5 +132,4 @@ function updateInfo(groupId) {
 		showCorrectPage(groupId);
 	} catch (e) { console.error(e) }
 }
-
 updateInfo();

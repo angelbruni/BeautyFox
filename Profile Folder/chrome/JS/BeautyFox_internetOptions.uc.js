@@ -5,8 +5,5 @@
 // ==/UserScript==
 
 function openInternetOptions() {
-    if (pref("BeautyFox.option.bInetCPL").tryGet.bool())
-		runFile("Rundll32.exe", "shell32.dll,Control_RunDLL inetcpl.cpl")
-    else
-		openPreferences();
+    pref("BeautyFox.option.bInetCPL").tryGet.bool() ? runFile("Rundll32.exe", "shell32.dll,Control_RunDLL inetcpl.cpl") : openPreferences();
 }

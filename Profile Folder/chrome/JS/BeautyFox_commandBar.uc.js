@@ -36,23 +36,13 @@ function createCommandBar() {
 
 	personalCommandToolbar.appendChild(commandBar);
 
-	if (pref('BeautyFox.option.commandBar').tryGet.bool()) {
-		commandBar.setAttribute('collapsed', false);
-	} else {
-		commandBar.setAttribute('collapsed', true);
-	}
-
-	commandBar.addEventListener('change', (event) => { 
-		console.log('ssu!')
-	});
+	const showCommandBar = pref('BeautyFox.option.commandBar').tryGet.bool();
+	commandBar.setAttribute('collapsed', !showCommandBar);
 }
 
 window.addEventListener('close', function() {
-	if (document.getElementById("commandBar").getAttribute("collapsed") === "true") {
-		pref('BeautyFox.option.commandBar').set.bool(false);
-	} else {
-		pref('BeautyFox.option.commandBar').set.bool(true);
-	}
+	const commandBarCollapsed = document.getElementById("commandBar").getAttribute("collapsed") === "true";
+	pref('BeautyFox.option.commandBar').set.bool(!commandBarCollapsed);
 });	
 
 function createCBHomeButton() {
@@ -146,23 +136,10 @@ function reportUnsafeWebsite() {
     });
 }
 
-function toggleMenuBar() {
-    const menuBar = document.getElementById("toolbar-menubar");
-    if (menuBar.getAttribute("inactive")) {
-		setToolbarVisibility(menuBar, true, true, false);
-	} else {
-		setToolbarVisibility(menuBar, false, true, false);
-	}
-};
-
-function toggleCommandBar() {
-    const commandBar = document.getElementById("commandBar");
-    if (commandBar.getAttribute("inactive")) {
-		setToolbarVisibility(commandBar, true, true, false);
-	} else {
-		setToolbarVisibility(commandBar, false, true, false);
-	}
-};
+function toggleToolbar(toolbarId) {
+	const toolbar = document.getElementById(toolbarId);
+	setToolbarVisibility(toolbar, !!toolbar.getAttribute("inactive"), true, false);
+}
 
 const IEMenu = createMenu({
     id: 'IEMenu',
@@ -880,7 +857,7 @@ const cBToolsMenu = createMenu({
                     id: 'cBTools_menuBar',
                     name: 'Menu bar',
                     locale: 'MenuBar',
-                    command: 'toggleMenuBar();'
+                    command: "toggleToolbar('toolbar-menubar');"
                 },
                 {
                     type: 'app',
@@ -894,7 +871,7 @@ const cBToolsMenu = createMenu({
                     id: 'cBTools_commandBar',
                     name: 'Command bar',
                     locale: 'CommandBar',
-                    command: "toggleCommandBar();",
+                    command: "toggleToolbar('commandBar');",
                 },
                 {
                     type: 'separator',
@@ -1074,11 +1051,8 @@ function updateCommandbarAppearance() {
 	}
 
 	const attr2 = 'commandbardropdown';
-	if (pref('BeautyFox.option.bFakeDropdownIconsinCommandBar').tryGet.bool()) {
-		commandBar.setAttribute(attr2, '');
-	} else {
-		commandBar.removeAttribute(attr2);
-	}
+	const shouldSetAttribute = pref('BeautyFox.option.bFakeDropdownIconsinCommandBar').tryGet.bool();
+	shouldSetAttribute ? commandBar.setAttribute(attr2, true) : commandBar.removeAttribute(attr2);
 }
 
 // #region FIXME: This should be in status bar but for some reason when I move it from here it stops working.

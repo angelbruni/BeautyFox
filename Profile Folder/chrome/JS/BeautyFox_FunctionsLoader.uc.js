@@ -10,7 +10,7 @@ const { ctypes } = Components.utils.import("resource://gre/modules/ctypes.jsm", 
 if (location == "chrome://browser/content/browser.xhtml" || location == "chrome://bfwindows/content/options/index.xhtml") {
 	function executeFunctions() {
 		// TODO: Change menu entries with IE ones;
-		// TODO: Modals to dialogs.
+		// TODO: Modals to dialogs;
 		// TODO: Make Windows-only code execute only in Windows.
 		launchBeautyFoxWizard();
 		setNavButtonsRadius();
@@ -43,6 +43,6 @@ if (location == "chrome://browser/content/browser.xhtml" || location == "chrome:
 		console.info("Functions executed.");
 	}
 	
-	window.addEventListener("load", function () { executeFunctions(); })
+	window.addEventListener("load", executeFunctions)
 }
 

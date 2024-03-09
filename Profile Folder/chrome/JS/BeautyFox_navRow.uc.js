@@ -25,14 +25,9 @@ function setNavButtonsRadius() {
 }
 
 function updateSettingsAppearance() {
-	if (pref("BeautyFox.option.bHideSettingsInPopUp").tryGet.bool())
-		document.documentElement.setAttribute("hidesettingspopup", "true")
-	else
-		document.documentElement.removeAttribute("hidesettingspopup")
+	const hideSettingsPopup = pref("BeautyFox.option.bHideSettingsInPopUp").tryGet.bool();
+	hideSettingsPopup ? document.documentElement.setAttribute("hidesettingspopup", "true") : document.documentElement.removeAttribute("hidesettingspopup");
 
-	if (pref("BeautyFox.option.bDoNotUseOldSettingsIcon").tryGet.bool())
-		document.documentElement.setAttribute("newsettingsicon", "true")
-	else
-		document.documentElement.removeAttribute("newsettingsicon")
-	
+	const useNewSettingsIcon = pref("BeautyFox.option.bDoNotUseOldSettingsIcon").tryGet.bool();
+	useNewSettingsIcon ? document.documentElement.setAttribute("newsettingsicon", "true") : document.documentElement.removeAttribute("newsettingsicon");
 }

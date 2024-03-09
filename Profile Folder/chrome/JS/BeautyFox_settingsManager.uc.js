@@ -158,10 +158,8 @@ const settingsManager = {
 		intSettings.forEach(setting => pref(setting.type + setting.name).set.int(inputData(setting.name).value.get()));
 		stringSettings.forEach(setting => pref(BeautyFoxSettingType.option + setting).set.string(inputData(setting).value.get()));
 
-		if (checkboxData('iForceAeroSupport').state.get() == true) 
-			pref('widget.ev-native-controls-patch.override-win-version').set.int(7)
-		else
-			pref('widget.ev-native-controls-patch.override-win-version').set.int(10)
+		const winVersion = checkboxData('iForceAeroSupport').state.get() ? 7 : 10;
+		pref('widget.ev-native-controls-patch.override-win-version').set.int(winVersion);
 	}
 }
 
@@ -214,18 +212,12 @@ document.addEventListener("settingsChanged", () => {
 		loadLocale();
 	} 
 
-	if (location == 'chrome://browser/content/browser.xhtml' ||
-		location == 'chrome://bfwindows/content/options/index.xhtml') {
-			let timeout;
-			if (pref('BeautyFox.option.storedCustomColourMethodForUIChoice').tryGet.int() == 4)
-				timeout = 300;
-			else
-				timeout = 0;
-
-			setTimeout(() => {
-				setCustomColourInUI();
-			}, timeout);
-		}
+	if (location == 'chrome://browser/content/browser.xhtml' || location == 'chrome://bfwindows/content/options/index.xhtml') {
+		const timeout = pref('BeautyFox.option.storedCustomColourMethodForUIChoice').tryGet.int() === 4 ? 300 : 0;
+		setTimeout(() => {
+			setCustomColourInUI();
+		}, timeout);
+	}
 
 	console.log('Applied settings in all ' + location)
 });

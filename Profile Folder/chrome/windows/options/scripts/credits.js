@@ -243,11 +243,7 @@ for (const key in creditsPeople) {
 
         const nameLabel = document.createXULElement('label');
         nameLabel.classList.add('userTileName');
-        if (person.isNameLocalised) {
-            nameLabel.setAttribute('locale', person.name);
-        } else {
-            nameLabel.textContent = person.name;
-        }
+        person.isNameLocalised ? nameLabel.setAttribute('locale', person.name) : nameLabel.textContent = person.name;
 
         const roleLabel = document.createXULElement('label');
         roleLabel.classList.add('userTileRole');
@@ -257,11 +253,7 @@ for (const key in creditsPeople) {
             if (person.role.hasOwnProperty(descKey)) {
                 const isLocalized = person.role[descKey];
                 const roleSpan = document.createElement('span');
-                if (isLocalized) {
-                    roleSpan.setAttribute('locale', descKey);
-                } else {
-                    roleSpan.textContent = descKey;
-                }
+                isLocalized ? roleSpan.setAttribute('locale', descKey) : roleSpan.textContent = descKey;
                 roleLabel.appendChild(roleSpan);
             }
         }

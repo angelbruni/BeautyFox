@@ -11,8 +11,5 @@ function downloadsButton() {
         'oncommand':    'BrowserDownloadsUI();'
     })
 
-	if (pref('BeautyFox.option.bShowDownloadProgress').tryGet.bool())
-		downloadsButton.setAttribute('downloadprogress', true);
-	else
-		downloadsButton.removeAttribute('downloadprogress');
+	pref('BeautyFox.option.bShowDownloadProgress').tryGet.bool() ? downloadsButton.setAttribute('downloadprogress', true) : downloadsButton.removeAttribute('downloadprogress');
 }
