@@ -5,7 +5,7 @@
 <!ENTITY wizard.welcome							"BeautyFox'a Hoş Geldiniz!">
 <!ENTITY wizard.about							"Bu proje, internet gezinmesinin temiz, minimalist özünü canlandırmayı amaçlamaktadır ve zarafeti önceliklendirir. Sadeleştirilmiş bir arayüzle, BeautyFox, kullanıcılara modern tarayıcıların karışık karmaşıklığından ferahlatıcı bir kaçış sunar.">
 <!ENTITY wizard.appearance						"Tercih ettiğiniz görünümü seçiniz">
-<!ENTITY wizard.manyStyles                      "Internet Explorer had many styles throughout it’s life, choose your preferred appearance.">
+<!ENTITY wizard.manyStyles                      "Internet Explorer had many styles throughout its life, choose your preferred appearance.">
 <!ENTITY wizard.IE9PreReleaseFeatures			"Internet Explorer 9 Ön Sürüm özelliklerini seçin">
 <!ENTITY wizard.IE9PreRelease7777Appearance		"Build 7777 görünümüyle devam edin">
 <!ENTITY wizard.IE9PreRelease7930Appearance		"Build 7930 görünümüyle devam edin">
