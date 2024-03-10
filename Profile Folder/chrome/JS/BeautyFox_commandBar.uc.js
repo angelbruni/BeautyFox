@@ -1142,6 +1142,5 @@ function setZoomLevelLabel() {
 	zoomMenuButton.setAttribute('label', currentZoomLevel);
 }
 window.addEventListener("FullZoomChange", setZoomLevelLabel);
-window.addEventListener("TabSelect", setZoomLevelLabel);
-
+window.addEventListener("TabAttrModified", setZoomLevelLabel);
 // #endregion

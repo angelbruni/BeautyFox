@@ -271,13 +271,13 @@ toolbar:not([nowindowdrag="true"], [customizing="true"]) {
 
     &::after {
         position: absolute;
-        content: '';
-        width: 100%;
-        left: 1px;
-        bottom: 0;
-        height: 1px;
-        border-bottom: 1px solid var(--chrome-content-separator-color);
-        z-index: 1;
+		content: "";
+		width: calc(100% - 4px);
+		left: 2px;
+		bottom: 0;
+		height: 1px;
+		border-bottom: 1px solid var(--chrome-content-separator-color);
+		z-index: 1;
 
         @supports -moz-bool-pref("BeautyFox.appearance.IE9PreRelease") {
             border-bottom: 0;

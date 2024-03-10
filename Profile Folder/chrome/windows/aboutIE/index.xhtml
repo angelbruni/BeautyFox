@@ -3,7 +3,13 @@
 <?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
 <?xml-stylesheet href="chrome://bfwindows/content/aboutIE/style.css" type="text/css"?>
 
-<!DOCTYPE window SYSTEM "chrome://beautyfox/locale/about.dtd">
+
+<!DOCTYPE window [
+    <!ENTITY % dialogs SYSTEM "chrome://beautyfox/locale/dialogs.dtd">
+    %dialogs;
+    <!ENTITY % about SYSTEM "chrome://beautyfox/locale/about.dtd">
+    %about;
+]>
 
 <window xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" id="aboutIE" windowtype="Browser:AboutIE" title="&dialog.title;" role="dialog">
     <vbox id="aboutIEContainer">
@@ -33,7 +39,7 @@
                 <button id="aboutIEOKButton" onclick="window.close()">
                     <hbox class="box-inherit button-box" align="center" pack="center" flex="1" anonid="button-box">
                         <image class="button-icon"/>
-                        <label class="button-text">OK</label>
+                        <label class="button-text">&dialog.ok;</label>
                     </hbox>
                 </button>
             </vbox>

@@ -243,9 +243,13 @@
     max-height: 21px !important;
     
     &::before {
+		// TODO: Put these together.
         @media not (-moz-windows-classic) {
             content: '';
         }
+		@supports -moz-bool-pref("BeautyFox.option.bHideFakeInnerBorders") {
+			content: unset;
+		}
         
         position: absolute;
         left: 0;
