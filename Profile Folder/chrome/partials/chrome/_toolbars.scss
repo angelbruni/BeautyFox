@@ -61,6 +61,7 @@
 
 #unified-extensions-button {
     list-style-image: url('chrome://userchrome/content/resources/ieframe.dll/Icon Group/110.ico') !important;
+	display: flex !important;
 
     .toolbarbutton-text {
         &::before {
