@@ -40,4 +40,14 @@
 	&[customcolour] {
 		--backgroundBlue: var(--desiredColourForUI);
 	}
+
+	&[lang="ko"] {
+		body {
+			font-family: 'Malgun Gothic', Tahoma, Geneva, Verdana, sans-serif;
+		}
+	}
+}
+
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -1,0 +1,1 @@
+document.documentElement.setAttribute("lang", navigator.language);

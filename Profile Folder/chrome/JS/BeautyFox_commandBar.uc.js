@@ -978,7 +978,7 @@ const cBHelpMenu = createMenu({
             name: "What's new in BeautyFox",
             locale: "NewBeautyFox",
             special: true,
-            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/rc3-1.0.1.html', where: 'tab'});"
+            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/rc3-1.0.2.html', where: 'tab'});"
         },
         {
             type: 'separator',

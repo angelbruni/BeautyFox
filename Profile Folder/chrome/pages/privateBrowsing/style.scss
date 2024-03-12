@@ -1,3 +1,5 @@
+@import '../base';
+
 :root {
 	--header: var(--label);
 
@@ -22,7 +24,6 @@ body {
     background-size: 100% 84px;
     background-repeat: no-repeat;
     background-color: var(--backgroundColour);
-    font-family: "Segoe UI", sans-serif;
     font-size: 80%;
     margin: 0em;
     padding: 1em;
