@@ -1,0 +1,10 @@
+<!ENTITY dialog.titleRestart                "재시작 필요">
+
+<!ENTITY dialog.ok                          "확인">
+<!ENTITY dialog.close                       "가까운">
+<!ENTITY dialog.apply                       "적용">
+
+<!ENTITY dialog.restartRequiredDescription  "다음 설정을 적용하려면 다시 시작해야 합니다:">
+
+<!ENTITY dialog.restartNow                  "지금 다시 시작">
+<!ENTITY dialog.restartLater                "나중에 다시 시작">

@@ -1,0 +1,26 @@
+<!ENTITY window.titleWizard "BeautyFox Wizard">
+
+<!ENTITY wizard.next "Selanjutnya">
+
+<!ENTITY wizard.welcome							"Selamat datang di BeautyFox!">
+<!ENTITY wizard.about							"Proyek ini bertujuan untuk menghidupkan kembali esensi penjelajahan internet yang bersih dan minimalis, dengan mengutamakan keanggugan. Dengan tampilan yang disederhanakan, BeautyFox menawarkan kepada pengguna pelarian yang menyegarkan dari kompleksitas browser modern yang luar biasa.">
+<!ENTITY wizard.appearance						"Choose your preferred appearance">
+<!ENTITY wizard.manyStyles						"Internet Explorer had many styles throughout it’s life, choose your preferred appearance.">
+<!ENTITY wizard.IE9PreReleaseFeatures			"Select Internet Explorer 9 Pre-Release features">
+<!ENTITY wizard.IE9PreRelease7777Appearance		"Continue with Build 7777 appearance">
+<!ENTITY wizard.IE9PreRelease7930Appearance		"Continue with Build 7930 appearance">
+<!ENTITY wizard.IE9Features						"Select Internet Explorer 9 features">
+<!ENTITY wizard.IE9About						"Continue with Internet Explorer 9 appearance">
+<!ENTITY wizard.IE10DeveloperPreviewAbout		"Continue with Internet Explorer 10 Developer Preview 'About' dialog">
+<!ENTITY wizard.IE10ConsumerPreviewAbout		"Continue with Internet Explorer 10 Consumer Preview 'About' dialog">
+<!ENTITY wizard.IE10ReleasePreviewAbout			"Continue with Internet Explorer 10 Release Preview 'About' dialog">
+<!ENTITY wizard.IE10PlusFeatures				"Select Internet Explorer 10+ features">
+<!ENTITY wizard.IE10Appearance					"Continue with Internet Explorer 10 appearance">
+<!ENTITY wizard.IE11Appearance					"Continue with Internet Explorer 11 appearance">
+<!ENTITY wizard.IE11AppearanceDescription		"Changes 'About' dialog to contain Interet Explorer 11 information">
+<!ENTITY wizard.IE11Win10Appearance				"Continue with Internet Explorer 11 from Windows 10 appearance">
+<!ENTITY wizard.IE11Win10AppearanceDescription	"Adds feedback button (smiley face, can be dragged out) and changes the 'About' dialog to Windows version reporter applet with Internet Explorer information">
+<!ENTITY wizard.additional						"Additional options">
+<!ENTITY wizard.openBeautyFoxOptions			"Open BeautyFox options">
+<!ENTITY wizard.thanks							"Thank you for choosing BeautyFox!">
+<!ENTITY wizard.restartRequired					"To apply the changes, Firefox needs to be restarted. You can access BeautyFox settings at any time by shift clicking the settings menu.">

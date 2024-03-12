@@ -1,3 +1,5 @@
+document.documentElement.setAttribute("lang", navigator.language);
+
 var IsIE9PreReleaseAppearance = pref("BeautyFox.appearance.IE9PreRelease").tryGet.bool();
 var IsIE10DeveloperPreviewAppearance = pref("BeautyFox.appearance.IE10DeveloperPreview").tryGet.bool();
 var IsIE10ConsumerPreviewAppearance = pref("BeautyFox.appearance.IE10ConsumerPreview").tryGet.bool();

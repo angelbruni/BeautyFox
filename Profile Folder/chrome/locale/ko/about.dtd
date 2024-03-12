@@ -1,0 +1,7 @@
+<!ENTITY dialog.title	"Internet Explorer 정보">
+
+<!ENTITY dialog.version			"버전">
+<!ENTITY dialog.updateVersions	"업데이트 버전">
+<!ENTITY dialog.cipherStrength	"암호화 수준">
+<!ENTITY dialog.productID		"제품 ID">
+<!ENTITY dialog.copyright		"경고: 이 컴퓨터 프로그램은 저작권법과 국제 협약의 보호를 받습니다. 이 프로그램의 전부 또는 일부를 무단으로 복제, 배포하는 행위는 민사 및 형사법에 의해 엄격히 규제되어 있으며, 기소 사유가 됩니다.">

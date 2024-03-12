@@ -21,6 +21,7 @@ if (OSName == "Windows NT 6.0")
 
 if (OSName !== "Windows NT 10.0") {
 	document.querySelector("#iForceAeroSupport").style.display = 'none';
+	document.querySelector("#customColourMethodForUISelector [value='3']").style.display = 'none';
 	document.querySelector("#customColourMethodForUISelector [value='4']").style.display = 'none';
 }
 

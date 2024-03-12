@@ -1,0 +1,10 @@
+<!ENTITY newTabHome.title			"새탭">
+
+<!ENTITY newTabHome.searchPlaceholder	"Search the web">
+
+<!ENTITY newTabHome.headerIE9		"자주 방문하는 사이트">
+<!ENTITY newTabHome.headerIE10Plus	"자주 방문하는 사이트">
+
+<!ENTITY newTabHome.discoverSites		"선호할 만한 다른 사이트 검색">
+<!ENTITY newTabHome.lastSession			"마지막 세션 다시 열기">
+<!ENTITY newTabHome.inPrivateBrowsing	"InPrivate 브라우징">

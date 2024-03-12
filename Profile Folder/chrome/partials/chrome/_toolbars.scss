@@ -16,14 +16,6 @@
     display: none !important;
 }
 
-#bookmarksMenu {
-    .menubar-text {
-        &::before {
-            content: var(--favorites-label) !important;
-        }
-    }
-}
-
 .toolbarbutton-icon {
     border-radius: 0 !important;
 }

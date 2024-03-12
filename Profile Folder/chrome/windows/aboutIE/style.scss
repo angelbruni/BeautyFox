@@ -4,6 +4,30 @@
 	--font-size: 8pt;
 	--font-family: Tahoma, Geneva, Verdana, sans-serif;
 	--font-colour: rgb(97, 97, 97);
+
+	&[lang="ko"] {
+		@supports not -moz-bool-pref("BeautyFox.appearance.IE10") {
+			--font-size: 9pt;
+			--font-family: Gulim, Malgun Gothic, Tahoma, Geneva, Verdana, sans-serif;
+
+			#aboutIEPane {
+				width: 416px;
+				padding-right: 19px;
+			}
+
+			#aboutIEOKButton {
+				width: 126px;
+				right: 69px;
+				bottom: 2px;
+			}
+
+			.aboutDialogInfo {
+				&#aboutIEWarning {
+					margin-bottom: 58px;
+				}
+			}
+		}
+	}
 }
 
 label {

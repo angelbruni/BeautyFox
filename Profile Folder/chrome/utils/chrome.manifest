@@ -8,6 +8,8 @@ locale beautyfox es-ES      ../locale/es-ES/
 locale beautyfox pt-PT      ../locale/pt-PT/
 locale beautyfox pt-BR      ../locale/pt-BR/
 locale beautyfox tr-TR      ../locale/tr-TR/
+locale beautyfox ko      	../locale/ko/
+locale beautyfox id      	../locale/id/
 locale beautyfox ja      	../locale/ja/
 
 skin userstyles classic/1.0 ../CSS/

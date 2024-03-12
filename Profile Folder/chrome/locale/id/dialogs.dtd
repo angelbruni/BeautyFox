@@ -1,0 +1,10 @@
+<!ENTITY dialog.titleRestart                "Diperlukan Restart">
+
+<!ENTITY dialog.ok                          "OK">
+<!ENTITY dialog.close                       "Tutup">
+<!ENTITY dialog.apply                       "Terapkan">
+
+<!ENTITY dialog.restartRequiredDescription  "Pengaturan berikut memerlukan restart untuk diterapkan:">
+
+<!ENTITY dialog.restartNow                  "Restart Sekarang">
+<!ENTITY dialog.restartLater                "Restart nanti">

@@ -163,7 +163,37 @@ const creditsPeople = {
             }
         }
     },
-    12: {
+	12: {
+        name: 'Longhorn004',
+        role: {
+            'aboutTesting': true,
+            'aboutKoreanTranslation': true
+        },
+        picture: {
+            src: 'https://avatars.githubusercontent.com/u/119104342'
+        },
+        links: {
+            "GitHub": {
+                url: 'https://github.com/Longhorn004'
+            }
+        }
+    },
+	13: {
+        name: 'chronail',
+        role: {
+            'aboutTesting': true,
+            'aboutIndonesianTranslation': true
+        },
+        picture: {
+            src: 'https://avatars.githubusercontent.com/u/163157718'
+        },
+        links: {
+            "GitHub": {
+                url: 'https://github.com/chronail'
+            }
+        }
+    },
+    14: {
         name: 'slice',
         role: {
             'aboutOrderer': true,
@@ -174,7 +204,7 @@ const creditsPeople = {
             src: 'chrome://bfwindows/content/options/resources/defaultUser.jpg'
         }
     },
-    13: {
+    15: {
         name: 'aboutTestingTeam',
         isNameLocalised: true,
         role: {
@@ -184,7 +214,7 @@ const creditsPeople = {
             src: 'chrome://bfwindows/content/options/resources/defaultGroup.jpg'
         }
     },
-    14: {
+    16: {
         name: 'Microsoft Corporation',
         role: {
             'aboutThanksMicrosoft': true
@@ -199,7 +229,7 @@ const creditsPeople = {
             }
         }
     },
-    15: {
+    17: {
         name: 'Mozilla',
         role: {
             'aboutThanksMozilla': true
@@ -215,6 +245,7 @@ const creditsPeople = {
         }
     }
 }
+
 const container = document.getElementById('userTilesContainer');
 for (const key in creditsPeople) {
     if (creditsPeople.hasOwnProperty(key)) {

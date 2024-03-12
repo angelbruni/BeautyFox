@@ -1,0 +1,8 @@
+<!ENTITY save.header "Apakah Anda ingin menjalankan atau menyimpan file ini?">
+
+<!ENTITY general.name "Nama">
+<!ENTITY general.type "Tipe">
+<!ENTITY general.from "Dari">
+
+<!ENTITY saveAs.warning "Meskipun file dari internet dapat berguna, jenis file ini berpotensi membahayakan komputer Anda. Jika Anda tidak mempercayai sumbernya, jangan jalankan atau simpan perangkat lunak ini.">
+<!ENTITY saveAs.link    "Apa resikonya?">
