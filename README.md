@@ -41,7 +41,6 @@ Enjoy!
 * [MrOtherGuy](https://github.com/MrOtherGuy) - fx-autoconfig;
 * [Aris-t2](https://github.com/Aris-t2) - favicon_in_urlbar.uc.js;
 * SQUEeAK - Trailer;
-* [ephemeralViolette](https://github.com/ephemeralViolette) - Firefox Native Controls;
 * [luisl173](https://github.com/luisl173) - Testing, spanish translation;
 * [MaTe](https://github.com/MisforMaTe) - Testing, Portuguese (Brazillian) translation;
 * [catneptune](https://github.com/catneptune) - Testing, Portuguese (Brazillian) translation;
