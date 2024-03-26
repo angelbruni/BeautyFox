@@ -3,7 +3,7 @@ BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Exp
 
 # Notes
 * **It will NOT work on anything other than Windows**.
-*** This is not the desired Open Beta release but to prevent people from using an outdated leaked build, I am releasing it**.
+* **This is not the desired Open Beta release but to prevent people from using an outdated leaked build, I am releasing it**.
 * BeautyFox style and script code needs a rework in general (Geckium will help with the script side);
 * It has been tested on Windows Vista with Extended Kernel, Windows 7, Windows 8.1 and 10 with the default theme and Aero themes with Glass8, [DWMBlurGlass](https://github.com/Maplespe/DWMBlurGlass), [Aero Window Manager](https://youtu.be/KtMIytUqRac) enabled and in Windows 11;
 * It doesn't and will **NEVER** work properly with WindowBlinds;
