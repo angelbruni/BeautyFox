@@ -1,1 +1,1 @@
-# BeautyFox Dark has been discountinued. Please wait for official updates.
+# BeautyFox Dark has been discontinued. Please wait for official updates.
