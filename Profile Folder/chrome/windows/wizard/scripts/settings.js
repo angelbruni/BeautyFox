@@ -21,7 +21,8 @@ function setFirefoxDefaults() {
 	pref('browser.newtabpage.activity-stream.feeds.section.highlights').set.bool(false);	// Disable recent activity in new tab;
 	pref('browser.tabs.inTitlebar').set.int(1);												// Disable native titlebar;
 	pref('browser.toolbars.bookmarks.visibility').set.string('never');						// Hide bookmarks bar initially;
-	pref('browser.download.autohideButton').set.bool(true);									// Auto-hide downloads button if empty.
+	pref('browser.download.autohideButton').set.bool(true);									// Auto-hide downloads button if empty;
+	pref('browser.newtab.preload').set.bool(false);											// Fix new tab page not updating without a refresh.
 	// Set default layout.
 	pref('browser.uiCustomization.state').set.string('{"placements": {"widget-overflow-fixed-list": [],"unified-extensions-area": [],"nav-bar": ["back-button","forward-button","urlbar-container","stop-reload-button","bookmarks-button","search-container"],"endToolbar": ["home-button","bookmarksSidebarButton","IEMenuButton","feedbackButton"],"TabsToolbar": ["tabbrowser-tabs","new-tab-button","alltabs-button"],"toolbar-menubar": ["menubar-items"],"PersonalToolbar": ["addToBookmarksBarButton","suggestedsites_bruni_com-browser-action","personal-bookmarks"],"commandBar": ["cBHomeButton","cBPrintButton","cBReadMailButton","downloads-button","cBPageMenuButton","cBSafetyMenuButton","cBToolsMenuButton","cBHelpMenuButton"],"addonsBar": ["_799c0914-748b-41df-a25c-22d008f9e83f_-browser-action","ublock0_raymondhill_net-browser-action","zoomMenuButton"]},"seen": [],"dirtyAreaCache": ["nav-bar","endToolbar","TabsToolbar","toolbar-menubar","PersonalToolbar","commandBar","addonsBar","unified-extensions-area"],"currentVersion": 19,"newElementCount": 61}')
 	

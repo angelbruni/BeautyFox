@@ -5,6 +5,8 @@
 // @loadorder   3
 // ==/UserScript==
 
+// ATTENTION: Most of this code is TERRIBLE, no worries, Geckium will bring a better one.
+
 function createCommandBar() {
 	const navigatorToolbox = document.getElementById('navigator-toolbox');
 
@@ -978,7 +980,7 @@ const cBHelpMenu = createMenu({
             name: "What's new in BeautyFox",
             locale: "NewBeautyFox",
             special: true,
-            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/rc3-1.0.2.html', where: 'tab'});"
+            command: "_ucUtils.loadURI(window,{url: 'chrome://userchrome/content/temppages/changelogs/ob-1.0.2.html', where: 'tab'});"
         },
         {
             type: 'separator',

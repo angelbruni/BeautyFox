@@ -74,20 +74,6 @@ const creditsPeople = {
         }
     },
     6: {
-        name: 'ephemeralViolette',
-        role: {
-            'Firefox Native Controls': false
-        },
-        picture: {
-            src: 'https://avatars.githubusercontent.com/u/28045018'
-        },
-        links: {
-            "GitHub": {
-                url: 'https://github.com/ephemeralviolette'
-            }
-        }
-    },
-    7: {
         name: 'luisl',
         role: {
             'aboutTesting': true,
@@ -103,7 +89,7 @@ const creditsPeople = {
             }
         }
     },
-    8: {
+    7: {
         name: 'MaTe',
         role: {
             'aboutTesting': true,
@@ -118,7 +104,7 @@ const creditsPeople = {
             }
         }
     },
-    9: {
+    8: {
         name: 'neptuneen',
         role: {
             'aboutTesting': true,
@@ -133,7 +119,7 @@ const creditsPeople = {
             }
         }
     },
-    10: {
+    9: {
         name: 'ImSwordQueen',
         role: {
             'aboutTesting': true,
@@ -148,7 +134,7 @@ const creditsPeople = {
             }
         }
     },
-    11: {
+    10: {
         name: 'Brawllux',
         role: {
             'aboutTesting': true,
@@ -163,7 +149,7 @@ const creditsPeople = {
             }
         }
     },
-	12: {
+	11: {
         name: 'Longhorn004',
         role: {
             'aboutTesting': true,
@@ -178,7 +164,7 @@ const creditsPeople = {
             }
         }
     },
-	13: {
+	12: {
         name: 'chronail',
         role: {
             'aboutTesting': true,
@@ -193,7 +179,7 @@ const creditsPeople = {
             }
         }
     },
-    14: {
+    13: {
         name: 'slice',
         role: {
             'aboutOrderer': true,
@@ -204,7 +190,7 @@ const creditsPeople = {
             src: 'chrome://bfwindows/content/options/resources/defaultUser.jpg'
         }
     },
-    15: {
+    14: {
         name: 'aboutTestingTeam',
         isNameLocalised: true,
         role: {
@@ -214,7 +200,7 @@ const creditsPeople = {
             src: 'chrome://bfwindows/content/options/resources/defaultGroup.jpg'
         }
     },
-    16: {
+    15: {
         name: 'Microsoft Corporation',
         role: {
             'aboutThanksMicrosoft': true
@@ -229,7 +215,7 @@ const creditsPeople = {
             }
         }
     },
-    17: {
+    16: {
         name: 'Mozilla',
         role: {
             'aboutThanksMozilla': true

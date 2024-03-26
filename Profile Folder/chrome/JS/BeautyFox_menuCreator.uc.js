@@ -4,6 +4,8 @@
 // @loadorder   1
 // ==/UserScript==
 
+// ATTENTION: Most of this code is TERRIBLE, no worries, Geckium will bring a better one.
+
 function createMenu(menuData) {
 	try {
 		var externalBtn = document.createXULElement('toolbarbutton');
