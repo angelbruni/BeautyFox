@@ -1,6 +1,8 @@
 # What is BeautyFox?
 BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Explorer 9, 10, and 11 look and feel.
 
+[Discord Server](https://discord.gg/ZDeT6vdqMp)
+
 # Notes
 * **It will NOT work on anything other than Windows**.
 * **This is not the desired Open Beta release but to prevent people from using an outdated leaked build, I am releasing it**.
