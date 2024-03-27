@@ -23,7 +23,7 @@ BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Exp
 
 	**Warning!** Using a modded `XUL.dll` will cause some streaming services (like Netflix) to stop working. Continue at your own risk.
 
-	2.1. Download the modded [XUL.dll](https://github.com/ephemeralViolette/firefox-native-controls/releases);
+	2.1. Download the modded [XUL.dll](https://github.com/ImSwordQueen/firefox-native-controls/releases)(Archived);
 
 	2.2. Find `firefox.exe` directory and replace the existing `XUL.dll` with the modded one.
 
