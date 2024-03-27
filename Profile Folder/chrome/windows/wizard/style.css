@@ -1,0 +1,155 @@
+@keyframes splash_SplashToLoaded {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes splash_Label {
+  0% {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes window_SplashToLoaded {
+  0% {
+    min-width: 400px;
+    min-height: 248px;
+    max-width: 400px;
+    max-height: 248px;
+    transform: rotateY(0deg);
+  }
+  99% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    min-width: 728px;
+    min-height: 519px;
+    max-width: 728px;
+    max-height: 519px;
+    transform: rotateY(0deg);
+  }
+}
+@keyframes firefoxIcon {
+  0% {
+    opacity: 0;
+    transform: rotateZ(-180deg) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(0deg) scale(1);
+  }
+}
+#windowStyling {
+  min-width: 400px;
+  min-height: 248px;
+  max-width: 400px;
+  max-height: 248px;
+  animation-name: window_SplashToLoaded;
+  animation-duration: 480ms;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#splashScreen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 400px;
+  max-height: 248px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--accentFirst) 0%, var(--accentSecond) 100%);
+  pointer-events: none;
+  text-transform: lowercase;
+  color: white;
+  font-size: 24pt;
+  text-align: center;
+  font-weight: 300;
+  animation-name: splash_SplashToLoaded;
+  animation-duration: 480ms;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+#splashScreen > div,
+#splashScreen > vbox {
+  overflow: hidden;
+}
+#splashScreen image {
+  height: 128px;
+  width: 128px;
+  margin-bottom: 12px;
+}
+#splashScreen label {
+  opacity: 0;
+  transform: translateY(36px);
+  animation-name: splash_Label;
+  animation-delay: 240ms;
+  animation-duration: 480ms;
+  animation-fill-mode: forwards;
+}
+
+#previewImage {
+  max-width: 143px;
+  max-height: 143px;
+}
+
+tile .tileArt {
+  min-height: 193px;
+  max-height: 193px;
+}
+tile .tileArt img {
+  position: absolute;
+  left: -250px;
+  top: -100px;
+}
+
+#aboutImage {
+  margin: auto;
+}
+
+#aboutImageFirefox {
+  opacity: 0;
+  transform: rotateZ(-180deg) scale(0);
+  animation-name: firefoxIcon;
+  animation-delay: 400ms;
+  animation-duration: 480ms;
+  animation-fill-mode: forwards;
+}
+
+#aboutImageArrow {
+  margin: 0 50px;
+  opacity: 0;
+  transform: translateX(20px);
+  animation-name: fadeInLeftToRight;
+  animation-delay: 800ms;
+  animation-duration: 480ms;
+  animation-fill-mode: forwards;
+}
+
+#aboutImageIE {
+  margin-top: 26px;
+  opacity: 0;
+  transform: translateX(20px);
+  animation-name: fadeInLeftToRight;
+  animation-delay: 1000ms;
+  animation-duration: 480ms;
+  animation-fill-mode: forwards;
+}
+
+#windowContent > .pagesContainer {
+  font-size: 12pt;
+  padding: 53px 27px 0px 38px;
+}/*# sourceMappingURL=style.css.map */

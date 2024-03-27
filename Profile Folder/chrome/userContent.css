@@ -1,0 +1,627 @@
+@-moz-document url-prefix(about:neterror) {
+  :root {
+    --error-icon: url("chrome://userchrome/content/resources/ieframe.dll.mui/HTML/noConnect.png");
+    --in-content-page-color: #575757 !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    :root {
+      --in-content-page-color: black !important;
+    }
+  }
+  body {
+    background-image: linear-gradient(180deg, #ffffff 0%, #e9eaef 100%) !important;
+    background-size: cover !important;
+    background-color: rgb(232, 234, 239) !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    body {
+      background-image: none !important;
+      background-color: white !important;
+    }
+  }
+  .container {
+    margin-top: 20px;
+    margin-left: 80px;
+    position: relative;
+    max-width: 730px !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .container {
+      margin-top: 80px;
+      margin-left: 120px;
+      margin-right: 120px;
+      max-width: 700px !important;
+    }
+  }
+  .title {
+    border-bottom: 1px solid #b6bcc6 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 26px !important;
+    position: relative;
+    background-image: none !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .title {
+      border-bottom: none !important;
+      margin-bottom: 0 !important;
+    }
+  }
+  .title::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60px;
+    height: 48px;
+    width: 48px;
+    background-image: var(--error-icon);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .title::before {
+      content: unset !important;
+    }
+  }
+  .neterror {
+    padding: 0 !important;
+  }
+  h1.title-text {
+    color: #4465a2 !important;
+    font-size: 0.7em !important;
+    font-weight: normal !important;
+    padding-top: 7px !important;
+    padding-bottom: 23px !important;
+    margin-bottom: 0 !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    h1.title-text {
+      color: #2778ec !important;
+      font-size: 38pt !important;
+      font-weight: 300 !important;
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
+    }
+  }
+  #errorShortDesc, #errorShortDesc2 {
+    display: none;
+  }
+  span[data-l10n-id=neterror-dns-not-found-hint-header] {
+    font-size: 0.9em !important;
+    color: black !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    span[data-l10n-id=neterror-dns-not-found-hint-header] {
+      display: none;
+    }
+  }
+  span[data-l10n-id=neterror-dns-not-found-hint-header] > strong {
+    font-weight: normal !important;
+  }
+  #errorLongDesc > ul {
+    margin-left: 27px !important;
+    font-size: 0.9em !important;
+    margin-inline-start: 27px !important;
+    margin-right: 8px !important;
+    font-weight: normal !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    #errorLongDesc > ul {
+      margin-left: 0 !important;
+      margin-top: 25px !important;
+      font-size: 12pt !important;
+      font-weight: 200 !important;
+    }
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+      #errorLongDesc > ul {
+        margin-left: 25px !important;
+      }
+    }
+  }
+  #errorLongDesc > ul > li {
+    margin-bottom: 7px !important;
+    list-style: none;
+  }
+  #errorLongDesc > ul > li:before {
+    content: "";
+    background-color: var(--in-content-page-color);
+    vertical-align: middle;
+    display: inline-block;
+    height: 3.5px;
+    width: 3.5px;
+    margin-right: 4px;
+    border-radius: 50%;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    #errorLongDesc > ul > li:before {
+      height: 4px;
+      width: 4px;
+      margin-right: 10px;
+    }
+  }
+  .button-container {
+    margin-left: 8px !important;
+    justify-content: start !important;
+    margin-top: 0 !important;
+    top: 108px;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .button-container {
+      margin-left: 0 !important;
+      position: static;
+      margin-top: 31px !important;
+    }
+  }
+  .button-container > button {
+    margin: 0 !important;
+    min-height: 22px !important;
+    border-radius: 0 !important;
+    border: 1px solid rgb(112, 112, 112) !important;
+    color: black !important;
+    font-size: 9pt !important;
+    background: linear-gradient(0deg, rgb(213, 213, 213) 0%, rgb(235, 235, 235) 100%);
+    padding: 0 12px !important;
+  }
+  .button-container > button:hover {
+    border: 1px solid rgb(38, 160, 218) !important;
+    background: rgb(166, 244, 255) !important;
+  }
+  .button-container > button:active {
+    border: 1px solid rgb(0, 137, 180) !important;
+    background: rgb(52, 180, 227) !important;
+    padding-top: 2px !important;
+    padding-left: 13px !important;
+    padding-right: 11px !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+      h1.title-text {
+        color: #54b0f7 !important;
+        font-size: 36px !important;
+      }
+    }
+  }
+}
+@-moz-document url-prefix(about:certerror) {
+  :root {
+    --error-icon: url("chrome://userchrome/content/resources/ieframe.dll.mui/HTML/red_shield_48.png");
+    --in-content-page-color: #575757 !important;
+  }
+  body {
+    position: relative;
+    background-image: linear-gradient(180deg, #ffffff 0%, #e9eaef 100%) !important;
+    background-size: cover !important;
+    background-color: rgb(232, 234, 239) !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    body {
+      background-image: none !important;
+      background-color: white !important;
+    }
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 59px;
+    background-image: linear-gradient(180deg, #fdedee 0%, #ffffff 96.6%, #ffffff 100%);
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    body::before {
+      content: unset !important;
+    }
+  }
+  .container {
+    margin-top: 20px;
+    margin-left: 80px;
+    position: relative;
+    max-width: 730px !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    .container {
+      margin-top: 80px;
+      margin-left: 120px;
+      margin-right: 120px;
+      max-width: 700px !important;
+    }
+  }
+  .title {
+    border-bottom: 1px solid #b6bcc6 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 26px !important;
+    position: relative;
+    background-image: none !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    .title {
+      border-bottom: none !important;
+      margin-bottom: 25px !important;
+    }
+  }
+  .title::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60px;
+    height: 48px;
+    width: 48px;
+    background-image: var(--error-icon);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    .title::before {
+      content: unset !important;
+    }
+  }
+  h1.title-text {
+    color: #4465a2 !important;
+    font-size: 0.7em !important;
+    font-weight: normal !important;
+    padding-top: 7px !important;
+    padding-bottom: 23px !important;
+    margin-bottom: 0 !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    h1.title-text {
+      color: #a90000 !important;
+      font-size: 36px !important;
+      font-weight: 300 !important;
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
+    }
+  }
+  a {
+    min-height: 19px !important;
+    border: 0 !important;
+    color: rgb(19, 112, 171) !important;
+    font-size: 0.9em !important;
+    background: transparent !important;
+    padding: 0 !important;
+    text-align: left !important;
+    margin-bottom: 13px !important;
+    font-weight: normal !important;
+    text-decoration: none !important;
+  }
+  a:hover {
+    border: 0 !important;
+    background: transparent !important;
+    color: rgb(7, 74, 229) !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+  a#viewCertificate {
+    margin: 0 !important;
+  }
+  .button-container {
+    position: static;
+    margin-left: 0 !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .button-container > button {
+    min-height: 19px !important;
+    border: 0 !important;
+    color: rgb(19, 112, 171) !important;
+    font-size: 0.9em !important;
+    background: transparent !important;
+    padding: 0 !important;
+    text-align: left !important;
+    margin-bottom: 29px !important;
+    font-weight: normal !important;
+    padding-left: 21px !important;
+    position: relative !important;
+  }
+  .button-container > button:hover {
+    border: 0 !important;
+    background: transparent !important;
+    color: rgb(7, 74, 229) !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+  .button-container > button:active {
+    border: 0 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    padding-left: 21px !important;
+  }
+  .button-container > button::before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 14px;
+    top: 2px;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .button-container > button#returnButton::before {
+    background-image: url("chrome://userchrome/content/resources/ieframe.dll.mui/Bitmap/green_shield.png");
+  }
+  .button-container > button#exceptionDialogButton {
+    margin-top: 0 !important;
+  }
+  .button-container > button#exceptionDialogButton::before {
+    background-image: url("chrome://userchrome/content/resources/ieframe.dll/Icon Group/31058.ico");
+    background-size: 16px;
+  }
+  .button-container > button#advancedButton {
+    font-size: 1em !important;
+    padding-left: 29px !important;
+  }
+  .button-container#advancedPanelButtonContainer {
+    padding: 0 !important;
+    background-color: transparent !important;
+    margin-top: 29px !important;
+  }
+  .button-container#advancedPanelButtonContainer #advancedPanelReturnButton {
+    display: none !important;
+  }
+  .advanced-panel {
+    margin: 0 !important;
+    margin-left: 32px !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    display: block !important;
+    position: relative !important;
+    font-size: 0.9em !important;
+  }
+  .advanced-panel[hidden=""]:first-child::before {
+    background-image: url("chrome://userchrome/content/resources/ieframe.dll.mui/HTML/down.png");
+  }
+  .advanced-panel[hidden=""] * {
+    display: none !important;
+  }
+  .advanced-panel:first-child::before {
+    content: "";
+    position: absolute;
+    top: -47px;
+    left: -28px;
+    height: 15px;
+    width: 15px;
+    background-image: url("chrome://userchrome/content/resources/ieframe.dll.mui/HTML/up.png");
+  }
+  .advanced-panel > p {
+    margin: 0 !important;
+    white-space: unset !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE11") {
+    #errorShortDesc {
+      margin-top: 0 !important;
+    }
+    #errorLongDesc > ul {
+      margin-left: 25px !important;
+    }
+  }
+}
+@-moz-document url-prefix(about:preferences) {
+  #tabPositionSettingsContainer {
+    display: none !important;
+  }
+  #statusBarGroup {
+    display: none !important;
+  }
+  #bookmarksBarPositionGroup {
+    display: none !important;
+  }
+  #category-theme {
+    display: none !important;
+  }
+  #firefoxThemeCategory {
+    display: none !important;
+  }
+  #themeGroup {
+    display: none !important;
+  }
+  [data-subcategory=highlights] {
+    display: none !important;
+  }
+}
+/* Tabs */
+@-moz-document url-prefix("about:devtools-toolbox") {
+  .devtools-tabbar {
+    background-color: transparent !important;
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .devtools-tabbar {
+      min-height: 21px !important;
+    }
+  }
+  .toolbox-tabs > button > img {
+    display: none !important;
+  }
+  .devtools-tab.selected {
+    color: black !important;
+  }
+  .devtools-separator,
+  .devtools-tab-line {
+    display: none !important;
+  }
+  .devtools-tab-label {
+    padding: 0 !important;
+    mask-image: none !important;
+  }
+  @supports not (-moz-bool-pref("BeautyFox.appearance.IE10")) {
+    #toolbox-toolbar-mount {
+      background-color: rgb(227, 238, 251) !important;
+    }
+    .devtools-tabbar {
+      padding-top: 2px !important;
+      border-bottom: 1px solid rgb(163, 167, 172) !important;
+    }
+    .toolbox-tabs {
+      align-items: end !important;
+    }
+    .devtools-tab {
+      position: relative;
+      -moz-appearance: none;
+           appearance: none;
+      border-style: solid !important;
+      border-color: transparent !important;
+      border-width: 1px !important;
+      border-bottom-width: 0 !important;
+      border-radius: 2px 2px 0 0 !important;
+      margin: 1px 2px 0 2px !important;
+    }
+    .devtools-tab:hover {
+      background-color: transparent !important;
+    }
+    .devtools-tab.selected {
+      background-image: linear-gradient(0deg, rgb(234, 237, 241) 0%, rgb(195, 221, 251) 100%) !important;
+      border-color: white !important;
+      overflow: visible !important;
+    }
+    .devtools-tab.selected::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      height: calc(100% + 1px);
+      width: calc(100% + 2px);
+      border: 1px solid rgb(163, 167, 172);
+      border-bottom: 0;
+      border-radius: 3px 3px 0 0;
+    }
+    .toolbox-tabs-wrapper {
+      margin-bottom: -1px !important;
+    }
+    .devtools-tab-label {
+      margin: 0 6px !important;
+    }
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    #toolbox-toolbar-mount {
+      background-color: rgb(30, 30, 30) !important;
+    }
+    .devtools-tabbar-button {
+      padding: 0 !important;
+    }
+    .devtools-tab,
+    .devtools-tabbar-button {
+      color: white !important;
+    }
+    .devtools-tab:focus,
+    .devtools-tabbar-button:focus {
+      background-color: transparent !important;
+    }
+    .devtools-tab:hover,
+    .devtools-tabbar-button:hover {
+      background-color: rgb(65, 65, 65) !important;
+    }
+    .devtools-tab.selected, .devtools-tab.checked,
+    .devtools-tabbar-button.selected,
+    .devtools-tabbar-button.checked {
+      color: black !important;
+      background-color: white !important;
+    }
+    .devtools-tab {
+      cursor: pointer !important;
+      min-height: 21px !important;
+      height: 0 !important;
+    }
+    .devtools-tab-label {
+      margin: 0 19px !important;
+    }
+  }
+}
+/* Tab contents */
+@-moz-document url-prefix("chrome://devtools/content/") {
+  .tabs-navigation {
+    flex-direction: row-reverse !important;
+  }
+  .devtools-tab-line {
+    display: none !important;
+  }
+  @supports not (-moz-bool-pref("BeautyFox.appearance.IE10")) {
+    .tabs-navigation {
+      background-color: rgb(240, 240, 240) !important;
+      height: 34px !important;
+    }
+    .tabs-menu-item {
+      position: relative !important;
+      color: black !important;
+      margin: 6px 4px !important;
+      border-style: solid !important;
+      border-width: 1px !important;
+      border-color: transparent !important;
+      min-width: -moz-fit-content !important;
+      min-width: fit-content !important;
+      width: -moz-fit-content !important;
+      width: fit-content !important;
+    }
+    .tabs-menu-item:before {
+      content: "";
+      position: absolute;
+      left: -2px;
+      top: -2px;
+      height: calc(100% + 2px);
+      width: calc(100% + 2px);
+      pointer-events: none;
+      border-style: solid;
+      border-width: 1px;
+      border-color: transparent;
+    }
+    .tabs-menu-item:hover {
+      background-color: transparent !important;
+    }
+    .tabs-menu-item.is-active {
+      border-top-color: rgb(160, 160, 160) !important;
+      border-left-color: rgb(160, 160, 160) !important;
+      border-right-color: rgb(227, 227, 227) !important;
+      border-bottom-color: rgb(227, 227, 227) !important;
+      background-color: white !important;
+    }
+    .tabs-menu-item.is-active::before {
+      border-top-color: rgb(105, 105, 105);
+      border-left-color: rgb(105, 105, 105);
+      border-right-color: white;
+      border-bottom-color: white;
+    }
+    .tabs-menu-item.is-active a {
+      transform: translateX(0) translateY(0);
+    }
+    .tabs-menu-item a {
+      transform: translateX(-1px) translateY(-1px);
+      padding: 0 !important;
+      margin: 0 5px !important;
+      min-width: 34px !important;
+      justify-content: start !important;
+      text-align: left !important;
+    }
+    .devtools-tab-line {
+      display: none !important;
+    }
+  }
+  @supports -moz-bool-pref("BeautyFox.appearance.IE10") {
+    .tabs-navigation {
+      height: 27px !important;
+      border-bottom: 0 !important;
+    }
+    .tabs-menu-item {
+      display: flex !important;
+      align-items: center !important;
+    }
+    .tabs-menu-item:hover {
+      background-color: transparent !important;
+    }
+    .tabs-menu-item:hover a {
+      color: rgb(0, 122, 204) !important;
+    }
+    .tabs-menu-item.is-active a {
+      color: rgb(0, 122, 204) !important;
+      font-weight: bold !important;
+    }
+    .tabs-menu-item a {
+      padding: 0 20px !important;
+    }
+  }
+}/*# sourceMappingURL=userContent.css.map */

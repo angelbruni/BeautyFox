@@ -1,0 +1,19 @@
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  margin-top: 2px;
+  justify-content: center;
+}
+
+body {
+  width: 1024px;
+}
+
+h1 {
+  font-size: 31pt;
+  margin-top: 30px;
+  font-weight: normal;
+  background: linear-gradient(90deg, rgb(10, 168, 214) 0%, rgb(137, 46, 144) 50%, #ffa621 75%, rgb(137, 46, 144) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}/*# sourceMappingURL=style.css.map */

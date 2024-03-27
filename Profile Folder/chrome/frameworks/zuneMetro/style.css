@@ -1,0 +1,1126 @@
+@charset "UTF-8";
+:root {
+  --windowBackground: white;
+  --windowShadowColour: rgba(0, 0, 0, 0.34);
+  --windowShadow: 0px 0px 12px 0px var(--windowShadowColour);
+  color: black !important;
+}
+
+window {
+  background: transparent !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  perspective: 800px;
+}
+window > #windowAnimation {
+  margin: auto;
+  opacity: 0;
+  animation-name: windowOpen;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+}
+
+#windowStyling {
+  position: relative;
+  background-color: var(--windowBackground);
+  outline: 1px solid var(--accentFirst);
+  box-shadow: var(--windowShadow);
+  height: 100%;
+  justify-content: start;
+  overflow: hidden;
+  transition: max-width 0.3s, min-width 0.3s, background-color 1s;
+}
+#windowStyling::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--windowBackground);
+  z-index: -1;
+  pointer-events: none;
+}
+
+#windowContent {
+  display: none;
+  flex: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+#windowContent.show {
+  opacity: 1;
+  display: flex;
+}
+#windowContent > #extendedTitlebarArea {
+  padding-right: 11px;
+  height: 53px;
+  -moz-window-dragging: drag !important;
+  display: none;
+  z-index: 1;
+}
+#windowContent > #extendedTitlebarArea > #accentGradient {
+  height: 100%;
+  width: 18px;
+  background: linear-gradient(0deg, var(--accentGradient));
+  background-size: 100% 300%;
+  background-position-y: 100%;
+  margin-inline-end: 19px;
+}
+#windowContent > #extendedTitlebarArea > #navigationButtons {
+  margin-block-start: 3px;
+}
+#windowContent > #extendedTitlebarArea > #text {
+  text-transform: lowercase;
+  font-weight: 300;
+}
+#windowContent > #extendedTitlebarArea > #text vbox {
+  display: none;
+}
+#windowContent > #extendedTitlebarArea > #text vbox > .title {
+  margin-top: -14px;
+  font-size: 24pt;
+  color: var(--accentFirst);
+  pointer-events: none;
+}
+#windowContent > #extendedTitlebarArea > #text > #description {
+  margin-top: -4px;
+  font-size: 18pt;
+  color: #666666;
+  animation-delay: 240ms;
+}
+#windowContent > #extendedTitlebarArea > #text vbox > .title,
+#windowContent > #extendedTitlebarArea > #text > #description {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation-name: fadeInLeftToRight;
+  animation-duration: 480ms;
+  animation-fill-mode: forwards;
+}
+#windowContent > #extendedTitlebarArea > #navigationButtons + #text {
+  margin-left: 11px;
+}
+
+:root {
+  --titlebarHeight: 28px;
+  --captionTitle: white;
+  --captionButtonNormal: transparent;
+  --captionButtonCloseHot: rgb(224,67,67);
+  --captionButtonCloseActive: rgb(199,80,80);
+  --captionButtonOthersHot: rgb(54,101,179);
+  --captionButtonOthersActive: rgb(61,96,153);
+  --captionButtonGlyphNormal: var(--buttonLabel);
+  --captionButtonGlyphHot: white;
+  --captionButtonGlyphActive: var(--captionButtonGlyphHot);
+}
+
+#customTitlebar {
+  display: flex;
+  height: var(--titlebarHeight);
+  -moz-window-dragging: drag !important;
+  align-items: center;
+  padding-inline-start: 8px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+#customTitlebar.show {
+  opacity: 1;
+}
+#customTitlebar menulist {
+  -moz-window-dragging: no-drag;
+}
+#customTitlebar #captionTitle {
+  all: unset;
+  color: var(--captionTitle);
+  font-size: 12pt;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#customTitlebar #captionButtonsContainer {
+  margin-left: auto;
+  -moz-window-dragging: no-drag;
+}
+#customTitlebar #captionButtonsContainer > #captionButtons > captionButton {
+  position: relative;
+  background-color: var(--captionButtonNormal);
+  width: var(--titlebarHeight);
+  height: var(--titlebarHeight);
+  margin-left: 1px;
+}
+#customTitlebar #captionButtonsContainer > #captionButtons > captionButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  pointer-events: none;
+  background-color: var(--captionButtonGlyphNormal);
+}
+#customTitlebar #captionButtonsContainer > #captionButtons > captionButton:hover {
+  background-color: var(--captionButtonOthersHot);
+}
+#customTitlebar #captionButtonsContainer > #captionButtons > captionButton:hover::before {
+  background-color: var(--captionButtonGlyphHot);
+}
+#customTitlebar #captionButtonsContainer > #captionButtons > captionButton:hover#closeButton {
+  background-color: var(--captionButtonCloseHot);
+}
+#customTitlebar #captionButtonsContainer > #captionButtons > captionButton:active {
+  background-color: var(--captionButtonOthersActive);
+}
+#customTitlebar #captionButtonsContainer > #captionButtons > captionButton:active::before {
+  background-color: var(--captionButtonGlyphActive);
+}
+#customTitlebar #captionButtonsContainer > #captionButtons > captionButton:active#closeButton {
+  background-color: var(--captionButtonCloseActive);
+}
+#customTitlebar #captionButtonsContainer > #captionButtons > captionButton#closeButton::before {
+  -webkit-mask-image: url("chrome://userchrome/content/frameworks/zuneMetro/resources/close.svg");
+          mask-image: url("chrome://userchrome/content/frameworks/zuneMetro/resources/close.svg");
+}
+#customTitlebar #captionButtonsContainer > #captionButtons > captionButton#minimiseButton::before {
+  -webkit-mask-image: url("chrome://userchrome/content/frameworks/zuneMetro/resources/minimise.svg");
+          mask-image: url("chrome://userchrome/content/frameworks/zuneMetro/resources/minimise.svg");
+}
+
+:root {
+  --modal: linear-gradient(130deg, rgba(254,254,254,1) 0%, rgba(238,238,238,1) 100%);
+  --modalShadow: rgba(0, 0, 0, 0.34);
+}
+
+#windowStyling > #modalContainer {
+  opacity: 0;
+  position: absolute;
+  display: flex;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.2s linear;
+  pointer-events: none;
+  z-index: 1;
+}
+#windowStyling > #modalContainer > .modal {
+  display: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  min-height: 206px;
+  width: inherit;
+  background: var(--modal);
+  box-shadow: 0px 0px 12px 0px var(--modalShadow);
+}
+#windowStyling > #modalContainer > .modal > .modalContent {
+  margin-inline: auto;
+  max-width: 819px;
+  width: 100%;
+  flex: 1;
+  padding: 12px 24px 24px;
+}
+#windowStyling > #modalContainer > .modal > .modalContent > label {
+  position: relative;
+}
+#windowStyling > #modalContainer > .modal > .modalContent > label:first-of-type {
+  font-size: 24pt;
+  margin-block-end: 8px;
+  text-transform: uppercase;
+}
+#windowStyling > #modalContainer > .modal > .modalContent > label:first-of-type::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1px;
+  height: 6px;
+  width: 109px;
+  background: linear-gradient(90deg, var(--accentGradient));
+  background-size: 300% 100%;
+  background-position-x: 100%;
+  animation: slideXAccentGradient 1s forwards 0.2s;
+}
+#windowStyling > #modalContainer > .modal > .modalContent > .footer {
+  padding-inline: 0;
+  height: unset;
+}
+
+:root {
+  --accentFirst: #3dbcf2;
+  --accentSecond: #0d79c8;
+  --accentThird: #8a2f90;
+  --accentGradient: var(--accentFirst), var(--accentThird), var(--accentFirst), var(--accentThird);
+}
+:root[customcolour] {
+  --desiredColourForUI: var(--accentFirst);
+  --accentFirst: var(--desiredColourForUI);
+  --accentSecond: color-mix(in srgb, var(--desiredColourForUI) 50%, black);
+  --accentThird: color-mix(in srgb, var(--desiredColourForUI) 75%, white);
+}
+
+.textHighlight {
+  background: linear-gradient(90deg, var(--accentGradient));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: normal;
+  background-size: 300% 100%;
+  background-position-x: 100%;
+  animation: slideXAccentGradient 1s forwards 0.2s;
+}
+
+label {
+  margin: 0;
+}
+label > * {
+  display: inline-block;
+}
+label.contentHeader {
+  font-size: 13pt;
+  font-weight: bold;
+  margin-bottom: 8px;
+  margin-top: 9px;
+}
+
+vbox[data-step] .contentHeader:first-of-type {
+  margin-top: 0;
+}
+
+.footer {
+  height: 84px;
+  justify-content: end;
+  align-items: center;
+  margin-top: auto;
+  gap: 9px;
+  padding: 0px 27px 0px 38px;
+}
+
+hbox.comboBoxContainer,
+hbox.inputContainer {
+  align-items: center;
+  margin-bottom: 0;
+}
+hbox.comboBoxContainer > label:first-of-type,
+hbox.inputContainer > label:first-of-type {
+  margin-right: 3px;
+}
+
+.comboBoxContainer > label:first-of-type,
+.inputContainer > label:first-of-type {
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.comboBoxContainer hbox,
+.inputContainer hbox {
+  align-items: center;
+}
+
+vbox.comboBoxContainer > label:first-of-type,
+vbox.inputContainer > label:first-of-type {
+  margin-bottom: 5px;
+}
+
+.spoiler {
+  filter: blur(5px) brightness(0.7);
+  transition: filter 0.2s linear;
+}
+.spoiler:hover {
+  filter: blur(0) brightness(1);
+  transition: filter 2s linear;
+}
+
+.scroll {
+  -webkit-mask-image: linear-gradient(0deg, transparent 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, transparent 100%);
+          mask-image: linear-gradient(0deg, transparent 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, transparent 100%);
+  padding-bottom: 5px;
+}
+
+table {
+  border-spacing: unset;
+}
+
+[disabled=true] {
+  pointer-events: none;
+  opacity: 0.5 !important;
+}
+
+:root {
+  --linkNormal: var(--commandlinkbuttonGlyph);
+  --linkHot: black;
+}
+
+label.zuneLink {
+  align-items: center;
+  padding: 8px 12px;
+  color: var(--linkNormal);
+  font-size: 12pt;
+  text-transform: lowercase;
+  text-decoration: none;
+  font-weight: lighter;
+  cursor: default;
+  white-space: nowrap;
+}
+label.zuneLink:hover {
+  color: var(--linkHot);
+}
+label.zuneLink::after {
+  content: url("chrome://userchrome/content/frameworks/zuneMetro/resources/link.svg");
+  margin-left: 10px;
+}
+
+userTile {
+  padding: 9px;
+  padding-right: 0;
+  align-items: center;
+  display: flex;
+}
+userTile .userTileImageContainer {
+  overflow: hidden;
+  margin-right: 10px;
+}
+userTile .userTileImageContainer,
+userTile image {
+  min-width: 48px;
+  min-height: 48px;
+  max-width: 48px;
+  max-height: 48px;
+}
+userTile > .userTileInfoContainer > .userTileName {
+  font-size: 12pt;
+}
+userTile > .userTileInfoContainer > .userTileRole {
+  font-size: 9pt;
+}
+userTile > .userTileInfoContainer > .userTileRole > span::after {
+  content: "; ";
+}
+userTile > .userTileInfoContainer > .userTileRole > span:last-of-type::after {
+  content: ".";
+}
+userTile > .userTileSocials {
+  margin-left: auto;
+}
+
+:root {
+  --navButtonBorderNormal: rgba(0, 0, 0, .5);
+  --navButtonBorderHover: rgb(0, 0, 0);
+  --navButtonGlyph: rgba(0, 0, 0, .75);
+}
+
+navButton {
+  display: flex;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--navButtonBorderNormal);
+  color: var(--navButtonGlyph);
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+  -moz-window-dragging: no-drag !important;
+}
+navButton::before {
+  height: 8px;
+  width: 10px;
+}
+navButton:hover {
+  border: 1.5px solid var(--navButtonBorderHover);
+}
+navButton:active {
+  opacity: 0.2;
+}
+navButton[disabled=true] {
+  pointer-events: none;
+}
+navButton[data-navtype=back]::before {
+  content: url("chrome://bfwindows/content/wizard/resources/images/nav-glyph.svg");
+}
+
+:root {
+  --buttonBorderHighlight: linear-gradient(0deg, color-mix(in srgb, var(--accentFirst) 70%, black) 75%, var(--accentFirst) 100%);
+  --buttonBorder: #cccccc;
+  --buttonNormalFirst: #E7E7E7;
+  --buttonNormalSecond: #FFFFFF;
+  --buttonNormal: linear-gradient(0deg, var(--buttonNormalFirst), var(--buttonNormalSecond));
+  --buttonHot: linear-gradient(0deg, color-mix(in srgb, var(--buttonNormalFirst) 92%, black), var(--buttonNormalFirst));
+  --buttonActive: linear-gradient(180deg, var(--buttonNormalFirst), var(--buttonNormalSecond));
+  --buttonLabel: #373A3D;
+  --buttonFontSize: 8pt;
+  --buttonRadius: 3px;
+  --buttonBorderSize: 1px;
+  --buttonHeight: 20px;
+}
+
+zuneButton {
+  padding: var(--buttonBorderSize);
+  width: -moz-max-content;
+  width: max-content;
+  background: var(--buttonBorderHighlight);
+  color: var(--buttonLabel);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: var(--buttonFontSize);
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: var(--buttonRadius);
+  transition: transform 0.2s;
+}
+zuneButton > div {
+  padding: 0 21px;
+  min-height: var(--buttonHeight);
+  background: var(--buttonNormal);
+  border-radius: calc(var(--buttonRadius) - var(--buttonBorderSize));
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  min-width: 71px;
+  box-sizing: border-box;
+}
+zuneButton > div > label {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+zuneButton[disabled=true] {
+  background: var(--buttonBorder);
+}
+zuneButton:hover > div {
+  background: var(--buttonHot);
+}
+zuneButton:active {
+  transform: scale(0.96);
+  transition: transform 0s;
+}
+zuneButton:active > div {
+  background: var(--buttonActive);
+}
+
+:root {
+  --menupopupLabel: black;
+  --menupopupBorder: #8f8f8f;
+  --menulistSeparator: #c4c4c5;
+  --menulistHover: #eeeeee;
+}
+
+.comboBoxContainer {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+menulist {
+  all: unset;
+  position: relative;
+  border-radius: var(--buttonRadius);
+  border: 1px solid var(--buttonBorder);
+  padding: 0 3px;
+  min-height: var(--buttonHeight);
+  height: var(--buttonHeight);
+  background: var(--buttonNormal);
+  align-items: center;
+  display: flex;
+  color: var(--buttonLabel);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: var(--buttonFontSize);
+  width: -moz-fit-content;
+  width: fit-content;
+}
+menulist:hover {
+  background: var(--buttonHot);
+}
+menulist[open=true] {
+  background: var(--buttonActive);
+}
+menulist[open=true] menupopup {
+  animation: fadeInTopToBottom 0.2s;
+}
+menulist menupopup {
+  margin-top: -28px !important;
+  all: unset;
+  text-transform: none;
+}
+menulist menuitem {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: var(--windowBackground);
+  padding-inline: 1px !important;
+  font-weight: normal;
+}
+menulist menuitem::before, menulist menuitem::after {
+  height: 6px;
+}
+menulist menuitem:first-of-type:last-of-type::before, menulist menuitem:first-of-type:last-of-type::after {
+  content: "";
+}
+menulist menuitem:first-of-type::before {
+  content: "";
+}
+menulist menuitem:last-of-type::after {
+  content: "";
+}
+menulist menuitem[selected] > label {
+  background-color: var(--accentFirst) !important;
+  color: var(--windowBackground) !important;
+}
+menulist menuitem > label {
+  padding-block: 2px !important;
+  padding-inline: 4px !important;
+  color: var(--menupopupLabel);
+  width: -moz-available;
+  height: 19px;
+}
+menulist menuseparator {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: var(--windowBackground);
+  border-top: none !important;
+  padding: 6px !important;
+}
+menulist menuseparator::before {
+  content: "";
+  height: 1px;
+  width: -moz-available;
+  background-color: var(--menulistSeparator);
+}
+menulist dropmarker {
+  display: none !important;
+}
+
+menulist > menupopup > menuitem[_moz-menuactive=true], menulist > menupopup > menu[_moz-menuactive=true] {
+  background-color: var(--windowBackground);
+}
+menulist > menupopup > menuitem[_moz-menuactive=true] > label, menulist > menupopup > menu[_moz-menuactive=true] > label {
+  background-color: var(--menulistHover);
+}
+
+input {
+  margin: 0;
+}
+
+:root {
+  --inputColourBorder: black;
+}
+
+input[type=color] {
+  all: unset;
+  width: 45px;
+  height: 45px;
+  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+input[type=color]:hover {
+  border: 2px solid var(--inputColourBorder);
+}
+input[type=color]:active {
+  transform: scale(0.96);
+  transition: transform 0s;
+}
+input[type=color] div {
+  border: none !important;
+}
+
+:root {
+  --breadcrumbbarArrow: rgba(0,0,0,.75);
+}
+
+breadcrumbbar {
+  margin-top: 4px;
+  gap: 14px;
+  text-transform: uppercase;
+  -moz-window-dragging: no-drag !important;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation-name: fadeInLeftToRight;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+}
+breadcrumbbar item {
+  display: none;
+  gap: 14px;
+}
+breadcrumbbar item:hover > label {
+  opacity: 0.5 !important;
+}
+breadcrumbbar item:not(:first-of-type)::before {
+  content: url("chrome://userchrome/content/frameworks/zuneMetro/resources/breadcrumb-arrow.svg");
+  fill: currentColor;
+  color: var(--breadcrumbbarArrow);
+  height: 8px;
+  width: 6.5px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation-name: fadeInLeftToRight;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+}
+breadcrumbbar item.active {
+  font-weight: bold;
+  color: var(--accentFirst);
+}
+breadcrumbbar item > label {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation-name: fadeInLeftToRight;
+  animation-delay: 240ms;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+}
+
+:root {
+  --commandlinkbuttonRadius: var(--buttonRadius);
+  --commandlinkbuttonBorderSize: 1px;
+  --commandlinkbuttonBorderHot: color-mix(in srgb, var(--accentFirst) 50%, var(--windowBackground));
+  --commandlinkbuttonHot: linear-gradient(0deg, color-mix(in srgb, var(--accentFirst) 5%, var(--windowBackground)) 0%, color-mix(in srgb, var(--accentFirst) 3%, var(--windowBackground)) 100%);
+  --commandlinkbuttonBorderActive: linear-gradient(0deg, color-mix(in srgb, var(--accentFirst) 90%, black) 0%, var(--accentFirst) 100%);
+  --commandlinkbuttonActive: linear-gradient(180deg, color-mix(in srgb, var(--accentFirst) 22%, var(--windowBackground)) 0%, color-mix(in srgb, var(--accentFirst) 2%, var(--windowBackground)) 100%);
+  --commandlinkbuttonGlyph: #828689;
+  --commandlinkbuttonLabelActive: color-mix(in srgb, var(--accentFirst) 75%, black);
+}
+
+commandlinkbutton {
+  position: relative;
+  align-items: start;
+  display: flex;
+  font-size: 14pt;
+  color: var(--buttonLabel);
+  padding: 12px 15px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: var(--commandlinkbuttonRadius);
+  overflow: hidden;
+  transition: color 0.2s, transform 0.2s;
+}
+commandlinkbutton::before {
+  content: "";
+  min-width: 15px;
+  min-height: 14px;
+  background-color: var(--commandlinkbuttonGlyph);
+  -webkit-mask-image: url("chrome://bfwindows/content/wizard/resources/images/commandlinkbutton-glyph.svg");
+          mask-image: url("chrome://bfwindows/content/wizard/resources/images/commandlinkbutton-glyph.svg");
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  margin-right: 11px;
+  margin-top: 7px;
+  transition: background-color 0.2s;
+}
+commandlinkbutton .description {
+  font-size: 9pt;
+}
+commandlinkbutton .states,
+commandlinkbutton .hover,
+commandlinkbutton .active {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+commandlinkbutton .states::before,
+commandlinkbutton .hover::before,
+commandlinkbutton .active::before {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+commandlinkbutton .states {
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+commandlinkbutton .hover,
+commandlinkbutton .active {
+  border-radius: var(--commandlinkbuttonRadius);
+}
+commandlinkbutton .hover {
+  background: var(--commandlinkbuttonBorderHot);
+  border: var(--commandlinkbuttonBorderSize) solid transparent;
+  padding: var(--commandlinkbuttonBorderSize);
+}
+commandlinkbutton .hover::before {
+  background: var(--commandlinkbuttonHot);
+}
+commandlinkbutton .active {
+  background: var(--commandlinkbuttonBorderActive);
+  border: var(--commandlinkbuttonBorderSize) solid transparent;
+  padding: var(--commandlinkbuttonBorderSize);
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+commandlinkbutton .active::before {
+  background: var(--commandlinkbuttonActive);
+}
+commandlinkbutton:hover {
+  color: var(--accentFirst);
+}
+commandlinkbutton:hover::before {
+  background-color: var(--accentFirst);
+}
+commandlinkbutton:hover .states {
+  opacity: 1;
+}
+commandlinkbutton:active {
+  color: var(--commandlinkbuttonLabelActive);
+  transform: scale(0.98);
+  transition: color 0s;
+}
+commandlinkbutton:active::before {
+  background-color: var(--commandlinkbuttonLabelActive);
+  transition: background-color 0s;
+}
+commandlinkbutton:active .states {
+  opacity: 1;
+}
+commandlinkbutton:active .active {
+  opacity: 1;
+  transition: opacity 0s linear;
+}
+
+:root {
+  --tileOuterBorder: rgba(0, 0, 0, .5);
+  --tileInnerBorder: rgba(255, 255, 255, .2);
+  --tileLabel: black;
+}
+
+.tilesContainer {
+  margin-top: 31px;
+  gap: 10px;
+}
+.tilesContainer > tile {
+  flex: 1;
+}
+
+tile {
+  display: flex;
+  flex-direction: column;
+}
+tile .tileArtPerspective {
+  perspective: 300px;
+}
+tile .tileArt {
+  position: relative;
+  border: 1px solid var(--tileOuterBorder);
+  background: linear-gradient(135deg, var(--accentFirst) 0%, color-mix(in srgb, var(--accentFirst) 70%, black) 100%);
+  margin-bottom: 14px;
+  transition: transform 0.1s;
+  overflow: hidden;
+}
+tile .tileArt::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--tileInnerBorder);
+}
+tile .tileArt .glare {
+  position: absolute;
+  height: 130px;
+  width: 130px;
+  transform: translate(-50%, -50%);
+  -webkit-mask-image: radial-gradient(rgb(0, 0, 0) 0%, transparent 65%);
+          mask-image: radial-gradient(rgb(0, 0, 0) 0%, transparent 65%);
+  -webkit-backdrop-filter: brightness(1.5);
+          backdrop-filter: brightness(1.5);
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.5s;
+}
+tile label {
+  color: var(--tileLabel);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 9pt;
+}
+tile:hover .tileArt {
+  outline: 3px solid var(--accentFirst);
+}
+tile:hover .tileArt .glare {
+  opacity: 1;
+  transition: opacity 0.1s;
+}
+tile:hover label {
+  color: var(--accentFirst);
+}
+
+:root {
+  --vboxtabviewitem: #808080;
+  --hboxtabviewitem: black;
+}
+
+tabstrip {
+  display: flex;
+  -moz-window-dragging: no-drag;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin-top: 1px;
+  height: 100%;
+}
+tabstrip > tabviewitem {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+tabstrip > tabviewitem:hover {
+  opacity: 0.5 !important;
+}
+tabstrip > tabviewitem.active {
+  pointer-events: none;
+}
+
+vbox > tabstrip {
+  font-size: 9pt;
+  gap: 14px;
+}
+vbox > tabstrip > tabviewitem {
+  color: var(--vboxtabviewitem);
+}
+vbox > tabstrip > tabviewitem.active {
+  font-weight: bold;
+  color: var(--accentFirst);
+}
+vbox > tabstrip > tabviewitem.active:hover {
+  opacity: 1 !important;
+}
+
+hbox > tabstrip {
+  flex-direction: column;
+  width: 204px;
+  padding-inline-end: 37px;
+  margin-inline-start: 17px;
+  margin-inline-end: 37px;
+  border-right: 1px solid lightgray;
+  gap: 6px;
+  font-weight: bold;
+}
+hbox > tabstrip > tabviewitem {
+  color: var(--hboxtabviewitem);
+  font-size: 6pt;
+}
+hbox > tabstrip > tabviewitem.active {
+  color: var(--hboxtabviewitem);
+}
+hbox > tabstrip > tabviewitem.active::before {
+  content: url("chrome://userchrome/content/frameworks/zuneMetro/resources/tabArrow.svg");
+  position: absolute;
+  left: -7px;
+}
+
+:root {
+  --checkbox: linear-gradient(130deg, #e6e6e6 0%, #ffffff 100%);
+  --checkboxBorder: #242424;
+  --checkboxTick: var(--checkboxBorder);
+  --checkboxSize: 13px;
+}
+
+checkbox {
+  font-size: 10pt;
+  margin: 0;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+checkbox:hover .checkbox-label {
+  opacity: 0.5;
+}
+checkbox .checkbox-check {
+  position: relative;
+  border-radius: 0px;
+  border: 1px solid var(--checkboxBorder);
+  background: var(--checkbox);
+}
+checkbox .checkbox-check:not([native]) {
+  height: var(--checkboxSize);
+  width: var(--checkboxSize);
+}
+checkbox .checkbox-check[checked] {
+  border: 1px solid var(--checkboxBorder);
+  background: url("chrome://userchrome/content/frameworks/zuneMetro/resources/checkboxTick.svg") center no-repeat, var(--checkbox);
+  fill: currentColor;
+  color: var(--checkboxTick);
+}
+checkbox .checkbox-label {
+  margin: 0 !important;
+}
+
+.pagesContainer:not(#text) {
+  display: flex;
+  flex: 1;
+}
+.pagesContainer:not(#text) > *:not(#previewContainer) {
+  flex: 1;
+  color: #3C3C3C;
+  display: none;
+}
+.pagesContainer:not(#text) > *:not(#previewContainer) > label {
+  width: 80%;
+  line-height: 17pt;
+}
+
+#previewContainer {
+  min-width: 380px;
+  max-width: 380px;
+  border-left: 1px solid lightgray;
+  padding-left: 43px;
+  margin-left: 43px;
+  transition: opacity 0.3s, margin-right 0.3s;
+}
+
+@keyframes windowOpen {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+  }
+}
+@keyframes windowClose {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.85) rotateX(10deg);
+  }
+}
+@keyframes fadeInLeftToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes backgroundMoving {
+  0% {
+    transform: scale(0.96);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.96);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: var(--currentOpacity);
+  }
+}
+@keyframes fadeInRightToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInTopToBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideYAccentGradient {
+  0% {
+    background-position-y: 100%;
+  }
+  100% {
+    background-position-y: 0%;
+  }
+}
+@keyframes slideXAccentGradient {
+  0% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 0%;
+  }
+}
+.windowClose {
+  pointer-events: none;
+  animation-name: windowClose !important;
+}
+
+.fadeInLeftToRight {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInLeftToRight 480ms forwards;
+}
+.fadeInLeftToRight[animation-order="0"] {
+  animation-delay: 50ms;
+}
+.fadeInLeftToRight[animation-order="1"] {
+  animation-delay: 100ms;
+}
+.fadeInLeftToRight[animation-order="2"] {
+  animation-delay: 150ms;
+}
+.fadeInLeftToRight[animation-order="3"] {
+  animation-delay: 200ms;
+}
+.fadeInLeftToRight[animation-order="4"] {
+  animation-delay: 250ms;
+}
+.fadeInLeftToRight[animation-order="5"] {
+  animation-delay: 300ms;
+}
+.fadeInLeftToRight[animation-order="6"] {
+  animation-delay: 350ms;
+}
+.fadeInLeftToRight[animation-order="7"] {
+  animation-delay: 400ms;
+}
+.fadeInLeftToRight[animation-order="8"] {
+  animation-delay: 450ms;
+}
+.fadeInLeftToRight[animation-order="9"] {
+  animation-delay: 500ms;
+}
+.fadeInLeftToRight[animation-order="10"] {
+  animation-delay: 550ms;
+}
+.fadeInLeftToRight[animation-order="11"] {
+  animation-delay: 600ms;
+}
+.fadeInLeftToRight[animation-order="12"] {
+  animation-delay: 650ms;
+}
+.fadeInLeftToRight[animation-order="13"] {
+  animation-delay: 700ms;
+}
+.fadeInLeftToRight[animation-order="14"] {
+  animation-delay: 750ms;
+}
+.fadeInLeftToRight[animation-order="15"] {
+  animation-delay: 800ms;
+}
+
+.backgroundMoving {
+  opacity: 0.5;
+  transform: scale(0.96);
+  transform-origin: bottom right;
+  animation: fadeIn 0.2s forwards, backgroundMoving 20s infinite;
+}/*# sourceMappingURL=style.css.map */

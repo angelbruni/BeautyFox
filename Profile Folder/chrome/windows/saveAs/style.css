@@ -1,0 +1,90 @@
+window {
+  font-family: Microsoft Sans Serif, Tahoma, "Segoe UI", Geneva, Verdana, sans-serif !important;
+  font-size: 8pt !important;
+}
+
+dialog {
+  padding: 0;
+  padding-block-start: 17px;
+  padding-inline-start: 15px;
+  padding-inline-end: 18px;
+}
+
+#contentTypeImage {
+  margin-right: 32px;
+}
+
+.labelTitle {
+  text-align: right;
+  padding-right: 6px;
+}
+
+.header {
+  margin: 0;
+}
+
+#intro {
+  margin-bottom: 13px;
+}
+
+#source {
+  font-weight: bold;
+}
+
+td {
+  padding-bottom: 4px;
+  max-width: 256px;
+}
+
+#normalBox {
+  margin-top: 14px;
+  margin-bottom: 17px;
+}
+
+.warning {
+  margin-top: 25px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgb(160, 160, 160);
+  border-bottom: 1px solid white;
+}
+
+#warningContainer {
+  padding-inline-start: 15px;
+  padding-inline-end: 18px;
+  padding-block-start: 14px;
+  padding-block-end: 17px;
+}
+
+#warningInfo {
+  line-height: 13px;
+}
+#warningInfo label {
+  display: inline;
+  margin: 0;
+}
+
+#contentTypeImage,
+#warningIcon {
+  height: 32px;
+  width: 32px;
+}
+
+#warningIcon {
+  margin-right: 13px;
+}
+
+menulist {
+  margin: 0;
+  padding: 0;
+  max-height: 21px;
+  margin-left: 25px;
+}
+
+radio,
+checkbox {
+  margin: 0;
+  padding: 0;
+}/*# sourceMappingURL=style.css.map */
