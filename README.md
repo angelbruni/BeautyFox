@@ -1,6 +1,6 @@
-# It seems the respository was archived, why?
-Some of the BeautyFox visual elements will be reworked soon: Zune Metro will either be reworked or replaced with something else entirely.
-This is to remove contributions from a person that requested to have them removed.
+# It seems the repository was archived, why?
+Some of the BeautyFox visual elements will be reworked soon: Zune Metro will either be reworked or replaced with something else entirely. 
+This is to remove contributions from a person that requested to have them removed. 
 Don't worry, the actual code rework will still come after Geckium is released.
 
 # What is BeautyFox?
