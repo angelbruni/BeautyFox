@@ -1,3 +1,8 @@
+# It seems the respository was archived, why?
+Some of the BeautyFox visual elements will be reworked soon: Zune Metro will either be reworked or replaced with something else entirely.
+This is to remove contributions from a person that requested to have them removed.
+Don't worry, the actual code rework will still come after Geckium is released.
+
 # What is BeautyFox?
 BeautyFox is a theme for Firefox 115 ESR that aims to replicate the Internet Explorer 9, 10, and 11 look and feel.
 ![image](https://github.com/angelbruni/BeautyFox/assets/48385307/c2ffe8f5-0ef7-4555-abfc-92026c58c9f5)
