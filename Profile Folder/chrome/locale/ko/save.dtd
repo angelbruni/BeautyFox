@@ -1,8 +1,0 @@
-<!ENTITY save.header "이 파일을 여시겠습니까?">
-
-<!ENTITY general.name "이름">
-<!ENTITY general.type "유형">
-<!ENTITY general.from "게시자">
-
-<!ENTITY saveAs.warning "이 형식의 파일은 사용자의 컴퓨터에 피해를 줄 수 있습니다. 신뢰할 수 있는 게시자로부터의 소프트웨어만 실행하십시오.">
-<!ENTITY saveAs.link    "실행해도 안전한 소프트웨어를 결정하는 방법">

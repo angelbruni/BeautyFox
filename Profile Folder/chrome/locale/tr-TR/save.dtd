@@ -1,8 +1,0 @@
-<!ENTITY save.header "Bu dosyayı çalıştırmak veya kaydetmek istiyor musunuz?">
-
-<!ENTITY general.name "Adı">
-<!ENTITY general.type "Tür">
-<!ENTITY general.from "Kimden">
-
-<!ENTITY saveAs.warning "Internet'ten gelen dosyalar işinize yarayabilir, ancak bu dosya türünün bilgisayarınıza zarar verme olasılığı vardır. Yalnızca güvendiğiniz yayımcılardan gelen yazılımları çalıştırın.">
-<!ENTITY saveAs.link    "Risk nedir?">

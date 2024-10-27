@@ -1,8 +1,0 @@
-<!ENTITY save.header "Deseja executar ou salvar este arquivo?">
-
-<!ENTITY general.name "Nome">
-<!ENTITY general.type "Tipo">
-<!ENTITY general.from "Origem">
-
-<!ENTITY saveAs.warning "Embora arquivos provenientes da internet possam ser úteis, este tipo de arquivo pode danificar o seu computador. Se você não confiar em sua origem, não execute nem salve este software.">
-<!ENTITY saveAs.link    "Qual é o risco?">

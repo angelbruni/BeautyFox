@@ -1,8 +1,0 @@
-<!ENTITY save.header "Do you want to run or save this file?">
-
-<!ENTITY general.name "Name">
-<!ENTITY general.type "Type">
-<!ENTITY general.from "From">
-
-<!ENTITY saveAs.warning "While files from the internet can be useful, this file type can potentially harm your computer. If you do not trust the source, do not run or save this software.">
-<!ENTITY saveAs.link    "What's the risk?">

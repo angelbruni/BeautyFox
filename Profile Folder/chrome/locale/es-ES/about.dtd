@@ -1,7 +1,0 @@
-<!ENTITY dialog.title	"Acerca de Internet Explorer">
-
-<!ENTITY dialog.version			"Versión">
-<!ENTITY dialog.updateVersions	"Versiones de actualización">
-<!ENTITY dialog.cipherStrength	"Intensidad del cifrado">
-<!ENTITY dialog.productID		"Id. del producto">
-<!ENTITY dialog.copyright		"Advertencia: este programa está protegido por las leyes de derechos de autor y otros tratados internacionales. La reproducción o distribución ilícitas de este programa o de parte del mismo está penada por la ley con severas sanciones civiles y penales, y será objeto de todas las acciones judiciales que correspondan.">
