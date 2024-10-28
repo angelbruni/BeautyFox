@@ -1,0 +1,23 @@
+:root {
+	--nav-bar-height: 30px;
+	--default-nav-bar-background: #CFD4DB;
+
+	--TabsToolbar-height: 26px !important;
+	--default-TabsToolbar-background: url("chrome://userchrome/content/assets/ie7-5098/toolbars/TabsToolbar-background.svg");
+}
+
+#nav-bar,
+#nav-bar-customization-target {
+	justify-content: top;
+}
+
+#nav-bar {
+	height: var(--nav-bar-height);
+	background-color: var(--default-nav-bar-background) !important;
+}
+
+#TabsToolbar {
+	min-height: var(--TabsToolbar-height) !important;
+	background-image: var(--default-TabsToolbar-background);
+	background-size: 100% 100%;
+}

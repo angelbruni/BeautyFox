@@ -1,0 +1,118 @@
+:root {
+	--tabbrowser-tab-normal-background-top-left:		url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-normal-background-top-left.svg");
+	--tabbrowser-tab-normal-background-top-center:		url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-normal-background-top-center.svg");
+	--tabbrowser-tab-normal-background-top-right:		url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-normal-background-top-right.svg");
+	--tabbrowser-tab-normal-background-bottom-left:		url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-normal-background-bottom-left.svg");
+	--tabbrowser-tab-normal-background-bottom-center:	url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-normal-background-bottom-center.svg");
+	--tabbrowser-tab-normal-background-bottom-right:	url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-normal-background-bottom-right.svg");
+	--tabbrowser-tab-hot-background-top-left:			url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-hot-background-top-left.svg");
+	--tabbrowser-tab-hot-background-top-center:			url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-hot-background-top-center.svg");
+	--tabbrowser-tab-hot-background-top-right:			url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-hot-background-top-right.svg");
+	--tabbrowser-tab-hot-background-bottom-left:		url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-hot-background-bottom-left.svg");
+	--tabbrowser-tab-hot-background-bottom-center:		url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-hot-background-bottom-center.svg");
+	--tabbrowser-tab-hot-background-bottom-right:		url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-hot-background-bottom-right.svg");
+	--tabbrowser-tab-active-background-top-left:		url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-active-background-top-left.svg");
+	--tabbrowser-tab-active-background-top-center:		url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-active-background-top-center.svg");
+	--tabbrowser-tab-active-background-top-right:		url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-active-background-top-right.svg");
+	--tabbrowser-tab-active-background-bottom-left:		url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-active-background-bottom-left.svg");
+	--tabbrowser-tab-active-background-bottom-center:	url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-active-background-bottom-center.svg");
+	--tabbrowser-tab-active-background-bottom-right:	url("chrome://userchrome/content/assets/ie7-5098/tabs/tabbrowser-tab-active-background-bottom-right.svg");
+	--tabbrowser-background-corner-size: 				2px;
+	--tabbrowser-tab-height:            				24px;
+	--tabbrowser-tab-width:             				180px;
+	--tabbrowser-tab-only-child-width:  				330px;
+	--tabbrowser-tab-padding-inline: 					4px;
+	--tabbrowser-tab-gap-between-icon-and-title:		6px;
+
+	--tabs-newtab-button-width: 30px;
+
+	--bf-close-current-tab-button-width: 23px;
+	--bf-close-current-tab-button-height: 24px;
+}
+
+.tabbrowser-tab,
+#tabs-newtab-button {
+	height: var(--tabbrowser-tab-height);
+}
+
+.tabbrowser-tab:not([disabled], [visuallyselected]):hover .tab-background,
+.tabbrowser-tab:not([disabled], [visuallyselected]):active .tab-background,
+#tabs-newtab-button:not([disabled]):hover,
+#tabs-newtab-button:not([disabled]):active {
+	background-image:	var(--tabbrowser-tab-hot-background-top-left), 		var(--tabbrowser-tab-hot-background-top-center),	var(--tabbrowser-tab-hot-background-top-right),
+						var(--tabbrowser-tab-hot-background-bottom-left),	var(--tabbrowser-tab-hot-background-bottom-center),	var(--tabbrowser-tab-hot-background-bottom-right);
+}
+
+.tabbrowser-tab {
+	padding: unset !important;
+	height: var(--tabbrowser-tab-height);
+
+	&[fadein]:not([pinned]):not([style*="max-width"]) {
+		&:only-of-type {
+			max-width: var(--tabbrowser-tab-only-child-width) !important;
+		}
+
+		max-width: var(--tabbrowser-tab-width) !important;
+	}
+
+	&[visuallyselected] {
+		.tab-background {
+			background-image:	var(--tabbrowser-tab-active-background-top-left), 		var(--tabbrowser-tab-active-background-top-center),		var(--tabbrowser-tab-active-background-top-right),
+								var(--tabbrowser-tab-active-background-bottom-left),	var(--tabbrowser-tab-active-background-bottom-center),	var(--tabbrowser-tab-active-background-bottom-right);
+		}
+	}
+}
+
+.tab-background,
+#tabs-newtab-button {
+	background-repeat: no-repeat !important;
+	background-image:	var(--tabbrowser-tab-normal-background-top-left), 		var(--tabbrowser-tab-normal-background-top-center),		var(--tabbrowser-tab-normal-background-top-right),
+						var(--tabbrowser-tab-normal-background-bottom-left),	var(--tabbrowser-tab-normal-background-bottom-center),	var(--tabbrowser-tab-normal-background-bottom-right);
+	background-size:	var(--tabbrowser-background-corner-size) var(--tabbrowser-background-corner-size),				calc(100% - 4px) var(--tabbrowser-background-corner-size),	var(--tabbrowser-background-corner-size) var(--tabbrowser-background-corner-size),
+						var(--tabbrowser-background-corner-size) calc(100% - var(--tabbrowser-background-corner-size)),	calc(100% - 4px) 100%,	var(--tabbrowser-background-corner-size) calc(100% - var(--tabbrowser-background-corner-size));
+	background-position:	0 0,										var(--tabbrowser-background-corner-size) 0,											100% 0,
+							0 var(--tabbrowser-background-corner-size),	var(--tabbrowser-background-corner-size) var(--tabbrowser-background-corner-size),	100% var(--tabbrowser-background-corner-size);
+}
+
+.tab-background {
+	margin: unset !important;
+	min-height: unset !important;
+	box-shadow: unset !important;
+	background-color: unset !important;
+	outline: unset !important;
+	border-radius: unset !important;
+}
+
+.tab-content {
+	padding-inline: var(--tabbrowser-tab-padding-inline) !important;
+	gap: var(--tabbrowser-tab-gap-between-icon-and-title);
+}
+
+.tab-icon-image {
+	margin-inline-end: unset !important;
+}
+
+.tab-label-container {
+	height: unset !important;
+}
+
+.tab-close-button {
+	display: none;
+}
+
+#tabs-newtab-button {
+	width: var(--tabs-newtab-button-width);
+	list-style-image: unset !important;
+}
+
+#bf-close-current-tab-button {
+	width: var(--bf-close-current-tab-button-width);
+	height: var(--bf-close-current-tab-button-height);
+
+	list-style-image: url("chrome://userchrome/content/assets/ie7-5098/tabs/tab-close-button-normal.svg");
+
+	.toolbarbutton-icon {
+		width: unset !important;
+		height: unset !important;
+	}
+}

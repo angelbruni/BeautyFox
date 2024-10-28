@@ -1,0 +1,79 @@
+:root {
+	--toolbarbutton-size: 22px;
+	--toolbarbutton-icon-size: 16px;
+
+	--nav-button-size: 29px;
+	--forward-button-margin-inline-end: 16px;
+}
+
+.toolbarbutton-1,
+.toolbarbutton-1 .toolbarbutton-icon,
+.toolbarbutton-1 .toolbarbutton-badge-stack {
+	padding: unset !important;
+}
+
+.toolbarbutton-1 {
+	&[disabled] {
+		opacity: 1 !important;
+	}
+	&:not([disabled]) {
+		&:hover,
+		&:active {
+			.toolbarbutton-icon,
+			.toolbarbutton-badge-stack {
+				background-color: unset !important;
+			}
+		}
+	}
+
+	.toolbarbutton-icon,
+	.toolbarbutton-badge-stack {
+		border-radius: unset !important;
+		width: var(--toolbarbutton-icon-size) !important;
+		height: var(--toolbarbutton-icon-size) !important;
+	}
+}
+
+#nav-bar {
+	.toolbarbutton-1,
+	[id*="customizableui-special-spring"] {
+		height: var(--toolbarbutton-size);
+	}
+
+	.toolbarbutton-1 {
+		width: var(--toolbarbutton-size);
+
+		&#back-button,
+		&#forward-button {
+			width: var(--nav-button-size);
+			height: var(--nav-button-size);
+
+			.toolbarbutton-icon,
+			.toolbarbutton-badge-stack {
+				width: var(--nav-button-size) !important;
+				height: var(--nav-button-size) !important;
+			}
+		}
+	}
+
+	[id*="customizableui-special-spring"] {
+		margin: unset !important;
+	}
+}
+
+#back-button,
+#forward-button {
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#back-button {
+	background-image: url("chrome://userchrome/content/assets/ie7-5098/nav-buttons/back-button-background.svg");
+	list-style-image: url("chrome://userchrome/content/assets/ie7-5098/nav-buttons/back-button-icon.svg") !important;
+}
+
+#forward-button {
+	background-image: url("chrome://userchrome/content/assets/ie7-5098/nav-buttons/forward-button-background.svg");
+	list-style-image: url("chrome://userchrome/content/assets/ie7-5098/nav-buttons/forward-button-icon.svg") !important;
+	margin-inline-end: var(--forward-button-margin-inline-end) !important;
+}
